@@ -77,9 +77,37 @@ operates at **layers 3 and 4**, filtering on IP addresses and port numbers.
 > packet in isolation. A **stateful** firewall remembers connections, so it can permit return
 > traffic for a session your host legitimately started.
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    P["📦 Packet filter<br/>this packet alone<br/>STATELESS"] --> S["🔗 Stateful<br/>this packet in its<br/>connection's context"]
+    S --> A["🔍 Application level<br/>the full layer 7<br/>content"]
+    A --> N["🧠 Next generation<br/>apps · users · content<br/>plus all the above"]
+
+    style P fill:#26292e,stroke:#868E96,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style N fill:#0f3038,stroke:#12B5A5,color:#fff
+```
+
+Left to right, each firewall type **sees more and costs more** to inspect with.
+
 **Default deny** is the expected posture: block everything, then permit only what is explicitly
 required. If an option offers "deny by default and permit by exception", it is almost certainly
 correct.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    T["📨 Traffic arrives"] --> R{"Matches an<br/>explicit ALLOW<br/>rule?"}
+    R -->|yes| P["✅ Permitted"]
+    R -->|no| D["🛑 DENIED<br/>the default"]
+
+    style T fill:#26292e,stroke:#868E96,color:#fff
+    style R fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style D fill:#3a1a20,stroke:#E03131,color:#fff
+```
 
 > ⚠️ **A firewall cannot inspect what it cannot read.** Encrypted traffic passing through a basic
 > firewall is opaque to it. This is why an attacker using HTTPS on port 443 for command and
@@ -144,6 +172,24 @@ flowchart LR
 > ⚠️ **A false negative is the dangerous error** — a real attack went unnoticed. A false positive
 > is merely expensive.
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    A["🚨 Alerted"] --> AT["✅ TRUE POSITIVE<br/>real attack, caught"]
+    A --> AF["😤 FALSE POSITIVE<br/>legitimate traffic flagged<br/>COSTLY"]
+    Q["🔇 Not alerted"] --> QT["🙂 TRUE NEGATIVE<br/>normal traffic, ignored"]
+    Q --> QF["💀 FALSE NEGATIVE<br/>real attack MISSED<br/>DANGEROUS"]
+
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style Q fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AT fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style QT fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style AF fill:#3a2c12,stroke:#F08C00,color:#fff
+    style QF fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+**Amber costs you money. Red costs you the breach.**
+
 ---
 
 ## 🔄 Proxies
@@ -157,6 +203,25 @@ A proxy makes requests on someone's behalf, so the two parties never connect dir
 
 > ⚠️ **Forward protects/serves the client; reverse protects/serves the server.** That is the whole
 > distinction, and it is a reliable question.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    C["💻 Your clients"] --> FP["➡️ FORWARD proxy<br/>acts FOR the client"]
+    FP --> W["🌍 The internet"]
+    U["🌍 Outside users"] --> RP["⬅️ REVERSE proxy<br/>acts FOR the server"]
+    RP --> SV["🖥️ Your servers"]
+
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style FP fill:#0f3038,stroke:#12B5A5,color:#fff
+    style W fill:#26292e,stroke:#868E96,color:#fff
+    style U fill:#26292e,stroke:#868E96,color:#fff
+    style RP fill:#0f3038,stroke:#12B5A5,color:#fff
+    style SV fill:#12243f,stroke:#5C7CFA,color:#fff
+```
+
+Read it as a sentence: **a forward proxy stands in front of your users looking out, and a reverse
+proxy stands in front of your servers looking in.**
 
 **A WAF** is a specialised reverse proxy filtering HTTP traffic at **layer 7**, to defend web
 applications against injection, XSS and similar. A normal firewall cannot do this, because it
