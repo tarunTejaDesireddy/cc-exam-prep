@@ -2,9 +2,9 @@
 
 # 🗺️ Roadmap
 
-### *51 topics, 9 modules, one exam sitting on 5 November 2026*
+### *50 topics, 9 modules, one exam sitting on 5 November 2026*
 
-![Written](https://img.shields.io/badge/Written-4%2F51-57606A?style=for-the-badge)
+![Written](https://img.shields.io/badge/Written-5%2F50-57606A?style=for-the-badge)
 ![Target](https://img.shields.io/badge/Target-5%20Nov%202026-12B5A5?style=for-the-badge)
 
 </div>
@@ -20,7 +20,7 @@ still covers the most marks. Within a module, topics are written in reading orde
 
 ---
 
-## 🧱 00 · Foundations — `4 / 6`
+## 🧱 00 · Foundations — `5 / 5` ✅
 
 Everything about the exam itself. Written first because it changes how you read the rest.
 
@@ -28,8 +28,8 @@ Everything about the exam itself. Written first because it changes how you read 
 - [x] `how-isc2-thinks/` — the answer-selection logic, and why experience misleads you
 - [x] `answering-technique/` — eliminating distractors, qualifier words, time budgeting
 - [x] `the-five-domains/` — the blueprint, what each domain actually contains
-- [ ] `study-schedule/` — the day-by-day plan from today to 5 November
-- [ ] `exam-day-logistics/` — booking, ID, Pearson VUE, remote vs test centre, what happens after
+- [x] `study-schedule/` — the day-by-day plan from today to 5 November
+<!-- dropped: logistics, not learning content. Booking/ID notes live in EXAM-DAY.md -->
 
 ---
 

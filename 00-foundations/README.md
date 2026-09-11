@@ -6,7 +6,7 @@
 
 ### *How the exam works, and how ISC2 wants you to think.*
 
-[![Topics](https://img.shields.io/badge/Topics-6-0d2b33?style=for-the-badge)](#-02--the-6-topics)
+[![Topics](https://img.shields.io/badge/Topics-5-0d2b33?style=for-the-badge)](#-02--the-6-topics)
 [![Start here](https://img.shields.io/badge/Start-here-12B5A5?style=for-the-badge)](how-the-exam-works/)
 
 ![scope](https://img.shields.io/badge/Scope-exam%20mechanics-57606A?style=flat-square)
@@ -47,7 +47,7 @@ Every page in this repo is built the same way, so you always know where you are:
 
 ---
 
-## 📂 02 · The 6 topics
+## 📂 02 · The 5 topics
 
 Work top to bottom. The whole module is about **90 minutes**, and it is the best ninety
 minutes you will spend on this exam.
@@ -58,8 +58,7 @@ minutes you will spend on this exam.
 | <sub>&#9745;</sub> | 🧠 [`how-isc2-thinks/`](how-isc2-thinks/) | Recognise the ISC2 house answer, and spot the five places your job experience will actively mislead you. |
 | <sub>&#9745;</sub> | 🎯 [`answering-technique/`](answering-technique/) | Eliminate distractors systematically, read qualifier words correctly, and budget the two hours. |
 | <sub>&#9745;</sub> | 🗺️ [`the-five-domains/`](the-five-domains/) | Name what is actually inside each domain, so nothing on the paper is a surprise. |
-| <sub>&#9744;</sub> | 📅 [`study-schedule/`](study-schedule/) | Follow a day-by-day plan from today to 5 November that fits around full-time work. |
-| <sub>&#9744;</sub> | 🎫 [`exam-day-logistics/`](exam-day-logistics/) | Book it correctly, turn up with the right ID, and know what happens in the ten minutes after you finish. |
+| <sub>&#9745;</sub> | 📅 [`study-schedule/`](study-schedule/) | Follow a day-by-day plan from today to 5 November that fits around full-time work. |
 
 ---
 
@@ -90,7 +89,7 @@ flowchart LR
 
 ## ⏭️ 04 · Where to go next
 
-When all six boxes above are ticked, start [`01-security-principles/`](../01-security-principles/README.md)
+When all five boxes above are ticked, start [`01-security-principles/`](../01-security-principles/README.md)
 — the heaviest domain at 26%, and the vocabulary the other four are written in.
 
 ---
