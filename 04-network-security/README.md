@@ -58,7 +58,7 @@ Work top to bottom. The early topics build the vocabulary the attack and defence
 | <sub>&#9745;</sub> | 🔢 [`ip-addressing/`](ip-addressing/) | Tell public from private, IPv4 from IPv6, and say what NAT, DHCP and DNS each do. |
 | <sub>&#9745;</sub> | 🚪 [`ports-and-protocols/`](ports-and-protocols/) | Recognise the port numbers the exam expects on sight, and their secure equivalents. |
 | <sub>&#9745;</sub> | ☠️ [`network-threats/`](network-threats/) | Name the threat categories and the actor types in ISC2's own terms. |
-| <sub>&#9744;</sub> | 💥 [`common-attacks/`](common-attacks/) | Identify an attack from its description, and tell the near-identical ones apart. |
+| <sub>&#9745;</sub> | 💥 [`common-attacks/`](common-attacks/) | Identify an attack from its description, and tell the near-identical ones apart. |
 | <sub>&#9744;</sub> | 🔥 [`network-defence-devices/`](network-defence-devices/) | Say what a firewall, IDS, IPS and proxy each do — and what each cannot do. |
 | <sub>&#9744;</sub> | 🧱 [`segmentation-and-dmz/`](segmentation-and-dmz/) | Explain VLANs, DMZ and screened subnets, and why segmentation limits damage. |
 | <sub>&#9744;</sub> | 🔐 [`vpn-and-remote-access/`](vpn-and-remote-access/) | Distinguish site-to-site from remote access, and say what a tunnel actually protects. |
