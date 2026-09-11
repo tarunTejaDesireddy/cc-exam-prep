@@ -4,7 +4,7 @@
 
 ### *50 topics, 9 modules, one exam sitting on 5 November 2026*
 
-![Written](https://img.shields.io/badge/Written-15%2F50-57606A?style=for-the-badge)
+![Written](https://img.shields.io/badge/Written-16%2F50-57606A?style=for-the-badge)
 ![Target](https://img.shields.io/badge/Target-5%20Nov%202026-12B5A5?style=for-the-badge)
 
 </div>
@@ -33,7 +33,7 @@ Everything about the exam itself. Written first because it changes how you read 
 
 ---
 
-## 🧭 01 · Security Principles — `10 / 11` · **26%**
+## 🧭 01 · Security Principles — `11 / 11` ✅ · **26%**
 
 The largest domain, and the vocabulary the other four are written in.
 
@@ -47,7 +47,7 @@ The largest domain, and the vocabulary the other four are written in.
 - [x] `risk-treatment/` — accept, avoid, mitigate, transfer, and risk tolerance
 - [x] `security-controls/` — technical, administrative, physical; the functional types
 - [x] `governance-documents/` — policy, standard, procedure, guideline, regulation
-- [ ] `isc2-code-of-ethics/` — the four canons, in order, and how they are tested
+- [x] `isc2-code-of-ethics/` — the four canons, in order, and how they are tested
 
 ---
 
