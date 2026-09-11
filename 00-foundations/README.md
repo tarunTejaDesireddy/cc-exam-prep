@@ -54,7 +54,7 @@ minutes you will spend on this exam.
 
 | | Topic | What you will be able to do afterwards |
 |:--:|---|---|
-| <sub>&#9744;</sub> | 📋 [`how-the-exam-works/`](how-the-exam-works/) | Say exactly what you are sitting: format, length, pass mark, and what the scaled score does and does not mean. |
+| <sub>&#9745;</sub> | 📋 [`how-the-exam-works/`](how-the-exam-works/) | Say exactly what you are sitting: format, length, pass mark, and what the scaled score does and does not mean. |
 | <sub>&#9744;</sub> | 🧠 [`how-isc2-thinks/`](how-isc2-thinks/) | Recognise the ISC2 house answer, and spot the five places your job experience will actively mislead you. |
 | <sub>&#9744;</sub> | 🎯 [`answering-technique/`](answering-technique/) | Eliminate distractors systematically, read qualifier words correctly, and budget the two hours. |
 | <sub>&#9744;</sub> | 🗺️ [`the-five-domains/`](the-five-domains/) | Name what is actually inside each domain, so nothing on the paper is a surprise. |
