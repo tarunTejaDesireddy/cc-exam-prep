@@ -52,7 +52,7 @@ Work top to bottom — each one uses vocabulary the previous ones established.
 | <sub>&#9745;</sub> | ✍️ [`non-repudiation/`](non-repudiation/) | Say what non-repudiation actually guarantees, and which mechanisms provide it. |
 | <sub>&#9745;</sub> | 🕵️ [`privacy/`](privacy/) | Define PII, name the roles, and recognise the regulations the exam expects. |
 | <sub>&#9745;</sub> | ⚠️ [`risk-concepts/`](risk-concepts/) | Tell asset, threat, threat actor, vulnerability and risk apart without hesitating. |
-| <sub>&#9744;</sub> | 📐 [`risk-assessment/`](risk-assessment/) | Choose between qualitative and quantitative, and recognise SLE, ARO and ALE. |
+| <sub>&#9745;</sub> | 📐 [`risk-assessment/`](risk-assessment/) | Choose between qualitative and quantitative, and recognise SLE, ARO and ALE. |
 | <sub>&#9744;</sub> | 🎯 [`risk-treatment/`](risk-treatment/) | Name the four treatments, match each to a scenario, and say who is allowed to choose. |
 | <sub>&#9744;</sub> | 🛡️ [`security-controls/`](security-controls/) | Classify any control by both type and function — the two axes the exam tests. |
 | <sub>&#9744;</sub> | 📜 [`governance-documents/`](governance-documents/) | Rank policy, standard, procedure and guideline, and say which are mandatory. |
