@@ -19,7 +19,7 @@
 [![Modules](https://img.shields.io/badge/Modules-9-0d2b33?style=for-the-badge)](#-the-9-modules)
 [![Topics](https://img.shields.io/badge/Topics-50-0d2b33?style=for-the-badge)](#-the-9-modules)
 [![Pass mark](https://img.shields.io/badge/Pass-700%2F1000-5C7CFA?style=for-the-badge)](00-foundations/how-the-exam-works/)
-[![Progress](https://img.shields.io/badge/Progress-9%2F50%20topics-57606A?style=for-the-badge)](ROADMAP.md)
+[![Progress](https://img.shields.io/badge/Progress-10%2F50%20topics-57606A?style=for-the-badge)](ROADMAP.md)
 
 <sub>🌐 Prefer to browse? <a href="docs/index.html"><code>docs/index.html</code></a> is a filterable index of every
 topic — open it locally, or turn on GitHub Pages from the <code>/docs</code> folder.</sub>
@@ -107,11 +107,11 @@ pie showData
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    F["🧱 00<br/>Foundations"] --> D1["🧭 01<br/>Principles<br/><sub>26%</sub>"]
-    D1 --> D4["🌐 04<br/>Network<br/><sub>24%</sub>"]
-    D4 --> D3["🚪 03<br/>Access<br/><sub>22%</sub>"]
-    D3 --> D5["⚙️ 05<br/>Operations<br/><sub>18%</sub>"]
-    D5 --> D2["🚨 02<br/>BC/DR/IR<br/><sub>10%</sub>"]
+    F["🧱 00<br/>Foundations"] --> D1["🧭 01<br/>Principles<br/>26%"]
+    D1 --> D4["🌐 04<br/>Network<br/>24%"]
+    D4 --> D3["🚪 03<br/>Access<br/>22%"]
+    D3 --> D5["⚙️ 05<br/>Operations<br/>18%"]
+    D5 --> D2["🚨 02<br/>BC/DR/IR<br/>10%"]
     D2 --> Q["❓ 07<br/>Question bank"]
     Q --> M["📝 08<br/>Mock exams"]
     M --> E["🎓<br/>5 Nov"]
@@ -160,7 +160,7 @@ Ticked when the topic is **written and pushed**. Live detail in [`ROADMAP.md`](R
 | Module | Written |
 |---|---|
 | 🧱 00 · Foundations | `5 / 5` ✅ |
-| 🧭 01 · Security Principles | `4 / 11` |
+| 🧭 01 · Security Principles | `5 / 11` |
 | 🚨 02 · BC, DR & IR | `0 / 6` |
 | 🚪 03 · Access Control | `0 / 8` |
 | 🌐 04 · Network Security | `0 / 11` |

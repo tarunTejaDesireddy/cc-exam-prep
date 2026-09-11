@@ -61,10 +61,10 @@ The proof always comes from one of three categories, and there are only three:
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
-    A["🙋 'I am jsmith'<br/><sub>IDENTIFICATION — a claim</sub>"] --> B["🔐 Prove it<br/><sub>AUTHENTICATION</sub>"]
-    B --> K["🧠 Something you KNOW<br/><sub>password · PIN · passphrase<br/>security question</sub>"]
-    B --> H["📱 Something you HAVE<br/><sub>token · smart card · phone<br/>OTP app · certificate</sub>"]
-    B --> I["👤 Something you ARE<br/><sub>fingerprint · iris · face<br/>voice · gait</sub>"]
+    A["🙋 'I am jsmith'<br/>IDENTIFICATION — a claim"] --> B["🔐 Prove it<br/>AUTHENTICATION"]
+    B --> K["🧠 Something you KNOW<br/>password · PIN · passphrase<br/>security question"]
+    B --> H["📱 Something you HAVE<br/>token · smart card · phone<br/>OTP app · certificate"]
+    B --> I["👤 Something you ARE<br/>fingerprint · iris · face<br/>voice · gait"]
 
     style A fill:#26292e,stroke:#868E96,color:#fff
     style B fill:#0f3038,stroke:#12B5A5,color:#fff
@@ -146,11 +146,11 @@ reverse happens.
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    S["🔧 Stricter<br/>threshold"] --> S1["FAR ↓ <sub>safer</sub>"]
-    S --> S2["FRR ↑ <sub>more lockouts</sub>"]
-    L["🔧 Looser<br/>threshold"] --> L1["FAR ↑ <sub>riskier</sub>"]
-    L --> L2["FRR ↓ <sub>smoother</sub>"]
-    C["⚖️ CER<br/><sub>where FAR = FRR<br/>lower is better</sub>"]
+    S["🔧 Stricter<br/>threshold"] --> S1["FAR ↓ safer"]
+    S --> S2["FRR ↑ more lockouts"]
+    L["🔧 Looser<br/>threshold"] --> L1["FAR ↑ riskier"]
+    L --> L2["FRR ↓ smoother"]
+    C["⚖️ CER<br/>where FAR = FRR<br/>lower is better"]
 
     style S fill:#12243f,stroke:#5C7CFA,color:#fff
     style L fill:#12243f,stroke:#5C7CFA,color:#fff

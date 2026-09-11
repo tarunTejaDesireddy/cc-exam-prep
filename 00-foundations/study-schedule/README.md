@@ -50,13 +50,13 @@ hours, it is disorganised ones.
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    W0["Now<br/>12–13 Sep<br/><sub>Foundations</sub>"] --> W1["W1–2<br/>14–27 Sep<br/><sub>Domain 1 · 26%</sub>"]
-    W1 --> W3["W3<br/>28 Sep–4 Oct<br/><sub>Domain 4 · 24%</sub>"]
-    W3 --> W4["W4<br/>5–11 Oct<br/><sub>Domain 3 · 22%</sub>"]
-    W4 --> W5["W5<br/>12–18 Oct<br/><sub>Domain 5 · 18%<br/>MOCK 1</sub>"]
-    W5 --> W6["W6<br/>19–25 Oct<br/><sub>Domain 2 · 10%<br/>+ repair</sub>"]
-    W6 --> W7["W7<br/>26 Oct–1 Nov<br/><sub>Mixed drills<br/>MOCK 2</sub>"]
-    W7 --> W8["W8<br/>2–5 Nov<br/><sub>MOCK 3 · cram<br/>EXAM</sub>"]
+    W0["Now<br/>12–13 Sep<br/>Foundations"] --> W1["W1–2<br/>14–27 Sep<br/>Domain 1 · 26%"]
+    W1 --> W3["W3<br/>28 Sep–4 Oct<br/>Domain 4 · 24%"]
+    W3 --> W4["W4<br/>5–11 Oct<br/>Domain 3 · 22%"]
+    W4 --> W5["W5<br/>12–18 Oct<br/>Domain 5 · 18%<br/>MOCK 1"]
+    W5 --> W6["W6<br/>19–25 Oct<br/>Domain 2 · 10%<br/>+ repair"]
+    W6 --> W7["W7<br/>26 Oct–1 Nov<br/>Mixed drills<br/>MOCK 2"]
+    W7 --> W8["W8<br/>2–5 Nov<br/>MOCK 3 · cram<br/>EXAM"]
 
     style W0 fill:#0f3038,stroke:#12B5A5,color:#fff
     style W1 fill:#12243f,stroke:#5C7CFA,color:#fff

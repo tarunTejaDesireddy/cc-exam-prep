@@ -50,7 +50,7 @@ Work top to bottom — each one uses vocabulary the previous ones established.
 | <sub>&#9745;</sub> | 🔑 [`authentication/`](authentication/) | Sort any credential into the right factor, and say what does and does not count as multi-factor. |
 | <sub>&#9745;</sub> | 🎫 [`authorization-and-accounting/`](authorization-and-accounting/) | Separate the three parts of AAA and say which one a given control belongs to. |
 | <sub>&#9745;</sub> | ✍️ [`non-repudiation/`](non-repudiation/) | Say what non-repudiation actually guarantees, and which mechanisms provide it. |
-| <sub>&#9744;</sub> | 🕵️ [`privacy/`](privacy/) | Define PII, name the roles, and recognise the regulations the exam expects. |
+| <sub>&#9745;</sub> | 🕵️ [`privacy/`](privacy/) | Define PII, name the roles, and recognise the regulations the exam expects. |
 | <sub>&#9744;</sub> | ⚠️ [`risk-concepts/`](risk-concepts/) | Tell asset, threat, threat actor, vulnerability and risk apart without hesitating. |
 | <sub>&#9744;</sub> | 📐 [`risk-assessment/`](risk-assessment/) | Choose between qualitative and quantitative, and recognise SLE, ARO and ALE. |
 | <sub>&#9744;</sub> | 🎯 [`risk-treatment/`](risk-treatment/) | Name the four treatments, match each to a scenario, and say who is allowed to choose. |
@@ -69,7 +69,7 @@ question about classification still turns on who the *data owner* is.
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
-    D1["🧭 Domain 1<br/>Security Principles<br/><b>26 questions</b>"]
+    D1["🧭 Domain 1<br/>Security Principles<br/>26 questions"]
     D1 -->|"risk · control · CIA"| D4["🌐 Domain 4<br/>Network Security"]
     D1 -->|"least privilege · authority"| D3["🚪 Domain 3<br/>Access Control"]
     D1 -->|"data owner · policy"| D5["⚙️ Domain 5<br/>Operations"]

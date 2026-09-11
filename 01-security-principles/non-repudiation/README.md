@@ -56,9 +56,9 @@ Non-repudiation needs three things together. Take any one away and the denial be
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
-    A["1 · Strong identification<br/><sub>the identity is genuinely unique<br/>to one person</sub>"] --> N["✍️ NON-REPUDIATION"]
-    B["2 · Something only they could produce<br/><sub>a private key · a biometric<br/>· an unshared credential</sub>"] --> N
-    C["3 · Tamper-evident record<br/><sub>the evidence itself cannot<br/>be quietly altered</sub>"] --> N
+    A["1 · Strong identification<br/>the identity is genuinely unique<br/>to one person"] --> N["✍️ NON-REPUDIATION"]
+    B["2 · Something only they<br/>could produce<br/>private key · biometric"] --> N
+    C["3 · Tamper-evident record<br/>the evidence itself cannot<br/>be quietly altered"] --> N
     N --> R["⚖️ 'That wasn't me'<br/>no longer works"]
 
     style A fill:#12243f,stroke:#5C7CFA,color:#fff

@@ -60,9 +60,9 @@ file, three different failures, and the distractors will offer you all three.
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
     I["📄 Information"]
-    I --> C["🔒 Confidentiality<br/><sub>only the right people SEE it</sub>"]
-    I --> N["✅ Integrity<br/><sub>only the right people CHANGE it</sub>"]
-    I --> A["⚡ Availability<br/><sub>the right people can REACH it</sub>"]
+    I --> C["🔒 Confidentiality<br/>only the right people SEE it"]
+    I --> N["✅ Integrity<br/>only the right people CHANGE it"]
+    I --> A["⚡ Availability<br/>the right people can REACH it"]
     C --> CF["❌ Disclosure"]
     N --> NF["❌ Alteration"]
     A --> AF["❌ Destruction / outage"]
@@ -171,7 +171,7 @@ flowchart LR
     C["🔒 Confidentiality"] <-->|"tension"| A["⚡ Availability"]
     A <-->|"tension"| N["✅ Integrity"]
     N <-->|"tension"| C
-    B["🏛️ The business<br/>sets the balance<br/><sub>not the security team</sub>"] -.-> C
+    B["🏛️ The business<br/>sets the balance<br/>not the security team"] -.-> C
     B -.-> A
     B -.-> N
 

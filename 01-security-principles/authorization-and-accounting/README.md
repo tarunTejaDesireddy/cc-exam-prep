@@ -56,10 +56,10 @@ you have the answer.
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    U["🙋 Subject"] --> A1["1 · AUTHENTICATION<br/><b>Who are you?</b><br/><sub>password · token · biometric</sub>"]
-    A1 --> A2["2 · AUTHORISATION<br/><b>What may you do?</b><br/><sub>permissions · ACLs · roles</sub>"]
-    A2 --> A3["3 · ACCOUNTING<br/><b>What did you do?</b><br/><sub>logs · audit trail · monitoring</sub>"]
-    A3 --> R["📊 Accountability<br/><sub>the action traces back<br/>to one person</sub>"]
+    U["🙋 Subject"] --> A1["1 · AUTHENTICATION<br/>Who are you?<br/>password · token · biometric"]
+    A1 --> A2["2 · AUTHORISATION<br/>What may you do?<br/>permissions · ACLs · roles"]
+    A2 --> A3["3 · ACCOUNTING<br/>What did you do?<br/>logs · audit trail · monitoring"]
+    A3 --> R["📊 Accountability<br/>the action traces back<br/>to one person"]
 
     style U fill:#26292e,stroke:#868E96,color:#fff
     style A1 fill:#12243f,stroke:#5C7CFA,color:#fff

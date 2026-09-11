@@ -144,10 +144,10 @@ the highest one that appears as an option.
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
-    A["1 · Is anyone in danger?<br/><sub>protect life</sub>"] --> B["2 · Is there a documented plan?<br/><sub>follow it</sub>"]
-    B --> C["3 · Who must be told?<br/><sub>notify / escalate</sub>"]
-    C --> D["4 · Is this a business decision?<br/><sub>management or data owner decides</sub>"]
-    D --> E["5 · Now act technically<br/><sub>contain, configure, block</sub>"]
+    A["1 · Is anyone in danger?<br/>protect life"] --> B["2 · Is there a documented plan?<br/>follow it"]
+    B --> C["3 · Who must be told?<br/>notify / escalate"]
+    C --> D["4 · Is this a business decision?<br/>management or data owner decides"]
+    D --> E["5 · Now act technically<br/>contain, configure, block"]
     E --> F["6 · Then document and review"]
 
     style A fill:#3a1a20,stroke:#E03131,color:#fff

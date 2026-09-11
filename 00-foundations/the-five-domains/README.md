@@ -59,11 +59,11 @@ is the most common way candidates waste study time.
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
-    E["📄 100 questions"] --> D1["1 · Security Principles<br/><b>26</b>"]
-    E --> D4["4 · Network Security<br/><b>24</b>"]
-    E --> D3["3 · Access Control<br/><b>22</b>"]
-    E --> D5["5 · Security Operations<br/><b>18</b>"]
-    E --> D2["2 · BC / DR / IR<br/><b>10</b>"]
+    E["📄 100 questions"] --> D1["1 · Security Principles<br/>26"]
+    E --> D4["4 · Network Security<br/>24"]
+    E --> D3["3 · Access Control<br/>22"]
+    E --> D5["5 · Security Operations<br/>18"]
+    E --> D2["2 · BC / DR / IR<br/>10"]
 
     style E fill:#0f3038,stroke:#12B5A5,color:#fff
     style D1 fill:#12243f,stroke:#5C7CFA,color:#fff

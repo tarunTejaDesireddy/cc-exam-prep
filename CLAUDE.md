@@ -106,6 +106,17 @@ never rely on Mermaid defaults, which invert badly between GitHub's light and da
 
 Text is always `#fff`. Line colour `#4d6f6e`.
 
+### Mermaid label rules — non-negotiable
+
+1. **No HTML tags inside node labels.** No `<sub>`, `<b>`, `<i>`. GitHub measures the label
+   at full font size but renders the tag smaller, so the box is sized wrong and **the text
+   is clipped**. Plain text only, with `<br/>` for line breaks.
+2. **Maximum ~30 characters per line**, 3 lines per node. Longer labels overflow on narrow
+   screens and on mobile.
+3. **Emphasis comes from the node colour**, not from markup inside the label.
+4. After adding a diagram, re-read the rendered page on GitHub before considering the topic
+   done. Clipped labels are invisible in the source.
+
 Every diagram must be readable as a sentence. If it cannot be read as one, it is a bad
 diagram — cut it.
 

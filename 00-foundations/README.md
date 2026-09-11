@@ -73,7 +73,7 @@ domains. That is a systematic loss, and it is entirely fixable in an afternoon.
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    K["🧰 What you<br/>already know<br/><sub>years of SOC work</sub>"] --> G{"Answered<br/>how?"}
+    K["🧰 What you<br/>already know<br/>years of SOC work"] --> G{"Answered<br/>how?"}
     G -->|"like a practitioner"| L["❌ Marks lost<br/>on every scenario<br/>in all five domains"]
     G -->|"like the courseware"| W["✅ Marks kept"]
     F["🧱 This module"] -.->|"flips the switch"| G

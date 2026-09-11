@@ -55,13 +55,13 @@ about twenty seconds once it is habit.
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
-    S1["1 · Read the stem<br/>with the options covered"] --> S2["2 · Circle the qualifier<br/><sub>FIRST · BEST · NOT · LEAST</sub>"]
-    S2 --> S3["3 · Answer it yourself<br/><sub>before looking</sub>"]
-    S3 --> S4["4 · Delete what cannot be right<br/><sub>absolutes · wrong level · wrong phase</sub>"]
+    S1["1 · Read the stem<br/>with the options covered"] --> S2["2 · Circle the qualifier<br/>FIRST · BEST · NOT · LEAST"]
+    S2 --> S3["3 · Answer it yourself<br/>before looking"]
+    S3 --> S4["4 · Delete what cannot be right<br/>absolutes · wrong level · wrong phase"]
     S4 --> S5{"One left?"}
     S5 -->|yes| K["✅ Select it"]
-    S5 -->|"two left"| T["⚖️ Apply a tiebreaker<br/><sub>plainest · most preventive<br/>· highest on the ladder</sub>"]
-    T --> G["🚩 Select, flag, move on<br/><sub>never leave blank</sub>"]
+    S5 -->|"two left"| T["⚖️ Apply a tiebreaker<br/>plainest · most preventive<br/>· highest on the ladder"]
+    T --> G["🚩 Select, flag, move on<br/>never leave blank"]
 
     style S1 fill:#0f3038,stroke:#12B5A5,color:#fff
     style S2 fill:#3a2c12,stroke:#F08C00,color:#fff

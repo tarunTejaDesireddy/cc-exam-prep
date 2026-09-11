@@ -41,7 +41,8 @@
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    A["Node"] --> B["Node"]
+    A["Node label<br/>second line, plain text"] --> B["Node"]
+    %% No <sub> or <b> inside labels - GitHub clips them. Max ~30 chars per line.
 
     style A fill:#0f3038,stroke:#12B5A5,color:#fff
     style B fill:#12243f,stroke:#5C7CFA,color:#fff

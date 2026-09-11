@@ -67,10 +67,10 @@ candidates finish with a good deal of time left.
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    S["🚪 Start<br/><sub>120 minutes</sub>"] --> P1["🏃 Pass 1<br/>all 100 questions<br/><sub>~60–75 min</sub>"]
-    P1 --> F["🚩 Flagged items<br/><sub>the ones you were unsure of</sub>"]
-    F --> P2["🔍 Pass 2<br/>revisit flagged only<br/><sub>~20 min</sub>"]
-    P2 --> C["✅ Check all 100<br/>have an answer<br/><sub>~5 min</sub>"]
+    S["🚪 Start<br/>120 minutes"] --> P1["🏃 Pass 1<br/>all 100 questions<br/>~60–75 min"]
+    P1 --> F["🚩 Flagged items<br/>the ones you were unsure of"]
+    F --> P2["🔍 Pass 2<br/>revisit flagged only<br/>~20 min"]
+    P2 --> C["✅ Check all 100<br/>have an answer<br/>~5 min"]
     C --> E["🎓 Submit"]
 
     style S fill:#0f3038,stroke:#12B5A5,color:#fff
