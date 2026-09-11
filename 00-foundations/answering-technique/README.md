@@ -57,7 +57,7 @@ about twenty seconds once it is habit.
 flowchart TD
     S1["1 · Read the stem<br/>with the options covered"] --> S2["2 · Circle the qualifier<br/>FIRST · BEST · NOT · LEAST"]
     S2 --> S3["3 · Answer it yourself<br/>before looking"]
-    S3 --> S4["4 · Delete what cannot be right<br/>absolutes · wrong level · wrong phase"]
+    S3 --> S4["4 · Delete what cannot be right<br/>absolutes · wrong level<br/>wrong phase"]
     S4 --> S5{"One left?"}
     S5 -->|yes| K["✅ Select it"]
     S5 -->|"two left"| T["⚖️ Apply a tiebreaker<br/>plainest · most preventive<br/>· highest on the ladder"]
