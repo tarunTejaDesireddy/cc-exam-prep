@@ -71,11 +71,50 @@ flowchart LR
 
 ### The three principles
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    Z["🚦 ZERO TRUST"] --> V["1 · VERIFY EXPLICITLY<br/>authenticate and authorise<br/>every single request"]
+    Z --> L["2 · LEAST PRIVILEGE<br/>minimum access<br/>for minimum time"]
+    Z --> A["3 · ASSUME BREACH<br/>design as though the<br/>attacker is already in"]
+
+    style Z fill:#0f3038,stroke:#12B5A5,color:#fff
+    style V fill:#12243f,stroke:#5C7CFA,color:#fff
+    style L fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+```
+
 | Principle | Means |
 |---|---|
 | **Verify explicitly** | Authenticate and authorise on every request, using identity, device health, location and behaviour |
 | **Use least privilege** | Grant the minimum access required, for the minimum time |
 | **Assume breach** | Design as though an attacker is already inside — segment, monitor, limit blast radius |
+
+### How a zero trust access decision is made
+
+Every request is evaluated freshly against all available signals, and the decision is to one
+**application** — never to the network.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    R["📨 A request"] --> S["📊 Signals<br/>who · which device<br/>where · behaviour"]
+    S --> P["⚖️ Policy engine<br/>evaluates every time"]
+    P -->|"permit"| G["✅ Access to ONE app<br/>not to the network"]
+    P -->|"deny"| D["🛑 Refused<br/>and logged"]
+    G --> C["🔄 Re-verified<br/>during the session"]
+    C --> P
+
+    style R fill:#26292e,stroke:#868E96,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P fill:#0f3038,stroke:#12B5A5,color:#fff
+    style G fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style D fill:#3a1a20,stroke:#E03131,color:#fff
+    style C fill:#3a2c12,stroke:#F08C00,color:#fff
+```
+
+Read it as a sentence: **a request plus its signals is judged on every attempt, granted only to
+one application, and re-checked while it continues.**
 
 ### What zero trust looks like in practice
 
@@ -119,6 +158,26 @@ established rather than assumed. These are straight definition questions.
 > defining each specific piece of work.
 
 > 🎯 **MSA is the umbrella; SOW is the specific job.** One MSA governs many SOWs.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    M["📑 MSA<br/>master contract<br/>general terms · BINDING"] --> S1["📋 SOW<br/>specific job 1"]
+    M --> S2["📋 SOW<br/>specific job 2"]
+    M --> SL["📊 SLA<br/>service levels<br/>uptime · response"]
+    U["🤝 MOU<br/>statement of intent<br/>usually NOT binding"]
+    N["🔒 NDA<br/>protects shared<br/>confidential information"]
+
+    style M fill:#0f3038,stroke:#12B5A5,color:#fff
+    style S1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SL fill:#12243f,stroke:#5C7CFA,color:#fff
+    style U fill:#26292e,stroke:#868E96,color:#fff
+    style N fill:#12243f,stroke:#5C7CFA,color:#fff
+```
+
+Read it as a sentence: **one binding master agreement sits above many specific statements of
+work and the service levels they are held to — while an MOU sits outside, binding nobody.**
 
 ---
 
