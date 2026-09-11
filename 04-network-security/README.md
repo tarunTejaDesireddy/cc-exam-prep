@@ -53,7 +53,7 @@ Work top to bottom. The early topics build the vocabulary the attack and defence
 
 | | Topic | What you will be able to do afterwards |
 |:--:|---|---|
-| <sub>&#9744;</sub> | 🕸️ [`network-fundamentals/`](network-fundamentals/) | Name the network types and topologies, and say what each device on a network actually does. |
+| <sub>&#9745;</sub> | 🕸️ [`network-fundamentals/`](network-fundamentals/) | Name the network types and topologies, and say what each device on a network actually does. |
 | <sub>&#9744;</sub> | 🪜 [`osi-and-tcpip/`](osi-and-tcpip/) | Place any protocol, device or attack at the right layer, in both models. |
 | <sub>&#9744;</sub> | 🔢 [`ip-addressing/`](ip-addressing/) | Tell public from private, IPv4 from IPv6, and say what NAT, DHCP and DNS each do. |
 | <sub>&#9744;</sub> | 🚪 [`ports-and-protocols/`](ports-and-protocols/) | Recognise the port numbers the exam expects on sight, and their secure equivalents. |
