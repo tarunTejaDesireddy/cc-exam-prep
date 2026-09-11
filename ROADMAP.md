@@ -4,7 +4,7 @@
 
 ### *51 topics, 9 modules, one exam sitting on 5 November 2026*
 
-![Written](https://img.shields.io/badge/Written-1%2F51-57606A?style=for-the-badge)
+![Written](https://img.shields.io/badge/Written-2%2F51-57606A?style=for-the-badge)
 ![Target](https://img.shields.io/badge/Target-5%20Nov%202026-12B5A5?style=for-the-badge)
 
 </div>
@@ -20,12 +20,12 @@ still covers the most marks. Within a module, topics are written in reading orde
 
 ---
 
-## 🧱 00 · Foundations — `1 / 6`
+## 🧱 00 · Foundations — `2 / 6`
 
 Everything about the exam itself. Written first because it changes how you read the rest.
 
 - [x] `how-the-exam-works/` — format, length, pass mark, how the scaled score works
-- [ ] `how-isc2-thinks/` — the answer-selection logic, and why experience misleads you
+- [x] `how-isc2-thinks/` — the answer-selection logic, and why experience misleads you
 - [ ] `answering-technique/` — eliminating distractors, qualifier words, time budgeting
 - [ ] `the-five-domains/` — the blueprint, what each domain actually contains
 - [ ] `study-schedule/` — the day-by-day plan from today to 5 November

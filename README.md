@@ -19,7 +19,7 @@
 [![Modules](https://img.shields.io/badge/Modules-9-0d2b33?style=for-the-badge)](#-the-9-modules)
 [![Topics](https://img.shields.io/badge/Topics-51-0d2b33?style=for-the-badge)](#-the-9-modules)
 [![Pass mark](https://img.shields.io/badge/Pass-700%2F1000-5C7CFA?style=for-the-badge)](00-foundations/how-the-exam-works/)
-[![Progress](https://img.shields.io/badge/Progress-1%2F51%20topics-57606A?style=for-the-badge)](ROADMAP.md)
+[![Progress](https://img.shields.io/badge/Progress-2%2F51%20topics-57606A?style=for-the-badge)](ROADMAP.md)
 
 <sub>🌐 Prefer to browse? <a href="docs/index.html"><code>docs/index.html</code></a> is a filterable index of every
 topic — open it locally, or turn on GitHub Pages from the <code>/docs</code> folder.</sub>
@@ -159,7 +159,7 @@ Ticked when the topic is **written and pushed**. Live detail in [`ROADMAP.md`](R
 
 | Module | Written |
 |---|---|
-| 🧱 00 · Foundations | `1 / 6` |
+| 🧱 00 · Foundations | `2 / 6` |
 | 🧭 01 · Security Principles | `0 / 11` |
 | 🚨 02 · BC, DR & IR | `0 / 6` |
 | 🚪 03 · Access Control | `0 / 8` |
