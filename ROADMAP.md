@@ -4,7 +4,7 @@
 
 ### *50 topics, 9 modules, one exam sitting on 5 November 2026*
 
-![Written](https://img.shields.io/badge/Written-8%2F50-57606A?style=for-the-badge)
+![Written](https://img.shields.io/badge/Written-9%2F50-57606A?style=for-the-badge)
 ![Target](https://img.shields.io/badge/Target-5%20Nov%202026-12B5A5?style=for-the-badge)
 
 </div>
@@ -33,14 +33,14 @@ Everything about the exam itself. Written first because it changes how you read 
 
 ---
 
-## 🧭 01 · Security Principles — `3 / 11` · **26%**
+## 🧭 01 · Security Principles — `4 / 11` · **26%**
 
 The largest domain, and the vocabulary the other four are written in.
 
 - [x] `cia-triad/` — confidentiality, integrity, availability, and what breaks each
 - [x] `authentication/` — the three factors, MFA, and what counts as which
 - [x] `authorization-and-accounting/` — the rest of AAA, and where each one sits
-- [ ] `non-repudiation/` — what it means, what provides it
+- [x] `non-repudiation/` — what it means, what provides it
 - [ ] `privacy/` — PII, data subjects, and the regulation names the exam uses
 - [ ] `risk-concepts/` — asset, threat, vulnerability, likelihood, impact
 - [ ] `risk-assessment/` — qualitative vs quantitative, SLE, ALE, ARO
