@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="06 · Term Bank — Every definition the exam can ask you for">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07171c"/>
+      <stop offset="55%" stop-color="#0d2b33"/>
+      <stop offset="100%" stop-color="#141d39"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12B5A5"/>
+      <stop offset="100%" stop-color="#5C7CFA"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="320" rx="18" fill="url(#bg)"/>
+  <circle cx="1010" cy="80" r="120" fill="#12B5A5" opacity="0.15" filter="url(#soft)"/>
+  <circle cx="830" cy="272" r="100" fill="#5C7CFA" opacity="0.13" filter="url(#soft)"/>
+  <rect x="0" y="0" width="6" height="320" rx="3" fill="url(#accent)"/>
+
+  <text x="58" y="96" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="46" font-weight="700" fill="#f1f8f8">06 · Term Bank</text>
+  <text x="58" y="136" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="21" fill="#9dc0bf">Every definition the exam can ask you for</text>
+  <rect x="58" y="158" width="74" height="4" rx="2" fill="url(#accent)"/>
+  <text x="58" y="206" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" letter-spacing="2.5" fill="#6d9291">ISC2 CC · CERTIFIED IN CYBERSECURITY</text>
+
+  <g transform="translate(58,232)">
+    <rect x="0" y="0" width="138" height="30" rx="7" fill="#0f3038" stroke="#1d6b66" stroke-width="1.5"/>
+    <text x="15" y="20" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#c8e8e5">recall drill</text>
+  </g>
+
+  <text x="1142" y="288" text-anchor="end" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#4d6f6e">exam · 5 November 2026</text>
+</svg>
