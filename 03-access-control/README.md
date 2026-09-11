@@ -48,7 +48,7 @@ Work top to bottom. The first topic establishes the vocabulary the rest depend o
 | | Topic | What you will be able to do afterwards |
 |:--:|---|---|
 | <sub>&#9745;</sub> | 🎟️ [`access-control-fundamentals/`](access-control-fundamentals/) | Use subject, object and rule correctly, and describe any access decision in those terms. |
-| <sub>&#9744;</sub> | 🏢 [`physical-access-controls/`](physical-access-controls/) | Name the physical controls and say what each one actually stops. |
+| <sub>&#9745;</sub> | 🏢 [`physical-access-controls/`](physical-access-controls/) | Name the physical controls and say what each one actually stops. |
 | <sub>&#9744;</sub> | 💻 [`logical-access-controls/`](logical-access-controls/) | Separate logical from physical, and place controls that look like both. |
 | <sub>&#9744;</sub> | 🗝️ [`dac-mac-rbac-abac/`](dac-mac-rbac-abac/) | Identify any of the four models from a scenario, without hesitating over DAC and MAC. |
 | <sub>&#9744;</sub> | 🔻 [`least-privilege-and-sod/`](least-privilege-and-sod/) | Apply least privilege, need to know and segregation of duties to the right situations. |
