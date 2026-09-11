@@ -4,7 +4,7 @@
 
 ### *50 topics, 9 modules, one exam sitting on 5 November 2026*
 
-![Written](https://img.shields.io/badge/Written-25%2F50-57606A?style=for-the-badge)
+![Written](https://img.shields.io/badge/Written-26%2F50-57606A?style=for-the-badge)
 ![Target](https://img.shields.io/badge/Target-5%20Nov%202026-12B5A5?style=for-the-badge)
 
 </div>
@@ -51,7 +51,7 @@ The largest domain, and the vocabulary the other four are written in.
 
 ---
 
-## 🌐 04 · Network Security — `9 / 11` · **24%**
+## 🌐 04 · Network Security — `10 / 11` · **24%**
 
 Written second. Heavy on terminology you already use — the risk is ISC2's phrasing, not the concepts.
 
@@ -64,7 +64,7 @@ Written second. Heavy on terminology you already use — the risk is ISC2's phra
 - [x] `network-defence-devices/` — firewalls, IDS/IPS, proxies, and what each cannot do
 - [x] `segmentation-and-dmz/` — VLANs, DMZ, screened subnet, defence in depth
 - [x] `vpn-and-remote-access/` — tunnels, site-to-site vs remote access, VPN concepts
-- [ ] `cloud-and-virtualisation/` — IaaS/PaaS/SaaS, deployment models, shared responsibility
+- [x] `cloud-and-virtualisation/` — IaaS/PaaS/SaaS, deployment models, shared responsibility
 - [ ] `zero-trust/` — the model, and the MSP/SLA terms that ride along with it
 
 ---
