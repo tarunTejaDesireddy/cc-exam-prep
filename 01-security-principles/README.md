@@ -46,7 +46,7 @@ Work top to bottom — each one uses vocabulary the previous ones established.
 
 | | Topic | What you will be able to do afterwards |
 |:--:|---|---|
-| <sub>&#9744;</sub> | 🔺 [`cia-triad/`](cia-triad/) | Name the three properties, say precisely what breaks each, and pick the right one from a scenario. |
+| <sub>&#9745;</sub> | 🔺 [`cia-triad/`](cia-triad/) | Name the three properties, say precisely what breaks each, and pick the right one from a scenario. |
 | <sub>&#9744;</sub> | 🔑 [`authentication/`](authentication/) | Sort any credential into the right factor, and say what does and does not count as multi-factor. |
 | <sub>&#9744;</sub> | 🎫 [`authorization-and-accounting/`](authorization-and-accounting/) | Separate the three parts of AAA and say which one a given control belongs to. |
 | <sub>&#9744;</sub> | ✍️ [`non-repudiation/`](non-repudiation/) | Say what non-repudiation actually guarantees, and which mechanisms provide it. |
