@@ -55,7 +55,7 @@ Work top to bottom — each one uses vocabulary the previous ones established.
 | <sub>&#9745;</sub> | 📐 [`risk-assessment/`](risk-assessment/) | Choose between qualitative and quantitative, and recognise SLE, ARO and ALE. |
 | <sub>&#9745;</sub> | 🎯 [`risk-treatment/`](risk-treatment/) | Name the four treatments, match each to a scenario, and say who is allowed to choose. |
 | <sub>&#9745;</sub> | 🛡️ [`security-controls/`](security-controls/) | Classify any control by both type and function — the two axes the exam tests. |
-| <sub>&#9744;</sub> | 📜 [`governance-documents/`](governance-documents/) | Rank policy, standard, procedure and guideline, and say which are mandatory. |
+| <sub>&#9745;</sub> | 📜 [`governance-documents/`](governance-documents/) | Rank policy, standard, procedure and guideline, and say which are mandatory. |
 | <sub>&#9744;</sub> | ⚖️ [`isc2-code-of-ethics/`](isc2-code-of-ethics/) | Recite the four canons **in order** and apply them to a conflict. |
 
 ---
