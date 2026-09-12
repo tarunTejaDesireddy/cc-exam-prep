@@ -130,6 +130,31 @@ flowchart LR
 
 > 🧠 *Switches work inside; routers work between.*
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    subgraph NETA["Network A"]
+        A1["💻"] --- SW1["🔀 Switch<br/>MAC · layer 2"]
+        A2["💻"] --- SW1
+    end
+    subgraph NETB["Network B"]
+        B1["💻"] --- SW2["🔀 Switch<br/>MAC · layer 2"]
+    end
+    SW1 --- R["🧭 Router<br/>IP · layer 3"]
+    R --- SW2
+
+    style A1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SW1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style SW2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#3a2c12,stroke:#F08C00,color:#fff
+    style NETA fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
+    style NETB fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
+```
+
+The switches live **inside** the boxes. The router is the only thing spanning **between** them.
+
 ---
 
 ## 🗺️ Topologies
@@ -143,6 +168,41 @@ How devices are physically or logically arranged.
 | **Ring** | Each device connects to two neighbours, forming a loop | A break can bring down the ring unless it is dual-ring |
 | **Mesh** | Devices interconnect with multiple paths | Most resilient and most expensive. **Full mesh** connects every node to every other |
 | **Tree / hierarchical** | Stars connected into a hierarchy | Scales well; used in large networks |
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    subgraph BUS["BUS · one break kills all"]
+        B1["💻"] --- B2["💻"] --- B3["💻"]
+    end
+    subgraph STAR["STAR · most common"]
+        S1["💻"] --- SC["🔀 centre"]
+        S2["💻"] --- SC
+        S3["💻"] --- SC
+    end
+    subgraph MESH["MESH · most resilient"]
+        M1["💻"] --- M2["💻"]
+        M2 --- M3["💻"]
+        M3 --- M1
+    end
+
+    style B1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style B2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style B3 fill:#3a1a20,stroke:#E03131,color:#fff
+    style S1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S3 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SC fill:#3a2c12,stroke:#F08C00,color:#fff
+    style M1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style M2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style M3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style BUS fill:#07171c,stroke:#E03131,color:#dbe7e6
+    style STAR fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
+    style MESH fill:#07171c,stroke:#2F9E44,color:#dbe7e6
+```
+
+Count the paths between any two nodes: **bus has one, star has one through an amber single point
+of failure, mesh has several.** That count is the resilience.
 
 > 🎯 Two facts carry most topology questions: **star is the most common**, and **mesh is the most
 > resilient** because of its redundant paths.
