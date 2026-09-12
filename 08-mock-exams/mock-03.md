@@ -312,14 +312,14 @@ A. RPO looks forward; RTO looks backward · B. RTO looks forward; RPO looks back
 **95.** A constrained interface hides a function. Why is this insufficient?
 A. Users dislike it · B. The authorisation check must be at the point of access · C. It cannot be logged · D. It slows the application
 
-**96.** Which is required for accountability?
-A. Logging alone · B. Unique identification per individual · C. Strong passwords · D. Encryption
+**96.** Which of the following analyses an application's source code for security flaws without executing it?
+A. DAST · B. SAST · C. Vulnerability scanning · D. Red teaming
 
 **97.** Which reduces likelihood rather than impact?
 A. Backups · B. Redundancy · C. Patching · D. An incident response plan
 
-**98.** Which role is accountable and cannot delegate that accountability?
-A. The custodian · B. The data owner · C. The steward · D. The user
+**98.** A server's OS has reached end-of-life and no longer receives security patches, but functions normally. What is the MOST accurate characterisation of its risk?
+A. Low, since it still functions · B. Increasing over time, since new vulnerabilities will never be patched · C. None, EOL only affects support contracts · D. Risk only if internet-facing
 
 **99.** Which is the leading cause of cloud breaches?
 A. Provider failure · B. Customer misconfiguration · C. VM escape · D. Physical compromise
@@ -375,7 +375,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 33 | **B** | D1 | It records; it prevents nothing |
 | 34 | **B** | D4 | Data and access are yours in every model |
 | 35 | **B** | D5 | Either party could have produced it |
-| 36 | **B** | D2 | Actual disclosure — and intent is irrelevant |
+| 36 | **B** | D5 | Actual disclosure — and intent is irrelevant |
 | 37 | **B** | D4 | Semi-trusted, between internet and internal |
 | 38 | **B** | D1 | A PIN is memorised |
 | 39 | **B** | D4 | Policy per workload rather than per subnet |
@@ -426,7 +426,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 84 | **B** | D5 | Unique salts break precomputation |
 | 85 | **B** | D3 | Orphaned has no owner; dormant has one |
 | 86 | **B** | D4 | Which is why full tunnelling is more secure |
-| 87 | **C** | D2 | Attribution is not one of the six phases |
+| 87 | **C** | D5 | Attribution is not one of the six phases |
 | 88 | **B** | D1 | The only treatment that reaches zero |
 | 89 | **B** | D4 | No signature exists for an unseen attack |
 | 90 | **B** | D3 | Tailgating. Piggybacking has permission |
@@ -435,9 +435,9 @@ Time up. **Confirm all 100 are answered** before marking.
 | 93 | **C** | D2 | Hot site |
 | 94 | **B** | D2 | RTO forward to recovery; RPO back to last good data |
 | 95 | **B** | D3 | Hiding a button does not stop an API call |
-| 96 | **B** | D3 | Without unique IDs the logs name nobody |
+| 96 | **B** | D5 | SAST reads source code; it never executes the application |
 | 97 | **C** | D1 | Patching reduces likelihood; the rest reduce impact |
-| 98 | **B** | D5 | The owner is accountable; the custodian is responsible |
+| 98 | **B** | D5 | EOL risk increases indefinitely — functioning normally is irrelevant |
 | 99 | **B** | D4 | Misconfiguration — on the customer's side of the line |
 | 100 | **B** | D2 | **Human safety always wins.** No exceptions |
 

@@ -307,8 +307,8 @@ A. Block all cloud traffic · B. Establish a policy and train staff · C. Deploy
 **93.** Which is TRUE of a hot site?
 A. Space and power only · B. Equipment with data restored on demand · C. Fully equipped with current data · D. A running duplicate
 
-**94.** Which is the correct relationship?
-A. RTO must exceed MTD · B. RTO must be less than or equal to MTD · C. They are unrelated · D. RPO must exceed MTD
+**94.** A rising count of overdue critical patches, tracked over months, is an example of which of the following?
+A. A KPI · B. A KRI · C. A compliance report · D. A governance document
 
 **95.** A constrained interface is insufficient because:
 A. It is slow · B. Authorisation must be enforced at the point of access · C. Users dislike it · D. It cannot be logged
@@ -378,7 +378,7 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 33 | **B** | D3 | They find access that **already exists** |
 | 34 | **B** | D5 | **In IaaS you patch the OS** |
 | 35 | **B** | D1 | Only the signer holds the private key |
-| 36 | **B** | D2 | Note "**or potentially**" — a blocked attack can count |
+| 36 | **B** | D5 | Note "**or potentially**" — a blocked attack can count |
 | 37 | **B** | D4 | The asymmetry is the whole point of a DMZ |
 | 38 | **D** | D1 | The three are know, have, are |
 | 39 | **B** | D4 | It **contains** a breach; it does not prevent one |
@@ -436,7 +436,7 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 91 | **B** | D4 | It **signs**; it does not encrypt |
 | 92 | **B** | D5 | Policy → training → technology → monitoring |
 | 93 | **C** | D2 | Minutes to hours |
-| 94 | **B** | D2 | RTO ≤ MTD |
+| 94 | **B** | D2 | A KRI warns of rising risk before a loss occurs |
 | 95 | **B** | D3 | Hiding a button does not stop an API call |
 | 96 | **B** | D3 | Without unique IDs, logs name nobody |
 | 97 | **B** | D1 | Backups reduce **impact**; the rest reduce likelihood |
