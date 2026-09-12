@@ -89,6 +89,24 @@ Learn this table cold. It is the highest ratio of marks to effort anywhere on th
 | **636** | **LDAPS** | LDAP over TLS | TCP | ✅ |
 | **3389** | **RDP** | Windows remote desktop | TCP | — |
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    IP["🌍 IP address<br/>203.0.113.5<br/>finds the MACHINE"] --> SRV["🖥️ One server"]
+    SRV --> P80["🚪 :80 → web server"]
+    SRV --> P25["🚪 :25 → mail server"]
+    SRV --> P22["🚪 :22 → SSH daemon"]
+
+    style IP fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SRV fill:#26292e,stroke:#868E96,color:#fff
+    style P80 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style P25 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style P22 fill:#0f3038,stroke:#12B5A5,color:#fff
+```
+
+Read it as a sentence: **the IP address finds the machine, and the port number finds the program
+on it.** One address, many doors.
+
 ### The essential dozen
 
 If time is short, these are the ones that appear most:
@@ -152,6 +170,20 @@ flowchart LR
 | **SFTP** | File transfer over **SSH**, port 22. | **FTPS**, which is FTP with TLS, ports 989/990. |
 | **Port** | Identifies the application on a host. Layer 4. | **IP address**, which identifies the host. Layer 3. |
 | **DNS on 53** | Uses **UDP** for normal queries. | TCP, which DNS uses for zone transfers and large responses. UDP is the expected answer. |
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    U["👤 You"] -->|"SENDING<br/>SMTP · 25"| S["📮 Mail server"]
+    S -->|"RECEIVING<br/>POP3 · 110<br/>downloads and removes"| U
+    S -->|"RECEIVING<br/>IMAP · 143<br/>leaves it on the server"| U
+
+    style U fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S fill:#0f3038,stroke:#12B5A5,color:#fff
+```
+
+**One arrow out, two arrows back.** If a question says mail cannot be *sent*, it is SMTP; if it
+cannot be *received*, it is POP3 or IMAP.
 
 > 🎯 **SMTP sends, POP and IMAP receive.** A question about a user unable to *send* mail points at
 > SMTP; unable to *receive* points at POP3 or IMAP.
