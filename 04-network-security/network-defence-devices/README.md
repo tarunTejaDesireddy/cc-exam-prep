@@ -47,6 +47,7 @@ everything must pass through it — which is what gives it the power to drop a p
 | **Packet-filtering firewall** | Examines each packet's addresses and ports independently. **Stateless.** |
 | **Stateful firewall** | Tracks the state of connections and evaluates packets in that context. |
 | **Next-generation firewall (NGFW)** | Adds application awareness and deeper inspection. |
+| **UTM (Unified Threat Management)** | A single appliance bundling firewall, IPS, antivirus, content filtering and more, aimed at ease of management. |
 | **IDS** — Intrusion Detection System | Monitors traffic and **alerts**. Passive; out of band. |
 | **IPS** — Intrusion Prevention System | Monitors traffic and **blocks**. Active; in line. |
 | **NIDS / NIPS** | Network-based, monitoring network segments. |
@@ -76,6 +77,16 @@ operates at **layers 3 and 4**, filtering on IP addresses and port numbers.
 > 🎯 **Stateful versus stateless is a recurring question.** A **stateless** firewall judges each
 > packet in isolation. A **stateful** firewall remembers connections, so it can permit return
 > traffic for a session your host legitimately started.
+
+**NGFW versus UTM — both bundle extra functions, told apart by emphasis.** An NGFW's selling
+point is **depth**: deep application-layer inspection built around the firewall function
+itself. A UTM's selling point is **breadth and simplicity**: many separate security functions
+(firewall, IPS, antivirus, content filtering, sometimes VPN) combined into one box, aimed at
+smaller organisations that want one appliance rather than a rack of specialised ones.
+
+> ⚠️ **UTM's convenience is also its risk.** Bundling every function into one appliance creates
+> a single point of failure — if it goes down or is misconfigured, every function it provided
+> goes with it.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
@@ -241,6 +252,7 @@ does not inspect application content.
 | **Forward proxy** | In front of clients. | **Reverse proxy**, in front of servers. |
 | **WAF** | Layer 7, protects web applications. | A network firewall at layers 3–4, which cannot see application content. |
 | **NIDS** | Watches a network segment. | **HIDS**, which watches one host. |
+| **UTM** | One appliance, many bundled functions, prioritises simplicity. | **NGFW**, which prioritises deep application-layer inspection around the firewall function itself. |
 
 ---
 
@@ -444,6 +456,7 @@ practice, as opposed to simply buying more products.
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
+- **UTM = one box, many bundled functions, simplicity.** **NGFW = deep inspection around the firewall itself.**
 - **I-D-S = Detect (alerts only). I-P-S = Prevent (blocks).** The middle letter is the answer.
 - **IDS = out of band, gets a copy, PASSIVE, DETECTIVE control.**
 - **IPS = IN LINE, all traffic passes through, ACTIVE, PREVENTIVE control.**

@@ -296,6 +296,12 @@
 | **IoT** | Consumer/commercial connected devices, broader than ICS |
 | **ICS/IoT risk** | Long lifespan, hard to patch, **reboot can be unsafe**, compromise can be physical |
 | **Defence in depth** | Layering multiple **independent** controls so no single failure is fatal |
+| **WPA-Personal (PSK)** | One shared passphrase for everyone. Revoking one user means changing it for all |
+| **WPA-Enterprise (802.1X)** | Individual credentials against a **RADIUS server** — revoke one user alone |
+| **SAE / Dragonfly** | WPA3's handshake, resistant to WPA2's offline password-guessing weakness |
+| **UTM** | One appliance bundling firewall + IPS + AV + content filtering — simplicity over depth |
+| **ICS CIA flip** | ICS commonly prioritises **availability and integrity** of the process before confidentiality |
+| **Default credentials (IoT)** | Factory-set, often published — the cheapest fix is changing them |
 
 ---
 

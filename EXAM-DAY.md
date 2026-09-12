@@ -178,6 +178,7 @@
 - **FALSE NEGATIVE is the dangerous error.**
 - **Stateless** = each packet alone. **Stateful** = tracks connections. **Default deny.**
 - **Forward proxy faces CLIENTS. Reverse proxy faces SERVERS. WAF = layer 7.**
+- **UTM = one box, many bundled functions, simplicity.** **NGFW = deep inspection around the firewall itself.**
 - **Segmentation LIMITS LATERAL MOVEMENT** — contains, doesn't prevent.
 - **Micro-segmentation = workload-level**, stopping lateral movement *inside* a zone.
 - **DMZ = screened subnet.** Internet may reach it; **it must NOT freely reach the internal
@@ -192,6 +193,11 @@
 - **Bluejacking (messages) < Bluesnarfing (data) < Bluebugging (control).**
 - **ICS/SCADA control physical processes. IoT is broader consumer/commercial connectivity.**
   ICS/embedded risk: **long lifespan, hard to patch, reboot can be unsafe.**
+- **ICS often flips CIA to A-I-C** — availability and integrity of the process before confidentiality.
+- **Change default credentials.** Cheapest, highest-value IoT control — most skipped.
+- **Wi-Fi Personal (PSK) = one shared passphrase for everyone.** **Enterprise (802.1X/RADIUS) =
+  individual credentials**, revocable one at a time. **WPA3's SAE handshake fixes WPA2's
+  offline-guessing weakness.**
 - **Hidden SSID and MAC filtering are OBSCURITY, not security.**
 - **Five cloud characteristics:** on-demand self-service, broad network access, resource
   pooling, rapid elasticity, measured service.

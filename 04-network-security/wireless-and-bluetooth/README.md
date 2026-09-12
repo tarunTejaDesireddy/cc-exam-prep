@@ -8,9 +8,9 @@
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~8%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
-📌 *Wi-Fi security basics, and Bluetooth's own short list of named attacks — new, explicit content on the live outline.*
+📌 *Wi-Fi security basics, Personal vs Enterprise authentication, and Bluetooth's own short list of named attacks — new, explicit content on the live outline.*
 
 </div>
 
@@ -37,6 +37,12 @@ its own short list of named attacks worth recognising by name.
 | **Bluejacking** | Sending unsolicited messages to a Bluetooth device. |
 | **Bluesnarfing** | Unauthorised **access to data** on a Bluetooth device. |
 | **Bluebugging** | Unauthorised **control** of a Bluetooth device's functions. |
+| **WPA2/WPA3-Personal** | Authentication with a single **shared passphrase (PSK)** — home and small-office use. |
+| **WPA2/WPA3-Enterprise** | Authentication against a **RADIUS server using 802.1X**, giving each user their own credentials. |
+| **4-way handshake** | The process a WPA2 client and AP use to prove they both know the shared key and derive a session key, without sending the key itself over the air. |
+| **SAE (Simultaneous Authentication of Equals)** | WPA3's replacement handshake ("Dragonfly"), resistant to the offline password-guessing attacks that work against WPA2's handshake. |
+| **WIPS** — Wireless Intrusion Prevention System | Monitors the RF spectrum for rogue APs and evil twins, and can actively disrupt them. |
+| **Guest network** | A Wi-Fi network segmented away from the internal network, typically with internet access only. |
 
 ---
 
@@ -62,6 +68,28 @@ flowchart LR
     style Risk2 fill:#3a2c12,stroke:#F08C00,color:#fff
 ```
 
+## 🏢 Personal versus Enterprise, and why organisations pick one
+
+A home network shares **one passphrase** among every device — fine for a household, weak for
+an office, because everyone who ever learned the passphrase (including a departed employee)
+can still get on the network until it is changed for **everyone at once**.
+
+| | Personal (PSK) | Enterprise (802.1X) |
+|---|---|---|
+| **Credential** | One shared passphrase | Individual username/password or certificate per user |
+| **Authenticates against** | The AP itself | A **RADIUS server** |
+| **Revoking one user** | Requires changing the passphrase for **everyone** | Disable **that one** account |
+| **Typical use** | Home, small office, guest networks | Corporate networks |
+
+> 🎯 **"Revoke one person without disrupting everyone else" is the tell for Enterprise/802.1X.**
+> A PSK network cannot do this — the whole passphrase has to change.
+
+**Guest networks are a segmentation problem, not just a Wi-Fi one.** A guest SSID should sit on
+its own VLAN with no route to internal resources — the same segmentation principle from
+[`segmentation-and-dmz/`](../segmentation-and-dmz/), applied to wireless.
+
+---
+
 ## 🔍 Bluetooth: three named attacks, told apart by severity
 
 | Attack | Does what | Severity |
@@ -82,6 +110,8 @@ flowchart LR
 | **Rogue access point** | Unauthorised AP added from inside the organisation. | **Evil twin**, an attacker's AP impersonating a legitimate SSID from outside. |
 | **Bluesnarfing** | Stealing data from a Bluetooth device. | **Bluebugging**, taking control of the device's functions — a more severe outcome than data theft alone. |
 | **WPA2/WPA3** | Current, acceptable Wi-Fi security standards. | **WEP**, an obsolete standard whose encryption is broken and should never be presented as adequate. |
+| **Personal (PSK)** | One shared passphrase, revoking one user means changing it for everyone. | **Enterprise (802.1X)**, individual credentials against RADIUS — revoke one user without touching anyone else. |
+| **WIPS** | Actively monitors and can disrupt rogue APs/evil twins over the air. | A **wired IDS/IPS**, which inspects network traffic rather than the RF spectrum itself. |
 
 ---
 
@@ -205,6 +235,28 @@ device control.
 
 </details>
 
+**Q6.** A departed employee's device could still connect to the office Wi-Fi weeks after their
+last day, because everyone on-site shares the same Wi-Fi passphrase. What network design
+choice would MOST directly have prevented this?
+
+- **A.** Upgrading from WPA2 to WPA3-Personal
+- **B.** Deploying WPA2/WPA3-Enterprise with 802.1X, giving each employee individual credentials
+- **C.** Hiding the SSID
+- **D.** Enabling MAC filtering
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — Enterprise/802.1X with individual credentials.** A single account can be disabled at
+departure without changing anything for other users.
+
+- **A** stays a shared-passphrase (PSK) model — a stronger standard doesn't fix the
+  one-passphrase-for-everyone problem.
+- **C** and **D** are both obscurity measures, not authentication controls, and neither
+  revokes the departed employee's actual access.
+
+</details>
+
 ---
 
 ## 🎓 The grown-up version
@@ -224,6 +276,21 @@ are considerably harder to bluesnarf or bluebug than older Bluetooth Classic dev
 why these attacks are now more associated with older or poorly configured hardware than with
 current flagship devices — though the vocabulary remains exam-relevant regardless.
 
+**Why WPA2's handshake was crackable offline (KRACK, and passphrase guessing).** WPA2-Personal's
+4-way handshake exchanges enough information for an attacker who has captured it to attempt an
+offline dictionary attack against the passphrase, with no rate limiting because the guessing
+happens on the attacker's own hardware rather than against the live AP. This is precisely the
+weakness WPA3's SAE handshake was designed to close — each guess now requires a fresh
+interaction with the AP, so offline guessing no longer works. It is also why passphrase
+strength matters far more on WPA2 than people assume: a short or common passphrase is
+recoverable after capture, given time.
+
+**802.1X is the same technology in three different places.** The port-based authentication
+framework behind Wi-Fi Enterprise mode is the identical mechanism used to authenticate devices
+plugging into a **wired** switch port, which is why 802.1X appears in both wired and wireless
+network-access-control discussions — it is a general "prove who you are before the port
+does anything for you" framework, not a wireless-specific technology.
+
 </details>
 
 ---
@@ -235,6 +302,8 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 - **Rogue AP = unauthorised, from inside.** **Evil twin = impersonation, from outside.**
 - **Bluejacking (messages) < Bluesnarfing (data) < Bluebugging (control).**
 - **WEP is obsolete. WPA2/WPA3 are current.**
+- **Personal (PSK) = one shared passphrase for everyone.** **Enterprise (802.1X/RADIUS) = individual credentials**, revocable one at a time.
+- **WPA3's SAE handshake closes WPA2's offline-guessing weakness.**
 
 ---
 

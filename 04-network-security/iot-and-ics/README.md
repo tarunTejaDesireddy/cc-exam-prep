@@ -8,9 +8,9 @@
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~8%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
-📌 *Why embedded devices, industrial control systems, and consumer IoT get their own line on the live outline — they break the usual security assumptions.*
+📌 *Why embedded devices, industrial control systems, and consumer IoT get their own line on the live outline — they break the usual security assumptions, including the CIA priority order itself.*
 
 </div>
 
@@ -40,6 +40,27 @@ threats apply, but the usual fixes often do not.**
 | **PLC (Programmable Logic Controller)** | A ruggedised industrial computer running control logic for machinery. |
 | **IoT (Internet of Things)** | Everyday consumer or commercial devices with network connectivity added — cameras, thermostats, smart locks. |
 | **Air gap** | Physically isolating a network from other networks, including the internet, so there is no direct connection to attack. |
+| **OT (Operational Technology)** | The broader category ICS/SCADA sits under — hardware and software that monitors or controls physical devices and processes, as distinct from **IT**, which handles data. |
+| **IT/OT convergence** | The trend of connecting previously isolated OT networks to corporate IT networks (for remote monitoring, data collection), which is exactly what erodes the old assumption that ICS was "safe because it wasn't networked." |
+| **Default credentials** | Factory-set usernames/passwords, often published in a vendor manual or well-known online — a leading cause of IoT compromise when never changed. |
+
+---
+
+## 🔄 Why the CIA priority order often flips in ICS
+
+Standard IT security tends to prioritise **confidentiality** first — protecting data from
+disclosure. **In ICS/OT environments, the priority commonly flips to availability and
+integrity first**, because the "data" being protected is a live physical process.
+
+| Priority | Typical IT reasoning | Typical ICS/OT reasoning |
+|---|---|---|
+| **Availability** | Important, but a brief outage is usually recoverable | **Often the top priority** — a stopped process can mean a halted production line or an unsafe plant state |
+| **Integrity** | Important | **Critical** — a controller executing incorrect commands can cause physical damage or injury |
+| **Confidentiality** | Usually the first concern | Still matters, but a leaked sensor reading is rarely as damaging as a manipulated control command |
+
+> 🎯 **If a question asks what an ICS operator prioritises first, "keeping the process running
+> safely" (availability + integrity) usually beats "keeping the data secret" (confidentiality)**
+> — the reverse of the default IT instinct.
 
 ---
 
@@ -62,6 +83,8 @@ threats apply, but the usual fixes often do not.**
   itself.
 - **Vendor support lifecycle awareness** — knowing when a device reaches end-of-life and can no
   longer receive security updates at all (see asset lifecycle and EOL, Domain 5).
+- **Changing default credentials** on every deployed device — the single cheapest, highest-value
+  IoT control, and the one most often skipped at scale.
 
 ---
 
@@ -72,6 +95,7 @@ threats apply, but the usual fixes often do not.**
 | **ICS / SCADA** | Systems controlling physical industrial processes. | **IoT**, which is typically consumer or commercial connected devices, not industrial process control. |
 | **Air gap** | Physical isolation — no network path exists at all. | **Segmentation**, which restricts traffic between connected network zones but does not eliminate the connection entirely. |
 | **Embedded system** | A dedicated-purpose computer built into a larger device. | A general-purpose **endpoint** (laptop, server), which runs varied software and is patched on a normal IT cadence. |
+| **ICS priority order (often A-I-C)** | Availability and integrity of the physical process typically come first. | Standard **IT priority order (often C-I-A)**, where confidentiality is usually the leading concern. |
 
 ---
 
@@ -201,6 +225,27 @@ is exactly why the live outline names them separately.
 
 </details>
 
+**Q6.** In a typical industrial control system, which of the following is MOST likely to be
+prioritised ahead of confidentiality?
+
+- **A.** Non-repudiation
+- **B.** Availability and integrity of the physical process
+- **C.** Anonymisation of operator data
+- **D.** Encryption key length
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — availability and integrity of the physical process.** ICS environments commonly flip the
+usual IT priority order, because the asset being protected is a live physical process rather
+than data at rest.
+
+- **A** and **D** are real security concerns but not the priority the exam tests as flipped in
+  ICS contexts.
+- **C** is a privacy concept, unrelated to the ICS availability/integrity priority.
+
+</details>
+
 ---
 
 ## 🎓 The grown-up version
@@ -217,7 +262,16 @@ network should not be flatly connected — is exactly the segmentation principle
 **Why IoT firmware quality varies so widely.** Consumer IoT is frequently built by hardware
 manufacturers without dedicated security engineering, competing primarily on price and features
 rather than patchability — which is why unpatched, internet-facing IoT devices are a
-recurring source of large-scale botnets in the wild.
+recurring source of large-scale botnets in the wild. The historical Mirai botnet is the
+textbook example: it spread almost entirely by trying a short list of factory-default
+credentials against internet-exposed devices, needing no software vulnerability at all.
+
+**Legacy ICS protocols were never designed with an attacker in mind.** Protocols such as
+Modbus, common in older industrial equipment, were built assuming a physically isolated,
+trusted network, and so carry no built-in authentication or encryption — any device that can
+reach one on the network can issue commands to it. This is precisely why IT/OT convergence is
+risky: connecting that trusting old protocol to a broader, less-trusted network exposes an
+assumption the protocol's designers never expected to be tested.
 
 </details>
 
@@ -231,6 +285,8 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 - ICS/embedded devices break normal assumptions: **long lifespan, hard to patch, reboot can be unsafe.**
 - Compromise can be **physical, safety-relevant** — not just a data problem.
 - **Segmentation / air-gapping** is the go-to control when patching isn't practical.
+- **ICS often flips CIA to A-I-C** — availability and integrity of the process before confidentiality.
+- **Change default credentials.** The cheapest, highest-value IoT control — and the most skipped.
 
 ---
 

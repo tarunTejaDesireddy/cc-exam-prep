@@ -8,7 +8,7 @@
 
 [![Module](https://img.shields.io/badge/Module-06_Term_Bank-0d2b33?style=flat-square)](README.md)
 [![Value](https://img.shields.io/badge/Value-highest%20in%20the%20module-12B5A5?style=flat-square)](README.md)
-[![Pairs](https://img.shields.io/badge/Pairs-45-5C7CFA?style=flat-square)](#)
+[![Pairs](https://img.shields.io/badge/Pairs-55%2B-5C7CFA?style=flat-square)](#)
 
 📌 *If you drill one thing in this repo, drill this page. Every pair here is a distractor pattern that appears on the paper.*
 
@@ -187,6 +187,9 @@ The ⭐ pairs are the ones that appear most often. Start there if time is short.
 | **Governance (Domain 2) vs Incident Response (Domain 5)** | Governance = **before** anything happens (GRC, BC/DR, awareness). IR = **after** an incident is declared |
 | **EOL/EOS vs "old"** | EOL/EOS specifically means **no more vendor patches** — age alone isn't the risk |
 | **CAT vs the old linear format** | CAT: **cannot generally go back** to an answered item. Old format allowed flag-and-return |
+| ⭐ **WPA-Personal vs WPA-Enterprise** | Personal = **one shared passphrase** for everyone. Enterprise = **individual credentials** via 802.1X/RADIUS, revocable one at a time |
+| **UTM vs NGFW** | UTM = **one box, many functions**, simplicity. NGFW = **deep inspection**, built around the firewall |
+| **ICS priority order vs standard IT (CIA)** | ICS often flips to **availability + integrity first**; standard IT usually leads with confidentiality |
 
 ---
 
