@@ -21,7 +21,7 @@
 > that are operationally right and textbook wrong. That is deliberate: this is the paper whose
 > score you should trust.
 
-**Blueprint proportion:** 26 × D1 · 24 × D4 · 22 × D3 · 18 × D5 · 10 × D2. Not grouped.
+**Blueprint proportion (rounded):** 24 × D1 · 17 × D2 · 20 × D3 · 21 × D4 · 18 × D5. Not grouped. Fixed-form practice, not a CAT simulation.
 
 ---
 
@@ -343,7 +343,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 1 | **B** | D3 | More access than the role requires |
 | 2 | **B** | D4 | Answer the simplified model: **IPS blocks** |
 | 3 | **B** | D1 | Backups reduce **impact**; the others reduce likelihood |
-| 4 | **B** | D2 | User reports are a primary detection source |
+| 4 | **B** | D5 | User reports are a primary detection source |
 | 5 | **B** | Fnd | "Completely prevents all" — two absolutes |
 | 6 | **C** | D3 | Several dissimilar attributes together |
 | 7 | **B** | D2 | **RTO ≤ MTD** |
@@ -371,7 +371,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 29 | **B** | D5 | Compensating control |
 | 30 | **B** | D4 | It **signs**; it does not encrypt |
 | 31 | **B** | D1 | The order is the ranking |
-| 32 | **B** | D2 | Order of volatility |
+| 32 | **B** | D5 | Order of volatility |
 | 33 | **D** | D2 | Running duplicate, near-instant |
 | 34 | **B** | D3 | Cloning propagates creep |
 | 35 | **C** | D1 | know + have. A is have+have; B know+know; D are+are |
@@ -397,7 +397,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 55 | **A** | D1 | "In case it's useful" is not a purpose |
 | 56 | **B** | D1 | Substitution, not addition |
 | 57 | **B** | D1 | Disclosure vs loss of access |
-| 58 | **B** | D2 | Containment is a phase, not a first move |
+| 58 | **B** | D5 | Containment is a phase, not a first move |
 | 59 | **B** | D4 | Each VM runs its own kernel |
 | 60 | **B** | D4 | Usually **not** legally binding |
 | 61 | **B** | D5 | Which is what makes hashing useful for integrity |
@@ -425,7 +425,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 83 | **B** | D5 | Primary control infeasible |
 | 84 | **B** | D5 | In transit → TLS/VPN. **In use** is the hardest state |
 | 85 | **B** | D3 | Scope, rotate, deny interactive logon |
-| 86 | **B** | D2 | Ransomware encryption is an incident, not a breach |
+| 86 | **B** | D5 | Ransomware encryption is an incident, not a breach |
 | 87 | **B** | D1 | Diligence is the research; care is the action |
 | 88 | **B** | D3 | The specific answer to tailgating |
 | 89 | **B** | D4 | Layer 2 — the most-missed placement |

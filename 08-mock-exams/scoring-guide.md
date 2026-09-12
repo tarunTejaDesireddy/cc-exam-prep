@@ -87,7 +87,7 @@ flowchart TD
 ## 🔍 Reading the domain breakdown
 
 The breakdown matters more than the total. Work out your **percentage within each domain**, not
-the raw count — 6 misses out of 26 in Domain 1 is better than 6 out of 10 in Domain 2.
+the raw count — 6 misses out of 24 in Domain 1 is better than 6 out of 17 in Domain 2.
 
 | Pattern | Diagnosis | Priority |
 |---|---|---|
@@ -95,11 +95,11 @@ the raw count — 6 misses out of 26 in Domain 1 is better than 6 out of 10 in D
 | One domain far below the rest | A genuine gap | **Re-read that domain** before anything else |
 | Weak in Domain 1 | Serious — its vocabulary appears in every other domain's questions | **Highest priority** |
 | Weak in Domain 4 | Check whether misses were practitioner answers | Read the domain for **phrasing** |
-| Weak in Domain 2 | Cheapest to fix — it is short and definitional | One focused evening |
+| Weak in Domain 2 | GRC/awareness/metrics are new — usually a coverage gap, not depth | Re-read Domain 2 in full |
 | Weak in Domain 3 | Usually the four models | Drill `dac-mac-rbac-abac/` |
 | Strong everywhere except 80% total | Likely qualifier misreads | `answering-technique/` |
 
-> ⚠️ **A weak Domain 1 costs more than its 26% suggests.** Its terms — risk, control, CIA, data
+> ⚠️ **A weak Domain 1 costs more than its 24% suggests.** Its terms — risk, control, CIA, data
 > owner — appear inside questions belonging to every other domain. Fix it first.
 
 ---
@@ -123,7 +123,7 @@ flowchart LR
 
 Keep a simple record:
 
-| | Raw | D1 /26 | D4 /24 | D3 /22 | D5 /18 | D2 /10 | Type 1 | Type 2 | Type 3 | Type 4 |
+| | Raw | D1 /24 | D2 /17 | D3 /20 | D4 /21 | D5 /18 | Type 1 | Type 2 | Type 3 | Type 4 |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
 | **Mock 1** | | | | | | | | | | |
 | **Mock 2** | | | | | | | | | | |

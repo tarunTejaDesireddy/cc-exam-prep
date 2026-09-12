@@ -19,10 +19,10 @@
 > sheet. **Do not scroll to the answer key.** This paper is single-use — once seen, it measures
 > nothing.
 >
-> **Answer all 100.** There is no negative marking. Guess, flag, move on.
+> **Answer all 100.** There is no negative marking. Guess and move on — and to build the real exam's habit, don't go back and change earlier answers once you've moved past them.
 
-**Blueprint proportion:** 26 × Domain 1 · 24 × Domain 4 · 22 × Domain 3 · 18 × Domain 5 ·
-10 × Domain 2. Not grouped.
+**Blueprint proportion (rounded):** 24 × Domain 1 · 17 × Domain 2 · 20 × Domain 3 · 21 × Domain 4 ·
+18 × Domain 5. Not grouped. Fixed-form practice, not a CAT simulation.
 
 ---
 
@@ -352,7 +352,7 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 7 | **B** | D4 | 22 — SSH, SFTP and SCP. 23 is Telnet |
 | 8 | **B** | D3 | Fail-**safe** = safe for **people**; the door opens |
 | 9 | **C** | D5 | In use must be **decrypted** to be processed |
-| 10 | **C** | D2 | Preparation is everything done **before** an incident |
+| 10 | **C** | D5 | Preparation is everything done **before** an incident |
 | 11 | **C** | D1 | They restore after loss. **Most-missed classification** |
 | 12 | **C** | D4 | ARP, at **layer 2**. DNS resolves names to IPs |
 | 13 | **B** | D3 | One person completing a sensitive process alone |
@@ -421,7 +421,7 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 76 | **C** | D4 | Spraying — to dodge account lockout |
 | 77 | **C** | D4 | Data and access are yours in **every** model |
 | 78 | **B** | D4 | SYN → SYN-ACK → ACK |
-| 79 | **B** | D2 | Contain, then eradicate, then recover |
+| 79 | **B** | D5 | Contain, then eradicate, then recover |
 | 80 | **B** | D5 | Impact — not volume, format or department |
 | 81 | **B** | D1 | It lives in memory, like a password |
 | 82 | **B** | D2 | A **reliability** metric, not a recovery objective |
@@ -429,7 +429,7 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 84 | **B** | D5 | Unique salts break precomputation |
 | 85 | **B** | D3 | A leaver never disabled. Dormant has an owner |
 | 86 | **B** | D4 | Inspection, not encryption strength |
-| 87 | **C** | D2 | The six are prepare, detect, contain, eradicate, recover, review |
+| 87 | **C** | D5 | The six are prepare, detect, contain, eradicate, recover, review |
 | 88 | **B** | D1 | Informed and documented — and **management** decides |
 | 89 | **B** | D4 | The only method that catches a zero-day |
 | 90 | **B** | D3 | Piggy**b**acking has **p**ermission |
@@ -442,7 +442,7 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 97 | **B** | D1 | Backups reduce **impact**; the rest reduce likelihood |
 | 98 | **B** | D5 | Owner decides, custodian implements |
 | 99 | **B** | D4 | Misconfiguration, not provider failure |
-| 100 | **B** | D2 | **Follow the plan and notify.** Containment is a phase, not a first move |
+| 100 | **B** | D5 | **Follow the plan and notify.** Containment is a phase, not a first move |
 
 </details>
 

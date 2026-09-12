@@ -21,6 +21,15 @@
 **These are measurements, not learning exercises.** The question bank is where you learn; this is
 where you find out whether it worked.
 
+> [!IMPORTANT]
+> **These papers are fixed-form practice, not a CAT simulation.** The live CC exam is delivered
+> as a Computerized Adaptive Test — 100–125 items, and you generally cannot revisit an answered
+> item. These mocks stay a **fixed 100 items with full review**, because that is what makes them
+> useful as a *knowledge* measurement — a variable-length, non-reviewable paper would introduce
+> noise that has nothing to do with what you actually know. Practise the **content** here; practise
+> the **CAT discipline** (commit once, no going back) by following
+> [`00-foundations/answering-technique/`](../00-foundations/answering-technique/) while you sit them.
+
 That difference dictates everything about how you use them:
 
 | | Question bank | Mock exams |
@@ -35,9 +44,10 @@ That difference dictates everything about how you use them:
 > measures recall of that question rather than knowledge of the subject. Do not "just have a quick
 > look" at one — that spends it.
 
-**The papers are deliberately structured like the real exam:** 100 questions, exam-blueprint
+**The papers are deliberately structured like the real exam's content:** 100 questions, exam-blueprint
 proportions, no domain grouping, and **no answers visible while you work**. The key sits in a
-collapsed section at the end.
+collapsed section at the end. What they do **not** replicate is CAT delivery itself — see the box
+above.
 
 ---
 
@@ -50,8 +60,10 @@ collapsed section at the end.
 | 📝 [`mock-03.md`](mock-03.md) | **Week 8** (Mon 2 Nov) | **Final calibration.** Confidence, not learning |
 | 📊 [`scoring-guide.md`](scoring-guide.md) | After each | Converting a raw score into a realistic readiness reading |
 
-Each paper draws in blueprint proportion: **26 from Domain 1, 24 from Domain 4, 22 from Domain 3,
-18 from Domain 5, 10 from Domain 2.**
+Each paper draws in blueprint proportion, rounded to whole numbers: **24 from Domain 1, 17 from
+Domain 2, 20 from Domain 3, 21 from Domain 4, 18 from Domain 5.** (The live weights — 24 / 17.3 /
+20 / 21.3 / 17.3 — don't sum to a clean 100 as whole numbers; this repo uses 24/17/20/21/18 so
+the mix totals 100, rounding Domain 5 up by one.)
 
 ---
 
@@ -60,15 +72,13 @@ Each paper draws in blueprint proportion: **26 from Domain 1, 24 from Domain 4, 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    P["📵 Phone away<br/>notes closed<br/>timer set to 2:00"] --> A["🏃 Pass 1<br/>all 100<br/>flag the unsure"]
-    A --> B["🔍 Pass 2<br/>flagged only"]
-    B --> C["✅ Pass 3<br/>confirm all 100<br/>are answered"]
+    P["📵 Phone away<br/>notes closed<br/>timer set to 2:00"] --> A["🏃 Work top to bottom<br/>commit to each,<br/>no going back<br/>(CAT-style discipline)"]
+    A --> C["✅ Confirm all 100<br/>are answered"]
     C --> D["📊 Mark it<br/>tally by DOMAIN"]
     D --> E["📚 Review EVERY<br/>miss against<br/>its topic page"]
 
     style P fill:#3a1a20,stroke:#E03131,color:#fff
     style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
     style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
     style D fill:#3a2c12,stroke:#F08C00,color:#fff
     style E fill:#0f3038,stroke:#12B5A5,color:#fff
@@ -80,9 +90,12 @@ flowchart LR
 2. **Nothing open.** No notes, no repo, no search. A mock taken with the material to hand
    measures nothing and burns a paper.
 3. **Answer all 100.** There is no negative marking on the real exam, so a blank is a guaranteed
-   zero. Guess, flag, move on.
-4. **Do not scroll to the key.** Write your answers down separately, then mark in one pass.
-5. **Review every miss**, and tally them **by domain** — not just the total.
+   zero. Guess and move on.
+4. **Practise CAT discipline even though this paper technically allows review.** Work top to
+   bottom, commit to each answer once, and resist going back to change earlier ones — that's
+   the habit the live exam actually requires, and building it here costs nothing.
+5. **Do not scroll to the key.** Write your answers down separately, then mark in one pass.
+6. **Review every miss**, and tally them **by domain** — not just the total.
 
 > 🎯 **Write your answers on paper or in a separate file.** Working in the document itself makes it
 > far too easy to catch a glimpse of the key.

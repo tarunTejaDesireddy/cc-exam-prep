@@ -21,7 +21,7 @@
 > material. Take it, confirm you are where Mock 2 said you were, review the misses once, and then
 > stop taking papers.
 
-**Blueprint proportion:** 26 × D1 · 24 × D4 · 22 × D3 · 18 × D5 · 10 × D2. Not grouped.
+**Blueprint proportion (rounded):** 24 × D1 · 17 × D2 · 20 × D3 · 21 × D4 · 18 × D5. Not grouped. Fixed-form practice, not a CAT simulation.
 
 ---
 
@@ -349,7 +349,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 7 | **B** | D4 | 23, cleartext credentials. Replace with SSH on 22 |
 | 8 | **B** | D3 | Fail-secure protects assets where no one is trapped |
 | 9 | **C** | D5 | In use must be decrypted to be processed |
-| 10 | **B** | D2 | Eradication removes the cause, including attacker access |
+| 10 | **B** | D5 | Eradication removes the cause, including attacker access |
 | 11 | **B** | D5 | Administrative type, preventive function |
 | 12 | **C** | D4 | DNS. ARP resolves IP to MAC |
 | 13 | **B** | D3 | Requester and approver must differ |
@@ -418,7 +418,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 76 | **B** | D4 | Brute force. Dictionary uses a list |
 | 77 | **B** | D4 | PaaS — provider handles OS and runtime |
 | 78 | **B** | D4 | Half-open connections fill the table |
-| 79 | **C** | D2 | Recovery restores **and verifies clean** |
+| 79 | **C** | D5 | Recovery restores **and verifies clean** |
 | 80 | **B** | D5 | The label is an instruction, not a description |
 | 81 | **C** | D1 | Something you **are** |
 | 82 | **B** | D2 | A reliability metric, not a recovery objective |
