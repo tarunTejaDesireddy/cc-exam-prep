@@ -116,7 +116,7 @@
     <text x="58" y="176" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="52" font-weight="700" fill="#f2f7ff">Pass the CC exam</text>
     <rect x="58" y="196" width="88" height="5" rx="2.5" fill="url(#hacc)"/>
     <text x="58" y="236" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="17" fill="#a9bcd8">Not a security course — a course in how ISC2 words things.</text>
-    <text x="58" y="262" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="17" fill="#a9bcd8">50 topics · 711 questions · 3 mock exams.</text>
+    <text x="58" y="262" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="17" fill="#a9bcd8">53 topics · 738 questions · 3 mock exams.</text>
 
     <g transform="translate(58,288)">
       <rect x="0" y="0" width="150" height="32" rx="8" fill="#0f2e38" stroke="#12B5A5" stroke-width="1.6"/>
