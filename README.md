@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/hero-banner.svg" alt="ISC2 CC exam prep — pass the CC exam: 50 topics, 711 questions, 3 mock exams" width="100%">
+<img src="assets/hero-banner.svg" alt="ISC2 CC exam prep — pass the CC exam: 53 topics, 738 questions, 3 mock exams" width="100%">
 
 <h1>
 🛡️&nbsp; ISC2 CC — Certified in Cybersecurity
@@ -11,17 +11,16 @@
 </h3>
 
 <p>
-<b>9 modules · 50 topics · 711 practice questions · 152 diagrams</b><br>
-<sub>Everything the exam can ask, written to be read once and drilled twice. Nothing here is a copy of the ISC2 courseware.</sub>
+<b>9 modules · 53 topics · 738 practice questions</b><br>
+<sub>Built for the <strong>live exam outline, effective 1 September 2026</strong>. Everything the exam can ask, written to be read once and drilled twice. Nothing here is a copy of the ISC2 courseware.</sub>
 </p>
 
 [![Exam](https://img.shields.io/badge/Exam-5%20November%202026-12B5A5?style=for-the-badge)](EXAM-DAY.md)
 [![Modules](https://img.shields.io/badge/Modules-9-0d2b33?style=for-the-badge)](#-the-9-modules)
-[![Questions](https://img.shields.io/badge/Practice%20Qs-711-0d2b33?style=for-the-badge)](#-whats-in-it)
+[![Questions](https://img.shields.io/badge/Practice%20Qs-738-0d2b33?style=for-the-badge)](#-whats-in-it)
 [![Pass mark](https://img.shields.io/badge/Pass-700%2F1000-5C7CFA?style=for-the-badge)](00-foundations/how-the-exam-works/)
+[![Format](https://img.shields.io/badge/Format-CAT%20·%20100--125%20items-F08C00?style=for-the-badge)](00-foundations/how-the-exam-works/)
 [![Progress](https://img.shields.io/badge/Progress-COMPLETE-2F9E44?style=for-the-badge)](ROADMAP.md)
-
-<img src="assets/stats.svg" alt="50 topic pages · 711 practice questions · 152 diagrams · 591 flashcards · 3 mock exams · exam 5 November" width="100%">
 
 <sub>🌐 Prefer to browse? <a href="docs/index.html"><code>docs/index.html</code></a> is a filterable index of every
 topic — open it locally, or turn on GitHub Pages from the <code>/docs</code> folder.</sub>
@@ -51,19 +50,26 @@ really done.
 ## 📊 What the exam weighs
 
 <div align="center">
-<img src="assets/weights.svg" alt="Domain weights: Security Principles 26%, Network Security 24%, Access Control 22%, Security Operations 18%, BC DR and IR 10%" width="100%">
+<img src="assets/weights.svg" alt="Live domain weights: Security Principles 24%, Networking and Cloud Security Concepts 21.3%, IAM Concepts 20%, Security Governance 17.3%, Security Operations and Incident Response 17.3%" width="100%">
 </div>
 
 | | Domain | Weight | Module |
 |:--:|---|--:|---|
-| 🧭 | **Security Principles** | **26%** | [`01-security-principles/`](01-security-principles/README.md) |
-| 🌐 | **Network Security** | **24%** | [`04-network-security/`](04-network-security/README.md) |
-| 🚪 | **Access Control Concepts** | **22%** | [`03-access-control/`](03-access-control/README.md) |
-| ⚙️ | **Security Operations** | **18%** | [`05-security-operations/`](05-security-operations/README.md) |
-| 🚨 | **BC, DR & Incident Response** | **10%** | [`02-bc-dr-ir/`](02-bc-dr-ir/README.md) |
+| 🧭 | **Security Principles** | **24%** | [`01-security-principles/`](01-security-principles/README.md) |
+| 🌐 | **Networking and Cloud Security Concepts** | **21.3%** | [`04-network-security/`](04-network-security/README.md) |
+| 🚪 | **IAM Concepts** | **20%** | [`03-access-control/`](03-access-control/README.md) |
+| 🚨 | **Security Governance** | **17.3%** | [`02-security-governance/`](02-security-governance/README.md) |
+| ⚙️ | **Security Operations and Incident Response** | **17.3%** | [`05-security-operations/`](05-security-operations/README.md) |
 
-**Domains 1, 4 and 3 are 72% of the paper between them.** Spend your time there — and if the
-schedule slips, it slips on Domain 2.
+**Domains 1, 4 and 3 are 65.3% of the paper between them.** Study in weight order — 1, then 4,
+then 3, then 2 and 5 tied — and if the schedule slips, it slips on whichever of Governance or
+Security Operations you reach last, not on Domains 1, 4 or 3.
+
+> [!IMPORTANT]
+> These are the **live outline weights, effective 1 September 2026.** The old outline (26% /
+> 24% / 22% / 18% / 10%, with Domain 2 = "BC, DR & Incident Response") no longer applies.
+> Incident response now lives in Domain 5; Domain 2 is Security Governance (GRC, redundancy,
+> awareness, measuring effectiveness).
 
 
 ---
@@ -84,19 +90,19 @@ schedule slips, it slips on Domain 2.
 
 | | Module | Topics | Weight | What it covers |
 |:--:|---|--:|:--:|---|
-| 🧭 | **[01 · Security Principles](01-security-principles/README.md)**<br><sub>The vocabulary the whole exam is built on.</sub> | 11 | **26%** | CIA, authentication, non-repudiation, privacy, risk, controls, governance, ethics. |
-| 🚨 | **[02 · BC, DR & Incident Response](02-bc-dr-ir/README.md)**<br><sub>What you do once it has already gone wrong.</sub> | 6 | **10%** | Incident terminology and phases, BIA, RTO/RPO/MTD, continuity and recovery plans. |
-| 🚪 | **[03 · Access Control Concepts](03-access-control/README.md)**<br><sub>Who gets in, to what, and on whose authority.</sub> | 8 | **22%** | Subjects and objects, physical and logical controls, DAC/MAC/RBAC/ABAC, least privilege. |
-| 🌐 | **[04 · Network Security](04-network-security/README.md)**<br><sub>How networks are built, attacked and defended.</sub> | 11 | **24%** | OSI and TCP/IP, addressing, ports, attacks, firewalls and IDS, segmentation, VPNs, cloud. |
-| ⚙️ | **[05 · Security Operations](05-security-operations/README.md)**<br><sub>The daily job, as the textbook describes it.</sub> | 9 | **18%** | Data handling and classification, encryption, hardening, logging, policies, awareness. |
+| 🧭 | **[01 · Security Principles](01-security-principles/README.md)**<br><sub>The vocabulary the whole exam is built on.</sub> | 12 | **24%** | CIA, authentication, non-repudiation, privacy, risk (+lifecycle), controls, governance (+ISO/CIS), ethics, due care/diligence. |
+| 🚨 | **[02 · Security Governance](02-security-governance/README.md)**<br><sub>Planning resilience and proving the programme works.</sub> | 7 | **17.3%** | GRC, BC/DR, RTO/RPO/MTD, security awareness, measuring effectiveness (KRIs, dashboards). |
+| 🚪 | **[03 · IAM Concepts](03-access-control/README.md)**<br><sub>Who gets in, to what, and on whose authority.</sub> | 6 | **20%** | Identity lifecycle, DAC/MAC/RBAC/ABAC, least privilege, logical access controls. |
+| 🌐 | **[04 · Networking and Cloud Security](04-network-security/README.md)**<br><sub>How networks and clouds are built, attacked and defended.</sub> | 14 | **21.3%** | OSI/TCP-IP, ports, wireless/Bluetooth, IoT/ICS, firewalls, segmentation, Zero Trust, cloud. |
+| ⚙️ | **[05 · Security Operations and IR](05-security-operations/README.md)**<br><sub>The daily job, plus what happens once it goes wrong.</sub> | 14 | **17.3%** | Data handling, encryption, quantum-resistant crypto, CTI, incident response, EOL, security testing. |
 
 ### 🎯 Drill material
 
 | | Module | Contents | When to use it |
 |:--:|---|---|---|
-| 🗂️ | **[06 · Term Bank](06-term-bank/README.md)**<br><sub>Every definition the exam can ask you for.</sub> | 591 cards, domain-tagged | From week 2 onward, a few minutes daily |
-| ❓ | **[07 · Question Bank](07-question-bank/README.md)**<br><sub>Drills by domain, every wrong answer explained.</sub> |  160 here + 250 in the topics | After each domain, then mixed in week 6 |
-| 📝 | **[08 · Mock Exams](08-mock-exams/README.md)**<br><sub>Three full timed sets. You only get three.</sub> | 3 × 100 questions | Weeks 5 and 7 — not before |
+| 🗂️ | **[06 · Term Bank](06-term-bank/README.md)**<br><sub>Every definition the exam can ask you for.</sub> | 651 cards, domain-tagged | From week 2 onward, a few minutes daily |
+| ❓ | **[07 · Question Bank](07-question-bank/README.md)**<br><sub>Drills by domain, every wrong answer explained.</sub> | 173 here + 265 in the topics | After each domain, then mixed in week 6 |
+| 📝 | **[08 · Mock Exams](08-mock-exams/README.md)**<br><sub>Three full fixed-form practice papers.</sub> | 3 × 100 questions | Weeks 5 and 7 — not before |
 
 ---
 
@@ -140,17 +146,17 @@ Conventions, colours and the full visual language: [`CLAUDE.md`](CLAUDE.md).
 
 ## 📌 Progress
 
-**The repo is complete.** All 50 domain topics, the term bank, the question bank, three mock
-exams and the final cram page are written.
+**The repo is rebuilt for the live outline, effective 1 September 2026.** All 53 domain topics,
+the term bank, the question bank, three mock exams and the final cram page are written.
 
 | Module | Status |
 |---|---|
 | 🧱 00 · Foundations | `5 / 5` ✅ |
-| 🧭 01 · Security Principles | `11 / 11` ✅ |
-| 🚨 02 · BC, DR & IR | `6 / 6` ✅ |
-| 🚪 03 · Access Control | `8 / 8` ✅ |
-| 🌐 04 · Network Security | `11 / 11` ✅ |
-| ⚙️ 05 · Security Operations | `9 / 9` ✅ |
+| 🧭 01 · Security Principles | `12 / 12` ✅ |
+| 🚨 02 · Security Governance | `7 / 7` ✅ |
+| 🚪 03 · IAM Concepts | `6 / 6` ✅ |
+| 🌐 04 · Networking and Cloud Security | `14 / 14` ✅ |
+| ⚙️ 05 · Security Operations and IR | `14 / 14` ✅ |
 | 🗂️ 06 · Term Bank | `complete` ✅ |
 | ❓ 07 · Question Bank | `complete` ✅ |
 | 📝 08 · Mock Exams | `complete` ✅ |
@@ -160,10 +166,9 @@ exams and the final cram page are written.
 
 | | |
 |---|---|
-| **Topic pages** | 50, each with definitions, told-apart blocks, traps, 5 questions and cram lines |
-| **Practice questions** | **711** — 250 in the topics, 160 in the drills, 300 in the mocks |
-| **Diagrams** | **152** — 148 mermaid (theme-safe in light and dark) + 4 designed SVGs |
-| **Flashcards** | **591**, generated from the term tables |
+| **Topic pages** | 53, each with definitions, told-apart blocks, traps, 5 questions and cram lines |
+| **Practice questions** | **738** — 265 in the topics, 173 in the drills, 300 in the mocks |
+| **Flashcards** | **651**, generated from the term tables |
 | **Checks** | `ci/check-diagrams.sh` · `ci/check-links.sh` · `ci/make-flashcards.sh` |
 
 ### Start here
