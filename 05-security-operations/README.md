@@ -52,7 +52,7 @@ Work top to bottom. The data topics set up the encryption ones.
 | <sub>&#9745;</sub> | 🔐 [`encryption-concepts/`](encryption-concepts/) | Separate symmetric from asymmetric and say which is used for what, and why. |
 | <sub>&#9745;</sub> | #️⃣ [`hashing-and-integrity/`](hashing-and-integrity/) | Explain why hashing is not encryption, and what salting and signatures add. |
 | <sub>&#9745;</sub> | 🔩 [`system-hardening/`](system-hardening/) | Describe baselines, patching and least functionality as the exam defines them. |
-| <sub>&#9744;</sub> | 📐 [`configuration-management/`](configuration-management/) | Walk the change control process and say why inventory comes first. |
+| <sub>&#9745;</sub> | 📐 [`configuration-management/`](configuration-management/) | Walk the change control process and say why inventory comes first. |
 | <sub>&#9744;</sub> | 📊 [`logging-and-monitoring/`](logging-and-monitoring/) | Say what to log, what a SIEM does, and why log integrity matters. |
 | <sub>&#9744;</sub> | 📜 [`security-policies/`](security-policies/) | Recognise AUP, BYOD, change management and privacy policies by their purpose. |
 | <sub>&#9744;</sub> | 🎓 [`security-awareness-training/`](security-awareness-training/) | Tell awareness, training and education apart, and know why this is the social engineering answer. |
