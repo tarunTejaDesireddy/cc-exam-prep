@@ -167,7 +167,7 @@ Ticked when the topic is **written and pushed**. Live detail in [`ROADMAP.md`](R
 | ⚙️ 05 · Security Operations | `9 / 9` ✅ |
 | 🗂️ 06 · Term Bank | `complete` ✅ |
 | ❓ 07 · Question Bank | `complete` ✅ |
-| 📝 08 · Mock Exams | `not started` |
+| 📝 08 · Mock Exams | `complete` ✅ |
 
 ---
 

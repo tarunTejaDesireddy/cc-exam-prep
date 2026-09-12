@@ -122,11 +122,11 @@ Smallest domain, written last of the five. Short, and mostly definitions plus on
 - [x] 20 questions per domain drill, with full distractor analysis
 - [x] `mixed-drill-01.md` and `mixed-drill-02.md` — 30 each, cross-domain, exam-order
 
-### 📝 08 · Mock Exams — `not started`
-- [ ] `mock-01/` — taken end of week 5, diagnostic
-- [ ] `mock-02/` — taken week 7
-- [ ] `mock-03/` — taken week 7, final calibration
-- [ ] `scoring-guide.md` — converting a raw score to a realistic readiness signal
+### 📝 08 · Mock Exams — `COMPLETE` ✅ · 300 questions
+- [x] `mock-01.md` — 100 questions, diagnostic, end of week 5
+- [x] `mock-02.md` — 100 questions, harder, week 7 - the real signal
+- [x] `mock-03.md` — 100 questions, final calibration, week 8
+- [x] `scoring-guide.md` — the four miss types, domain breakdown, go/no-go
 
 ### Final
 - [ ] `EXAM-DAY.md` — the one page read on 3–4 November, and nothing else
