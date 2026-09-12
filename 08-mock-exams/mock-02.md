@@ -84,8 +84,8 @@ A. Perimeter firewall rules · B. Egress monitoring · C. Antivirus updates · D
 **19.** Which pairing is correct?
 A. Background screening — technical, detective · B. Background screening — administrative, preventive · C. Encryption — administrative · D. CCTV — technical, preventive
 
-**20.** What must exist before a change is approved?
-A. A guaranteed completion time · B. A backout plan · C. A list of affected users · D. A disruption-free guarantee
+**20.** A board of directors needs a periodic, non-technical summary of the security programme's status. What is the MOST appropriate format?
+A. Direct dashboard access · B. A scorecard or report · C. Raw scan output · D. No reporting needed
 
 **21.** A user holds Top Secret clearance. Which is correct?
 A. They may access all Top Secret material · B. Clearance alone is insufficient; need to know applies · C. They may grant access at their discretion · D. Clearance overrides labels
@@ -156,14 +156,14 @@ A. None — three layers is depth · B. A common mode failure defeats all three 
 **43.** Which is TRUE of the data owner?
 A. They implement encryption and backups · B. They classify the data and approve access · C. They are always from IT · D. They manage data quality
 
-**44.** Which attack uses username and password pairs breached elsewhere?
-A. Brute force · B. Dictionary · C. Password spraying · D. Credential stuffing
+**44.** Which sequence correctly describes the risk management lifecycle?
+A. Treat, Identify, Assess, Monitor · B. Identify, Assess, Treat, Monitor · C. Assess, Treat, Identify, Monitor · D. Monitor, Identify, Treat, Assess
 
 **45.** Which describes long-term containment?
 A. Immediately isolating a host · B. Temporary fixes allowing business to continue while a proper fix is prepared · C. Removing the malware · D. Restoring from backup
 
-**46.** Which is TRUE of hashing?
-A. It is reversible with a key · B. Output length varies with input · C. It is one-way with fixed-length output · D. It provides confidentiality
+**46.** A GRC tool is BEST described as which of the following?
+A. A firewall configuration system · B. Software centrally tracking controls, risks, policies and evidence · C. A mandatory single framework · D. An automated risk-treatment engine
 
 **47.** Which port pairing is INCORRECT?
 A. SSH — 22 · B. DNS — 53 · C. LDAPS — 389 · D. RDP — 3389
@@ -204,8 +204,8 @@ A. Containment is ineffective · B. The plan and notification come first · C. C
 **59.** Which provides the strongest workload isolation?
 A. Containers · B. Virtual machines · C. Both equally · D. Namespaces
 
-**60.** Which is TRUE of an MOU?
-A. It is a binding contract · B. It expresses intent and is usually not binding · C. It defines deliverables and payment · D. It replaces an MSA
+**60.** A company reviews a target's incident history and patch practices before an acquisition. What does this represent?
+A. Due care · B. Due diligence · C. Negligence · D. Risk transfer
 
 **61.** Which is TRUE of the avalanche effect?
 A. Hashes grow with input size · B. A small input change produces a completely different hash · C. Two inputs produce one hash · D. Hashes can be reversed
@@ -222,8 +222,8 @@ A. An audit log entry · B. A digital signature with that person's private key �
 **65.** Which is TRUE of WRT?
 A. It ends when systems are restored · B. It is the work catch-up period after systems are back · C. It equals RPO · D. It is a hardware metric
 
-**66.** Which is TRUE of a false negative?
-A. Legitimate traffic is blocked · B. A real attack is missed — the dangerous error · C. It wastes analyst time only · D. It is preferable to a false positive
+**66.** Which of the following is a named example of a standards/framework body under Domain 1's governance sub-area?
+A. CIS · B. SAST · C. RTO · D. VLAN
 
 **67.** An employee holds a door open for someone they believe is a colleague, who is unauthorised. What is this?
 A. Tailgating · B. Piggybacking · C. Pretexting · D. Baiting
@@ -273,8 +273,8 @@ A. Comply, as the employer is the principal · B. Refuse — Canon 2 requires ac
 **82.** Which is TRUE of anomaly-based detection?
 A. It produces fewer false positives · B. It can detect previously unknown attacks · C. It needs no baseline · D. It only matches signatures
 
-**83.** Which BEST describes the purpose of segmentation for an unpatchable system?
-A. A preventive control eliminating the vulnerability · B. A compensating control where patching is infeasible · C. A corrective control · D. A deterrent
+**83.** Which BEST describes the relationship between governance and compliance?
+A. They are the same activity · B. Governance sets direction; compliance verifies it is followed · C. Compliance sets direction; governance verifies it · D. They are unrelated
 
 **84.** Which is TRUE of data in transit?
 A. It is protected by full-disk encryption · B. It is protected by TLS or a VPN · C. It cannot be protected · D. It is the hardest state to protect
@@ -359,11 +359,11 @@ Time up. **Confirm all 100 are answered** before marking.
 | 17 | **B** | D4 | Logical only — weaker than physical separation |
 | 18 | **B** | D5 | Egress finds what ingress missed |
 | 19 | **B** | D1 | Administrative type, preventive function |
-| 20 | **B** | D5 | Every change needs a way back |
+| 20 | **B** | D2 | Scorecard/report matches a periodic, leadership audience |
 | 21 | **B** | D3 | Clearance sets a ceiling, not an entitlement |
 | 22 | **B** | D2 | Since the last backup of **any** type |
 | 23 | **C** | D4 | A SYN flood denies service |
-| 24 | **B** | D5 | Reporting rate, not completion or click rate |
+| 24 | **B** | D2 | Reporting rate, not completion or click rate |
 | 25 | **B** | D1 | The four are accept, avoid, mitigate, transfer |
 | 26 | **C** | D1 | The triad in tension |
 | 27 | **B** | D4 | Reverse faces **servers**; forward faces clients |
@@ -383,9 +383,9 @@ Time up. **Confirm all 100 are answered** before marking.
 | 41 | **B** | D1 | Reversible, so still personal data |
 | 42 | **B** | D3 | One event defeats all three |
 | 43 | **B** | D5 | Owner decides; custodian implements |
-| 44 | **D** | D4 | Credential stuffing exploits reuse |
+| 44 | **B** | D1 | Identify, Assess, Treat, Monitor — then back to Identify |
 | 45 | **B** | D2 | Temporary fixes sustaining business |
-| 46 | **C** | D5 | One-way, fixed length, no key |
+| 46 | **B** | D2 | Centrally tracks controls, risks, policies, evidence |
 | 47 | **C** | D4 | LDAPS is **636**; 389 is LDAP |
 | 48 | **B** | D3 | Detective, performed by the manager or data owner |
 | 49 | **B** | D2 | The BIA comes first |
@@ -399,13 +399,13 @@ Time up. **Confirm all 100 are answered** before marking.
 | 57 | **B** | D1 | Disclosure vs loss of access |
 | 58 | **B** | D5 | Containment is a phase, not a first move |
 | 59 | **B** | D4 | Each VM runs its own kernel |
-| 60 | **B** | D4 | Usually **not** legally binding |
+| 60 | **B** | D1 | Investigation performed before a decision is finalised |
 | 61 | **B** | D5 | Which is what makes hashing useful for integrity |
 | 62 | **B** | D4 | DHCP snooping is the specific defence |
 | 63 | **B** | D1 | Numbers mean standard; steps mean procedure |
 | 64 | **B** | D1 | Only they hold the private key |
 | 65 | **B** | D2 | RTO + WRT must fit inside MTD |
-| 66 | **B** | D4 | A missed attack is the dangerous error |
+| 66 | **A** | D1 | CIS publishes the CIS Controls and Benchmarks |
 | 67 | **B** | D3 | Piggy**b**acking has **p**ermission |
 | 68 | **B** | D3 | Always invoked is the critical property |
 | 69 | **C** | D4 | Data and access in **every** model |
@@ -422,7 +422,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 80 | **B** | D3 | A failure of role design |
 | 81 | **B** | D1 | "Following orders" is never the answer |
 | 82 | **B** | D4 | The only method that catches a zero-day |
-| 83 | **B** | D5 | Primary control infeasible |
+| 83 | **B** | D2 | Governance sets direction; compliance verifies it |
 | 84 | **B** | D5 | In transit → TLS/VPN. **In use** is the hardest state |
 | 85 | **B** | D3 | Scope, rotate, deny interactive logon |
 | 86 | **B** | D5 | Ransomware encryption is an incident, not a breach |

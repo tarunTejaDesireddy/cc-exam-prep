@@ -102,8 +102,8 @@ A. DAC · B. MAC · C. RBAC · D. ABAC
 **25.** ALE is calculated as:
 A. AV × EF · B. SLE × ARO · C. AV × ARO · D. EF × ARO
 
-**26.** Which malware is defined by its trigger condition?
-A. Worm · B. Rootkit · C. Logic bomb · D. Spyware
+**26.** Which access control model grants access based on organisational role rather than owner discretion or system-wide labels?
+A. DAC · B. RBAC · C. MAC · D. Rule-based
 
 **27.** An infected laptop connects over VPN. What is the implication?
 A. Encryption blocks the malware · B. The malware has an encrypted, authenticated path inward · C. The VPN quarantines it · D. No implication
@@ -129,8 +129,8 @@ A. Preventive · B. Detective · C. Corrective · D. Deterrent
 **34.** Under IaaS, who is responsible for the data?
 A. The provider · B. The customer · C. Shared · D. Neither
 
-**35.** A shared symmetric key provides:
-A. Non-repudiation · B. No non-repudiation, since either party could produce it · C. Stronger non-repudiation than signatures · D. Authentication only
+**35.** Which of the following is the answer to tailgating?
+A. A warning sign · B. A mantrap or access control vestibule · C. Stronger badge encryption · D. CCTV coverage
 
 **36.** Which is TRUE of a breach?
 A. Every incident is a breach · B. It requires data to have actually been disclosed · C. It must be deliberate · D. It applies only to encrypted data
@@ -168,11 +168,11 @@ A. Not MFA, as SMS is insecure · B. Valid MFA — know plus have · C. Not MFA,
 **47.** Which is TRUE of RTO?
 A. It measures data loss · B. It measures time to restore a function · C. It equals MTD · D. It is a hardware metric
 
-**48.** Which deployment model is dedicated to a single organisation?
-A. Public · B. Private · C. Hybrid · D. Community
+**48.** Which BEST describes a KPI?
+A. A metric warning that risk is increasing · B. A metric grading how well a process performs against a target · C. A one-time audit finding · D. A list of unpatched vulnerabilities
 
-**49.** Which distinguishes hashing from encryption?
-A. Hashing uses a longer key · B. Hashing is one-way and keyless · C. Hashing is faster to reverse · D. Hashing provides confidentiality
+**49.** An employee moves from finance to marketing but keeps their finance system access. What is the correct fix?
+A. Grant marketing access without touching finance access · B. Revoke the finance access that is no longer needed · C. Escalate to senior management · D. Do nothing, since it was granted legitimately
 
 **50.** A zero-day is defined by:
 A. Being recently discovered · B. No patch existing · C. Affecting old software · D. Being unexploitable
@@ -192,11 +192,11 @@ A. Uses job functions · B. Applies system-wide rules regardless of identity · 
 **55.** Which is TRUE of logging?
 A. It prevents incidents · B. It is detective and requires review to detect anything · C. It replaces monitoring · D. It should include passwords
 
-**56.** Which is TRUE of an unauthorised change?
-A. It is the same as an emergency change · B. It has no approval at all · C. It is documented retrospectively · D. It is permitted during incidents
+**56.** Which BEST distinguishes segregation of duties from dual control?
+A. They are the same concept · B. SoD splits a process into different steps for different people; dual control requires two people for the same action · C. SoD applies only to finance · D. Dual control is a type of least privilege
 
-**57.** NAT's security contribution is BEST described as:
-A. A firewall replacement · B. Incidental obscurity, not a control · C. Traffic encryption · D. Intrusion prevention
+**57.** An organisation adopts a standard requiring servers to be configured per a published external benchmark. Which is a named example of such a benchmark?
+A. A CIS Benchmark · B. An SLA · C. An RTO · D. A VLAN
 
 **58.** Which BEST describes least privilege?
 A. Only the information a task requires · B. Only the access a role requires · C. Two people for one action · D. Splitting a process
@@ -222,11 +222,11 @@ A. Impact over time · B. Critical function priority · C. Threat likelihood · 
 **65.** Which is TRUE of defence in depth?
 A. More controls always means more depth · B. Layers must be independent to provide real depth · C. It requires one strong control · D. It applies only to networks
 
-**66.** Which is TRUE of a Type 1 hypervisor?
-A. It runs on a host OS · B. It runs on bare metal · C. It is used only for testing · D. It shares the host kernel
+**66.** Which of the following is an example of a governance/IT management framework relevant to a GRC programme?
+A. COBIT · B. SAST · C. RAID · D. VLAN
 
-**67.** Which port does POP3 use, and what does it do?
-A. 110, retrieves mail · B. 25, sends mail · C. 143, retrieves mail · D. 443, secures web traffic
+**67.** An organisation's audit finds risk-identified controls that governance never formally approved. What does this MOST likely indicate?
+A. Compliance is unnecessary · B. Governance, risk and compliance are not adequately integrated · C. The risk assessment is invalid · D. Audits should stop
 
 **68.** CER is:
 A. The impostor acceptance rate · B. The legitimate rejection rate · C. The point where FAR and FRR are equal · D. The enrolment failure rate
@@ -234,8 +234,8 @@ A. The impostor acceptance rate · B. The legitimate rejection rate · C. The po
 **69.** Which threat actor type is characterised by long-term covert access?
 A. Script kiddie · B. Hacktivist · C. APT · D. Competitor
 
-**70.** Which agreement is the umbrella contract governing an ongoing relationship?
-A. SOW · B. MSA · C. MOU · D. NDA
+**70.** Which of the following BEST distinguishes due diligence from due care?
+A. Due diligence is legally required, due care is optional · B. Due diligence is investigation before acting; due care is the ongoing reasonable standard · C. They are interchangeable · D. Due care applies only to technical staff
 
 **71.** Which is TRUE of individual named administrative accounts?
 A. They are less secure than a shared account · B. They preserve accountability · C. They cannot be logged · D. They require no MFA
@@ -252,8 +252,8 @@ A. Data exfiltration · B. Inbound attacks · C. Insider theft · D. Configurati
 **75.** Which is mandatory?
 A. Guidelines only · B. Policies, standards and procedures · C. Guidelines and standards · D. Nothing is mandatory
 
-**76.** Which attack tries every possible combination?
-A. Dictionary · B. Brute force · C. Spraying · D. Stuffing
+**76.** A rising count of overdue critical patches, tracked over months, is an example of which of the following?
+A. A KPI · B. A KRI · C. A compliance report · D. A governance document
 
 **77.** Which cloud model leaves the customer managing applications and data only?
 A. IaaS · B. PaaS · C. SaaS · D. On-premises
@@ -297,8 +297,8 @@ A. Anomaly-based · B. Signature-based · C. Behavioural · D. Heuristic
 **90.** Which physical attack involves following someone through a door without their knowledge?
 A. Piggybacking · B. Tailgating · C. Pretexting · D. Shoulder surfing
 
-**91.** Which is TRUE of degaussing?
-A. It works on all media · B. It works on magnetic media only · C. It is the same as clearing · D. It works best on SSDs
+**91.** A privileged account is used for both daily email and administrative tasks. What is the MOST appropriate correction?
+A. Add MFA only · B. Use a separate, dedicated account for privileged tasks · C. Shorten the password rotation cycle · D. Disable logging on the account
 
 **92.** Which BEST addresses employees propping open a secure door?
 A. Install an alarm · B. Establish a policy and train staff · C. Fit a mantrap · D. Review CCTV and discipline
@@ -350,7 +350,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 8 | **B** | D3 | Fail-secure protects assets where no one is trapped |
 | 9 | **C** | D5 | In use must be decrypted to be processed |
 | 10 | **B** | D5 | Eradication removes the cause, including attacker access |
-| 11 | **B** | D5 | Administrative type, preventive function |
+| 11 | **B** | D2 | Administrative type, preventive function |
 | 12 | **C** | D4 | DNS. ARP resolves IP to MAC |
 | 13 | **B** | D3 | Requester and approver must differ |
 | 14 | **B** | D5 | Owner decides; custodian implements |
@@ -365,7 +365,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 23 | **B** | D5 | Outside every control the organisation operates |
 | 24 | **C** | D3 | RBAC scales and makes reviews answerable |
 | 25 | **B** | D1 | ALE = SLE × ARO |
-| 26 | **C** | D5 | A logic bomb is defined by its trigger |
+| 26 | **B** | D3 | RBAC decides by role, not owner or system label |
 | 27 | **B** | D4 | A VPN protects the pipe, not the ends |
 | 28 | **B** | D3 | Creep is the administrative failure; escalation is the attack |
 | 29 | **B** | D1 | Implemented in software |
@@ -374,7 +374,7 @@ Time up. **Confirm all 100 are answered** before marking.
 | 32 | **A** | D4 | 389. LDAPS is 636 |
 | 33 | **B** | D1 | It records; it prevents nothing |
 | 34 | **B** | D4 | Data and access are yours in every model |
-| 35 | **B** | D5 | Either party could have produced it |
+| 35 | **B** | D3 | A mantrap physically prevents tailgating |
 | 36 | **B** | D5 | Actual disclosure — and intent is irrelevant |
 | 37 | **B** | D4 | Semi-trusted, between internet and internal |
 | 38 | **B** | D1 | A PIN is memorised |
@@ -387,16 +387,16 @@ Time up. **Confirm all 100 are answered** before marking.
 | 45 | **C** | D3 | It limits damage after ignition |
 | 46 | **B** | D1 | The exam tests the **category**, not the strength |
 | 47 | **B** | D2 | Time to restore. Looks forward |
-| 48 | **B** | D4 | Private cloud |
-| 49 | **B** | D5 | One-way and keyless |
+| 48 | **B** | D2 | KPI grades performance against a target |
+| 49 | **B** | D3 | Revoke old access on a move — the stage that fails |
 | 50 | **B** | D4 | No patch exists — not merely unpatched |
 | 51 | **B** | D3 | A lock physically denies entry |
 | 52 | **B** | D1 | A business decision |
 | 53 | **B** | D4 | WEP is broken; use WPA2 or WPA3 |
 | 54 | **B** | D3 | Rule-based ignores who you are — e.g. firewall rules |
 | 55 | **B** | D5 | Logs nobody reviews detect nothing |
-| 56 | **B** | D5 | Emergency change has approval; unauthorised has none |
-| 57 | **B** | D4 | Obscurity as a side effect, not a control |
+| 56 | **B** | D3 | SoD = different steps; dual control = same action, two people |
+| 57 | **A** | D1 | CIS publishes named security benchmarks |
 | 58 | **B** | D3 | Need to know is the information version |
 | 59 | **A** | D2 | A cold site is an empty serviced room |
 | 60 | **B** | D1 | Deterrents act on the mind |
@@ -405,17 +405,17 @@ Time up. **Confirm all 100 are answered** before marking.
 | 63 | **C** | D1 | Both are knowledge factors — the classic trap |
 | 64 | **C** | D2 | Likelihood belongs to the risk assessment |
 | 65 | **B** | D3 | Independence is what makes depth real |
-| 66 | **B** | D4 | Bare metal — one fewer layer to attack |
-| 67 | **A** | D4 | 110, retrieves and typically removes from the server |
+| 66 | **A** | D2 | COBIT is a named governance/IT framework |
+| 67 | **B** | D2 | Risk-approved controls governance never sanctioned = poor integration |
 | 68 | **C** | D1 | Where FAR and FRR cross. Lower is better |
 | 69 | **C** | D4 | APT — patient, funded, usually state-linked |
-| 70 | **B** | D4 | MSA is the umbrella; SOWs sit under it |
+| 70 | **B** | D1 | Diligence = investigate before; care = ongoing reasonable standard |
 | 71 | **B** | D3 | Actions trace to a person |
 | 72 | **D** | D5 | A signed message remains readable |
 | 73 | **B** | D5 | A service not running cannot be exploited |
 | 74 | **B** | D5 | Egress finds exfiltration; ingress finds attacks arriving |
 | 75 | **B** | D1 | Only guidelines are optional |
-| 76 | **B** | D4 | Brute force. Dictionary uses a list |
+| 76 | **B** | D2 | A KRI warns of rising risk before a loss occurs |
 | 77 | **B** | D4 | PaaS — provider handles OS and runtime |
 | 78 | **B** | D4 | Half-open connections fill the table |
 | 79 | **C** | D5 | Recovery restores **and verifies clean** |
@@ -430,8 +430,8 @@ Time up. **Confirm all 100 are answered** before marking.
 | 88 | **B** | D1 | The only treatment that reaches zero |
 | 89 | **B** | D4 | No signature exists for an unseen attack |
 | 90 | **B** | D3 | Tailgating. Piggybacking has permission |
-| 91 | **B** | D5 | Magnetic media only |
-| 92 | **B** | D5 | Policy → training → technology → monitoring |
+| 91 | **B** | D3 | Separate admin account limits blast radius |
+| 92 | **B** | D2 | Establish a policy and train staff |
 | 93 | **C** | D2 | Hot site |
 | 94 | **B** | D2 | RTO forward to recovery; RPO back to last good data |
 | 95 | **B** | D3 | Hiding a button does not stop an API call |

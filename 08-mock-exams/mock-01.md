@@ -67,8 +67,8 @@ A. DNS · B. DHCP · C. ARP · D. ICMP
 **13.** Which principle is violated when one person can both request and approve a payment?
 A. Least privilege · B. Segregation of duties · C. Need to know · D. Defence in depth
 
-**14.** Who determines the classification of a dataset?
-A. The custodian · B. The data owner · C. The security team · D. IT operations
+**14.** An employee moves from finance to marketing. Their finance access is never revoked. What is this an example of?
+A. Privilege escalation · B. Privilege creep · C. Segregation of duties · D. Least privilege
 
 **15.** Business continuity is concerned with what?
 A. Restoring systems after a disruption · B. Keeping functions running during a disruption · C. Backing up data · D. Insuring against loss
@@ -103,8 +103,8 @@ A. DAC · B. MAC · C. RBAC · D. Rule-based
 **25.** SLE is calculated as:
 A. AV × ARO · B. AV × EF · C. SLE × ARO · D. EF × ARO
 
-**26.** Which malware spreads with no user action?
-A. Virus · B. Trojan · C. Worm · D. Rootkit
+**26.** Why do organisations run governance, risk and compliance as one integrated GRC programme?
+A. To reduce headcount · B. To keep direction-setting, risk treatment and verification aligned · C. To eliminate audits · D. To move all accountability to compliance
 
 **27.** What does a VPN protect?
 A. Data at rest on the device · B. Data in transit between endpoints · C. The endpoint from malware · D. Traffic after the far endpoint
@@ -151,8 +151,8 @@ A. Everything, every time · B. Changes since the last backup of any type · C. 
 **41.** Who approves an information security policy?
 A. The CISO · B. Senior management · C. Internal audit · D. The IT director
 
-**42.** Degaussing is ineffective on:
-A. Hard disk drives · B. Magnetic tape · C. Solid-state drives · D. Floppy disks
+**42.** Which access control model bases decisions on multiple attributes evaluated together, such as time, location and device?
+A. DAC · B. MAC · C. RBAC · D. ABAC
 
 **43.** Which attack re-sends captured valid data?
 A. On-path · B. Replay · C. Session hijacking · D. Spoofing
@@ -169,8 +169,8 @@ A. A passphrase · B. A hardware token · C. A fingerprint · D. A security ques
 **47.** RPO is determined by:
 A. Recovery site type · B. Backup frequency · C. Staff availability · D. Network bandwidth
 
-**48.** Which cloud deployment model is shared by organisations with common requirements?
-A. Public · B. Private · C. Hybrid · D. Community
+**48.** A rising count of overdue critical patches, tracked month over month, is an example of which of the following?
+A. A KPI · B. A KRI · C. A compliance report · D. A governance document
 
 **49.** Hashing provides:
 A. Confidentiality · B. Integrity · C. Availability · D. Key exchange
@@ -193,8 +193,8 @@ A. The owner decides · B. The system uses labels · C. Access via job function 
 **55.** Logging without monitoring results in:
 A. Excessive storage costs · B. No detection capability · C. Regulatory breach · D. Slower systems
 
-**56.** An emergency change should be:
-A. Exempt from change control · B. Accelerated and documented retrospectively · C. Reverted afterwards · D. Avoided entirely
+**56.** Who should perform a periodic access review?
+A. The IT help desk · B. The manager or data owner · C. The employee themselves · D. Whoever provisioned the account
 
 **57.** Which is TRUE of NAT?
 A. It encrypts traffic · B. Its purpose is address conservation · C. It replaces a firewall · D. It resolves names
@@ -223,11 +223,11 @@ A. A list of threats by likelihood · B. RTO, RPO and critical function prioriti
 **65.** Which is a compensating control?
 A. Additional CCTV for depth · B. Segmenting a system that cannot be patched · C. A policy on acceptable use · D. Restoring from backup
 
-**66.** Which is TRUE of containers versus VMs?
-A. Containers isolate more strongly · B. VMs isolate more strongly · C. Isolation is identical · D. Containers each run their own kernel
+**66.** A board needs a periodic, non-technical summary of the security programme. What format is MOST appropriate?
+A. Direct dashboard access · B. A scorecard or report · C. Raw scan output · D. No reporting needed
 
-**67.** Which port does SMTP use?
-A. 25 · B. 110 · C. 143 · D. 389
+**67.** Which BEST distinguishes security awareness from security training?
+A. Awareness targets everyone continuously; training teaches role-specific skills · B. Training is optional · C. They are identical · D. Awareness is only for technical staff
 
 **68.** FAR measures:
 A. Legitimate users wrongly rejected · B. Impostors wrongly accepted · C. Where the two rates cross · D. Enrolment failures
@@ -235,8 +235,8 @@ A. Legitimate users wrongly rejected · B. Impostors wrongly accepted · C. Wher
 **69.** Which is the highest-capability threat actor?
 A. Script kiddie · B. Hacktivist · C. Organised crime · D. Nation state
 
-**70.** Which document specifies guaranteed uptime with remedies?
-A. MOU · B. SLA · C. NDA · D. SOW
+**70.** An employee clicks a simulated phishing email during an awareness campaign. What is the MOST appropriate response?
+A. Immediate discipline · B. Public naming to deter others · C. Additional targeted training, without punishment · D. No action
 
 **71.** A shared administrator account primarily destroys:
 A. Confidentiality · B. Availability · C. Accountability · D. Authentication
@@ -244,8 +244,8 @@ A. Confidentiality · B. Availability · C. Accountability · D. Authentication
 **72.** Which is TRUE of a digital signature?
 A. It provides confidentiality · B. It provides integrity, authentication and non-repudiation · C. It requires a shared secret · D. It encrypts the message
 
-**73.** Which best describes least functionality?
-A. Only the access a person needs · B. Only the services a system needs · C. Only the data a task needs · D. Only the time access is needed
+**73.** Why should administrators use a separate account for privileged tasks rather than their everyday account?
+A. It is required by law · B. It limits the impact if the everyday account is compromised · C. It is faster · D. It removes the need for MFA
 
 **74.** Egress monitoring primarily detects:
 A. Inbound attacks · B. Data exfiltration · C. Failed logins · D. Physical intrusion
@@ -253,8 +253,8 @@ A. Inbound attacks · B. Data exfiltration · C. Failed logins · D. Physical in
 **75.** Which is TRUE of a guideline?
 A. It is mandatory · B. It is optional · C. It contains numbered steps · D. It requires board approval
 
-**76.** Which attack uses one password against many accounts?
-A. Brute force · B. Dictionary · C. Password spraying · D. Credential stuffing
+**76.** Which of the following is a named GRC framework example?
+A. COBIT · B. SAST · C. RTO · D. VLAN
 
 **77.** Under SaaS, the customer remains responsible for:
 A. Nothing · B. OS patching · C. Data and access permissions · D. Physical security
@@ -283,8 +283,8 @@ A. Make hashes reversible · B. Defeat rainbow tables · C. Encrypt passwords ·
 **85.** Which is TRUE of an orphaned account?
 A. It has an owner but is unused · B. It has no valid owner · C. It is disabled · D. It is a service account
 
-**86.** Full tunnelling is more secure than split tunnelling because:
-A. It uses stronger encryption · B. All traffic passes corporate controls · C. It is faster · D. It requires MFA
+**86.** Which metric matters MOST when evaluating a phishing awareness programme over time?
+A. Click rate alone · B. Reporting rate, tracked as a trend · C. Number of simulations sent · D. How fast IT resets a link
 
 **87.** Which is NOT a phase of incident response?
 A. Preparation · B. Containment · C. Classification · D. Recovery
@@ -356,7 +356,7 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 11 | **C** | D1 | They restore after loss. **Most-missed classification** |
 | 12 | **C** | D4 | ARP, at **layer 2**. DNS resolves names to IPs |
 | 13 | **B** | D3 | One person completing a sensitive process alone |
-| 14 | **B** | D5 | Owner decides; custodian implements |
+| 14 | **B** | D3 | Grant happens on the move; revoke is often skipped |
 | 15 | **B** | D2 | **DURING.** Restoring afterwards is disaster recovery |
 | 16 | **B** | D1 | The control costs more than the risk. Accept, documented |
 | 17 | **C** | D4 | Private 172 range is **16–31 only** |
@@ -368,7 +368,7 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 23 | **B** | D5 | You cannot protect what you do not know you have |
 | 24 | **B** | D3 | "Cannot override" is the MAC tell |
 | 25 | **B** | D1 | SLE = AV × EF. ALE = SLE × ARO |
-| 26 | **C** | D4 | Self-propagation with no user action |
+| 26 | **B** | D2 | Keeps direction-setting, treatment and verification aligned |
 | 27 | **B** | D4 | The pipe, not the ends |
 | 28 | **B** | D3 | Legitimate accumulation. Escalation is an attack |
 | 29 | **C** | D1 | Delivered through process; changes human behaviour |
@@ -384,13 +384,13 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 39 | **B** | D4 | It **contains** a breach; it does not prevent one |
 | 40 | **C** | D2 | Since the last **full**. Restore needs full + latest only |
 | 41 | **B** | D1 | Their approval is what confers authority |
-| 42 | **C** | D5 | Magnetic media only — SSDs store in flash cells |
+| 42 | **D** | D3 | ABAC decides on several attributes together |
 | 43 | **B** | D4 | Encryption does not stop it; use nonces |
 | 44 | **B** | D1 | Public → legal → employer → profession |
 | 45 | **B** | D3 | One person through per authorisation |
 | 46 | **B** | D1 | The **device** is the factor |
 | 47 | **B** | D2 | Nightly backups → RPO of up to 24 hours |
-| 48 | **D** | D4 | Community — the forgotten model |
+| 48 | **B** | D2 | A KRI warns of rising risk before a loss occurs |
 | 49 | **B** | D5 | One-way, no key, for integrity |
 | 50 | **A** | D4 | Zero-day = **no patch exists** |
 | 51 | **B** | D3 | Signage discourages; it stops nobody |
@@ -398,7 +398,7 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 53 | **D** | D4 | WPA3. WEP is broken |
 | 54 | **D** | D3 | Several dissimilar attributes together |
 | 55 | **B** | D5 | Logging records; monitoring notices |
-| 56 | **B** | D5 | Compressed process, not an absent one |
+| 56 | **B** | D3 | Manager or data owner — not IT, not the user |
 | 57 | **B** | D4 | **NAT is not a security control** |
 | 58 | **B** | D3 | Privilege = what you can do; need to know = what you can see |
 | 59 | **C** | D2 | An empty serviced room. **Weeks** |
@@ -408,17 +408,17 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 63 | **C** | D1 | have + know. A and B are know+know; D is are+are |
 | 64 | **B** | D2 | And it comes **first**, before the plans |
 | 65 | **B** | D1 | The primary control is infeasible |
-| 66 | **B** | D4 | Each VM has its own kernel |
-| 67 | **A** | D4 | 25. SMTP **sends**; POP3/IMAP receive |
+| 66 | **B** | D2 | Scorecard/report matches a periodic, leadership audience |
+| 67 | **A** | D2 | Awareness is broad/continuous; training is role-specific |
 | 68 | **B** | D1 | FAR is the **security** failure |
 | 69 | **D** | D4 | Nation state / APT — patient and funded |
-| 70 | **B** | D4 | SLA. An MOU is usually not binding |
+| 70 | **C** | D2 | Targeted training, without punishment |
 | 71 | **C** | D3 | Logs name the account, not the person |
 | 72 | **B** | D5 | **Not** confidentiality — a signed message is readable |
-| 73 | **B** | D5 | Least functionality limits the **system** |
+| 73 | **B** | D3 | Limits blast radius if the daily-use account is compromised |
 | 74 | **B** | D5 | Data leaving is where the missed breach shows |
 | 75 | **B** | D1 | The only non-mandatory document |
-| 76 | **C** | D4 | Spraying — to dodge account lockout |
+| 76 | **A** | D2 | COBIT is a named IT governance framework |
 | 77 | **C** | D4 | Data and access are yours in **every** model |
 | 78 | **B** | D4 | SYN → SYN-ACK → ACK |
 | 79 | **B** | D5 | Contain, then eradicate, then recover |
@@ -428,7 +428,7 @@ Each answer shows the correct option, its domain, and a one-line reason.
 | 83 | **B** | D4 | Which is how it permits return traffic |
 | 84 | **B** | D5 | Unique salts break precomputation |
 | 85 | **B** | D3 | A leaver never disabled. Dormant has an owner |
-| 86 | **B** | D4 | Inspection, not encryption strength |
+| 86 | **B** | D2 | Reporting rate, tracked as a trend, matters most |
 | 87 | **C** | D5 | The six are prepare, detect, contain, eradicate, recover, review |
 | 88 | **B** | D1 | Informed and documented — and **management** decides |
 | 89 | **B** | D4 | The only method that catches a zero-day |
