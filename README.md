@@ -19,7 +19,7 @@
 [![Modules](https://img.shields.io/badge/Modules-9-0d2b33?style=for-the-badge)](#-the-9-modules)
 [![Topics](https://img.shields.io/badge/Topics-50-0d2b33?style=for-the-badge)](#-the-9-modules)
 [![Pass mark](https://img.shields.io/badge/Pass-700%2F1000-5C7CFA?style=for-the-badge)](00-foundations/how-the-exam-works/)
-[![Progress](https://img.shields.io/badge/Progress-29%2F50%20topics-57606A?style=for-the-badge)](ROADMAP.md)
+[![Progress](https://img.shields.io/badge/Progress-30%2F50%20topics-57606A?style=for-the-badge)](ROADMAP.md)
 
 <sub>🌐 Prefer to browse? <a href="docs/index.html"><code>docs/index.html</code></a> is a filterable index of every
 topic — open it locally, or turn on GitHub Pages from the <code>/docs</code> folder.</sub>
@@ -162,7 +162,7 @@ Ticked when the topic is **written and pushed**. Live detail in [`ROADMAP.md`](R
 | 🧱 00 · Foundations | `5 / 5` ✅ |
 | 🧭 01 · Security Principles | `11 / 11` ✅ |
 | 🚨 02 · BC, DR & IR | `0 / 6` |
-| 🚪 03 · Access Control | `2 / 8` |
+| 🚪 03 · Access Control | `3 / 8` |
 | 🌐 04 · Network Security | `11 / 11` ✅ |
 | ⚙️ 05 · Security Operations | `0 / 9` |
 | 🗂️ 06 · Term Bank | `not started` |
