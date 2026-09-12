@@ -79,7 +79,7 @@ Before any domain content. About 90 minutes total.
 - [ ] `answering-technique/`
 - [ ] `the-five-domains/`
 - [ ] `study-schedule/` (this page)
-- [ ] `exam-day-logistics/` — **and book the exam this weekend if it is not booked**
+- [ ] **Book the exam this weekend if it is not already booked**
 
 > [!IMPORTANT]
 > Book the seat now. A booked date is the thing that makes the rest of this schedule real, and
@@ -413,5 +413,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 00 · Foundations</a> &nbsp;·&nbsp; <a href="../exam-day-logistics/">next: Exam day logistics →</a></sub>
+<sub><a href="../README.md">← back to 00 · Foundations</a> &nbsp;·&nbsp; <a href="../../01-security-principles/README.md">next: 01 · Security Principles →</a></sub>
 </div>

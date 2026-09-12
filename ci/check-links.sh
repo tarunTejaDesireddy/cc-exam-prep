@@ -18,9 +18,9 @@ while IFS= read -r file; do
   case "$file" in ./_templates/*) continue ;; esac
   dir=$(dirname "$file")
 
-  # Pull the target out of every ](...) and src="..." occurrence
-  grep -oE '\]\([^)]+\)|src="[^"]+"' "$file" 2>/dev/null | \
-  sed -E 's/^\]\(//; s/\)$//; s/^src="//; s/"$//' | \
+  # Pull the target out of every ](...), src="..." and href="..." occurrence
+  grep -oE '\]\([^)]+\)|src="[^"]+"|href="[^"]+"' "$file" 2>/dev/null | \
+  sed -E 's/^\]\(//; s/\)$//; s/^src="//; s/^href="//; s/"$//' | \
   while IFS= read -r target; do
     # Skip externals, anchors, mailto
     case "$target" in

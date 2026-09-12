@@ -136,3 +136,19 @@ Two places, updated in the same commit that lands a topic:
 - the module's own `README.md` — the topic checkbox
 
 `EXAM-DAY.md` grows as topics land: append each topic's 📝 cram lines when it is written.
+
+---
+
+## 7 · CI scripts
+
+Run all three before considering any change finished.
+
+| Script | Checks |
+|---|---|
+| `./ci/check-diagrams.sh` | No HTML tags in mermaid labels, no over-long label lines, every node and subgraph explicitly styled |
+| `./ci/check-links.sh` | Every relative markdown link, `src` and `href` resolves to a real file |
+| `./ci/make-flashcards.sh` | Regenerates `06-term-bank/flashcards.csv` from the domain term tables |
+| `./ci/make-docs-index.sh` | Regenerates `docs/index.html` from the repo's pages |
+
+The two generators are the reason the flashcard deck and the browsable index cannot drift from the
+pages. **Re-run them after editing any term table or adding any page.**
