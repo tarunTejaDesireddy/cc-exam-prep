@@ -4,7 +4,7 @@
 
 ### *50 topics, 9 modules, one exam sitting on 5 November 2026*
 
-![Written](https://img.shields.io/badge/Written-33%2F50-57606A?style=for-the-badge)
+![Written](https://img.shields.io/badge/Written-34%2F50-57606A?style=for-the-badge)
 ![Target](https://img.shields.io/badge/Target-5%20Nov%202026-12B5A5?style=for-the-badge)
 
 </div>
@@ -69,7 +69,7 @@ Written second. Heavy on terminology you already use — the risk is ISC2's phra
 
 ---
 
-## 🚪 03 · Access Control Concepts — `6 / 8` · **22%**
+## 🚪 03 · Access Control Concepts — `7 / 8` · **22%**
 
 Definition-dense. The four access control models alone are worth several marks.
 
@@ -79,7 +79,7 @@ Definition-dense. The four access control models alone are worth several marks.
 - [x] `dac-mac-rbac-abac/` — the four models, told apart properly
 - [x] `least-privilege-and-sod/` — need to know, least privilege, segregation of duties
 - [x] `privileged-access/` — privileged accounts, and the controls the exam expects on them
-- [ ] `identity-lifecycle/` — provisioning, review, deprovisioning, joiner-mover-leaver
+- [x] `identity-lifecycle/` — provisioning, review, deprovisioning, joiner-mover-leaver
 - [ ] `defence-in-depth/` — layered control strategy as ISC2 defines it
 
 ---
