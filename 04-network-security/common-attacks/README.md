@@ -87,6 +87,22 @@ flowchart TD
 | **Amplification / reflection** | Sends small spoofed requests to services that reply with far larger responses, aimed at the victim |
 | **Volumetric** | Simply saturates the available bandwidth |
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    A["🦹 Attacker"] -->|"1 · SYN"| S["🖥️ Server<br/>opens a half-open<br/>connection and waits"]
+    S -->|"2 · SYN-ACK"| A
+    A -.->|"3 · ACK NEVER SENT"| S
+    S --> F["💥 Table fills<br/>real users refused"]
+
+    style A fill:#3a1a20,stroke:#E03131,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style F fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+The SYN flood in one picture: **start thousands of handshakes, finish none, and the server runs
+out of room for the people who would have finished theirs.**
+
 **DoS attacks target availability** — not data. Nothing is stolen or changed.
 
 **Defences:** rate limiting, traffic filtering, DDoS protection services, over-provisioned
@@ -178,6 +194,25 @@ detect.
 | **Credential stuffing** | Uses username/password pairs **breached elsewhere**, exploiting reuse |
 | **Password spraying** | Tries **one common password across many accounts**, to avoid lockout thresholds |
 | **Rainbow table** | Uses precomputed hash lookups to reverse hashes. **Defeated by salting** |
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    B["🔨 BRUTE FORCE<br/>many passwords<br/>ONE account"] --> L["🔒 Lockout<br/>stops it"]
+    D["📖 DICTIONARY<br/>a likely list<br/>ONE account"] --> L
+    S["💦 SPRAYING<br/>ONE password<br/>many accounts"] --> E["😈 DODGES lockout<br/>few tries per account"]
+    C["📋 STUFFING<br/>pairs breached elsewhere<br/>exploits REUSE"] --> E
+
+    style B fill:#12243f,stroke:#5C7CFA,color:#fff
+    style D fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S fill:#3a1a20,stroke:#E03131,color:#fff
+    style C fill:#3a1a20,stroke:#E03131,color:#fff
+    style L fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style E fill:#3a2c12,stroke:#F08C00,color:#fff
+```
+
+The top two hammer one account and lockout stops them. The bottom two spread across many
+accounts, which is **exactly why they exist** — few enough attempts each that no threshold trips.
 
 > 🎯 **Account lockout defeats brute force** on a single account. **Password spraying exists
 > specifically to evade lockout**, by trying one password against many accounts rather than many
