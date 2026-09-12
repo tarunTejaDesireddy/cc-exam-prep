@@ -50,7 +50,7 @@ Work top to bottom. The data topics set up the encryption ones.
 | <sub>&#9745;</sub> | 🗄️ [`data-handling/`](data-handling/) | Name the data lifecycle stages, the three states of data, and the disposal methods precisely. |
 | <sub>&#9745;</sub> | 🏷️ [`data-classification/`](data-classification/) | Say who classifies data, who protects it, and what a label obliges you to do. |
 | <sub>&#9745;</sub> | 🔐 [`encryption-concepts/`](encryption-concepts/) | Separate symmetric from asymmetric and say which is used for what, and why. |
-| <sub>&#9744;</sub> | #️⃣ [`hashing-and-integrity/`](hashing-and-integrity/) | Explain why hashing is not encryption, and what salting and signatures add. |
+| <sub>&#9745;</sub> | #️⃣ [`hashing-and-integrity/`](hashing-and-integrity/) | Explain why hashing is not encryption, and what salting and signatures add. |
 | <sub>&#9744;</sub> | 🔩 [`system-hardening/`](system-hardening/) | Describe baselines, patching and least functionality as the exam defines them. |
 | <sub>&#9744;</sub> | 📐 [`configuration-management/`](configuration-management/) | Walk the change control process and say why inventory comes first. |
 | <sub>&#9744;</sub> | 📊 [`logging-and-monitoring/`](logging-and-monitoring/) | Say what to log, what a SIEM does, and why log integrity matters. |
