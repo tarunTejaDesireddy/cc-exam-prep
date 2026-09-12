@@ -55,7 +55,7 @@ Work top to bottom. The data topics set up the encryption ones.
 | <sub>&#9745;</sub> | 📐 [`configuration-management/`](configuration-management/) | Walk the change control process and say why inventory comes first. |
 | <sub>&#9745;</sub> | 📊 [`logging-and-monitoring/`](logging-and-monitoring/) | Say what to log, what a SIEM does, and why log integrity matters. |
 | <sub>&#9745;</sub> | 📜 [`security-policies/`](security-policies/) | Recognise AUP, BYOD, change management and privacy policies by their purpose. |
-| <sub>&#9744;</sub> | 🎓 [`security-awareness-training/`](security-awareness-training/) | Tell awareness, training and education apart, and know why this is the social engineering answer. |
+| <sub>&#9745;</sub> | 🎓 [`security-awareness-training/`](security-awareness-training/) | Tell awareness, training and education apart, and know why this is the social engineering answer. |
 
 ---
 

@@ -4,7 +4,7 @@
 
 ### *50 topics, 9 modules, one exam sitting on 5 November 2026*
 
-![Written](https://img.shields.io/badge/Written-43%2F50-57606A?style=for-the-badge)
+![Written](https://img.shields.io/badge/Written-44%2F50-57606A?style=for-the-badge)
 ![Target](https://img.shields.io/badge/Target-5%20Nov%202026-12B5A5?style=for-the-badge)
 
 </div>
@@ -84,7 +84,7 @@ Definition-dense. The four access control models alone are worth several marks.
 
 ---
 
-## ⚙️ 05 · Security Operations — `8 / 9` · **18%**
+## ⚙️ 05 · Security Operations — `9 / 9` ✅ · **18%**
 
 - [x] `data-handling/` — the data lifecycle, states of data, retention and destruction
 - [x] `data-classification/` — labelling, handling requirements, ownership roles
@@ -94,7 +94,7 @@ Definition-dense. The four access control models alone are worth several marks.
 - [x] `configuration-management/` — inventory, baselines, change control
 - [x] `logging-and-monitoring/` — what to log, SIEM, ingress/egress monitoring
 - [x] `security-policies/` — AUP, BYOD, change management, privacy, password policies
-- [ ] `security-awareness-training/` — awareness vs training vs education, social engineering
+- [x] `security-awareness-training/` — awareness vs training vs education, social engineering
 
 ---
 
