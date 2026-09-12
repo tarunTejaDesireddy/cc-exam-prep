@@ -139,6 +139,24 @@ pass through a router or firewall, where it can be filtered.
 > exist, so a VLAN is not equivalent to physical separation. Where isolation genuinely matters,
 > the exam expects physical separation or an air gap.
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    W["🚧 Weakest"] --> V["🔀 VLAN<br/>logical, in switch config<br/>VLAN hopping exists"]
+    V --> F["🔥 Firewalled segment<br/>separate, filtered<br/>rules can be wrong"]
+    F --> P["🔌 Physical separation<br/>different equipment"]
+    P --> A["✂️ AIR GAP<br/>no connection at all<br/>strongest"]
+
+    style W fill:#26292e,stroke:#868E96,color:#fff
+    style V fill:#3a1a20,stroke:#E03131,color:#fff
+    style F fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+Left to right, isolation gets **stronger and less convenient.** A VLAN is a configuration an
+attacker may defeat; an air gap is an absence of cable.
+
 **An air gap** is complete physical isolation — no network connection at all. It is the strongest
 isolation available and used for the most critical systems, at a heavy cost in usability. It is
 also not absolute: removable media crosses air gaps, which is how notable incidents against

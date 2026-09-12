@@ -112,6 +112,25 @@ flowchart LR
 | **Split tunnelling** | Only corporate traffic goes through the tunnel; internet traffic goes direct | Better performance, less load on the gateway — but internet traffic **bypasses corporate inspection** |
 | **Full tunnelling** | **All** traffic goes through the tunnel | Everything is inspected and logged — at the cost of performance and gateway capacity |
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    L1["💻 Laptop"] -->|"corporate traffic"| G1["🏛️ Gateway"]
+    L1 -->|"internet traffic<br/>SKIPS inspection"| W1["🌍 Internet"]
+    L2["💻 Laptop"] -->|"ALL traffic"| G2["🏛️ Gateway<br/>inspects everything"]
+    G2 --> W2["🌍 Internet"]
+
+    style L1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style G1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style W1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style L2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style G2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style W2 fill:#26292e,stroke:#868E96,color:#fff
+```
+
+Top row is **split** — note the red arrow going straight out, unseen by corporate controls.
+Bottom row is **full** — everything passes the green gateway first.
+
 > ⚠️ **Full tunnelling is the more secure option** because all traffic passes corporate controls.
 > Split tunnelling is the more performant one. If a question asks which is more secure, it is full.
 
@@ -121,6 +140,18 @@ flowchart LR
 |---|---|---|
 | **Tunnel mode** | The **entire original packet**, wrapped in a new one | **Site-to-site** VPNs |
 | **Transport mode** | Only the **payload**; the original IP header remains | Host-to-host within a trusted network |
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    O["📄 Original packet<br/>header + payload"]
+    O --> T["🎁 TUNNEL MODE<br/>NEW header wraps<br/>the ENTIRE original<br/>site-to-site"]
+    O --> R["📮 TRANSPORT MODE<br/>original header stays<br/>only payload encrypted<br/>host-to-host"]
+
+    style O fill:#26292e,stroke:#868E96,color:#fff
+    style T fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#12243f,stroke:#5C7CFA,color:#fff
+```
 
 > 🧠 **Tunnel mode wraps the whole thing.** Transport mode leaves the header showing.
 
