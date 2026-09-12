@@ -173,6 +173,23 @@ The ⭐ pairs are the ones that appear most often. Start there if time is short.
 
 ---
 
+## 🆕 New on the live outline
+
+| | Pair | The one-line answer |
+|:--:|---|---|
+| ⭐ **KRI vs KPI** | KRI **warns** of rising risk. KPI **grades** current performance against a target |
+| ⭐ **Due diligence vs Due care** | Diligence = investigate **before**. Care = act reasonably, **ongoing** |
+| ⭐ **SAST vs DAST** | SAST reads **source code**, app not running. DAST attacks a **running** app |
+| **Tailgating vs Piggybacking** | Tailgating = **without** consent. Piggybacking = **with** consent |
+| **Rogue AP vs Evil twin** | Rogue AP = unauthorised, from **inside**. Evil twin = impersonation, from **outside** |
+| **Bluesnarfing vs Bluebugging** | Snarfing steals **data**. Bugging takes **control** — more severe |
+| **VLAN vs Micro-segmentation** | VLAN = coarse, zone-level. Micro-segmentation = fine, **workload-level** |
+| **Governance (Domain 2) vs Incident Response (Domain 5)** | Governance = **before** anything happens (GRC, BC/DR, awareness). IR = **after** an incident is declared |
+| **EOL/EOS vs "old"** | EOL/EOS specifically means **no more vendor patches** — age alone isn't the risk |
+| **CAT vs the old linear format** | CAT: **cannot generally go back** to an answered item. Old format allowed flag-and-return |
+
+---
+
 ## 🎯 The twelve that cost the most marks
 
 If you have ten minutes before the exam, these are the ones.

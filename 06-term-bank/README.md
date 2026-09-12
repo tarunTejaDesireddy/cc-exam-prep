@@ -40,12 +40,12 @@ the terms the exam deliberately swaps. If you only drill one thing, drill that.
 | File | Contains |
 |---|---|
 | ⚖️ [`most-confused-pairs.md`](most-confused-pairs.md) | **The pairs the exam swaps.** Highest value in the module |
-| 🧭 [`domain-01-terms.md`](domain-01-terms.md) | Security Principles — CIA, AAA, risk, controls, governance, ethics |
-| 🚨 [`domain-02-terms.md`](domain-02-terms.md) | BC, DR & Incident Response |
-| 🚪 [`domain-03-terms.md`](domain-03-terms.md) | Access Control Concepts |
-| 🌐 [`domain-04-terms.md`](domain-04-terms.md) | Network Security — including the port table |
-| ⚙️ [`domain-05-terms.md`](domain-05-terms.md) | Security Operations |
-| 🃏 [`flashcards.csv`](flashcards.csv) | **591 cards**, importable into Anki or any flashcard app |
+| 🧭 [`domain-01-terms.md`](domain-01-terms.md) | Security Principles — CIA, AAA, risk (+lifecycle), controls, governance (+ISO/CIS), ethics |
+| 🚨 [`domain-02-terms.md`](domain-02-terms.md) | Security Governance — GRC, BC/DR, awareness, measuring effectiveness |
+| 🚪 [`domain-03-terms.md`](domain-03-terms.md) | IAM Concepts |
+| 🌐 [`domain-04-terms.md`](domain-04-terms.md) | Networking and Cloud Security — port table, wireless/Bluetooth, IoT/ICS, cloud characteristics |
+| ⚙️ [`domain-05-terms.md`](domain-05-terms.md) | Security Operations and Incident Response — now includes IR, CTI, EOL, security testing |
+| 🃏 [`flashcards.csv`](flashcards.csv) | Generated cards, importable into Anki or any flashcard app |
 
 ---
 
@@ -90,7 +90,7 @@ flowchart LR
 
 ## 🃏 04 · Flashcards
 
-[`flashcards.csv`](flashcards.csv) holds **591 cards** as term, definition and domain tag —
+[`flashcards.csv`](flashcards.csv) holds **651 cards** as term, definition and domain tag —
 importable into Anki, Quizlet or any flashcard application.
 
 It is **generated** from the domain term files by [`ci/make-flashcards.sh`](../ci/make-flashcards.sh),

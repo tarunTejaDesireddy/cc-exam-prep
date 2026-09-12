@@ -5,7 +5,7 @@
 # 🧭 Domain 1 terms · Security Principles
 
 [![Module](https://img.shields.io/badge/Module-06_Term_Bank-0d2b33?style=flat-square)](README.md)
-[![Domain](https://img.shields.io/badge/Domain-1%20·%2026%25-5C7CFA?style=flat-square)](../01-security-principles/README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../01-security-principles/README.md)
 [![Terms](https://img.shields.io/badge/Terms-78-57606A?style=flat-square)](#)
 
 📌 *Cover the right column. Say the definition out loud before revealing. Mark your misses and drill those tomorrow.*
@@ -107,6 +107,7 @@
 | **Risk appetite** | The broad, strategic amount of risk pursued to meet objectives |
 | **Risk register** | The record of each risk, its assessment, owner and treatment |
 | **Risk owner** | The named person accountable for a specific risk |
+| **Risk lifecycle** | **Identify → Assess → Treat → Monitor**, then back to Identify. Never stops |
 
 ---
 
@@ -160,6 +161,8 @@
 | **Baseline** | The minimum acceptable level of security for a class of system |
 | **Regulation** | A rule imposed externally, enforceable by law |
 | **Framework** | A structured set of practices an organisation can adopt — ISO 27001, NIST CSF |
+| **ISO** | International standards body — e.g. ISO 27001 defines ISMS requirements |
+| **CIS** | Center for Internet Security — publishes **CIS Controls** and **CIS Benchmarks** |
 | **Due diligence** | Investigating and understanding the risks. **The research** |
 | **Due care** | Doing what a reasonable person would do about them. **The action** |
 | **Canon 1** | Protect society, the common good, necessary public trust and confidence, and the infrastructure |

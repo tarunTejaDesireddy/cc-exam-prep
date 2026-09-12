@@ -2,10 +2,10 @@
 
 <img src="assets/module-06-banner.svg" alt="06 · Term Bank" width="100%">
 
-# 🌐 Domain 4 terms · Network Security
+# 🌐 Domain 4 terms · Networking and Cloud Security Concepts
 
 [![Module](https://img.shields.io/badge/Module-06_Term_Bank-0d2b33?style=flat-square)](README.md)
-[![Domain](https://img.shields.io/badge/Domain-4%20·%2024%25-5C7CFA?style=flat-square)](../04-network-security/README.md)
+[![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../04-network-security/README.md)
 [![Terms](https://img.shields.io/badge/Terms-95-57606A?style=flat-square)](#)
 
 📌 *Includes the port table — pure memorisation and the best marks-to-effort ratio on the whole exam. Drill it until recall is instant.*
@@ -286,6 +286,16 @@
 | **MSA** | The binding **master** contract. The umbrella |
 | **SOW** | The **specific work** under an MSA |
 | **NDA** | Protects confidential information shared between parties |
+| **Five cloud characteristics** | On-demand self-service, broad network access, resource pooling, rapid elasticity, measured service |
+| **Bluejacking** | Unsolicited messages to a Bluetooth device. Nuisance only |
+| **Bluesnarfing** | Unauthorised **data access** on a Bluetooth device |
+| **Bluebugging** | Unauthorised **control** of a Bluetooth device. Most severe |
+| **Bluetooth severity order** | **Bluejacking < Bluesnarfing < Bluebugging** |
+| **ICS / SCADA** | Systems controlling **physical industrial processes** |
+| **PLC** | Programmable Logic Controller — ruggedised industrial control computer |
+| **IoT** | Consumer/commercial connected devices, broader than ICS |
+| **ICS/IoT risk** | Long lifespan, hard to patch, **reboot can be unsafe**, compromise can be physical |
+| **Defence in depth** | Layering multiple **independent** controls so no single failure is fatal |
 
 ---
 

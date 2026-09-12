@@ -2,55 +2,28 @@
 
 <img src="assets/module-06-banner.svg" alt="06 · Term Bank" width="100%">
 
-# 🚨 Domain 2 terms · BC, DR & Incident Response
+# 🚨 Domain 2 terms · Security Governance
 
 [![Module](https://img.shields.io/badge/Module-06_Term_Bank-0d2b33?style=flat-square)](README.md)
-[![Domain](https://img.shields.io/badge/Domain-2%20·%2010%25-5C7CFA?style=flat-square)](../02-bc-dr-ir/README.md)
-[![Terms](https://img.shields.io/badge/Terms-52-57606A?style=flat-square)](#)
+[![Domain](https://img.shields.io/badge/Domain-2%20·%2017.3%25-5C7CFA?style=flat-square)](../02-security-governance/README.md)
+[![Terms](https://img.shields.io/badge/Terms-65-57606A?style=flat-square)](#)
 
-📌 *The smallest domain and the quickest to secure. RTO vs RPO and the incident phase order carry most of the marks.*
+📌 *GRC, redundancy (BC/DR), awareness, and measuring effectiveness. Incident response moved to Domain 5 — look there instead.*
 
 </div>
 
 ---
 
-## 🏷️ Incident terminology
+## 🧭 GRC fundamentals
 
 | Term | Meaning |
 |---|---|
-| **Event** | Any **observable occurrence** in a system or network. **Neutral** — most are routine |
-| **Alert** | A notification that an event **may** require attention. A claim, not a fact |
-| **Adverse event** | An event with a negative consequence |
-| **Incident** | An event that **actually or potentially** jeopardises C, I or A, or violates policy |
-| **Breach** | An incident in which protected data was **actually** accessed, disclosed or taken |
-| **Intrusion** | Unauthorised **access** to a system |
-| **Compromise** | A system or account under unauthorised control |
-| **Near miss** | A genuine threat that was prevented or failed, still worth learning from |
-| **False positive** | An alert for something that was not a problem |
-| **Triage** | Assessing and prioritising alerts and incidents |
-| **Escalation** | Raising an incident to higher authority or expertise |
-
----
-
-## 🚑 Incident response
-
-| Term | Meaning |
-|---|---|
-| **Incident response plan (IRP)** | The documented process for handling incidents |
-| **CSIRT / CIRT** | Computer Security Incident Response Team |
-| **Playbook** | A procedure for one specific incident type |
-| **Phase 1 · Preparation** | Everything **before** an incident: plan, team, tools, training, exercises |
-| **Phase 2 · Detection and analysis** | Identifying that an incident is occurring and determining its nature |
-| **Phase 3 · Containment** | **Limiting the damage** and stopping the spread |
-| **Phase 4 · Eradication** | **Removing the cause** — malware, attacker access, the vulnerability |
-| **Phase 5 · Recovery** | **Restoring** systems to normal and verifying they are clean |
-| **Phase 6 · Post-incident activity** | The **lessons-learned** review. Blameless. Feeds back into preparation |
-| **Short-term containment** | Immediate action — isolate a host, block an address, disable an account |
-| **Long-term containment** | Temporary fixes allowing business to continue while a proper fix is prepared |
-| **The first action** | **Follow the documented plan and notify.** Containment is a phase, not a first move |
-| **Chain of custody** | An unbroken documented record of who handled evidence, when, and why |
-| **Order of volatility** | Collect the **most perishable evidence first** — memory before disk |
-| **Working copy** | Analyse a copy; preserve the original untouched |
+| **GRC** | Governance, Risk, Compliance — run as **one integrated programme** |
+| **Governance** | **Sets direction** and accountability |
+| **Compliance** | **Proves**, with evidence, that obligations are being met |
+| **GRC framework** | e.g. **COBIT** (IT governance), **NIST CSF** (risk) |
+| **GRC tool** | Software centrally tracking controls, risks, policies, evidence |
+| **Audit** | Independent check of whether obligations are actually met |
 
 ---
 
@@ -126,6 +99,37 @@
 
 ---
 
+## 🎣 Security awareness
+
+| Term | Meaning |
+|---|---|
+| **Awareness** | Keeps security **in mind**. Everyone, continuous, shallow |
+| **Training** | Teaches **specific skills** for a role |
+| **Education** | Builds understanding of **why**. For security professionals |
+| **Awareness training's classification** | **ADMINISTRATIVE + PREVENTIVE** |
+| **The social engineering answer** | **Security awareness training.** Human vulnerability, human control |
+| **Most valuable behaviour** | **REPORTING** — promptly, including one's own mistakes |
+| **Phishing simulations** | **TEACH, do not punish.** Punishment hides mistakes |
+| **The metric that matters** | **Reporting rate**, not just click rate. Track the trend |
+| **Security culture** | Secure behaviour is normal; concerns are raised without fear |
+| **Security leadership** | Visible management commitment to security — sets the tone for the culture |
+
+---
+
+## 📈 Measuring effectiveness
+
+| Term | Meaning |
+|---|---|
+| **KRI** — Key Risk Indicator | **Warns** of rising risk exposure, before a loss occurs |
+| **KPI** — Key Performance Indicator | **Grades** how well a process/control performs against a target |
+| **KRI vs KPI** | **KRI warns, KPI grades** |
+| **Dashboard** | Continuous, real-time, technical audience |
+| **Scorecard** | Periodic, graded summary, management audience |
+| **Report** | Periodic, often narrative, executive/board/regulator audience |
+
+---
+
 <div align="center">
-<sub><a href="README.md">← back to 06 · Term Bank</a> &nbsp;·&nbsp; <a href="domain-03-terms.md">Domain 3 terms →</a></sub>
+<sub><a href="README.md">← back to 06 · Term Bank</a> &nbsp;·&nbsp; <a href="most-confused-pairs.md">The most confused pairs →</a></sub>
 </div>
+</content>

@@ -2,13 +2,13 @@
 
 <img src="assets/module-06-banner.svg" alt="06 · Term Bank" width="100%">
 
-# ⚙️ Domain 5 terms · Security Operations
+# ⚙️ Domain 5 terms · Security Operations and Incident Response
 
 [![Module](https://img.shields.io/badge/Module-06_Term_Bank-0d2b33?style=flat-square)](README.md)
-[![Domain](https://img.shields.io/badge/Domain-5%20·%2018%25-5C7CFA?style=flat-square)](../05-security-operations/README.md)
-[![Terms](https://img.shields.io/badge/Terms-80-57606A?style=flat-square)](#)
+[![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-5C7CFA?style=flat-square)](../05-security-operations/README.md)
+[![Terms](https://img.shields.io/badge/Terms-110-57606A?style=flat-square)](#)
 
-📌 *Broad but shallow. The encryption and hashing terms carry the most weight — especially the key-direction rule.*
+📌 *Broad but shallow, and now the home of incident response. The encryption/hashing terms and the incident phase order carry the most weight.*
 
 </div>
 
@@ -174,7 +174,7 @@
 
 ---
 
-## 📜 Policies and people
+## 📜 Policies
 
 | Term | Meaning |
 |---|---|
@@ -193,15 +193,119 @@
 | **Clean desk policy** | Sensitive material secured when unattended. The **physical session timeout** |
 | **Every policy needs** | Management approval · scope · responsibilities · **consequences** · review · acknowledgement |
 | **Unread policy** | **Not a control.** Communication and acknowledgement are part of it |
-| **Awareness** | Keeps security **in mind**. Everyone, continuous, shallow |
-| **Training** | Teaches **specific skills** for a role |
-| **Education** | Builds understanding of **why**. For security professionals |
-| **Awareness training's classification** | **ADMINISTRATIVE + PREVENTIVE** |
-| **The social engineering answer** | **Security awareness training.** Human vulnerability, human control |
-| **Most valuable behaviour** | **REPORTING** — promptly, including one's own mistakes |
-| **Phishing simulations** | **TEACH, do not punish.** Punishment hides mistakes |
-| **The metric that matters** | **Reporting rate**, not just click rate. Track the trend |
-| **Security culture** | Secure behaviour is normal; concerns are raised without fear |
+
+> Security **awareness training** terms (awareness vs. training vs. education, phishing
+> simulations, security culture) now live in the [Domain 2 term bank](domain-02-terms.md) —
+> awareness moved there under the live outline.
+
+---
+
+## 🎭 Masking, PQ crypto
+
+| Term | Meaning |
+|---|---|
+| **Masking** | Hides part/all of a value while keeping data usable for viewing — not the same as encryption |
+| **Masking vs encryption** | Masking is for **viewing without exposing**; encryption is for **later full recovery with a key** |
+| **Quantum-resistant / post-quantum cryptography** | Algorithms designed to stay secure against a future **quantum computer** |
+| **Harvest now, decrypt later** | Attacker captures ciphertext today, decrypts once quantum computing matures |
+| **Cryptographic agility** | Ability to **swap algorithms** without a full system redesign |
+| **Most urgent to protect** | Data needing **long-term confidentiality** — decades, not months |
+
+---
+
+## 🎯 Event triage and threat intelligence
+
+| Term | Meaning |
+|---|---|
+| **Triage** | Sorting and prioritising alerts/incidents for response |
+| **Prioritisation** | Ranking by **severity and confidence**, not just volume |
+| **Correlation** | Linking related events into **one picture** — usually comes before prioritisation |
+| **Threat actor types** | Nation-state/APT · organised crime · hacktivist · insider · script kiddie |
+| **Highest capability actor** | **Nation-state / APT** — patient, funded, persistent |
+| **CTI** | Cyber Threat Intelligence — analysed, actionable information about threats |
+| **CTI levels** | **Strategic** (leadership) → **Operational** (campaigns) → **Tactical** (IOCs) |
+| **IOC** | Indicator of Compromise — **one** observable piece of evidence, not the whole picture |
+| **Threat framework** | A shared, structured vocabulary for attacker behaviour, e.g. **MITRE ATT&CK** |
+
+---
+
+## 🏷️ Incident terminology
+
+| Term | Meaning |
+|---|---|
+| **Event** | Any **observable occurrence** in a system or network. **Neutral** — most are routine |
+| **Alert** | A notification that an event **may** require attention. A claim, not a fact |
+| **Adverse event** | An event with a negative consequence |
+| **Incident** | An event that **actually or potentially** jeopardises C, I or A, or violates policy |
+| **Breach** | An incident in which protected data was **actually** accessed, disclosed or taken |
+| **Intrusion** | Unauthorised **access** to a system |
+| **Compromise** | A system or account under unauthorised control |
+| **Near miss** | A genuine threat that was prevented or failed, still worth learning from |
+| **False positive** | An alert for something that was not a problem |
+| **Escalation** | Raising an incident to higher authority or expertise |
+
+---
+
+## 🚑 Incident response
+
+| Term | Meaning |
+|---|---|
+| **Incident response plan (IRP)** | The documented process for handling incidents |
+| **CSIRT / CIRT** | Computer Security Incident Response Team |
+| **Playbook** | A procedure for one specific incident type |
+| **Phase 1 · Preparation** | Everything **before** an incident: plan, team, tools, training, exercises |
+| **Phase 2 · Detection and analysis** | Identifying that an incident is occurring and determining its nature |
+| **Phase 3 · Containment** | **Limiting the damage** and stopping the spread |
+| **Phase 4 · Eradication** | **Removing the cause** — malware, attacker access, the vulnerability |
+| **Phase 5 · Recovery** | **Restoring** systems to normal and verifying they are clean |
+| **Phase 6 · Post-incident activity** | The **lessons-learned** review. Blameless. Feeds back into preparation |
+| **IR exercise / tabletop** | Testing the IRP without a real incident — read-through, tabletop, simulation |
+| **Short-term containment** | Immediate action — isolate a host, block an address, disable an account |
+| **Long-term containment** | Temporary fixes allowing business to continue while a proper fix is prepared |
+| **The first action** | **Follow the documented plan and notify.** Containment is a phase, not a first move |
+| **Chain of custody** | An unbroken documented record of who handled evidence, when, and why |
+| **Order of volatility** | Collect the **most perishable evidence first** — memory before disk |
+| **Working copy** | Analyse a copy; preserve the original untouched |
+
+---
+
+## 📦 Asset lifecycle and EOL
+
+| Term | Meaning |
+|---|---|
+| **Asset lifecycle** | Acquire → Deploy → Maintain → **EOL** → Retire/decommission |
+| **EOL / EOS** | End-of-life / end-of-support — vendor **stops issuing security patches** |
+| **EOL risk** | **Increases indefinitely** the longer the asset stays in service |
+| **Can't retire on time** | Apply **compensating controls** — isolate, segment, monitor |
+| **Decommissioning** | Formally retiring an asset, **including data sanitisation** |
+
+---
+
+## 🧪 Security testing
+
+| Term | Meaning |
+|---|---|
+| **Red team** | Simulates a real attacker |
+| **Blue team** | Detects and responds |
+| **Purple team** | Red + blue **collaborate and share findings DURING** the exercise |
+| **Vulnerability scanning** | Automated, checks against **known** vulnerabilities |
+| **SAST** | Static analysis — reads **source code**, app not running |
+| **DAST** | Dynamic analysis — tests a **running** app from the outside |
+| **Threat modeling** | **Design-time** activity — the earliest of these, before code exists |
+| **SAST vs DAST** | **SAST reads, DAST attacks** |
+
+---
+
+## 🏢 Physical penetration testing
+
+| Term | Meaning |
+|---|---|
+| **Physical penetration testing** | Authorised, scoped attempts to bypass physical controls |
+| **The three named techniques** | **Phishing, tailgating, impersonation** |
+| **Tailgating** | Following **without** the authorised person's knowledge |
+| **Piggybacking** | The same, **with** consent |
+| **Impersonation** | Posing as someone with a legitimate reason to be present |
+| **Rules of engagement** | Scope + proof of authorisation if a tester is challenged |
 
 ---
 

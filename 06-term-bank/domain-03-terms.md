@@ -2,13 +2,19 @@
 
 <img src="assets/module-06-banner.svg" alt="06 · Term Bank" width="100%">
 
-# 🚪 Domain 3 terms · Access Control Concepts
+# 🚪 Domain 3 terms · IAM Concepts
 
 [![Module](https://img.shields.io/badge/Module-06_Term_Bank-0d2b33?style=flat-square)](README.md)
-[![Domain](https://img.shields.io/badge/Domain-3%20·%2022%25-5C7CFA?style=flat-square)](../03-access-control/README.md)
+[![Domain](https://img.shields.io/badge/Domain-3%20·%2020%25-5C7CFA?style=flat-square)](../03-access-control/README.md)
 [![Terms](https://img.shields.io/badge/Terms-62-57606A?style=flat-square)](#)
 
 📌 *The most definition-dense domain. The four access control models alone are worth several marks.*
+
+> [!NOTE]
+> **Physical access control** is no longer a named Domain 3 objective — the surviving physical
+> thread is physical *penetration testing*, in the [Domain 5 term bank](domain-05-terms.md).
+> **Defence in depth** is now Domain 4 content, in the
+> [Domain 4 term bank](domain-04-terms.md). The terms below are kept for reference.
 
 </div>
 
