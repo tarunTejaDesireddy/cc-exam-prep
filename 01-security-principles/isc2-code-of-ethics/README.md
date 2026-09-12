@@ -7,7 +7,7 @@
 ### *Four canons, and the order they are in is the answer to the question*
 
 [![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-1%20·%2026%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~10%20min-57606A?style=flat-square)](#)
 
 📌 *Guaranteed marks. The canons are short, they are ranked, and the ranking is precisely what gets tested.*
@@ -377,5 +377,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 01 · Security Principles</a> &nbsp;·&nbsp; <a href="../../04-network-security/README.md">next domain: 04 · Network Security →</a></sub>
+<sub><a href="../README.md">← back to 01 · Security Principles</a> &nbsp;·&nbsp; <a href="../due-care-and-due-diligence/">next: Due care and due diligence →</a></sub>
 </div>

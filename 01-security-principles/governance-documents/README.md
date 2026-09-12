@@ -7,7 +7,7 @@
 ### *Policy, standard, procedure, guideline — a hierarchy, and only one of them is optional*
 
 [![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-1%20·%2026%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
 📌 *Four document types the exam swaps around constantly. Learn the hierarchy, learn which are mandatory, and several marks are locked in.*
@@ -174,6 +174,23 @@ Two responsibilities the exam expects you to place correctly:
   policy has no authority.
 - **Policies must be reviewed periodically** — typically annually, and after any significant
   change or incident. A policy nobody has revisited in six years is a finding.
+
+---
+
+## 🏗️ Named standards and frameworks
+
+The live outline names two examples explicitly, and expects you to recognise both as
+**published external standards/frameworks** an organisation can adopt rather than write from
+scratch:
+
+| Name | What it is |
+|---|---|
+| **ISO** (e.g. ISO/IEC 27001) | An international standards body; ISO 27001 specifically defines requirements for an information security management system (ISMS). |
+| **CIS** (Center for Internet Security) | Publishes the **CIS Controls** — a prioritised, practical set of safeguards — and **CIS Benchmarks**, configuration hardening guides for specific platforms. |
+
+> 🎯 **ISO and CIS are examples of the "standards" and "frameworks" layer**, not a fifth
+> document type of their own. An organisation's internal standard might simply say "configure
+> servers per the relevant CIS Benchmark" — the internal standard points at the external one.
 
 ---
 
@@ -376,6 +393,7 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 - **Procedure** = numbered steps. **Steps mean procedure.**
 - **Guideline** = *should*, *consider*, *recommended*. **Soft verbs mean guideline.**
 - **Baseline** = minimum acceptable configuration for a system.
+- **ISO and CIS are named examples of standards/frameworks** — not a separate document type.
 - **Regulation/law is external and enforceable**; policy is internal.
 - **Policies must be reviewed periodically** — annually, and after major change or an incident.
 

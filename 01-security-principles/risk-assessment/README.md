@@ -7,7 +7,7 @@
 ### *Working out how bad a risk is — in words, or in money*
 
 [![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-1%20·%2026%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
 
 📌 *Qualitative versus quantitative, and the three formulas — SLE, ARO, ALE — that the exam expects you to recognise and occasionally compute.*

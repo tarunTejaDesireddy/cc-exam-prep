@@ -7,7 +7,7 @@
 ### *The four things you can do about a risk — and only four*
 
 [![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-1%20·%2026%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
 📌 *Accept, avoid, mitigate, transfer. Expect several questions that describe a decision and ask which one it was.*

@@ -7,7 +7,7 @@
 ### *Asset, threat, vulnerability, risk — four words the exam will deliberately swap around*
 
 [![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-1%20·%2026%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
 
 📌 *The densest distractor material in Domain 1. If you can sort any phrase into the right one of these four boxes, you have several marks locked in.*
@@ -172,6 +172,38 @@ risk tolerance — a level chosen by senior management, not by the security team
 
 > 🎯 Any option claiming a control "eliminates" or "removes all" risk is wrong twice over: it
 > is an absolute, and it contradicts the definition of residual risk.
+
+---
+
+## 🔁 The risk management lifecycle
+
+The live outline tests risk management as a **lifecycle**, not a single event — risk work
+repeats continuously rather than happening once and being filed away.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    ID["1️⃣ Identify<br/>find the risks"] --> AS["2️⃣ Assess<br/>likelihood × impact"]
+    AS --> TR["3️⃣ Treat<br/>accept·avoid·mitigate·transfer"]
+    TR --> MO["4️⃣ Monitor<br/>and report"]
+    MO -.->|"environment changes"| ID
+
+    style ID fill:#0f3038,stroke:#12B5A5,color:#fff
+    style AS fill:#12243f,stroke:#5C7CFA,color:#fff
+    style TR fill:#3a2c12,stroke:#F08C00,color:#fff
+    style MO fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+| Stage | What happens |
+|---|---|
+| **Identify** | Find and catalogue the assets, threats and vulnerabilities that create risk. |
+| **Assess** | Analyse each risk — likelihood and impact (see `risk-assessment/` for qualitative vs quantitative). |
+| **Treat** | Choose and apply a treatment — accept, avoid, mitigate, or transfer (see `risk-treatment/`). |
+| **Monitor** | Track residual risk and control effectiveness over time, and report to stakeholders. |
+
+> 🎯 **The cycle never stops.** New assets appear, threats evolve, and controls degrade — so
+> monitoring feeds back into identification rather than ending the process. A question
+> describing risk management as a one-time project is describing it wrong.
 
 ---
 
@@ -412,6 +444,7 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 - **Unpatched software = vulnerability**, not a risk. Risk needs a threat *and* an impact too.
 - **Inherent** = before controls. **Residual** = after controls. **Residual is never zero.**
 - **Backups reduce IMPACT, not likelihood.** Firewalls reduce likelihood.
+- **Risk lifecycle: Identify → Assess → Treat → Monitor**, then back to Identify. It never stops.
 - **Senior management sets risk tolerance and accepts risk.** Never the analyst.
 
 ---

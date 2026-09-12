@@ -7,7 +7,7 @@
 ### *Making it impossible to credibly say "that wasn't me"*
 
 [![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-1%20·%2026%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~10%20min-57606A?style=flat-square)](#)
 
 📌 *A small topic that appears constantly as a distractor on CIA questions. Know what it is, what provides it, and that it is not part of the triad.*

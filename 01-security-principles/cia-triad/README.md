@@ -7,7 +7,7 @@
 ### *The three things security exists to protect — and the exact wording of each*
 
 [![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-1%20·%2026%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~14%20min-57606A?style=flat-square)](#)
 
 📌 *Almost every question on this exam is ultimately about one of three properties. Getting them precisely apart is worth marks in all five domains.*
