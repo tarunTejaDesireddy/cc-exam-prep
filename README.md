@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/repo-banner.svg" alt="ISC2 CC — Certified in Cybersecurity" width="100%">
+<img src="assets/hero-banner.svg" alt="ISC2 CC exam prep — pass the CC exam: 50 topics, 711 questions, 3 mock exams" width="100%">
 
 <h1>
 🛡️&nbsp; ISC2 CC — Certified in Cybersecurity
@@ -172,6 +172,22 @@ exams and the final cram page are written.
 2. [`00-foundations/study-schedule/`](00-foundations/study-schedule/README.md) — the day-by-day plan
 3. Then Domain 1, and work the schedule
 
+
+---
+
+## ⚖️ About this repo
+
+**Everything here is original.** No ISC2 courseware is reproduced — the questions are written to
+the published exam blueprint, not taken from any item bank, and the definitions are stated in the
+terminology the exam uses rather than copied from it.
+
+**The practice questions are not ISC2's.** They follow the same blueprint and style, and like any
+practice bank they run slightly kinder than the real thing. That is why
+[`08-mock-exams/scoring-guide.md`](08-mock-exams/scoring-guide.md) sets **80%** as the target
+rather than 70%.
+
+Released under the [MIT licence](LICENSE) — use it, fork it, correct it. If you spot an error,
+open an issue.
 
 ---
 
