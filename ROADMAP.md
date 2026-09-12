@@ -129,7 +129,7 @@ Smallest domain, written last of the five. Short, and mostly definitions plus on
 - [x] `scoring-guide.md` — the four miss types, domain breakdown, go/no-go
 
 ### Final
-- [ ] `EXAM-DAY.md` — the one page read on 3–4 November, and nothing else
+- [x] `EXAM-DAY.md` — the one page read on 3–4 November, and nothing else
 
 ---
 
