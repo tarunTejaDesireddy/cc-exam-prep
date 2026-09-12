@@ -11,15 +11,15 @@
 </h3>
 
 <p>
-<b>9 modules · 50 topics · 5 exam domains</b><br>
+<b>9 modules · 50 topics · 711 practice questions · 150 diagrams</b><br>
 <sub>Everything the exam can ask, written to be read once and drilled twice. Nothing here is a copy of the ISC2 courseware.</sub>
 </p>
 
-[![Exam](https://img.shields.io/badge/Exam-5%20November%202026-12B5A5?style=for-the-badge)](00-foundations/exam-day-logistics/)
+[![Exam](https://img.shields.io/badge/Exam-5%20November%202026-12B5A5?style=for-the-badge)](EXAM-DAY.md)
 [![Modules](https://img.shields.io/badge/Modules-9-0d2b33?style=for-the-badge)](#-the-9-modules)
-[![Topics](https://img.shields.io/badge/Topics-50-0d2b33?style=for-the-badge)](#-the-9-modules)
+[![Questions](https://img.shields.io/badge/Practice%20Qs-711-0d2b33?style=for-the-badge)](#-whats-in-it)
 [![Pass mark](https://img.shields.io/badge/Pass-700%2F1000-5C7CFA?style=for-the-badge)](00-foundations/how-the-exam-works/)
-[![Progress](https://img.shields.io/badge/Progress-COMPLETE-2F9E44-57606A?style=for-the-badge)](ROADMAP.md)
+[![Progress](https://img.shields.io/badge/Progress-COMPLETE-2F9E44?style=for-the-badge)](ROADMAP.md)
 
 <sub>🌐 Prefer to browse? <a href="docs/index.html"><code>docs/index.html</code></a> is a filterable index of every
 topic — open it locally, or turn on GitHub Pages from the <code>/docs</code> folder.</sub>
@@ -155,9 +155,10 @@ Conventions, colours and the full visual language: [`CLAUDE.md`](CLAUDE.md).
 
 ## 📌 Progress
 
-Ticked when the topic is **written and pushed**. Live detail in [`ROADMAP.md`](ROADMAP.md).
+**The repo is complete.** All 50 domain topics, the term bank, the question bank, three mock
+exams and the final cram page are written.
 
-| Module | Written |
+| Module | Status |
 |---|---|
 | 🧱 00 · Foundations | `5 / 5` ✅ |
 | 🧭 01 · Security Principles | `11 / 11` ✅ |
@@ -168,6 +169,24 @@ Ticked when the topic is **written and pushed**. Live detail in [`ROADMAP.md`](R
 | 🗂️ 06 · Term Bank | `complete` ✅ |
 | ❓ 07 · Question Bank | `complete` ✅ |
 | 📝 08 · Mock Exams | `complete` ✅ |
+| 🎓 `EXAM-DAY.md` | `complete` ✅ |
+
+### What's in it
+
+| | |
+|---|---|
+| **Topic pages** | 50, each with definitions, told-apart blocks, traps, 5 questions and cram lines |
+| **Practice questions** | **711** — 250 in the topics, 160 in the drills, 300 in the mocks |
+| **Diagrams** | **150** mermaid diagrams, all theme-safe in light and dark |
+| **Flashcards** | **591**, generated from the term tables |
+| **Checks** | `ci/check-diagrams.sh` · `ci/check-links.sh` · `ci/make-flashcards.sh` |
+
+### Start here
+
+1. [`00-foundations/how-isc2-thinks/`](00-foundations/how-isc2-thinks/) — the highest-value page
+2. [`00-foundations/study-schedule/`](00-foundations/study-schedule/README.md) — the day-by-day plan
+3. Then Domain 1, and work the schedule
+
 
 ---
 
