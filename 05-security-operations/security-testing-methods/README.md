@@ -8,7 +8,7 @@
 
 [![Module](https://img.shields.io/badge/Module-05_Security_Operations-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~10%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
 
 📌 *Two of the outline's three security testing clusters: readiness testing (team colours) and application testing (scanning and analysis techniques). The third, physical testing, has its own page.*
 
@@ -36,6 +36,11 @@ penetration testing** (covered on its own page). This page covers the first two.
 | **SAST (Static Application Security Testing)** | Analysing an application's **source code** for security flaws, without running it. |
 | **DAST (Dynamic Application Security Testing)** | Testing a **running** application from the outside, the way an attacker would interact with it. |
 | **Threat modeling** | Systematically identifying what could go wrong in a system's design, **before or during development** — a design-time activity, not a scan. |
+| **Penetration test** | An authorised, human-led attempt to actively exploit weaknesses — goes beyond scanning by proving what an attacker could actually achieve. |
+| **Black box test** | The tester starts with **no internal knowledge** — the outside attacker's view. |
+| **White box test** | The tester has **full internal knowledge** — source code, architecture, credentials. |
+| **Grey box test** | The tester has **partial knowledge** — e.g. a standard user account, but not source code. |
+| **Rules of engagement** | The written scope and boundaries for a test — what may be attempted, what is off-limits, and who to contact if something goes wrong. |
 
 ---
 
@@ -93,6 +98,28 @@ flowchart LR
 
 ---
 
+## 🕶️ Penetration testing: how much the tester is told beforehand
+
+A penetration test goes further than scanning — a human actively tries to exploit what's
+found, to prove real-world impact rather than just flagging a theoretical weakness. How much
+the tester knows in advance is itself a tested distinction:
+
+| | Tester starts with | Simulates |
+|---|---|---|
+| **Black box** | No internal knowledge | An outside attacker with no inside help |
+| **White box** | Full internal knowledge (source, architecture, credentials) | The deepest, most efficient possible review |
+| **Grey box** | Partial knowledge (e.g. a standard user account) | A malicious insider, or an attacker who has already gained a foothold |
+
+> 🎯 **More knowledge given to the tester trades realism for efficiency.** Black box is the
+> most realistic simulation of an external attacker; white box finds the most issues fastest
+> because nothing has to be discovered blind.
+
+**Every test — application, red team, or physical — runs under written rules of engagement.**
+Without a defined scope and authorisation, an "authorised" test is legally indistinguishable
+from the real intrusion it's meant to simulate.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
@@ -101,6 +128,8 @@ flowchart LR
 | **SAST** | Analyses **source code**, app not running. | **DAST**, which tests a **running** application from the outside, without looking at code. |
 | **Vulnerability scanning** | Automated check against **known** vulnerabilities. | **Threat modeling**, which reasons about a design's weaknesses that may have no existing catalogue entry at all. |
 | **Threat modeling** | A **design-time** activity, often the earliest testing performed. | **Penetration testing** in general, which tests something that already exists (code, a system, a building). |
+| **Black box test** | Tester has **no** internal knowledge — the outside view. | **White box test**, full internal knowledge, and **grey box**, partial knowledge in between. |
+| **Vulnerability scanning** | Automated, finds and lists weaknesses. | **Penetration testing**, which actively exploits findings to prove real impact. |
 
 ---
 
@@ -227,6 +256,26 @@ distinguishing it from manual code review, team exercises, or design review.
 
 </details>
 
+**Q6.** A tester is given a standard employee-level user account but no access to source code
+before starting an assessment. What type of test is this?
+
+- **A.** Black box
+- **B.** White box
+- **C.** Grey box
+- **D.** Vulnerability scanning
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C — grey box.** Partial knowledge (a standard account, but not source code) sits between the
+no-knowledge black box and the full-knowledge white box approaches.
+
+- **A** would mean starting with no internal access at all, not a working account.
+- **B** would mean full internal knowledge, including source code.
+- **D** describes an automated technique, not a human-led, knowledge-tiered test.
+
+</details>
+
 ---
 
 ## 🎓 The grown-up version
@@ -247,6 +296,18 @@ debrief — sometimes weeks after the exercise. Purple teaming compresses that f
 near-real-time, which is particularly valuable when the goal is rapidly improving detection
 content (SIEM rules, alerting logic) rather than simply measuring whether red team "won."
 
+**IAST, briefly.** Interactive Application Security Testing runs an agent alongside the
+application during normal use or automated functional testing, combining a SAST-like view of
+the code path actually executed with DAST-like observation of runtime behaviour. CC does not
+require naming IAST, but it explains why "SAST or DAST" is not always a strict either/or in
+practice — mature testing programmes layer several of these techniques rather than picking
+one.
+
+**Get-out-of-jail authorisation.** Professional testers carry a signed authorisation letter
+naming the engagement and an emergency contact, precisely so a test that gets discovered
+mid-engagement can be resolved without treating the tester as a genuine intruder — the same
+principle covered in more depth for physical tests on the next page.
+
 </details>
 
 ---
@@ -261,6 +322,8 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 - **Threat modeling = design-time**, the earliest of all these activities.
 - Three security testing clusters: **readiness (red/blue/purple), application (SAST/DAST/scan/
   threat modeling), physical** (own page).
+- **Black box = no knowledge. White box = full knowledge. Grey box = partial.**
+- **Rules of engagement** scope every test and prove authorisation if something goes wrong.
 
 ---
 

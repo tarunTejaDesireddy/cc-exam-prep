@@ -293,6 +293,11 @@
 | **DAST** | Dynamic analysis — tests a **running** app from the outside |
 | **Threat modeling** | **Design-time** activity — the earliest of these, before code exists |
 | **SAST vs DAST** | **SAST reads, DAST attacks** |
+| **Black box / white box / grey box** | **No / full / partial** tester knowledge before a penetration test |
+| **Rules of engagement** | Written scope + authorisation proof for any test |
+| **IOC vs IOA** | IOC = static artefact (easy to change). IOA = behaviour/intent (harder to change) |
+| **Alert tuning** | Adjusting detection rules to cut false positives — the fix for alert fatigue |
+| **SOAR** | Automates routine triage steps so analysts focus on judgment calls |
 
 ---
 

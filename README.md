@@ -177,6 +177,8 @@ the term bank, the question bank, three mock exams and the final cram page are w
 2. [`00-foundations/study-schedule/`](00-foundations/study-schedule/README.md) — the day-by-day plan
 3. Then Domain 1, and work the schedule
 
+> 🔥 Having a rough week? [`MOTIVATION.md`](MOTIVATION.md) is a one-page pep talk for exactly
+> that — bookmark it now, before you need it.
 
 ---
 

@@ -176,6 +176,9 @@ Now the home of incident response too, plus data security, testing, and asset pr
 **Expect a mediocre score.** Mock 1 is a diagnostic, not a verdict — it exists to tell you where
 weeks 6 and 7 should go.
 
+> 🔥 If that score knocks your confidence, that's exactly the moment
+> [`MOTIVATION.md`](../../MOTIVATION.md) exists for. Read it, then keep going.
+
 ---
 
 ### 🚨 Week 6 · Mon 19 – Sun 25 October · Domain 2 · 17.3% + repair

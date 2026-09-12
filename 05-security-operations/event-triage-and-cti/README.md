@@ -8,7 +8,7 @@
 
 [![Module](https://img.shields.io/badge/Module-05_Security_Operations-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~14%20min-57606A?style=flat-square)](#)
 
 📌 *Security event triage — prioritisation and correlation — plus the vocabulary of threat actors, cyber threat intelligence, and threat frameworks.*
 
@@ -43,6 +43,10 @@ structures for describing attacker behaviour consistently.
 | **Cyber threat intelligence (CTI)** | Analysed information about threat actors, their capabilities, motivations and behaviour, used to inform defence. |
 | **Threat framework** | A published, structured way of describing attacker tactics and techniques consistently across organisations (e.g. MITRE ATT&CK). |
 | **IOC (Indicator of Compromise)** | Observable evidence that a compromise may have occurred — a malicious IP, a file hash, a suspicious registry key. |
+| **IOA (Indicator of Attack)** | Evidence of attacker *behaviour or intent* in progress (e.g. unusual privilege use), rather than a static artefact left behind. |
+| **TTP (Tactics, Techniques and Procedures)** | The pattern of *how* a threat actor operates — the highest-level, hardest-to-change thing to detect on. |
+| **SOAR (Security Orchestration, Automation and Response)** | Tooling that automates routine triage/response steps (enriching an alert, running a playbook) so analysts spend time on judgment calls, not repetitive lookups. |
+| **Alert tuning** | Adjusting detection rules to reduce false positives without losing real detections — the standing fix for alert fatigue. |
 
 ---
 
@@ -75,6 +79,31 @@ flowchart LR
 
 > 🎯 **Correlation usually comes before prioritisation in practice** — you can't accurately
 > judge severity of three isolated-looking alerts until you realise they're one attack chain.
+
+**Why triage doesn't scale on humans alone.** A SOC with thousands of daily alerts cannot
+manually correlate every one, which is why **use cases** (predefined detection patterns) and
+**SOAR playbooks** exist — automating the mechanical parts of triage (enrichment, initial
+correlation) so an analyst's judgment is spent on the alerts that actually need it. When alert
+volume overwhelms this, the standing fix is **tuning** the detections, not simply hiring more
+analysts to look at more noise.
+
+> ⚠️ **"Add more rules" is rarely the textbook answer to alert fatigue.** Tuning existing rules
+> to cut noise, and correlating before escalating, are the answers the exam expects.
+
+---
+
+## 🔎 IOC versus IOA — artefacts versus behaviour
+
+Not every clue is the same kind of clue.
+
+| | Looks at | Example | How easy to change |
+|---|---|---|---|
+| **IOC** | A static artefact left behind | A specific file hash, a malicious IP address | **Easy for an attacker to change** — a new sample has a new hash |
+| **IOA** | Behaviour or intent while it's happening | An account suddenly using admin privileges it's never used before | **Harder to change** — the underlying goal doesn't shift as easily as one file |
+
+> 🎯 **IOCs tell you something bad already happened somewhere. IOAs can catch an attack while
+> it's still in progress.** This is why mature detection strategies move beyond IOC lists
+> toward behaviour-based (IOA/TTP) detection.
 
 ---
 
@@ -124,6 +153,8 @@ rather than in free-text prose unique to that report.
 | **CTI** | Analysed, actionable information about threats. | **An IOC**, which is one specific observable data point CTI might use as input. |
 | **Threat framework** | A structured way to *describe* attacker behaviour consistently. | **CTI itself**, which is the actual intelligence content the framework helps organise. |
 | **Threat actor** | Who is carrying out an attack. | **Threat vector**, the route or method used, a separate concept from Domain 1's risk vocabulary. |
+| **IOC** | A static artefact — a hash, an IP, a file name. | **IOA**, attacker behaviour or intent observed while it's happening, harder for an attacker to simply change. |
+| **Alert tuning** | Adjusting existing detection rules to cut false positives. | **Adding more detection rules**, which increases volume rather than fixing the noise problem. |
 
 ---
 
@@ -251,6 +282,28 @@ registry key are all examples of individual IOCs.
 
 </details>
 
+**Q6.** An analyst notices a user account suddenly using administrative privileges it has
+never used before, though no known-malicious file or IP is involved. This is BEST described as
+an example of which of the following?
+
+- **A.** An IOC
+- **B.** An IOA
+- **C.** A threat framework
+- **D.** A false positive by definition
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — an IOA.** This is behaviour/intent observed in progress, not a static artefact like a
+hash or IP — exactly what distinguishes an IOA from an IOC.
+
+- **A** requires a specific static artefact, which is absent here.
+- **C** describes a vocabulary for organising such observations, not the observation itself.
+- **D** assumes the activity is benign without evidence — unusual privilege use warrants
+  investigation, not automatic dismissal.
+
+</details>
+
 ---
 
 ## 🎓 The grown-up version
@@ -270,6 +323,13 @@ attacker to change, while their tactics, techniques and procedures (TTPs) are th
 to alter. This is the practical argument for CTI maturing beyond simple IOC feeds toward
 behavioural, TTP-based detection.
 
+**Why SOAR complements rather than replaces analysts.** A playbook can reliably do the
+mechanical steps of triage — pull a file hash's reputation, check whether an IP has been seen
+before, open a ticket — every time, without fatigue. It cannot make the judgment call about
+whether a genuinely novel pattern of behaviour matters, which is precisely the part of triage
+that still needs a human, and precisely why "more automation" is not a universal answer to
+every alert-volume problem.
+
 </details>
 
 ---
@@ -286,6 +346,8 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 - **A threat framework (e.g. MITRE ATT&CK) is a shared vocabulary for attacker behaviour** —
   not a blocking tool.
 - **IOC = one observable piece of evidence**, not the whole intelligence picture.
+- **IOC = static artefact (easy to change). IOA = behaviour/intent (harder to change).**
+- **Alert fatigue → tune the rules**, not just add more of them.
 
 ---
 

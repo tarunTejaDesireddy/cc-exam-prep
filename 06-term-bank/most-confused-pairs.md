@@ -180,6 +180,8 @@ The ⭐ pairs are the ones that appear most often. Start there if time is short.
 | ⭐ **KRI vs KPI** | KRI **warns** of rising risk. KPI **grades** current performance against a target |
 | ⭐ **Due diligence vs Due care** | Diligence = investigate **before**. Care = act reasonably, **ongoing** |
 | ⭐ **SAST vs DAST** | SAST reads **source code**, app not running. DAST attacks a **running** app |
+| **Black box vs White box vs Grey box** | **No** knowledge vs **full** knowledge vs **partial** knowledge before a pen test |
+| **IOC vs IOA** | IOC = static **artefact** (easy to change). IOA = **behaviour/intent** (harder to change) |
 | **Tailgating vs Piggybacking** | Tailgating = **without** consent. Piggybacking = **with** consent |
 | **Rogue AP vs Evil twin** | Rogue AP = unauthorised, from **inside**. Evil twin = impersonation, from **outside** |
 | **Bluesnarfing vs Bluebugging** | Snarfing steals **data**. Bugging takes **control** — more severe |

@@ -349,6 +349,9 @@
   **"Still works fine" is irrelevant.** Can't retire on time? **Compensating controls.**
 - **Red = attacks. Blue = defends. Purple = both, sharing findings DURING the exercise.**
 - **SAST = source code, app not running. DAST = running app, code not examined.**
+- **Black box = no knowledge. White box = full knowledge. Grey box = partial.**
+- **IOC = static artefact. IOA = behaviour/intent, harder to change.**
+- **Alert fatigue → tune the rules**, not just add more of them.
 - **Vulnerability scanning is DETECTIVE**, checks against **known** issues. **Threat modeling** =
   design-time, the earliest of all these.
 - **Physical penetration testing = phishing, tailgating, impersonation** (the outline's own
@@ -383,7 +386,7 @@
 
 <br>
 
-<sub><a href="README.md">← back to the repo index</a></sub>
+<sub><a href="README.md">← back to the repo index</a></sub> &nbsp;·&nbsp; <sub><a href="MOTIVATION.md">🔥 nervous tonight? read this</a></sub>
 
 </div>
 </content>
