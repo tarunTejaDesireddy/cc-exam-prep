@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" width="1200" height="430" role="img" aria-label="Exam domain weights: Security Principles 26%, Network Security 24%, Access Control 22%, Security Operations 18%, BC DR and Incident Response 10%">
+  <defs>
+    <linearGradient id="wbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07171c"/>
+      <stop offset="55%" stop-color="#0d2b33"/>
+      <stop offset="100%" stop-color="#141d39"/>
+    </linearGradient>
+    <linearGradient id="b1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0e8f83"/><stop offset="100%" stop-color="#12B5A5"/>
+    </linearGradient>
+    <linearGradient id="b2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12B5A5"/><stop offset="100%" stop-color="#2f9bc4"/>
+    </linearGradient>
+    <linearGradient id="b3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3f86d4"/><stop offset="100%" stop-color="#5C7CFA"/>
+    </linearGradient>
+    <linearGradient id="b4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6a6ae0"/><stop offset="100%" stop-color="#7048E8"/>
+    </linearGradient>
+    <linearGradient id="b5" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5a5f80"/><stop offset="100%" stop-color="#6d7391"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12B5A5"/><stop offset="100%" stop-color="#5C7CFA"/>
+    </linearGradient>
+    <filter id="wsoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="430" rx="18" fill="url(#wbg)"/>
+  <circle cx="1080" cy="60" r="110" fill="#12B5A5" opacity="0.10" filter="url(#wsoft)"/>
+  <circle cx="900" cy="400" r="90" fill="#5C7CFA" opacity="0.10" filter="url(#wsoft)"/>
+  <rect x="0" y="0" width="6" height="430" rx="3" fill="url(#accent)"/>
+
+  <text x="46" y="52" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="27" font-weight="700" fill="#f1f8f8">Where the 100 questions come from</text>
+  <text x="46" y="78" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#9dc0bf">Bar length is the share of the paper. Study top to bottom.</text>
+
+  <!-- scale: 26% -> 760px. factor 29.23 per % -->
+  <!-- Row 1: Security Principles 26% -->
+  <g transform="translate(46,104)">
+    <text x="0" y="14" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="600" fill="#f1f8f8">🧭 Security Principles</text>
+    <text x="0" y="34" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#6d9291">Domain 1 · 11 topics</text>
+    <rect x="270" y="0" width="760" height="34" rx="6" fill="url(#b1)"/>
+    <text x="286" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700" fill="#04201d">26%</text>
+    <text x="1046" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#9dc0bf">~26 Q</text>
+  </g>
+
+  <!-- Row 2: Network Security 24% -> 701 -->
+  <g transform="translate(46,164)">
+    <text x="0" y="14" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="600" fill="#f1f8f8">🌐 Network Security</text>
+    <text x="0" y="34" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#6d9291">Domain 4 · 11 topics</text>
+    <rect x="270" y="0" width="701" height="34" rx="6" fill="url(#b2)"/>
+    <text x="286" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700" fill="#04201d">24%</text>
+    <text x="987" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#9dc0bf">~24 Q</text>
+  </g>
+
+  <!-- Row 3: Access Control 22% -> 643 -->
+  <g transform="translate(46,224)">
+    <text x="0" y="14" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="600" fill="#f1f8f8">🚪 Access Control</text>
+    <text x="0" y="34" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#6d9291">Domain 3 · 8 topics</text>
+    <rect x="270" y="0" width="643" height="34" rx="6" fill="url(#b3)"/>
+    <text x="286" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700" fill="#0b1430">22%</text>
+    <text x="929" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#9dc0bf">~22 Q</text>
+  </g>
+
+  <!-- Row 4: Security Operations 18% -> 526 -->
+  <g transform="translate(46,284)">
+    <text x="0" y="14" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="600" fill="#f1f8f8">⚙️ Security Operations</text>
+    <text x="0" y="34" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#6d9291">Domain 5 · 9 topics</text>
+    <rect x="270" y="0" width="526" height="34" rx="6" fill="url(#b4)"/>
+    <text x="286" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">18%</text>
+    <text x="812" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#9dc0bf">~18 Q</text>
+  </g>
+
+  <!-- Row 5: BC DR IR 10% -> 292 -->
+  <g transform="translate(46,344)">
+    <text x="0" y="14" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="600" fill="#f1f8f8">🚨 BC, DR &amp; Incident Response</text>
+    <text x="0" y="34" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#6d9291">Domain 2 · 6 topics</text>
+    <rect x="270" y="0" width="292" height="34" rx="6" fill="url(#b5)"/>
+    <text x="286" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">10%</text>
+    <text x="578" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#9dc0bf">~10 Q</text>
+  </g>
+
+  <!-- 72% bracket -->
+  <g opacity="0.9">
+    <path d="M 1052 104 L 1064 104 L 1064 258 L 1052 258" fill="none" stroke="#12B5A5" stroke-width="2"/>
+    <text x="1074" y="176" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="700" fill="#12B5A5">72%</text>
+    <text x="1074" y="193" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#6d9291">of the</text>
+    <text x="1074" y="207" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#6d9291">paper</text>
+  </g>
+</svg>

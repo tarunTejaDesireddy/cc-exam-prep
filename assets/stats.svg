@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 150" width="1200" height="150" role="img" aria-label="Repo contents: 50 topic pages, 711 practice questions, 152 diagrams, 591 flashcards, 3 mock exams">
+  <defs>
+    <linearGradient id="sbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07171c"/>
+      <stop offset="55%" stop-color="#0d2b33"/>
+      <stop offset="100%" stop-color="#141d39"/>
+    </linearGradient>
+    <linearGradient id="sacc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12B5A5"/><stop offset="100%" stop-color="#5C7CFA"/>
+    </linearGradient>
+    <filter id="ssoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="150" rx="14" fill="url(#sbg)"/>
+  <circle cx="1120" cy="30" r="80" fill="#12B5A5" opacity="0.10" filter="url(#ssoft)"/>
+  <circle cx="120" cy="140" r="70" fill="#5C7CFA" opacity="0.09" filter="url(#ssoft)"/>
+  <rect x="0" y="0" width="5" height="150" rx="3" fill="url(#sacc)"/>
+
+  <g transform="translate(70,0)">
+    <text x="60" y="62" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="700" fill="#12B5A5">50</text>
+    <text x="60" y="86" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" letter-spacing="1.4" fill="#9dc0bf">TOPIC PAGES</text>
+    <text x="60" y="106" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#6d9291">all five domains</text>
+  </g>
+  <line x1="255" y1="42" x2="255" y2="108" stroke="#1d3a42" stroke-width="1.5"/>
+
+  <g transform="translate(265,0)">
+    <text x="70" y="62" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="700" fill="#4fc3d4">711</text>
+    <text x="70" y="86" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" letter-spacing="1.4" fill="#9dc0bf">PRACTICE QUESTIONS</text>
+    <text x="70" y="106" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#6d9291">every distractor explained</text>
+  </g>
+  <line x1="470" y1="42" x2="470" y2="108" stroke="#1d3a42" stroke-width="1.5"/>
+
+  <g transform="translate(480,0)">
+    <text x="65" y="62" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="700" fill="#5C7CFA">152</text>
+    <text x="65" y="86" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" letter-spacing="1.4" fill="#9dc0bf">DIAGRAMS</text>
+    <text x="65" y="106" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#6d9291">light and dark safe</text>
+  </g>
+  <line x1="675" y1="42" x2="675" y2="108" stroke="#1d3a42" stroke-width="1.5"/>
+
+  <g transform="translate(685,0)">
+    <text x="65" y="62" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="700" fill="#8b6cf0">591</text>
+    <text x="65" y="86" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" letter-spacing="1.4" fill="#9dc0bf">FLASHCARDS</text>
+    <text x="65" y="106" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#6d9291">generated, never stale</text>
+  </g>
+  <line x1="880" y1="42" x2="880" y2="108" stroke="#1d3a42" stroke-width="1.5"/>
+
+  <g transform="translate(890,0)">
+    <text x="60" y="62" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="700" fill="#F08C00">3</text>
+    <text x="60" y="86" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" letter-spacing="1.4" fill="#9dc0bf">MOCK EXAMS</text>
+    <text x="60" y="106" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#6d9291">100 questions each</text>
+  </g>
+  <line x1="1060" y1="42" x2="1060" y2="108" stroke="#1d3a42" stroke-width="1.5"/>
+
+  <g transform="translate(1070,0)">
+    <text x="60" y="58" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="26" font-weight="700" fill="#2F9E44">5 Nov</text>
+    <text x="60" y="80" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" letter-spacing="1.4" fill="#9dc0bf">EXAM DAY</text>
+    <text x="60" y="100" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#6d9291">Thursday</text>
+  </g>
+</svg>

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" width="1200" height="470" role="img" aria-label="Anatomy of a topic page: big idea, words you will keep seeing, the explanation, told apart, where your instinct is wrong, how to remember it, five practice questions, the grown-up version, and cram lines">
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07171c"/>
+      <stop offset="55%" stop-color="#0d2b33"/>
+      <stop offset="100%" stop-color="#141d39"/>
+    </linearGradient>
+    <linearGradient id="pacc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12B5A5"/><stop offset="100%" stop-color="#5C7CFA"/>
+    </linearGradient>
+    <filter id="psoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="470" rx="18" fill="url(#pbg)"/>
+  <circle cx="1100" cy="430" r="110" fill="#5C7CFA" opacity="0.09" filter="url(#psoft)"/>
+  <circle cx="90" cy="60" r="90" fill="#12B5A5" opacity="0.09" filter="url(#psoft)"/>
+  <rect x="0" y="0" width="6" height="470" rx="3" fill="url(#pacc)"/>
+
+  <text x="46" y="50" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="27" font-weight="700" fill="#f1f8f8">Every one of the 50 topic pages is built the same way</text>
+  <text x="46" y="76" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#9dc0bf">So you always know where to look for the definition, the trap, or the drill.</text>
+
+  <!-- left column -->
+  <g transform="translate(46,104)">
+    <rect x="0" y="0" width="540" height="52" rx="8" fill="#0f3038" stroke="#1d6b66" stroke-width="1.5"/>
+    <text x="16" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f8f8">🧸 The big idea</text>
+    <text x="16" y="41" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#9dc0bf">Plain English. A handle on the concept before any jargon.</text>
+  </g>
+  <g transform="translate(46,164)">
+    <rect x="0" y="0" width="540" height="52" rx="8" fill="#12243f" stroke="#3a4f7a" stroke-width="1.5"/>
+    <text x="16" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f8f8">📖 Words you will keep seeing</text>
+    <text x="16" y="41" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#9dc0bf">ISC2's own wording, defined before it gets used.</text>
+  </g>
+  <g transform="translate(46,224)">
+    <rect x="0" y="0" width="540" height="52" rx="8" fill="#12243f" stroke="#3a4f7a" stroke-width="1.5"/>
+    <text x="16" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f8f8">🔍 The explanation</text>
+    <text x="16" y="41" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#9dc0bf">Short sections and diagrams. 148 across the topics.</text>
+  </g>
+  <g transform="translate(46,284)">
+    <rect x="0" y="0" width="540" height="52" rx="8" fill="#0f3038" stroke="#12B5A5" stroke-width="2"/>
+    <text x="16" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f8f8">⚖️ Told apart</text>
+    <text x="16" y="41" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#a8e5df">The pairs the exam swaps. The highest-value block on the page.</text>
+  </g>
+  <g transform="translate(46,344)">
+    <rect x="0" y="0" width="540" height="52" rx="8" fill="#3a1a20" stroke="#E03131" stroke-width="2"/>
+    <text x="16" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f8f8">⚠️ Where your instinct is wrong</text>
+    <text x="16" y="41" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#f0b8b8">The practitioner traps. Written for someone who does this job.</text>
+  </g>
+
+  <!-- right column -->
+  <g transform="translate(614,104)">
+    <rect x="0" y="0" width="540" height="52" rx="8" fill="#12243f" stroke="#3a4f7a" stroke-width="1.5"/>
+    <text x="16" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f8f8">🧠 How to remember it</text>
+    <text x="16" y="41" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#9dc0bf">A hook, only where one genuinely helps.</text>
+  </g>
+  <g transform="translate(614,164)">
+    <rect x="0" y="0" width="540" height="112" rx="8" fill="#1d3a2a" stroke="#2F9E44" stroke-width="2"/>
+    <text x="16" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f8f8">✅ Check you actually got it</text>
+    <text x="16" y="43" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#b8e3c4">Five questions, answers collapsed.</text>
+    <text x="16" y="63" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="700" fill="#5fd47f">Every wrong option is explained too —</text>
+    <text x="16" y="80" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="700" fill="#5fd47f">eliminating three options is the real skill.</text>
+    <text x="16" y="100" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#6d9291">250 questions across the 50 topics.</text>
+  </g>
+  <g transform="translate(614,284)">
+    <rect x="0" y="0" width="540" height="52" rx="8" fill="#1a1f2e" stroke="#4a5170" stroke-width="1.5"/>
+    <text x="16" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f8f8">🎓 The grown-up version</text>
+    <text x="16" y="41" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#9aa0bd">Collapsed. Real-world depth — never needed for the pass.</text>
+  </g>
+  <g transform="translate(614,344)">
+    <rect x="0" y="0" width="540" height="52" rx="8" fill="#3a2c12" stroke="#F08C00" stroke-width="2"/>
+    <text x="16" y="23" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f8f8">📝 Cram lines</text>
+    <text x="16" y="41" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#e8cfa4">The residue. Flows into EXAM-DAY.md.</text>
+  </g>
+
+  <!-- footer arrow -->
+  <text x="600" y="436" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#6d9291">Read top to bottom · answer the five questions before expanding anything · the cram lines are what you keep</text>
+</svg>

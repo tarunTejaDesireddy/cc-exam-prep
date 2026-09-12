@@ -11,7 +11,7 @@
 </h3>
 
 <p>
-<b>9 modules · 50 topics · 711 practice questions · 150 diagrams</b><br>
+<b>9 modules · 50 topics · 711 practice questions · 152 diagrams</b><br>
 <sub>Everything the exam can ask, written to be read once and drilled twice. Nothing here is a copy of the ISC2 courseware.</sub>
 </p>
 
@@ -20,6 +20,8 @@
 [![Questions](https://img.shields.io/badge/Practice%20Qs-711-0d2b33?style=for-the-badge)](#-whats-in-it)
 [![Pass mark](https://img.shields.io/badge/Pass-700%2F1000-5C7CFA?style=for-the-badge)](00-foundations/how-the-exam-works/)
 [![Progress](https://img.shields.io/badge/Progress-COMPLETE-2F9E44?style=for-the-badge)](ROADMAP.md)
+
+<img src="assets/stats.svg" alt="50 topic pages · 711 practice questions · 152 diagrams · 591 flashcards · 3 mock exams · exam 5 November" width="100%">
 
 <sub>🌐 Prefer to browse? <a href="docs/index.html"><code>docs/index.html</code></a> is a filterable index of every
 topic — open it locally, or turn on GitHub Pages from the <code>/docs</code> folder.</sub>
@@ -48,6 +50,10 @@ really done.
 
 ## 📊 What the exam weighs
 
+<div align="center">
+<img src="assets/weights.svg" alt="Domain weights: Security Principles 26%, Network Security 24%, Access Control 22%, Security Operations 18%, BC DR and IR 10%" width="100%">
+</div>
+
 | | Domain | Weight | Module |
 |:--:|---|--:|---|
 | 🧭 | **Security Principles** | **26%** | [`01-security-principles/`](01-security-principles/README.md) |
@@ -56,17 +62,9 @@ really done.
 | ⚙️ | **Security Operations** | **18%** | [`05-security-operations/`](05-security-operations/README.md) |
 | 🚨 | **BC, DR & Incident Response** | **10%** | [`02-bc-dr-ir/`](02-bc-dr-ir/README.md) |
 
-Domains **1, 4 and 3 together are 72% of the paper.** Spend your time there.
+**Domains 1, 4 and 3 are 72% of the paper between them.** Spend your time there — and if the
+schedule slips, it slips on Domain 2.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'pie1':'#12B5A5','pie2':'#5C7CFA','pie3':'#7048E8','pie4':'#F08C00','pie5':'#E03131','pieTitleTextSize':'16px','pieSectionTextSize':'14px','pieOuterStrokeWidth':'2px','pieStrokeColor':'#ffffff','pieSectionTextColor':'#ffffff','legendTextColor':'#8a8f98'}}}%%
-pie showData
-    "Security Principles" : 26
-    "Network Security" : 24
-    "Access Control" : 22
-    "Security Operations" : 18
-    "BC / DR / IR" : 10
-```
 
 ---
 
@@ -102,54 +100,41 @@ pie showData
 
 ---
 
-## 🗺️ How to work through it
+## 🗺️ How the repo fits together
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    F["🧱 00<br/>Foundations"] --> D1["🧭 01<br/>Principles<br/>26%"]
-    D1 --> D4["🌐 04<br/>Network<br/>24%"]
-    D4 --> D3["🚪 03<br/>Access<br/>22%"]
-    D3 --> D5["⚙️ 05<br/>Operations<br/>18%"]
-    D5 --> D2["🚨 02<br/>BC/DR/IR<br/>10%"]
-    D2 --> Q["❓ 07<br/>Question bank"]
-    Q --> M["📝 08<br/>Mock exams"]
-    M --> E["🎓<br/>5 Nov"]
+<div align="center">
+<img src="assets/overview-map.svg" alt="Repo map: Foundations, then the five domains in weight order, then term bank, question bank and mock exams, then EXAM-DAY" width="100%">
+</div>
 
-    style F fill:#0f3038,stroke:#12B5A5,color:#fff
-    style D1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D4 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D5 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style Q fill:#0f3038,stroke:#12B5A5,color:#fff
-    style M fill:#0f3038,stroke:#12B5A5,color:#fff
-    style E fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
-
-**The domains are worked in weight order, not number order** — heaviest first, so if the
-schedule slips, what you lose is what was worth least. The folders stay in ISC2's numbering
-so the official syllabus maps straight onto them.
+**The domains are worked in weight order, not number order** — heaviest first, so if the schedule
+slips, what you lose is what was worth least. The folders keep ISC2's own numbering so the
+official syllabus maps straight onto them.
 
 The full day-by-day plan is in [`00-foundations/study-schedule/`](00-foundations/study-schedule/README.md).
+
 
 ---
 
 ## 📖 Every page is built the same way
 
+<div align="center">
+<img src="assets/page-anatomy.svg" alt="Anatomy of a topic page: big idea, words, explanation, told apart, where your instinct is wrong, how to remember it, five questions, grown-up version, cram lines" width="100%">
+</div>
+
 | Section | What it gives you |
 |---|---|
 | 🧸 **The big idea** | A plain-English handle on the concept before any jargon |
 | 📖 **Words you will keep seeing** | Every term defined in ISC2's own wording, *before* it gets used |
-| **The explanation** | Short sections and diagrams, with the tested parts called out |
+| 🔍 **The explanation** | Short sections and diagrams, with the tested parts called out |
 | ⚖️ **Told apart** | The term pairs the exam deliberately confuses — the highest-value block on the page |
 | ⚠️ **Where your instinct is wrong** | Places doing the job well and answering well point different directions |
 | 🧠 **How to remember it** | A mnemonic or hook, where one genuinely helps |
 | ✅ **Check you actually got it** | Five questions, with **every wrong option explained** |
-| 🎓 **The grown-up version** | Collapsed. Extra depth for a second read — never needed for the pass |
+| 🎓 **The grown-up version** | Collapsed. Real-world depth — never needed for the pass |
 | 📝 **Cram lines** | The two or three facts that land in `EXAM-DAY.md` |
 
 Conventions, colours and the full visual language: [`CLAUDE.md`](CLAUDE.md).
+
 
 ---
 
@@ -177,7 +162,7 @@ exams and the final cram page are written.
 |---|---|
 | **Topic pages** | 50, each with definitions, told-apart blocks, traps, 5 questions and cram lines |
 | **Practice questions** | **711** — 250 in the topics, 160 in the drills, 300 in the mocks |
-| **Diagrams** | **150** mermaid diagrams, all theme-safe in light and dark |
+| **Diagrams** | **152** — 148 mermaid (theme-safe in light and dark) + 4 designed SVGs |
 | **Flashcards** | **591**, generated from the term tables |
 | **Checks** | `ci/check-diagrams.sh` · `ci/check-links.sh` · `ci/make-flashcards.sh` |
 
