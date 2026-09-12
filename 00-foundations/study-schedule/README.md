@@ -21,12 +21,10 @@
 Fifty-four days is comfortable for this exam — **if the time is spent in weight order and the
 mocks land early enough to act on.**
 
-The two ways people waste this window are both avoidable. The first is studying in domain
-number order, which puts 10% of the paper ahead of 24% of it. The second is taking the first
-mock exam in the final week, when a bad result leaves no time to fix anything.
-
-So: heaviest domains first, first mock at the end of week 5, and the last two days reserved for
-one page and nothing else.
+Under the live outline, weight order is **1 (24%) → 4 (21.3%) → 3 (20%) → 2 and 5, tied at
+17.3% each.** Domain 2 (Security Governance) and Domain 5 (Security Operations and Incident
+Response) are no longer wildly different sizes — one is not "the small one" the way the old
+Domain 2 (10%) used to be. Budget them roughly evenly.
 
 **Budget 45–60 minutes on weekdays and one longer session at the weekend.** That is enough.
 This is an entry-level exam and you already work in the field — the risk is not insufficient
@@ -50,11 +48,11 @@ hours, it is disorganised ones.
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    W0["Now<br/>12–13 Sep<br/>Foundations"] --> W1["W1–2<br/>14–27 Sep<br/>Domain 1 · 26%"]
-    W1 --> W3["W3<br/>28 Sep–4 Oct<br/>Domain 4 · 24%"]
-    W3 --> W4["W4<br/>5–11 Oct<br/>Domain 3 · 22%"]
-    W4 --> W5["W5<br/>12–18 Oct<br/>Domain 5 · 18%<br/>MOCK 1"]
-    W5 --> W6["W6<br/>19–25 Oct<br/>Domain 2 · 10%<br/>+ repair"]
+    W0["Now<br/>12–13 Sep<br/>Foundations"] --> W1["W1–2<br/>14–27 Sep<br/>Domain 1 · 24%"]
+    W1 --> W3["W3<br/>28 Sep–4 Oct<br/>Domain 4 · 21.3%"]
+    W3 --> W4["W4<br/>5–11 Oct<br/>Domain 3 · 20%"]
+    W4 --> W5["W5<br/>12–18 Oct<br/>Domain 5 · 17.3%<br/>MOCK 1"]
+    W5 --> W6["W6<br/>19–25 Oct<br/>Domain 2 · 17.3%<br/>+ repair"]
     W6 --> W7["W7<br/>26 Oct–1 Nov<br/>Mixed drills<br/>MOCK 2"]
     W7 --> W8["W8<br/>2–5 Nov<br/>MOCK 3 · cram<br/>EXAM"]
 
@@ -74,10 +72,10 @@ flowchart LR
 
 Before any domain content. About 90 minutes total.
 
-- [ ] `how-the-exam-works/`
+- [ ] `how-the-exam-works/` — CAT format, 100–125 items, 700/1000
 - [ ] `how-isc2-thinks/` ← the one that matters
-- [ ] `answering-technique/`
-- [ ] `the-five-domains/`
+- [ ] `answering-technique/` — updated for CAT: no flag-and-return
+- [ ] `the-five-domains/` — the live weights: 24 / 21.3 / 20 / 17.3 / 17.3
 - [ ] `study-schedule/` (this page)
 - [ ] **Book the exam this weekend if it is not already booked**
 
@@ -97,7 +95,7 @@ The heaviest domain, and the vocabulary everything else is written in.
 | Tue | `authentication/` |
 | Wed | `authorization-and-accounting/` |
 | Thu | `non-repudiation/` + `privacy/` |
-| Fri | `risk-concepts/` |
+| Fri | `risk-concepts/` — now covers the risk **lifecycle**, not only terms |
 | Sat | `risk-assessment/` + `risk-treatment/` |
 | Sun | Light — re-read the ⚖️ **Told apart** blocks from the week |
 
@@ -108,8 +106,8 @@ The heaviest domain, and the vocabulary everything else is written in.
 | Day | Work |
 |---|---|
 | Mon | `security-controls/` |
-| Tue | `governance-documents/` |
-| Wed | `isc2-code-of-ethics/` |
+| Tue | `governance-documents/` — now names **ISO and CIS** explicitly |
+| Wed | `isc2-code-of-ethics/` + `due-care-and-due-diligence/` |
 | Thu | Term bank — Domain 1 terms, first recall pass |
 | Fri | Question bank — Domain 1 drill, first half |
 | Sat | Question bank — Domain 1 drill, second half. **Review every miss.** |
@@ -119,9 +117,10 @@ The heaviest domain, and the vocabulary everything else is written in.
 
 ---
 
-### 🌐 Week 3 · Mon 28 September – Sun 4 October · Domain 4 · 24%
+### 🌐 Week 3 · Mon 28 September – Sun 4 October · Domain 4 · 21.3%
 
-Familiar material. The work is converting what you know into ISC2's simpler phrasing.
+Familiar material. The work is converting what you know into ISC2's simpler phrasing, plus
+three sub-areas that are genuinely new: wireless, IoT/ICS, and the cloud characteristics list.
 
 | Day | Work |
 |---|---|
@@ -129,60 +128,67 @@ Familiar material. The work is converting what you know into ISC2's simpler phra
 | Tue | `ip-addressing/` |
 | Wed | `ports-and-protocols/` — **memorise the port table** |
 | Thu | `network-threats/` + `common-attacks/` |
-| Fri | `network-defence-devices/` + `segmentation-and-dmz/` |
-| Sat | `vpn-and-remote-access/` + `cloud-and-virtualisation/` + `zero-trust/` |
-| Sun | Question bank — Domain 4 drill |
+| Fri | `network-defence-devices/` + `segmentation-and-dmz/` (now covers **micro-segmentation**) |
+| Sat | `vpn-and-remote-access/` + `cloud-and-virtualisation/` (now covers **NIST cloud characteristics**) + `zero-trust/` + `defence-in-depth/` |
+| Sun | `wireless-and-bluetooth/` + `iot-and-ics/` — new topics, then Question bank — Domain 4 drill |
 
 ---
 
-### 🚪 Week 4 · Mon 5 – Sun 11 October · Domain 3 · 22%
+### 🚪 Week 4 · Mon 5 – Sun 11 October · Domain 3 · 20%
 
-The most definition-dense domain on the paper.
+Two sub-areas only, but both are deep: identity lifecycle, and the access control models.
 
 | Day | Work |
 |---|---|
 | Mon | `access-control-fundamentals/` |
-| Tue | `physical-access-controls/` |
-| Wed | `logical-access-controls/` |
-| Thu | `dac-mac-rbac-abac/` — **the highest-value single page in this domain** |
-| Fri | `least-privilege-and-sod/` + `privileged-access/` |
-| Sat | `identity-lifecycle/` + `defence-in-depth/` |
+| Tue | `logical-access-controls/` |
+| Wed | `dac-mac-rbac-abac/` — **the highest-value single page in this domain** |
+| Thu | `least-privilege-and-sod/` |
+| Fri | `privileged-access/` |
+| Sat | `identity-lifecycle/` — now expanded with frameworks/tools (JML, access reviews) |
 | Sun | Question bank — Domain 3 drill |
+
+> Physical access control is no longer a named Domain 3 objective. If you want the material,
+> it now lives at `05-security-operations/physical-penetration-testing/`.
 
 ---
 
-### ⚙️ Week 5 · Mon 12 – Sun 18 October · Domain 5 · 18% + **Mock 1**
+### ⚙️ Week 5 · Mon 12 – Sun 18 October · Domain 5 · 17.3% + **Mock 1**
+
+Now the home of incident response too, plus data security, testing, and asset protection.
 
 | Day | Work |
 |---|---|
-| Mon | `data-handling/` + `data-classification/` |
-| Tue | `encryption-concepts/` |
-| Wed | `hashing-and-integrity/` |
-| Thu | `system-hardening/` + `configuration-management/` |
-| Fri | `logging-and-monitoring/` + `security-policies/` |
-| Sat | `security-awareness-training/` + Domain 5 drill |
+| Mon | `data-handling/` (now covers **masking and sanitization**) + `data-classification/` |
+| Tue | `encryption-concepts/` + `hashing-and-integrity/` + `quantum-resistant-cryptography/` |
+| Wed | `logging-and-monitoring/` + `event-triage-and-cti/` |
+| Thu | `incident-terminology/` + `incident-response-plan/` (moved here from old Domain 2) |
+| Fri | `system-hardening/` + `configuration-management/` + `asset-lifecycle-and-eol/` |
+| Sat | `security-testing-methods/` + `physical-penetration-testing/` + Domain 5 drill |
 | **Sun** | **🎯 MOCK EXAM 1 — full 100 questions, timed, no notes** |
 
 > [!CAUTION]
 > Take Mock 1 under real conditions: two hours, one sitting, phone away, nothing open. A mock
-> taken with the material to hand measures nothing and burns one of only three papers.
+> taken with the material to hand measures nothing and burns one of only three papers. The
+> mocks in this repo are **fixed-form practice papers**, not a CAT simulation — see
+> [`08-mock-exams/README.md`](../../08-mock-exams/README.md) for what that does and doesn't mean.
 
 **Expect a mediocre score.** Mock 1 is a diagnostic, not a verdict — it exists to tell you where
 weeks 6 and 7 should go.
 
 ---
 
-### 🚨 Week 6 · Mon 19 – Sun 25 October · Domain 2 · 10% + repair
+### 🚨 Week 6 · Mon 19 – Sun 25 October · Domain 2 · 17.3% + repair
 
-The smallest domain, plus the first real use of what Mock 1 told you.
+Security Governance: GRC, redundancy (BC/DR), awareness, and measuring effectiveness.
 
 | Day | Work |
 |---|---|
 | Mon | Mock 1 review — work through **every** wrong answer, and note which domain each came from |
-| Tue | `incident-terminology/` + `incident-response-plan/` |
+| Tue | `grc-fundamentals/` + `measuring-cybersecurity-effectiveness/` |
 | Wed | `business-impact-analysis/` + `rto-rpo-mtd/` |
 | Thu | `business-continuity/` + `disaster-recovery/` |
-| Fri | Domain 2 drill |
+| Fri | `security-awareness-training/` (moved here from old Domain 5) + Domain 2 drill |
 | Sat | **Weakest domain from Mock 1** — re-read its topics |
 | Sun | Second-weakest domain — re-read its topics |
 
@@ -214,7 +220,7 @@ All content is written by now. This week is retrieval, not reading.
 | **Mon 2** | **🎯 MOCK EXAM 3 — full conditions.** Final calibration. |
 | **Tue 3** | Mock 3 review. Then finish `EXAM-DAY.md`. **Last day of new material.** |
 | **Wed 4** | `EXAM-DAY.md` only. Two readings, morning and evening. Nothing else. Sleep early. |
-| **Thu 5** | 🎓 **Exam.** Re-read the cram page once at breakfast, then close it. |
+| **Thu 5** | 🎓 **Exam.** Re-read the cram page once at breakfast, then close it. Remember: **CAT, no going back — commit to each item.** |
 
 > [!WARNING]
 > **Nothing new goes into your head on the 4th.** Late cramming of unfamiliar material
@@ -227,7 +233,7 @@ All content is written by now. This week is retrieval, not reading.
 | | Means | Not to be confused with |
 |---|---|---|
 | **Reading a topic** | Working through the page and answering its five questions honestly. | **Skimming it.** A skim feels like progress and produces no retrieval. If you did not attempt the questions, the topic is not done. |
-| **A mock exam** | 100 questions, two hours, one sitting, nothing open. | **A practice drill**, which is untimed, open-notes, and meant for learning. Both are useful; only one measures readiness. |
+| **A mock exam** | 100 questions, two hours, one sitting, nothing open — a fixed-form practice paper. | **The live CAT exam**, which is adaptive and does not let you revisit items. The mocks train knowledge and pacing, not the CAT experience itself. |
 | **Review** | Working through every wrong answer until you can say why the right one is right. | **Checking your score.** The score is the least informative part of a mock. |
 
 ---
@@ -239,9 +245,9 @@ All content is written by now. This week is retrieval, not reading.
 > flexes to fit.
 >
 > **On the exam:** the date does not flex. When a week slips, cut material from the light end —
-> Domain 2, the third mock — and protect Domains 1, 4 and 3. Slipping the mocks to make room for
-> more reading is the single worst trade available, because reading without retrieval is the
-> weakest study there is.
+> Mock 3 first, then compress whichever of Domain 2 or 5 you reach last — and protect Domains
+> 1, 4 and 3. Slipping the mocks to make room for more reading is the single worst trade
+> available, because reading without retrieval is the weakest study there is.
 
 > [!WARNING]
 > **In the job:** familiar material can be skipped.
@@ -282,24 +288,23 @@ that a mediocre score still has three weeks of runway behind it. That is its who
 
 </details>
 
-**Q2.** Which is the correct study order for the five domains?
+**Q2.** Which is the correct study order for the five domains under the live outline?
 
 - **A.** Domain order: 1, 2, 3, 4, 5
-- **B.** Weight order, heaviest first: 1, 4, 3, 5, 2
+- **B.** Weight order, heaviest first: 1, 4, 3, then 2 and 5 tied
 - **C.** Weakest to strongest, based on self-assessment
 - **D.** Lightest first, to build momentum
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — weight order, heaviest first.** If anything is lost to slippage, it is the 10% domain
-rather than the 26% one.
+**B — weight order, heaviest first.** Domains 2 and 5 are tied at 17.3% each — neither is "the
+small domain" the way the old 10%-weighted BC/DR domain was, but both still trail Domains 1, 4
+and 3.
 
-- **A** puts the 10% domain second, ahead of 24% and 22% domains. It is the most common mistake
-  and the schedule exists to prevent it.
-- **C** sounds reasonable but ignores weighting entirely — becoming strong in a 10% domain is
-  worth less than shoring up a 26% one.
-- **D** optimises for feeling productive early at the cost of the domains that carry the paper.
+- **A** puts a 17.3% domain second, ahead of 21.3% and 20% domains.
+- **C** sounds reasonable but ignores weighting entirely.
+- **D** optimises for feeling productive early at the cost of the domains that carry the exam.
 
 </details>
 
@@ -317,8 +322,7 @@ rather than the 26% one.
 displaces things you already knew, and the anxiety costs more than the content gains.
 
 - **A** is exactly the well-intentioned cramming this rule exists to prevent.
-- **B** is too late to change anything and risks arriving at the exam already tired, having
-  spent two hours of concentration the day before.
+- **B** is too late to change anything and risks arriving at the exam already tired.
 - **D** is lighter than A or B but still introduces fresh misses the evening before, with no time
   to repair them.
 
@@ -338,17 +342,16 @@ displaces things you already knew, and the anxiety costs more than the content g
 leaves three weeks to repair whatever it exposes.
 
 - **A** is factually wrong in this schedule — Domain 2 is not covered until week 6. Mock 1 is
-  deliberately taken slightly early, and a few unseen BC/DR questions is an acceptable price for
-  three weeks of runway.
-- **C** states a real effect but not the reason for the placement. Familiarity gains would argue
-  for mocks anywhere; the timing argument is about repair time.
+  deliberately taken slightly early, and a few unseen items from a domain not yet studied is an
+  acceptable price for three weeks of runway.
+- **C** states a real effect but not the reason for the placement.
 - **D** invents a constraint that does not exist.
 
 </details>
 
 **Q5.** A candidate falls a week behind during week 4. What should they cut?
 
-- **A.** Mock exam 3, and compress Domain 2
+- **A.** Mock exam 3, and compress whichever of Domain 2 or Domain 5 comes later in their plan
 - **B.** Domain 3, since access control overlaps with their day job
 - **C.** The question bank drills, keeping all the reading
 - **D.** The term bank recall sessions
@@ -356,16 +359,14 @@ leaves three weeks to repair whatever it exposes.
 <details>
 <summary><b>Answer</b></summary>
 
-**A — cut Mock 3 and compress Domain 2.** Those are the lightest-value items in the plan: the
-third mock is calibration on top of two existing data points, and Domain 2 is 10% of the paper
-with marks concentrated in a few definitions.
+**A — cut Mock 3 and compress the lighter-weighted domain.** These are the lightest-value items
+in the plan: the third mock is calibration on top of two existing data points, and Domains 2
+and 5 are tied at the bottom of the weight order.
 
-- **B** cuts 22% of the paper on the strength of job familiarity — which, as Domain 4 shows, is
+- **B** cuts 20% of the paper on the strength of job familiarity — which, as Domain 4 shows, is
   exactly where phrasing traps live.
-- **C** inverts the value. Retrieval practice teaches more per minute than re-reading does;
-  drills are the last thing to cut.
-- **D** removes the cheapest study in the schedule. Five minutes a day of recall on a
-  definition-heavy exam is close to free marks.
+- **C** inverts the value. Retrieval practice teaches more per minute than re-reading does.
+- **D** removes the cheapest study in the schedule.
 
 </details>
 
@@ -377,24 +378,21 @@ with marks concentrated in a few definitions.
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
 **Why retrieval beats re-reading.** The schedule leans on question drills and daily term recall
-rather than repeated reading, and that is not arbitrary. Testing yourself on material produces
-substantially better long-term retention than re-reading it for the same amount of time — an
-effect consistent enough across studies to plan around. Re-reading also produces a *fluency
-illusion*: familiar text feels known, which is why a fourth read of a topic can feel productive
-while teaching nothing. If a session feels comfortable, it is probably the weaker kind.
+rather than repeated reading. Testing yourself on material produces substantially better
+long-term retention than re-reading it for the same amount of time. Re-reading also produces a
+*fluency illusion*: familiar text feels known, which is why a fourth read of a topic can feel
+productive while teaching nothing.
 
 **Spacing.** The daily five-minute term pass exists because material revisited across many days
-sticks far better than the same total minutes spent in one block. This is why the term-bank habit
-starts in week 2 and runs to the end, rather than being a week-7 activity.
+sticks far better than the same total minutes spent in one block.
 
-**Why Sunday is light.** Consolidation happens between sessions, not during them. A schedule with
-no gaps is not a more aggressive schedule; it is a less effective one, and by week 6 it is a
-schedule people abandon.
+**Why Sunday is light.** Consolidation happens between sessions, not during them. A schedule
+with no gaps is not a more aggressive schedule; it is a less effective one.
 
 **If the date has to move.** If week 6 arrives with Domains 1 and 4 still shaky, rescheduling is
 a legitimate decision rather than a failure — Pearson VUE reschedules are possible outside a
 short window before the appointment, usually for a fee. Decide by the end of week 6 if you are
-going to decide at all. Deciding in week 8 gets you the worst of both: the fee and the panic.
+going to decide at all.
 
 </details>
 
@@ -405,13 +403,14 @@ going to decide at all. Deciding in week 8 gets you the worst of both: the fee a
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
 - **Heavy first, mock early, one page last.**
-- Study order: **1 → 4 → 3 → 5 → 2.**
+- Study order: **1 → 4 → 3 → 5 → 2** (5 and 2 are tied by weight; order between them doesn't matter).
 - Mocks: **Sun 18 Oct · Fri 30 Oct · Mon 2 Nov.** Full conditions, every time.
 - **3 Nov is the last day of new material.** 4 Nov is the cram page only, twice.
-- If time slips, cut **Mock 3 and Domain 2** — never Domains 1, 4 or 3.
+- If time slips, cut **Mock 3 first**, then compress Domain 2 or 5 — never Domains 1, 4 or 3.
 
 ---
 
 <div align="center">
 <sub><a href="../README.md">← back to 00 · Foundations</a> &nbsp;·&nbsp; <a href="../../01-security-principles/README.md">next: 01 · Security Principles →</a></sub>
 </div>
+</content>

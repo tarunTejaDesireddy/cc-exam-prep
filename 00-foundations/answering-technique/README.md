@@ -10,7 +10,7 @@
 [![Value](https://img.shields.io/badge/Worth-5--10%20marks-12B5A5?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
-📌 *A repeatable method for working four options down to one, reading qualifier words correctly, and spending the two hours so nothing is left blank.*
+📌 *A repeatable method for working four options down to one, reading qualifier words correctly, and committing to each item — because on the live CAT exam, there is no coming back to it.*
 
 </div>
 
@@ -43,14 +43,15 @@ answer before you look is the difference between choosing an option and being ch
 | **Distractor** | An incorrect option, written to be plausible. |
 | **Qualifier** | A word in the stem that narrows what is being asked: *first, best, primary, most, least, except, not*. |
 | **Absolute** | A word admitting no exceptions: *always, never, all, none, completely, guarantees*. |
-| **Flag** | The exam software's marker for "come back to this". CC is linear, so flagging works. |
+| **CAT (Computerized Adaptive Testing)** | The live delivery model for CC. Items and the decision to stop respond to your performance, and answered items generally cannot be revisited — there is no flag-and-return pass. |
 
 ---
 
 ## 🔍 The five-step method
 
 Run every question you are not immediately sure about through these five steps. It takes
-about twenty seconds once it is habit.
+about twenty seconds once it is habit. Because CAT generally will not let you come back to an
+item, step 5 ends in a final commit, not a flag.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
@@ -61,7 +62,7 @@ flowchart TD
     S4 --> S5{"One left?"}
     S5 -->|yes| K["✅ Select it"]
     S5 -->|"two left"| T["⚖️ Apply a tiebreaker<br/>plainest · most preventive<br/>· highest on the ladder"]
-    T --> G["🚩 Select, flag, move on<br/>never leave blank"]
+    T --> G["✅ Commit and move on<br/>no going back on CAT"]
 
     style S1 fill:#0f3038,stroke:#12B5A5,color:#fff
     style S2 fill:#3a2c12,stroke:#F08C00,color:#fff
@@ -107,8 +108,9 @@ Two options left is the normal end state, not a failure. Take the one that is:
 - the **preventive** control rather than the detective one, unless the stem asked to detect,
 - **highest on the safety → plan → notify → decide → act ladder**, if it is a FIRST question.
 
-Then select it, flag it, and move on. A flagged answer you revisit with a fresh mind is worth
-far more than three extra minutes of grinding at it now.
+Then select it and move on. There is no flag-and-revisit pass on the live CAT exam — this
+decision is close to final the moment you submit it, so make it once, deliberately, and
+move forward.
 
 ---
 
@@ -135,40 +137,37 @@ The qualifier words, and what each is really asking for.
 
 ## ⏱️ Spending the two hours
 
-120 minutes, 100 questions. Most CC questions are recall and take twenty to thirty seconds,
-so the time pressure is mild — but only if you refuse to get stuck.
+Up to 120 minutes, 100–125 items, delivered one at a time with **no two-pass strategy
+available**. Most CC items are recall and take twenty to thirty seconds, so the time pressure
+is mild — but only if you refuse to get stuck, because getting stuck here costs you the item
+permanently rather than just costing you time.
 
-| Pass | What you do | Roughly |
-|---|---|---|
-| **1** | Answer every question. Anything not resolved in ~60 seconds: best guess, flag, move on. | 60–75 min |
-| **2** | Revisit flagged questions only, with a fresh head. | 20 min |
-| **3** | Confirm all 100 have an answer selected. | 5 min |
-| — | Spare | 20+ min |
-
-**The one-minute rule.** No question gets more than sixty seconds on pass one. Not one. A
-question that has beaten you for sixty seconds will not fall to ninety, and the two questions
-you never reached because of it were probably ones you knew.
+**The one-minute rule, revised for CAT.** No item gets more than about sixty seconds of
+deliberation. Work the five steps, land on your best answer, and submit it — there is no
+pass two to lean on if you decide to rush now and fix it later. A question that has beaten
+you for sixty seconds will not fall to ninety.
 
 > [!IMPORTANT]
-> Pass 3 is not optional. Finishing with an unanswered question on a no-negative-marking exam
-> is the only way this paper actively punishes you, and it happens to people every sitting.
+> Because you cannot go back, do not submit an item you have not actually decided on "just to
+> keep moving" — that answer is final. Take your best sixty seconds, then commit for real.
 
 ---
 
-## 🔄 On changing answers
+## 🔄 On changing your mind
 
-The folklore says never change your first instinct. The folklore is wrong, with one condition.
+The old advice — "change an answer only if you have a reason, never from vague unease" — still
+describes good reasoning. The difference under CAT is *when* you get to apply it: only
+**before** you submit the current item, not on a later review pass, because there generally is
+no later review pass.
 
-Change an answer when you have a **reason**: you misread the qualifier, you spotted an
-absolute you had glossed over, a later question reminded you of the definition. Research on
-multiple-choice testing consistently finds that reasoned changes go from wrong to right more
-often than the reverse.
+Change your answer while you're still on the item if you catch a misread qualifier or a missed
+absolute. Once you have submitted and moved to the next item, treat the previous one as
+closed and do not spend energy wondering about it — that time belongs to the item now in front
+of you.
 
-Do **not** change an answer out of vague unease on a second reading. Free-floating doubt with
-no new information behind it is the one case where the folklore holds.
-
-> 🧠 **The test:** can you say *why* in a sentence? If yes, change it. If it is just a feeling,
-> leave it.
+> 🧠 **The test, applied earlier:** before you submit, can you say *why* you'd pick something
+> different in a sentence? If yes, change it now. If it's just a feeling, submit what you have
+> and move on — there won't be a second look.
 
 ---
 
@@ -185,8 +184,9 @@ no new information behind it is the one case where the folklore holds.
 > **In the job:** unfamiliar terminology is worth stopping to investigate.
 >
 > **On the exam:** it may be an unscored pretest item, or wording the syllabus simply does not
-> use. Guess from the stem's context, flag it, move on. Never let one strange question cost you
-> three questions' worth of time and your composure.
+> use. Guess from the stem's context and move on. Never let one strange question cost you
+> three questions' worth of time and your composure — especially now that a rattled answer on
+> the next item cannot be fixed on a later pass.
 
 ---
 
@@ -253,51 +253,49 @@ the thing. An IDS detects and alerts; blocking is what an IPS does.
 </details>
 
 **Q3.** A candidate has spent nearly two minutes on a question about a term they do not
-recognise. What should they do?
+recognise, and has not yet submitted an answer. What should they do?
 
 - **A.** Continue working on it, since abandoning it guarantees losing the mark
-- **B.** Leave it blank and return at the end if time allows
-- **C.** Select the most plausible option, flag the question, and move on
+- **B.** Select the most plausible option and submit it, then move on
+- **C.** Submit no answer and hope the interface allows returning to it later
 - **D.** Select option C, since it is statistically most often correct
 
 <details>
 <summary><b>Answer</b></summary>
 
-**C — select, flag, move on.** This protects the mark whatever happens afterwards, and frees
-time for questions you can actually answer. The one-minute rule was already broken by a full
-minute.
+**B — select the most plausible option, submit, and move on.** This protects the mark whatever
+happens afterwards, and frees time for items you can actually answer. The one-minute rule was
+already broken by a full minute.
 
-- **A** ignores the opportunity cost. Time spent here is taken from questions you know, and
-  the question has already proven resistant.
-- **B** is the dangerous option, and it is the one most candidates pick. "Return at the end"
-  depends on time you may not have, and on a no-penalty exam a blank is a guaranteed zero where
-  a guess is a free 25%.
+- **A** ignores the opportunity cost. Time spent here is taken from items you know, and this
+  one has already proven resistant.
+- **C** relies on a return trip CAT delivery generally does not provide. Assuming you can fix
+  it "later" is the exact habit this page exists to break.
 - **D** is a myth. Professionally developed exams balance key positions deliberately; there is
   no lucky letter.
 
 </details>
 
-**Q4.** During the final review, a candidate feels uneasy about an answer but cannot identify
-anything wrong with their original reasoning. What should they do?
+**Q4.** A candidate feels uneasy about an answer just after submitting it, but cannot identify
+anything wrong with their original reasoning, and the exam has already moved to the next item.
+What should they do?
 
-- **A.** Change it, because second instincts are generally more considered
-- **B.** Leave it, because the doubt is not based on new information
-- **C.** Change it to the option they considered second, to hedge
-- **D.** Flag it for post-exam comment to ISC2
+- **A.** Try to navigate back and change it, because second instincts are generally more considered
+- **B.** Let it go and give full attention to the current item — the previous one is very likely closed
+- **C.** Mentally flag it and keep partial attention on it while answering later items
+- **D.** Request a proctor override to reopen the previous item
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — leave it.** A reasoned change is good; a change driven by free-floating unease is the one
-case where the "trust your first instinct" folklore actually holds. No new information has
-arrived, so there is nothing to act on.
+**B — let it go.** On CAT delivery, an answered item is very likely closed the moment you
+move on. A reasoned change made *before* submitting is good technique; dwelling on it
+afterwards only steals attention from the item actually in front of you.
 
-- **A** overgeneralises. Second thoughts help when they are *reasoned* — a misread qualifier, a
-  missed absolute. Unease alone is not a reason.
-- **C** describes hedging, which is not a thing on a single-answer exam. You cannot half-select
-  an option; you either keep the better-reasoned answer or replace it.
-- **D** confuses exam technique with the content-dispute process. Commenting is for genuinely
-  defective items, not for your own uncertainty, and it does not change your score.
+- **A** assumes a return path that generally does not exist once you have advanced.
+- **C** divides attention between a closed item and an open one, which costs you on the item
+  you can still affect.
+- **D** invents a mechanism that is not part of how the exam is administered.
 
 </details>
 
@@ -342,10 +340,11 @@ are built from subtler errors instead.
 across a form, and options are frequently reordered between forms of the same exam. Any pattern
 you think you have spotted in a practice bank is an artefact of that bank's author, not of ISC2.
 
-**The real reason to flag rather than grind.** Beyond the arithmetic of time, there is a
-retrieval effect: coming back to a question after twenty minutes of other material often
-surfaces the term you could not reach, because intervening questions have primed related
-concepts. Grinding at a question in the moment mostly re-runs the same failed retrieval path.
+**Why grinding fails even without a return trip.** There is a retrieval effect: coming back to
+a question after other material often surfaces a term you could not reach, because
+intervening items have primed related concepts. On CAT there is no return trip to benefit from
+that effect, so grinding at an item in the moment has nothing to gain from waiting — it just
+re-runs the same failed retrieval path and burns the clock. Decide, commit, move forward.
 
 **When the one-minute rule should bend.** Long scenario stems with a lot of detail legitimately
 take more than sixty seconds just to read. The rule is about sixty seconds of *deliberation*
@@ -365,9 +364,9 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 - **Find the qualifier first** — FIRST, BEST, PRIMARY, MOST, LEAST, NOT, EXCEPT.
 - **NOT / EXCEPT / LEAST:** say it out loud in your head. Three are true; hunt the false one.
 - **Delete:** absolutes, wrong level of authority, wrong phase.
-- **One-minute rule.** Guess, flag, move on. Never leave a blank.
-- **Change an answer only if you can say why** in a sentence.
-- **Two passes plus a final check** that all 100 are answered.
+- **One-minute rule.** Decide, commit, move on — no flag-and-return on CAT.
+- **Change your answer only before you submit it**, and only if you can say why in a sentence.
+- **There is no second pass.** Treat each item as final once you move to the next.
 
 ---
 
