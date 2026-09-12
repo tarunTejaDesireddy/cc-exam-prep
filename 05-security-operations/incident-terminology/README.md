@@ -1,13 +1,13 @@
 <div align="center">
 
-<img src="../assets/module-02-banner.svg" alt="02 · BC, DR & Incident Response" width="100%">
+<img src="../assets/module-05-banner.svg" alt="05 · Security Operations and Incident Response" width="100%">
 
 # 🏷️ Incident terminology
 
 ### *Event, alert, incident, breach — four words that are not interchangeable*
 
-[![Module](https://img.shields.io/badge/Module-02_BC_DR_IR-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-2%20·%2010%25-5C7CFA?style=flat-square)](../README.md)
+[![Module](https://img.shields.io/badge/Module-05_Security_Operations-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~9%20min-57606A?style=flat-square)](#)
 
 📌 *Short and entirely definitional. Every event is not an incident, and every incident is not a breach.*
@@ -379,5 +379,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 02 · BC, DR & IR</a> &nbsp;·&nbsp; <a href="../incident-response-plan/">next: The incident response plan →</a></sub>
+<sub><a href="../README.md">← back to 05 · Security Operations and Incident Response</a> &nbsp;·&nbsp; <a href="../incident-response-plan/">next: The incident response plan →</a></sub>
 </div>

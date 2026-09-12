@@ -1,13 +1,13 @@
 <div align="center">
 
-<img src="../assets/module-02-banner.svg" alt="02 · BC, DR & Incident Response" width="100%">
+<img src="../assets/module-02-banner.svg" alt="02 · Security Governance" width="100%">
 
 # 🏃 Business continuity
 
 ### *Keeping the business running DURING the disruption*
 
-[![Module](https://img.shields.io/badge/Module-02_BC_DR_IR-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-2%20·%2010%25-5C7CFA?style=flat-square)](../README.md)
+[![Module](https://img.shields.io/badge/Module-02_Security_Governance-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-2%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~10%20min-57606A?style=flat-square)](#)
 
 📌 *One word carries this topic: DURING. Continuity keeps things going while it is broken; recovery restores normal afterwards.*
@@ -404,5 +404,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 02 · BC, DR & IR</a> &nbsp;·&nbsp; <a href="../disaster-recovery/">next: Disaster recovery →</a></sub>
+<sub><a href="../README.md">← back to 02 · Security Governance</a> &nbsp;·&nbsp; <a href="../disaster-recovery/">next: Disaster recovery →</a></sub>
 </div>

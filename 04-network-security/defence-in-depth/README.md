@@ -1,13 +1,13 @@
 <div align="center">
 
-<img src="../assets/module-03-banner.svg" alt="03 · Access Control Concepts" width="100%">
+<img src="../assets/module-04-banner.svg" alt="04 · Networking and Cloud Security Concepts" width="100%">
 
 # 🛡️ Defence in depth
 
 ### *Layers, so that no single failure is fatal*
 
-[![Module](https://img.shields.io/badge/Module-03_Access_Control-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-3%20·%2022%25-5C7CFA?style=flat-square)](../README.md)
+[![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
 📌 *The principle that ties the whole domain together. The examined subtlety is that layers must be independent — and that more controls is not the same as more depth.*
@@ -392,5 +392,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 03 · Access Control</a> &nbsp;·&nbsp; <a href="../../05-security-operations/README.md">next domain: 05 · Security Operations →</a></sub>
+<sub><a href="../README.md">← back to 04 · Networking and Cloud Security Concepts</a> &nbsp;·&nbsp; <a href="../wireless-and-bluetooth/">next: Wireless and Bluetooth →</a></sub>
 </div>
