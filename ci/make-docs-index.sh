@@ -16,11 +16,11 @@ mkdir -p docs
 module_meta() {
   case "$1" in
     00-foundations)        echo "Foundations|🧱|—" ;;
-    01-security-principles) echo "Security Principles|🧭|26%" ;;
-    02-bc-dr-ir)           echo "BC, DR & Incident Response|🚨|10%" ;;
-    03-access-control)     echo "Access Control Concepts|🚪|22%" ;;
-    04-network-security)   echo "Network Security|🌐|24%" ;;
-    05-security-operations) echo "Security Operations|⚙️|18%" ;;
+    01-security-principles) echo "Security Principles|🧭|24%" ;;
+    02-security-governance) echo "Security Governance|🚨|17.3%" ;;
+    03-access-control)     echo "IAM Concepts|🚪|20%" ;;
+    04-network-security)   echo "Networking and Cloud Security Concepts|🌐|21.3%" ;;
+    05-security-operations) echo "Security Operations and Incident Response|⚙️|17.3%" ;;
     06-term-bank)          echo "Term Bank|🗂️|drill" ;;
     07-question-bank)      echo "Question Bank|❓|drill" ;;
     08-mock-exams)         echo "Mock Exams|📝|drill" ;;
@@ -47,7 +47,7 @@ esc() { sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g'; }
 rows=""
 count=0
 
-for mod in 00-foundations 01-security-principles 02-bc-dr-ir 03-access-control \
+for mod in 00-foundations 01-security-principles 02-security-governance 03-access-control \
            04-network-security 05-security-operations 06-term-bank \
            07-question-bank 08-mock-exams; do
   [ -d "$mod" ] || continue
