@@ -74,6 +74,24 @@ resolve themselves.
 > 🎯 **Ranked by capability, nation-state actors are the top and script kiddies the bottom.** If a
 > question describes long-term stealthy access with substantial resources, it wants **APT**.
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    K["🧒 Script kiddie<br/>others' tools<br/>LOW"] --> H["✊ Hacktivist<br/>a cause<br/>LOW-MED"]
+    H --> O["💰 Organised crime<br/>money, professional<br/>HIGH"]
+    O --> N["🏛️ Nation state / APT<br/>patient and funded<br/>HIGHEST"]
+    I["🕵️ Insider<br/>capability varies<br/>ALREADY INSIDE"]
+
+    style K fill:#26292e,stroke:#868E96,color:#fff
+    style H fill:#12243f,stroke:#5C7CFA,color:#fff
+    style O fill:#3a2c12,stroke:#F08C00,color:#fff
+    style N fill:#3a1a20,stroke:#E03131,color:#fff
+    style I fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+The insider sits outside the ladder deliberately: their capability varies enormously, and it
+hardly matters, because they start past every perimeter control you own.
+
 ### 🕵️ The insider threat
 
 The category the exam treats most seriously, because insiders bypass the perimeter entirely.
@@ -123,6 +141,24 @@ flowchart TD
 | **Worm** | **Self-propagates** across networks | ❌ **No** | ❌ No — standalone |
 | **Trojan** | Disguised as legitimate software | ✅ Yes — installs it | ❌ No |
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    Q{"Did a human<br/>have to do<br/>something?"}
+    Q -->|"NO — it spread itself"| W["🪱 WORM"]
+    Q -->|"yes"| Q2{"What did<br/>they run?"}
+    Q2 -->|"a file they already wanted"| V["🧬 VIRUS"]
+    Q2 -->|"software they were tricked into installing"| T["🐴 TROJAN"]
+
+    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
+    style Q2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style W fill:#0f3038,stroke:#12B5A5,color:#fff
+    style V fill:#12243f,stroke:#5C7CFA,color:#fff
+    style T fill:#12243f,stroke:#5C7CFA,color:#fff
+```
+
+Two questions separate all three. Run any scenario through them.
+
 > [!IMPORTANT]
 > **Worm = self-spreading, no user action.** This is the single most tested malware distinction.
 > If a question describes malware spreading across a network without anyone doing anything, it is
@@ -168,6 +204,24 @@ Attacking the person rather than the technology. It appears in Domain 4 and agai
 > ⚠️ **Tailgating versus piggybacking** is a tested pair. Both are following someone through a
 > door. **Piggybacking has consent** — the person held the door. **Tailgating does not** — they
 > did not know.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    P["🎣 PHISHING<br/>broad, by email"] --> S["🎯 SPEAR PHISHING<br/>one named target"]
+    S --> W["🐋 WHALING<br/>a senior executive"]
+    P --> V["📞 VISHING<br/>by voice call"]
+    P --> M["💬 SMISHING<br/>by SMS"]
+
+    style P fill:#0f3038,stroke:#12B5A5,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style W fill:#3a1a20,stroke:#E03131,color:#fff
+    style V fill:#12243f,stroke:#5C7CFA,color:#fff
+    style M fill:#12243f,stroke:#5C7CFA,color:#fff
+```
+
+Going down the middle, the target narrows: **anyone → one person → one important person.** The
+two branches change the *channel*, not the targeting.
 
 > 🎯 **The defence against social engineering is security awareness training**, because the
 > vulnerability is human, not technical. This is a reliable answer pattern.
