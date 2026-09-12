@@ -2,13 +2,13 @@
 
 <img src="assets/module-07-banner.svg" alt="07 · Question Bank" width="100%">
 
-# 🚨 Drill · Domain 2 · BC, DR & Incident Response
+# 🚨 Drill · Domain 2 · Security Governance
 
 [![Module](https://img.shields.io/badge/Module-07_Question_Bank-0d2b33?style=flat-square)](README.md)
 [![Questions](https://img.shields.io/badge/Questions-20-5C7CFA?style=flat-square)](#)
-[![Domain](https://img.shields.io/badge/Domain-2%20·%2010%25-12B5A5?style=flat-square)](../02-bc-dr-ir/README.md)
+[![Domain](https://img.shields.io/badge/Domain-2%20·%2017.3%25-12B5A5?style=flat-square)](../02-security-governance/README.md)
 
-📌 *The smallest domain and the quickest marks. RTO vs RPO and the phase order carry most of it.*
+📌 *GRC, redundancy (BC/DR), awareness and measuring effectiveness. RTO vs RPO carries most of the redundancy marks — incident response now has its own drill in Domain 5.*
 
 </div>
 
@@ -35,41 +35,41 @@ is lost. **Data loss measured as a period of time is the RPO.**
 
 ---
 
-**Q2.** What is the correct order of the incident response phases?
+**Q2.** Why do organisations run governance, risk and compliance as one integrated GRC
+programme rather than as three separate functions?
 
-- **A.** Detection → Containment → Eradication → Recovery → Preparation → Post-incident
-- **B.** Preparation → Detection and analysis → Containment → Eradication → Recovery → Post-incident
-- **C.** Preparation → Detection → Containment → Recovery → Eradication → Post-incident
-- **D.** Preparation → Containment → Detection → Eradication → Recovery → Post-incident
+- **A.** To reduce headcount
+- **B.** To keep direction-setting, risk treatment and verification aligned rather than duplicated
+- **C.** To eliminate the need for audits
+- **D.** To move all accountability to the compliance team
 
 <details><summary><b>Answer</b></summary>
 
-**B.** *Prepare, Detect, Contain, Eradicate, Recover, Review.*
+**B — to keep the three aligned.** Running them separately produces duplicated evidence
+requests and priorities that drift out of sync with what governance actually approved.
 
-- **A** places preparation near the end; preparation is everything done **before** an incident.
-- **C** swaps recovery and eradication — you cannot safely restore onto a system where the cause
-  remains.
-- **D** puts containment before detection, which is impossible.
+- **A** may be a side effect but is not the purpose.
+- **C** is wrong — audits still happen; GRC organises the evidence for them.
+- **D** misunderstands the model; accountability stays distributed across the organisation.
 </details>
 
 ---
 
-**Q3.** Ransomware encrypts a file server. Investigation confirms no data left the network. How is
-this classified?
+**Q3.** A rising count of overdue critical patches, tracked month over month, is an example of
+which of the following?
 
-- **A.** An event
-- **B.** An incident, not a breach
-- **C.** A breach, because data became inaccessible
-- **D.** A false positive
+- **A.** A key performance indicator (KPI)
+- **B.** A key risk indicator (KRI)
+- **C.** A compliance report
+- **D.** A governance document
 
 <details><summary><b>Answer</b></summary>
 
-**B — an incident, not a breach.** Availability was jeopardised. No data was disclosed to an
-unauthorised party, which is what a breach requires.
+**B — a KRI.** It warns of *rising* risk exposure before any loss has actually occurred.
 
-- **A** is far too weak; an event is neutral and routine.
-- **C** misapplies the definition — a breach concerns **disclosure**, not loss of access.
-- **D** is wrong; something genuinely happened.
+- **A** would instead grade a process against a target, e.g. "% patched within SLA."
+- **C** is a periodic formal document, not a single tracked metric.
+- **D** describes a policy or standard, not a measurement.
 </details>
 
 ---
@@ -113,24 +113,22 @@ room, which is why it is cheapest and takes **weeks**.
 
 ---
 
-**Q6.** A security analyst finds ransomware actively encrypting a server. What should they do
-FIRST?
+**Q6.** A board of directors needs a periodic, non-technical summary of the security
+programme's status. What is the MOST appropriate format?
 
-- **A.** Disconnect the server from the network
-- **B.** Follow the organisation's incident response plan
-- **C.** Power off the server
-- **D.** Begin restoring from backup
+- **A.** Direct access to the SOC's live dashboard
+- **B.** A scorecard or report tailored to an executive audience
+- **C.** The raw vulnerability scan output
+- **D.** No reporting, since boards are not a security audience
 
 <details><summary><b>Answer</b></summary>
 
-**B — follow the incident response plan.** The qualifier is **FIRST**, and every other option is a
-step *within* that process.
+**B — a scorecard or report.** These formats match a periodic, non-technical, leadership
+audience.
 
-- **A** is containment — what you would genuinely do, and a phase of the plan rather than a
-  substitute for starting it.
-- **C** contains the damage and destroys all volatile evidence in memory.
-- **D** is recovery, the wrong phase entirely — restoring during active encryption re-encrypts the
-  restored data.
+- **A** gives a continuous, technical view to an audience that needs a periodic summary.
+- **C** is unfiltered operational data, not a governance communication.
+- **D** ignores that boards are an intended audience for security reporting.
 </details>
 
 ---
@@ -173,40 +171,42 @@ needs the full plus **one** differential.
 
 ---
 
-**Q9.** An employee emails a spreadsheet of customer personal data to the wrong external address.
-What is this?
+**Q9.** Which BEST distinguishes security awareness from security training?
 
-- **A.** An event, since sending email is routine
-- **B.** An incident only, because it was accidental
-- **C.** A breach, because personal data reached an unauthorised party
-- **D.** A near miss, if the recipient does not open it
+- **A.** Awareness targets everyone, continuously and shallowly; training teaches specific
+  skills for a role
+- **B.** Training is optional; awareness is mandatory
+- **C.** They are the same activity under different names
+- **D.** Awareness is only for technical staff
 
 <details><summary><b>Answer</b></summary>
 
-**C — a breach.** Protected data actually reached someone unauthorised.
+**A — awareness is broad and continuous; training is role-specific.** This is the distinction
+the exam tests directly, alongside education (the "why," for security professionals).
 
-- **A** ignores the content and destination.
-- **B** is the key trap: **intent is irrelevant.** Accidental disclosure is still disclosure.
-- **D** relies on hoping. The data has been disclosed whether or not it is read.
+- **B** invents an optionality distinction that doesn't hold.
+- **C** collapses a tested distinction.
+- **D** reverses the intended audience — awareness is for **everyone**.
 </details>
 
 ---
 
-**Q10.** Why is volatile data collected before a compromised system is powered off?
+**Q10.** An employee clicks a simulated phishing email during an awareness campaign. What is
+the MOST appropriate organisational response?
 
-- **A.** Memory is easier to analyse
-- **B.** Memory contents are lost when power is removed
-- **C.** Disk evidence is inadmissible
-- **D.** Powering off alerts the attacker
+- **A.** Immediate disciplinary action
+- **B.** Public disclosure of the employee's name to deter others
+- **C.** Additional targeted training, without punishment
+- **D.** No action, since simulations don't reflect real risk
 
 <details><summary><b>Answer</b></summary>
 
-**B — memory contents are lost when power is removed.** The **order of volatility** says collect the
-most perishable first, and memory often holds running processes, network connections and keys.
+**C — targeted training, without punishment.** Punitive responses to phishing simulations
+suppress future reporting, which is the opposite of the desired culture.
 
-- **A** is untrue; memory analysis is specialised.
-- **C** is false — disk evidence is routinely used.
-- **D** is a real consideration in some intrusions and not the reason for the collection order.
+- **A** and **B** both punish a teaching moment, discouraging the honest reporting the
+  programme depends on.
+- **D** dismisses a core purpose of running simulations at all.
 </details>
 
 ---
@@ -324,23 +324,23 @@ measures **maintainability**. Both are engineering characteristics.
 
 ---
 
-**Q17.** In which phase is the attacker's persistence and any accounts they created removed?
+**Q17.** Which metric matters MOST when evaluating the success of a phishing awareness
+programme over time?
 
-- **A.** Containment
-- **B.** Eradication
-- **C.** Recovery
-- **D.** Post-incident activity
+- **A.** Click rate alone
+- **B.** Reporting rate, tracked as a trend
+- **C.** The total number of simulations sent
+- **D.** How quickly IT can reset a clicked link
 
 <details><summary><b>Answer</b></summary>
 
-**B — eradication.** Removing the **cause** — malware, the vulnerability, and the attacker's
-access.
+**B — reporting rate, tracked as a trend.** A programme succeeding at building a reporting
+culture is a stronger signal than click rate alone, which can be noisy and doesn't measure
+whether people are speaking up.
 
-- **A** limits the spread without removing the cause.
-- **C** restores systems once the cause is gone.
-- **D** is the lessons-learned review.
-
-**An eradication that cleans the malware and leaves the backdoor means the attacker returns.**
+- **A** is a real signal but incomplete on its own.
+- **C** measures effort, not outcome.
+- **D** is an operational detail unrelated to programme effectiveness.
 </details>
 
 ---
@@ -408,10 +408,10 @@ consideration, in every scenario, without exception.
 
 | Score | Reading |
 |---|---|
-| **18–20** | Domain 2 is solid — and it is worth only 10%, so move on |
+| **18–20** | Domain 2 is solid — move on to Domain 5 |
 | **15–17** | Good. Re-read the topics behind your misses |
-| **12–14** | Drill `rto-rpo-mtd/` and the incident phase order |
-| **Below 12** | Re-read the domain — it is short, so this is an hour's work |
+| **12–14** | Drill `rto-rpo-mtd/` and `measuring-cybersecurity-effectiveness/` |
+| **Below 12** | Re-read the domain — it is broad but shallow, so this is manageable |
 
 > 🎯 **If you missed Q1, Q4 or Q14**, go back to `rto-rpo-mtd/`. Those three are the highest-yield
 > facts in the domain.

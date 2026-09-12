@@ -6,8 +6,8 @@
 
 ### *Drills by domain, with every wrong answer explained.*
 
-[![Questions](https://img.shields.io/badge/Questions-160%20here-0d2b33?style=for-the-badge)](#-02--whats-here)
-[![Plus](https://img.shields.io/badge/Plus-250%20in%20the%20topics-12B5A5?style=for-the-badge)](#-01--read-this-first)
+[![Questions](https://img.shields.io/badge/Questions-173%20here-0d2b33?style=for-the-badge)](#-02--whats-here)
+[![Plus](https://img.shields.io/badge/Plus-265%20in%20the%20topics-12B5A5?style=for-the-badge)](#-01--read-this-first)
 
 ![type](https://img.shields.io/badge/Type-retrieval%20practice-5C7CFA?style=flat-square)
 ![when](https://img.shields.io/badge/When-after%20each%20domain-57606A?style=flat-square)
@@ -18,7 +18,7 @@
 
 ## 👋 01 · Read this first
 
-**You already have 250 practice questions.** Every one of the 50 topic pages ends with five, each
+**You already have 265 practice questions.** Every one of the 53 topic pages ends with five, each
 with all three distractors explained. Those are your first pass, taken as you read.
 
 This module adds what the topic pages structurally cannot:
@@ -33,7 +33,7 @@ This module adds what the topic pages structurally cannot:
 > reading the DAC page proves very little. Answering it three weeks later, between a port-number
 > question and a BIA question, proves you know it.
 
-**Total available across the repo: 410 questions**, before the three mock exams.
+**Total available across the repo: 438 questions**, before the three mock exams.
 
 ---
 
@@ -41,11 +41,11 @@ This module adds what the topic pages structurally cannot:
 
 | File | Questions | Use it |
 |---|--:|---|
-| 🧭 [`drill-domain-01.md`](drill-domain-01.md) | 20 | After finishing Domain 1 |
+| 🧭 [`drill-domain-01.md`](drill-domain-01.md) | 22 | After finishing Domain 1 |
 | 🚨 [`drill-domain-02.md`](drill-domain-02.md) | 20 | After finishing Domain 2 |
 | 🚪 [`drill-domain-03.md`](drill-domain-03.md) | 20 | After finishing Domain 3 |
-| 🌐 [`drill-domain-04.md`](drill-domain-04.md) | 20 | After finishing Domain 4 |
-| ⚙️ [`drill-domain-05.md`](drill-domain-05.md) | 20 | After finishing Domain 5 |
+| 🌐 [`drill-domain-04.md`](drill-domain-04.md) | 25 | After finishing Domain 4 |
+| ⚙️ [`drill-domain-05.md`](drill-domain-05.md) | 28 | After finishing Domain 5 |
 | 🔀 [`mixed-drill-01.md`](mixed-drill-01.md) | 30 | Week 7, all domains interleaved |
 | 🔀 [`mixed-drill-02.md`](mixed-drill-02.md) | 30 | Week 7, after reviewing drill 1 |
 

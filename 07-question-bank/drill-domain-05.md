@@ -2,13 +2,13 @@
 
 <img src="assets/module-07-banner.svg" alt="07 · Question Bank" width="100%">
 
-# ⚙️ Drill · Domain 5 · Security Operations
+# ⚙️ Drill · Domain 5 · Security Operations and Incident Response
 
 [![Module](https://img.shields.io/badge/Module-07_Question_Bank-0d2b33?style=flat-square)](README.md)
-[![Questions](https://img.shields.io/badge/Questions-20-5C7CFA?style=flat-square)](#)
-[![Domain](https://img.shields.io/badge/Domain-5%20·%2018%25-12B5A5?style=flat-square)](../05-security-operations/README.md)
+[![Questions](https://img.shields.io/badge/Questions-28-5C7CFA?style=flat-square)](#)
+[![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-12B5A5?style=flat-square)](../05-security-operations/README.md)
 
-📌 *Broad but shallow. The encryption and hashing questions carry the most weight.*
+📌 *Broad but shallow, and now the home of incident response. Encryption/hashing and the IR phase order carry the most weight.*
 
 </div>
 
@@ -406,14 +406,175 @@ moment of the mistake, and what matters is improvement over time.
 
 ---
 
+## 🆕 New for the live outline: incident response, CTI, EOL, testing
+
+**Q21.** What is the correct order of the incident response phases?
+
+- **A.** Detection → Containment → Eradication → Recovery → Preparation → Post-incident
+- **B.** Preparation → Detection and analysis → Containment → Eradication → Recovery → Post-incident
+- **C.** Preparation → Detection → Containment → Recovery → Eradication → Post-incident
+- **D.** Preparation → Containment → Detection → Eradication → Recovery → Post-incident
+
+<details><summary><b>Answer</b></summary>
+
+**B.** *Prepare, Detect, Contain, Eradicate, Recover, Review.*
+
+- **A** places preparation near the end; preparation is everything done **before** an incident.
+- **C** swaps recovery and eradication — you cannot safely restore onto a system where the cause
+  remains.
+- **D** puts containment before detection, which is impossible.
+</details>
+
+---
+
+**Q22.** Ransomware encrypts a file server. Investigation confirms no data left the network. How
+is this classified?
+
+- **A.** An event
+- **B.** An incident, not a breach
+- **C.** A breach, because data became inaccessible
+- **D.** A false positive
+
+<details><summary><b>Answer</b></summary>
+
+**B — an incident, not a breach.** Availability was jeopardised. No data was disclosed to an
+unauthorised party, which is what a breach requires.
+
+- **A** is far too weak; an event is neutral and routine.
+- **C** misapplies the definition — a breach concerns **disclosure**, not loss of access.
+- **D** is wrong; something genuinely happened.
+</details>
+
+---
+
+**Q23.** A security analyst finds ransomware actively encrypting a server. What should they do
+FIRST?
+
+- **A.** Disconnect the server from the network
+- **B.** Follow the organisation's incident response plan
+- **C.** Power off the server
+- **D.** Begin restoring from backup
+
+<details><summary><b>Answer</b></summary>
+
+**B — follow the incident response plan.** The qualifier is **FIRST**, and every other option is
+a step *within* that process.
+
+- **A** is containment — what you would genuinely do, and a phase of the plan rather than a
+  substitute for starting it.
+- **C** contains the damage and destroys all volatile evidence in memory.
+- **D** is recovery, the wrong phase entirely — restoring during active encryption re-encrypts
+  the restored data.
+</details>
+
+---
+
+**Q24.** Why is volatile data collected before a compromised system is powered off?
+
+- **A.** Memory is easier to analyse
+- **B.** Memory contents are lost when power is removed
+- **C.** Disk evidence is inadmissible
+- **D.** Powering off alerts the attacker
+
+<details><summary><b>Answer</b></summary>
+
+**B — memory contents are lost when power is removed.** The **order of volatility** says
+collect the most perishable first.
+
+- **A** is untrue; memory analysis is specialised.
+- **C** is false — disk evidence is routinely used.
+- **D** is a real consideration in some intrusions and not the reason for the collection order.
+</details>
+
+---
+
+**Q25.** A rising count of overdue critical patches, tracked over months, without patching them
+because the process is unable to catch up. Which of the following BEST classifies this in
+terms of asset lifecycle risk?
+
+- **A.** No risk, since a patching process exists
+- **B.** Increasing risk — unpatched vulnerabilities compound the longer they remain
+- **C.** Risk only if the assets are internet-facing
+- **D.** A governance failure, unrelated to asset protection
+
+<details><summary><b>Answer</b></summary>
+
+**B — increasing risk.** Unpatched vulnerabilities accumulate exposure the longer they remain
+unaddressed, independent of whether the asset has reached EOL.
+
+- **A** confuses having a process with the process actually keeping pace.
+- **C** is too narrow — an internal foothold is still valuable to an attacker.
+- **D** wrongly separates asset protection from the governance processes that support it.
+</details>
+
+---
+
+**Q26.** Which technique analyses an application's source code for security flaws without
+executing it?
+
+- **A.** DAST
+- **B.** SAST
+- **C.** Vulnerability scanning
+- **D.** Red teaming
+
+<details><summary><b>Answer</b></summary>
+
+**B — SAST.** Static analysis reads source code without running the application.
+
+- **A** requires a running application.
+- **C** checks against a database of known vulnerabilities rather than reading source code.
+- **D** simulates a real-world adversary against a live environment.
+</details>
+
+---
+
+**Q27.** What distinguishes a purple team exercise from a traditional red-versus-blue exercise?
+
+- **A.** No red team component is involved
+- **B.** Findings are shared between red and blue teams during the exercise, not only in a
+  post-exercise debrief
+- **C.** It tests only physical security
+- **D.** It is always conducted by regulators
+
+<details><summary><b>Answer</b></summary>
+
+**B — real-time information sharing during the exercise.** This is purple teaming's defining
+feature.
+
+- **A** is wrong — both red and blue components remain.
+- **C** confuses this with physical penetration testing, a separate cluster.
+- **D** invents a sourcing requirement that does not exist.
+</details>
+
+---
+
+**Q28.** An authorised tester follows an employee through a badge-controlled door without the
+employee's knowledge, as part of a scoped engagement. What technique is this?
+
+- **A.** Piggybacking
+- **B.** Tailgating
+- **C.** Impersonation
+- **D.** Vulnerability scanning
+
+<details><summary><b>Answer</b></summary>
+
+**B — tailgating.** The employee is unaware anyone was let in.
+
+- **A** requires the employee's knowing consent.
+- **C** would involve posing as someone with a reason to be there, not silently following.
+- **D** is an application testing technique, unrelated to physical access.
+</details>
+
+---
+
 ## 📊 Score yourself
 
 | Score | Reading |
 |---|---|
-| **18–20** | Domain 5 is solid |
-| **15–17** | Good. Re-read the topics behind your misses |
-| **12–14** | Focus on `encryption-concepts/` and `hashing-and-integrity/` |
-| **Below 12** | Re-read the domain; it is broad, so check coverage rather than depth |
+| **25–28** | Domain 5 is solid |
+| **20–24** | Good. Re-read the topics behind your misses |
+| **15–19** | Focus on `encryption-concepts/`, `incident-response-plan/` and `security-testing-methods/` |
+| **Below 15** | Re-read the domain; it is broad, so check coverage rather than depth |
 
 > 🎯 **Misses on the key-direction rule** (public encrypts / private signs) are the most
 > expensive here — that rule appears in Domain 1 too.

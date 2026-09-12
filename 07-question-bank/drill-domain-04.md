@@ -2,11 +2,11 @@
 
 <img src="assets/module-07-banner.svg" alt="07 · Question Bank" width="100%">
 
-# 🌐 Drill · Domain 4 · Network Security
+# 🌐 Drill · Domain 4 · Networking and Cloud Security Concepts
 
 [![Module](https://img.shields.io/badge/Module-07_Question_Bank-0d2b33?style=flat-square)](README.md)
-[![Questions](https://img.shields.io/badge/Questions-20-5C7CFA?style=flat-square)](#)
-[![Domain](https://img.shields.io/badge/Domain-4%20·%2024%25-12B5A5?style=flat-square)](../04-network-security/README.md)
+[![Questions](https://img.shields.io/badge/Questions-25-5C7CFA?style=flat-square)](#)
+[![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-12B5A5?style=flat-square)](../04-network-security/README.md)
 
 📌 *Answer from the simplified model, not from how it really deploys. That is the trap in this domain.*
 
@@ -420,10 +420,108 @@ the network and can reach whatever routing and firewall rules permit. Zero trust
 
 | Score | Reading |
 |---|---|
-| **18–20** | Domain 4 is solid |
-| **15–17** | Good. Re-read the topics behind your misses |
-| **12–14** | Check whether your misses were **operationally right but textbook wrong** |
-| **Below 12** | Re-read the domain, especially `osi-and-tcpip/` and `ports-and-protocols/` |
+| **22–25** | Domain 4 is solid |
+| **18–21** | Good. Re-read the topics behind your misses |
+| **14–17** | Check whether your misses were **operationally right but textbook wrong** |
+| **Below 14** | Re-read the domain, especially `osi-and-tcpip/` and `ports-and-protocols/` |
+
+## 🆕 New for the live outline: wireless, IoT/ICS, cloud characteristics
+
+**Q21.** An attacker sets up a wireless access point broadcasting the same SSID as a
+legitimate corporate network, hoping employees connect to it. What is this called?
+
+- **A.** Rogue access point
+- **B.** Evil twin
+- **C.** Bluesnarfing
+- **D.** Micro-segmentation
+
+<details><summary><b>Answer</b></summary>
+
+**B — evil twin.** Impersonating a legitimate SSID from outside the organisation.
+
+- **A** describes an unauthorised AP added from *inside* the organisation.
+- **C** is a Bluetooth attack, unrelated to Wi-Fi SSID impersonation.
+- **D** is a network architecture control, unrelated to wireless attacks.
+</details>
+
+---
+
+**Q22.** A known vulnerability is found in a PLC controlling a manufacturing line that cannot
+be taken offline. What is the MOST appropriate immediate response?
+
+- **A.** Apply the patch immediately regardless of the production schedule
+- **B.** Apply network segmentation and monitoring as compensating controls until a safe patch
+  window exists
+- **C.** Ignore the vulnerability
+- **D.** Replace the PLC immediately
+
+<details><summary><b>Answer</b></summary>
+
+**B — segmentation and monitoring as compensating controls.** This manages risk without
+forcing an unsafe, unscheduled interruption to a live physical process.
+
+- **A** risks an unsafe or costly unplanned outage.
+- **C** dismisses a real risk category.
+- **D** is disproportionate given that interim controls exist.
+</details>
+
+---
+
+**Q23.** Which of the following is one of the five characteristics of cloud computing?
+
+- **A.** Fixed, manually provisioned capacity
+- **B.** Rapid elasticity
+- **C.** Single-tenant dedicated hardware only
+- **D.** Metered service unavailable to customers
+
+<details><summary><b>Answer</b></summary>
+
+**B — rapid elasticity.** Capacity scales up or down quickly, often automatically, to match
+demand — one of the five defining cloud characteristics.
+
+- **A** contradicts on-demand self-service.
+- **C** contradicts resource pooling (multi-tenancy).
+- **D** contradicts measured service, which is precisely about usage being metered and visible.
+</details>
+
+---
+
+**Q24.** How does micro-segmentation differ from traditional VLAN-based segmentation?
+
+- **A.** It enforces policy at the individual workload level rather than at broad network zones
+- **B.** It is identical to VLAN segmentation
+- **C.** It only applies to physical, non-virtualised networks
+- **D.** It removes the need for any firewall
+
+<details><summary><b>Answer</b></summary>
+
+**A — workload-level enforcement.** This stops lateral movement *inside* a zone, which
+zone-level VLANs cannot do.
+
+- **B** ignores the granularity difference the exam tests directly.
+- **C** is backwards — micro-segmentation is especially relevant to virtualised/cloud
+  workloads.
+- **D** overstates the effect; firewalls and micro-segmentation are complementary.
+</details>
+
+---
+
+**Q25.** Ranking the three named Bluetooth attacks from least to most severe, which order is
+correct?
+
+- **A.** Bluesnarfing, bluejacking, bluebugging
+- **B.** Bluejacking, bluesnarfing, bluebugging
+- **C.** Bluebugging, bluesnarfing, bluejacking
+- **D.** All three are equally severe
+
+<details><summary><b>Answer</b></summary>
+
+**B — bluejacking, bluesnarfing, bluebugging.** Nuisance messaging, then data theft, then full
+device control.
+
+- **A** and **C** both misorder the sequence.
+- **D** ignores a clear, tested severity distinction.
+</details>
 
 > 🎯 **If your wrong answers were what you would actually do at work**, the problem is not
 > knowledge. Re-read [`00-foundations/how-isc2-thinks/`](../00-foundations/how-isc2-thinks/).

@@ -2,11 +2,11 @@
 
 <img src="assets/module-07-banner.svg" alt="07 · Question Bank" width="100%">
 
-# 🚪 Drill · Domain 3 · Access Control Concepts
+# 🚪 Drill · Domain 3 · IAM Concepts
 
 [![Module](https://img.shields.io/badge/Module-07_Question_Bank-0d2b33?style=flat-square)](README.md)
 [![Questions](https://img.shields.io/badge/Questions-20-5C7CFA?style=flat-square)](#)
-[![Domain](https://img.shields.io/badge/Domain-3%20·%2022%25-12B5A5?style=flat-square)](../03-access-control/README.md)
+[![Domain](https://img.shields.io/badge/Domain-3%20·%2020%25-12B5A5?style=flat-square)](../03-access-control/README.md)
 
 📌 *Definition-dense. Several questions describe a scenario and ask which access control model it is.*
 

@@ -5,8 +5,8 @@
 # 🧭 Drill · Domain 1 · Security Principles
 
 [![Module](https://img.shields.io/badge/Module-07_Question_Bank-0d2b33?style=flat-square)](README.md)
-[![Questions](https://img.shields.io/badge/Questions-20-5C7CFA?style=flat-square)](#)
-[![Domain](https://img.shields.io/badge/Domain-1%20·%2026%25-12B5A5?style=flat-square)](../01-security-principles/README.md)
+[![Questions](https://img.shields.io/badge/Questions-22-5C7CFA?style=flat-square)](#)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-12B5A5?style=flat-square)](../01-security-principles/README.md)
 
 📌 *Mixed across the whole domain — no topic cue. Answer all twenty before expanding anything.*
 
@@ -432,6 +432,46 @@ consequences; it does not make the breach someone else's responsibility to regul
 
 **Log your misses by topic**, not just the count. Six misses across six topics is a different
 problem from six in one.
+
+---
+
+## 🆕 New for the live outline: due care/diligence, named standards
+
+**Q21.** Before acquiring a smaller competitor, a company reviews the target's incident
+history and patch practices. What does this represent?
+
+- **A.** Due care
+- **B.** Due diligence
+- **C.** Negligence
+- **D.** Risk transfer
+
+<details><summary><b>Answer</b></summary>
+
+**B — due diligence.** Investigation performed *before* a decision is finalised.
+
+- **A** describes ongoing reasonable action, not pre-decision investigation.
+- **C** describes a failure to act reasonably.
+- **D** describes shifting risk to a third party, unrelated here.
+</details>
+
+---
+
+**Q22.** Which of the following is a named example of a standards/framework body under the
+live outline's governance sub-area?
+
+- **A.** CIS
+- **B.** SAST
+- **C.** RTO
+- **D.** VLAN
+
+<details><summary><b>Answer</b></summary>
+
+**A — CIS (Center for Internet Security)**, publisher of the CIS Controls and CIS Benchmarks.
+
+- **B** is an application testing technique.
+- **C** is a business continuity metric.
+- **D** is a network segmentation technology.
+</details>
 
 ---
 
