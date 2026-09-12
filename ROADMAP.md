@@ -4,7 +4,7 @@
 
 ### *50 topics, 9 modules, one exam sitting on 5 November 2026*
 
-![Written](https://img.shields.io/badge/Written-44%2F50-57606A?style=for-the-badge)
+![Written](https://img.shields.io/badge/Written-45%2F50-57606A?style=for-the-badge)
 ![Target](https://img.shields.io/badge/Target-5%20Nov%202026-12B5A5?style=for-the-badge)
 
 </div>
@@ -98,11 +98,11 @@ Definition-dense. The four access control models alone are worth several marks.
 
 ---
 
-## 🚨 02 · BC, DR & Incident Response — `0 / 6` · **10%**
+## 🚨 02 · BC, DR & Incident Response — `1 / 6` · **10%**
 
 Smallest domain, written last of the five. Short, and mostly definitions plus one ordering question.
 
-- [ ] `incident-terminology/` — event, alert, incident, breach, and the difference
+- [x] `incident-terminology/` — event, alert, incident, breach, and the difference
 - [ ] `incident-response-plan/` — the phases, in ISC2's order, and who does what
 - [ ] `business-impact-analysis/` — what a BIA produces and why it comes first
 - [ ] `rto-rpo-mtd/` — the three time metrics, told apart, with a timeline diagram

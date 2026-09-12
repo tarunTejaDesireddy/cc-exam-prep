@@ -49,7 +49,7 @@ Work top to bottom. The terminology topic sets up everything after it.
 
 | | Topic | What you will be able to do afterwards |
 |:--:|---|---|
-| <sub>&#9744;</sub> | 🏷️ [`incident-terminology/`](incident-terminology/) | Tell event, alert, incident and breach apart without hesitating. |
+| <sub>&#9745;</sub> | 🏷️ [`incident-terminology/`](incident-terminology/) | Tell event, alert, incident and breach apart without hesitating. |
 | <sub>&#9744;</sub> | 🚑 [`incident-response-plan/`](incident-response-plan/) | Recite the phases **in order** and say who does what. |
 | <sub>&#9744;</sub> | 📊 [`business-impact-analysis/`](business-impact-analysis/) | Say what a BIA produces and why it comes before the plans. |
 | <sub>&#9744;</sub> | ⏱️ [`rto-rpo-mtd/`](rto-rpo-mtd/) | Place all three metrics on a timeline and never swap RTO and RPO. |
