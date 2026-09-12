@@ -6,7 +6,7 @@
 
 ### *Every definition the exam can ask you for.*
 
-[![Files](https://img.shields.io/badge/Files-7-0d2b33?style=for-the-badge)](#-02--whats-here)
+[![Files](https://img.shields.io/badge/Files-8-0d2b33?style=for-the-badge)](#-02--whats-here)
 [![Use](https://img.shields.io/badge/Use-5%20min%20daily-12B5A5?style=for-the-badge)](#-03--how-to-use-it)
 
 ![type](https://img.shields.io/badge/Type-recall%20drill-5C7CFA?style=flat-square)
@@ -45,7 +45,7 @@ the terms the exam deliberately swaps. If you only drill one thing, drill that.
 | 🚪 [`domain-03-terms.md`](domain-03-terms.md) | Access Control Concepts |
 | 🌐 [`domain-04-terms.md`](domain-04-terms.md) | Network Security — including the port table |
 | ⚙️ [`domain-05-terms.md`](domain-05-terms.md) | Security Operations |
-| 🃏 [`flashcards.csv`](flashcards.csv) | Importable into Anki or any flashcard app |
+| 🃏 [`flashcards.csv`](flashcards.csv) | **591 cards**, importable into Anki or any flashcard app |
 
 ---
 
@@ -90,8 +90,15 @@ flowchart LR
 
 ## 🃏 04 · Flashcards
 
-[`flashcards.csv`](flashcards.csv) is a two-column comma-separated file — term, then definition —
+[`flashcards.csv`](flashcards.csv) holds **591 cards** as term, definition and domain tag —
 importable into Anki, Quizlet or any flashcard application.
+
+It is **generated** from the domain term files by [`ci/make-flashcards.sh`](../ci/make-flashcards.sh),
+so the cards can never drift out of step with the pages. Re-run it after editing any term table:
+
+```bash
+./ci/make-flashcards.sh
+```
 
 Spaced repetition software does the "work only your misses" rule for you automatically, which is
 its main advantage over the markdown files. Use whichever you will actually open daily; the

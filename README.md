@@ -96,7 +96,7 @@ pie showData
 
 | | Module | Contents | When to use it |
 |:--:|---|---|---|
-| 🗂️ | **[06 · Term Bank](06-term-bank/README.md)**<br><sub>Every definition the exam can ask you for.</sub> | ~250 terms, domain-tagged | From week 2 onward, a few minutes daily |
+| 🗂️ | **[06 · Term Bank](06-term-bank/README.md)**<br><sub>Every definition the exam can ask you for.</sub> | 591 cards, domain-tagged | From week 2 onward, a few minutes daily |
 | ❓ | **[07 · Question Bank](07-question-bank/README.md)**<br><sub>Drills by domain, every wrong answer explained.</sub> | 300+ questions | After each domain, then mixed in week 6 |
 | 📝 | **[08 · Mock Exams](08-mock-exams/README.md)**<br><sub>Three full timed sets. You only get three.</sub> | 3 × 100 questions | Weeks 5 and 7 — not before |
 
@@ -165,7 +165,7 @@ Ticked when the topic is **written and pushed**. Live detail in [`ROADMAP.md`](R
 | 🚪 03 · Access Control | `8 / 8` ✅ |
 | 🌐 04 · Network Security | `11 / 11` ✅ |
 | ⚙️ 05 · Security Operations | `9 / 9` ✅ |
-| 🗂️ 06 · Term Bank | `not started` |
+| 🗂️ 06 · Term Bank | `complete` ✅ |
 | ❓ 07 · Question Bank | `not started` |
 | 📝 08 · Mock Exams | `not started` |
 
