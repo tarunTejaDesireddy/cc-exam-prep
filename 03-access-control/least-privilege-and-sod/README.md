@@ -7,7 +7,7 @@
 ### *Give people the minimum — and never let one person complete a sensitive process alone*
 
 [![Module](https://img.shields.io/badge/Module-03_Access_Control-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-3%20·%2022%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-3%20·%2020%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
 
 📌 *Least privilege is the most frequently correct principle in this domain. Segregation of duties is the specific answer to fraud.*
@@ -399,5 +399,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 03 · Access Control</a> &nbsp;·&nbsp; <a href="../privileged-access/">next: Privileged access →</a></sub>
+<sub><a href="../README.md">← back to 03 · IAM Concepts</a> &nbsp;·&nbsp; <a href="../privileged-access/">next: Privileged access →</a></sub>
 </div>

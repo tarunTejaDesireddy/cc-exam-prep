@@ -7,7 +7,7 @@
 ### *Joiner, mover, leaver — and the stage almost everybody gets wrong*
 
 [![Module](https://img.shields.io/badge/Module-03_Access_Control-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-3%20·%2022%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-3%20·%2020%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
 📌 *Access has a beginning, a middle and an end. The middle is where privilege creep happens and the end is where orphaned accounts come from.*
@@ -168,6 +168,26 @@ called **recertification** or **attestation**.
 > ⚠️ **IT should not be the reviewer.** IT knows what access exists; the manager or data owner
 > knows whether it is still warranted. A review performed by the people who granted the access
 > asks the wrong person.
+
+---
+
+## 🧰 Frameworks and tools
+
+At CC depth, you only need to recognise that identity lifecycle management is rarely run by
+hand once an organisation has any real headcount:
+
+- **IGA (Identity Governance and Administration)** — the general name for platforms that
+  automate provisioning, access reviews and deprovisioning against a defined policy, instead of
+  relying on manual tickets.
+- **A central directory** (an identity store such as an LDAP directory or a cloud directory
+  service) — the authoritative source of accounts that provisioning, reviews and
+  deprovisioning all act against.
+- **HR-driven provisioning** — automatically triggering the joiner/mover/leaver process from
+  changes in the HR system of record, so a leaver's last day automatically starts
+  deprovisioning rather than depending on someone remembering to file a ticket.
+
+None of this changes *what* the lifecycle stages are — it only automates *triggering and
+enforcing* them reliably at scale.
 
 ---
 
@@ -390,5 +410,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 03 · Access Control</a> &nbsp;·&nbsp; <a href="../defence-in-depth/">next: Defence in depth →</a></sub>
+<sub><a href="../README.md">← back to 03 · IAM Concepts</a> &nbsp;·&nbsp; <a href="../../04-network-security/README.md">next domain: 04 · Networking and Cloud Security →</a></sub>
 </div>
