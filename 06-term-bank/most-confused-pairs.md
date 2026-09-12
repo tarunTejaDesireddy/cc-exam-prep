@@ -61,7 +61,7 @@ The ⭐ pairs are the ones that appear most often. Start there if time is short.
 
 ---
 
-## 🚪 Domain 3 · Access Control
+## 🚪 Domain 3 · IAM Concepts
 
 | Pair | The difference |
 |---|---|
@@ -85,7 +85,7 @@ The ⭐ pairs are the ones that appear most often. Start there if time is short.
 
 ---
 
-## 🌐 Domain 4 · Network Security
+## 🌐 Domain 4 · Networking and Cloud Security Concepts
 
 | Pair | The difference |
 |---|---|
@@ -122,7 +122,7 @@ The ⭐ pairs are the ones that appear most often. Start there if time is short.
 
 ---
 
-## ⚙️ Domain 5 · Security Operations
+## ⚙️ Domain 5 · Security Operations and Incident Response
 
 | Pair | The difference |
 |---|---|
@@ -146,11 +146,15 @@ The ⭐ pairs are the ones that appear most often. Start there if time is short.
 | ⭐ **Ingress vs Egress monitoring** | Ingress = attacks coming **in**. Egress = **data exfiltration** going **out** |
 | **Emergency vs Unauthorised change** | Emergency = **accelerated approval + retrospective documentation**. Unauthorised = **no approval at all** |
 | ⭐ **AUP vs BYOD** | AUP = **our** systems. BYOD = **your own device** used for work |
-| ⭐ **Awareness vs Training vs Education** | Awareness makes you **notice**. Training teaches you **how**. Education explains **why** |
+| ⭐ **Event vs Incident** | Event = **any observable occurrence**, neutral. Incident = **actually or potentially jeopardises** C, I or A |
+| ⭐ **Incident vs Breach** | Breach = data **actually disclosed**. **Ransomware encryption = incident. Ransomware leak = breach** |
+| **Alert vs Incident** | An alert is a **claim** needing triage. Many are false positives |
+| ⭐ **Containment vs Eradication** | Containment **stops the spread**. Eradication **removes the cause** — including the attacker's access, not just malware |
+| **Eradication vs Recovery** | Eradication removes the cause. Recovery **restores service** and verifies clean |
 
 ---
 
-## 🚨 Domain 2 · BC, DR & Incident Response
+## 🚨 Domain 2 · Security Governance
 
 | Pair | The difference |
 |---|---|
@@ -161,15 +165,11 @@ The ⭐ pairs are the ones that appear most often. Start there if time is short.
 | **MTBF vs MTTR** | MTBF = how **often** it fails (reliability). MTTR = how **fast** it's fixed (maintainability). **Both are hardware metrics, not recovery objectives** |
 | ⭐ **Business continuity vs Disaster recovery** | Continuity = **DURING** the disruption, whole business. Recovery = **AFTER**, mainly IT. **DR is a subset of BC** |
 | ⭐ **BIA vs Risk assessment** | BIA asks **"what if it stops"** — impact, **cause-agnostic**. Risk assessment asks **"what could happen"** — threats and likelihood |
-| ⭐ **Event vs Incident** | Event = **any observable occurrence**, neutral. Incident = **actually or potentially jeopardises** C, I or A |
-| ⭐ **Incident vs Breach** | Breach = data **actually disclosed**. **Ransomware encryption = incident. Ransomware leak = breach** |
-| **Alert vs Incident** | An alert is a **claim** needing triage. Many are false positives |
-| ⭐ **Containment vs Eradication** | Containment **stops the spread**. Eradication **removes the cause** — including the attacker's access, not just malware |
-| **Eradication vs Recovery** | Eradication removes the cause. Recovery **restores service** and verifies clean |
 | ⭐ **Incremental vs Differential** | Incremental = since the **last backup of any kind** — fast backup, **slow restore, need them all**. Differential = since the **last full** — slower backup, **fast restore, need only the latest** |
 | ⭐ **Cold vs Warm vs Hot site** | Cold = **space and power only** (weeks). Warm = **equipment, data restored** (hours–days). Hot = **equipped + current data** (minutes–hours) |
 | ⭐ **Parallel vs Full interruption test** | Parallel = recovery brought up, **production keeps running**. Full interruption = **production switched off** |
 | **Walkthrough vs Simulation** | Walkthrough = the team **talks** it through. Simulation = it is **acted out** |
+| ⭐ **Awareness vs Training vs Education** | Awareness makes you **notice**. Training teaches you **how**. Education explains **why** |
 
 ---
 

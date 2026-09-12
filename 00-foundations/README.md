@@ -90,7 +90,7 @@ flowchart LR
 ## ⏭️ 04 · Where to go next
 
 When all five boxes above are ticked, start [`01-security-principles/`](../01-security-principles/README.md)
-— the heaviest domain at 26%, and the vocabulary the other four are written in.
+— the heaviest domain at 24%, and the vocabulary the other four are written in.
 
 ---
 
