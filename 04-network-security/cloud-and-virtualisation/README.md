@@ -7,7 +7,7 @@
 ### *Three service models, four deployment models, and who is responsible for what*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-4%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
 
 📌 *The shared responsibility model is the most examined idea here. The rule that resolves it: the more the provider manages, the less you do — but the data is always yours.*
@@ -129,6 +129,26 @@ not.
 > ⚠️ **Accountability never transfers.** Even in SaaS, where the provider runs everything, the
 > organisation remains accountable to its regulators and customers for the data. Outsourcing the
 > processing does not outsource the responsibility.
+
+---
+
+## 🧬 The five characteristics of cloud computing
+
+Before service and deployment models, the exam expects you to recognise **what makes something
+"cloud" at all** — a fixed list of five characteristics, commonly traced to NIST's definition of
+cloud computing.
+
+| Characteristic | Means |
+|---|---|
+| **On-demand self-service** | A customer provisions resources (a VM, storage) without needing a human at the provider to act on the request. |
+| **Broad network access** | Resources are reachable over standard networks from varied devices — laptop, phone, anywhere. |
+| **Resource pooling** | The provider's physical resources serve multiple customers (multi-tenancy), dynamically assigned by demand. |
+| **Rapid elasticity** | Capacity can scale up or down quickly, often automatically, to match demand. |
+| **Measured service** | Usage is metered, monitored, and reported — the basis for pay-as-you-go billing. |
+
+> 🎯 **If a scenario describes automatic scaling with usage-based billing and no human
+> provisioning step, it is describing cloud computing** — even if the question never uses the
+> word "cloud". These five traits are the definition the exam is testing against.
 
 ---
 
@@ -479,9 +499,11 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 - **VM escape** = breaking out of a guest. **Hypervisor compromise = every VM on it.**
 - **Containers share the host kernel → WEAKER isolation than VMs.**
 - **Misconfiguration is the leading cause of cloud breaches** — not provider failure.
+- **Five cloud characteristics:** on-demand self-service, broad network access, resource
+  pooling, rapid elasticity, measured service.
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 04 · Network Security</a> &nbsp;·&nbsp; <a href="../zero-trust/">next: Zero trust →</a></sub>
+<sub><a href="../README.md">← back to 04 · Networking and Cloud Security Concepts</a> &nbsp;·&nbsp; <a href="../zero-trust/">next: Zero trust →</a></sub>
 </div>

@@ -7,7 +7,7 @@
 ### *Dividing the network so one compromise does not become all of them*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-4%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
 📌 *Why a flat network is dangerous, what a DMZ is for, and the three-word answer to most segmentation questions: limits lateral movement.*
@@ -161,6 +161,26 @@ attacker may defeat; an air gap is an absence of cable.
 isolation available and used for the most critical systems, at a heavy cost in usability. It is
 also not absolute: removable media crosses air gaps, which is how notable incidents against
 isolated systems occurred.
+
+---
+
+## 🔬 Micro-segmentation
+
+Traditional segmentation (VLANs, firewall zones) divides the network into a handful of large
+zones — a "trusted" internal zone, a DMZ, a guest zone. **Micro-segmentation goes much finer**:
+enforcing access policy **between individual workloads**, sometimes down to a single server or
+container, regardless of which broad zone they sit in.
+
+| | Traditional segmentation | Micro-segmentation |
+|---|---|---|
+| **Granularity** | Zone-level (departments, VLANs, DMZ) | Workload-level (individual servers, containers) |
+| **Enforced where** | At the network perimeter/gateway between zones | Often at the host or hypervisor, next to each workload |
+| **Stops** | An attacker moving between broad zones | An attacker moving **laterally** between workloads *inside* the same zone |
+
+> 🎯 **Why it matters:** once an attacker compromises one server inside a "trusted" zone,
+> traditional segmentation does nothing to stop them reaching every other server in that same
+> zone. Micro-segmentation enforces least privilege *between workloads*, not just at the
+> network edge — the same underlying idea as Zero Trust, applied to network communication.
 
 ---
 
@@ -417,10 +437,11 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 - **Air gap = complete physical isolation.** Strongest, and still not absolute (removable media).
 - **Bastion host** = hardened exposed host. **Jump box** = controlled route in for admins.
 - **Segmentation is the compensating control for unpatchable legacy systems.**
+- **Micro-segmentation = workload-level policy**, stopping lateral movement *inside* a zone, not just between zones.
 - **Defence in depth needs INDEPENDENT layers**, not several of the same type.
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 04 · Network Security</a> &nbsp;·&nbsp; <a href="../vpn-and-remote-access/">next: VPNs and remote access →</a></sub>
+<sub><a href="../README.md">← back to 04 · Networking and Cloud Security Concepts</a> &nbsp;·&nbsp; <a href="../vpn-and-remote-access/">next: VPNs and remote access →</a></sub>
 </div>

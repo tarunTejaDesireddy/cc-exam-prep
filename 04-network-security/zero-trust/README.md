@@ -7,7 +7,7 @@
 ### *Never trust, always verify — and the service-agreement terms that travel beside it*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-4%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
 📌 *One core assumption to learn, plus the third-party agreement vocabulary — SLA, MOU, MSA — that ISC2 groups into this part of the domain.*
@@ -407,5 +407,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 04 · Network Security</a> &nbsp;·&nbsp; <a href="../../03-access-control/README.md">next domain: 03 · Access Control →</a></sub>
+<sub><a href="../README.md">← back to 04 · Networking and Cloud Security Concepts</a> &nbsp;·&nbsp; <a href="../defence-in-depth/">next: Defence in depth →</a></sub>
 </div>

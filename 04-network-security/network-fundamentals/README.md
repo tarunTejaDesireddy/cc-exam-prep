@@ -7,7 +7,7 @@
 ### *What a network is made of, and what each box in the diagram actually does*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-4%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
 📌 *Network types, topologies, and the device list. Mostly recall — and the hub-versus-switch distinction is a security question, not a performance one.*
@@ -421,5 +421,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 04 · Network Security</a> &nbsp;·&nbsp; <a href="../osi-and-tcpip/">next: OSI and TCP/IP →</a></sub>
+<sub><a href="../README.md">← back to 04 · Networking and Cloud Security Concepts</a> &nbsp;·&nbsp; <a href="../osi-and-tcpip/">next: OSI and TCP/IP →</a></sub>
 </div>
