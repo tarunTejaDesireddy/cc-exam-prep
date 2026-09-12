@@ -7,7 +7,7 @@
 ### *The named policies the exam expects you to recognise by purpose*
 
 [![Module](https://img.shields.io/badge/Module-05_Security_Operations-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-5%20·%2018%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
 📌 *Mostly recognition: match a described situation to the policy that governs it. AUP and BYOD carry the most questions.*
@@ -406,5 +406,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 05 · Security Operations</a> &nbsp;·&nbsp; <a href="../security-awareness-training/">next: Security awareness training →</a></sub>
+<sub><a href="../README.md">← back to 05 · Security Operations and Incident Response</a> &nbsp;·&nbsp; <a href="../asset-lifecycle-and-eol/">next: Asset lifecycle and EOL →</a></sub>
 </div>

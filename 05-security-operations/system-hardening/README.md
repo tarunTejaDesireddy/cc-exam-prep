@@ -7,7 +7,7 @@
 ### *Reducing what a system offers an attacker, before anyone attacks it*
 
 [![Module](https://img.shields.io/badge/Module-05_Security_Operations-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-5%20·%2018%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
 📌 *Baselines, patching and least functionality. The sentence to hold: a service that is not running cannot be exploited.*
@@ -408,5 +408,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 05 · Security Operations</a> &nbsp;·&nbsp; <a href="../configuration-management/">next: Configuration management →</a></sub>
+<sub><a href="../README.md">← back to 05 · Security Operations and Incident Response</a> &nbsp;·&nbsp; <a href="../configuration-management/">next: Configuration management →</a></sub>
 </div>

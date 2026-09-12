@@ -7,7 +7,7 @@
 ### *The life of data, the three states it exists in, and how to destroy it properly*
 
 [![Module](https://img.shields.io/badge/Module-05_Security_Operations-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-5%20·%2018%25-5C7CFA?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
 📌 *Three states, and disposal methods with precise definitions. The state you forget is data in use — and it is the one encryption struggles with.*
@@ -180,6 +180,24 @@ cannot physically destroy someone else's disks.
 
 > 🎯 **Choose the method by sensitivity and by whether the media is being reused.** Reuse
 > internally → clearing. Leaving the organisation with sensitive data → destruction.
+
+---
+
+## 🎭 Masking
+
+**Masking** hides part or all of a data value while keeping the data usable for a purpose that
+doesn't need the real value — showing `**** **** **** 1234` for a card number on a support
+screen, or substituting realistic fake values in a test/training database.
+
+| | Protects by | Reversible? | Typical use |
+|---|---|---|---|
+| **Masking** | Hiding/obscuring the real value from view | Sometimes (depends on implementation) | Support screens, non-production/test environments |
+| **Encryption** | Making the value unreadable without a key | Yes, with the key | Data at rest/in transit that must be fully recoverable |
+| **Hashing** | One-way transformation | No (by design) | Integrity checks, password storage |
+
+> 🎯 **Masking's purpose is different from encryption's.** Encryption protects data that must
+> later be fully recovered. Masking protects data that a viewer needs to *see enough of* to do
+> their job (confirm it's the right account) without seeing the *whole* real value.
 
 ---
 
@@ -398,6 +416,7 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 - **Archived data is still classified data.**
 - **Delete ≠ sanitise.** Deleting removes the pointer; the data remains (**remanence**).
 - **Clearing** = overwrite, media reusable. **Purging** = degauss/crypto-erase, resists lab recovery. **Destruction** = shred/incinerate.
+- **Masking hides a value for viewing; encryption protects a value for later recovery.**
 - **DEGAUSSING DOES NOT WORK ON SSDs** — magnetic media only.
 - **Crypto-shredding = destroy the key.** The answer for cloud storage.
 - **Keeping data past its retention period is a LIABILITY.** **Legal hold** suspends destruction.
@@ -405,5 +424,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 05 · Security Operations</a> &nbsp;·&nbsp; <a href="../data-classification/">next: Data classification →</a></sub>
+<sub><a href="../README.md">← back to 05 · Security Operations and Incident Response</a> &nbsp;·&nbsp; <a href="../data-classification/">next: Data classification →</a></sub>
 </div>
