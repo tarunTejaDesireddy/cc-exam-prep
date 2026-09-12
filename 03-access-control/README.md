@@ -52,7 +52,7 @@ Work top to bottom. The first topic establishes the vocabulary the rest depend o
 | <sub>&#9745;</sub> | 💻 [`logical-access-controls/`](logical-access-controls/) | Separate logical from physical, and place controls that look like both. |
 | <sub>&#9745;</sub> | 🗝️ [`dac-mac-rbac-abac/`](dac-mac-rbac-abac/) | Identify any of the four models from a scenario, without hesitating over DAC and MAC. |
 | <sub>&#9745;</sub> | 🔻 [`least-privilege-and-sod/`](least-privilege-and-sod/) | Apply least privilege, need to know and segregation of duties to the right situations. |
-| <sub>&#9744;</sub> | 👑 [`privileged-access/`](privileged-access/) | Say what makes an account privileged and which controls the exam expects on it. |
+| <sub>&#9745;</sub> | 👑 [`privileged-access/`](privileged-access/) | Say what makes an account privileged and which controls the exam expects on it. |
 | <sub>&#9744;</sub> | 🔄 [`identity-lifecycle/`](identity-lifecycle/) | Walk joiner, mover and leaver, and explain what goes wrong at each stage. |
 | <sub>&#9744;</sub> | 🛡️ [`defence-in-depth/`](defence-in-depth/) | Explain layered control strategy as ISC2 defines it, and why layers must be independent. |
 
