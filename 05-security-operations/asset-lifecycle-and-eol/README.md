@@ -88,6 +88,42 @@ in service. The toolmaker has left camp; every crack from here on is permanent.
 
 ---
 
+## 🔬 How EOL dates get tracked, and the components you can't see
+
+"Track EOL dates in the inventory" sounds like a spreadsheet column somebody updates. In
+practice it is fed automatically.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    APP["📦 An application"] --> SBOM["📋 SBOM lists every<br/>embedded component<br/>+ version"]
+    SBOM --> FEED["🔄 Compared against<br/>vendor lifecycle data"]
+    FEED --> FLAG["⚠️ Flags components<br/>already past EOL"]
+
+    style APP fill:#26292e,stroke:#868E96,color:#fff
+    style SBOM fill:#0f3038,stroke:#12B5A5,color:#fff
+    style FEED fill:#12243f,stroke:#5C7CFA,color:#fff
+    style FLAG fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+**An SBOM (Software Bill of Materials) is the real artefact that solves the embedded-EOL
+problem.** It is a machine-readable manifest — in a standard format such as **CycloneDX** or
+**SPDX** — listing every library, framework and dependency inside a piece of software, with
+version numbers. Without one, an organisation genuinely cannot answer "are we running anything
+unsupported?", because the vulnerable component is three layers deep inside a vendor product
+that itself looks perfectly current. With one, that question becomes a query: cross-reference
+every listed component against published end-of-life dates and the answer falls out
+automatically.
+
+**Certificates are the lifecycle everyone forgets.** A TLS certificate has a hard expiry date
+baked into it, and when it passes, the service simply stops working — browsers refuse the
+connection outright. This is an *availability* incident caused purely by a lifecycle date nobody
+tracked, which is why certificate inventory and automated renewal (ACME/Let's Encrypt-style
+protocols that reissue automatically before expiry) are treated as an operational necessity
+rather than a nicety.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
