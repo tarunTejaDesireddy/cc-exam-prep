@@ -138,6 +138,65 @@ patching, DDoS protection, maintenance windows, business continuity planning.
 
 ---
 
+## 🔬 How this actually looks in a real system
+
+The exam tests the three words. A real system enforces them with a stack of concrete
+technology, and it's worth seeing that stack once so the words stop being abstract.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    C["🔒 Confidentiality"] --> C1["TLS 1.3 in transit"]
+    C --> C2["AES-256 at rest"]
+    C --> C3["RBAC / ABAC on access"]
+    N["✅ Integrity"] --> N1["HMAC / digital signatures"]
+    N --> N2["DB transaction (ACID)"]
+    N --> N3["Config baseline + hashing"]
+    A["⚡ Availability"] --> A1["Load balancer + N+1"]
+    A --> A2["Backups, RPO/RTO design"]
+    A --> A3["DDoS scrubbing"]
+
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style N fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C3 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style N1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style N2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style N3 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style A1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style A2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style A3 fill:#0f3038,stroke:#12B5A5,color:#fff
+```
+
+**Confidentiality, technically:** data moving between a browser and a server is wrapped by
+**TLS 1.3**, which negotiates a fresh symmetric key per session (via an ECDHE key exchange) so
+even a captured packet capture is unreadable. Data sitting on a disk is wrapped again with
+**AES-256**, usually managed through envelope encryption — a cloud KMS encrypts the actual data
+key, not the data itself, so rotating or revoking access never means re-encrypting terabytes.
+Who gets to decrypt anything at all is gated by **RBAC** (role-based) or increasingly **ABAC**
+(attribute-based — "only if department=finance AND time=business-hours").
+
+**Integrity, technically:** an **HMAC** (a hash mixed with a secret key) proves a message wasn't
+altered *and* came from someone holding the key — a plain hash alone only proves the first.
+**Digital signatures** (RSA or ECDSA) do the same for files and software updates, which is why
+an OS update you download is checked against a signature before it's ever installed. Databases
+enforce integrity structurally through **ACID transactions** — a transfer between two bank
+accounts either updates both balances or neither, never a half-finished state. At the
+infrastructure level, a **configuration baseline compared by hash** (drift detection) is how
+"integrity" scales to thousands of servers instead of one file.
+
+**Availability, technically:** **N+1 redundancy** means running one more instance than you
+strictly need, so a single failure doesn't take the service down — a load balancer simply
+stops routing to the dead node. **RPO and RTO** (met formally in Domain 2) drive real backup
+architecture: a database replicated every 30 seconds has a tighter RPO than one backed up
+nightly, at a real infrastructure cost. **DDoS scrubbing** services (Cloudflare, AWS Shield)
+sit in front of a system and absorb a flood of junk traffic before it ever reaches the real
+servers — the practical answer to the "flood of traffic" scenario the exam likes to describe.
+
+---
+
 ## ⚖️ Told apart
 
 This table is the reason to read the page. Every row is a distractor pattern.
