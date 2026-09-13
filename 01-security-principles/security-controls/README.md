@@ -208,6 +208,45 @@ flowchart LR
 
 ---
 
+## 🔬 What defence in depth actually looks like in a real network
+
+The diagram above shows the three *types* layered. Zoom into just the technical layer and a
+real network shows several independent *technical* controls stacked, each catching what the one
+before it missed.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    I["🌍 Internet"] --> FW["🧱 Perimeter<br/>firewall"]
+    FW --> WAF["🛡️ WAF<br/>filters app-layer<br/>attacks"]
+    WAF --> IDS["🔍 IDS/IPS<br/>watches traffic<br/>patterns"]
+    IDS --> SEG["🔀 Internal<br/>segmentation"]
+    SEG --> EDR["💻 EDR on<br/>the endpoint"]
+    EDR --> ENC["🔒 Encryption<br/>at rest"]
+
+    style I fill:#3a1a20,stroke:#E03131,color:#fff
+    style FW fill:#12243f,stroke:#5C7CFA,color:#fff
+    style WAF fill:#12243f,stroke:#5C7CFA,color:#fff
+    style IDS fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SEG fill:#12243f,stroke:#5C7CFA,color:#fff
+    style EDR fill:#12243f,stroke:#5C7CFA,color:#fff
+    style ENC fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+Notice that no single box on this chain is expected to catch everything — that's the point of
+"depth." A firewall that lets through an allowed web request doesn't need to also be the thing
+that stops a SQL injection hidden inside it; the WAF downstream is built specifically for that.
+If a request somehow slips past both, the IDS/IPS is watching traffic *patterns* rather than
+individual requests, which catches attacks the first two were never designed to notice.
+Segmentation means a compromised machine can't simply walk to every other machine. EDR watches
+what actually executes on the endpoint itself, the last line before something runs. And
+encryption at rest means that even a fully compromised disk yields nothing readable without the
+key. Each layer is chosen specifically because it fails differently from its neighbours — the
+same principle the grown-up section makes about mixing *types*, applied one level deeper, inside
+the technical layer alone.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
