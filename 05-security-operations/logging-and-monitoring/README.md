@@ -18,8 +18,18 @@
 
 ## 🧸 The big idea
 
-**Logging** records what happened. **Monitoring** is looking at those records and noticing when
-something is wrong.
+Every night, the tribe's watchmen scratch a mark into the camp's tally-wall for everything that
+happens at the gate: who came, what they did, when, and whether they were let in or turned away.
+By morning the wall is covered in scratches — a perfect, honest record of the whole night.
+
+But a wall covered in scratches doesn't stop a single wolf. It doesn't even notice one. Marks on
+a wall only matter if someone actually walks up, reads them, and reacts. A wall nobody reads is
+just... a wall. The wolves could have strolled through the gate every night for a month, and the
+tally-wall would prove it — after the pack has already moved into the caves.
+
+That's the whole distinction. **Logging** records what happened — the scratches on the wall.
+**Monitoring** is looking at those records and noticing when something is wrong — someone actually
+reading the wall.
 
 They are not the same thing, and the gap between them is where organisations fail. A system with
 comprehensive logging that nobody reviews provides forensic material after the fact and **detects
@@ -97,6 +107,13 @@ flowchart TD
 
 ## 🔗 Centralisation and SIEM
 
+If every watchman keeps his own tally-wall in his own hut, a raider who breaks into that one hut
+can simply scratch out his own marks before anyone reads them — the evidence of how he got in
+vanishes with him. So the tribe builds one central drum-tower in the middle of camp, and every
+watchman's marks get copied there the moment they're made. A raider who reaches one hut still
+can't touch the tower. And each morning the wise elder walks the tower, not each hut separately,
+and reads every watchman's night side by side — spotting a pattern none of them could see alone.
+
 Logs scattered across hundreds of systems are of little use. **Centralising** them serves two
 purposes.
 
@@ -136,6 +153,10 @@ raises alerts. It is the tool that turns logging into monitoring.
 
 ## ⏰ Time synchronisation
 
+If the east watchman marks his sundial's shadow and the west watchman marks his water-clock, but
+the two clocks drift an hour apart, nobody can tell the next morning which happened first — the
+gate opening or the fire going out. The story falls apart at the exact moment it matters most.
+
 If two systems' clocks differ by ten minutes, their logs cannot be sequenced. You cannot tell
 whether the firewall event preceded the server event, and the reconstruction falls apart.
 
@@ -149,6 +170,11 @@ evidence that stands up.
 ---
 
 ## 🔁 Ingress and egress monitoring
+
+The tribe posts guards facing outward at the gate, watching for wolves and raiders trying to get
+**in**. Almost nobody watches the back of the storehouse, where a sack of grain can quietly go
+**out** in the dead of night. By the time grain is leaving, a thief is already inside — and the
+back of the storehouse is where you'd actually catch him.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
@@ -180,7 +206,8 @@ works by recognising patterns and classification labels.
 
 The most common way monitoring fails in practice, and the exam recognises it.
 
-**Too many alerts, especially false positives, desensitise analysts.** They start dismissing
+The boy who bangs the drum every time a rabbit rustles a bush eventually gets ignored — and the
+night the real wolf shows up, nobody runs. **Too many alerts, especially false positives, desensitise analysts.** They start dismissing
 alerts without investigation, and the genuine one is dismissed along with the noise. More alerting
 is not better monitoring.
 
