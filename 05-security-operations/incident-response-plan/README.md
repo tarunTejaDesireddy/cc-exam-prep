@@ -227,6 +227,42 @@ usable.
 
 ---
 
+## 🔬 Order of volatility and the actual tools used to collect it
+
+RFC 3227 spells out the exact order, more finely than "memory before disk":
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    A["1. CPU registers,<br/>cache"] --> B["2. RAM"]
+    B --> C["3. Network state<br/>(connections, routing)"]
+    C --> D["4. Running<br/>processes"]
+    D --> E["5. Disk"]
+    E --> F["6. Remote<br/>logs"]
+    F --> G["7. Archival<br/>media"]
+
+    style A fill:#3a1a20,stroke:#E03131,color:#fff
+    style B fill:#3a1a20,stroke:#E03131,color:#fff
+    style C fill:#3a2c12,stroke:#F08C00,color:#fff
+    style D fill:#3a2c12,stroke:#F08C00,color:#fff
+    style E fill:#12243f,stroke:#5C7CFA,color:#fff
+    style F fill:#12243f,stroke:#5C7CFA,color:#fff
+    style G fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**A real memory capture uses a specific tool before the machine is ever touched further** — an
+investigator runs something like FTK Imager or WinPmem to dump the entire contents of RAM to a
+file *before* powering anything down, then analyses that dump offline with the **Volatility
+Framework**, which can pull running processes, network connections and even encryption keys out
+of a static memory image. **Disk acquisition follows the same discipline**: the drive is
+connected through a **write blocker** — hardware that physically permits reads but refuses any
+write command — and imaged bit-for-bit with a tool like `dd` or FTK Imager, with a hash computed
+immediately on both the original and the copy. That matching hash, recorded at the moment of
+acquisition, is the literal artefact chain-of-custody paperwork points back to later — proof the
+copy being analysed is identical to what was seized, not proof of what happened on the system.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
