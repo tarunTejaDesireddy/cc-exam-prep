@@ -18,6 +18,15 @@
 
 ## 🧸 The big idea
 
+The tribe built a fence over the gap and posted a guard. But how do they actually know it's
+working, rather than just hoping?
+
+Two very different numbers matter. *"The guard has fallen asleep at his post three nights this
+week, and it's getting worse."* That number is climbing **before** any wolf has actually gotten
+in — it's a warning of trouble building. *"Of the twelve nights he was on duty, he successfully
+spotted and scared off every approaching wolf."* That number grades how well the guard is
+actually doing his job against what's expected of him.
+
 A security programme that cannot show whether it is working is a programme running on faith.
 **Measuring effectiveness** means picking numbers that actually track security posture, then
 presenting them to the right audience in the right format — a technical dashboard for
@@ -43,12 +52,13 @@ it* is a leadership and accountability activity, not a purely technical one.
 
 ## 🔍 KRI versus KPI, and who reads what
 
-**A KRI looks forward — it warns.** A rising KRI (unpatched critical vulnerabilities, overdue
-access reviews) means risk is building even though nothing bad has happened yet.
+The sleeping-guard count from the big idea is a **KRI** — it looks forward and warns. A rising
+KRI (unpatched critical vulnerabilities, overdue access reviews) means risk is building even
+though nothing bad has happened yet.
 
-**A KPI looks at performance against a target — it grades.** A KPI (percentage of systems
-patched within SLA, phishing simulation click rate) tells you how well a control or process is
-actually operating.
+The wolves-successfully-spotted count is a **KPI** — it looks at performance against a target
+and grades. A KPI (percentage of systems patched within SLA, phishing simulation click rate)
+tells you how well a control or process is actually operating.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
@@ -62,9 +72,16 @@ flowchart LR
     style P fill:#12243f,stroke:#5C7CFA,color:#fff
 ```
 
-**Audience decides format.** The same underlying data becomes a **dashboard** for a SOC analyst
-watching it live, a **scorecard** summarising the month for a steering committee, or a
-**report** documenting the quarter for a board or a regulator.
+**Audience decides format.** The guard himself checks fresh wolf tracks by the fence every
+single night — that running, live view is a **dashboard.** Once a month, the hunt-leader gets a
+one-page summary grading how well the fence held up — that's a **scorecard** for the people
+overseeing the guards. Once a season, the chief receives a full, formal account of every wolf
+incident to present to the council of elders — that's a **report.** Same underlying facts, three
+different audiences, three different shapes.
+
+The same underlying data becomes a **dashboard** for a SOC analyst watching it live, a
+**scorecard** summarising the month for a steering committee, or a **report** documenting the
+quarter for a board or a regulator.
 
 | Format | Audience | Cadence |
 |---|---|---|
