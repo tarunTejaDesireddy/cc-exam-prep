@@ -18,6 +18,16 @@
 
 ## 🧸 The big idea
 
+Four very different kinds of trouble can hit the village, and each leaves its own tell.
+
+A hundred fake messengers all crowd the village well at once, so real villagers can't get water
+at all — that's **overwhelming** it. A bandit hides along the trade road between two villages,
+quietly listening to (or altering) every message passing between them, with neither village
+realising anyone's there — that's **intercepting.** A trickster wears a stolen chief's cloak to
+be waved through the gate without question — that's **impersonating.** And someone slips a
+poisoned instruction into what looks like an ordinary grain order, so the store-keeper unknowingly
+carries out something harmful the moment he reads it — that's **injecting.**
+
 Attacks against networks fall into a small number of shapes, and each has **one detail that
 identifies it**. Learn the detail rather than the description, because the exam will paraphrase.
 
@@ -56,6 +66,8 @@ When a scenario appears, ask which shape it is first. That eliminates most optio
 ---
 
 ## 🔍 The four shapes
+
+The well, the road, the gate, and the grain order — formalised.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
