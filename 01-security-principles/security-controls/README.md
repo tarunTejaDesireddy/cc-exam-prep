@@ -18,12 +18,23 @@
 
 ## 🧸 The big idea
 
-A **control** is anything that reduces risk. A lock, a firewall, a policy, a security guard, a
-training course, a backup, a warning sign.
+The tribe has three completely different ways to deal with the wolf problem at the cave. A
+**control** is anything that reduces risk, and each of these is one:
+
+- **Build a wall over the gap.** A real, physical thing you can touch.
+- **Rig a tripwire that drops a rock on anything that walks through the gap at night**, with
+  nobody standing there to trigger it. A clever mechanism doing the work automatically.
+- **Have the chief announce a rule: "nobody leaves the food store unwatched after dark."** No
+  wall, no mechanism — just a rule people are expected to follow.
+
+Three completely different kinds of thing, all reducing the same risk. A lock, a firewall, a
+policy, a security guard, a training course, a backup, a warning sign — every control on this
+exam is one of those three kinds.
 
 Controls are classified along **two separate axes**, and that is the whole topic:
 
-- **Type** — *what kind of thing it is.* Technical, administrative, or physical.
+- **Type** — *what kind of thing it is.* Technical, administrative, or physical. (The wall is
+  physical. The self-triggering tripwire is technical. The chief's spoken rule is administrative.)
 - **Function** — *what it does about the risk.* Preventive, detective, corrective, deterrent,
   compensating, directive.
 
@@ -86,6 +97,14 @@ flowchart TD
 ---
 
 ## 🔍 Axis two — control functions
+
+Back at the cave: a wolf skull mounted by the entrance scares wolves off before they even try
+(**deterrent**). The wall stops the ones that try anyway (**preventive**). A pile of noisy
+shells by the gap rattles when something walks over them, telling you *after* something got in
+(**detective**). Restacking the food that got knocked over the next morning fixes the damage
+(**corrective**). The chief's spoken rule tells everyone what they must do (**directive**). And
+if the wall can't be finished before winter, posting an extra guard at night instead is the
+stand-in (**compensating**).
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
