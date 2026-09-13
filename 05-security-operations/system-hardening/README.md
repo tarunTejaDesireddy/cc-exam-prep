@@ -212,6 +212,39 @@ fewer things.
 
 ---
 
+## 🔬 How a baseline actually gets checked, and how a golden image gets built
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    B["📐 CIS Benchmark<br/>(a document)"] --> S["🤖 SCAP-compatible<br/>scanner (OpenSCAP)"]
+    S --> R["🖥️ Runs against a<br/>live system"]
+    R --> RES["📊 Pass/fail per<br/>numbered check"]
+
+    style B fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#26292e,stroke:#868E96,color:#fff
+    style RES fill:#3a2c12,stroke:#F08C00,color:#fff
+```
+
+A CIS Benchmark isn't just prose — it's published alongside a machine-readable **SCAP** (Security
+Content Automation Protocol) definition, and a scanner like **OpenSCAP** reads that definition and
+checks every single numbered item against a real, running system automatically: is SSH root
+login disabled, is the password minimum length set, is the sticky bit set on world-writable
+directories. The output is a literal pass/fail per line item, which is what turns "measure
+existing systems against the baseline" from a manual checklist into an automated scan a team can
+run on thousands of servers overnight.
+
+**A golden image gets built the same way immutable infrastructure gets built — from code, not by
+hand.** A tool like **Packer** runs a build script that starts from a clean base OS image,
+applies exactly the hardening steps a CIS Benchmark or internal standard specifies, and produces
+a finished, versioned image artefact — the actual golden image — which every new server is then
+launched from. Because the hardening steps live in a script under version control, hardening a
+new server class means editing that script once, not manually configuring the first server and
+hoping every clone afterward matches it.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
