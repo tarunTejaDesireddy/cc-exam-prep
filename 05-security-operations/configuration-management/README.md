@@ -18,6 +18,16 @@
 
 ## 🧸 The big idea
 
+If a hunter quietly builds himself a lean-to out past the tree line without telling anyone, the
+chief doesn't stock it before winter, nobody checks its roof before the first storm, and nobody
+notices when something starts sleeping underneath it. Not because the chief doesn't care — because
+she doesn't know it exists. Camp can only protect what's on its list.
+
+And once camp knows what it has, the next question is who's allowed to change it. If anyone can
+knock through a wall or reroute the stream feeding the water trough whenever they feel like it,
+nobody can say what the camp actually looks like from one week to the next — and when the fence
+falls over, nobody can say why.
+
 Two questions sit underneath this whole topic:
 
 > **What do we have?** — inventory.
@@ -83,11 +93,16 @@ data it holds, its classification, and its configuration baseline.
 
 > ⚠️ **Shadow IT is the inventory problem made concrete.** A department signs up for a cloud
 > service with a corporate card, and it holds company data while being unknown to security —
-> unmonitored, unassessed, and outside every control the organisation operates.
+> unmonitored, unassessed, and outside every control the organisation operates. It's the hunter's
+> hidden lean-to: holding real goods, with nobody in camp watching its roof.
 
 ---
 
 ## 🔄 Change control
+
+Before knocking through a wall or rerouting the stream that fills the water trough, the request
+goes to the council of elders — not to slow the tribe down for its own sake, but because the very
+next question is always "what could go wrong, and how do we put it back the way it was?"
 
 Most outages are caused by changes. Change control exists to make changes deliberate, reviewed
 and reversible.
@@ -130,7 +145,9 @@ flowchart LR
 
 Genuine emergencies — an active incident, a critical exploited vulnerability — need an
 abbreviated path. The recognised handling is that an emergency change is **still approved**, by a
-smaller group and faster, and **documented retrospectively** through the normal process.
+smaller group and faster, and **documented retrospectively** through the normal process. Mid-storm,
+with the roof caving in, you don't wait for the full council — but the nearest elder still nods
+before the repair starts, and the record gets written up the next morning regardless.
 
 > 🎯 **An emergency change is an accelerated process, not an absent one.** Unapproved,
 > undocumented changes are not emergency changes; they are unauthorised changes.
