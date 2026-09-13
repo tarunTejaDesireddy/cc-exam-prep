@@ -201,6 +201,41 @@ enforcing* them reliably at scale.
 
 ---
 
+## 🔬 The actual protocol behind "HR-driven provisioning"
+
+"Automation from the authoritative source" isn't magic — it's a real, named open standard
+running underneath most modern IGA platforms.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    HR["👤 HR system<br/>(Workday, etc.)<br/>marks employee<br/>terminated"] --> IDP["🔑 Identity provider<br/>(Okta / Entra ID)"]
+    IDP --> SCIM["🔄 SCIM protocol<br/>pushes the change"]
+    SCIM --> S1["Slack"]
+    SCIM --> S2["Salesforce"]
+    SCIM --> S3["GitHub"]
+
+    style HR fill:#0f3038,stroke:#12B5A5,color:#fff
+    style IDP fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SCIM fill:#3a2c12,stroke:#F08C00,color:#fff
+    style S1 fill:#26292e,stroke:#868E96,color:#fff
+    style S2 fill:#26292e,stroke:#868E96,color:#fff
+    style S3 fill:#26292e,stroke:#868E96,color:#fff
+```
+
+**SCIM (System for Cross-domain Identity Management)** is the open standard that actually
+carries a joiner/mover/leaver event out to every connected application. When HR marks someone
+terminated in Workday, the identity provider doesn't just disable its own login — it sends a
+standardised SCIM `DELETE` (or deactivate) call to every SaaS app connected via SCIM
+provisioning, and each app deprovisions that user on its own end within minutes, without a human
+filing a single ticket. This is the concrete answer to the "federated identity complicates
+offboarding" problem in the grown-up section: an app that supports SCIM closes automatically
+with everything else; an app that doesn't is exactly the kind of local, disconnected account
+that offboarding quietly fails to reach, which is why "does this vendor support SCIM
+provisioning" has become a real question asked during procurement, not just an IT nicety.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
