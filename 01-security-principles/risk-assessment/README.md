@@ -18,8 +18,25 @@
 
 ## 🧸 The big idea
 
-Once you know a risk exists, the next question is *how bad is it?* There are two ways to
-answer, and the exam wants you to know when each is appropriate.
+Back to the wolves and the gap in the cave wall. You already know it's a risk — now the tribe
+needs to know exactly *how bad* a risk. There are two ways to answer that.
+
+The tribe elder just looks at the gap and says: *"that looks pretty dangerous — I'd call it
+high."* No counting, no records, just a gut call using words like high, medium, low. That's
+**qualitative** assessment. It's fast, needs nothing written down beforehand, and works fine for
+things you genuinely can't put a number on. Its weakness: your "high" and the elder's "high"
+might not mean the same thing, and there's no way to settle the disagreement.
+
+The hunter does it differently. She keeps count: *"wolves have actually gotten through 3 times
+this year. Each time, we lost about 10 arrowheads' worth of grain."* Multiply those together —
+3 raids × 10 arrowheads — and she can say, in hard numbers, **"this gap costs us 30 arrowheads a
+year."** That's **quantitative** assessment: real numbers, comparable, and useful for deciding
+whether a fence costing 15 arrowheads is worth building. Its weakness: you need actual history to
+count, and plenty of real risks — like "the tribe's reputation for having a secure cave" — have no
+honest number behind them.
+
+That's the whole idea. Once you know a risk exists, the next question is *how bad is it?* There
+are two ways to answer, and the exam wants you to know when each is appropriate.
 
 **Qualitative** uses descriptive categories. High, medium, low. Likely, unlikely. It is fast,
 cheap, needs no historical data, and works for things you cannot price — reputational damage,
@@ -76,6 +93,10 @@ control worth the money?" because there are no numbers to compare.
 ---
 
 ## 🔢 Quantitative assessment
+
+This is the hunter's arrowhead count, formalised. "10 arrowheads lost per raid" is a **Single
+Loss Expectancy**. "3 raids a year" is an **Annual Rate of Occurrence**. Multiply them and you
+get her **Annualised Loss Expectancy** — the real cost of the risk over a year.
 
 Three formulas. They chain together, and the exam may ask you to compute one step.
 
