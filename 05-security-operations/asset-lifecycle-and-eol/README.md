@@ -18,6 +18,15 @@
 
 ## 🧸 The big idea
 
+Every spear the tribe owns is carved, used, and kept sharp by the toolmaker for as long as he's
+around to mend it. But the day the toolmaker who knows that spear's craft dies, or moves on to
+another camp, nobody left can fix a new crack in it — ever again.
+
+The spear might still throw true tomorrow. That's not the point. From that day on, every fresh
+crack just stays a crack, forever, and the spear gets a little more dangerous to carry every
+season it's still in use. An old spear the toolmaker still tends is fine. A spear nobody left can
+mend is the actual danger — no matter how new or old it happens to be.
+
 You cannot protect an asset you don't know exists. **Asset protection** starts with an
 accurate **inventory** and follows each asset through a **lifecycle** — acquisition,
 deployment, maintenance, and eventually retirement. The stage that gets tested hardest is the
@@ -62,7 +71,7 @@ flowchart LR
 **Why EOL is the highest-risk stage:** every stage before it has an active vendor fixing newly
 discovered vulnerabilities. Past EOL, **new vulnerabilities are never patched** — the asset's
 risk only ever increases from that point on, and it increases indefinitely if the asset stays
-in service.
+in service. The toolmaker has left camp; every crack from here on is permanent.
 
 **What good asset lifecycle management does about it:**
 
@@ -74,7 +83,8 @@ in service.
   — the same pattern used for unpatchable ICS/embedded devices.
 - **Decommission with proper data sanitisation** — an EOL asset being disposed of is exactly
   the scenario the data-handling destruction methods (clearing, purging, destruction) exist
-  for.
+  for. A retired tally-scroll listing which family lives in which hut gets burned, not tossed
+  in the woods where any passing stranger could pick it up and read it.
 
 ---
 
