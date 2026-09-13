@@ -18,7 +18,15 @@
 
 ## 🧸 The big idea
 
-Four devices, and each answers a different question.
+The gate guard checks his list and decides who's actually allowed through — that's a
+**firewall.** A watchman up on the tower spots something suspicious and shouts a warning to the
+whole village — but he's up on a tower, off to one side, and physically cannot reach down and
+stop anyone himself. A different watchman stands directly *in* the gateway itself, so anyone
+suspicious has to physically push past him to get through at all — which means he actually can
+stop them. And a trusted go-between fetches things from outside the village on your behalf, so
+you never have to step outside or reveal yourself to strangers — that's a **proxy.**
+
+That's the whole idea. Four devices, and each answers a different question.
 
 | Device | Its job |
 |---|---|
@@ -33,9 +41,10 @@ doing a lot of work:
 > **IDS = Detection. It sees and alerts. It does not block.**
 > **IPS = Prevention. It sees and blocks.**
 
-That is the whole distinction, and it follows from where each sits. An IDS receives a **copy** of
-traffic, so it is off to one side and cannot interfere. An IPS sits **in the traffic path**, so
-everything must pass through it — which is what gives it the power to drop a packet.
+That is the whole distinction, and it follows from where each sits — exactly like the tower
+watchman versus the gateway watchman above. An IDS receives a **copy** of traffic, so it is off
+to one side and cannot interfere. An IPS sits **in the traffic path**, so everything must pass
+through it — which is what gives it the power to drop a packet.
 
 ---
 
