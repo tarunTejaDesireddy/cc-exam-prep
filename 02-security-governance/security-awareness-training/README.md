@@ -18,13 +18,19 @@
 
 ## 🧸 The big idea
 
-Every technical control in this repo can be defeated by a person being persuaded to do something.
-An employee who hands over their password has bypassed the firewall, the encryption and the
-access control in one move, without any of them failing.
+Remember the caveman guard from Domain 1, who demands the secret whistle before letting anyone
+in? A clever stranger doesn't bother trying to guess the whistle. He just says, *"I'm carrying
+an urgent message from the chief's own sister — quick, let me through, there's no time!"* Panic
+and urgency, not the whistle, gets him past the wall.
 
-**People are the attack surface you cannot patch.** The control is to teach them — which makes
-awareness training an **administrative, preventive** control, and the standing answer to
-social engineering.
+That's the trick. Every technical control in this repo can be defeated by a person being
+persuaded to do something. An employee who hands over their password has bypassed the firewall,
+the encryption and the access control in one move, without any of them failing.
+
+The tribe's answer isn't a stronger wall — walls don't stop tricks. It's making sure every guard,
+everywhere, already knows this trick exists. **People are the attack surface you cannot patch.**
+The control is to teach them — which makes awareness training an **administrative, preventive**
+control, and the standing answer to social engineering.
 
 > 🎯 **When a question asks how to reduce susceptibility to phishing or social engineering, the
 > answer is security awareness training.** The vulnerability is human, so the control must be too.
@@ -39,6 +45,12 @@ things**:
 | **Education** | Builds **understanding of why** — the underlying principles | Deepest, for security professionals |
 
 > 🧠 **Awareness makes you notice. Training teaches you what to do. Education explains why.**
+
+Every tribe member hears the reminder, repeated often: *"strangers sometimes lie about who they
+are — stay alert."* That's **awareness.** The guards specifically get drilled on exactly how to
+verify a stranger's claim before ever opening the gate. That's **training.** And the wisest elder
+studies *why* the urgency trick works on people at all, across many tribes, so she can design the
+whole defence from first principles. That's **education.**
 
 ---
 
