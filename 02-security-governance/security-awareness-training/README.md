@@ -182,6 +182,40 @@ flowchart LR
 
 ---
 
+## 🔬 What actually happens when someone clicks "Report Phish"
+
+Training teaches people to report. Here's the real pipeline that report travels through.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    RP["🖱️ 'Report Phish'<br/>mail-client button"] --> FW["📤 Forwarded with<br/>full headers"]
+    FW --> AT["🤖 Automated triage<br/>SPF/DKIM/DMARC check"]
+    AT --> H["👤 Human analyst<br/>confirms"]
+    H --> IOC["🚫 Sender/URL blocked<br/>at the mail gateway"]
+
+    style RP fill:#0f3038,stroke:#12B5A5,color:#fff
+    style FW fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AT fill:#12243f,stroke:#5C7CFA,color:#fff
+    style H fill:#3a2c12,stroke:#F08C00,color:#fff
+    style IOC fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+That "Report Phish" button (built into Outlook/Gmail via platforms like KnowBe4 or Proofpoint)
+isn't just a delete key — it forwards the message **with its full technical headers** to a
+security mailbox or SOAR platform, which is exactly what a human forwarding a screenshot loses.
+Automated triage then checks three real authentication signals: **SPF** (does the sending
+server match who the domain says is allowed to send its mail?), **DKIM** (is there a valid
+cryptographic signature proving the message wasn't altered in transit?), and **DMARC** (the
+policy tying the two together, telling receiving servers what to do when they fail). A
+failure on any of these is a strong, checkable technical signal — far more reliable than "the
+logo looked slightly off." This is also the concrete mechanism behind lookalike-domain attacks:
+`micros0ft-support.com` or `paypaI.com` (a capital I standing in for a lowercase l) will pass
+SPF/DKIM/DMARC perfectly, because they genuinely own that domain — which is exactly why the
+awareness training content still matters even with all this automation running underneath it.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
