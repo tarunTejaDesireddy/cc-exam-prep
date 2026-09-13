@@ -18,20 +18,26 @@
 
 ## 🧸 The big idea
 
-A network is two or more devices connected so they can exchange data. Everything else is
-detail about **how far apart they are** and **what sits in the middle**.
+Villages send messages to each other. A network is exactly that: two or more places connected so
+they can exchange something. Everything else is detail about **how far apart they are** and
+**what sits in the middle**.
 
 Two questions organise the whole topic:
 
-- **How big is it?** A network inside one building is a LAN. One spanning cities is a WAN.
-  The names are just distance labels.
+- **How big is it?** A whisper across one hut is tiny. Message-runners between huts in one
+  village cover more ground. A whole valley of villages is bigger still. Trade routes spanning
+  the entire known world are the biggest of all. A network inside one building is a LAN. One
+  spanning cities is a WAN. The names are just distance labels.
 - **What is in the middle?** Switches, routers, access points, firewalls. Each does one job,
   and the exam wants you to name it.
 
-The security content hides inside the second question. A **hub** and a **switch** both connect
-devices and look identical in a diagram — but a hub sends every frame to every port, so anyone
-plugged in can see everyone's traffic. A switch sends each frame only where it belongs. That is
-a confidentiality difference, and it is why hubs are obsolete.
+The security content hides inside the second question, and here's the concrete version: one
+village crier stands in the square and shouts every message so loudly that the *whole village*
+hears it, even messages meant for one specific hut. That's a **hub**. A trained runner, by
+contrast, delivers each message quietly and directly to the one hut it's addressed to — nobody
+else even knows what was said. That's a **switch.** A hub sends every frame to every port, so
+anyone plugged in can see everyone's traffic. A switch sends each frame only where it belongs.
+That is a confidentiality difference, and it is why hubs are obsolete.
 
 ---
 
@@ -57,6 +63,8 @@ a confidentiality difference, and it is why hubs are obsolete.
 ---
 
 ## 🔍 Network types by size
+
+Whisper distance, one hut, one village, the whole known world — the same ladder, formalised.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
