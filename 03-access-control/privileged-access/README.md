@@ -18,9 +18,17 @@
 
 ## 🧸 The big idea
 
-A **privileged account** can change the system itself, rather than merely use it. Install
-software, change configuration, create other accounts, read anyone's data, **and switch off the
-logging that would record any of it**.
+If a thief steals an ordinary hunter's spear, he gets one hunter's spear. Someone notices it's
+missing, and the hunter can tell you exactly when and where it went.
+
+But the master builder carries a different kind of key — one that can rebuild any wall, tear
+down any fence, replace any guard, and take apart the tally-stick counting system entirely. If a
+thief steals *that* key, he doesn't just take one thing. He can rearrange the whole village's
+defences to suit himself, and remove the very people who would have noticed him doing it.
+
+That master key is a **privileged account**. It can change the system itself, rather than
+merely use it — install software, change configuration, create other accounts, read anyone's
+data, **and switch off the logging that would record any of it.**
 
 That last capability is what makes privilege categorically different. An ordinary compromised
 account gives an attacker one person's access. A compromised privileged account gives them the
@@ -80,6 +88,10 @@ the environment and the evidence.**
 ---
 
 ## 🛡️ The controls the exam expects
+
+The tribe doesn't leave the master key hanging on the builder's belt all day. It stays locked in
+a box, handed out only for the hour it's genuinely needed to fix one specific gate, then returned
+immediately — and someone writes down exactly who took it out and when.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
