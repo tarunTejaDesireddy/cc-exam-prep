@@ -163,6 +163,49 @@ ARO is expressed **per year**, so anything less frequent than annual becomes a d
 
 ---
 
+## 🔬 How real programmes go beyond a single ALE number
+
+SLE/ALE gives one number, and the grown-up section above already flags the problem: a rare
+catastrophe and a frequent nuisance can produce the identical ALE while being completely
+different risks to actually manage. Modern quantitative risk work fixes this with a real,
+named framework rather than a single multiplication.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    TEF["Threat Event<br/>Frequency"] --> LEF["Loss Event<br/>Frequency"]
+    VUL["Vulnerability<br/>(probability it succeeds)"] --> LEF
+    PL["Primary Loss<br/>(direct cost)"] --> LM["Loss<br/>Magnitude"]
+    SL["Secondary Loss<br/>(fines, reputation)"] --> LM
+    LEF --> MC["🎲 Monte Carlo<br/>simulation"]
+    LM --> MC
+    MC --> DIST["📊 A probability<br/>distribution, not one number"]
+
+    style TEF fill:#12243f,stroke:#5C7CFA,color:#fff
+    style VUL fill:#12243f,stroke:#5C7CFA,color:#fff
+    style PL fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SL fill:#12243f,stroke:#5C7CFA,color:#fff
+    style LEF fill:#3a2c12,stroke:#F08C00,color:#fff
+    style LM fill:#3a2c12,stroke:#F08C00,color:#fff
+    style MC fill:#0f3038,stroke:#12B5A5,color:#fff
+    style DIST fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**FAIR (Factor Analysis of Information Risk)** is the industry's standard answer to "ALE hides
+the shape of the risk." Instead of one ARO and one SLE, an analyst estimates *ranges* — how
+often a threat actor is likely to act (Threat Event Frequency), how likely they are to succeed
+(Vulnerability), the direct cost if they do (Primary Loss), and the knock-on cost — fines,
+customer churn, reputational damage (Secondary Loss). Those ranges get run through thousands of
+random trials in a **Monte Carlo simulation**, producing not one figure but a distribution: "a
+1-in-20 chance of losing more than $2M this year" is a genuinely different, more useful
+statement than a flat $100,000 ALE.
+
+**This is not exam material** — CC tests the AV/EF/SLE/ARO/ALE chain, and that's what to answer
+with on the paper — but it's exactly the tool a real GRC or risk analyst reaches for the moment
+someone asks "how confident are we in that number?"
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
