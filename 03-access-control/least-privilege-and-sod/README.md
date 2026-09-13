@@ -187,6 +187,44 @@ flowchart TD
 
 ---
 
+## 🔬 How just-in-time privilege actually works
+
+The grown-up section mentions JIT access converting standing privilege into a short-lived,
+logged event. Here's the concrete mechanism behind that, as it runs in tools like Azure PIM or
+CyberArk.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    REQ["📝 Admin requests<br/>elevation + reason"] --> APP["✅ Approver<br/>reviews and approves"]
+    APP --> ACT["⏱️ Role activated<br/>for a fixed window<br/>e.g. 2 hours"]
+    ACT --> REC["📹 Session actions<br/>logged/recorded"]
+    REC --> EXP["⏳ Access auto-expires<br/>no manual revoke needed"]
+
+    style REQ fill:#12243f,stroke:#5C7CFA,color:#fff
+    style APP fill:#12243f,stroke:#5C7CFA,color:#fff
+    style ACT fill:#0f3038,stroke:#12B5A5,color:#fff
+    style REC fill:#3a2c12,stroke:#F08C00,color:#fff
+    style EXP fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+The administrator holds **zero standing privilege** in their normal, everyday account — the
+elevated role simply doesn't exist for them until requested. Requesting it triggers an approval
+workflow, and once approved the platform activates the role for a fixed window (commonly one to
+a few hours) rather than granting it permanently. Every action taken during that window is
+logged, and some PAM platforms even record the actual session (literally a video-like replay of
+the terminal or RDP session). When the window ends, the platform automatically revokes the role
+— nobody has to remember to do it, which is exactly the failure mode standing access has.
+
+**Cloud "generate least-privilege automatically" tools work by mining real usage history.** AWS
+IAM Access Analyzer and similar tools watch **CloudTrail** logs — the record of every API call a
+role actually made — over weeks, then propose a tightened policy containing only the specific
+actions that role genuinely used. A role with permission to call 200 different API actions that
+only ever actually used 12 of them gets a concrete, evidence-based recommendation to cut the
+other 188 — turning "what does this role need?" from a guess into a data query.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
