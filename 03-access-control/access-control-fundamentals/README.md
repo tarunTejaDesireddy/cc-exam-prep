@@ -18,20 +18,26 @@
 
 ## 🧸 The big idea
 
-Every access decision, anywhere, has the same three parts:
+Grog walks up to the weapons rack and wants to take a spear. The guard has to make a call.
+
+- Grog, doing the asking, is the **active** one — the **subject.**
+- The spear, just sitting there being asked for, is the **passive** one — the **object.**
+- Whatever the guard uses to decide — *"only hunters may take spears"* — is the **rule.**
+
+Every access decision, anywhere, has exactly those same three parts.
 
 > **A subject requests access to an object, and a rule decides.**
 
-- The **subject** is the active thing doing the asking — a person, a process, a device.
-- The **object** is the passive thing being asked for — a file, a database, a room, a printer.
-- The **rule** is the logic that permits or denies it.
-
 That is the entire grammar of access control. "Priya opens the payroll file" is subject, action,
-object. "The backup service reads the database" is the same shape, with a process as the subject.
+object. "The backup service reads the database" is the same shape, with a process as the
+subject.
 
-The one thing worth pausing on: **subject and object are roles, not fixed identities.** A program
-is a subject when it requests a file, and an object when a user launches it. What decides is
-which end of the request it sits on.
+Here's the twist worth pausing on: Grog's hunting dog is the **active** one — a subject —
+when it fetches the spear for him. But the same dog becomes the **passive** one — an object —
+the moment someone else is deciding whether Grog is even allowed to take the dog hunting at all.
+**Subject and object are roles, not fixed identities.** A program is a subject when it requests
+a file, and an object when a user launches it. What decides is which end of the request it sits
+on.
 
 ---
 
