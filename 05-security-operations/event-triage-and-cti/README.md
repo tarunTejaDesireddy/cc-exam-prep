@@ -168,6 +168,46 @@ rather than in free-text prose unique to that report.
 
 ---
 
+## 🔬 The Pyramid of Pain, and how CTI is actually shared
+
+The grown-up section mentions a model ranking IOC types by how costly they are for an attacker
+to change. Here it is, drawn out.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    T["TTPs<br/>hardest to change"] --> TOOLS["Tools"]
+    TOOLS --> NET["Network/host<br/>artefacts"]
+    NET --> DOM["Domain names"]
+    DOM --> IP["IP addresses"]
+    IP --> H["Hash values<br/>easiest to change"]
+
+    style T fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style TOOLS fill:#0f3038,stroke:#12B5A5,color:#fff
+    style NET fill:#12243f,stroke:#5C7CFA,color:#fff
+    style DOM fill:#3a2c12,stroke:#F08C00,color:#fff
+    style IP fill:#3a2c12,stroke:#F08C00,color:#fff
+    style H fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+Blocking a hash costs an attacker nothing — they change one byte and get a new hash. Blocking
+their actual **TTPs** (how they establish persistence, how they move laterally) costs them
+real, expensive retooling, because it targets *how* they operate rather than *what* they
+happened to use today. This is the concrete argument, in one picture, for why mature CTI moves
+up the pyramid rather than just collecting IOC lists.
+
+**STIX and TAXII are the real technical standards that let organisations share threat
+intelligence in a machine-readable way rather than a PDF report.** **STIX** (Structured Threat
+Information eXpression) is a standardised data format for describing a threat actor, an
+indicator, or a TTP as structured JSON rather than free prose. **TAXII** (Trusted Automated
+Exchange of Intelligence Information) is the transport protocol that moves STIX packages between
+organisations — an information-sharing group, a government feed, a vendor's threat intel
+platform — automatically and on a schedule. This is what actually makes tactical CTI
+"actionable": a SIEM can subscribe to a TAXII feed and automatically ingest thousands of new
+STIX-formatted indicators without an analyst manually retyping them from a report.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
