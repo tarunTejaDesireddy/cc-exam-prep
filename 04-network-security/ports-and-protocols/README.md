@@ -166,6 +166,41 @@ flowchart LR
 
 ---
 
+## 🔬 How you actually check what's listening
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    S["🔍 nmap sends<br/>a SYN packet"] --> R{"Response?"}
+    R -->|"SYN-ACK"| O["✅ OPEN"]
+    R -->|"RST"| C["🛑 CLOSED"]
+    R -->|"nothing / ICMP<br/>unreachable"| F["🧱 FILTERED<br/>(firewall dropping it)"]
+
+    style S fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#3a2c12,stroke:#F08C00,color:#fff
+    style O fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style F fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+**`nmap` finds open ports by exploiting the three-way handshake itself.** A default SYN scan
+sends a bare SYN to each port and reads the reply: a **SYN-ACK** means something is genuinely
+listening (**open**) — and nmap simply never completes the handshake, so no application ever
+even sees a connection. An immediate **RST** (reset) means nothing is listening there
+(**closed**). And **silence, or an ICMP "unreachable" message**, usually means a firewall is
+dropping the packet outright rather than the port being empty (**filtered**) — a distinction
+that matters because "filtered" tells you a control exists, while "closed" tells you it doesn't
+need one.
+
+**Checking your *own* machine uses a completely different, non-probing method.** `netstat -tulnp`
+(or the newer `ss -tulnp` on Linux) asks the operating system directly which processes have
+which ports open right now — no packets sent anywhere, just reading the kernel's own table of
+active sockets. This is the tool behind "what's actually running on this server" audits, and
+it's how an administrator would confirm, for example, that Telnet on port 23 truly is disabled
+rather than just believing a configuration file that says so.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
