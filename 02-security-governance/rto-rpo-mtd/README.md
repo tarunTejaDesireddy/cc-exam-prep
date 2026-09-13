@@ -208,6 +208,50 @@ is the same cost-benefit logic as risk treatment, and the reason the BIA's impac
 
 ---
 
+## 🔬 What actually delivers each RPO number
+
+"Backup frequency determines RPO" is true, but different technologies achieve it in genuinely
+different ways under the hood.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    WAL["📝 WAL / binlog<br/>streaming"] --> R0["RPO: seconds"]
+    SNAP["📸 Storage snapshot<br/>every 15 min"] --> R15["RPO: 15 min"]
+    SYNC["🔁 Synchronous<br/>replication"] --> RZ["RPO: ~zero"]
+    NIGHT["🌙 Nightly full<br/>backup job"] --> R24["RPO: 24 hours"]
+
+    style WAL fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SNAP fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SYNC fill:#12243f,stroke:#5C7CFA,color:#fff
+    style NIGHT fill:#12243f,stroke:#5C7CFA,color:#fff
+    style R0 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style R15 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style RZ fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style R24 fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+**Databases achieve near-zero RPO through log streaming, not by copying the whole database
+constantly.** PostgreSQL ships its **WAL** (Write-Ahead Log) — the same file it already writes
+internally for crash recovery — continuously to a standby server; MySQL does the equivalent with
+its **binlog**. Only the stream of *changes* travels over the network, which is why this is
+cheap enough to run continuously rather than as a scheduled job.
+
+**Storage-level snapshots use copy-on-write, not a full copy each time.** An EBS snapshot (AWS)
+or a NetApp/array-level snapshot doesn't duplicate the whole disk every 15 minutes — it records
+only the blocks that changed since the last snapshot, which is what makes frequent snapshotting
+storage-efficient enough to actually run every 15 minutes at scale.
+
+**Synchronous replication is the only one that can honestly claim near-zero RPO**, because it
+holds the write until both the primary and the replica confirm it — the trade-off, as the
+grown-up section notes, is added latency and a hard distance limit between sites. This is also
+why **immutable, air-gapped backups** matter specifically against ransomware: a fast, tightly
+synced replica faithfully copies the encryption to the standby within seconds, so it protects
+against site loss but not against corruption — only a backup genuinely isolated in time defends
+against that.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
