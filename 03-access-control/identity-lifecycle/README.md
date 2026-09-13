@@ -18,8 +18,14 @@
 
 ## 🧸 The big idea
 
-An identity has a life: it is **created**, it **changes**, and eventually it must be **removed**.
-The whole discipline is usually called **joiner, mover, leaver**.
+Grog joins the tribe as a hunter and is handed a spear from the rack — exactly what the "Hunter"
+role gives you. Years later, Grog is promoted to Healer and given the herb-store key. Nobody
+ever takes the spear back, so Grog now quietly holds both. Eventually Grog leaves the tribe
+entirely — but if nobody tells the gate guard, his old marks still work, and he could walk in
+and use access that should have vanished the day he left.
+
+That's the whole idea. An identity has a life: it is **created**, it **changes**, and eventually
+it must be **removed**. The whole discipline is usually called **joiner, mover, leaver**.
 
 > **Joiner** — someone arrives and is given the access their role requires.
 > **Mover** — their role changes, so access must change **in both directions**.
@@ -28,10 +34,11 @@ The whole discipline is usually called **joiner, mover, leaver**.
 Two of the three are done reliably in most organisations. Joiners get access, because otherwise
 they complain on day one. Leavers usually get disabled, because HR tells someone.
 
-**The mover stage is where it breaks.** When somebody transfers from finance to marketing, the
-new access gets granted because they need it to work — and the old access is quietly never
-removed, because nothing breaks when it stays. Repeat across a career and you have **privilege
-creep**: an employee holding the combined access of every role they have ever had.
+**The mover stage is where it breaks.** Just like Grog keeping his spear after becoming a
+Healer, when somebody transfers from finance to marketing, the new access gets granted because
+they need it to work — and the old access is quietly never removed, because nothing breaks when
+it stays. Repeat across a career and you have **privilege creep**: an employee holding the
+combined access of every role they have ever had.
 
 > 🎯 **Mover is the answer to "where does privilege creep come from".** The failure is not
 > granting new access — it is not revoking the old.
@@ -71,7 +78,8 @@ flowchart LR
 
 ### 🆕 Joiner
 
-Create the identity and grant the access the **role** requires.
+This is handing new-hunter Grog exactly the spear the Hunter role gives — no more. Create the
+identity and grant the access the **role** requires.
 
 | Do | Do not |
 |---|---|
@@ -85,7 +93,8 @@ Create the identity and grant the access the **role** requires.
 
 ### 🔀 Mover
 
-The stage that fails. When a role changes, access must change **both ways**:
+This is Grog keeping his spear after becoming a Healer. The stage that fails. When a role
+changes, access must change **both ways**:
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
@@ -108,7 +117,8 @@ payments to approving them, and keeps both, can now complete a fraudulent paymen
 
 ### 🚪 Leaver
 
-Remove all access **promptly**. Every system, not just the main directory.
+This is telling the gate guard the moment Grog actually leaves, not sometime later. Remove all
+access **promptly**. Every system, not just the main directory.
 
 | Step | Why |
 |---|---|
@@ -410,5 +420,5 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 03 · IAM Concepts</a> &nbsp;·&nbsp; <a href="../../04-network-security/README.md">next domain: 04 · Networking and Cloud Security →</a></sub>
+<sub><a href="../README.md">← back to 03 · IAM Concepts</a> &nbsp;·&nbsp; <a href="../../05-security-operations/README.md">next domain: 05 · Security Operations and Incident Response →</a></sub>
 </div>
