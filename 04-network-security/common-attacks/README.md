@@ -195,6 +195,40 @@ detect.
 > attacks **other users** of the application, by running script in their browsers. Same technique,
 > different victim.
 
+### 🔬 What an XSS attack actually does, step by step
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    A["🦹 Attacker posts a<br/>comment with a hidden<br/>script tag inside"] --> DB["🗄️ Stored in the<br/>database, unescaped"]
+    DB --> V["👤 Victim views<br/>the page"]
+    V --> RUN["⚡ Browser runs the<br/>script AS the victim"]
+    RUN --> COOKIE["🍪 Steals the victim's<br/>session cookie"]
+    COOKIE --> SEND["📤 Sends it to the<br/>attacker's server"]
+
+    style A fill:#3a1a20,stroke:#E03131,color:#fff
+    style DB fill:#3a2c12,stroke:#F08C00,color:#fff
+    style V fill:#26292e,stroke:#868E96,color:#fff
+    style RUN fill:#3a1a20,stroke:#E03131,color:#fff
+    style COOKIE fill:#3a1a20,stroke:#E03131,color:#fff
+    style SEND fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+This particular flow is **stored XSS** — the payload sits in the database and hits every future
+visitor, which is why it's considered the most dangerous of the three variants. **Reflected XSS**
+instead rides inside a single malicious link (the payload is in the URL itself, and the server
+echoes it straight back into the page), so it only fires when a victim is tricked into clicking
+that specific link. **DOM-based XSS** never even touches the server — vulnerable JavaScript
+already running in the page reads something attacker-controlled (like the URL fragment) and
+writes it unsafely back into the page.
+
+**The modern defence layered on top of output encoding is a browser-enforced HTTP header:
+Content-Security-Policy (CSP).** A page can declare `script-src 'self'`, telling the browser to
+simply refuse to execute *any* inline `<script>` tag or script from an untrusted origin — so
+even if an attacker's payload does make it into the page's HTML, the browser itself won't run
+it. This is defence in depth applied to one specific vulnerability class: output encoding stops
+the injection from landing, and CSP stops it from executing even when encoding fails somewhere.
+
 ---
 
 ## 🔑 Password attacks
