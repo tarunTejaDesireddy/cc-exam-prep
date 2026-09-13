@@ -165,6 +165,51 @@ CC does not test legal detail. It tests whether you can match a name to a domain
 
 ---
 
+## 🔬 What "delete my data" actually requires
+
+A GDPR erasure request sounds like one database `DELETE` statement. In a real company it almost
+never is.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    R["🙋 Erasure request"] --> P["🗄️ Primary database"]
+    R --> B["💾 Nightly backups<br/>(may be immutable)"]
+    R --> C["📡 CDN / cache layer"]
+    R --> A["📊 Analytics pipeline"]
+    R --> V["🏭 Third-party processors<br/>email tool, CRM, etc."]
+
+    style R fill:#0f3038,stroke:#12B5A5,color:#fff
+    style P fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style V fill:#12243f,stroke:#5C7CFA,color:#fff
+```
+
+The record has to be found and removed everywhere it was copied — the live database, every
+backup snapshot (some are deliberately **immutable/WORM** for security reasons, which then has
+to be reconciled against the erasure obligation), CDN edge caches, analytics warehouses, and
+every downstream processor the data was shared with. This is the real reason mature companies
+invest in **data mapping** — a maintained inventory of every place a given category of personal
+data physically lives — before they can honestly promise anyone their data is gone.
+
+**How real anonymisation is actually engineered**, beyond just "remove the name column":
+
+- **k-anonymity** — generalise values (an exact birth date becomes a five-year range) until
+  every record is indistinguishable from at least *k − 1* others sharing the same
+  generalised attributes. No single record stands out enough to re-identify.
+- **Differential privacy** — add carefully calibrated statistical noise to query results or
+  aggregates, so the presence or absence of any one individual's data barely changes the
+  output. This is how Apple and the US Census Bureau publish population-level statistics
+  without exposing any single contributor.
+- **Tokenisation** — replace a real value (a card number, a national ID) with a random token
+  that has no mathematical relationship to the original, with the real value held in a
+  separate, tightly guarded vault. This is the standard pseudonymisation mechanism in
+  payment systems: the token is useless to anyone who steals it without the vault.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
