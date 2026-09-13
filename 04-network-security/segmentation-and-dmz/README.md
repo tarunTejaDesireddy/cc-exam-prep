@@ -218,6 +218,41 @@ fails are one control wearing three hats.
 
 ---
 
+## 🔬 VLAN hopping and the cloud version of a DMZ
+
+**A VLAN's isolation lives in a 4-byte tag inserted into the Ethernet frame** — the **802.1Q**
+tag, carrying a VLAN ID from 1–4094. Every switch port checks that tag before deciding where a
+frame is allowed to go. **Double-tagging VLAN hopping** exploits how some switches process this:
+an attacker crafts a frame with two stacked 802.1Q tags. The first switch strips off the outer
+tag (matching the attacker's own, legitimate VLAN) and forwards what's left — which still has
+the *second*, inner tag naming the target VLAN — straight onto a trunk link, letting the frame
+reach a VLAN the attacker was never actually connected to. This is the literal mechanism behind
+"VLAN hopping," not just an abstract warning.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    I["🌍 Internet"] --> IGW["🚪 Internet<br/>gateway"]
+    IGW --> PUB["🏗️ Public subnet<br/>= the DMZ<br/>web tier"]
+    PUB -->|"security group<br/>allows only 443"| PRIV["🏢 Private subnet<br/>= internal<br/>app/DB tier"]
+
+    style I fill:#3a1a20,stroke:#E03131,color:#fff
+    style IGW fill:#3a2c12,stroke:#F08C00,color:#fff
+    style PUB fill:#12243f,stroke:#5C7CFA,color:#fff
+    style PRIV fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**In AWS or Azure, the DMZ concept is built from a public subnet plus security groups, not a
+physical box.** A **public subnet** (one with a route to an internet gateway) hosts the web
+tier — the modern DMZ. A **private subnet** has no such route at all; nothing on the internet
+can reach it directly, full stop, which is actually a stronger guarantee than a firewall rule
+that could be misconfigured. A **security group** attached to the private subnet's instances
+then explicitly allows inbound traffic only from the public subnet's specific security group on
+the specific port needed — the exact same "DMZ may not freely reach internal" asymmetry,
+expressed as reviewable, version-controlled configuration instead of a physical cable plan.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
