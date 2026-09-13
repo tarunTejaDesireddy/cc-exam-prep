@@ -126,6 +126,40 @@ Read a **row** and you have a capability list. Read a **column** and you have an
 
 ---
 
+## 🔬 ACLs and capability lists, in real systems
+
+The row/column distinction above isn't just theory — it's exactly how two completely different
+real systems are built, and recognising the shape helps in both.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    F["📁 A Linux file"] --> ACL["ACL attached to it:<br/>user:priya:rw-<br/>group:hr:r--"]
+    U["👤 An AWS IAM role"] --> CAP["Capability list attached<br/>to it: a JSON policy<br/>naming allowed actions"]
+
+    style F fill:#26292e,stroke:#868E96,color:#fff
+    style U fill:#26292e,stroke:#868E96,color:#fff
+    style ACL fill:#0f3038,stroke:#12B5A5,color:#fff
+    style CAP fill:#12243f,stroke:#5C7CFA,color:#fff
+```
+
+**A Linux file's ACL is a real, inspectable thing** — running `getfacl payroll.xlsx` prints
+exactly the object-centred list the exam describes: `user:priya:rw-`, `group:hr:r--`,
+`other::---`. It answers "who may access **me**" because it's physically attached to the file
+itself. Windows does the same with a **DACL** made of individual **ACEs**, each one an allow or
+deny rule tied to a user or group's SID.
+
+**An AWS IAM policy is, very literally, a capability list.** It's a JSON document attached to a
+*user or role* — the subject — naming exactly which actions on which resources that principal
+may perform: `"Action": "s3:GetObject", "Resource": "arn:aws:s3:::finance-reports/*"`. Ask "what
+can this role do?" and the answer is right there attached to the subject, which is exactly why
+cloud IAM is a capability-list model even though most operating systems chose the ACL model —
+and it's the concrete reason cloud access reviews ("show me everything this role can touch") are
+often *easier* than the on-prem file-server equivalent ("show me everyone who can touch this
+folder").
+
+---
+
 ## 🚫 Default deny
 
 The expected posture throughout this domain: **anything not explicitly permitted is denied.**
