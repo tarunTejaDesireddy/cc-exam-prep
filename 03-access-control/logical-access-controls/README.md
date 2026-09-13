@@ -18,8 +18,18 @@
 
 ## 🧸 The big idea
 
+The fence over the cave gap keeps wolves — and uninvited people — from ever setting foot inside.
+That's a real, physical barrier. You either got past it or you didn't.
+
+But even someone who's already standing *inside* the cave, past the fence, still can't just help
+themselves to the winter grain. The grain-keeper won't hand any over unless you whisper the
+correct word first. That word doesn't stop anyone from entering the cave — it stops them from
+reaching the grain once they're already in.
+
 **Physical controls keep people out of places. Logical controls keep identities out of systems
-and data.**
+and data.** The fence is physical. The secret word is logical. Both protect the same cave, by
+completely different means, and a clever thief only needs to beat one of them — getting past the
+fence is worthless if he still can't get the grain.
 
 A locked server room door is physical. The password on the server inside it is logical. Both
 restrict access to the same machine, by completely different means, and an attacker only needs
