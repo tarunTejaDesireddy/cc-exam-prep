@@ -18,18 +18,25 @@
 
 ## 🧸 The big idea
 
-Before the attacks themselves come the **actors** and the **tools**.
+Along the trade road, danger comes from very different kinds of people, and from very different
+kinds of tricks.
 
-Actors are sorted by **motivation and capability**: a bored teenager running a downloaded tool
-is not the same problem as a state intelligence service, and the defences that work against one
-are irrelevant against the other.
+A rowdy youth copying a raid he saw someone else pull off is not the same problem as a rival
+kingdom's trained spy network, patiently embedded for years without being noticed — and the
+defences that stop one are useless against the other. Before the attacks themselves come the
+**actors** and the **tools**, and actors are sorted by **motivation and capability**.
 
-Malware is sorted by **how it spreads and hides** — and this is the part candidates get wrong.
-A virus, a worm and a Trojan can all steal the same data. What separates them is:
+The tricks themselves are sorted differently — by **how they spread and hide**, not by what harm
+they eventually cause — and this is the part candidates get wrong. A cursed trinket, a plague,
+and a gift horse can all end the same way, with the village overrun. What separates them:
 
-- A **virus** attaches to a file and needs a human to run it.
-- A **worm** spreads by itself across a network with no human help.
-- A **Trojan** pretends to be something useful so the human installs it willingly.
+- A **cursed trinket** only spreads its curse when a person picks it up and carries it somewhere
+  new themselves. That's a **virus** — it needs a human to run it.
+- A **plague** spreads hut to hut on its own, through the air, with no person doing anything to
+  help it along. That's a **worm** — it spreads by itself across a network.
+- A **gift horse** left at the gate looks helpful, so the village willingly brings it inside —
+  only for what's hidden inside it to come out once it's already past the walls. That's a
+  **Trojan** — it pretends to be something useful so the human installs it willingly.
 
 **The categories are about propagation, not payload.** Fix that and most malware questions
 resolve themselves.
@@ -61,6 +68,8 @@ resolve themselves.
 ---
 
 ## 👤 Threat actors
+
+The road's various troublemakers, ranked.
 
 | Actor | Motivation | Capability |
 |---|---|---|
