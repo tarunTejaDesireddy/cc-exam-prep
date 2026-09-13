@@ -142,6 +142,52 @@ turning into a real fight.
 
 ---
 
+## 🔬 Where each technique actually runs in a real pipeline
+
+The "design → code → running app" ordering isn't abstract — in a modern software team each of
+these techniques is wired into a specific stage of the CI/CD pipeline, and failing one can block
+a release automatically.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    DES["📐 Design review<br/>threat modeling"] --> COMMIT["💻 Developer<br/>commits code"]
+    COMMIT --> CI["⚙️ CI pipeline runs<br/>SAST + dependency scan"]
+    CI --> DEPLOY["🚀 Deploy to<br/>staging"]
+    DEPLOY --> DASTS["🖥️ DAST runs against<br/>the live staging app"]
+    DASTS --> PROD["✅ Release to<br/>production"]
+
+    style DES fill:#12243f,stroke:#5C7CFA,color:#fff
+    style COMMIT fill:#26292e,stroke:#868E96,color:#fff
+    style CI fill:#0f3038,stroke:#12B5A5,color:#fff
+    style DEPLOY fill:#26292e,stroke:#868E96,color:#fff
+    style DASTS fill:#3a2c12,stroke:#F08C00,color:#fff
+    style PROD fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**SAST runs on every commit, before anything is even built.** Tools like SonarQube, Semgrep or
+CodeQL parse the source as the pipeline starts and can fail the build outright if they find a
+high-severity pattern — the developer gets told within minutes, while the code is still fresh in
+their head, which is the entire economic argument for "shift left": a flaw caught at commit costs
+a fraction of one caught after release. Alongside it runs **software composition analysis**,
+checking every third-party dependency against known-vulnerable versions — a different question
+from SAST, which only examines code your own team wrote.
+
+**DAST necessarily runs later, because it needs something running to attack.** A tool like OWASP
+ZAP is pointed at the deployed staging environment and actively sends malformed requests,
+injection payloads and unexpected inputs at the live application, watching how it responds. This
+is why the two are complements rather than alternatives: SAST can see a dangerous function in
+code that never actually executes, and DAST can see a misconfigured server header that exists
+nowhere in the source at all.
+
+**Threat modeling is the one step that has no tool gate**, because it happens before there is
+anything to scan. The common structured approach is **STRIDE** — walking a diagram of the
+system and asking, at each component and each boundary between them, whether Spoofing,
+Tampering, Repudiation, Information disclosure, Denial of service, or Elevation of privilege
+applies there. The output is a list of design changes, not a scan report.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
