@@ -182,6 +182,31 @@ symmetric's speed.
 > 🎯 **If a question asks why both types are used together, the answer is that asymmetric solves
 > key distribution and symmetric provides the speed.**
 
+### 🔬 The hybrid model, as an actual TLS 1.3 handshake
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    C["💻 ClientHello<br/>+ a key share"] --> S["🖥️ ServerHello<br/>+ its key share<br/>+ certificate"]
+    S --> D["🔑 Both sides compute<br/>the SAME session key<br/>(ECDHE math)"]
+    D --> A["🔒 Application data,<br/>encrypted with AES<br/>(symmetric, fast)"]
+
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style D fill:#3a2c12,stroke:#F08C00,color:#fff
+    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+This is the exact real exchange behind "asymmetric establishes a symmetric session key." Both
+sides send a **key share** — half of an ephemeral Diffie-Hellman exchange — and each
+independently computes the *same* session key from their own half plus the other side's public
+half, **without either half ever crossing the network as the actual key**. This is the
+mechanism behind the perfect forward secrecy mentioned below: because the key is derived fresh
+this way rather than transmitted, there's nothing for a later-compromised long-term key to
+reveal about a past session. The server's certificate rides along in the same exchange, which is
+what lets the client verify it's really talking to the right server before trusting any of it —
+tying this diagram directly to the PKI section right below.
+
 ---
 
 ## 📜 PKI and certificates
