@@ -18,9 +18,24 @@
 
 ## 🧸 The big idea
 
-Cloud computing is renting someone else's computing instead of owning it. What changes for
-security is **who is responsible for which layer**, and that depends entirely on how much you
-rent.
+Instead of carving your own cave out of the mountainside, your tribe rents space inside a
+neighbouring tribe's enormous shared mountain-warehouse. How much work you still do depends
+entirely on what kind of deal you struck.
+
+Rent a bare, empty chamber and you still bring your own shelves, organise your own storage, and
+guard your own grain yourself — the mountain-owner just dug the room and keeps the roof from
+caving in. Rent a chamber that already comes fitted with shelves and you only need to bring the
+grain. Or pay for a fully-run pantry service, where the mountain-owner does everything —
+building, shelving, even stocking — and all you decide is who's allowed to take grain out and how
+much.
+
+**One thing never changes across any of those three deals: it is still your grain, and only you
+decide who eats it.** The mountain-owner never becomes responsible for that, no matter how much
+of the building work they take on.
+
+That's the whole idea. Cloud computing is renting someone else's computing instead of owning it.
+What changes for security is **who is responsible for which layer**, and that depends entirely
+on how much you rent.
 
 Three service models, in order of how much the provider takes on:
 
@@ -34,9 +49,9 @@ The pattern is a sliding scale. **Move from IaaS to SaaS and the provider takes 
 by layer.**
 
 > [!IMPORTANT]
-> **In every model, you remain responsible for your data, your users, and who has access.** The
-> provider never becomes responsible for those. This is the single most reliable answer in the
-> whole topic.
+> **It is still your grain.** In every model, you remain responsible for your data, your users,
+> and who has access. The provider never becomes responsible for those. This is the single most
+> reliable answer in the whole topic.
 
 ---
 
