@@ -18,11 +18,23 @@
 
 ## 🧸 The big idea
 
-**Due care** is doing what a reasonable, prudent person or organisation would do to avoid
-causing harm — locking the door, patching the known vulnerability, training staff. **Due
-diligence** is the research and verification that happens *before* acting or committing —
-checking a vendor's security practices before signing a contract, investigating a system's
-risk before deploying it.
+A caveman is offered a hunting dog in trade for three baskets of berries. Before he agrees, he
+spends a day watching it — does it limp, does it snap at strangers, does it come when called.
+That checking, *before* he commits to anything, is **due diligence.**
+
+Once the dog is his, he feeds it every day, shelters it from the rain, and checks its paws for
+thorns after every hunt — for as long as he owns it. That ongoing, reasonable upkeep is **due
+care.**
+
+If he skips the checking and trades for a dog that turns out to be sick and dangerous, or if he
+owns the dog for a year and simply stops feeding it, both are failures — but they're failures of
+two different things, at two different moments.
+
+That's the whole idea. **Due care** is doing what a reasonable, prudent person or organisation
+would do to avoid causing harm — locking the door, patching the known vulnerability, training
+staff. **Due diligence** is the research and verification that happens *before* acting or
+committing — checking a vendor's security practices before signing a contract, investigating a
+system's risk before deploying it.
 
 The one-line version the exam wants: **due diligence is investigating; due care is acting on
 what the investigation found.**
