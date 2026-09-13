@@ -18,7 +18,11 @@
 
 ## 🧸 The big idea
 
-A **hash** takes any input and produces a fixed-length output — and **cannot be reversed**.
+Encryption is a locked chest — you can always open it again with the right key. Hashing is
+grinding grain into flour: pour in a handful of any grain, always get out a fixed scoop of
+flour, and there is no process on earth that turns that flour back into the original whole
+grains. A **hash** takes any input and produces a fixed-length output — and **cannot be
+reversed**.
 
 That irreversibility is not a limitation. It is the entire purpose.
 
@@ -33,9 +37,13 @@ The two things a hash is for:
 
 - **Integrity.** Hash a file now, hash it later, compare. Identical hashes mean the file is
   unchanged. Any difference — one bit — produces a completely different hash.
-- **Storing passwords.** Store the hash, not the password. When someone logs in, hash what they
-  typed and compare. The system never holds the password, so a breach of the database does not
-  hand over everyone's credentials.
+- **Storing passwords.** Instead of keeping a recording of someone's actual secret whistle — which
+  a thief could simply replay — the tribe keeps only the exact scoop of flour that whistle
+  produces when ground through the mill. When someone claims to know the whistle, they whistle it
+  again, grind it through the same mill, and compare the flour. If it matches, they knew the real
+  whistle, and the tribe never had to store the sound itself. Store the hash, not the password.
+  When someone logs in, hash what they typed and compare. The system never holds the password, so
+  a breach of the database does not hand over everyone's credentials.
 
 > [!IMPORTANT]
 > **Passwords are hashed, never encrypted.** Encryption is reversible, so an attacker who obtains
@@ -124,11 +132,17 @@ evidence handling in investigations, and detecting tampering with logs.
 
 ## 🧂 Salting
 
-**The problem:** hashing is deterministic, so the same password always produces the same hash. An
-attacker can precompute hashes of common passwords — a **rainbow table** — and look up any stolen
-hash instantly. Identical hashes in a breached database also reveal which users share a password.
+**The problem:** the same word, ground the same way, always makes identical flour. A thief who
+already keeps a book of common words and their flour results can identify a stolen scoop
+instantly, and two villagers whose flour matches are revealed to share the same secret word.
+Hashing is deterministic, so the same password always produces the same hash. An attacker can
+precompute hashes of common passwords — a **rainbow table** — and look up any stolen hash
+instantly. Identical hashes in a breached database also reveal which users share a password.
 
-**The fix:** add unique random data — a **salt** — to each password before hashing.
+**The fix:** mix in one pinch of a unique random herb before grinding each person's word, so even
+the exact same word grinds into completely different flour for different people, making the
+thief's lookup book useless. Add unique random data — a **salt** — to each password before
+hashing.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
