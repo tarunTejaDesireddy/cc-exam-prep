@@ -18,7 +18,24 @@
 
 ## 🧸 The big idea
 
-Three numbers, all measured in time, all describing a different thing about an outage.
+The tribe keeps a grain-count tally stick, carving a fresh notch every morning. They copy it
+onto a second stick at dawn each day, just in case. At midday, the hut holding both sticks
+burns down.
+
+**How far back does the surviving record actually go?** The last copy was made at dawn, so
+everything counted between dawn and the fire — half a day's notches — is gone forever. That gap,
+looking *backward* into what's lost, is the **RPO.**
+
+**How long until the tribe has a working tally again?** Say it takes three days to carve a new
+stick and get the count going. That's the **RTO** — looking *forward* to being back up.
+
+**How long could the tribe survive with no grain count at all** before they ration so badly that
+people actually go hungry? Say that's seven days. That's the **MTD** — the hard ceiling. Since
+the three-day RTO comfortably fits inside the seven-day MTD, the plan works. If rebuilding the
+tally always took ten days, no plan could ever satisfy what the tribe can actually tolerate.
+
+That's the whole idea. Three numbers, all measured in time, all describing a different thing
+about an outage.
 
 > **RTO — Recovery Time Objective.** How long until we are **back up**? Looks **forward**.
 > **RPO — Recovery Point Objective.** How much **data** can we afford to lose? Looks **backward**.
@@ -54,7 +71,8 @@ the maximum the business can tolerate, the plan does not work by definition.
 
 ## 📉 The timeline
 
-Everything becomes clear once these are placed on one line.
+This is the tally-stick story, drawn as a line. Everything becomes clear once these are placed
+on one line.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
