@@ -116,6 +116,54 @@ rewritten after the fact.
 
 ---
 
+## 🔬 How a signature is actually built and checked
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    M["📄 Message"] --> H1["Hash it<br/>SHA-256"]
+    H1 --> S["Encrypt hash with<br/>SIGNER'S private key"]
+    S --> SIG["✍️ Signature<br/>attached to message"]
+    SIG --> H2["Verifier decrypts<br/>with public key"]
+    M -.->|"verifier also<br/>hashes it again"| H3["Hash independently"]
+    H2 --> V{"Hashes<br/>match?"}
+    H3 --> V
+    V -->|"yes"| OK["✅ Genuine + intact"]
+
+    style M fill:#26292e,stroke:#868E96,color:#fff
+    style H1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SIG fill:#0f3038,stroke:#12B5A5,color:#fff
+    style H3 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style H2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style V fill:#3a2c12,stroke:#F08C00,color:#fff
+    style OK fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**A signature never encrypts the whole message — it signs a hash of it.** Signing algorithms
+like **RSA** or **ECDSA** would be far too slow to run over a large file directly, so the signer
+hashes the message down to a fixed-size fingerprint (SHA-256) and signs *that* instead. The
+verifier independently hashes the received message and checks it against what the signature
+reveals when opened with the signer's public key. If a single byte of the message changed in
+transit, the two hashes won't match — which is exactly how one signature proves both origin and
+integrity at once.
+
+**The private key almost never sits on a laptop's hard drive in serious deployments.** It lives
+inside a **Hardware Security Module (HSM)** or a smart card's own chip — hardware built so the
+key can be *used* to sign but never *extracted*, even by the device's own owner. This is the
+real-world answer to "how do you stop someone claiming their key was copied": if the key
+physically cannot leave the hardware, that denial stops being credible.
+
+**Where this shows up day to day:** **code signing** certificates are why your OS warns you
+before running unsigned software, and refuses to warn for signed software from a known
+publisher. **S/MIME and PGP** apply the same idea to email. **RFC 3161 timestamping** has a
+trusted third party counter-sign a document with an authoritative time, closing the "the signer
+could have backdated their own clock" gap mentioned below. And every cryptocurrency transaction
+is, underneath the marketing, exactly this signature scheme — the "wallet" is really just a
+private key, and a transaction is only valid on the network once signed with it.
+
+---
+
 ## 🚫 What non-repudiation is not
 
 > [!IMPORTANT]
