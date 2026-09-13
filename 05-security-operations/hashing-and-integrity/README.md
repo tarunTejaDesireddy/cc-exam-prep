@@ -221,6 +221,42 @@ flowchart LR
 
 ---
 
+## 🔬 Why "slow" is a real, measurable number
+
+The grown-up section explains that password hashing needs to be deliberately slow. Here's what
+that actually looks like in guesses per second on ordinary attacker hardware.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    MD5["MD5 / SHA-256<br/>~billions/sec on a GPU"] --> BC["bcrypt<br/>~thousands/sec"]
+    BC --> AR["Argon2 (tuned)<br/>~hundreds/sec"]
+
+    style MD5 fill:#3a1a20,stroke:#E03131,color:#fff
+    style BC fill:#3a2c12,stroke:#F08C00,color:#fff
+    style AR fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+A general-purpose hash like SHA-256 is *designed* to be fast, because it's meant to hash gigabyte
+files quickly for integrity checks — which is exactly the wrong property for a password, where an
+attacker with a stolen hash wants to try billions of guesses. **Argon2**, the current
+recommended choice, is deliberately memory-hard: it's tuned with a **memory cost** (how much RAM
+each single hash attempt must use), a **time cost** (how many passes), and a **parallelism**
+factor — and the memory requirement specifically defeats GPUs, which are extremely fast at raw
+computation but have comparatively little memory per core, so they can't run millions of Argon2
+attempts in parallel the way they can with MD5. The difference between "billions per second" and
+"hundreds per second" is the entire practical value of choosing the right hash function — it
+turns a password crackable in minutes into one that would take centuries.
+
+**File integrity monitoring tools operationalise the "hash it now, hash it later" pattern
+directly.** Tripwire and AIDE compute a baseline hash of every critical system file at a known-good
+moment, then periodically re-hash and compare, alerting the instant any file's hash changes
+unexpectedly — the exact mechanism in the diagram above, running continuously against thousands
+of files rather than one, and it's how unauthorised changes to system binaries or configuration
+get caught even when nothing else in the logs looks unusual.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
