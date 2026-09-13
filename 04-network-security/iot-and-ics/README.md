@@ -98,6 +98,43 @@ process.
 
 ---
 
+## 🔬 Mirai and Modbus: the two textbook mechanisms, concretely
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    SCAN["🔍 Scan the internet<br/>for open Telnet (23)"] --> TRY["🔑 Try ~60 factory-<br/>default credentials"]
+    TRY -->|"one works"| INF["🦠 Malware installed<br/>in device memory"]
+    INF --> BOT["🤖 Device joins<br/>the botnet"]
+    BOT --> DDOS["🌊 Thousands of<br/>devices flood a target"]
+
+    style SCAN fill:#12243f,stroke:#5C7CFA,color:#fff
+    style TRY fill:#12243f,stroke:#5C7CFA,color:#fff
+    style INF fill:#3a1a20,stroke:#E03131,color:#fff
+    style BOT fill:#3a1a20,stroke:#E03131,color:#fff
+    style DDOS fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+**Mirai needed no exploit, no vulnerability research, nothing clever at all** — it simply
+scanned the whole internet for devices with Telnet open and tried a hard-coded list of around
+sixty factory default username/password pairs (`admin`/`admin`, `root`/`12345`, and similar).
+Every device where nobody had ever changed the default password joined the botnet automatically.
+This is the single most concrete illustration in the entire syllabus of why "change default
+credentials" is called the cheapest, highest-value IoT control: it is *the entire attack*,
+start to finish, for one of the largest botnets ever recorded.
+
+**Modbus shows what "no built-in authentication" actually means at the command level.** A
+Modbus message is just a **function code** plus an address plus a value — function code `05`
+means "write a single coil" (flip a physical relay on or off), function code `06` means "write a
+single register" (set a numeric value like a target temperature or pressure). There is no
+username, no password, no signature — **any device that can route a packet to the PLC can send
+that command, and the PLC will execute it**, because the protocol was designed decades ago for a
+network nobody expected an attacker to ever reach. This is exactly why segmentation is the
+answer instead of "add authentication to Modbus": you can't patch a 1979 protocol, so the
+network itself has to be the thing that decides who's allowed to send it a command at all.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
