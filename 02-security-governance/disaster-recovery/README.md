@@ -195,6 +195,47 @@ flowchart LR
 
 ---
 
+## 🔬 How a cloud "hot site" failover actually executes
+
+The grown-up section notes cloud has largely displaced the leased-facility model. Here's the
+concrete mechanism behind that, step by step.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    HC["💓 Health check<br/>polls primary region"] --> D{"Still<br/>healthy?"}
+    D -->|"yes"| HC
+    D -->|"no, repeatedly"| DNS["🌐 DNS failover<br/>Route 53 / Traffic Manager"]
+    DNS --> UP["📍 Records updated to<br/>standby region's IP"]
+    UP --> IAC["🏗️ IaC template<br/>Terraform / CloudFormation"]
+    IAC --> LIVE["✅ Standby now serving<br/>traffic"]
+
+    style HC fill:#12243f,stroke:#5C7CFA,color:#fff
+    style D fill:#3a2c12,stroke:#F08C00,color:#fff
+    style DNS fill:#0f3038,stroke:#12B5A5,color:#fff
+    style UP fill:#12243f,stroke:#5C7CFA,color:#fff
+    style IAC fill:#12243f,stroke:#5C7CFA,color:#fff
+    style LIVE fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+A **DNS health check** (Route 53 on AWS, Traffic Manager on Azure) continuously polls the
+primary region's endpoint. After several consecutive failures — not just one blip — it triggers
+a **DNS failover**: the domain's DNS record is automatically updated to point at the standby
+region instead. New connections then resolve to the standby, while existing ones drain out
+naturally. If the standby wasn't already running (a warm rather than a hot posture), an **IaC
+template** — the same Terraform or CloudFormation file used to build the primary — provisions
+matching infrastructure on demand in minutes rather than the weeks a physical cold site would
+need.
+
+**The DNS record's TTL (Time To Live) directly caps how fast this can possibly work** — a
+60-second TTL means some clients could still be resolving the old address for up to 60 seconds
+after failover triggers, which is a very literal, checkable number behind an RTO commitment, and
+exactly the kind of "automation that has to be tested regularly" the grown-up section warns
+about: a TTL quietly left at 24 hours during a routine DNS change silently turns a fast failover
+plan into a day-long outage.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
