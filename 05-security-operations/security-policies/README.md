@@ -18,6 +18,11 @@
 
 ## 🧸 The big idea
 
+The chief doesn't just expect good behaviour and hope for the best. She carves the rule into a
+post at the centre of camp, where everyone walks past it, and only after that can she fairly
+punish someone who breaks it. A rule nobody carved down, and nobody read, cannot be fairly
+enforced against anyone.
+
 Policies are how an organisation states, in writing and with authority, what it requires. They
 are **administrative controls**, they are **mandatory**, and they are approved by **senior
 management**.
@@ -76,6 +81,9 @@ flowchart TD
 
 ### ✅ Acceptable Use Policy
 
+The rule carved on the post about the tribe's own shared tools, the fire, and the storehouse —
+what you may take, what you may borrow, what you may never touch without asking.
+
 **What staff may and may not do with the organisation's systems.** The most broadly applicable
 policy, and typically the one everyone signs.
 
@@ -90,6 +98,10 @@ and consequences of breach.
 > company systems is monitored, which matters legally in many jurisdictions.
 
 ### 📱 BYOD
+
+A hunter brings his own personal knife to help with tribe work. Camp needs some say over that
+knife when it's doing tribe business — but the knife is still his, and that's exactly what makes
+the whole arrangement awkward.
 
 **Governs personally owned devices used for work.** It is difficult precisely because the
 organisation does not own the device, and the tension is structural.
@@ -107,7 +119,9 @@ boundaries.
 
 > ⚠️ **Remote wipe is the point of friction.** Wiping a personal device to protect corporate data
 > destroys personal data too, which is why **containerisation** — separating work data into a
-> managed area that can be wiped alone — is the expected technical answer.
+> managed area that can be wiped alone — is the expected technical answer. Like tying a coloured
+> cord around just the one pouch on the hunter's belt that holds tribe supplies — if he leaves,
+> camp reclaims that pouch alone and never touches the rest of his gear.
 
 > 🎯 **BYOD is a policy problem first and an MDM problem second.** MDM enforces; the policy
 > establishes what may be enforced and what the employee consented to.
@@ -137,6 +151,9 @@ known-breached passwords, and rules for sharing — which is prohibited.
 privacy principle that data should not be kept longer than necessary.
 
 ### 🧹 Clean desk policy
+
+Nobody leaves the tribe's record-tablets scattered by the fire pit when they step away — a
+passing trader, a curious child, anyone at all can read what's left in plain sight.
 
 **Sensitive material must be secured when unattended** — documents filed, whiteboards cleared,
 screens locked. It defends against shoulder surfing, casual observation and opportunistic theft
