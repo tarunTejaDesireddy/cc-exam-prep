@@ -217,6 +217,47 @@ of failure, mesh has several.** That count is the resilience.
 
 ---
 
+## 🔬 How a switch actually forwards frames, and how that gets attacked
+
+A switch's "learn and forward only to the right port" behaviour lives in one specific piece of
+memory, and that memory has a limit.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    F["📥 Frame arrives<br/>on port 3"] --> CAM["📋 CAM table<br/>MAC → port mapping"]
+    CAM --> L{"MAC address<br/>already known?"}
+    L -->|"yes"| FWD["➡️ Forward only<br/>to that one port"]
+    L -->|"no"| FLOOD["📢 Flood all ports<br/>once, to learn"]
+    ATK["🦹 Attacker floods<br/>thousands of fake MACs"] -.->|"table fills up"| CAM
+    CAM -.->|"table full,<br/>fails open"| HUBLIKE["😱 Switch now behaves<br/>like a hub"]
+
+    style F fill:#26292e,stroke:#868E96,color:#fff
+    style CAM fill:#0f3038,stroke:#12B5A5,color:#fff
+    style L fill:#3a2c12,stroke:#F08C00,color:#fff
+    style FWD fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style FLOOD fill:#12243f,stroke:#5C7CFA,color:#fff
+    style ATK fill:#3a1a20,stroke:#E03131,color:#fff
+    style HUBLIKE fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+Every switch keeps a **CAM table** (Content Addressable Memory) — a real, size-limited table
+mapping each learned MAC address to the port it was seen on. This is the entire mechanism behind
+"forward only to the right port." A **MAC flooding attack** exploits the table's fixed size
+directly: the attacker sends huge numbers of frames from fake, made-up source MAC addresses
+until the table is completely full, and once it can't learn any more entries, the switch's only
+options are to drop traffic or flood every frame out every port — which is exactly the hub
+behaviour the earlier diagram calls a security failure, achieved by attacking the switch itself.
+
+**The real defenses are specific, named switch features, not "buy a better switch."** **Port
+security** caps how many distinct MAC addresses a single port is allowed to learn, so flooding
+from one attacker port hits a wall almost immediately. **DHCP snooping** tracks which port
+legitimately handed out which IP lease, and **Dynamic ARP Inspection** uses that same trusted
+record to reject forged ARP replies on sight — directly countering the ARP spoofing attack
+mentioned above, where an attacker lies about which MAC address owns the gateway's IP.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
