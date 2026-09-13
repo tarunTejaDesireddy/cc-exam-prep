@@ -18,6 +18,12 @@
 
 ## 🧸 The big idea
 
+This time, the mock raid isn't aimed at the fence out in the woods — it's aimed at the gate, the
+guards, and the people of camp itself. The chief's trusted tester doesn't climb anything. He
+simply walks in close behind a tribesman carrying an armful of firewood, or shows up claiming to
+be the healer the neighbouring tribe sent for the chief's sick child, and sees how far politeness
+alone carries him.
+
 **Physical penetration testing is security testing aimed at doors, badges and people instead of
 code or networks.** An authorised tester tries to get somewhere they shouldn't — a server room,
 a restricted floor, a locked cabinet — using the same tricks a real intruder would: following
@@ -57,6 +63,14 @@ credentials or a pretext before ever setting foot on site.
 | **Tailgating** | Testers walk in close behind an employee badging through a door, relying on courtesy rather than any technical bypass. |
 | **Impersonation** | Testers pose as a delivery courier, IT contractor, or auditor with a plausible pretext to be let in or given information. |
 | **Phishing (as an opening move)** | A pretext email obtains a name, a schedule, or credentials that make the on-site attempt more convincing. |
+
+Walking in close behind the tribesman with the firewood, who never notices he let anyone in, is
+**tailgating**. That same tribesman kindly holding the gate open once he spots the "healer"
+trailing him is **piggybacking** — he knows he's letting someone through, he just doesn't know
+who he's really letting in. Claiming to be the healer sent for the chief's sick child is
+**impersonation** — a plausible reason to be there, invented from nothing. And a runner arriving
+first with a message "from the neighbouring tribe" to soften up the guards before the tester ever
+shows his face is **phishing as the opening move**.
 
 **Why this is authorised, scoped work, not a real intrusion.** Every physical test runs under
 written rules of engagement: what can be attempted, what targets are off-limits, and — critically
