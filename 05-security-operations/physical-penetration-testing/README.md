@@ -82,6 +82,43 @@ not escalate into a real security incident or an arrest.
 
 ---
 
+## 🔬 What badge cloning actually involves, and what stops it
+
+The vocabulary section mentions badge cloning as a supporting technique. The reason it works is
+a specific technical weakness in older credentials.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    OLD["🪪 Legacy prox card<br/>broadcasts a fixed ID<br/>no crypto at all"] --> READ["📡 Attacker's reader<br/>captures it from<br/>inside a bag"]
+    READ --> CLONE["💳 Written to a<br/>blank card"]
+    NEW["🔐 Modern smart card<br/>challenge-response<br/>with a secret key"] --> FAIL["🛑 Nothing useful<br/>to capture"]
+
+    style OLD fill:#3a1a20,stroke:#E03131,color:#fff
+    style READ fill:#3a1a20,stroke:#E03131,color:#fff
+    style CLONE fill:#3a1a20,stroke:#E03131,color:#fff
+    style NEW fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style FAIL fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**Older proximity cards simply shout a fixed number.** A legacy 125 kHz prox card holds a static
+identifier and transmits it, unencrypted and unauthenticated, to any reader that energises it —
+which means a tester carrying a concealed long-range reader can capture a badge number by
+standing near someone in a lift, then write that number to a blank card. The card never proves
+it is genuine; it only announces who it claims to be, which is identification without
+authentication.
+
+**Modern smart cards fix this with challenge-response.** A contemporary credential holds a
+secret key it never transmits. The reader sends a random challenge, the card returns a
+cryptographic response computed from that challenge and its key, and a captured exchange is
+useless because the next challenge will be different. This is the same reasoning as the replay
+defences elsewhere in this domain, applied to a door — which is why "upgrade legacy prox cards"
+appears as a remediation after a physical test, and why pairing the badge with a PIN (something
+you have plus something you know) blunts cloning even where the cards themselves cannot be
+replaced yet.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
