@@ -18,11 +18,25 @@
 
 ## 🧸 The big idea
 
-Access happens in three stages, always in the same order.
+Back to the cave guard from the last topic. He already proved the stranger's identity — the
+whistle checked out, it really is Grog from the next valley. Two more questions remain before
+Grog gets anywhere.
 
-1. **Authentication** — *who are you?* You prove your identity.
-2. **Authorisation** — *what are you allowed to do?* The system checks your permissions.
-3. **Accounting** — *what did you actually do?* The system records it.
+*"Fine, you're Grog — but which rooms of this cave are you allowed into? The berry store, sure.
+The chief's sleeping area, absolutely not."* That's a decision about **what Grog may do**, made
+only now, after his identity was already settled.
+
+And every time Grog walks past, the guard scratches a mark on the cave wall — *Grog, berry
+store, this morning.* Not to stop him. Just so that if berries go missing later, there's a
+record of who was actually in there.
+
+That's the whole topic. Access happens in three stages, always in the same order.
+
+1. **Authentication** — *who are you?* You prove your identity. (The whistle, last topic.)
+2. **Authorisation** — *what are you allowed to do?* The system checks your permissions. (Which
+   rooms Grog can enter.)
+3. **Accounting** — *what did you actually do?* The system records it. (The scratch marks on the
+   wall.)
 
 Together they are **AAA**, and the order is fixed. You cannot authorise someone whose identity
 you have not established, and you cannot meaningfully account for actions you cannot attribute
@@ -73,7 +87,8 @@ written down.**
 
 ### 🎫 Authorisation
 
-Authorisation happens **after** authentication and decides what a proven identity may do.
+This is the guard deciding which rooms of the cave Grog can walk into. Authorisation happens
+**after** authentication and decides what a proven identity may do.
 
 Two people can authenticate equally successfully and be authorised completely differently — a
 clerk and a finance director both log in, and the system permits them different things. That
@@ -93,7 +108,8 @@ people change jobs and nobody removes the old rights — **privilege creep**.
 
 ### 📋 Accounting
 
-Accounting records what was done: who, what, when, and to which object.
+This is the scratch marks on the cave wall. Accounting records what was done: who, what, when,
+and to which object.
 
 It is a **detective** control. It prevents nothing. Its value is that it makes actions
 attributable after the fact, which supports investigation, supports discipline, and — because
