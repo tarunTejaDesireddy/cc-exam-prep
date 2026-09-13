@@ -286,6 +286,40 @@ used, data protection, threat detection, compliance.
 
 ---
 
+## 🔬 A real misconfiguration, and the tool that catches it
+
+**The canonical cloud breach starts with one wrong setting on a storage bucket.**
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    B["🪣 Storage bucket<br/>ACL set to<br/>'public-read'"] --> W["🌍 Anyone with<br/>the URL can<br/>read every object"]
+    C["🔍 CSPM tool<br/>continuously scans<br/>cloud config"] -->|"flags or<br/>auto-fixes"| B
+
+    style B fill:#3a1a20,stroke:#E03131,color:#fff
+    style W fill:#3a1a20,stroke:#E03131,color:#fff
+    style C fill:#0f3038,stroke:#12B5A5,color:#fff
+```
+
+A bucket's access-control setting is often a single field — `public-read` instead of `private` —
+and there's no physical barrier stopping it, unlike unplugging a cable on-premises: click the
+wrong option once, and every object in that bucket is instantly reachable by anyone with the
+URL, indexed by search engines within hours. **CSPM (Cloud Security Posture Management)** tools
+exist specifically to catch this: they continuously query the cloud provider's own API asking
+"what's actually configured right now," compare it against a ruleset of known-bad patterns
+(public buckets, overly permissive IAM policies, unencrypted volumes), and either alert a human
+or auto-remediate the setting back to safe — running the exact same kind of check, all day
+every day, that would otherwise depend on someone remembering to look.
+
+**A managed database service is the concrete case of the responsibility line sitting oddly.**
+With Amazon RDS, AWS patches the underlying database engine itself — genuinely a provider
+responsibility most people assume is PaaS-like — while the customer still owns the schema, the
+actual data, and every access permission granted to it. It's neither a clean IaaS row nor a
+clean SaaS row on the table above; real cloud security work means checking the specific
+service's own documentation rather than assuming the generic three-tier model applies exactly.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
