@@ -18,8 +18,15 @@
 
 ## 🧸 The big idea
 
-**Confidentiality** is a security property: information is not disclosed to unauthorised
-parties. It is about *protection*.
+Imagine you tell the tribe healer, quietly, that you broke your leg. He locks that secret away —
+never tells a stranger, never lets it slip. Nobody pries it out of him. Perfect protection.
+
+Then, without asking you, the healer decides to announce it to the whole tribe anyway, so people
+stop expecting you to hunt. Nobody stole the secret from him — he simply *did something with it
+you never agreed to.*
+
+That's the whole distinction. **Confidentiality** is a security property: information is not
+disclosed to unauthorised parties. It is about *protection*.
 
 **Privacy** is a right held by a person: the ability to control how information about them is
 collected, used, shared and retained. It is about *control and permission*.
