@@ -18,8 +18,27 @@
 
 ## 🧸 The big idea
 
-All four models answer the same question — **who decides whether access is granted?** — and they
-give four different answers.
+Four different scenes at the cave, all answering the same question: **who decides whether
+access is granted?**
+
+A hunter personally owns a spear. He decides who borrows it — his call entirely, even if he
+lends it to someone careless. That's **DAC**.
+
+The sacred fire may only be tended by whoever the shaman has tattooed with the clearance mark.
+Even the fire's own keeper can't let an untattooed friend near it — the tribe's law decided that,
+not any one person. That's **MAC**.
+
+Whoever holds the title "Hunter" automatically gets the weapons rack. Whoever holds "Healer"
+automatically gets the herb store. The access comes from the *job*, not from asking anyone
+individually. That's **RBAC**.
+
+And the guard at the sacred fire on ceremony night checks several things about you *right now,
+all at once*: are you a shaman, is it actually the ceremonial night, are you carrying the
+ceremonial staff. Change any one of those and the answer changes, even for the exact same
+person. That's **ABAC**.
+
+All four models answer the same question — **who decides whether access is granted?** — and
+they give four different answers.
 
 | Model | **Who decides** | The tell |
 |---|---|---|
@@ -75,7 +94,8 @@ flowchart TD
 
 ### 👤 DAC — Discretionary Access Control
 
-**The owner of the resource decides who may access it, at their discretion.**
+This is the hunter lending out his own spear to whoever he pleases. **The owner of the resource
+decides who may access it, at their discretion.**
 
 If you create a document and choose who to share it with, that is DAC. Windows file permissions,
 Linux file permissions, shared drives and most consumer file-sharing services work this way.
@@ -91,8 +111,9 @@ Linux file permissions, shared drives and most consumer file-sharing services wo
 
 ### 🏛️ MAC — Mandatory Access Control
 
-**The system decides, by comparing the subject's clearance with the object's label. The owner
-cannot override it.**
+This is the tattooed clearance mark at the sacred fire — not even the fire's own keeper can wave
+someone through without it. **The system decides, by comparing the subject's clearance with the
+object's label. The owner cannot override it.**
 
 Used where the consequences of disclosure are severe: military, intelligence, government
 classification schemes.
@@ -125,6 +146,7 @@ entitle you to every Top Secret document, only those relevant to your work.
 
 ### 👔 RBAC — Role-Based Access Control
 
+This is the "Hunter" title carrying weapons-rack access automatically, no matter who wears it.
 **Permissions are attached to roles; users receive access by being assigned a role.**
 
 A new finance clerk is put in the "Finance Clerk" role and immediately has exactly the access
@@ -164,8 +186,9 @@ granted anything directly.**
 
 ### 🧮 ABAC — Attribute-Based Access Control
 
-**The decision is computed at request time from attributes** of the subject, the object, the
-action and the environment.
+This is the ceremony-night guard checking shaman status, the date, and the ceremonial staff all
+at once, fresh every time. **The decision is computed at request time from attributes** of the
+subject, the object, the action and the environment.
 
 > *Permit if the user's department is Finance, and their clearance is Confidential or higher, and
 > the device is corporate-managed, and the time is within working hours, and the request comes
