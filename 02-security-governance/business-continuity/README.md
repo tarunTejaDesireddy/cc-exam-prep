@@ -198,6 +198,52 @@ it.
 
 ---
 
+## 🔬 How modern tooling replaces the stale call tree
+
+The grown-up section flags a real problem: a call tree nobody has checked in two years is just
+old phone numbers. Real continuity programmes solve both the communications and the alternate-site
+problem with specific software categories.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    I["🚨 Incident<br/>declared"] --> N["📱 Mass notification tool<br/>Everbridge / AlertMedia"]
+    N --> C1["📞 Call"]
+    N --> C2["💬 SMS"]
+    N --> C3["📧 Email"]
+    N --> C4["🔔 App push"]
+    C1 --> ACK["✅ Tracks who<br/>confirmed safe"]
+    C2 --> ACK
+    C3 --> ACK
+    C4 --> ACK
+
+    style I fill:#3a1a20,stroke:#E03131,color:#fff
+    style N fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C3 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C4 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style ACK fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**Mass notification platforms** (Everbridge, AlertMedia) replace the human call tree entirely.
+One person triggers an alert once, and the platform fans it out across every channel
+simultaneously — call, text, email, app push — to everyone on the list, then tracks in real time
+who has confirmed they're safe and who hasn't answered on any channel. It solves the stale-number
+problem too: contact data usually syncs from the HR system directly, so it's only as stale as the
+last payroll update rather than a spreadsheet nobody remembers to touch.
+
+**For knowledge work, "the alternate site" has largely become a login screen.** Instead of
+maintaining a physical alternate office nobody uses 364 days a year, many organisations give
+staff **VDI (Virtual Desktop Infrastructure)** or cloud-hosted desktops — the actual work
+environment lives in a data centre, and staff reach it from any laptop, any location, any
+internet connection. This doesn't remove the need for a continuity plan, but it changes the
+answer to "where do people work from" from "drive to the backup building" to "open a browser
+from home" — a genuinely different, cheaper, and often faster continuity strategy than the
+physical alternate site the original scenario assumed.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
