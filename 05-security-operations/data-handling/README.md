@@ -18,11 +18,17 @@
 
 ## 🧸 The big idea
 
-Data has a life. It is **created**, **stored**, **used**, **shared**, **archived** and finally
+Grain has a life too: it's harvested, stored in the grain-hut, ground by the miller, carried to
+another village, put away for winter, and eventually used up or thrown out. Data has the same
+life. It is **created**, **stored**, **used**, **shared**, **archived** and finally
 **destroyed** — and each stage needs different protection.
 
 The idea the exam tests hardest is that data exists in **three states**, and each state needs a
-different control:
+different control. Grain sealed in a jar inside a locked storehouse is easy to protect — just
+guard the storehouse. Grain being carried down the road can be protected too — hide it, guard it,
+disguise the cart. But grain already spread out on the miller's grinding stone, mid-grind, cannot
+be locked away at all — it has to be exposed to actually get ground. That's the state nobody
+thinks to protect properly.
 
 | State | Means | Protected by |
 |---|---|---|
@@ -34,8 +40,9 @@ different control:
 > because to process data, something has to decrypt it. If a question asks which state is hardest
 > to protect, the answer is in use.
 
-The second half of this topic is **destruction**, where the terms have precise meanings and
-deleting a file is not one of them.
+The second half of this topic is **destruction**. Burying a bad batch of grain in a shallow pit
+isn't the same as burning it to ash — someone could still dig the pit up. The exam's destruction
+terms have precisely that kind of distinction built in, and deleting a file is not one of them.
 
 ---
 
@@ -139,9 +146,10 @@ serious matter.
 
 ## 🔥 Destruction — the precise terms
 
-This is where the exam gets specific. **Deleting a file does not remove the data**; it removes
-the pointer to it and marks the space reusable. The data remains until overwritten, which is
-**remanence**.
+Just knocking down the sign pointing to the grain-hut doesn't make the grain vanish — someone
+who knows where to dig will still find it. This is where the exam gets specific. **Deleting a
+file does not remove the data**; it removes the pointer to it and marks the space reusable. The
+data remains until overwritten, which is **remanence**.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
