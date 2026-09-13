@@ -232,6 +232,46 @@ that outsiders cannot see the private addresses is a side effect, not a control.
 
 ---
 
+## 🔬 How a DNS lookup actually travels, and how poisoning it works
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    C["💻 Client asks:<br/>example.com?"] --> R["🔁 Recursive<br/>resolver"]
+    R --> ROOT["🌍 Root server:<br/>'ask .com'"]
+    ROOT --> TLD["📁 .com TLD server:<br/>'ask this one'"]
+    TLD --> AUTH["✅ Authoritative<br/>server: the real IP"]
+    AUTH --> R
+    R --> C
+
+    style C fill:#26292e,stroke:#868E96,color:#fff
+    style R fill:#0f3038,stroke:#12B5A5,color:#fff
+    style ROOT fill:#12243f,stroke:#5C7CFA,color:#fff
+    style TLD fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AUTH fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+A single DNS query is actually a **chain of referrals**: your resolver asks a root server which
+doesn't know the answer but knows who does — the `.com` TLD server — which in turn points to the
+specific authoritative server that actually holds `example.com`'s real IP. The answer then gets
+**cached** by your resolver for a defined time (its TTL) so the whole chain isn't repeated for
+every request.
+
+**Cache poisoning exploits exactly that caching step.** Each DNS query carries a 16-bit random
+**transaction ID**, and a resolver accepts the *first* reply that matches it — it has no way to
+know a reply is fake versus genuine beyond that number matching. In the classic Kaminsky-style
+attack, an attacker floods the resolver with hundreds of forged replies guessing different
+transaction IDs, racing to land a match before the real authoritative server's genuine reply
+arrives. Win that race once, and the resolver caches the attacker's fake IP address for every
+subsequent user of that resolver until the TTL expires — silently redirecting an entire
+organisation or ISP's traffic. **DNSSEC** closes this specific hole by having each authoritative
+answer carry a cryptographic signature (an `RRSIG` record, verified against a published
+`DNSKEY`) that a forged reply simply cannot produce without the private key — which is precisely
+why DNSSEC is described as providing authenticity rather than confidentiality: it doesn't hide
+the query, it makes the answer unforgeable.
+
+---
+
 ## ⚖️ Told apart
 
 | | Does | Not to be confused with |
