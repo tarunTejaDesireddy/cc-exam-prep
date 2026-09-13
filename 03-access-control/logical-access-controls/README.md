@@ -183,6 +183,38 @@ stopping them arising.
 
 ---
 
+## 🔬 What actually makes full-disk encryption work — and its one blind spot
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    T["🔐 TPM chip<br/>holds the encryption key"] --> B{"Machine<br/>state?"}
+    B -->|"powered off<br/>drive removed"| U["🔒 Key sealed<br/>unreadable"]
+    B -->|"powered on<br/>logged in"| K["🔓 Key already<br/>unsealed by the OS"]
+
+    style T fill:#0f3038,stroke:#12B5A5,color:#fff
+    style B fill:#3a2c12,stroke:#F08C00,color:#fff
+    style U fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style K fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+**BitLocker (Windows) and FileVault (macOS) don't hold the encryption key in a password the user
+types each boot** — they store it in a **TPM (Trusted Platform Module)**, a small dedicated chip
+soldered to the motherboard that will only release the key if the boot process looks
+untampered-with (measured against known-good boot component hashes). This is what stops the
+classic "pull the drive, plug it into another machine, read it directly" attack: the drive is
+mathematically unreadable without a key that lives in a completely different piece of hardware.
+
+**The blind spot the exam question above is quietly testing:** full-disk encryption only
+protects data **at rest** — while the machine is off or locked before first unlock. The moment a
+legitimate user logs in, the OS has already asked the TPM to unseal the key for the session, so
+a thief who steals a laptop that's merely asleep (not shut down) with the disk already unlocked
+gets the same access the legitimate user had. This is exactly why the Q5 answer above assumes a
+powered-off device, and why **session timeout and screen lock** remain necessary even on a
+fully-encrypted machine — they're covering the gap FDE alone doesn't reach.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
