@@ -237,6 +237,44 @@ two branches change the *channel*, not the targeting.
 
 ---
 
+## 🔬 How detection actually catches (or misses) this
+
+The grown-up section mentions fileless, living-off-the-land techniques. Here's concretely why
+they slip past one kind of defence and not another.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    F["📄 File on disk"] --> H["🔢 Hash it"] --> SIG["📋 Compare to<br/>known-bad signature DB"]
+    SIG -->|"match"| BLOCK["🛑 Blocked"]
+    P["⚙️ Process behaviour:<br/>Word spawns PowerShell<br/>spawns network connection"] --> EDR["👁️ EDR watches<br/>the ACTION CHAIN"]
+    EDR -->|"matches a known<br/>attack pattern"| FLAG["🚩 Flagged, regardless<br/>of any file's hash"]
+
+    style F fill:#26292e,stroke:#868E96,color:#fff
+    style H fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SIG fill:#12243f,stroke:#5C7CFA,color:#fff
+    style BLOCK fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style P fill:#26292e,stroke:#868E96,color:#fff
+    style EDR fill:#0f3038,stroke:#12B5A5,color:#fff
+    style FLAG fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**Traditional signature-based antivirus hashes a file and checks that hash against a database of
+known-bad hashes.** This is exactly why it's blind to fileless, living-off-the-land attacks:
+there's no new file to hash at all when the "malware" is just PowerShell — a program already
+signed and trusted by Microsoft — being told to download and run something in memory.
+
+**Behavioural EDR (Endpoint Detection and Response) instead watches the *chain of actions*
+regardless of what's a "file."** A rule flags something like "a Word document spawned
+PowerShell, which then made an outbound network connection and executed base64-encoded
+commands" — a sequence that's suspicious *in itself*, independent of any signature ever existing
+for it. Vendors describe these chains using the shared vocabulary of **MITRE ATT&CK technique
+IDs** (e.g. `T1059.001` for malicious PowerShell), which is the real, industry-standard naming
+system behind terms like "living off the land" — it's a specific, catalogued, numbered technique
+that defenders across the industry track and share detection rules for.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
