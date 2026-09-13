@@ -18,12 +18,25 @@
 
 ## 🧸 The big idea
 
-Networking is complicated, so it is broken into **layers**. Each layer does one job and hands
-its result to the layer below, which does its own job and hands it down again. At the far end
-the stack runs in reverse.
+Sending a trade proposal from one chief to another actually takes seven separate jobs, each
+handled by a different specialist, each one only caring about their own piece:
 
-The advantage of layering is independence: you can change the wireless card without rewriting
-the web browser, because each layer only needs to know how to talk to its neighbours.
+The chief decides *what* to say — the actual trade offer. A scribe translates it into a shared
+symbol system both villages understand. A negotiator opens the "conversation" between the two
+chiefs and keeps track of where it's up to. A courier splits a long message into numbered
+pieces and makes sure every single one arrives, resending any that go missing. A route-master
+works out which villages the message must pass through to get there at all. A local runner in
+each village only needs to know which hut to hand it to next. And underneath all of that, the
+actual road, drums, or smoke signal physically carries it.
+
+That's the whole idea. Networking is complicated, so it is broken into **layers**. Each layer
+does one job and hands its result to the layer below, which does its own job and hands it down
+again. At the far end the stack runs in reverse.
+
+The advantage of layering is independence: the route-master can be swapped for someone using a
+completely different set of trade roads, and the chief never even notices — because you can
+change the wireless card without rewriting the web browser, since each layer only needs to know
+how to talk to its neighbours.
 
 There are two models, and the exam uses both:
 
@@ -53,6 +66,11 @@ OSI questions.
 ---
 
 ## 🪜 The seven OSI layers
+
+The chief's trade proposal, laid out top to bottom: the chief (7 · Application), the scribe (6 ·
+Presentation), the negotiator (5 · Session), the courier numbering the pieces (4 · Transport),
+the route-master (3 · Network), the local runner (2 · Data Link), and the road itself (1 ·
+Physical).
 
 Numbered from the bottom up. Layer 1 is the cable; layer 7 is the application.
 
