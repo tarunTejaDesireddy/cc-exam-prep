@@ -1,14 +1,13 @@
 > [!NOTE]
 > **🎁 Bonus module — not part of the ISC2 CC syllabus.** This is a general networking &amp;
-> security fundamentals path (290 topics), imported as-is from the standalone
-> [`security-fundamentals`](https://github.com/tarunTejaDesireddy/security-fundamentals) repo,
-> which is the live, actively-updated source. Everything else in `cc-exam-prep` (modules
-> `00`–`08`) is scoped tightly to what the ISC2 CC exam tests; this module is broader
-> background reading for anyone who wants the underlying concepts explained from zero, not
-> exam-specific drilling. It does not count toward the "9 modules / 53 topics" totals on the
-> main [`README.md`](../README.md), and its pages follow their own layout (see
-> [How a Lesson Is Structured](#-how-a-lesson-is-structured) below), not `CLAUDE.md`'s
-> exam-page format.
+> security fundamentals path (290 topics), kept in its own `bonus/` folder, separate from the
+> numbered `00`–`08` exam modules. Those modules are scoped tightly to what the ISC2 CC exam
+> tests; this one is broader background reading for anyone who wants the underlying concepts
+> explained from zero, not exam-specific drilling. It does not count toward the "9 modules / 53
+> topics" totals on the main [`README.md`](../../README.md), and its pages follow their own
+> layout (see [How a Lesson Is Structured](#-how-a-lesson-is-structured) below), not
+> `CLAUDE.md`'s exam-page format. This is now the only copy — the standalone
+> `security-fundamentals` repo it originated from has been deleted.
 
 <div align="center">
 

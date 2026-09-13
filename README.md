@@ -104,13 +104,13 @@ Security Operations you reach last, not on Domains 1, 4 or 3.
 | ❓ | **[07 · Question Bank](07-question-bank/README.md)**<br><sub>Drills by domain, every wrong answer explained.</sub> | 173 here + 265 in the topics | After each domain, then mixed in week 6 |
 | 📝 | **[08 · Mock Exams](08-mock-exams/README.md)**<br><sub>Three full fixed-form practice papers.</sub> | 3 × 100 questions | Weeks 5 and 7 — not before |
 
-### 🎁 Bonus (outside the ISC2 syllabus)
+### 🎁 Bonus (outside the ISC2 syllabus, kept separate under `bonus/`)
 
-<sub>Not counted in the "9 modules / 53 topics" totals above — optional background reading, not exam drilling.</sub>
+<sub>Lives in its own top-level folder, away from the numbered `00`–`08` exam modules, and is not counted in the "9 modules / 53 topics" totals above — optional background reading, not exam drilling.</sub>
 
-| | Module | Contents | What it's for |
-|:--:|---|---|---|
-| 🛡️ | **[09 · Security Fundamentals](09-security-fundamentals/README.md)**<br><sub>General networking &amp; security, taught from zero.</sub> | 290 topics (growing), imported from the standalone [`security-fundamentals`](https://github.com/tarunTejaDesireddy/security-fundamentals) repo | Anyone who wants the underlying concepts explained in depth, beyond what the CC exam itself tests |
+| Module | Contents | What it's for |
+|---|---|---|
+| 🛡️ **[Security Fundamentals](bonus/security-fundamentals/README.md)**<br><sub>General networking &amp; security, taught from zero.</sub> | 290 topics (growing) | Anyone who wants the underlying concepts explained in depth, beyond what the CC exam itself tests |
 
 ---
 
