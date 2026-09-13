@@ -175,6 +175,53 @@ flowchart LR
 
 ---
 
+## 🔬 How this actually works under the hood
+
+The words "know / have / are" hide real cryptography. Here's what actually happens on a login
+screen.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    U["👤 User types<br/>password"] --> S1["Server hashes it<br/>bcrypt / Argon2"]
+    S1 --> S2["Compares to stored<br/>salted hash"]
+    S2 --> M["📱 App generates<br/>6-digit TOTP code"]
+    M --> S3["Server computes<br/>same code independently"]
+    S3 --> L["✅ Codes match<br/>→ login allowed"]
+
+    style U fill:#26292e,stroke:#868E96,color:#fff
+    style S1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style M fill:#0f3038,stroke:#12B5A5,color:#fff
+    style S3 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style L fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**Passwords are never stored as plain text.** A well-built system runs the password through a
+**slow, salted hash** — bcrypt, Argon2, or PBKDF2 — before storing it. "Salted" means a random
+value unique to that account is mixed in first, so two users with the same password get
+completely different stored hashes, and a precomputed rainbow table becomes useless. "Slow" is
+deliberate: a fast hash like plain SHA-256 lets an attacker with a stolen database try billions
+of guesses a second; bcrypt is engineered to make that same attack take years.
+
+**A TOTP code isn't magic — it's HMAC plus the clock.** At enrolment, the server and your
+authenticator app agree on a shared secret (usually via a QR code). From then on, both sides
+independently compute `HMAC(secret, current_30-second_time_window)` and truncate the result to
+six digits. Nothing is transmitted between them at login time — the code just has to match
+because both sides did the same maths on the same secret at the same moment. That's also why a
+phone with the wrong clock produces a code that fails: the maths depends on the time window
+lining up.
+
+**Passkeys (FIDO2/WebAuthn) remove the shared secret entirely.** At registration your device
+generates a public/private key pair and gives the server only the public half. At login, the
+server sends a random challenge; your device signs it with the private key (unlocked locally by
+your fingerprint or PIN) and sends back the signature. The private key never leaves the device,
+and the signature is cryptographically bound to the real site's address — which is exactly why
+a phishing copy of the site can't relay it through to the real one the way it can with a typed
+password or OTP.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
