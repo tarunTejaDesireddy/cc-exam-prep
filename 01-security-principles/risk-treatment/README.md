@@ -146,6 +146,41 @@ Two things the exam insists on:
 
 ---
 
+## 🔬 What a treatment decision actually looks like on paper
+
+"Mitigate" and "transfer" aren't just labels in a register — they turn into specific, named
+artefacts a real risk analyst produces.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    D["🎯 Decision:<br/>MITIGATE"] --> F["📚 Pick a control<br/>from a framework"]
+    F --> ID["🆔 e.g. NIST 800-53<br/>AC-2, or CIS Control 5"]
+    ID --> REG["📋 Risk register entry:<br/>risk + control ID + owner"]
+
+    style D fill:#0f3038,stroke:#12B5A5,color:#fff
+    style F fill:#12243f,stroke:#5C7CFA,color:#fff
+    style ID fill:#12243f,stroke:#5C7CFA,color:#fff
+    style REG fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**Mitigation controls are almost never invented from scratch.** An analyst picking a control
+reaches for a named catalogue — **NIST SP 800-53** (the US federal control catalogue, controls
+numbered like `AC-2` for account management) or the **CIS Controls** (18 numbered control
+groups, e.g. "CIS Control 5: Account Management"). The risk register entry doesn't just say
+"add access reviews" — it cites the specific control ID, which is what lets an auditor later
+verify the control was actually implemented as described.
+
+**A real cyber insurance policy (transfer) has more moving parts than "buy a policy."** A
+**retention** (the insurance term for a deductible) is the amount the organisation pays before
+the policy responds at all. **Sub-limits** cap payouts for specific perils — ransomware payments
+are frequently sub-limited well below the headline policy amount. And many policies carry a
+**panel requirement**: the insurer mandates using *their* pre-approved incident response firm
+and forensics vendor, or coverage can be reduced — which is why the "who do we call" decision in
+an incident response plan sometimes isn't fully the organisation's own choice to make.
+
+---
+
 ## ⚖️ Told apart
 
 The scenario table. Most questions on this topic are in here in some form.
