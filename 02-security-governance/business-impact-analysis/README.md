@@ -18,8 +18,19 @@
 
 ## 🧸 The big idea
 
-Before you can plan how to survive a disruption, you have to know **what a disruption would
-actually cost you** — and which parts of the business would hurt first.
+A wildfire could reach the village someday. Before deciding what to save first, the tribe elder
+walks through every hut and asks the same two questions: *"If fire took this, how fast would we
+need to rebuild it? And how badly would it hurt us to be without it, even for a day?"*
+
+The food store: rebuild it fast, going even one day without it hurts badly. The toolmaker's hut:
+it can wait a week, nobody starves. The storytelling circle: nice to have, no real harm if it's
+gone all season.
+
+Only once the elder has ranked every hut this way does the tribe decide *how* to protect or
+rebuild each one. **Ranking first, then planning — never the other way round.**
+
+That's the whole idea. Before you can plan how to survive a disruption, you have to know **what
+a disruption would actually cost you** — and which parts of the business would hurt first.
 
 A **business impact analysis** answers that. It identifies the organisation's critical functions,
 works out what happens if each stops, and produces the numbers that every later plan is built
