@@ -18,8 +18,21 @@
 
 ## 🧸 The big idea
 
-Once a risk is identified and assessed, there are exactly **four** things an organisation can
-do about it. Every response, however it is dressed up, is one of these:
+The tribe has assessed it: the gap in the cave wall lets wolves through sometimes, and it costs
+them real food every year. Now they have to decide what to actually do about it. There are only
+four choices, ever.
+
+1. **"Eh, it barely happens. We'll just live with it."** — do nothing, knowingly. That's
+   **accept.**
+2. **"Move the whole food store to a different valley with no wolves at all."** — stop doing the
+   risky thing entirely. That's **avoid.**
+3. **"Build a fence over the gap."** — the risk is still there, but smaller. That's **mitigate.**
+4. **"Pay the neighbouring tribe's strongest hunters a few baskets of grain to guard the cave
+   for us."** — if wolves get in now, it's their problem to make good on, not yours. That's
+   **transfer.**
+
+That's the whole idea. Once a risk is identified and assessed, there are exactly **four** things
+an organisation can do about it. Every response, however it is dressed up, is one of these:
 
 | | Treatment | In one line |
 |---|---|---|
