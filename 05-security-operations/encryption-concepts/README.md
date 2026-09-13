@@ -18,9 +18,19 @@
 
 ## 🧸 The big idea
 
-Encryption turns readable data into unreadable data, reversibly, using a **key**.
+Two allied tribes carve an identical whistle-key from the same secret pattern before they ever
+part ways. Either tribe's copy can lock and unlock the same message box — but the risk is
+obvious: getting a copy of that one identical key safely to the other tribe in the first place,
+without a bandit intercepting it along the road.
 
-There are two families, and the whole topic is the difference between them:
+A stranger tribe with no such history solves it differently: a special lockbox has two
+*different* keys, carved from two related but distinct patterns. One key — handed out freely to
+absolutely anyone — can only ever **lock** the box. The other key — kept secret by one person
+alone — is the only one that can **unlock** it. Anyone in the world can lock a message meant for
+you, but only you can ever open it.
+
+That's the whole idea. Encryption turns readable data into unreadable data, reversibly, using a
+**key**. There are two families, and the whole topic is the difference between them:
 
 | | **Symmetric** | **Asymmetric** |
 |---|---|---|
@@ -29,7 +39,10 @@ There are two families, and the whole topic is the difference between them:
 | Speed | **Fast** | **Slow** |
 | The problem it has | **Getting the key to the other party safely** | Slowness |
 
-Each solves the other's problem, which is why real systems use both:
+Since locking every single item in a two-key box is far too slow for a whole trade shipment,
+the tribes use the two-key box just once — to safely pass each other an identical whistle-key —
+then use that fast shared key for the actual bulk of the trading afterward. Each solves the
+other's problem, which is why real systems use both:
 
 > **Asymmetric encryption is used to exchange a symmetric key. The symmetric key then does the
 > bulk work.**
