@@ -148,6 +148,43 @@ people, facilities, network connectivity, and other functions.
 
 ---
 
+## 🔬 How dependencies actually get discovered
+
+"Interview the function owner" finds the dependencies people already know about. The dangerous
+ones are the ones nobody remembers to mention.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    INT["🗣️ Interview<br/>function owner"] --> KN["Known deps"]
+    CMDB["📋 CMDB<br/>configuration DB"] --> DOC["Documented<br/>system links"]
+    TRACE["🔍 Distributed tracing<br/>(runtime observation)"] --> HID["Hidden deps<br/>nobody documented"]
+    KN --> MAP["🗺️ Full dependency map"]
+    DOC --> MAP
+    HID --> MAP
+
+    style INT fill:#26292e,stroke:#868E96,color:#fff
+    style CMDB fill:#12243f,stroke:#5C7CFA,color:#fff
+    style TRACE fill:#3a2c12,stroke:#F08C00,color:#fff
+    style KN fill:#12243f,stroke:#5C7CFA,color:#fff
+    style DOC fill:#12243f,stroke:#5C7CFA,color:#fff
+    style HID fill:#12243f,stroke:#5C7CFA,color:#fff
+    style MAP fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+A **CMDB** (Configuration Management Database) holds the documented map of which systems connect
+to which — but documentation drifts out of date the moment someone quietly wires up a new
+integration without updating it. This is where **distributed tracing** tools (Datadog, AWS
+X-Ray, Jaeger) earn their keep: they watch real, live traffic flowing between services and
+*observe* the actual call graph at runtime, which is how organisations discover things like "our
+checkout process silently depends on a third-party tax-calculation API that nobody remembered
+existed" — a dependency that was never in anyone's documentation because it was added six months
+ago by a developer who has since left. This runtime-observed dependency map is frequently more
+accurate than the interview-based one, precisely because it can't be forgotten or left
+undocumented.
+
+---
+
 ## ⚖️ BIA versus risk assessment
 
 A reliable exam distinction, because both are analytical exercises producing prioritised lists.
