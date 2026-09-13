@@ -219,6 +219,48 @@ routine triage so human attention goes where it is needed.
 
 ---
 
+## 🔬 How a detection rule actually gets written and shared
+
+Different devices speak different log formats natively, which is a real interoperability
+problem a SIEM has to solve before it can correlate anything at all.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    FW["🔥 Firewall log"] --> N["🔄 Normalised to<br/>syslog / CEF format"]
+    ED["💻 EDR log"] --> N
+    AD["🔑 Directory log"] --> N
+    N --> SIEM["🔍 SIEM ingests<br/>one common shape"]
+    SIEM --> RULE["📜 Detection rule<br/>(written once,<br/>Sigma format)"]
+    RULE --> ALERT["🚨 Alert"]
+
+    style FW fill:#26292e,stroke:#868E96,color:#fff
+    style ED fill:#26292e,stroke:#868E96,color:#fff
+    style AD fill:#26292e,stroke:#868E96,color:#fff
+    style N fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SIEM fill:#0f3038,stroke:#12B5A5,color:#fff
+    style RULE fill:#3a2c12,stroke:#F08C00,color:#fff
+    style ALERT fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+**Syslog (RFC 5424) and CEF (Common Event Format)** are the two real standards that make this
+possible — a firewall, an EDR agent and a directory server all describe wildly different events,
+but a CEF-formatted message always carries the same basic fields (severity, source, destination,
+event name) regardless of which vendor produced it, which is what lets one SIEM correlate across
+all three without custom parsing for every product on the market.
+
+**Sigma is the real, open format detection engineers use to write one rule that works
+everywhere.** Rather than hand-writing a separate query for Splunk, then Elastic, then Microsoft
+Sentinel, an analyst writes a single Sigma rule in plain YAML describing the *pattern* to detect
+— "a process named `powershell.exe` spawned by `winword.exe`, with a command line containing
+`-enc`" — and Sigma converters translate that one rule into each platform's own query language.
+This is the concrete mechanism behind "detections mapped to MITRE ATT&CK": a public repository of
+Sigma rules exists, each one tagged with the specific ATT&CK technique ID it detects, so a
+defender can adopt a community-vetted rule for a named technique instead of inventing detection
+logic from scratch.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
