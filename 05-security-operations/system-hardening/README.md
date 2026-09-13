@@ -18,6 +18,15 @@
 
 ## 🧸 The big idea
 
+When the camp's builder finishes a new hut, it comes riddled with his own shortcuts: a back gate
+left open so he can pop in and finish decorating, a spare key hidden under the same rock at every
+hut he's ever built, and a couple of guest tents standing empty just to show visitors the camp
+looks impressive. None of that is for the tribe's benefit — it's for the builder's convenience.
+
+Every open gate, every hidden key, every unused tent is one more way *something* can get in that
+has nothing to do with keeping the family warm and fed. Before the tribe moves in, someone should
+walk the whole hut and close off everything that isn't actually needed.
+
 Systems ship configured for **convenience**, not security. Features are enabled so things work
 out of the box, default accounts exist so setup is easy, and sample content is installed so the
 product demonstrates well.
@@ -33,7 +42,8 @@ privilege. Least privilege limits what a *person* can do; least functionality li
 *system* offers.
 
 > 🎯 **A service that is not running cannot be exploited**, and a vulnerability in software you
-> removed does not apply to you. Removal beats configuration wherever it is possible.
+> removed does not apply to you. Removal beats configuration wherever it is possible. **A gate
+> that's been boarded up shut can't be walked through, no matter how good the lock on it was.**
 
 ---
 
@@ -91,11 +101,18 @@ flowchart TD
 > [!IMPORTANT]
 > **Changing default credentials is the most examined single step.** Default usernames and
 > passwords are published in vendor documentation and collected in public lists. Any scenario
-> describing a device left on its factory password has that as the finding.
+> describing a device left on its factory password has that as the finding. It's the builder's
+> spare key hidden under the same rock at every hut he's ever built — everyone who's ever hired
+> him already knows exactly where to look.
 
 ---
 
 ## 📐 Baselines
+
+The tribe agrees, once, on the standard hut design: sturdy walls, a single door, no windows
+facing the tree line. Every new hut gets built to that design. And every so often, someone walks
+the camp checking existing huts against it — because over a few seasons, people quietly knock in
+an extra door or cut a window for the view, and nobody notices until a wolf finds it first.
 
 A **baseline** is the documented minimum secure configuration for a class of system — all web
 servers, all laptops, all database servers.
@@ -121,11 +138,16 @@ people make undocumented changes to fix problems.
 > is precisely why it goes unnoticed until an audit or an incident finds it.
 
 **A golden image** is a hardened, approved build used to create new systems, so hardening happens
-once rather than being repeated and forgotten.
+once rather than being repeated and forgotten — the one master hut template the builder stamps
+every new hut from, instead of re-deciding the design each time.
 
 ---
 
 ## 🩹 Patch management
+
+Spot a weak plank in the fence — first judge how bad it is if it gives way, try the replacement
+board on a spare stretch of fence around back, then swap the real plank in with the elder's
+sign-off, and finally check the mended spot actually holds under a shove.
 
 Patching is the most visible part of hardening, and the exam expects the **process**, not just the
 act.
@@ -162,10 +184,15 @@ flowchart LR
 
 **A zero-day has no patch**, so patching cannot address it. The defences are the other hardening
 measures — reduced attack surface, least privilege, segmentation, and anomaly-based detection.
+Wood rot nobody has figured out how to cure yet — you can't board it up with a fix that doesn't
+exist, only keep the animals further from that stretch of fence.
 
 ---
 
 ## 🔍 Vulnerability scanning
+
+Walking the whole fence line checking for the soft, spongy wood that's known to snap under a
+shoulder. It tells you exactly where the weak spots are — it doesn't hammer in a single new nail.
 
 Automated checking of systems against known vulnerabilities and configuration weaknesses.
 
