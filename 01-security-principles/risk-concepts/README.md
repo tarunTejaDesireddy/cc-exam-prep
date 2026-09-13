@@ -18,6 +18,24 @@
 
 ## 🧸 The big idea
 
+Your tribe stores its winter food — meat and grain — in a cave. That food is the thing worth
+protecting: the **asset**.
+
+Wolves live in the nearby forest, and they're always hungry. A hungry wolf getting into your
+food store is something that *could* happen and would hurt you badly: that's the **threat**. The
+actual wolf pack itself is the **threat actor** — the thing that would carry it out.
+
+The cave entrance has no door, just a gap in the rocks. That gap is the **vulnerability** — the
+weakness a hungry wolf could actually use to get in.
+
+Put them together and you get the **risk**: how likely is it that a wolf finds that gap and eats
+your winter food, and how bad would it be if it happened? That combination — chance times
+harm — is risk.
+
+Build a fence over the gap, and the wolves are still out there, still hungry, still exactly as
+much of a threat as before — but now they can't get in. **The risk just dropped, even though
+nothing about the wolves themselves changed.** That's what a control does.
+
 Four words, and the whole of risk management is built from them. Most people use them
 loosely in conversation. The exam does not.
 
@@ -27,7 +45,7 @@ loosely in conversation. The exam does not.
 Read that sentence again — it is the entire topic, and every question here is testing whether
 you can take a phrase out of a scenario and put it in the right slot.
 
-A worked example, using a building:
+A second worked example, using a building:
 
 - The **asset** is the laptop and the data on it.
 - The **threat** is theft — something that could cause harm.
