@@ -18,9 +18,25 @@
 
 ## 🧸 The big idea
 
-**Disaster recovery restores normal operations after a disruption.** It is the technical,
-systems-focused subset of business continuity — where continuity asks "how do we keep working",
-recovery asks "how do we get the systems back".
+Say the tribe keeps a backup cave in the next valley, in case the main one ever collapses. How
+ready that backup cave is depends entirely on how much they've invested in it beforehand.
+
+An empty cave — bare rock, nothing inside — takes **weeks** to become usable: haul in tools,
+carry over grain, rebuild everything from nothing. That's **cold.**
+
+A cave already stocked with tools and empty storage shelves, but no actual food in it yet, is
+faster — carry the grain over and you're working within **days.** That's **warm.**
+
+A cave kept fully stocked, with fresh grain carried over regularly so it's never far out of
+date, is ready almost **immediately.** That's **hot.**
+
+And two caves, both fully stocked and both actually in use side by side at the same time, so
+losing one barely slows the tribe down at all — that's a **mirrored** site, and it's the most
+expensive option of the four by far.
+
+That's the whole idea. **Disaster recovery restores normal operations after a disruption.** It
+is the technical, systems-focused subset of business continuity — where continuity asks "how do
+we keep working", recovery asks "how do we get the systems back".
 
 Two things carry almost all the marks:
 
@@ -59,6 +75,8 @@ organising insight is the same in each: **faster and more rigorous costs more an
 ---
 
 ## 🏢 Recovery sites
+
+This is the backup-cave story, formalised.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
@@ -131,6 +149,15 @@ flowchart TD
 ---
 
 ## 🧪 Testing the plan
+
+Before trusting the backup cave, the tribe rehearses. Someone reads the plan aloud and checks it
+makes sense (**read-through**). The elders sit by the fire and talk through what each person
+would do (**walkthrough**). A few hunters actually walk the escape route, without touching any
+real grain (**simulation**). Then they genuinely move some grain into the backup cave *while the
+main cave keeps operating normally* (**parallel**). And, rarest of all, they empty the main cave
+completely for a day and run entirely out of the backup one, to prove it really works (**full
+interruption**) — risky, because if the backup cave fails too, the tribe has nowhere left to
+turn.
 
 Ranked by rigour and by how much they disrupt the business.
 
