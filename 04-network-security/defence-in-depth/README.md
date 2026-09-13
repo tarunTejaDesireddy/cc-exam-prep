@@ -185,6 +185,38 @@ Two recurring shapes:
 
 ---
 
+## 🔬 A real common-mode failure: the trusted software update
+
+The clearest real-world example of "layers that looked independent but shared one root cause"
+is a **software supply-chain compromise** — attackers compromise a trusted vendor and ship
+malware inside that vendor's own, legitimately signed software update.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    V["🦹 Vendor's build<br/>system compromised"] --> S["✍️ Malware signed<br/>with the vendor's<br/>real, legitimate key"]
+    S --> L1["🛡️ Antivirus allowlist<br/>trusts the signature — PASSES"]
+    S --> L2["🔥 Firewall allows the<br/>vendor's known IPs — PASSES"]
+    S --> L3["📋 Change approval trusts<br/>'it's just a routine<br/>vendor update' — PASSES"]
+
+    style V fill:#3a1a20,stroke:#E03131,color:#fff
+    style S fill:#3a1a20,stroke:#E03131,color:#fff
+    style L1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style L2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style L3 fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+Three layers that looked genuinely different on paper — an antivirus signature check, a network
+firewall rule, and a change-management approval process — all shared exactly one hidden
+dependency: trusting that "signed by this vendor" meant safe. Once the vendor's own signing key
+was the thing actually compromised, all three passed the malware through simultaneously, because
+none of them was actually testing anything independent of that one trust anchor. This is the
+real-world version of the identity-provider example above, generalised: **any single root of
+trust — a signing key, a directory, a vendor relationship — that multiple layers silently rely on
+turns those layers back into one layer.**
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
