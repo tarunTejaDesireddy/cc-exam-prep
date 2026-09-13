@@ -126,6 +126,39 @@ Three very different levels of harm, all from someone nearby.
 
 ---
 
+## 🔬 What actually happens inside an 802.1X connection
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    S["💻 Supplicant<br/>(the device)"] --> A["📡 Authenticator<br/>(the AP/switch)"]
+    A -->|"forwards the<br/>EAP exchange"| R["🖧 RADIUS server<br/>checks credentials"]
+    R -->|"Access-Accept<br/>or Access-Reject"| A
+    A -->|"opens or blocks<br/>the port"| S
+
+    style S fill:#26292e,stroke:#868E96,color:#fff
+    style A fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#3a2c12,stroke:#F08C00,color:#fff
+```
+
+802.1X names three specific roles: the **supplicant** (your laptop or phone) wants access, the
+**authenticator** (the AP or switch) is a dumb relay that won't open its port until told to, and
+the **RADIUS server** actually checks the credential and decides. The device and RADIUS server
+speak **EAP (Extensible Authentication Protocol)** through that relay — commonly **EAP-TLS**,
+where the device presents a certificate instead of a password (stronger, no shared secret to
+steal), or **EAP-PEAP**, which wraps a username/password inside a TLS tunnel first.
+
+**Bluetooth's actual pairing security depends entirely on which of its association models is
+used**, which is why "Just Works" mode gets singled out above as the weak case. **Just Works**
+performs no real authentication of the other device at all — it's designed for devices with no
+screen or keypad (a headset), and it's exactly what makes bluesnarfing/bluebugging practical
+against it. **Passkey Entry** and **Numeric Comparison** both require a human to verify a code
+matches on both devices, which is what actually defeats an on-path attacker trying to insert
+themselves into the pairing process — the same "verify explicitly" idea from Zero Trust, applied
+to two devices meeting for the first time.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
