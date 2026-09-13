@@ -91,6 +91,43 @@ quarter for a board or a regulator.
 
 ---
 
+## 🔬 Where these numbers actually come from
+
+Nobody manually stopwatches an incident. Real metrics get computed automatically from
+timestamps that already exist in other systems.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    A["🚨 SIEM alert<br/>fires at T0"] --> TK["🎫 Ticket created<br/>ServiceNow/Jira, T1"]
+    TK --> RS["✅ Ticket resolved<br/>T2"]
+    A --> MTTD["MTTD = T1 − T0"]
+    TK --> MTTR["MTTR = T2 − T1"]
+    MTTD --> DASH["📊 Grafana / Power BI<br/>dashboard, auto-updated"]
+    MTTR --> DASH
+
+    style A fill:#3a1a20,stroke:#E03131,color:#fff
+    style TK fill:#12243f,stroke:#5C7CFA,color:#fff
+    style RS fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style MTTD fill:#3a2c12,stroke:#F08C00,color:#fff
+    style MTTR fill:#3a2c12,stroke:#F08C00,color:#fff
+    style DASH fill:#0f3038,stroke:#12B5A5,color:#fff
+```
+
+**MTTD (Mean Time to Detect)** and **MTTR (Mean Time to Respond/Remediate)** are two of the
+most-quoted security KPIs, and both are just subtraction between timestamps that already exist:
+when the SIEM's alert fired, when a human actually opened a ticket for it, and when that ticket
+closed. A dashboarding tool (Grafana, Power BI, or the SIEM's own reporting module) queries the
+ticketing system's API on a schedule and recalculates the averages automatically — nobody is
+manually timing incidents with a stopwatch. This is also exactly how **patch-SLA compliance
+percentage** gets computed: the vulnerability scanner already knows when a CVE was found and
+when it was last seen as unpatched, so "percentage patched within 30 days" is a scheduled query,
+not a spreadsheet someone updates by hand. The reason this matters for governance is that a
+metric nobody can independently query and verify is just a claim — a real KRI/KPI programme can
+point at the exact source system and timestamp behind every number on the scorecard.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
