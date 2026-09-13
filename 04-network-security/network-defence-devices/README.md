@@ -133,6 +133,40 @@ flowchart LR
 > firewall is opaque to it. This is why an attacker using HTTPS on port 443 for command and
 > control frequently passes straight through.
 
+### 🔬 What "stateful" actually means, in a real table
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    OUT["📤 Internal host sends<br/>SYN to a web server"] --> CT["📋 Conntrack table<br/>entry created:<br/>NEW → ESTABLISHED"]
+    CT --> IN["📥 Reply packet<br/>arrives from the server"]
+    IN --> CHECK{"Matches an<br/>ESTABLISHED entry?"}
+    CHECK -->|"yes"| ALLOW["✅ Permitted<br/>automatically"]
+    CHECK -->|"no, unsolicited"| BLOCK["🛑 Dropped"]
+
+    style OUT fill:#26292e,stroke:#868E96,color:#fff
+    style CT fill:#0f3038,stroke:#12B5A5,color:#fff
+    style IN fill:#26292e,stroke:#868E96,color:#fff
+    style CHECK fill:#3a2c12,stroke:#F08C00,color:#fff
+    style ALLOW fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style BLOCK fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+On Linux, this is a literal, inspectable table — **conntrack** (part of `netfilter`, which
+`iptables` and its successor `nftables` are built on) — holding one row per active connection
+with a state like `NEW`, `ESTABLISHED`, or `RELATED`. A rule as simple as "allow established
+connections" lets the firewall permit an entire category of return traffic without anyone
+writing a rule for every possible reply port, which is the real mechanism behind "a stateful
+firewall knows an inbound packet is a reply to an outbound request."
+
+**A real WAF rule set works completely differently, because it's reading content a firewall
+never sees.** The **OWASP ModSecurity Core Rule Set (CRS)** is a genuinely deployed, open-source
+collection of pattern-matching rules that inspect the actual HTTP request body — form fields,
+headers, cookies — for signatures resembling SQL injection or XSS, exactly the injection-family
+attacks covered earlier. This is only possible because a WAF, as a layer 7 reverse proxy,
+terminates and reads the full HTTP conversation; a layer 3/4 firewall tracking conntrack entries
+never looks past the IP and port headers at all.
+
 ---
 
 ## 🚨 IDS versus IPS
