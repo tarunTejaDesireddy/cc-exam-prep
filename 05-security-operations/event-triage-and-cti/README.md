@@ -18,14 +18,22 @@
 
 ## 🧸 The big idea
 
-A SOC generates far more alerts than any team can investigate individually. **Triage** is the
-process of deciding, quickly, which alerts matter and in what order — using **prioritisation**
-(how severe, how likely real) and **correlation** (linking related events into one meaningful
-picture instead of ten disconnected alerts).
+Every night, the tribe's watchmen hear dozens of rustles in the bushes around camp. Most are
+wind, or a raccoon, or nothing at all. One might be a wolf. Nobody has time to grab a spear and
+investigate every single rustle personally — so the watchmen have to decide, fast, which rustles
+deserve a closer look and in what order.
 
-Triage works better when you know **who might be attacking you and why** — that's **cyber
-threat intelligence (CTI)** — and it's organised using **threat frameworks**, published
-structures for describing attacker behaviour consistently.
+That's **triage**. Deciding fast, out of everything making noise, what deserves attention first.
+Two skills make triage work. **Prioritisation** — how bad would it be if this one is real, and
+how likely is it real — so a faint noise near the sleeping children outranks a loud one near an
+empty field. And **correlation** — noticing that paw prints near the henhouse, a missing chicken,
+and a distant growl aren't three separate rustles at all, but one wolf's whole night, told in
+three pieces.
+
+Triage works better when you know **who might be raiding you and why** — that's **cyber
+threat intelligence (CTI)**, the tribe's intelligence about which raiders are in the valley and
+how they operate — and it's organised using **threat frameworks**: a shared almanac of raider
+tactics every tribe can read the same way, described in the same terms.
 
 ---
 
@@ -51,6 +59,10 @@ structures for describing attacker behaviour consistently.
 ---
 
 ## 🔍 Triage: prioritisation and correlation
+
+A faint growl near the sleeping children, matched against footprints by the fence and a howl an
+hour ago, is one wolf closing in — and it outranks the loud but lone raccoon rattling the
+grain-bin lid across camp, even though the raccoon is noisier right now.
 
 **Prioritisation** asks: of everything alerting right now, what do we look at first? It weighs
 severity (how bad if real) against confidence (how likely this is a true positive), not
@@ -94,7 +106,11 @@ analysts to look at more noise.
 
 ## 🔎 IOC versus IOA — artefacts versus behaviour
 
-Not every clue is the same kind of clue.
+Not every clue is the same kind of clue. A paw print in the mud tells you a wolf passed through
+last night — but a wolf that learns the mud gives it away just starts walking through the stream
+instead, and the print is gone. A pack circling downwind of the herd before it strikes is a
+different kind of clue: that circling *is* how wolves hunt. They can't simply stop doing it
+without stopping being wolves.
 
 | | Looks at | Example | How easy to change |
 |---|---|---|---|
@@ -108,6 +124,11 @@ Not every clue is the same kind of clue.
 ---
 
 ## 👤 Threat actors and motivations
+
+Not every raider is the same kind of threat. A lone scavenger poking at the fence with a stick is
+a different problem than a rival chief's trained war band sent to weaken your tribe on purpose —
+and a tribe-member who knows exactly where the grain store's weak plank is, because he built it,
+is a different problem again.
 
 | Actor type | Typical motivation | Capability |
 |---|---|---|
@@ -125,8 +146,10 @@ Not every clue is the same kind of clue.
 
 ## 🕵️ Cyber threat intelligence (CTI)
 
-CTI turns raw information into something a defender can act on. It's commonly described at
-three levels:
+CTI turns raw information into something a defender can act on. The chief doesn't need the same
+report as the watchman on the wall tonight — one needs to know which raiders to prepare for this
+season, the other needs to know exactly which howl to listen for before midnight. It's commonly
+described at three levels:
 
 | Level | Answers | Consumed by |
 |---|---|---|
