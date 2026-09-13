@@ -18,7 +18,19 @@
 
 ## 🧸 The big idea
 
-**Business continuity** is about carrying on while something is broken.
+Back to the tally-stick hut, still smouldering from the fire two topics ago. The new stick won't
+be ready for three days. Does the tribe just stop counting grain until then?
+
+No — someone grabs a handful of pebbles and starts a pile: one pebble per basket handed out.
+It's clumsy, it's not the real system, but grain-counting **keeps happening** while the proper
+stick is being carved. That pebble pile is **continuity**: carrying on, by whatever means works,
+*while* something is broken.
+
+Once the new stick is finally carved and ready, they count the pebbles, carve that many notches,
+and go back to the real system. That switch-back is **recovery** — restoring the normal way of
+doing things *after*.
+
+That's the whole idea. **Business continuity** is about carrying on while something is broken.
 
 > **Continuity = keeping the business running DURING the disruption.**
 > **Recovery = restoring normal operations AFTER it.**
