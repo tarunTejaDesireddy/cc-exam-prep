@@ -18,22 +18,31 @@
 
 ## 🧸 The big idea
 
-Authentication answers one question: **are you really who you say you are?**
+Picture a caveman guarding the entrance to his cave. A stranger walks up in the dark and says
+"I live here — let me in."
 
-It always happens in two beats, and the exam cares that you can separate them:
+The guard doesn't just believe him. Anyone could say those words. So the guard asks for proof,
+and there are only three kinds of proof he'll accept:
 
-1. **Identification** — you *claim* an identity. Typing a username. Presenting a badge. This
-   claim is not trusted; anybody can make it.
-2. **Authentication** — you *prove* the claim with something only you should have.
+- *"What's the secret whistle only cave-dwellers know?"* — a **secret in your head.**
+- *"Show me your painted rock — only cave-dwellers carry one."* — **an object you have.**
+- *"Turn around, let me see your face."* — **something about your actual body.**
+
+That's the entire topic. **Authentication answers one question: are you really who you say you
+are?** — and it always happens in two beats:
+
+1. **Identification** — you *claim* an identity. Saying "I live here." Typing a username.
+   Presenting a badge. This claim is not trusted; anybody can make it.
+2. **Authentication** — you *prove* the claim with one of the guard's three kinds of proof.
 
 Username is identification. Password is authentication. They arrive together on one login
 screen, which is exactly why the exam likes separating them.
 
 The proof always comes from one of three categories, and there are only three:
 
-- **Something you know** — a secret in your head
-- **Something you have** — an object in your possession
-- **Something you are** — a physical characteristic of your body
+- **Something you know** — a secret in your head (the whistle)
+- **Something you have** — an object in your possession (the rock)
+- **Something you are** — a physical characteristic of your body (your face)
 
 ---
 
@@ -75,7 +84,7 @@ flowchart TD
 
 ### 🧠 Something you know — knowledge
 
-Passwords, PINs, passphrases, security questions.
+The secret whistle. Passwords, PINs, passphrases, security questions.
 
 - **Cheapest and most common.** Also the weakest.
 - **Its weakness:** it can be shared, guessed, phished, shoulder-surfed or reused, and none of
@@ -85,8 +94,8 @@ Passwords, PINs, passphrases, security questions.
 
 ### 📱 Something you have — possession
 
-Hardware tokens, smart cards, a phone receiving a code, an authenticator app, a certificate on
-a device, a physical key.
+The painted rock. Hardware tokens, smart cards, a phone receiving a code, an authenticator app,
+a certificate on a device, a physical key.
 
 - **Its strength:** theft is noticeable. A stolen token is a missing token.
 - **Its weakness:** it can be lost, stolen or cloned, and the user cannot work without it.
@@ -95,8 +104,8 @@ a device, a physical key.
 
 ### 👤 Something you are — inherence
 
-Fingerprint, iris or retina, facial geometry, palm or vein pattern, voice. Behavioural
-characteristics — typing rhythm, gait — also fall here.
+Your actual face. Fingerprint, iris or retina, facial geometry, palm or vein pattern, voice.
+Behavioural characteristics — typing rhythm, gait — also fall here.
 
 - **Its strength:** hard to share, impossible to forget, always with you.
 - **Its weakness:** it **cannot be reissued.** A breached password is changed in seconds; a
