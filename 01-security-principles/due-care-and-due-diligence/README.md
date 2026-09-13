@@ -77,6 +77,48 @@ flowchart LR
 
 ---
 
+## 🔬 What a real due diligence review actually checks
+
+"Review the target's security" is not one action — it's a specific document checklist a real
+security or M&A team works through.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    Q["📋 Security<br/>questionnaire (SIG)"] --> S["📄 SOC 2 Type II<br/>report"]
+    S --> P["🎯 Recent pen-test<br/>results"]
+    P --> B["🕵️ Breach history<br/>disclosure"]
+    B --> I["🛡️ Cyber insurance<br/>coverage"]
+    I --> SC["📊 Third-party score<br/>(BitSight, SecurityScorecard)"]
+    SC --> DEC["✅ Go / no-go<br/>decision"]
+
+    style Q fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B fill:#12243f,stroke:#5C7CFA,color:#fff
+    style I fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SC fill:#3a2c12,stroke:#F08C00,color:#fff
+    style DEC fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**A SIG (Standardised Information Gathering) questionnaire** is the actual document a vendor
+fills out — hundreds of standardised yes/no and descriptive questions covering everything from
+encryption practices to employee background checks, built so buyers don't each invent their own
+version. A **SOC 2 Type II report** is an independent auditor's attestation that the vendor's
+controls didn't just exist on paper but were observed actually operating correctly over a period
+of months — the "Type II" specifically means "over time," as opposed to a Type I snapshot of a
+single day. Serious deals also pull **outside-in scores** from services like BitSight or
+SecurityScorecard, which continuously grade an organisation's external security posture (open
+ports, expired certificates, known breach exposure) the way a credit bureau scores creditworthiness
+— without needing the target's cooperation at all.
+
+**Due care gets measured continuously the same way.** Rather than a point-in-time patch report,
+mature organisations run **continuous compliance monitoring** tools (Drata, Vanta) that check
+control status against a framework in near-real-time, so "we maintain due care" is backed by a
+live dashboard rather than a once-a-year audit binder.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
