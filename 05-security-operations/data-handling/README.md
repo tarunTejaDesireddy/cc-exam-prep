@@ -189,6 +189,39 @@ cannot physically destroy someone else's disks.
 > 🎯 **Choose the method by sensitivity and by whether the media is being reused.** Reuse
 > internally → clearing. Leaving the organisation with sensitive data → destruction.
 
+### 🔬 How a drive's own "secure erase" and a CPU enclave actually work
+
+**Most modern SSDs are self-encrypting drives (SEDs) already, whether anyone configured
+encryption or not.** Every bit written to the flash is encrypted on the way in by a key the
+drive itself generates and never exposes. The drive's built-in **secure erase** command doesn't
+overwrite anything at all — it simply tells the drive's own controller to discard and regenerate
+that internal key. Every existing block instantly becomes unreadable ciphertext with no key
+left anywhere, which is why it's near-instant and reliable regardless of wear levelling: it's
+crypto-shredding, just performed *inside the drive itself* rather than at the application layer.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    APP["⚙️ Application<br/>processes plaintext"] --> ENC["🔒 CPU enclave<br/>(Intel SGX / AMD SEV)"]
+    ENC -->|"encrypted, even<br/>from the OS itself"| MEM["💾 RAM"]
+    ROOT["🦹 Attacker with<br/>root/hypervisor access"] -.->|"sees only<br/>ciphertext"| MEM
+
+    style APP fill:#26292e,stroke:#868E96,color:#fff
+    style ENC fill:#0f3038,stroke:#12B5A5,color:#fff
+    style MEM fill:#12243f,stroke:#5C7CFA,color:#fff
+    style ROOT fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+**A trusted execution environment is the concrete answer to "data in use is the hardest state to
+protect."** Intel SGX and AMD SEV carve out a hardware-enforced region of memory — an **enclave**
+— where code runs on genuinely decrypted data, but the CPU encrypts everything the instant it
+leaves that region for ordinary RAM. Critically, this holds even against an attacker who has
+compromised the operating system or hypervisor itself: root access normally means "can read
+anything in memory," and an enclave is specifically designed to keep its contents opaque even
+to that level of compromise. This is what **confidential computing** in cloud platforms actually
+sells: running your workload on a provider's hardware while the provider's own privileged access
+still can't see your data being processed.
+
 ---
 
 ## 🎭 Masking
