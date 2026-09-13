@@ -18,8 +18,20 @@
 
 ## 🧸 The big idea
 
-Every ISC2 certification holder agrees to abide by a Code of Ethics. It has a preamble and
-**four canons**, and they are listed in a deliberate order.
+Before a caveman is allowed to become a tribe guard, he swears an oath to the elders, in a
+strict order — and the order matters, because one day two parts of that oath will pull against
+each other, and he needs to already know which one wins.
+
+*"First, I will protect the whole tribe, even above the family who pays me to guard their
+things. Second, I will act honestly and keep my word. Third, I will serve well whoever
+specifically hired me. Fourth, I will bring honour to guards as a group, not shame."*
+
+If the chief's own family asks him to look the other way while they steal from a neighbour, the
+oath already answers it: protecting the whole tribe (first) beats serving the family who hired
+him (third). He doesn't have to think hard — the order was fixed the day he swore it.
+
+That's the whole idea. Every ISC2 certification holder agrees to abide by a Code of Ethics. It
+has a preamble and **four canons**, and they are listed in a deliberate order.
 
 **The order is not decorative. It is a priority ranking.** When two canons conflict, the one
 listed first wins. That single fact answers most of the ethics questions on the exam.
