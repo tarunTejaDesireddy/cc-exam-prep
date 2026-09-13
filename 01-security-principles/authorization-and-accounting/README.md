@@ -156,6 +156,45 @@ flowchart LR
 
 ---
 
+## 🔬 How this actually works under the hood
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    D["📡 Device / user"] -->|"1 · credentials"| R["🖧 RADIUS / TACACS+<br/>server"]
+    R -->|"2 · Access-Accept<br/>+ permitted attrs"| D
+    D -->|"3 · session usage"| R
+    R --> LOG["📋 Accounting record<br/>time · bytes · duration"]
+
+    style D fill:#26292e,stroke:#868E96,color:#fff
+    style R fill:#0f3038,stroke:#12B5A5,color:#fff
+    style LOG fill:#12243f,stroke:#5C7CFA,color:#fff
+```
+
+**AAA started as a real network protocol, not just an exam acronym.** RADIUS and TACACS+ are
+still what actually runs when a VPN gateway or Wi-Fi controller checks a login: the device asks
+a central RADIUS server to authenticate the credential, the server replies with an Access-Accept
+that carries authorisation attributes (which VLAN, what session timeout), and the device reports
+usage back for accounting — traditionally billed by the minute, which is the actual historical
+reason the third A is "accounting" and not "auditing."
+
+**Authorisation is enforced differently depending on where you are.** On Linux, every file
+carries **permission bits** — read/write/execute for owner, group, and everyone else — checked
+by the kernel on every single file access; a POSIX **ACL** extends that to named individual
+users beyond the three basic categories. On Windows, an NTFS file carries a **DACL** — a list
+of **ACEs** (Access Control Entries), each one an allow-or-deny rule tied to a specific user or
+group SID, evaluated top to bottom until a match is found. In a web application, authorisation
+usually travels as a **JWT** — a signed token containing claims like `role: finance-clerk` that
+the server checks on every request without needing to re-query a database each time.
+
+**Accounting has to survive the very people it watches.** A log an administrator can quietly
+edit isn't actually evidence of anything. Real audit systems ship logs to storage the writer
+can't modify — **WORM** (write-once, read-many) storage, or a **hash chain** where each log
+entry includes the hash of the one before it, so altering an old entry breaks every hash after
+it and the tampering becomes mathematically obvious.
+
+---
+
 ## ⚖️ Told apart
 
 | | Answers | Not to be confused with |
