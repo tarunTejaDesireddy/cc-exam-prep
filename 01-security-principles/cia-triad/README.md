@@ -18,12 +18,20 @@
 
 ## 🧸 The big idea
 
-Ask what "security" means and you get vague answers. ISC2 gives a precise one: security is
-the protection of three properties of information.
+Imagine you keep a diary in a wooden box under your bed. You want exactly three things to be
+true about that box, always:
 
-- **Confidentiality** — only the right people can *see* it.
-- **Integrity** — only the right people can *change* it, and you can tell if they did.
-- **Availability** — the right people can *reach* it when they need to.
+1. **Nobody else reads it.** Only you get to see what's inside.
+2. **Nobody else writes in it.** If a page ever looks different, you can tell.
+3. **You can always get to it.** When you want your diary, it's there, and it opens.
+
+That's the whole idea. Security people gave those three things fancy names — **Confidentiality**
+(nobody else reads it), **Integrity** (nobody else changes it, and you'd notice if they tried),
+and **Availability** (you can always reach it) — but the diary box is the entire model. Every
+attack on this exam is really just someone breaking one of those three promises about a box.
+
+Ask what "security" means in the abstract and you get vague answers. ISC2 gives a precise one:
+security is the protection of exactly those three properties of information, and nothing else.
 
 That is the whole model. Every attack, every control, every incident on this exam maps to one
 or more of those three.
