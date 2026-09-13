@@ -180,6 +180,38 @@ vocabulary is precise rather than pedantic — each word marks a different set o
 
 ---
 
+## 🔬 What "declaring an incident" triggers in real tooling
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    D["🚨 Incident declared"] --> SEV["🎫 SEV1 ticket created<br/>(ServiceNow/Jira)"]
+    SEV --> PAGE["📟 On-call paged<br/>automatically (PagerDuty)"]
+    D --> LEGAL["⚖️ Legal/DPO review:<br/>is this a breach?"]
+    LEGAL -->|"yes"| CLOCK["⏱️ 72-hour clock starts<br/>tracked in a compliance tool"]
+
+    style D fill:#3a1a20,stroke:#E03131,color:#fff
+    style SEV fill:#12243f,stroke:#5C7CFA,color:#fff
+    style PAGE fill:#3a2c12,stroke:#F08C00,color:#fff
+    style LEGAL fill:#12243f,stroke:#5C7CFA,color:#fff
+    style CLOCK fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+"Declaring an incident" isn't a phrase in a policy document — it's a real button someone
+presses in a real ticketing system. A **SEV1** (or similarly named highest-severity) ticket
+auto-triggers a **PagerDuty**-style escalation that phones or texts the on-call responder
+regardless of the hour, which is exactly why the severity-level vocabulary matters: mislabelling
+something SEV3 when it's actually SEV1 means the right people simply never get woken up.
+Separately, and just as automatically, a legal or data-protection function is looped in to make
+the actual breach determination — and if they confirm one, a **72-hour countdown** (for GDPR, or
+whatever the applicable regime's own window is) starts being tracked in a dedicated compliance
+tool, because missing that deadline is itself a regulatory failure independent of the breach.
+This is the concrete machinery behind the exam's insistence that the incident/breach distinction
+"carries legal weight" — it's not abstract, it's a clock that starts or doesn't the moment a
+specific person makes a specific call.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
