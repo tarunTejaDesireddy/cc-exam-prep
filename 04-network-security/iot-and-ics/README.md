@@ -18,12 +18,18 @@
 
 ## 🧸 The big idea
 
-Most security guidance assumes a device that can run modern software, receive patches
-regularly, and be rebooted without real-world consequences. **Embedded systems, ICS and IoT
-devices routinely violate every one of those assumptions.** A programmable logic controller
-(PLC) on a factory floor may run for a decade without a reboot, cannot always be patched
-without a scheduled outage, and controlling it incorrectly can cause physical harm — not just a
-data breach.
+A scribe's writing tablet can be wiped clean and rewritten any time, with no consequence beyond
+the ink. The village's water-wheel, controlling the gates that flood or drain the fields, is a
+completely different kind of tool: it was built once for exactly one physical job, it can't be
+"paused for an update" without stopping the mill and losing a day's grinding, and if you get its
+mechanism wrong, the gate can swing wildly and actually hurt whoever's standing near it.
+
+That's the whole idea. Most security guidance assumes a device that can run modern software,
+receive patches regularly, and be rebooted without real-world consequences. **Embedded systems,
+ICS and IoT devices routinely violate every one of those assumptions.** A programmable logic
+controller (PLC) on a factory floor may run for a decade without a reboot, cannot always be
+patched without a scheduled outage, and controlling it incorrectly can cause physical harm — not
+just a data breach.
 
 This is why the exam names them separately from "network security" in general: **the same
 threats apply, but the usual fixes often do not.**
@@ -48,9 +54,13 @@ threats apply, but the usual fixes often do not.**
 
 ## 🔄 Why the CIA priority order often flips in ICS
 
-Standard IT security tends to prioritise **confidentiality** first — protecting data from
-disclosure. **In ICS/OT environments, the priority commonly flips to availability and
-integrity first**, because the "data" being protected is a live physical process.
+The scribe cares most about keeping what he's written secret. But for the water-wheel gate, what
+matters most is that it keeps turning reliably and does exactly what it's told, correctly — a
+leaked secret about how the gate mechanism works matters far less than the gate suddenly jamming
+or swinging the wrong way. Standard IT security tends to prioritise **confidentiality** first —
+protecting data from disclosure. **In ICS/OT environments, the priority commonly flips to
+availability and integrity first**, because the "data" being protected is a live physical
+process.
 
 | Priority | Typical IT reasoning | Typical ICS/OT reasoning |
 |---|---|---|
