@@ -77,6 +77,37 @@ This is why standards bodies are already publishing quantum-resistant algorithms
 organisations with long-lived sensitive data are beginning migration now — the migration
 itself takes years, and the data being protected today needs to survive the transition.
 
+## 🔬 The real, named algorithms already being deployed
+
+"Standards bodies have already published post-quantum algorithms" has actual names attached.
+**NIST finalised its selections in 2024**: **CRYSTALS-Kyber** (standardised as **ML-KEM**) for
+key exchange, and **CRYSTALS-Dilithium** (standardised as **ML-DSA**) for digital signatures.
+Both are built on **lattice-based cryptography** — a completely different family of hard
+mathematical problem than the factoring and discrete-logarithm problems RSA and elliptic-curve
+cryptography rely on, which is exactly why Shor's algorithm doesn't help against them: it was
+built to solve *those specific* problems, not lattice problems.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    C["🔒 Classical<br/>ECDHE key exchange"] --> H["🤝 Hybrid handshake<br/>BOTH run together"]
+    Q["🔮 Post-quantum<br/>ML-KEM key exchange"] --> H
+    H --> S["🔑 Session key needs<br/>BOTH to be broken"]
+
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style Q fill:#12243f,stroke:#5C7CFA,color:#fff
+    style H fill:#3a2c12,stroke:#F08C00,color:#fff
+    style S fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**This migration isn't hypothetical — it's already running in production today, via hybrid
+deployment.** Chrome and Cloudflare, among others, now run TLS handshakes combining a classical
+key exchange (ECDHE) *and* a post-quantum one (ML-KEM) simultaneously, deriving the actual
+session key from both together. This is cryptographic agility in its most concrete form: an
+attacker would need to break *both* the classical and the lattice-based math to recover the
+key, which is deliberately cautious in case a weakness in the still-newer post-quantum algorithms
+is discovered before classical algorithms are ever actually broken by a quantum computer.
+
 ---
 
 ## ⚖️ Told apart
