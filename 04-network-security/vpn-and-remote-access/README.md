@@ -193,6 +193,45 @@ anyone can listen to.
 
 ---
 
+## 🔬 Cracking WPA2, and what ZTNA actually looks like
+
+**The WPA2 crack mentioned in the grown-up section works entirely offline, which is what makes
+it so practical.**
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    D["📡 Attacker captures<br/>the 4-way handshake"] --> O["💻 Takes it home,<br/>offline, no rate limit"]
+    O --> G["🔨 Guesses passphrases,<br/>computes each PMK"]
+    G --> M{"Matches the<br/>captured hash?"}
+    M -->|"yes"| C["✅ Passphrase<br/>recovered"]
+    M -->|"no"| G
+
+    style D fill:#3a1a20,stroke:#E03131,color:#fff
+    style O fill:#3a2c12,stroke:#F08C00,color:#fff
+    style G fill:#12243f,stroke:#5C7CFA,color:#fff
+    style M fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+An attacker just needs to capture one **4-way handshake** — which can even be forced by sending
+a deauthentication frame to a connected client, prompting an automatic reconnection the attacker
+records. That handshake is then taken away, with **no online rate limit at all** to slow guessing
+down, and every candidate passphrase is tested completely offline. This is exactly why passphrase
+strength is the entire defence under WPA2 — there's no lockout mechanism to help a weak one — and
+exactly what WPA3's SAE handshake was redesigned to prevent, by not exposing anything an attacker
+can take away and crack later.
+
+**ZTNA, concretely:** instead of a VPN putting the whole device "on the network," a ZTNA broker
+sits between the user and each individual application. A request to reach the payroll app is
+checked — identity, device compliance, location — and only *that one connection* is brokered;
+the rest of the internal network remains completely invisible and unreachable to that device,
+with no route to it existing at all. A compromised laptop under ZTNA can attempt to abuse only
+the specific applications it was actually granted, rather than everything reachable from "inside
+the network" the way a traditional VPN would expose it.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
