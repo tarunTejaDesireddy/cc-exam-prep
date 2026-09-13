@@ -185,6 +185,41 @@ flowchart TD
 
 ---
 
+## 🔬 Where "inventory" and "drift detection" actually live in a modern stack
+
+The grown-up section says infrastructure as code merges the inventory and the baseline into one
+artefact. Here's literally what that file looks like and what watches it.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    TF["📄 Terraform state file<br/>= the literal inventory"] --> APPLY["🏗️ terraform apply<br/>builds/changes resources"]
+    APPLY --> LIVE["☁️ Live cloud<br/>resources"]
+    CFG["🔍 AWS Config /<br/>Azure Policy"] -->|"continuously compares"| LIVE
+    CFG -->|"mismatch found"| ALERT["🚨 Drift alert or<br/>auto-remediation"]
+
+    style TF fill:#0f3038,stroke:#12B5A5,color:#fff
+    style APPLY fill:#12243f,stroke:#5C7CFA,color:#fff
+    style LIVE fill:#26292e,stroke:#868E96,color:#fff
+    style CFG fill:#3a2c12,stroke:#F08C00,color:#fff
+    style ALERT fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+Running `terraform state list` prints every single resource Terraform is managing — that literal
+command output *is* an inventory, generated from the same file that defines what each resource's
+configuration should be. There's no separate spreadsheet to keep in sync, because the file that
+built the infrastructure and the file that describes its intended state are the same file.
+
+**AWS Config and Azure Policy are the real, named tools that do continuous drift detection.**
+They poll the actual live configuration of every resource on a schedule, compare it against a
+defined rule set (a security group should never allow inbound `0.0.0.0/0` on port 22, an S3
+bucket should never be public), and either raise an alert the moment something drifts out of
+compliance or — configured more aggressively — automatically revert the setting back. This is
+the grown-up section's "baseline nobody measures against is a document" turned into a specific,
+running service rather than an annual audit.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
