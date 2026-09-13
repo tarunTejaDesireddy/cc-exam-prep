@@ -86,7 +86,7 @@ flowchart TD
 
 ### 🔒 Confidentiality
 
-**Only authorised parties can see the information.**
+Back to the diary: this is the lock on the box. **Only authorised parties can see the information.**
 
 The failure is **disclosure** — and note that disclosure is a failure whether it was malicious,
 accidental, or the result of a misconfiguration. An email sent to the wrong recipient is a
@@ -102,7 +102,8 @@ barriers.
 
 ### ✅ Integrity
 
-**Information is not changed except by authorised parties, and unauthorised change is detectable.**
+This is knowing your diary's handwriting is still your own. **Information is not changed except
+by authorised parties, and unauthorised change is detectable.**
 
 Two halves, and the exam tests both. Preventing improper change is one; being able to *tell*
 whether change occurred is the other. That second half is why hashing is an integrity control
@@ -121,7 +122,8 @@ validation, change management, access controls, database transaction controls.
 
 ### ⚡ Availability
 
-**Authorised users get timely, reliable access when they need it.**
+This is being able to reach under the bed and actually get the box out. **Authorised users get
+timely, reliable access when they need it.**
 
 The word **timely** is doing work. A system that responds so slowly it cannot be used has an
 availability failure even though it is technically running. So does a system that is up but
