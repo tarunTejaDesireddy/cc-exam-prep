@@ -91,6 +91,39 @@ risks and evidence centrally rather than manually.
 
 ---
 
+## 🔬 How one control satisfies five regulations at once
+
+The grown-up section mentions that a GRC platform maps one piece of evidence to multiple
+frameworks. Here's what that actually looks like for a single, ordinary control.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    C["🔐 Control:<br/>MFA enforced<br/>on all admin accounts"] --> S["SOC 2<br/>CC6.1"]
+    C --> I["ISO 27001<br/>Annex A.8.5"]
+    C --> P["PCI DSS<br/>Req 8.4"]
+    C --> N["NIST CSF<br/>PR.AA-03"]
+
+    style C fill:#0f3038,stroke:#12B5A5,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style I fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P fill:#12243f,stroke:#5C7CFA,color:#fff
+    style N fill:#12243f,stroke:#5C7CFA,color:#fff
+```
+
+One real, technical fact — "MFA is enforced for every admin login" — is simultaneously evidence
+for a SOC 2 audit, an ISO 27001 certification, PCI DSS compliance, and a NIST CSF maturity
+assessment, because all four frameworks independently require some version of strong
+authentication. A GRC platform stores this **cross-mapping** once: screenshot the admin console
+showing MFA enforced, upload it to the platform, and it auto-populates as satisfied evidence
+against all four requirements simultaneously — instead of a security engineer being asked for
+the same screenshot four separate times a year by four separate auditors. This is the concrete,
+practical reason organisations invest in GRC tooling rather than tracking compliance in
+spreadsheets: the framework count keeps growing, but the underlying controls don't multiply at
+the same rate.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
