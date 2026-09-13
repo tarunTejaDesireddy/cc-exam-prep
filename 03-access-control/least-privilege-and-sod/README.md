@@ -18,6 +18,16 @@
 
 ## 🧸 The big idea
 
+A young apprentice hunter is handed a small skinning knife — that's all his current job needs.
+He is not handed the keys to the whole weapons rack, even though it would be more convenient for
+him. If someone steals his knife, they get a knife. They don't get the tribe's entire arsenal.
+That's **least privilege**.
+
+Separately, the tribe has a rule about the grain store: whoever *counts* the grain each week is
+never the same person who *hands it out* to families. If one dishonest person tried to skim a
+basket for himself, the numbers wouldn't match — unless the counter and the distributor secretly
+worked together. That's **segregation of duties**.
+
 Two principles, doing two different jobs.
 
 **Least privilege** limits **how much** any one person can do:
@@ -29,8 +39,10 @@ Two principles, doing two different jobs.
 > Split a sensitive process so that no single individual can carry it through unchecked.
 
 The difference matters because they defend against different things. Least privilege limits the
-**damage** when an account is misused or compromised. Segregation of duties makes **deliberate
-fraud** require collusion, which is far riskier and far rarer.
+**damage** when an account is misused or compromised — a stolen knife is still just a knife.
+Segregation of duties makes **deliberate fraud** require collusion — the counter and the
+distributor would both have to agree to cheat — which is far riskier and far rarer than one
+person acting alone.
 
 > 🎯 **"The user had more access than they needed" is the most frequently correct diagnosis in
 > this domain.** When a question asks what should have prevented an incident, least privilege is
@@ -57,8 +69,9 @@ fraud** require collusion, which is far riskier and far rarer.
 
 ## 🔻 Least privilege
 
-**Grant the minimum access the role requires.** Not what might be convenient, not what the
-previous person had, not what the user asked for.
+This is the apprentice's skinning knife, not the whole weapons rack. **Grant the minimum access
+the role requires.** Not what might be convenient, not what the previous person had, not what
+the user asked for.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
@@ -109,6 +122,7 @@ together, and under MAC both are required.
 
 ## ⚖️ Segregation of duties
 
+This is the grain counter and the grain distributor never being the same person, taken further.
 **No single person should be able to complete a sensitive process from end to end.**
 
 The classic example is payment: the person who **requests** a payment must not be the person who
