@@ -210,6 +210,46 @@ scratch:
 
 ---
 
+## 🔬 How documents are actually managed at scale
+
+A five-person startup keeps policies in a shared drive. A regulated enterprise runs them through
+a real **document lifecycle**, usually inside a dedicated GRC platform (ServiceNow GRC,
+Archer, Vanta).
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    DR["✏️ Draft"] --> RV["👀 Review<br/>by stakeholders"]
+    RV --> AP["✅ Approve<br/>senior management"]
+    AP --> PB["📢 Publish +<br/>version number"]
+    PB --> AN["📅 Annual review<br/>trigger"]
+    AN -->|"still current"| PB
+    AN -->|"needs change"| DR
+
+    style DR fill:#26292e,stroke:#868E96,color:#fff
+    style RV fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AP fill:#0f3038,stroke:#12B5A5,color:#fff
+    style PB fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style AN fill:#3a2c12,stroke:#F08C00,color:#fff
+```
+
+Every published document carries a **version number** and an **effective date**, so an auditor
+(or an incident investigator, months later) can pin down exactly what rule was in force on a
+given day — "the standard said 12-character minimums until v3.2 raised it to 14 in March." This
+is also where the grown-up section's **exception process** actually lives operationally: a
+formal ticket in the same platform, with its own approver, expiry date, and compensating-control
+field, tracked alongside the documents it's an exception *to*.
+
+**A CIS Benchmark citation, concretely:** an internal standard rarely reinvents server hardening
+from scratch. It points outward — "Linux servers must be configured per the CIS Benchmark for
+the relevant distribution" — and that benchmark is a genuinely enormous, specific document: for
+Ubuntu, it runs to hundreds of individually numbered checks like "ensure SSH root login is
+disabled" or "ensure the sticky bit is set on world-writable directories." The internal standard
+stays one sentence long precisely because the detailed, versioned technical content already
+exists externally and gets maintained by someone else.
+
+---
+
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
