@@ -18,8 +18,16 @@
 
 ## 🧸 The big idea
 
-**Repudiation** means denying that you did something. *I never sent that email. I never approved
-that payment. I never signed that agreement.*
+Imagine a caveman making a trade deal: three baskets of berries for a spear. To seal it, he
+presses his thumb into a soft clay tablet, and the clay hardens overnight.
+
+Weeks later he tries to back out: *"I never agreed to that trade."* The tribe elder just points
+at the tablet. His exact thumbprint — the one ridge pattern nobody else on Earth has — is baked
+into stone. He can't smudge it out without it being obvious, and nobody else could have pressed
+that print. He's stuck. **He cannot credibly deny it.**
+
+That's the whole idea. **Repudiation** means denying that you did something. *I never sent that
+email. I never approved that payment. I never signed that agreement.*
 
 **Non-repudiation** is the property that makes such a denial impossible to sustain — you can
 prove, to someone who was not there, that a specific person did a specific thing.
@@ -51,7 +59,10 @@ edited that log*. Genuine non-repudiation requires evidence that only Ahmed coul
 
 ## 🔍 How non-repudiation is achieved
 
-Non-repudiation needs three things together. Take any one away and the denial becomes credible.
+The clay tablet worked because of three things at once: the thumbprint was uniquely his, only
+his thumb could have made it, and the hardened clay couldn't be quietly edited afterward.
+Non-repudiation needs those same three things together, digitally. Take any one away and the
+denial becomes credible.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
