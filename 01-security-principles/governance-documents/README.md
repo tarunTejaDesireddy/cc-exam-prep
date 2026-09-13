@@ -18,16 +18,32 @@
 
 ## 🧸 The big idea
 
-Organisations write down their rules, and the rules come in four layers that get progressively
-more specific. Think of it as the difference between *what we want*, *what exactly*, *how
-precisely*, and *some advice*.
+Your tribe has rules about fire, written at four different levels of detail.
+
+The chief declares, once, for everyone: *"Fires must never be left unwatched."* That's the big
+"what and why" — nobody argues with it, and it barely ever changes. That's a **policy.**
+
+The council turns that into an exact, mandatory number: *"A fire must have one person within
+arm's reach at all times, and sit at least 10 paces from any tent."* Specific, still mandatory,
+just more detailed. That's a **standard.**
+
+The fire-keeper teaches the exact steps: *"Gather dry moss first. Strike the flint twice over it.
+Blow gently until it catches."* Step by step, so anyone can follow it. That's a **procedure.**
+
+And an old hunter mentions, almost as an aside: *"Birch bark catches faster than moss, if you can
+find some."* Nobody has to do this — it's just good advice. That's a **guideline**, and the only
+one of the four that's optional.
+
+That's the whole idea. Organisations write down their rules, and the rules come in four layers
+that get progressively more specific. Think of it as the difference between *what we want*,
+*what exactly*, *how precisely*, and *some advice*.
 
 > **Policy** says **what** and **why**.
 > **Standard** says **what exactly** — the specific requirement.
 > **Procedure** says **how**, step by step.
 > **Guideline** says **you might consider this** — and is the only optional one.
 
-A worked example on one subject, passwords:
+A second worked example, this time on passwords:
 
 | Layer | What it says |
 |---|---|
