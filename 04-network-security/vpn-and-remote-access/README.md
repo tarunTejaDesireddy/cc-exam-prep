@@ -18,24 +18,29 @@
 
 ## 🧸 The big idea
 
-A **VPN** creates an encrypted tunnel across an untrusted network, so two parties can communicate
-as though they were on a private link.
+The open trade road runs through bandit country, so messages travel inside a sealed, locked
+cart instead of an open basket. Anyone watching the road sees only that a sealed cart passed
+by — not what's inside it, not who it's really for.
 
-The word doing the work is **tunnel**. The original traffic is wrapped inside another packet and
-encrypted, so anyone watching the public network sees only that an encrypted conversation is
-happening between two endpoints — not what is inside it.
+That's a **VPN**: an encrypted tunnel across an untrusted network, so two parties can communicate
+as though they were on a private link. The word doing the work is **tunnel**. The original
+traffic is wrapped inside another packet and encrypted, so anyone watching the public network
+sees only that an encrypted conversation is happening between two endpoints — not what is inside
+it.
 
-Two deployments, and the exam wants them apart:
-
-- **Site-to-site** — connects two *networks*. A branch office to headquarters. Always on, users
-  unaware of it.
-- **Remote access** — connects one *device* to a network. A laptop in a hotel to the office.
-  Established by the user when needed.
+Two deployments, and the exam wants them apart. Two allied villages might dig a permanent covered
+tunnel between them that's simply always open, with nobody deciding each time to use it — that's
+**site-to-site**, connecting two *networks*, always on, users unaware of it. A lone traveller
+might instead wrap themselves in a disguise only for the one trip they need to make right now —
+that's **remote access**, connecting one *device* to a network, established by the user when
+needed.
 
 > [!IMPORTANT]
-> **A VPN protects data in transit between the two tunnel endpoints, and nothing else.** It does
-> not protect the endpoints themselves. A compromised laptop connected over VPN is a compromised
-> device with a clean encrypted path onto your network — arguably worse than no VPN at all.
+> **The sealed cart only protects the road.** If a spy was already hidden inside the cart before
+> it ever left, the seal does nothing at all. **A VPN protects data in transit between the two
+> tunnel endpoints, and nothing else.** It does not protect the endpoints themselves. A
+> compromised laptop connected over VPN is a compromised device with a clean encrypted path onto
+> your network — arguably worse than no VPN at all.
 
 ---
 
