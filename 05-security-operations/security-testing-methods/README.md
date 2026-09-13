@@ -18,6 +18,11 @@
 
 ## 🧸 The big idea
 
+Once a season, the chief hires a trusted band of hunters to stage a mock raid on camp — sneaking
+past the fence at night, the same way a real enemy would, while the real watchmen try to catch
+them. Nobody gets hurt, nothing actually burns, but the camp learns exactly where its defences
+hold and where they don't — before a real raiding party finds out first.
+
 Security testing means **deliberately trying to find weaknesses before someone hostile does.**
 The live outline groups this into three clusters: **readiness testing** (people and process,
 organised by team colour), **application testing** (finding bugs in software), and **physical
@@ -45,6 +50,12 @@ penetration testing** (covered on its own page). This page covers the first two.
 ---
 
 ## 🔍 Readiness testing: red, blue, purple
+
+The mock raiders (**red**) try to slip past the fence undetected; the real watchmen (**blue**)
+try to catch them. Normally the two sides only sit down together after it's all over, comparing
+notes at the fire the next morning. A **purple** exercise has them signalling to each other
+*during* the raid itself — the mock raider calling out "I just got past your east post" the
+moment it happens, so the watchmen learn the gap immediately instead of the next day.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
@@ -74,6 +85,13 @@ flowchart LR
 
 ## 🔍 Application testing: four techniques, told apart by *when* and *how*
 
+Building a hut gives you four different chances to catch a problem: studying the drawn-out plan
+before a single log is cut (would that door face straight into the wind?), checking each log for
+rot as it's carved but before the hut stands (still just timber, not yet a building), pushing and
+kicking the walls once the hut is fully built and standing to see what actually gives, and — for
+a hut already lived in for years — walking round it with the known list of "this exact door
+hinge always snaps eventually" checks.
+
 | Technique | Looks at | When | Finds |
 |---|---|---|---|
 | **Vulnerability scanning** | Systems/apps against a **known-vulnerability database** | Any time, often scheduled/automated | Known, previously catalogued vulnerabilities |
@@ -102,7 +120,9 @@ flowchart LR
 
 A penetration test goes further than scanning — a human actively tries to exploit what's
 found, to prove real-world impact rather than just flagging a theoretical weakness. How much
-the tester knows in advance is itself a tested distinction:
+the tester knows in advance is itself a tested distinction — the same mock-raid hunter tests
+the camp very differently depending on what the chief tells him going in: nothing at all, the
+full camp map and the elder's own key, or just a guest's welcome past the front gate.
 
 | | Tester starts with | Simulates |
 |---|---|---|
@@ -116,7 +136,9 @@ the tester knows in advance is itself a tested distinction:
 
 **Every test — application, red team, or physical — runs under written rules of engagement.**
 Without a defined scope and authorisation, an "authorised" test is legally indistinguishable
-from the real intrusion it's meant to simulate.
+from the real intrusion it's meant to simulate. This is exactly why the chief and the mock
+raiders agree beforehand which huts are truly off-limits and who to run to if it looks like
+turning into a real fight.
 
 ---
 
