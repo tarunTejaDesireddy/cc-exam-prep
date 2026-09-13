@@ -205,6 +205,44 @@ Read it as a sentence: **write it down, tell people, enforce it, then watch.**
 
 ---
 
+## 🔬 How a written policy becomes an enforced setting
+
+A policy is administrative. Something technical has to actually make it happen, and for the two
+most-examined policies here that mechanism has a specific name.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    P["📜 BYOD policy<br/>(the written rule)"] --> MDM["📱 MDM enrols<br/>the device"]
+    MDM --> WP["📦 Work profile<br/>separate container<br/>on the same phone"]
+    WP --> SW["🧹 Selective wipe<br/>removes ONLY the<br/>work container"]
+
+    style P fill:#12243f,stroke:#5C7CFA,color:#fff
+    style MDM fill:#0f3038,stroke:#12B5A5,color:#fff
+    style WP fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SW fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**Containerisation is a real OS feature, not a vendor promise.** Android calls it a **work
+profile**; iOS achieves the equivalent through **managed apps and managed app configuration**. The
+operating system itself keeps corporate apps and their data in a cryptographically separate
+space, with its own storage and its own encryption — the phone's own kernel refuses to let a
+personal app read a work app's files. That separation is what makes a **selective wipe**
+technically possible: the MDM sends a command that destroys the work container's encryption key
+and data, and the OS leaves the personal side completely untouched, because it was never the
+same storage in the first place.
+
+**A password policy gets enforced by a specific technical control too.** On Windows, a Group
+Policy Object pushes minimum length and complexity to every domain-joined machine. Modern
+identity platforms go further with a **banned password list** — Entra ID Password Protection, for
+instance, checks a proposed password against a maintained list of known-breached and
+organisation-specific weak terms and rejects it at the point of being set. That is the concrete
+answer to the exam's "policy is administrative, the setting enforcing it is technical" pairing:
+the policy document says "credentials must be strong," and a GPO or password-protection service
+is the thing that actually refuses `Summer2026!`.
+
+---
+
 ## ⚖️ Told apart
 
 | | Covers | Not to be confused with |
