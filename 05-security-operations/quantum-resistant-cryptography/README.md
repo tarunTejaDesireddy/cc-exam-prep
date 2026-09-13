@@ -18,16 +18,22 @@
 
 ## 🧸 The big idea
 
-Modern public-key (asymmetric) encryption — RSA, elliptic-curve cryptography — relies on
-mathematical problems that are extremely hard for **ordinary computers** to solve. A
-sufficiently powerful **quantum computer**, using different computational techniques, is
-expected to be able to solve those same problems quickly, breaking the encryption they
-protect.
+Today's two-key lockbox is safe because untangling it without the right key would take an
+ordinary person a lifetime. But legend speaks of a giant, not yet born, whose strength works in
+a completely different way — one who could untangle that same lock almost instantly, the moment
+he grows into his power.
 
-**Quantum-resistant cryptography** (also called post-quantum cryptography) means encryption
-algorithms specifically designed to remain secure even against an attacker with a quantum
-computer. At CC depth, you need to know *why this matters now*, not the mathematics behind
-any specific algorithm.
+That's the whole idea. Modern public-key (asymmetric) encryption — RSA, elliptic-curve
+cryptography — relies on mathematical problems that are extremely hard for **ordinary
+computers** to solve. A sufficiently powerful **quantum computer**, using different
+computational techniques, is expected to be able to solve those same problems quickly, breaking
+the encryption they protect.
+
+**Quantum-resistant cryptography** (also called post-quantum cryptography) means building a
+lock the giant *still* can't untangle even once he's fully grown — encryption algorithms
+specifically designed to remain secure even against an attacker with a quantum computer. At CC
+depth, you need to know *why this matters now*, not the mathematics behind any specific
+algorithm.
 
 ---
 
@@ -47,11 +53,14 @@ any specific algorithm.
 Practical, cryptography-breaking quantum computers do not exist yet at the scale needed. So
 why does the exam test this as current content?
 
-**"Harvest now, decrypt later."** An adversary can capture and store encrypted traffic or data
-*today*, and simply wait until quantum computing matures enough to decrypt it. For data that
-must remain confidential for many years — government secrets, long-lived personal records —
-today's encryption may already be inadequate against a *future* decryption capability, even
-though it is completely secure against every attacker that exists right now.
+A rival tribe today can't open your locked message chest — so instead of giving up, they simply
+steal the sealed chest and bury it, patiently waiting for years until the legendary giant is
+finally born and can crack it open for them. **"Harvest now, decrypt later."** An adversary can
+capture and store encrypted traffic or data *today*, and simply wait until quantum computing
+matures enough to decrypt it. For data that must remain confidential for many years — government
+secrets, long-lived personal records — today's encryption may already be inadequate against a
+*future* decryption capability, even though it is completely secure against every attacker that
+exists right now.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
