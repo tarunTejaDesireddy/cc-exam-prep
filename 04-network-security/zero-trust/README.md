@@ -137,6 +137,39 @@ one application, and re-checked while it continues.**
 > ⚠️ **Zero trust does not mean distrusting employees.** It means not granting trust based on
 > *network location*. The name misleads people, and questions occasionally play on it.
 
+### 🔬 The actual components, per NIST SP 800-207
+
+"A policy engine evaluates every request" is not hand-waving — NIST SP 800-207 names the two
+specific components that do it, and they show up by name in real products.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    U["👤 User/device<br/>requests access"] --> PEP["🚧 PEP<br/>Policy Enforcement Point<br/>sits in the path"]
+    PEP -->|"asks: allow?"| PDP["🧠 PDP<br/>Policy Decision Point<br/>evaluates signals"]
+    PDP -->|"decision"| PEP
+    PEP -->|"if allowed"| APP["📦 The one<br/>application"]
+
+    style U fill:#26292e,stroke:#868E96,color:#fff
+    style PEP fill:#0f3038,stroke:#12B5A5,color:#fff
+    style PDP fill:#3a2c12,stroke:#F08C00,color:#fff
+    style APP fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+The **PEP (Policy Enforcement Point)** is the gate that actually sits in the traffic's way —
+it has no judgment of its own, it just asks the **PDP (Policy Decision Point)** "should this go
+through?" and obeys the answer. Splitting these apart is deliberate: the PDP can be updated,
+audited and reasoned about centrally, while PEPs are cheap to place everywhere a decision needs
+enforcing — in front of every application, not just at one perimeter.
+
+**Between services (not users), the real enforcement mechanism is often mTLS (mutual TLS).**
+In a service mesh (Istio, Linkerd), every service is issued its own short-lived certificate, and
+before Service A can call Service B, *both* sides present and verify a certificate — not just
+the client proving who it is to the server, which is how ordinary HTTPS works, but each proving
+its identity to the other. This is "verify explicitly" applied to machine-to-machine traffic:
+a service sitting on the "trusted" internal network gets exactly zero benefit from that location
+if it can't produce a valid certificate.
+
 ---
 
 ## 🤝 Third-party agreements
