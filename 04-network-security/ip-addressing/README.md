@@ -18,17 +18,32 @@
 
 ## 🧸 The big idea
 
-Every device on a network needs an address so traffic can find it. That is an **IP address**,
-and it lives at layer 3.
+Every hut inside the village has a nickname — "third hut by the stream" — that only means
+something to people already inside the village. Nobody in another valley has ever heard of it,
+and it would mean nothing to them anyway, since a hundred other villages each have their own
+"third hut by the stream."
+
+The village as a whole, though, has exactly one name known to the outside world, and that's what
+gets used on anything travelling to another valley.
+
+That's the whole idea. Every device on a network needs an address so traffic can find it. That
+is an **IP address**, and it lives at layer 3.
 
 Two things the exam cares about:
 
-**Public versus private.** Some address ranges are reserved for use inside private networks.
-They are not routable on the internet — no router on the public internet will forward them. Any
-organisation can use them internally, which is why the same `192.168.1.1` exists in millions of
-homes simultaneously. Recognising these ranges on sight is worth guaranteed marks.
+**Public versus private.** The internal hut nicknames are the **private** addresses. Some
+address ranges are reserved for use inside private networks. They are not routable on the
+internet — no router on the public internet will forward them. Any organisation can use them
+internally, which is why the same `192.168.1.1` exists in millions of homes simultaneously.
+Recognising these ranges on sight is worth guaranteed marks.
 
-**Three supporting services**, each doing one job, each commonly confused with the others:
+**Three supporting services**, each doing one job, each commonly confused with the others: when a
+new family moves into the village, the elder assigns them a hut nickname automatically rather
+than making them invent one — that's **DHCP**. The village directory-keeper remembers that
+"Grog's hut" actually means "third hut by the stream," so nobody has to memorise numbers — that's
+**DNS**. And the gate-keeper relabels every outgoing message with the village's one shared
+outside-facing name before it leaves for another valley, so outsiders never see the internal
+nicknames at all — that's **NAT**.
 
 - **DHCP** hands out addresses automatically.
 - **DNS** translates names into addresses.
