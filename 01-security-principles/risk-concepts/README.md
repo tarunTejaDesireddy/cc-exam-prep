@@ -225,6 +225,47 @@ flowchart LR
 
 ---
 
+## 🔬 How organisations actually track vulnerabilities and threats
+
+The exam's model is clean: asset, threat, vulnerability, risk. A real security team tracks all
+four using specific, named industry systems.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    CVE["🆔 CVE published<br/>unique ID for the flaw"] --> CVSS["📊 CVSS score<br/>0-10 severity"]
+    CVSS --> SCAN["🔍 Scanner finds it<br/>in YOUR environment"]
+    SCAN --> EPSS["📈 EPSS score<br/>real exploitation odds"]
+    EPSS --> PRI["🎯 Prioritise:<br/>severity + odds + asset value"]
+
+    style CVE fill:#12243f,stroke:#5C7CFA,color:#fff
+    style CVSS fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SCAN fill:#0f3038,stroke:#12B5A5,color:#fff
+    style EPSS fill:#3a2c12,stroke:#F08C00,color:#fff
+    style PRI fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**Vulnerabilities have a real, public identity.** A newly discovered software flaw gets a
+**CVE** number (Common Vulnerabilities and Exposures, e.g. `CVE-2024-12345`) and is catalogued
+in the **NVD** (National Vulnerability Database), where it's scored by **CVSS** — a standardised
+0–10 formula combining how easy it is to exploit with how much damage a successful exploit does.
+A vulnerability scanner (Nessus, Qualys, OpenVAS) then checks your actual environment against
+that catalogue and tells you which of the thousands of known CVEs you're genuinely running.
+
+**CVSS score alone is a poor prioritisation tool**, which is exactly the "vulnerability doesn't
+imply exploitability" problem raised below — a 9.8-severity flaw nobody is actively attacking is
+less urgent than a 6-severity flaw with a ready-made exploit script circulating. **EPSS**
+(Exploit Prediction Scoring System) was built to fix this: it estimates the actual probability a
+given CVE will be exploited in the wild in the next 30 days, based on real observed attacker
+activity. Mature teams patch by **CVSS × EPSS × asset criticality** together, not CVSS alone.
+
+**Threats get tracked the same systematic way.** Security teams subscribe to **threat
+intelligence feeds** that name real, tracked attacker groups (e.g. "APT29") and map their known
+methods to the shared vocabulary of **MITRE ATT&CK** — so "a threat actor might phish our
+finance team" becomes a specific, testable, defensible statement instead of a guess.
+
+---
+
 ## ⚖️ Told apart
 
 The table the whole page exists for.
