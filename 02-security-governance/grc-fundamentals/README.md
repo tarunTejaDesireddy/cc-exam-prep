@@ -18,9 +18,22 @@
 
 ## 🧸 The big idea
 
-**GRC stands for Governance, Risk, and Compliance** — three activities organisations run
-together because they constantly inform one another. Governance sets direction and
-accountability. Risk management identifies and treats what could go wrong. Compliance proves
+The chief sets the tribe's direction: *"We will store enough food for winter, and keep the cave
+safe."* That's **governance** — deciding what matters and who's accountable for it.
+
+The hunters go out, spot the wolves near the cave from Domain 1, and decide to build a fence
+over the gap. That's **risk management** — finding what threatens the chief's goal and treating
+it.
+
+Once a season, the tribe elder walks the cave himself: *is the fence actually built? Is the food
+actually stored?* He doesn't set direction and he doesn't build fences — he just checks, with his
+own eyes, that what was promised is actually happening. That's **compliance.** And if he finds
+the chief ordered a fence that nobody ever built, that gap between promise and reality is exactly
+what compliance exists to catch.
+
+That's the whole idea. **GRC stands for Governance, Risk, and Compliance** — three activities
+organisations run together because they constantly inform one another. Governance sets direction
+and accountability. Risk management identifies and treats what could go wrong. Compliance proves
 the organisation is meeting the rules it committed to, whether self-imposed or externally
 required.
 
@@ -46,9 +59,12 @@ standard, procedure) that Domain 1 already covers.
 
 ## 🔍 Why GRC is run as one programme, not three
 
-Treating governance, risk and compliance as separate silos produces duplicated work: an auditor
-asks for evidence the risk team already produced, and a compliance deadline drives a decision
-governance never actually approved. Running them together means:
+If the chief, the hunters, and the elder never talked to each other, the elder might inspect a
+fence nobody told him was supposed to exist, or the hunters might build defences against a
+danger the chief never actually cared about. Treating governance, risk and compliance as
+separate silos produces exactly that duplicated, disconnected work: an auditor asks for evidence
+the risk team already produced, and a compliance deadline drives a decision governance never
+actually approved. Running them together means:
 
 - **Governance** sets the policies and risk appetite.
 - **Risk management** finds what threatens those objectives and decides how to treat it.
