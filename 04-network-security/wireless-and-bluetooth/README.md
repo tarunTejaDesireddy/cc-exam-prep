@@ -18,10 +18,15 @@
 
 ## 🧸 The big idea
 
-Wired networking assumes a cable defines who can listen. **Wireless removes that assumption** —
-anyone within range can receive the signal, whether or not they were meant to. Wireless
-security is therefore built around **encrypting the air**, not the cable, and Bluetooth adds
-its own short list of named attacks worth recognising by name.
+A note passed hand to hand only ever reaches the one person holding the next hand. But a message
+*shouted* across the village square can be heard by anyone standing within earshot — whether
+they were meant to hear it or not. Since you can't control who's standing nearby, the only real
+option is to shout in a code that only the right ears can actually understand.
+
+That's the whole idea. Wired networking assumes a cable defines who can listen. **Wireless
+removes that assumption** — anyone within range can receive the signal, whether or not they were
+meant to. Wireless security is therefore built around **encrypting the air**, not the cable, and
+Bluetooth adds its own short list of named attacks worth recognising by name.
 
 ---
 
@@ -48,6 +53,11 @@ its own short list of named attacks worth recognising by name.
 
 ## 🔍 Wi-Fi: what the exam actually wants
 
+A villager sets up their own unofficial second shouting-post because it's convenient, without
+telling the chief — that's a **rogue access point**, a risk introduced from *inside*. A stranger
+from outside instead mimics the exact voice and call-sign of the real village crier, so travellers
+approach and talk to the impostor instead — that's an **evil twin**, the same idea from *outside*.
+
 - **Use WPA2 or WPA3, never WEP or open networks** for anything sensitive. WEP's encryption is
   broken and considered obsolete.
 - **A rogue access point** is an availability and confidentiality risk introduced from
@@ -70,6 +80,13 @@ flowchart LR
 
 ## 🏢 Personal versus Enterprise, and why organisations pick one
 
+One household shares a single secret whistle among every family member — fine for a home, weak
+for a whole village, because everyone who ever learned that one whistle (including someone who
+moved away years ago) can still get in, until the entire village changes the whistle for
+**everyone at once**. A village that instead gives every single person their own unique whistle,
+checked against a central record-keeper, can simply strike one person's whistle off the list the
+day they leave — nobody else is affected at all.
+
 A home network shares **one passphrase** among every device — fine for a household, weak for
 an office, because everyone who ever learned the passphrase (including a departed employee)
 can still get on the network until it is changed for **everyone at once**.
@@ -91,6 +108,12 @@ its own VLAN with no route to internal resources — the same segmentation princ
 ---
 
 ## 🔍 Bluetooth: three named attacks, told apart by severity
+
+A stranger a few feet away shouting a rude prank at you as you pass — annoying, but he learned
+nothing and took nothing. A stranger who secretly reaches into your belt pouch and reads what's
+inside without you noticing — now something private is gone. And a stranger who somehow takes
+control of your own arms and makes you walk where he wants — the worst of the three by far.
+Three very different levels of harm, all from someone nearby.
 
 | Attack | Does what | Severity |
 |---|---|---|
