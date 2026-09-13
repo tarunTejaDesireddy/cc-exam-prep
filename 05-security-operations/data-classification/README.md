@@ -191,6 +191,43 @@ left to drift.
 
 ---
 
+## 🔬 How a label actually gets attached and enforced
+
+The grown-up section mentions automated classification tools inspecting content for patterns.
+Here's the real pipeline, as it runs in something like Microsoft Purview Information Protection.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    F["📄 File saved"] --> SCAN["🔍 Content scanner<br/>regex: card numbers,<br/>national IDs, keywords"]
+    SCAN --> LABEL["🏷️ Sensitivity label<br/>embedded in the<br/>file's own metadata"]
+    LABEL --> TRAVEL["📤 Label travels<br/>WITH the file"]
+    TRAVEL --> DLP{"DLP policy at<br/>an egress point:<br/>email, USB, upload"}
+    DLP -->|"label = Restricted"| BLOCK["🛑 Blocked or<br/>encrypted automatically"]
+    DLP -->|"label = Public"| ALLOW["✅ Allowed through"]
+
+    style F fill:#26292e,stroke:#868E96,color:#fff
+    style SCAN fill:#12243f,stroke:#5C7CFA,color:#fff
+    style LABEL fill:#0f3038,stroke:#12B5A5,color:#fff
+    style TRAVEL fill:#12243f,stroke:#5C7CFA,color:#fff
+    style DLP fill:#3a2c12,stroke:#F08C00,color:#fff
+    style BLOCK fill:#3a1a20,stroke:#E03131,color:#fff
+    style ALLOW fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+A content scanner reads a document for recognisable patterns — a 16-digit sequence matching a
+card-number checksum, a national ID format, keywords like "confidential" already in the
+document. Where confidence is high, it suggests or auto-applies a **sensitivity label**, which
+isn't just a tag in a database somewhere — it's embedded directly into the file's own metadata,
+so the label physically travels with the file even when it's emailed, copied to USB, or uploaded
+elsewhere. This is what makes the label *enforceable* rather than just descriptive: a **DLP
+(Data Loss Prevention)** policy sitting at an email gateway or USB port reads that embedded
+label and can automatically block, warn, or force encryption based on it — without needing to
+re-scan the content itself each time, since the classification decision was already made and
+attached once.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
