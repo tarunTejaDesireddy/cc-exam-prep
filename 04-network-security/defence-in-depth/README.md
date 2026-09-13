@@ -18,7 +18,10 @@
 
 ## 🧸 The big idea
 
-**No single control should be the only thing between an attacker and an asset.**
+Reaching the tribe's most sacred treasure means beating the outer fence, then the gate guard,
+then the inner village walls, then the treasure hut's own door, then the locked chest inside it —
+five separate obstacles, each a genuinely different kind of thing. **No single control should be
+the only thing between an attacker and an asset.**
 
 Every control fails eventually. A password gets phished, a patch gets missed, a door gets
 propped open, a rule gets misconfigured. Defence in depth assumes each individual control will
@@ -32,9 +35,11 @@ get past the permissions · get past the encryption
 An attacker must defeat **every** layer. A defender needs only **one** to hold.
 
 > [!IMPORTANT]
-> **The layers must be independent.** Three controls that all fail when the same directory service
-> fails are one control wearing three hats. This is the examined subtlety, and it is what separates
-> genuine depth from an expensive stack of products.
+> **The layers must be independent.** If the gate guard and the treasure hut's door both rely on
+> the exact same secret whistle, tricking that one whistle defeats both "layers" at once — it was
+> never really two obstacles, just one obstacle wearing two hats. Three controls that all fail when
+> the same directory service fails are the same thing. This is the examined subtlety, and it is
+> what separates genuine depth from an expensive stack of products.
 
 ---
 
