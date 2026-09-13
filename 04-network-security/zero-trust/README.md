@@ -18,14 +18,19 @@
 
 ## 🧸 The big idea
 
-The traditional model was a **castle and moat**: build a strong perimeter, and trust everything
-inside it. Once you were on the network, you were trusted.
+The old village had one big outer wall with a guard demanding the secret whistle at the gate —
+and nowhere else. Once you were past that one check, you could walk straight to the chief's own
+treasure hut with nobody asking you anything ever again. That's a **castle and moat.**
 
-That model fails for reasons that are now obvious. Staff work from anywhere. Applications live in
-someone else's data centre. Attackers who phish one credential are *inside*, and everything
-inside trusts everything else. The perimeter stopped being a meaningful boundary.
+The trouble is obvious once someone actually tricks the outer guard just once: a thief who learns
+the whistle can now go anywhere, because being inside the walls was treated as proof enough all
+by itself.
 
-**Zero trust removes the assumption that location implies trust.**
+Zero trust posts a guard at *every single hut door*, even the ones deep inside the village — and
+every one of them demands the whistle fresh, every single time, no matter that you already proved
+yourself at the outer gate. Being inside the walls earns you nothing on its own.
+
+That's the whole idea. **Zero trust removes the assumption that location implies trust.**
 
 > **Never trust, always verify.**
 
