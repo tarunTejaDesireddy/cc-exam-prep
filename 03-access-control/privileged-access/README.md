@@ -168,6 +168,46 @@ The recognised handling:
 
 ---
 
+## 🔬 The actual attack this whole topic defends against
+
+The grown-up section mentions "credential theft tooling." Here's concretely what that is, and
+why vaulting specifically stops it.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    C["🦠 Attacker on<br/>compromised machine"] --> D["🔍 Dumps LSASS<br/>process memory"]
+    D --> H["🔑 Extracts cached<br/>credential hash"]
+    H --> P["➡️ Pass-the-hash:<br/>reuses hash directly<br/>no cracking needed"]
+    P --> M["😱 Moves laterally<br/>as that admin"]
+
+    style C fill:#3a1a20,stroke:#E03131,color:#fff
+    style D fill:#3a1a20,stroke:#E03131,color:#fff
+    style H fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P fill:#3a2c12,stroke:#F08C00,color:#fff
+    style M fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
+Tools like **Mimikatz** read a Windows process called **LSASS** (Local Security Authority
+Subsystem Service), which holds cached credentials in memory for anyone who has logged into that
+machine — including, critically, the *hash* of an administrator's password if that admin ever
+logged in there, even briefly. **Pass-the-hash** means the attacker never needs the actual
+password at all: many authentication protocols will accept the hash itself as proof of identity,
+so stealing the hash is functionally the same as stealing the password. This is the precise,
+technical reason the **tiered administration model** above insists a high-tier credential is
+never used on a lower-tier machine — logging a domain administrator into one infected
+workstation deposits that hash in LSASS memory for any attacker already there to scoop up.
+
+**A credential vault (CyberArk, HashiCorp Vault) breaks this by making the credential itself
+short-lived and single-use.** Checking out a password rotates it immediately afterward, so a
+hash stolen from memory during that one session is worthless the moment the session ends.
+HashiCorp Vault takes this further with **dynamic secrets**: a database password that doesn't
+exist until the exact moment it's requested, is generated fresh with its own expiry, and is
+automatically revoked — there's no standing credential sitting anywhere for LSASS to ever cache
+in the first place.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
