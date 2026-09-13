@@ -239,6 +239,47 @@ The one to know cold.
 
 ---
 
+## 🔬 These four models, running in real products today
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    D["DAC"] --> D1["Windows/Linux file<br/>permissions"]
+    M["MAC"] --> M1["SELinux security<br/>context labels"]
+    R["RBAC"] --> R1["Azure RBAC roles,<br/>Kubernetes RBAC"]
+    A["ABAC"] --> A1["Entra Conditional<br/>Access policies"]
+
+    style D fill:#12243f,stroke:#5C7CFA,color:#fff
+    style M fill:#12243f,stroke:#5C7CFA,color:#fff
+    style R fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style D1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style M1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style A1 fill:#0f3038,stroke:#12B5A5,color:#fff
+```
+
+**The ABAC example above — "Finance department AND corporate device AND business hours AND
+document classification" — is not a hypothetical.** It's a literal, working **Microsoft Entra
+Conditional Access policy**: an administrator builds exactly that rule in a web console, naming
+a group, a device-compliance requirement, a named location, and a time window, and Entra
+evaluates all of it fresh on every single sign-in attempt. This is the most common real-world
+place a CC candidate will actually meet ABAC on the job.
+
+**SELinux is MAC, running on an ordinary Linux box, right now if it's enabled.** Every process
+and file carries a **security context** — `user:role:type:level` — and the kernel checks a
+loaded policy comparing the two contexts on every access, exactly like the clearance-versus-label
+comparison in the diagram above. Critically, the file's own Linux owner **cannot override an
+SELinux denial** by chmod-ing the file to 777 — that's the mandatory part in literal running
+code, not just in theory.
+
+**Azure RBAC and Kubernetes RBAC are named, real RBAC systems** — a role like "Contributor" or
+"pod-reader" is defined once with a fixed permission set, and is assigned to users or service
+accounts, exactly matching the Priya/Sam/Lee diagram above with cloud resources standing in for
+the ledger and personnel files.
+
+---
+
 ## ⚖️ Told apart
 
 | | Means | Not to be confused with |
