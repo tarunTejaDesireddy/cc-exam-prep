@@ -18,8 +18,13 @@
 
 ## 🧸 The big idea
 
-An IP address gets traffic to the right **machine**. A **port number** gets it to the right
-**program** on that machine.
+The village's one main hall handles grain requests, healing requests, and outgoing messages, all
+at the same address — "the main hall." But the hall has a different window for each: the grain
+window, the healer's door, the message slot. Knowing the hall's address gets you to the right
+**building**. Knowing which window gets you to the right **person inside** it.
+
+That's the whole idea. An IP address gets traffic to the right **machine**. A **port number**
+gets it to the right **program** on that machine.
 
 One server can run a website, a mail service and a file transfer service simultaneously. All
 three share one IP address. The port number is how the machine knows which program an arriving
@@ -27,10 +32,12 @@ packet belongs to: port 443 goes to the web server, port 25 to the mail server.
 
 Ports live at **layer 4**, the transport layer, alongside TCP and UDP.
 
-The exam content here is almost entirely recall, and there is a second layer to it worth
-noticing: **most of the classic protocols were designed without encryption and have a secure
-replacement.** FTP has SFTP. HTTP has HTTPS. Telnet has SSH. Knowing those pairs answers a
-whole class of question — "which protocol should replace this one?"
+Here's the second layer worth noticing: shouting your grain request through an open window means
+anyone standing nearby hears exactly what you asked for and what you got back. Passing a sealed,
+coded note through a private slot instead means nobody outside can read it even if they see it
+change hands. **Most of the classic protocols were designed without encryption and have a secure
+replacement.** FTP has SFTP. HTTP has HTTPS. Telnet has SSH. Knowing those pairs answers a whole
+class of question — "which protocol should replace this one?"
 
 ---
 
