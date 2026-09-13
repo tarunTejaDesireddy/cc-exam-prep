@@ -18,8 +18,15 @@
 
 ## 🧸 The big idea
 
-An incident response plan says, in advance, **what happens when something goes wrong**: who is
-involved, what they do, in what order, and who gets told.
+The night the wolf breaks the fence and takes a lamb, the worst thing the tribe can do is
+improvise. One person chases the wolf into the dark alone. Another panics and sets fire to the
+grain store trying to smoke it out. Nobody tells the chief until morning. Screaming and running
+in six directions doesn't save the flock — it just adds more damage on top of the wolf's.
+
+That's why the plan gets written in broad daylight, long before any wolf shows up: who grabs the
+spears, who checks on the children, who lights the signal fire, and in what order. An incident
+response plan says, in advance, **what happens when something goes wrong**: who is involved, what
+they do, in what order, and who gets told.
 
 It exists because incidents are a bad time to be making decisions. Under pressure, at three in the
 morning, with executives asking questions, people improvise — and improvisation destroys evidence,
@@ -86,6 +93,9 @@ what makes the next response better.
 
 ### 1 · Preparation
 
+Stockpiling spears, agreeing who does what, and drilling it — all in daylight, long before any
+wolf is at the fence.
+
 **Everything done before an incident occurs.** It is the only phase you control the timing of,
 and the one that determines how the others go.
 
@@ -100,6 +110,9 @@ and the one that determines how the others go.
 
 ### 2 · Detection and analysis
 
+Following the tracks to work out how many wolves there were, where they broke through, and
+whether they're still nearby.
+
 **Identifying that something is happening and working out what.** Sources include monitoring
 alerts, user reports, third-party notification, and routine log review.
 
@@ -110,6 +123,9 @@ This phase answers: what is affected, how did it start, is it still ongoing, and
 > awareness training matters so much.
 
 ### 3 · Containment
+
+Blocking the exact gap in the fence right now so no more wolves follow the first one through —
+even a stack of logs will do until a proper gate is built.
 
 **Limiting the damage and stopping the spread.**
 
@@ -124,6 +140,9 @@ This phase answers: what is affected, how did it start, is it still ongoing, and
 
 ### 4 · Eradication
 
+Not just chasing the wolf off tonight — finding its den and making sure it, and anything it left
+behind, doesn't come back tomorrow.
+
 **Removing the cause.** Deleting malware, closing the vulnerability that allowed entry, removing
 the attacker's persistence and any accounts they created.
 
@@ -131,6 +150,9 @@ the attacker's persistence and any accounts they created.
 > cleans the infection and leaves the backdoor means the attacker returns next week.
 
 ### 5 · Recovery
+
+Rebuilding the fence properly, letting the flock back into the pen, and keeping a closer watch
+than usual for the next few nights in case the pack comes back.
 
 **Restoring systems to normal operation, and confirming they are clean.**
 
@@ -143,6 +165,10 @@ the attacker's persistence and any accounts they created.
 > already present reinstates them.
 
 ### 6 · Post-incident activity
+
+Sitting by the fire afterward and talking calmly about what let the wolf through — not hunting
+for someone to blame. Blame the watchman on duty, and next time nobody admits they heard
+something.
 
 **The lessons-learned review.** What happened, what worked, what did not, and what changes
 follow.
@@ -180,6 +206,11 @@ flowchart TD
 ---
 
 ## 🔬 Evidence handling
+
+A fresh, damp paw print tells the tracker far more than one baked dry by morning sun — so follow
+the freshest sign first, before it fades. And the tracker keeps a written note of every print
+found, when and by whom, so the story still holds up when the whole tribe asks what really
+happened.
 
 Where an incident may lead to legal action or discipline, evidence must be handled so it remains
 usable.
