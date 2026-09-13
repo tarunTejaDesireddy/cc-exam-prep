@@ -18,15 +18,23 @@
 
 ## 🧸 The big idea
 
-You cannot protect everything equally. Some data would be catastrophic if disclosed; some is
-already on your public website. **Classification sorts data by sensitivity so that protection
-can be proportionate.**
+Not all grain is equal. Some pots hold everyday grain anyone in the village can scoop from
+freely. One special pot holds next year's entire seed stock — lose it, and there's no crop next
+season. That pot gets marked: *sacred seed grain, chief's authorisation only.* You cannot protect
+everything equally. Some data would be catastrophic if disclosed; some is already on your public
+website. **Classification sorts data by sensitivity so that protection can be proportionate.**
 
-Once data carries a label, the label **obliges** specific handling: how it is stored, who may
-see it, whether it may leave the organisation, how it is transmitted, and how it must be
-destroyed. The label is not a description — it is an instruction.
+That mark on the pot isn't just a description — it's an instruction. Seeing "sacred seed grain"
+tells you exactly how carefully it must be sealed, who's even allowed near it, and what happens
+if any goes missing. Once data carries a label, the label **obliges** specific handling: how it
+is stored, who may see it, whether it may leave the organisation, how it is transmitted, and how
+it must be destroyed.
 
-The part the exam tests hardest is **who decides**. The answer never changes:
+The part the exam tests hardest is **who decides**. The chief decides what counts as sacred and
+who may touch it. The grain-keeper builds the sealed jar, stores it properly, and enforces who
+actually gets access — but even though he knows the storage system better than anyone, he never
+gets to decide what's sacred on his own. Every villager who's granted access just follows what
+the label already says.
 
 > **The data owner classifies. The custodian implements. The user follows the rules.**
 
