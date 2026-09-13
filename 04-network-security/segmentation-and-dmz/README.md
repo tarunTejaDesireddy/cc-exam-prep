@@ -18,11 +18,14 @@
 
 ## 🧸 The big idea
 
-A **flat network** is one where everything can reach everything else. It is simple, cheap, and
-means that compromising one forgotten printer gives an attacker a path to the finance database.
+A village with no internal doors at all — just one outer gate, then open ground all the way to
+the chief's own treasure hut — is a **flat network.** Slip past the one gate, and you can walk
+straight into everything, including the treasure.
 
-**Segmentation** divides the network into separate zones with controls between them. The attacker
-who lands in one zone finds the next one gated.
+Now put internal walls between the market, the living huts, and the treasure hut, each with its
+own gate. Someone who sneaks past the outer gate into the market is still stuck there — the next
+wall is gated too. That's **segmentation.** The attacker who lands in one zone finds the next one
+gated.
 
 Segmentation does not stop the initial compromise. It **limits the damage** — it constrains
 **lateral movement**, the attacker's sideways spread from their first foothold towards what they
@@ -31,9 +34,11 @@ actually want.
 > 🎯 **"Limits lateral movement" is the answer to most segmentation questions.** If an option says
 > segmentation prevents intrusion, it is wrong — it contains one.
 
-The **DMZ** is the most examined application of this idea: a buffer zone for servers that must be
-reachable from the internet, positioned so that compromising one does not deliver the internal
-network.
+Outside traders never enter the real village at all — they only ever reach a separate trading
+post built just outside the walls, close enough to be useful but structurally apart. Even if
+bandits somehow overrun the trading post, they still haven't breached the village itself. That
+trading post is a **DMZ**: a buffer zone for servers that must be reachable from the internet,
+positioned so that compromising one does not deliver the internal network.
 
 ---
 
