@@ -225,6 +225,43 @@ flowchart TD
 
 ---
 
+## 🔬 Encapsulation, seen for real — and defeating a SYN flood
+
+Open any capture in **Wireshark** and the encapsulation diagram above stops being theory —
+clicking through a single captured packet shows exactly those nested layers, literally labelled
+`Frame → Ethernet II → Internet Protocol → TCP → HTTP`, each one a real header you can expand
+and read byte by byte. This is genuinely the fastest way to make the OSI model click: it isn't
+an abstraction someone invented for an exam, it's what's actually sitting inside every packet
+your machine sends.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    SYN["📥 SYN arrives"] --> ENC["🔐 Server computes<br/>a SYN cookie<br/>(no state stored)"]
+    ENC --> RPL["📤 Sends SYN-ACK<br/>with cookie as<br/>sequence number"]
+    RPL --> WAIT{"Final ACK<br/>ever arrives?"}
+    WAIT -->|"yes, cookie<br/>checks out"| EST["✅ Connection<br/>established"]
+    WAIT -->|"no"| NOTHING["😌 Nothing was<br/>ever allocated"]
+
+    style SYN fill:#26292e,stroke:#868E96,color:#fff
+    style ENC fill:#0f3038,stroke:#12B5A5,color:#fff
+    style RPL fill:#12243f,stroke:#5C7CFA,color:#fff
+    style WAIT fill:#3a2c12,stroke:#F08C00,color:#fff
+    style EST fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style NOTHING fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+**SYN cookies are the real, deployed defence against the SYN flood attack described above.**
+Normally a server allocates a slot in a "half-open connections" table the instant a SYN arrives
+— which is exactly the resource a flood exhausts. With SYN cookies, the server instead
+**encodes** the connection details cryptographically into the sequence number it sends back in
+the SYN-ACK, and stores *nothing*. If the real final ACK ever comes back, the server decodes the
+cookie from it and only *then* builds the connection — a flood of SYNs that never complete
+simply costs the server a moment of CPU to generate cookies, never a slot in a table that could
+run out.
+
+---
+
 ## ⚖️ Told apart
 
 | | Layer | Not to be confused with |
