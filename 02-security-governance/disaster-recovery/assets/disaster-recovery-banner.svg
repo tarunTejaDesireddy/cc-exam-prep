@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Disaster Recovery — hot, warm, cold sites and how to test them">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07171c"/>
+      <stop offset="55%" stop-color="#0d2b33"/>
+      <stop offset="100%" stop-color="#141d39"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12B5A5"/>
+      <stop offset="100%" stop-color="#5C7CFA"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <circle cx="1010" cy="70" r="120" fill="#12B5A5" opacity="0.15" filter="url(#soft)"/>
+  <circle cx="860" cy="256" r="100" fill="#5C7CFA" opacity="0.13" filter="url(#soft)"/>
+  <rect x="0" y="0" width="6" height="300" rx="3" fill="url(#accent)"/>
+
+  <text x="58" y="82" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="44" font-weight="700" letter-spacing="1" fill="#f1f8f8">Disaster Recovery</text>
+  <text x="58" y="120" font-family="Georgia, Cambria, Times New Roman, serif" font-size="21" font-style="italic" fill="#9dc0bf">Hot, warm, cold — and how you'd know it works</text>
+  <rect x="58" y="142" width="74" height="4" rx="2" fill="url(#accent)"/>
+  <text x="58" y="186" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="2.5" fill="#6d9291">ISC2 CC · DOMAIN 2 · SECURITY GOVERNANCE</text>
+
+  <g transform="translate(58,208)" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="600">
+    <rect x="0" y="0" width="104" height="32" rx="8" fill="#3a1a20" stroke="#E03131" stroke-width="1.5"/>
+    <text x="14" y="21" fill="#f4c6c9">🔥 Hot</text>
+    <rect x="120" y="0" width="118" height="32" rx="8" fill="#3a2c12" stroke="#F08C00" stroke-width="1.5"/>
+    <text x="134" y="21" fill="#f6dfb8">🌡️ Warm</text>
+    <rect x="254" y="0" width="112" height="32" rx="8" fill="#12243f" stroke="#5C7CFA" stroke-width="1.5"/>
+    <text x="268" y="21" fill="#cdd9fb">🧊 Cold</text>
+  </g>
+
+  <g transform="translate(950,60)">
+    <path d="M20 160 h140" stroke="#4d6f6e" stroke-width="3"/>
+    <rect x="20" y="60" width="30" height="100" fill="#E03131" opacity="0.85" rx="4"/>
+    <rect x="70" y="95" width="30" height="65" fill="#F08C00" opacity="0.85" rx="4"/>
+    <rect x="120" y="125" width="30" height="35" fill="#5C7CFA" opacity="0.85" rx="4"/>
+    <text x="90" y="185" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#9dc0bf">readiness ↓ cost ↓</text>
+  </g>
+</svg>

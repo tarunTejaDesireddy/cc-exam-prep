@@ -1,463 +1,346 @@
 <div align="center">
 
-<img src="../assets/module-02-banner.svg" alt="02 · Security Governance" width="100%">
+<img src="assets/disaster-recovery-banner.svg" alt="Disaster Recovery — hot, warm, cold sites and how to test them" width="100%">
 
-# 🔧 Disaster recovery
+# 🏢 Disaster Recovery — Caveman Style
 
-### *Getting back to normal — and the site types that decide how fast*
+[![Module](https://img.shields.io/badge/Module-02_Security_Governance-0d2b33?style=for-the-badge&labelColor=07171c)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain_2-17.3%25-12B5A5?style=for-the-badge&labelColor=0f3038)](../README.md)
 
-[![Module](https://img.shields.io/badge/Module-02_Security_Governance-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-2%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
-
-📌 *Two tables carry this topic: the site types ranked by cost and readiness, and the testing types ranked by rigour and disruption.*
+[![Site Types](https://img.shields.io/badge/🏢-Site_Types-5C7CFA?style=flat-square&labelColor=12243f)](#-part-1-disaster-recovery-site-types)
+[![Testing Types](https://img.shields.io/badge/🧪-Testing_Types-F08C00?style=flat-square&labelColor=3a2c12)](#-part-2-disaster-recovery-testing)
 
 </div>
 
 ---
 
-## 🧸 The big idea
+**Disaster Recovery (DR)** is about restoring IT systems, infrastructure, and services after a
+disruption.
 
-Say the tribe keeps a backup cave in the next valley, in case the main one ever collapses. How
-ready that backup cave is depends entirely on how much they've invested in it beforehand.
+Think:
 
-An empty cave — bare rock, nothing inside — takes **weeks** to become usable: haul in tools,
-carry over grain, rebuild everything from nothing. That's **cold.**
+> 💥 **Cave destroyed → Grog needs another cave and a way to get the tribe back to normal.**
 
-A cave already stocked with tools and empty storage shelves, but no actual food in it yet, is
-faster — carry the grain over and you're working within **days.** That's **warm.**
+Your exam focus has **two comparisons**:
 
-A cave kept fully stocked, with fresh grain carried over regularly so it's never far out of
-date, is ready almost **immediately.** That's **hot.**
-
-And two caves, both fully stocked and both actually in use side by side at the same time, so
-losing one barely slows the tribe down at all — that's a **mirrored** site, and it's the most
-expensive option of the four by far.
-
-That's the whole idea. **Disaster recovery restores normal operations after a disruption.** It
-is the technical, systems-focused subset of business continuity — where continuity asks "how do
-we keep working", recovery asks "how do we get the systems back".
-
-Two things carry almost all the marks:
-
-- **Recovery sites**, ranked cold → warm → hot, trading **cost against readiness**.
-- **Testing types**, ranked read-through → full interruption, trading **rigour against
-  disruption**.
-
-Both are ordered lists, and both are asked as "which one for this scenario" questions. The
-organising insight is the same in each: **faster and more rigorous costs more and disrupts more.**
-
-> 🎯 **The site type is chosen to meet the RTO.** A four-hour RTO cannot be met by a cold site,
-> and a hot site for a function that can be down a week is wasted money.
+1. 🏢 **DR site types** — compare by **cost and readiness**
+2. 🧪 **DR testing types** — compare by **how realistic/disruptive they are**
 
 ---
 
-## 📖 Words you will keep seeing
+## 🏢 Part 1: Disaster Recovery Site Types
 
-| Word | What it means on this exam |
-|---|---|
-| **Disaster recovery (DR)** | Restoring systems and operations after a disruption. |
-| **DRP** — Disaster Recovery Plan | The documented process for doing so. |
-| **Cold site** | A facility with space and utilities. **No equipment, no data.** |
-| **Warm site** | Space **and equipment**, with data restored when needed. |
-| **Hot site** | Fully equipped, **data current**, ready almost immediately. |
-| **Mirrored site** | A fully redundant duplicate running in parallel. Near-instant. |
-| **Reciprocal agreement** | An arrangement to use another organisation's facilities. Cheap, unreliable. |
-| **Full backup** | Everything, every time. |
-| **Incremental backup** | Only what changed **since the last backup of any kind**. |
-| **Differential backup** | Only what changed **since the last full backup**. |
-| **Read-through / checklist test** | Reviewing the plan on paper. |
-| **Walkthrough / tabletop** | Talking through a scenario as a team. |
-| **Simulation** | Acting out a scenario without affecting production. |
-| **Parallel test** | Bringing up the recovery site while production keeps running. |
-| **Full interruption test** | Switching production off and running from recovery. |
+The three classic site types are:
 
----
+1. 🟢 **Hot site**
+2. 🟡 **Warm site**
+3. 🔴 **Cold site**
 
-## 🏢 Recovery sites
+The easiest rule:
 
-This is the backup-cave story, formalised.
+> **More ready = More expensive**
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    C["🧊 COLD<br/>space and power only<br/>cheapest · slowest<br/>weeks"] --> W["🌤️ WARM<br/>space + equipment<br/>data restored on demand<br/>hours to days"]
-    W --> H["🔥 HOT<br/>equipped + current data<br/>ready almost at once<br/>minutes to hours"]
-    H --> M["🪞 MIRRORED<br/>full duplicate, running<br/>most expensive<br/>near instant"]
+    COLD["🧊 Cold<br/>cheapest,<br/>not ready"] --> WARM["🌡️ Warm<br/>medium cost,<br/>partly ready"]
+    WARM --> HOT["🔥 Hot<br/>most expensive,<br/>ready now"]
 
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W fill:#3a2c12,stroke:#F08C00,color:#fff
-    style H fill:#0f3038,stroke:#12B5A5,color:#fff
-    style M fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style COLD fill:#12243f,stroke:#5C7CFA,color:#fff
+    style WARM fill:#3a2c12,stroke:#F08C00,color:#fff
+    style HOT fill:#3a1a20,stroke:#E03131,color:#fff
 ```
 
-| Site | Has | Time to operate | Cost |
-|---|---|---|---|
-| **Cold** | Space, power, cooling, connectivity. **Nothing else** | **Weeks** | **Lowest** |
-| **Warm** | Space **and hardware**; data must be restored | **Hours to days** | Medium |
-| **Hot** | Fully equipped, **data kept current** | **Minutes to hours** | High |
-| **Mirrored** | Complete duplicate running in parallel | **Near instant** | **Highest** |
+### 🟢 1. Hot Site — "Ready NOW"
 
-> 🧠 **Temperature = readiness.** Cold is an empty room; hot is ready to go; mirrored is already
-> running.
+A **hot site** is a fully or highly equipped alternate location that can support rapid recovery.
 
-> ⚠️ **A cold site is an empty building.** No servers, no data — just space, power and
-> connectivity. Candidates over-estimate what a cold site provides.
+Think:
 
-**A reciprocal agreement** is a deal with another organisation to use each other's facilities. It
-is cheap and generally considered **unreliable**: the partner may be affected by the same regional
-event, may lack capacity, and may have changed their environment since the agreement. Enforcement
-is also difficult.
+> 🏠 **Grog has a second cave that's already set up.**
 
-> 🎯 **Match the site to the RTO.** Short RTO → hot or mirrored. Long RTO → warm or cold. If a
-> question gives an RTO and asks which site, that is the calculation.
+It may have:
+
+- Servers
+- Network equipment
+- Power
+- Connectivity
+- Data replication/backups
+- Operational infrastructure
+
+If the main site goes down:
+
+> 💥 Main cave destroyed
+
+Grog says:
+
+> **"Go to the backup cave!"**
+
+**Cost:** Highest · **Readiness:** Highest · **Recovery:** Fastest
+
+**Memory:** HOT = Ready to GO
+
+### 🟡 2. Warm Site — "Partially Ready"
+
+A **warm site** has some equipment and infrastructure already available, but it isn't fully ready
+to immediately take over everything.
+
+Think:
+
+> 🏠 Grog has a second cave with some tools and supplies.
+
+But he still needs to:
+
+- Configure systems
+- Restore data
+- Complete setup
+- Bring additional equipment online
+
+**Cost:** Medium · **Readiness:** Medium · **Recovery:** Slower than hot
+
+**Memory:** WARM = Some preparation needed
+
+### 🔴 3. Cold Site — "Empty Cave"
+
+A **cold site** provides basic facilities such as space, power, or environmental infrastructure,
+but much of the IT equipment and setup must be brought in or restored.
+
+Think:
+
+> 🪨 Grog has another empty cave.
+
+He says:
+
+> "Good. Now we need to bring everything here." 😐
+
+**Cost:** Lowest · **Readiness:** Lowest · **Recovery:** Slowest
+
+**Memory:** COLD = Empty / needs setup
 
 ---
 
-## 💾 Backup types
+## 🎯 Site Comparison
+
+| Site | 💰 Cost | ⚡ Readiness | ⏱️ Recovery |
+| --- | --- | --- | --- |
+| 🟢 **Hot** | Highest | Highest | Fastest |
+| 🟡 **Warm** | Medium | Medium | Medium |
+| 🔴 **Cold** | Lowest | Lowest | Slowest |
+
+### 🧠 Golden rule
+
+> **HOT → expensive but fast**
+> **WARM → middle**
+> **COLD → cheap but slow**
+
+Think of a campfire:
+
+🔥 **Hot** → already burning
+
+🌡️ **Warm** → partially ready
+
+🧊 **Cold** → start from scratch
+
+---
+
+## 🧪 Part 2: Disaster Recovery Testing
+
+Having a DR plan isn't enough.
+
+You need to test whether it actually works.
+
+There are several common testing methods.
+
+The key idea is:
+
+> **More realistic/involved testing generally requires more time, effort, cost, and disruption.**
+
+### 📋 1. Checklist / Documentation Review
+
+People review the DR documentation.
+
+They ask:
+
+> "Do we have the correct contact numbers?"
+> "Are the recovery steps documented?"
+> "Are responsibilities assigned?"
+
+This is the **least disruptive** type of testing.
+
+**Cost:** Low · **Realism:** Low
+
+**Caveman version:** 📜 "Read the plan."
+
+### 🗣️ 2. Tabletop Exercise
+
+People sit around a table and **talk through a disaster scenario**.
+
+Example:
+
+> "The main data center is on fire. What do we do first?"
+
+Someone answers:
+
+> "Call the DR team."
+
+Another:
+
+> "Fail over to the backup site."
+
+Nobody necessarily shuts down the real systems.
+
+**Cost:** Low–medium · **Realism:** Medium
+
+**Caveman version:** 🗣️ "Pretend the cave broke and talk about what we'd do."
+
+### 🧪 3. Simulation
+
+A simulation creates a more realistic exercise without necessarily causing a full real-world
+outage.
+
+Teams practice their responses to a simulated disaster.
+
+**Cost:** Medium · **Realism:** Higher than a tabletop
+
+**Caveman version:** 🎭 "Pretend the cave is actually under attack."
+
+### 🔄 4. Parallel Test
+
+The organization activates the recovery environment **while normal production continues**.
+
+Think:
+
+> 🏢 Main cave keeps operating.
+
+At the same time:
+
+> 🏠 Backup cave is activated and tested.
+
+The goal is to verify that the alternate environment can operate without taking down production.
+
+**Cost:** Higher · **Realism:** High
+
+**Caveman version:** "Keep old cave running while testing the new cave."
+
+### 💥 5. Full Interruption Test
+
+This is the most aggressive type.
+
+The organization actually interrupts normal operations and attempts to operate using the recovery
+environment.
+
+Think:
+
+> 💥 **Main cave stops.**
+
+Then:
+
+> 🏠 **Backup cave takes over.**
+
+This provides a highly realistic test, but it can be risky and disruptive.
+
+**Cost:** Highest · **Realism:** Highest
+
+**Caveman version:** "Actually leave the old cave and use the backup cave."
+
+---
+
+## 📊 Testing Comparison
+
+A useful exam-oriented progression is:
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
-    F["📦 FULL<br/>everything, every time<br/>slow backup · FAST restore<br/>restore: 1 set"]
-    I["📄 INCREMENTAL<br/>changed since the LAST BACKUP<br/>FAST backup · slow restore<br/>restore: full + EVERY increment"]
-    D["📑 DIFFERENTIAL<br/>changed since the last FULL<br/>medium both ways<br/>restore: full + ONE differential"]
+    C["📋 Checklist/Review<br/>least cost, least real"] --> T["🗣️ Tabletop"]
+    T --> S["🎭 Simulation"]
+    S --> P["🔄 Parallel"]
+    P --> F["💥 Full Interruption<br/>most cost, most real"]
 
-    style F fill:#12243f,stroke:#5C7CFA,color:#fff
-    style I fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-```
-
-| | Backs up | Backup speed | Restore needs |
-|---|---|---|---|
-| **Full** | Everything | Slowest | **The full backup only** |
-| **Incremental** | Changed since the **last backup of any type** | **Fastest** | Full + **every** incremental since |
-| **Differential** | Changed since the **last full backup** | Medium, growing | Full + **the latest** differential |
-
-> [!IMPORTANT]
-> **The distinction is what each measures "since".**
-> **Incremental** = since the **last backup of any kind** — so they are small, and you need them
-> all.
-> **Differential** = since the **last full** — so they grow, and you need only the most recent one.
-
-> 🎯 **Incremental is fastest to back up and slowest to restore. Differential is the reverse
-> trade.** Questions describe one property and ask which type it is.
-
-> ⚠️ **A backup that has never been test-restored is an assumption.** Media fails, jobs silently
-> skip files, and restore procedures go out of date. **Backups must be tested by restoring them.**
-
----
-
-## 🧪 Testing the plan
-
-Before trusting the backup cave, the tribe rehearses. Someone reads the plan aloud and checks it
-makes sense (**read-through**). The elders sit by the fire and talk through what each person
-would do (**walkthrough**). A few hunters actually walk the escape route, without touching any
-real grain (**simulation**). Then they genuinely move some grain into the backup cave *while the
-main cave keeps operating normally* (**parallel**). And, rarest of all, they empty the main cave
-completely for a day and run entirely out of the backup one, to prove it really works (**full
-interruption**) — risky, because if the backup cave fails too, the tribe has nowhere left to
-turn.
-
-Ranked by rigour and by how much they disrupt the business.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    R["📖 READ-THROUGH<br/>review on paper<br/>no disruption"] --> W["🗣️ WALKTHROUGH<br/>talk it through<br/>as a team"]
-    W --> S["🎭 SIMULATION<br/>act it out<br/>production untouched"]
-    S --> P["🔀 PARALLEL<br/>bring recovery up<br/>production KEEPS RUNNING"]
-    P --> F["🛑 FULL INTERRUPTION<br/>production OFF<br/>most rigorous · most risky"]
-
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style T fill:#12243f,stroke:#5C7CFA,color:#fff
     style S fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
+    style P fill:#3a2c12,stroke:#F08C00,color:#fff
     style F fill:#3a1a20,stroke:#E03131,color:#fff
 ```
 
-| Test | What happens | Disruption | Confidence |
-|---|---|---|---|
-| **Read-through / checklist** | Individuals review the plan for accuracy | **None** | Lowest |
-| **Walkthrough / tabletop** | The team talks through a scenario together | None | Low–medium |
-| **Simulation** | The scenario is acted out; production untouched | Low | Medium |
-| **Parallel** | Recovery systems brought up **while production runs** | Medium | High |
-| **Full interruption** | **Production switched off**; run from recovery | **Highest** | **Highest** |
+**Exact terminology and ordering can vary somewhat by framework or organization**, but the exam
+principle is:
 
-> [!CAUTION]
-> **A full interruption test can cause a real outage.** It gives the strongest assurance and
-> carries genuine risk, which is why it needs management approval and careful planning — and why
-> many organisations never do one.
-
-> 🎯 **Parallel versus full interruption is the tested pair.** In a **parallel** test production
-> **keeps running** alongside the recovery environment. In a **full interruption** test production
-> is **switched off**. That is the whole distinction.
+> **The more you actually exercise the recovery environment, the greater the cost, effort, and
+> operational risk.**
 
 ---
 
-## 🔬 How a cloud "hot site" failover actually executes
+## 🧠 Don't Mix Up Sites and Tests
 
-The grown-up section notes cloud has largely displaced the leased-facility model. Here's the
-concrete mechanism behind that, step by step.
+These are two separate questions.
+
+**🏢 Site question** — "Where will we recover?" Answer: Hot · Warm · Cold. Think: 💰 Cost vs
+readiness
+
+**🧪 Testing question** — "How do we verify the recovery plan works?" Answer: Review/checklist ·
+Tabletop · Simulation · Parallel · Full interruption. Think: 💰 Cost/effort vs realism
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    HC["💓 Health check<br/>polls primary region"] --> D{"Still<br/>healthy?"}
-    D -->|"yes"| HC
-    D -->|"no, repeatedly"| DNS["🌐 DNS failover<br/>Route 53 / Traffic Manager"]
-    DNS --> UP["📍 Records updated to<br/>standby region's IP"]
-    UP --> IAC["🏗️ IaC template<br/>Terraform / CloudFormation"]
-    IAC --> LIVE["✅ Standby now serving<br/>traffic"]
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    DR["🏢 Disaster<br/>Recovery"]
+    DR --> Q1["🏢 'Where will<br/>we recover?'<br/>Hot/Warm/Cold"]
+    DR --> Q2["🧪 'How do we<br/>verify it works?'<br/>5 test types"]
 
-    style HC fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#3a2c12,stroke:#F08C00,color:#fff
-    style DNS fill:#0f3038,stroke:#12B5A5,color:#fff
-    style UP fill:#12243f,stroke:#5C7CFA,color:#fff
-    style IAC fill:#12243f,stroke:#5C7CFA,color:#fff
-    style LIVE fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style DR fill:#0f3038,stroke:#12B5A5,color:#fff
+    style Q1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style Q2 fill:#3a2c12,stroke:#F08C00,color:#fff
 ```
 
-A **DNS health check** (Route 53 on AWS, Traffic Manager on Azure) continuously polls the
-primary region's endpoint. After several consecutive failures — not just one blip — it triggers
-a **DNS failover**: the domain's DNS record is automatically updated to point at the standby
-region instead. New connections then resolve to the standby, while existing ones drain out
-naturally. If the standby wasn't already running (a warm rather than a hot posture), an **IaC
-template** — the same Terraform or CloudFormation file used to build the primary — provisions
-matching infrastructure on demand in minutes rather than the weeks a physical cold site would
-need.
+---
 
-**The DNS record's TTL (Time To Live) directly caps how fast this can possibly work** — a
-60-second TTL means some clients could still be resolving the old address for up to 60 seconds
-after failover triggers, which is a very literal, checkable number behind an RTO commitment, and
-exactly the kind of "automation that has to be tested regularly" the grown-up section warns
-about: a TTL quietly left at 24 hours during a routine DNS change silently turns a fast failover
-plan into a day-long outage.
+## 🎯 Exam Scenarios
+
+**Scenario 1** — A company has a fully equipped backup data center with replicated data that can
+take over quickly. **Answer:** 🟢 **Hot site** — Why? High readiness + high cost.
+
+**Scenario 2** — A company has an alternate facility with some equipment, but additional
+configuration and restoration are required. **Answer:** 🟡 **Warm site**
+
+**Scenario 3** — A company has an alternate building with basic infrastructure but no
+ready-to-run IT environment. **Answer:** 🔴 **Cold site**
+
+**Scenario 4** — The DR team sits together and discusses what they would do if ransomware
+destroyed the main data center. **Answer:** 🗣️ **Tabletop exercise**
+
+**Scenario 5** — The backup environment is activated while production continues. **Answer:** 🔄
+**Parallel test**
+
+**Scenario 6** — The organization deliberately shuts down the production environment and attempts
+to operate from the recovery environment. **Answer:** 💥 **Full interruption test**
 
 ---
 
-## ⚖️ Told apart
+## 🪨 Ultimate Caveman Cheat Sheet
 
-| | Means | Not to be confused with |
-|---|---|---|
-| **Disaster recovery** | Restoring systems **after**. Mainly IT. | **Business continuity**, keeping the business running **during**. DR is a subset of BC. |
-| **Cold site** | Space and utilities. **No equipment.** | **Warm site**, which has equipment but not current data. |
-| **Warm site** | Equipment, data restored when needed. | **Hot site**, where data is already current. |
-| **Hot site** | Ready in minutes to hours. | **Mirrored site**, already running in parallel. |
-| **Incremental** | Since the **last backup of any kind**. Fast backup, slow restore, needs **all** of them. | **Differential**, since the **last full**. Slower backup, faster restore, needs **only the latest**. |
-| **Parallel test** | Recovery brought up, **production keeps running**. | **Full interruption**, where production is **switched off**. |
-| **Walkthrough** | The team **talks** through a scenario. | **Simulation**, where it is **acted out**. |
-| **Reciprocal agreement** | Using another organisation's facilities. Cheap, unreliable. | A contracted commercial recovery site. |
+### 🏢 Sites
 
----
+> 🔥 **HOT** = expensive + ready + fast
+> 🌡️ **WARM** = medium + partially ready
+> 🧊 **COLD** = cheap + not ready + slow
 
-## ⚠️ Where your instinct is wrong
+### 🧪 Tests
 
-> [!WARNING]
-> **In the job:** a cold site sounds like a basic data centre you could bring up in a day.
->
-> **On the exam:** a cold site is an **empty room with power**. Procuring, installing and
-> configuring equipment and restoring data takes **weeks**.
+> 📋 **Review** = read the plan
+> 🗣️ **Tabletop** = talk through the disaster
+> 🎭 **Simulation** = simulate the disaster
+> 🔄 **Parallel** = test recovery while production continues
+> 💥 **Full interruption** = actually switch over
 
-> [!WARNING]
-> **In the job:** your backups are fine because the jobs report success.
->
-> **On the exam:** **backups must be tested by restoring them.** A successful job report is not
-> evidence that the data is recoverable.
+### 🎯 The two rules to memorize
 
-> [!WARNING]
-> **In the job:** nobody runs a full interruption test — the risk is unacceptable.
->
-> **On the exam:** it is the **most rigorous** test and the correct answer where the question asks
-> for the highest confidence. Its risk is acknowledged, not disqualifying.
-
----
-
-## 🧠 How to remember it
-
-🧠 **Temperature = readiness.** Cold = empty room. Warm = kit, no data. Hot = ready. Mirrored =
-already running.
-
-🧠 **Incremental = since the last backup of ANY kind. Differential = since the last FULL.**
-*Incremental: fast to make, slow to restore, need them all.*
-*Differential: slower to make, fast to restore, need only the newest.*
-
-🧠 **Testing ladder: Read · Talk · Act · Parallel · Interrupt.** Rigour and risk rise together.
-
-🧠 **Parallel keeps production running. Full interruption turns it off.**
-
----
-
-## ✅ Check you actually got it
-
-Answer all five before expanding anything.
-
-**Q1.** An organisation needs to resume operations within four hours of a disaster. Which recovery
-site type is MOST appropriate?
-
-- **A.** Cold site
-- **B.** Warm site
-- **C.** Hot site
-- **D.** Reciprocal agreement
-
-<details>
-<summary><b>Answer</b></summary>
-
-**C — a hot site.** Fully equipped with current data, it can be operational within minutes to
-hours, which is what a four-hour RTO requires.
-
-- **A** is an empty facility with power. Procuring equipment and restoring data takes weeks.
-- **B** has hardware but requires data restoration and configuration, typically hours to days —
-  which may exceed four hours and is the strongest distractor here.
-- **D** is cheap and unreliable, with no guarantee of capacity or availability, and unsuitable
-  where a firm RTO must be met.
-
-</details>
-
-**Q2.** Which backup type requires the fewest backup sets to perform a full restore, after the last
-full backup?
-
-- **A.** Incremental, because each set is small
-- **B.** Differential, because only the most recent differential is needed
-- **C.** Both require the same number
-- **D.** Full backups only, because incremental and differential cannot be restored
-
-<details>
-<summary><b>Answer</b></summary>
-
-**B — differential, because only the most recent differential is needed.** A differential contains
-everything changed since the last **full**, so restoring needs the full plus one differential —
-two sets.
-
-- **A** confuses backup speed with restore simplicity. Incrementals are small and fast to create,
-  and a restore needs the full **plus every incremental since**, which could be many sets.
-- **C** is wrong — the difference in restore complexity is the defining trade-off between them.
-- **D** is false. Both types are restorable; they simply need different combinations.
-
-</details>
-
-**Q3.** During which type of test does production continue running while recovery systems are
-brought online?
-
-- **A.** Walkthrough
-- **B.** Simulation
-- **C.** Parallel test
-- **D.** Full interruption test
-
-<details>
-<summary><b>Answer</b></summary>
-
-**C — a parallel test.** Recovery systems are brought up and validated **alongside** production,
-which continues serving the business — giving high confidence without risking an outage.
-
-- **A** is a discussion exercise; no systems are involved.
-- **B** acts out a scenario without bringing recovery systems into real operation.
-- **D** is the opposite: **production is switched off** and the business runs from the recovery
-  environment.
-
-</details>
-
-**Q4.** What does a cold site provide?
-
-- **A.** Fully configured systems with current data, ready immediately
-- **B.** Hardware installed but requiring data restoration
-- **C.** Space, power, cooling and connectivity, but no equipment or data
-- **D.** A duplicate environment running in parallel with production
-
-<details>
-<summary><b>Answer</b></summary>
-
-**C — space, power, cooling and connectivity, but no equipment or data.** It is essentially an
-empty, serviced room, which is why it is cheapest and takes weeks to bring into use.
-
-- **A** describes a **hot** site.
-- **B** describes a **warm** site.
-- **D** describes a **mirrored** site.
-
-</details>
-
-**Q5.** Why must backups be periodically test-restored?
-
-- **A.** To comply with data retention regulations
-- **B.** Because a successful backup job does not prove the data can actually be recovered
-- **C.** To reduce the storage space backups consume
-- **D.** Because backups expire after a fixed period
-
-<details>
-<summary><b>Answer</b></summary>
-
-**B — a successful backup job does not prove the data can actually be recovered.** Media fails,
-jobs silently skip locked or missed files, encryption keys go missing, and restore procedures go
-out of date. The only proof is a restore.
-
-- **A** concerns how long data is kept, not whether it is recoverable.
-- **C** is unrelated — testing a restore consumes resources rather than saving them.
-- **D** is not generally true, and would not be why testing matters.
-
-The principle generalises: **an untested control is an assumption**, whether it is a backup, a
-plan or a failover.
-
-</details>
-
----
-
-## 🎓 The grown-up version
-
-<details>
-<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
-
-**The 3-2-1 rule.** A widely used backup guideline: **three** copies of the data, on **two**
-different media types, with **one** off-site. Ransomware has pushed many organisations to extend
-it — 3-2-1-1-0, adding one **immutable or offline** copy and **zero** errors on verified restores.
-The immutability matters because modern ransomware operators deliberately seek out and encrypt
-backups first, and a backup an attacker can delete is not a backup.
-
-**Replication is not backup.** Replication copies changes to another location quickly, which
-protects against site loss. It also faithfully replicates deletion, corruption and encryption —
-so if ransomware encrypts the primary, the replica is encrypted moments later. Backups provide a
-point in time to go back **to**; replication provides a copy of **now**. Serious programmes have
-both, and the distinction is one of the more expensive lessons organisations have learned.
-
-**Cloud has largely displaced the traditional site model.** Infrastructure as code plus cloud
-capacity means a recovery environment can be defined in a repository and instantiated on demand,
-giving something close to warm-site readiness at near cold-site cost. What has to be maintained is
-the **automation**, tested regularly — because a deployment template that has drifted from
-production will fail at the worst moment. The temperature vocabulary persists on exams and
-describes a world of leased facilities that is steadily receding.
-
-**Testing frequency and honesty.** Annual tabletop exercises are common; parallel tests less so;
-full interruption tests rare outside regulated sectors that mandate them. There is a real argument
-that organisations which never test under realistic conditions do not have a recovery capability,
-they have a recovery document. The counter-argument — that a test causing a genuine outage is a
-self-inflicted incident — is also real, which is why parallel testing occupies the practical sweet
-spot.
-
-**The DR plan must survive the disaster.** Storing the recovery plan, the system documentation, the
-credentials and the encryption keys only in the environment being recovered is a failure mode that
-occurs repeatedly. So is having the only copy of the backup encryption key in a password vault
-hosted on the infrastructure that is down.
-
-</details>
-
----
-
-## 📝 Cram lines
-
-Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
-
-- **DR restores systems AFTER. It is a SUBSET of business continuity.**
-- **Sites — temperature = readiness: COLD** (space + power only, **weeks**, cheapest) → **WARM** (equipment, data restored, hours–days) → **HOT** (equipped + current data, minutes–hours) → **MIRRORED** (running duplicate, near instant, dearest).
-- **A cold site is an EMPTY ROOM.**
-- **Reciprocal agreement** = use another org's facilities. Cheap and **unreliable**.
-- **Match the site to the RTO.**
-- **INCREMENTAL = since the last backup of ANY kind.** Fast backup, **slow restore**, need **full + ALL increments**.
-- **DIFFERENTIAL = since the last FULL.** Slower backup, **fast restore**, need **full + ONLY the latest**.
-- **Testing ladder: read-through → walkthrough → simulation → PARALLEL → FULL INTERRUPTION.**
-- **PARALLEL keeps production RUNNING. FULL INTERRUPTION switches production OFF** (most rigorous, most risky).
-- **Backups must be TEST-RESTORED.** A successful job report proves nothing.
+> **Site: More readiness = more cost.**
+> **Testing: More realism = more cost, effort, and potential disruption.**
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 02 · Security Governance</a> &nbsp;·&nbsp; <a href="../security-awareness-training/">next: Security awareness training →</a></sub>
+<sub><a href="../README.md">← Back to 02 · Security Governance</a></sub>
 </div>
