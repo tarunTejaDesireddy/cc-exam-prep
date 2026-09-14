@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-62%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-63%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -163,7 +163,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/60-modem.md">Modem</a></li>
 <li>✅ <a href="topics/61-gateway.md">Gateway</a></li>
 <li>✅ <a href="topics/62-ids.md">IDS</a></li>
-<li>⬜ IPS</li>
+<li>✅ <a href="topics/63-ips.md">IPS</a></li>
 <li>⬜ WAF</li>
 </ul>
 
@@ -670,7 +670,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 60. [Modem](topics/60-modem.md)
 - [x] 61. [Gateway](topics/61-gateway.md)
 - [x] 62. [IDS](topics/62-ids.md)
-- [ ] 63. IPS
+- [x] 63. [IPS](topics/63-ips.md)
 - [ ] 64. WAF
 
 ### 🦠 7. Malware & Email Security
