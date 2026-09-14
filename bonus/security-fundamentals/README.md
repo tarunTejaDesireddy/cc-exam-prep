@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-45%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-46%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -139,7 +139,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 
 **⬜ 5. How the Internet Works — 0/10**
 <ul>
-<li>⬜ DNS Resolution</li>
+<li>✅ <a href="topics/46-dns-resolution.md">DNS Resolution</a></li>
 <li>⬜ What Happens When You Enter a URL</li>
 <li>⬜ HTTP Request and Response</li>
 <li>⬜ Web Server</li>
@@ -651,7 +651,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 45. [IMAP / POP3](topics/45-imap-pop3.md)
 
 ### 🖥️ 5. How the Internet Works
-- [ ] 46. DNS Resolution
+- [x] 46. [DNS Resolution](topics/46-dns-resolution.md)
 - [ ] 47. What Happens When You Enter a URL
 - [ ] 48. HTTP Request and Response
 - [ ] 49. Web Server
