@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-70%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-71%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -182,7 +182,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/68-trojan.md">Trojan</a></li>
 <li>✅ <a href="topics/69-ransomware.md">Ransomware</a></li>
 <li>✅ <a href="topics/70-spyware.md">Spyware</a></li>
-<li>⬜ Email Security Gateway</li>
+<li>✅ <a href="topics/71-email-security-gateway.md">Email Security Gateway</a></li>
 </ul>
 
 </td>
@@ -684,7 +684,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 68. [Trojan](topics/68-trojan.md)
 - [x] 69. [Ransomware](topics/69-ransomware.md)
 - [x] 70. [Spyware](topics/70-spyware.md)
-- [ ] 71. Email Security Gateway
+- [x] 71. [Email Security Gateway](topics/71-email-security-gateway.md)
 
 ### 🧩 8. Network Models
 - [ ] 72. OSI Model
