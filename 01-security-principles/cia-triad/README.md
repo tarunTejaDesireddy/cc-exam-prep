@@ -69,6 +69,19 @@ So Grog puts a big stone in front of the cave and gives the secret location only
 
 That's **Confidentiality**.
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    MAP["🗺️ Secret food map<br/>behind the big stone"] --> ASK{"Who is<br/>asking?"}
+    ASK -->|"Grog's tribe"| SEE["✅ Shown the map<br/>trusted, allowed"]
+    ASK -->|"rival tribe"| BLOCK["🚫 Stone stays shut<br/>never sees it"]
+
+    style MAP fill:#0f3038,stroke:#12B5A5,color:#fff
+    style ASK fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SEE fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style BLOCK fill:#3a1a20,stroke:#E03131,color:#fff
+```
+
 ### 💻 Computer version
 
 Confidentiality means:
@@ -129,6 +142,21 @@ There is no food there.
 😡 Grog gets very angry.
 
 This is an **integrity problem**.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    A["🗺️ Map says:<br/>Food in Cave A"] --> S["😴 Grog sleeps"]
+    S --> T["✏️ Rival edits it<br/>Food in Cave B"]
+    T --> TR["🤔 Grog trusts<br/>the map"]
+    TR --> W["❌ Cave B is empty<br/>integrity broken"]
+
+    style A fill:#0f3038,stroke:#12B5A5,color:#fff
+    style S fill:#26292e,stroke:#868E96,color:#fff
+    style T fill:#3a1a20,stroke:#E03131,color:#fff
+    style TR fill:#12243f,stroke:#5C7CFA,color:#fff
+    style W fill:#3a1a20,stroke:#E03131,color:#fff
+```
 
 ### 💻 Computer version
 
@@ -197,6 +225,17 @@ Grog can't get inside.
 His food exists. It's correct. But **he can't access it when he needs it**.
 
 That's an **availability problem**.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    OK["🥩 Food safe & correct<br/>C ✅  I ✅"] --> ROCK["🪨 Boulder falls<br/>in front of the cave"]
+    ROCK --> STUCK["❌ Grog cannot get in<br/>availability broken"]
+
+    style OK fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style ROCK fill:#3a2c12,stroke:#F08C00,color:#fff
+    style STUCK fill:#3a1a20,stroke:#E03131,color:#fff
+```
 
 ### 💻 Computer version
 
