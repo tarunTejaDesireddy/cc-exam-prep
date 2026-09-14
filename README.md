@@ -114,44 +114,6 @@ Security Operations you reach last, not on Domains 1, 4 or 3.
 
 ---
 
-## 🗺️ How the repo fits together
-
-<div align="center">
-<img src="assets/overview-map.svg" alt="Repo map: Foundations, then the five domains in weight order, then term bank, question bank and mock exams, then EXAM-DAY" width="100%">
-</div>
-
-**The domains are worked in weight order, not number order** — heaviest first, so if the schedule
-slips, what you lose is what was worth least. The folders keep ISC2's own numbering so the
-official syllabus maps straight onto them.
-
-The full day-by-day plan is in [`00-foundations/study-schedule/`](00-foundations/study-schedule/README.md).
-
-
----
-
-## 📖 Every page is built the same way
-
-<div align="center">
-<img src="assets/page-anatomy.svg" alt="Anatomy of a topic page: big idea, words, explanation, told apart, where your instinct is wrong, how to remember it, five questions, grown-up version, cram lines" width="100%">
-</div>
-
-| Section | What it gives you |
-|---|---|
-| 🧸 **The big idea** | A plain-English handle on the concept before any jargon |
-| 📖 **Words you will keep seeing** | Every term defined in ISC2's own wording, *before* it gets used |
-| 🔍 **The explanation** | Short sections and diagrams, with the tested parts called out |
-| ⚖️ **Told apart** | The term pairs the exam deliberately confuses — the highest-value block on the page |
-| ⚠️ **Where your instinct is wrong** | Places doing the job well and answering well point different directions |
-| 🧠 **How to remember it** | A mnemonic or hook, where one genuinely helps |
-| ✅ **Check you actually got it** | Five questions, with **every wrong option explained** |
-| 🎓 **The grown-up version** | Collapsed. Real-world depth — never needed for the pass |
-| 📝 **Cram lines** | The two or three facts that land in `EXAM-DAY.md` |
-
-Conventions, colours and the full visual language: [`CLAUDE.md`](CLAUDE.md).
-
-
----
-
 ## 📌 Progress
 
 **The repo is rebuilt for the live outline, effective 1 September 2026.** All 53 domain topics,
