@@ -1,4 +1,20 @@
+<div align="center">
+
+<img src="../assets/module-03-banner.svg" alt="03 · Access Control Concepts" width="100%">
+
 # 🔐 Logical Access Controls
+
+### *The technical side of access — and where it overlaps with the physical*
+
+[![Module](https://img.shields.io/badge/Module-03_Access_Control-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-3%20·%2020%25-5C7CFA?style=flat-square)](../README.md)
+[![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
+
+📌 *Logical controls restrict access to systems and data. The examined skill is placing a control on the right side of the physical/logical line.*
+
+</div>
+
+---
 
 The big exam question is:
 

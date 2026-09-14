@@ -1,4 +1,20 @@
+<div align="center">
+
+<img src="../assets/module-03-banner.svg" alt="03 · Access Control Concepts" width="100%">
+
 # 🎟️ Access Control Fundamentals — Caveman Style
+
+### *Subject, object, rule — the three words every access decision is described in*
+
+[![Module](https://img.shields.io/badge/Module-03_Access_Control-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-3%20·%2020%25-5C7CFA?style=flat-square)](../README.md)
+[![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
+
+📌 *Short, and everything else in this domain is written in its vocabulary. Get subject and object the right way round and the rest follows.*
+
+</div>
+
+---
 
 Access control is basically:
 
