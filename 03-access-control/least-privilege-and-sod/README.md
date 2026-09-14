@@ -2,7 +2,7 @@
 
 <img src="../assets/module-03-banner.svg" alt="03 · Access Control Concepts" width="100%">
 
-# 🔻 Least privilege and segregation of duties
+# 🔐 Least Privilege, Need-to-Know & Segregation of Duties
 
 ### *Give people the minimum — and never let one person complete a sensitive process alone*
 
@@ -16,440 +16,572 @@
 
 ---
 
-## 🧸 The big idea
+These three concepts sound similar, but they solve **different problems**.
 
-A young apprentice hunter is handed a small skinning knife — that's all his current job needs.
-He is not handed the keys to the whole weapons rack, even though it would be more convenient for
-him. If someone steals his knife, they get a knife. They don't get the tribe's entire arsenal.
+The easiest way to remember them:
+
+> 🔑 **Least privilege = What CAN you do?**<br>
+> 👀 **Need-to-know = What DO you need to see?**<br>
+> 👥 **Segregation of duties = Who SHOULD do each part?**
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    Q["⚠️ What is the problem?"]
+    Q -->|"too many PERMISSIONS"| LP["🔑 LEAST PRIVILEGE<br/>minimum power"]
+    Q -->|"sees too much INFORMATION"| NK["👀 NEED-TO-KNOW<br/>minimum information"]
+    Q -->|"one person controls<br/>several CRITICAL STEPS"| SOD["👥 SEGREGATION OF DUTIES<br/>split the job"]
+
+    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
+    style LP fill:#12243f,stroke:#5C7CFA,color:#fff
+    style NK fill:#0f3038,stroke:#12B5A5,color:#fff
+    style SOD fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+---
+
+# 1. 🔑 Least Privilege — "Give only the power needed"
+
+**Least privilege** means:
+
+> **Give a user, process, or system only the minimum permissions needed to perform its job.**
+
+Grog is a hunter.
+
+He needs:
+
+> 🏹 Access to hunting tools.
+
+He does **not** need:
+
+> 💰 Access to the tribe's treasure.
+
+So:
+
+> 🏹 Hunter permissions → ✅<br>
+> 💰 Treasury permissions → ❌
+
 That's **least privilege**.
 
-Separately, the tribe has a rule about the grain store: whoever *counts* the grain each week is
-never the same person who *hands it out* to families. If one dishonest person tried to skim a
-basket for himself, the numbers wouldn't match — unless the counter and the distributor secretly
-worked together. That's **segregation of duties**.
-
-Two principles, doing two different jobs.
-
-**Least privilege** limits **how much** any one person can do:
-
-> Grant only the access the role genuinely requires, and nothing more.
-
-**Segregation of duties** limits **what one person can complete alone**:
-
-> Split a sensitive process so that no single individual can carry it through unchecked.
-
-The difference matters because they defend against different things. Least privilege limits the
-**damage** when an account is misused or compromised — a stolen knife is still just a knife.
-Segregation of duties makes **deliberate fraud** require collusion — the counter and the
-distributor would both have to agree to cheat — which is far riskier and far rarer than one
-person acting alone.
-
-> 🎯 **"The user had more access than they needed" is the most frequently correct diagnosis in
-> this domain.** When a question asks what should have prevented an incident, least privilege is
-> the first thing to consider.
-
 ---
 
-## 📖 Words you will keep seeing
+## 💻 Cybersecurity example
 
-| Word | What it means on this exam |
-|---|---|
-| **Least privilege** | Granting only the access required to perform a role, and no more. |
-| **Need to know** | Restricting access to the specific **information** required for a task. |
-| **Segregation of duties (SoD)** | Dividing a sensitive process so no one person can complete it alone. Also called **separation of duties**. |
-| **Collusion** | Two or more people cooperating to defeat segregation of duties. |
-| **Dual control** | Requiring **two people acting together** to perform one action. |
-| **Job rotation** | Periodically moving staff between roles. |
-| **Mandatory vacation** | Requiring staff to take leave, so someone else performs their duties. |
-| **Privilege creep** | Access accumulating as someone changes roles and old rights are never removed. |
-| **Excessive privilege** | Holding more access than the role requires. |
-| **Entitlement review** | Periodically confirming that held access is still appropriate. |
+A help-desk employee needs to:
 
----
+- Reset passwords
+- Unlock accounts
 
-## 🔻 Least privilege
+They don't need:
 
-This is the apprentice's skinning knife, not the whole weapons rack. **Grant the minimum access
-the role requires.** Not what might be convenient, not what the previous person had, not what
-the user asked for.
+- ❌ Domain administrator privileges
+- ❌ Access to payroll
+- ❌ Ability to modify security policies
+
+Give them only what their job requires.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    A["🦹 Account<br/>compromised"] --> E["😱 EXCESSIVE privilege<br/>attacker reaches<br/>everything that user could"]
-    A --> L["🙂 LEAST privilege<br/>attacker reaches only<br/>what the ROLE needed"]
+    H["👤 Help-desk employee"] --> Y1["✅ Reset passwords"]
+    H --> Y2["✅ Unlock accounts"]
+    H -.-x N1["❌ Domain admin"]
+    H -.-x N2["❌ Payroll"]
+    H -.-x N3["❌ Security policies"]
 
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style E fill:#3a1a20,stroke:#E03131,color:#fff
-    style L fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style H fill:#12243f,stroke:#5C7CFA,color:#fff
+    style Y1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style Y2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style N1 fill:#3a1616,stroke:#E03131,color:#fff
+    style N2 fill:#3a1616,stroke:#E03131,color:#fff
+    style N3 fill:#3a1616,stroke:#E03131,color:#fff
 ```
 
-Least privilege does not stop the compromise. It **bounds the blast radius** — which is the same
-logic as network segmentation, applied to identity instead of topology.
+### 🧠 Memory
 
-**What it protects against:**
-
-- A compromised account reaching less
-- An insider being able to do less harm
-- Accidental damage from a mistaken command
-- Malware running with the user's rights doing less
-
-### The related idea: need to know
-
-**Least privilege** is about **what you can do**. **Need to know** is about **what information
-you can see**.
-
-An investigator may have clearance for case files in general — that is privilege — and still be
-restricted to the specific cases they are working on, which is need to know. The two are applied
-together, and under MAC both are required.
-
-> ⚠️ **Clearance alone never entitles you to everything at that level.** Need to know narrows it
-> further, and this is a tested point.
-
-### Where least privilege fails in practice
-
-| Failure | Means |
-|---|---|
-| **Privilege creep** | Access accumulates across role changes because nothing is removed |
-| **Convenience grants** | Broad access given to make a problem go away, then never revisited |
-| **Copying an existing user** | New starters provisioned by cloning someone's access, inheriting everything |
-| **Standing administrative rights** | Admin access held permanently rather than only when needed |
-
-> 🎯 **Provisioning a new user by copying an existing account is a specific bad practice**, because
-> it propagates whatever privilege creep that account had accumulated.
+> **Least privilege = Minimum POWER**
 
 ---
 
-## ⚖️ Segregation of duties
+# 2. 👀 Need-to-Know — "Only see what you need"
 
-This is the grain counter and the grain distributor never being the same person, taken further.
-**No single person should be able to complete a sensitive process from end to end.**
+**Need-to-know** means:
 
-The classic example is payment: the person who **requests** a payment must not be the person who
-**approves** it, and neither should be the person who **reconciles** the accounts afterwards.
+> **A person should have access to information only when they need that information to perform an authorized task.**
+
+Grog might be a trusted tribe member.
+
+But that doesn't mean he needs to know:
+
+> 🗺️ Every secret hunting location.
+
+He only needs to know:
+
+> 🗺️ Today's hunting location.
+
+So:
+
+> **Need = Access**
+
+No need?
+
+> ❌ No access.
+
+---
+
+# 🔑 Least Privilege vs Need-to-Know
+
+This is an important distinction.
+
+### Least Privilege
+
+Focuses on:
+
+> **Permissions / capabilities**
+
+"What actions can you perform?"
+
+Examples:
+
+- Read
+- Write
+- Delete
+- Execute
+- Administer
+
+### Need-to-Know
+
+Focuses on:
+
+> **Information / data**
+
+"What information are you allowed to see?"
+
+---
+
+# 🪨 Example
+
+Alice works in HR.
+
+She needs to **read employee salary information**.
+
+### Least privilege
+
+Give Alice:
+
+> 👀 Read access
+
+Don't give her:
+
+> 🗑️ Delete access
+
+### Need-to-know
+
+Give her access to:
+
+> 💰 Salary data she needs for her job.
+
+Don't automatically give her access to:
+
+> 🔐 Confidential information unrelated to her work.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    R["📝 REQUEST<br/>person A"] --> AP["✅ APPROVE<br/>person B"]
-    AP --> EX["💸 EXECUTE<br/>person C"]
-    EX --> RC["📊 RECONCILE<br/>person D"]
+    A["👤 Alice · HR"]
+    A --> LP{"🔑 Least privilege<br/>which ACTIONS?"}
+    A --> NK{"👀 Need-to-know<br/>which DATA?"}
+    LP -->|"allowed"| R["👀 Read"]
+    LP -->|"not allowed"| D["🗑️ Delete"]
+    NK -->|"allowed"| S["💰 Salary data for her job"]
+    NK -->|"not allowed"| C["🔐 Unrelated confidential data"]
 
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AP fill:#0f3038,stroke:#12B5A5,color:#fff
-    style EX fill:#12243f,stroke:#5C7CFA,color:#fff
-    style RC fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
-
-Read it as a sentence: **four steps, four people, so committing fraud requires persuading at
-least one other person to join in.**
-
-**Other standard splits:**
-
-| Process | Must be different people |
-|---|---|
-| Payments | Requester · approver · reconciler |
-| System changes | Developer · tester · deployer |
-| Access management | Requester · approver · provisioner |
-| Audit | The auditor must be independent of what they audit |
-
-> [!IMPORTANT]
-> **Segregation of duties does not make fraud impossible — it requires collusion.** Two people
-> conspiring can still defeat it. The point is that collusion is far riskier for the participants
-> and far less likely, which is a large reduction in probability rather than an elimination.
-
-### The supporting controls
-
-Three controls exist mainly to **detect collusion or expose long-running fraud**, and the exam
-expects you to know why they are security controls rather than HR policies.
-
-| Control | Why it is a security control |
-|---|---|
-| **Mandatory vacation** | Someone else performs the duties, so an ongoing fraud requiring daily concealment surfaces |
-| **Job rotation** | A fresh person sees the process and notices irregularities; also spreads knowledge |
-| **Dual control** | Two people must act **together** for one action — not two steps, one action |
-
-> ⚠️ **Dual control and segregation of duties are not the same.** SoD splits a process into
-> **different steps** performed by different people. Dual control requires **two people for the
-> same single action** — two keys turned at once, two approvals on one transaction.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    S["⚖️ SEGREGATION OF DUTIES<br/>different STEPS<br/>different people"] --> S1["A requests · B approves"]
-    D["🔑 DUAL CONTROL<br/>the SAME action<br/>needs two people"] --> D1["Two keys turned together"]
-
-    style S fill:#0f3038,stroke:#12B5A5,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S1 fill:#26292e,stroke:#868E96,color:#fff
-    style D1 fill:#26292e,stroke:#868E96,color:#fff
+    style A fill:#26292e,stroke:#868E96,color:#fff
+    style LP fill:#12243f,stroke:#5C7CFA,color:#fff
+    style NK fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style S fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style D fill:#3a1616,stroke:#E03131,color:#fff
+    style C fill:#3a1616,stroke:#E03131,color:#fff
 ```
 
 ---
 
-## 🔬 How just-in-time privilege actually works
+# 3. 👥 Segregation of Duties — "Don't let one person control everything"
 
-The grown-up section mentions JIT access converting standing privilege into a short-lived,
-logged event. Here's the concrete mechanism behind that, as it runs in tools like Azure PIM or
-CyberArk.
+**Segregation of Duties (SoD)** means:
+
+> **Separate critical responsibilities among different people so that one person cannot perform an entire sensitive process alone.**
+
+Think:
+
+> 🪨 **One caveman shouldn't control the entire treasure cave.**
+
+---
+
+# 💰 Caveman Example
+
+Imagine Grog can:
+
+1. Create a payment
+2. Approve the payment
+3. Take the money
+
+😈
+
+That's dangerous.
+
+Grog could create a fake payment and approve it himself.
+
+Instead:
+
+### Grog
+
+> Creates payment
+
+### Bob
+
+> Approves payment
+
+### Chief
+
+> Releases money
+
+Now no single person controls everything.
+
+That's:
+
+> 👥 **Segregation of Duties**
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    REQ["📝 Admin requests<br/>elevation + reason"] --> APP["✅ Approver<br/>reviews and approves"]
-    APP --> ACT["⏱️ Role activated<br/>for a fixed window<br/>e.g. 2 hours"]
-    ACT --> REC["📹 Session actions<br/>logged/recorded"]
-    REC --> EXP["⏳ Access auto-expires<br/>no manual revoke needed"]
+    subgraph BAD["😈 No SoD"]
+        G1["Grog creates"] --> G2["Grog approves"] --> G3["Grog takes money"]
+    end
+    subgraph GOOD["👥 With SoD"]
+        C1["Grog creates"] --> C2["Bob approves"] --> C3["Chief releases money"]
+    end
 
-    style REQ fill:#12243f,stroke:#5C7CFA,color:#fff
-    style APP fill:#12243f,stroke:#5C7CFA,color:#fff
-    style ACT fill:#0f3038,stroke:#12B5A5,color:#fff
-    style REC fill:#3a2c12,stroke:#F08C00,color:#fff
-    style EXP fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style G1 fill:#3a1616,stroke:#E03131,color:#fff
+    style G2 fill:#3a1616,stroke:#E03131,color:#fff
+    style G3 fill:#3a1616,stroke:#E03131,color:#fff
+    style C1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
 ```
 
-The administrator holds **zero standing privilege** in their normal, everyday account — the
-elevated role simply doesn't exist for them until requested. Requesting it triggers an approval
-workflow, and once approved the platform activates the role for a fixed window (commonly one to
-a few hours) rather than granting it permanently. Every action taken during that window is
-logged, and some PAM platforms even record the actual session (literally a video-like replay of
-the terminal or RDP session). When the window ends, the platform automatically revokes the role
-— nobody has to remember to do it, which is exactly the failure mode standing access has.
+---
 
-**Cloud "generate least-privilege automatically" tools work by mining real usage history.** AWS
-IAM Access Analyzer and similar tools watch **CloudTrail** logs — the record of every API call a
-role actually made — over weeks, then propose a tightened policy containing only the specific
-actions that role genuinely used. A role with permission to call 200 different API actions that
-only ever actually used 12 of them gets a concrete, evidence-based recommendation to cut the
-other 188 — turning "what does this role need?" from a guess into a data query.
+# 💻 Real-World Example
+
+Imagine an employee has access to the company's purchasing system.
+
+You don't want the same person to be able to:
+
+> 1. Create a new supplier
+> 2. Approve the supplier
+> 3. Approve the payment
+> 4. Pay the supplier
+
+That creates an opportunity for fraud.
+
+Instead:
+
+> 👤 Employee A → Creates request
+
+> 👤 Employee B → Approves request
+
+> 👤 Employee C → Processes payment
+
+That's **SoD**.
 
 ---
 
-## ⚖️ Told apart
+# 🎯 When Should You Use Each?
 
-| | Means | Not to be confused with |
-|---|---|---|
-| **Least privilege** | Only the access the **role** requires. Limits how much you can **do**. | **Need to know**, which limits what **information** you may see. Narrower and about data. |
-| **Segregation of duties** | Splitting a process into steps held by different people. Prevents one person acting alone. | **Least privilege**, which limits how much any one person holds. Different goals. |
-| **Segregation of duties** | Different people for different **steps**. | **Dual control**, which needs two people for the **same action**. |
-| **Privilege creep** | Rights accumulating over role changes. An administrative failure. | **Privilege escalation**, an attacker gaining rights never granted. |
-| **Job rotation** | Moving staff between roles periodically. | **Mandatory vacation**, forcing leave so duties are covered by another. Both expose concealed fraud. |
-| **Collusion** | Two or more people cooperating to defeat SoD. | A single malicious insider, whom SoD does stop. |
+## 🔑 Least Privilege
 
----
+Use when the problem is:
 
-## ⚠️ Where your instinct is wrong
+> **"This person has too much access or too many permissions."**
 
-> [!WARNING]
-> **In the job:** administrators hold standing privileged access because the work requires it and
-> just-in-time elevation is friction.
->
-> **On the exam:** **standing administrative rights violate least privilege.** The expected answer
-> is access granted only when needed and for the duration needed.
+Example:
 
-> [!WARNING]
-> **In the job:** mandatory vacation and job rotation are HR matters.
->
-> **On the exam:** both are **security controls** whose purpose is to expose fraud that depends on
-> one person continuously concealing it. If a question asks how to detect a long-running
-> concealment, these are the answers.
+> A receptionist has administrator access.
 
-> [!WARNING]
-> **In the job:** provisioning a new starter by copying a similar colleague is efficient and
-> normal.
->
-> **On the exam:** it is a **bad practice**, because it propagates accumulated privilege creep. New
-> access should come from the role definition.
+➡️ Apply **least privilege**.
 
 ---
 
-## 🧠 How to remember it
+## 👀 Need-to-Know
 
-🧠 **Least privilege limits how MUCH one person can do. Segregation of duties limits what one
-person can FINISH.**
+Use when the problem is:
 
-🧠 **Privilege is what you can DO. Need to know is what you can SEE.**
+> **"This person can see information they don't need for their job."**
 
-🧠 **SoD = different steps, different people. Dual control = same action, two people.**
+Example:
 
-🧠 **Vacation and rotation exist so somebody else sits in the chair** — which is how concealed
-fraud surfaces.
+> A sales employee can view confidential medical records even though their job doesn't require them.
+
+➡️ Apply **need-to-know**.
 
 ---
 
-## ✅ Check you actually got it
+## 👥 Segregation of Duties
 
-Answer all five before expanding anything.
+Use when the problem is:
 
-**Q1.** An accounts clerk can both create a new supplier and approve payments to that supplier.
-Which principle is violated?
+> **"One person can perform too many critical steps in a process."**
 
-- **A.** Least privilege
+Example:
+
+> One employee can create and approve their own purchase orders.
+
+➡️ Apply **SoD**.
+
+---
+
+# 🧠 Exam Scenario Practice
+
+### Scenario 1
+
+> A junior developer has full administrator access to the production database, even though they only need to read application logs.
+
+**Answer: 🔑 Least Privilege**
+
+Why?
+
+> They have **more permissions than necessary**.
+
+---
+
+### Scenario 2
+
+> An employee can view confidential customer records that aren't required for their job.
+
+**Answer: 👀 Need-to-Know**
+
+Why?
+
+> They can see information they **don't need**.
+
+---
+
+### Scenario 3
+
+> One employee can create and approve their own expense payments.
+
+**Answer: 👥 Segregation of Duties**
+
+Why?
+
+> One person controls **multiple critical stages**.
+
+---
+
+### Scenario 4
+
+> A system administrator can modify the system but cannot approve their own changes.
+
+**Answer: 👥 Segregation of Duties**
+
+Different people handle different responsibilities.
+
+---
+
+### Scenario 5
+
+> A user is given only read permission because their job doesn't require changing the files.
+
+**Answer: 🔑 Least Privilege**
+
+Minimum necessary permission.
+
+---
+
+# ⚠️ They Can Work Together
+
+These principles aren't mutually exclusive.
+
+Imagine an employee processes payroll.
+
+You might apply all three:
+
+### 🔑 Least Privilege
+
+Give them only the permissions required to process payroll.
+
+### 👀 Need-to-Know
+
+Give them access only to payroll information they actually need.
+
+### 👥 SoD
+
+Don't let them both **create and approve** payroll payments.
+
+---
+
+# 🪨 One Big Caveman Story
+
+Grog works in the tribe's treasure department.
+
+### Problem 1
+
+Grog has administrator powers even though he only needs to enter transactions.
+
+> 🔑 **Least Privilege**
+
+**Reduce his permissions.**
+
+---
+
+### Problem 2
+
+Grog can see everyone's private information even though he only needs the information for his assigned accounts.
+
+> 👀 **Need-to-Know**
+
+**Limit the information he can access.**
+
+---
+
+### Problem 3
+
+Grog can create a payment **and approve it himself**.
+
+> 👥 **Segregation of Duties**
+
+**Give approval to another person.**
+
+---
+
+# 🎯 Ultimate Cheat Sheet
+
+| Concept | Main question | Key idea |
+| --- | --- | --- |
+| 🔑 **Least Privilege** | "How much power do you have?" | Minimum permissions |
+| 👀 **Need-to-Know** | "What information do you need?" | Minimum necessary information |
+| 👥 **Segregation of Duties** | "Who performs each step?" | Split critical responsibilities |
+
+### 🧠 Memorize this:
+
+> **Least privilege = MINIMUM POWER** 🔑<br>
+> **Need-to-know = MINIMUM INFORMATION** 👀<br>
+> **SoD = SPLIT THE JOB** 👥
+
+If the scenario says **"too many permissions"** → **Least privilege**
+
+If it says **"too much information"** → **Need-to-know**
+
+If it says **"one person controls multiple critical steps"** → **Segregation of duties**.
+
+---
+
+# ✅ Check You Actually Got It
+
+Answer all seven before expanding anything.
+
+**Q1.** A marketing intern has been given local administrator rights on every workstation, though their job only involves editing social media posts. Which principle is being violated?
+
+- **A.** Need-to-know
 - **B.** Segregation of duties
-- **C.** Need to know
-- **D.** Defence in depth
+- **C.** Least privilege
+- **D.** Separation of privilege
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — segregation of duties.** One person can complete a fraudulent payment from end to end:
-invent a supplier and pay it. The steps must be held by different people.
+**C — least privilege.** The problem is too much *power* (admin rights) for the job.
 
-- **A** is the strongest distractor, and the clerk may well hold excessive access. But the specific
-  failure named here is that **two conflicting steps of one process** sit with the same person,
-  which is precisely what SoD addresses.
-- **C** concerns restricting access to specific information. Nothing in the stem is about seeing
-  data they should not see.
-- **D** is about layering independent controls generally, not about splitting a process.
+- **A** is about seeing information, not having capabilities.
+- **B** is about one person controlling several critical steps — not the issue here.
 
 </details>
 
-**Q2.** A marketing assistant is granted administrator rights on the finance system so they can
-occasionally update a report. Which principle is violated?
+**Q2.** A clerk in the billing department can open patients' full medical histories, although billing only needs invoice amounts. Which principle should be applied?
 
-- **A.** Segregation of duties
-- **B.** Least privilege
-- **C.** Dual control
+- **A.** Need-to-know
+- **B.** Segregation of duties
+- **C.** Defense in depth
 - **D.** Job rotation
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — least privilege.** The role requires the ability to update one report; it has been granted
-full administrative rights. The access far exceeds the requirement.
-
-- **A** would concern one person holding conflicting steps of a single process. Nothing here
-  describes a process being completed alone.
-- **C** concerns requiring two people for one action, which is not what is described.
-- **D** concerns moving staff between roles periodically, which is unrelated.
+**A — need-to-know.** The clerk can *see information* that the job does not require.
 
 </details>
 
-**Q3.** Why is mandatory vacation considered a security control?
+**Q3.** An accounts-payable employee can add a new vendor to the system and also approve payments to that vendor. What is the main risk, and which control addresses it?
 
-- **A.** Rested employees make fewer security mistakes
-- **B.** Another person performs the duties, which can expose ongoing concealed fraud
-- **C.** It reduces the number of active accounts at any one time
-- **D.** It allows security patching to be applied without disruption
+- **A.** Data leakage — need-to-know
+- **B.** Fraud — segregation of duties
+- **C.** Malware — least privilege
+- **D.** Unauthorized login — MFA
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — another person performs the duties, which can expose ongoing concealed fraud.** A fraud
-requiring continuous daily concealment tends to surface when its author is absent for a week and
-somebody else works the process.
-
-- **A** is genuinely true and is a wellbeing benefit rather than the control's security purpose.
-- **C** is not the mechanism — accounts are typically not disabled during leave, and that is not
-  why the policy exists.
-- **D** describes maintenance scheduling, which has nothing to do with the control.
+**B — fraud, addressed by segregation of duties.** One person can create a fake vendor and pay it. Splitting creation and approval between two people stops that.
 
 </details>
 
-**Q4.** What distinguishes dual control from segregation of duties?
+**Q4.** What is the key difference between least privilege and need-to-know?
 
-- **A.** Dual control applies to physical access; SoD applies to logical access
-- **B.** Dual control requires two people to perform the same action; SoD splits a process into steps held by different people
-- **C.** They are the same principle with different names
-- **D.** Dual control applies only to privileged accounts
+- **A.** Least privilege applies to people; need-to-know applies to systems
+- **B.** Least privilege limits permissions/actions; need-to-know limits information
+- **C.** They are two names for the same principle
+- **D.** Need-to-know only applies to military environments
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — dual control requires two people for the **same** action; SoD splits a process into
-different steps.** Two keys turned simultaneously is dual control; requester and approver being
-different people is SoD.
+**B.** Least privilege = minimum *power* (read, write, delete, admin). Need-to-know = minimum *information*.
 
-- **A** invents a physical/logical split. Both principles apply in either domain.
-- **C** is wrong, and the distinction is exactly what the question tests.
-- **D** is too narrow. Dual control applies to any sufficiently sensitive single action, whether or
-  not privileged accounts are involved.
+- **A** is wrong: least privilege applies to users, processes and systems alike.
+- **C** is the trap — they overlap but focus on different things.
 
 </details>
 
-**Q5.** A new employee is provisioned by copying the access of a long-serving colleague in the
-same team. What is the PRIMARY concern?
+**Q5.** A developer writes code changes, but a different team reviews and deploys them to production. Which principle is this?
 
-- **A.** Nothing — this ensures the new employee can do their job immediately
-- **B.** The colleague may have accumulated privilege creep, which is now propagated
-- **C.** It violates segregation of duties
-- **D.** It prevents the new employee from being assigned a role
+- **A.** Least privilege
+- **B.** Need-to-know
+- **C.** Segregation of duties
+- **D.** Mandatory access control
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — the colleague may have accumulated privilege creep, which is now propagated.** A
-long-serving employee has typically gathered access from previous roles and one-off projects.
-Cloning them copies all of it, and it compounds with every future clone.
-
-- **A** states the convenience that makes this practice so common, and ignores that the new
-  employee almost certainly receives more than their role requires.
-- **C** is not what is described — no single process is being completed by one person.
-- **D** is factually wrong; cloning access does not prevent role assignment.
+**C — segregation of duties.** A critical process (change to production) is split so no single person controls it end to end.
 
 </details>
 
----
+**Q6.** A service account used by a backup application is granted only read access to the file shares it backs up. Which principle does this demonstrate?
 
-## 🎓 The grown-up version
+- **A.** Segregation of duties
+- **B.** Least privilege
+- **C.** Need-to-know
+- **D.** Dual control
 
 <details>
-<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
+<summary><b>Answer</b></summary>
 
-**Least privilege is easy to state and hard to operate.** The difficulty is that nobody reliably
-knows what access a role actually needs. Requirements are discovered by something breaking, which
-creates constant pressure to grant broadly and move on. The techniques that help are all about
-evidence rather than intent: start from deny and add on request, monitor which permissions are
-actually exercised, and remove what has gone unused for a defined period. Cloud platforms now
-generate least-privilege policies automatically from observed access patterns, which is the first
-genuinely practical approach to the problem at scale.
-
-**Just-in-time access changes the shape of privilege.** Rather than holding administrative rights
-permanently, an administrator requests elevation for a defined window, with a justification and
-an approval, and the rights expire automatically. This converts standing privilege — an
-attractive, permanently available target — into a short-lived, logged and reviewable event. It is
-the practical answer to the standing-admin problem, and it is what privileged access management
-platforms are built around.
-
-**Segregation of duties conflicts with small teams.** In an organisation of eight people,
-splitting a payment process across four individuals may be impossible, and rigid application
-means nothing gets done. The recognised answer is **compensating controls**: heightened
-monitoring, after-the-fact review by someone outside the process, mandatory dual sign-off by
-whoever is available, and external audit. This is exactly what a compensating control is — the
-primary control is not feasible, so an alternative provides comparable assurance.
-
-**Collusion is rarer than intuition suggests.** It requires each participant to trust the others
-not to confess, expand the number of people who must stay silent, and increase the chance of
-discovery through any one of them. Fraud research consistently finds that collusive schemes,
-while more damaging when they occur, are much less common than single-actor fraud — which is why
-SoD delivers a genuine and large risk reduction despite not being absolute.
-
-**Why auditors must be independent.** The requirement that an auditor not audit their own work is
-segregation of duties applied to assurance itself. An auditor reviewing a control they designed
-cannot be relied on to report its weaknesses, which is why internal audit reports to the board
-rather than to management, and why external audit exists at all.
+**B — least privilege.** It applies to processes and service accounts too: backup only needs to read, so it gets only read.
 
 </details>
 
----
+**Q7.** A payroll processor is given only the permissions needed to run payroll, sees only the payroll data for their assigned business unit, and cannot approve their own payment runs. Which principles are being applied?
 
-## 📝 Cram lines
+- **A.** Least privilege only
+- **B.** Need-to-know and segregation of duties only
+- **C.** Least privilege, need-to-know and segregation of duties
+- **D.** Segregation of duties only
 
-Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
+<details>
+<summary><b>Answer</b></summary>
 
-- **Least privilege = only the access the ROLE needs.** Limits how much one person can **do**; bounds the blast radius.
-- **"The user had more access than they needed" is the most common correct diagnosis in this domain.**
-- **Need to know = only the INFORMATION required for the task.** Privilege = what you can do; need to know = what you can see.
-- **Clearance alone is never enough under MAC — need to know applies too.**
-- **Segregation of duties = no one person completes a sensitive process alone.** Requester ≠ approver ≠ reconciler.
-- **SoD requires COLLUSION to defeat** — it reduces probability, it doesn't eliminate fraud.
-- **SoD = different STEPS, different people. DUAL CONTROL = the SAME action needs two people.**
-- **Mandatory vacation and job rotation are SECURITY controls** — someone else sits in the chair, so concealed fraud surfaces.
-- **Privilege creep** = accumulated over role changes (admin failure). **Privilege escalation** = an attack.
-- **Cloning an existing user's access to provision a new starter propagates privilege creep.**
+**C — all three.** Minimum permissions (least privilege), minimum data (need-to-know), and approval split off (SoD). The principles work together.
 
----
-
-<div align="center">
-<sub><a href="../README.md">← back to 03 · IAM Concepts</a> &nbsp;·&nbsp; <a href="../privileged-access/">next: Privileged access →</a></sub>
-</div>
+</details>
