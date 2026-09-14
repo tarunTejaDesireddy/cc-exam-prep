@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-77%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-78%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -197,7 +197,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/75-decapsulation.md">Decapsulation</a></li>
 <li>✅ <a href="topics/76-layer-2-vs-layer-3.md">Layer 2 vs Layer 3</a></li>
 <li>✅ <a href="topics/77-layer-4.md">Layer 4</a></li>
-<li>⬜ Layer 7</li>
+<li>✅ <a href="topics/78-layer-7.md">Layer 7</a></li>
 </ul>
 
 </td>
@@ -695,7 +695,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 75. [Decapsulation](topics/75-decapsulation.md)
 - [x] 76. [Layer 2 vs Layer 3](topics/76-layer-2-vs-layer-3.md)
 - [x] 77. [Layer 4](topics/77-layer-4.md)
-- [ ] 78. Layer 7
+- [x] 78. [Layer 7](topics/78-layer-7.md)
 
 </details>
 
