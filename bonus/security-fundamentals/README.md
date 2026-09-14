@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-59%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-60%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -160,7 +160,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/57-router.md">Router</a></li>
 <li>✅ <a href="topics/58-firewall.md">Firewall</a></li>
 <li>✅ <a href="topics/59-access-point.md">Access Point</a></li>
-<li>⬜ Modem</li>
+<li>✅ <a href="topics/60-modem.md">Modem</a></li>
 <li>⬜ Gateway</li>
 <li>⬜ IDS</li>
 <li>⬜ IPS</li>
@@ -667,7 +667,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 57. [Router](topics/57-router.md)
 - [x] 58. [Firewall](topics/58-firewall.md)
 - [x] 59. [Access Point](topics/59-access-point.md)
-- [ ] 60. Modem
+- [x] 60. [Modem](topics/60-modem.md)
 - [ ] 61. Gateway
 - [ ] 62. IDS
 - [ ] 63. IPS
