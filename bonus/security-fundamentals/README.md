@@ -183,6 +183,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/69-ransomware.md">Ransomware</a></li>
 <li>✅ <a href="topics/70-spyware.md">Spyware</a></li>
 <li>✅ <a href="topics/71-email-security-gateway.md">Email Security Gateway</a></li>
+<li>✅ <a href="topics/71a-spf-dkim-dmarc.md">SPF, DKIM and DMARC</a></li>
 </ul>
 
 </td>
@@ -685,6 +686,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 69. [Ransomware](topics/69-ransomware.md)
 - [x] 70. [Spyware](topics/70-spyware.md)
 - [x] 71. [Email Security Gateway](topics/71-email-security-gateway.md)
+- [x] 71a. [SPF, DKIM and DMARC](topics/71a-spf-dkim-dmarc.md)
 
 ### 🧩 8. Network Models
 - [ ] 72. OSI Model
