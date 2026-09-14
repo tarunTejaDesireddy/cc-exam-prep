@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-44%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-45%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -129,7 +129,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/42-ssh.md">SSH</a></li>
 <li>✅ <a href="topics/43-ftp-sftp.md">FTP / SFTP</a></li>
 <li>✅ <a href="topics/44-smtp.md">SMTP</a></li>
-<li>⬜ IMAP / POP3</li>
+<li>✅ <a href="topics/45-imap-pop3.md">IMAP / POP3</a></li>
 </ul>
 
 </td>
@@ -648,7 +648,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 42. [SSH](topics/42-ssh.md)
 - [x] 43. [FTP / SFTP](topics/43-ftp-sftp.md)
 - [x] 44. [SMTP](topics/44-smtp.md)
-- [ ] 45. IMAP / POP3
+- [x] 45. [IMAP / POP3](topics/45-imap-pop3.md)
 
 ### 🖥️ 5. How the Internet Works
 - [ ] 46. DNS Resolution
