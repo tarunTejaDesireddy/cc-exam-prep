@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-68%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-69%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -180,7 +180,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/66-virus.md">Virus</a></li>
 <li>✅ <a href="topics/67-worm.md">Worm</a></li>
 <li>✅ <a href="topics/68-trojan.md">Trojan</a></li>
-<li>⬜ Ransomware</li>
+<li>✅ <a href="topics/69-ransomware.md">Ransomware</a></li>
 <li>⬜ Spyware</li>
 <li>⬜ Email Security Gateway</li>
 </ul>
@@ -682,7 +682,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 66. [Virus](topics/66-virus.md)
 - [x] 67. [Worm](topics/67-worm.md)
 - [x] 68. [Trojan](topics/68-trojan.md)
-- [ ] 69. Ransomware
+- [x] 69. [Ransomware](topics/69-ransomware.md)
 - [ ] 70. Spyware
 - [ ] 71. Email Security Gateway
 
