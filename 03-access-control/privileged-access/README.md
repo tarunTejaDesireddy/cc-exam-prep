@@ -2,7 +2,7 @@
 
 <img src="../assets/module-03-banner.svg" alt="03 · Access Control Concepts" width="100%">
 
-# 👑 Privileged access
+# 🔐 Privileged Access
 
 ### *The accounts that can do anything — and why they need controls ordinary accounts do not*
 
@@ -16,424 +16,574 @@
 
 ---
 
-## 🧸 The big idea
+A **privileged account** is an account that has **more power than a normal user account**.
 
-If a thief steals an ordinary hunter's spear, he gets one hunter's spear. Someone notices it's
-missing, and the hunter can tell you exactly when and where it went.
+The exam's main idea is:
 
-But the master builder carries a different kind of key — one that can rebuild any wall, tear
-down any fence, replace any guard, and take apart the tally-stick counting system entirely. If a
-thief steals *that* key, he doesn't just take one thing. He can rearrange the whole village's
-defences to suit himself, and remove the very people who would have noticed him doing it.
+> **Privileged = can perform powerful or security-sensitive actions.**
 
-That master key is a **privileged account**. It can change the system itself, rather than
-merely use it — install software, change configuration, create other accounts, read anyone's
-data, **and switch off the logging that would record any of it.**
+Think:
 
-That last capability is what makes privilege categorically different. An ordinary compromised
-account gives an attacker one person's access. A compromised privileged account gives them the
-environment — and the ability to hide what they did.
+> 👤 **Normal caveman** → can eat food.
 
-> 🎯 **Privileged accounts are the primary objective of most intrusions.** An attacker who phishes
-> an ordinary user is not finished; they are looking for a route to privilege.
-
-The controls in this topic all follow from one idea: **privileged access should be temporary,
-individually attributable, and watched.**
+> 👑 **Chief caveman** → can open treasure cave, change rules, and control other cavemen.
 
 ---
 
-## 📖 Words you will keep seeing
+# 👑 What Makes an Account Privileged?
 
-| Word | What it means on this exam |
-|---|---|
-| **Privileged account** | An account able to perform system-level actions beyond ordinary use. |
-| **Administrator / root** | The built-in accounts with full system control. |
-| **Service account** | A non-human account used by an application or service. |
-| **Standing privilege** | Privileged rights held permanently, whether in use or not. |
-| **Just-in-time (JIT) access** | Privilege granted only when needed, for a limited period, then removed. |
-| **PAM** — Privileged Access Management | The discipline and tooling for controlling privileged accounts. |
-| **Credential vault** | A secure store from which privileged credentials are checked out. |
-| **Session recording** | Capturing what was done during a privileged session. |
-| **Break-glass account** | An emergency account with high privilege, used only when normal access fails. |
-| **Privilege escalation** | An attacker gaining rights they were never granted. |
-| **Separate admin account** | A distinct privileged account, kept apart from the person's everyday account. |
+An account is privileged when it can perform **high-impact administrative or security-sensitive actions**.
+
+Examples include the ability to:
+
+- 👥 Create, delete, or modify user accounts
+- 🔑 Reset passwords or credentials
+- 🛡️ Change security settings
+- 💻 Install software
+- ⚙️ Change system configuration
+- 📁 Access sensitive files
+- 🗄️ Modify databases
+- 🔥 Change firewall rules
+- 👮 Grant permissions to other users
+- 🖥️ Administer servers or operating systems
+
+> [!IMPORTANT]
+> **A privileged account isn't necessarily called "Administrator."**
+>
+> A database administrator, cloud administrator, network administrator, security administrator, or application administrator can all have privileged access.
 
 ---
 
-## 🔍 Why privilege is different
+# 🪨 Normal vs Privileged
+
+### 👤 Normal user
+
+May be able to:
+
+- Read email
+- Create documents
+- Use approved applications
+
+But usually **cannot**:
+
+- Change security settings
+- Create administrators
+- Modify the operating system
+
+### 👑 Privileged user
+
+May be able to:
+
+- Create accounts
+- Change permissions
+- Install software
+- Modify security controls
+- Configure systems
+
+Therefore:
+
+> **Privileged access = powerful access that could significantly affect security or operations.**
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    A["🦹 Attacker"] --> O["👤 Ordinary account<br/>one person's data<br/>actions are LOGGED"]
-    A --> P["👑 Privileged account<br/>the whole environment<br/>CAN DISABLE THE LOGS"]
+    subgraph N["👤 Normal user"]
+        N1["📧 Read email"]
+        N2["📄 Create documents"]
+        N3["🧩 Use approved apps"]
+    end
+    subgraph P["👑 Privileged user"]
+        P1["👥 Create accounts"]
+        P2["🎟️ Change permissions"]
+        P3["💻 Install software"]
+        P4["🛡️ Modify security controls"]
+        P5["⚙️ Configure systems"]
+    end
 
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style O fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#3a1a20,stroke:#E03131,color:#fff
+    style N1 fill:#26292e,stroke:#868E96,color:#fff
+    style N2 fill:#26292e,stroke:#868E96,color:#fff
+    style N3 fill:#26292e,stroke:#868E96,color:#fff
+    style P1 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P4 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P5 fill:#3a2c12,stroke:#F08C00,color:#fff
 ```
-
-Read it as a sentence: **an ordinary account loses you data, and a privileged account loses you
-the environment and the evidence.**
-
-**What a privileged account can typically do:**
-
-- Install and remove software
-- Change system and security configuration
-- Create, modify and delete accounts — including its own successors
-- Read, alter or destroy any data on the system
-- **Disable auditing and delete logs**
-- Grant privilege to others
 
 ---
 
-## 🛡️ The controls the exam expects
+# 🛡️ What Controls Does the Exam Expect?
 
-The tribe doesn't leave the master key hanging on the builder's belt all day. It stays locked in
-a box, handed out only for the hour it's genuinely needed to fix one specific gate, then returned
-immediately — and someone writes down exactly who took it out and when.
+The big idea is:
+
+> **Privileged accounts need stronger controls and tighter monitoring than ordinary accounts.**
+
+Here are the important ones.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
-    P["👑 Privileged access"] --> S["🪪 SEPARATE account<br/>never the daily one"]
-    P --> J["⏱️ JUST IN TIME<br/>granted, used, removed"]
-    P --> M["🔐 MFA<br/>always, no exceptions"]
-    P --> L["📹 LOGGED and RECORDED<br/>to storage admins cannot edit"]
-    P --> R["🔍 REVIEWED<br/>more often than ordinary access"]
+    PA["👑 PRIVILEGED ACCOUNT"]
+    PA --> A["🔐 Protect the login<br/>MFA · separate admin account"]
+    PA --> B["🔑 Limit the power<br/>least privilege · just-in-time"]
+    PA --> C["👥 Add oversight<br/>approval · access reviews"]
+    PA --> D["📝 Watch everything<br/>logging · monitoring · alerting"]
+    PA --> E["🛡️ Wrap it in PAM<br/>vaulting · rotation · session recording"]
 
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style J fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#12243f,stroke:#5C7CFA,color:#fff
-    style L fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style PA fill:#3a2c12,stroke:#F08C00,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C fill:#26292e,stroke:#868E96,color:#fff
+    style D fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style E fill:#3a1616,stroke:#E03131,color:#fff
 ```
 
-| Control | Why |
-|---|---|
-| **Separate administrative account** | An administrator browses the web and reads email as an ordinary user, and elevates only to administer. A phishing email then compromises an unprivileged account |
-| **Just-in-time access** | Privilege exists only while in use, so there is no permanently available target |
-| **MFA on every privileged account** | The highest-value credential gets the strongest authentication |
-| **Individual accountability** | Named accounts, never a shared `admin`, so actions trace to a person |
-| **Session recording** | What was actually done during the session, not just that a login occurred |
-| **Logging to separate storage** | Logs shipped somewhere administrators cannot alter, so the evidence survives |
-| **More frequent access reviews** | Privileged entitlements reviewed on a shorter cycle than ordinary ones |
-| **Credential vaulting** | Credentials checked out per use, with the checkout logged |
+---
 
-> [!IMPORTANT]
-> **The separate-admin-account rule is the most examined control here.** Administrative
-> credentials must not be used for everyday work — email, browsing, documents. Those activities
-> are where compromise arrives, and they must land on an account that cannot do much.
+## 1. 🔐 MFA
 
-> ⚠️ **Privileged logs must go somewhere privileged users cannot edit.** Otherwise the account
-> that did the damage can erase the record, and accountability collapses.
+Privileged accounts should use **multi-factor authentication**.
+
+Instead of:
+
+> Password only 🔑
+
+Use:
+
+> Password + authenticator/token/biometric 🔑➕📱
+
+Why?
+
+> Because compromising a privileged account can cause **much more damage**.
+
+### 🪨 Memory
+
+> **Powerful account → stronger login protection.**
 
 ---
 
-## 🤖 Service accounts
+## 2. 👤 Separate Admin and Normal Accounts
 
-Non-human accounts used by applications, and a recurring weak point because they tend to be
-created once and never revisited.
+Don't use one account for everything.
 
-| Problem | Control |
-|---|---|
-| Passwords never change | Rotate them, ideally automatically |
-| Excessive privilege "to make it work" | Scope to the minimum the service requires |
-| Shared among administrators | Vault the credential; check out per use, logged |
-| Interactive login possible | Deny interactive logon — the account should only run the service |
-| Forgotten when the service is retired | Include them in access reviews and decommissioning |
+For example:
 
-> 🎯 **A service account that no longer serves a running service should be disabled.** Orphaned
-> service accounts with standing privilege are a classic finding.
+```
+Alice       → normal daily account
+Alice-Admin → administrative account
+```
 
----
+Alice uses the normal account for email and browsing.
 
-## 🚨 Break-glass accounts
+She uses the admin account **only when performing administrative work**.
 
-An emergency account with high privilege, for when normal access paths fail — the identity
-provider is down, or every administrator is locked out.
+Why?
 
-The recognised handling:
-
-- Credentials **sealed and stored securely**, physically or in a vault
-- **Use triggers an immediate alert**
-- Every use is **documented and reviewed afterwards**
-- Credentials **changed after each use**
-- **Excluded from the controls that might block it** in an emergency, which is precisely why its
-  use must be so visible
-
-> ⚠️ **A break-glass account is a deliberate, monitored exception** — not a convenience. It exists
-> because an organisation locked entirely out of its own systems is an availability disaster.
-
----
-
-## 🔬 The actual attack this whole topic defends against
-
-The grown-up section mentions "credential theft tooling." Here's concretely what that is, and
-why vaulting specifically stops it.
+> If Alice's everyday account gets compromised, the attacker doesn't automatically get administrator privileges.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    C["🦠 Attacker on<br/>compromised machine"] --> D["🔍 Dumps LSASS<br/>process memory"]
-    D --> H["🔑 Extracts cached<br/>credential hash"]
-    H --> P["➡️ Pass-the-hash:<br/>reuses hash directly<br/>no cracking needed"]
-    P --> M["😱 Moves laterally<br/>as that admin"]
+    A["👤 Alice"] --> D["Alice<br/>daily account"]
+    A --> X["Alice-Admin<br/>admin account"]
+    D --> D1["📧 Email · 🌐 Browsing"]
+    X --> X1["⚙️ Admin work only"]
+    PH["🎣 Phishing link"] -.->|"compromises"| D
+    D -.-x|"no admin rights to steal"| X1
 
-    style C fill:#3a1a20,stroke:#E03131,color:#fff
-    style D fill:#3a1a20,stroke:#E03131,color:#fff
-    style H fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#3a2c12,stroke:#F08C00,color:#fff
-    style M fill:#3a1a20,stroke:#E03131,color:#fff
+    style A fill:#26292e,stroke:#868E96,color:#fff
+    style D fill:#12243f,stroke:#5C7CFA,color:#fff
+    style X fill:#3a2c12,stroke:#F08C00,color:#fff
+    style D1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style X1 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style PH fill:#3a1616,stroke:#E03131,color:#fff
 ```
 
-Tools like **Mimikatz** read a Windows process called **LSASS** (Local Security Authority
-Subsystem Service), which holds cached credentials in memory for anyone who has logged into that
-machine — including, critically, the *hash* of an administrator's password if that admin ever
-logged in there, even briefly. **Pass-the-hash** means the attacker never needs the actual
-password at all: many authentication protocols will accept the hash itself as proof of identity,
-so stealing the hash is functionally the same as stealing the password. This is the precise,
-technical reason the **tiered administration model** above insists a high-tier credential is
-never used on a lower-tier machine — logging a domain administrator into one infected
-workstation deposits that hash in LSASS memory for any attacker already there to scoop up.
+### 🧠 Exam clue
 
-**A credential vault (CyberArk, HashiCorp Vault) breaks this by making the credential itself
-short-lived and single-use.** Checking out a password rotates it immediately afterward, so a
-hash stolen from memory during that one session is worthless the moment the session ends.
-HashiCorp Vault takes this further with **dynamic secrets**: a database password that doesn't
-exist until the exact moment it's requested, is generated fresh with its own expiry, and is
-automatically revoked — there's no standing credential sitting anywhere for LSASS to ever cache
-in the first place.
+> **Separate standard and privileged accounts.**
 
 ---
 
-## ⚖️ Told apart
+## 3. 🔑 Least Privilege
 
-| | Means | Not to be confused with |
-|---|---|---|
-| **Privileged account** | Can change the system itself. | A **user account with a lot of data access**. Privilege is about system-level capability, not volume of data. |
-| **Standing privilege** | Held permanently. | **Just-in-time access**, granted only when needed and then removed. JIT is the expected answer. |
-| **Separate admin account** | A distinct account used only to administer. | Using one account with elevation prompts for everything, which leaves the daily account privileged. |
-| **Service account** | Non-human, runs an application. | A **shared human account**, which is always wrong. A service account is legitimate when scoped and vaulted. |
-| **Break-glass** | A monitored emergency exception. | A convenient backdoor for administrators. Its use must trigger an alert. |
-| **Privilege escalation** | An attacker gains rights never granted. | **Privilege creep**, rights accumulating legitimately over role changes. |
+Give the administrator **only the privileges actually required**.
 
----
+Don't give:
 
-## ⚠️ Where your instinct is wrong
+> 🏆 God-level access to everyone.
 
-> [!WARNING]
-> **In the job:** administrators hold standing privileged access, because JIT elevation adds
-> friction to work that is already under time pressure.
->
-> **On the exam:** **standing privilege is the weakness and JIT is the answer.** Privilege should
-> exist only while it is being used.
+If someone only administers databases, they shouldn't automatically receive unrestricted access to every server.
 
-> [!WARNING]
-> **In the job:** a shared service account with a vaulted password is well-managed and normal.
->
-> **On the exam:** shared credentials **destroy individual accountability**. Where a question
-> offers individual named accounts against a shared one, individual wins.
-
-> [!WARNING]
-> **In the job:** administrators need email and a browser on the same session to get anything
-> done.
->
-> **On the exam:** **separate administrative accounts**, with everyday activity on an unprivileged
-> one. This is the single most expected control in the topic.
+> **Minimum privilege necessary.**
 
 ---
 
-## 🧠 How to remember it
+## 4. ⏳ Just-in-Time / Temporary Privilege
 
-🧠 **Privilege should be Temporary, Traceable and Taped.**
-Temporary — just in time. Traceable — individual named accounts. Taped — logged and recorded to
-storage admins cannot touch.
+A powerful account doesn't necessarily need powerful access **all the time**.
 
-🧠 **Admin accounts don't read email.** Everyday work on an everyday account.
+Instead:
 
-🧠 **Break the glass and the alarm sounds.** If its use is silent, it is not break-glass.
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    N["👤 Normal access"] --> R["⏳ Request elevated<br/>privilege"] --> AP["🔐 Approval"] --> T["👑 Temporary<br/>admin access"] --> E["⏰ Access expires"]
+    E -.->|"back to"| N
+
+    style N fill:#26292e,stroke:#868E96,color:#fff
+    style R fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AP fill:#0f3038,stroke:#12B5A5,color:#fff
+    style T fill:#3a2c12,stroke:#F08C00,color:#fff
+    style E fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+This is often called **just-in-time (JIT) access**.
+
+### 🪨 Caveman version
+
+> **"Grog gets big club only when fighting bear."**
+
+After the fight:
+
+> **Club goes away.**
 
 ---
 
-## ✅ Check you actually got it
+## 5. 📝 Logging and Monitoring
 
-Answer all five before expanding anything.
+Privileged activity should be **logged and monitored**.
 
-**Q1.** A system administrator uses their domain administrator account to read email and browse
-the web. What is the PRIMARY concern?
+For example:
 
-- **A.** Productivity is reduced by security prompts
-- **B.** A phishing email or malicious website would compromise a fully privileged account
-- **C.** Email systems cannot support administrative accounts
-- **D.** Administrative accounts have limited mailbox storage
+- Who logged in?
+- When?
+- What system did they access?
+- What configuration did they change?
+- What accounts did they create?
+
+This is especially important because privileged accounts can make major changes.
+
+### 🧠 Memory
+
+> **Powerful actions → keep records.**
+
+---
+
+## 6. 🚨 Alerting
+
+It's not enough to collect logs.
+
+Important privileged activities may **generate alerts**.
+
+For example:
+
+- 🚨 Administrator account logs in at an unusual time.
+- 🚨 Administrator creates a new administrator.
+- 🚨 Privileged user disables security logging.
+
+These events may require investigation.
+
+---
+
+## 7. 👥 Approval / Authorization
+
+High-risk privileged actions may **require approval**.
+
+For example:
+
+> Admin requests permission to disable a security control.
+
+> Another authorized person approves it.
+
+This helps prevent one person from making dangerous changes without oversight.
+
+---
+
+## 8. 🔄 Periodic Access Review
+
+Organizations should regularly ask:
+
+> **"Does this person still need privileged access?"**
+
+If someone changes jobs:
+
+> 👨‍💻 Developer → 📊 Manager
+
+They may no longer need their old administrative privileges.
+
+> **Remove unnecessary access.**
+
+### 🧠 Memory
+
+> **No longer needed = remove it.**
+
+---
+
+## 9. 🛡️ Privileged Access Management (PAM)
+
+**PAM** is the broader security approach/tooling used to control privileged accounts and sessions.
+
+PAM can help with:
+
+- 🔐 Credential protection
+- 👤 Privileged account management
+- ⏳ Temporary elevation
+- 📝 Session logging
+- 👀 Monitoring
+- 🔄 Password rotation
+- 🚨 Detection of suspicious activity
+
+Think:
+
+> **PAM = security system around the powerful accounts.**
+
+---
+
+# 🔄 Credential Rotation
+
+Privileged credentials are especially sensitive.
+
+Organizations may use systems that automatically:
+
+> 🔑 **Change privileged passwords**
+
+and securely store them.
+
+This reduces the risk of a stolen or long-lived privileged password being reused.
+
+---
+
+# 🎯 Exam Scenarios
+
+### Scenario 1
+
+> A system administrator can create new user accounts and change security settings.
+
+**Privileged account ✅**
+
+Because the account can perform security-sensitive administrative actions.
+
+---
+
+### Scenario 2
+
+> Administrators use MFA when logging into servers.
+
+**Good privileged-access control ✅**
+
+---
+
+### Scenario 3
+
+> Employees use their administrator account for email, web browsing, and administrative work.
+
+**Bad practice ❌**
+
+Better:
+
+> **Separate standard and privileged accounts.**
+
+---
+
+### Scenario 4
+
+> An administrator receives elevated permissions for 30 minutes to perform a specific maintenance task.
+
+**Just-in-time / temporary privileged access ✅**
+
+---
+
+### Scenario 5
+
+> Every action performed by a privileged administrator is logged.
+
+**Privileged activity monitoring/auditing ✅**
+
+---
+
+### Scenario 6
+
+> A former administrator still has domain administrator privileges six months after moving to another department.
+
+**Problem:** excessive/unused privileged access.
+
+Apply:
+
+> **Access review + least privilege + timely removal.**
+
+---
+
+# ⚠️ Privileged Account ≠ Just "Important Person"
+
+This is an exam trap.
+
+A **CEO** might be extremely important to the organization but not necessarily have technical privileged access.
+
+Conversely:
+
+> **A junior system administrator** could have enormous technical privileges.
+
+The question is:
+
+> ✅ **"What can the account DO?"**
+
+Not:
+
+> ❌ **"How important is the person?"**
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    Q{"🧠 What can the<br/>account DO?"}
+    CEO["👔 CEO<br/>email · reports · approvals"] --> Q
+    JR["🧑‍💻 Junior sysadmin<br/>create admins · change security"] --> Q
+    Q -->|"ordinary actions"| NP["👤 Not privileged"]
+    Q -->|"high-impact actions"| PR["👑 Privileged"]
+
+    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
+    style CEO fill:#26292e,stroke:#868E96,color:#fff
+    style JR fill:#26292e,stroke:#868E96,color:#fff
+    style NP fill:#12243f,stroke:#5C7CFA,color:#fff
+    style PR fill:#3a1616,stroke:#E03131,color:#fff
+```
+
+---
+
+# 🧠 Ultimate Cheat Sheet
+
+### 👑 What makes an account privileged?
+
+> **Ability to perform powerful administrative, security-sensitive, or high-impact actions.**
+
+### 🛡️ Controls to remember:
+
+- 🔐 MFA
+- 👤 Separate admin and standard accounts
+- 🔑 Least privilege
+- ⏳ Just-in-time / temporary elevation
+- 📝 Logging and auditing
+- 👀 Monitoring
+- 🚨 Alerting
+- 👥 Approval for sensitive actions
+- 🔄 Regular access reviews
+- 🛡️ PAM
+- 🔑 Credential/password protection and rotation
+
+### 🪨 One-line exam memory:
+
+> **Privileged account = BIG POWER, so use STRONG AUTHENTICATION, MINIMUM PRIVILEGE, SEPARATE ACCOUNTS, TEMPORARY ACCESS where possible, and LOG/MONITOR EVERYTHING IMPORTANT.**
+
+---
+
+# ✅ Check You Actually Got It
+
+Answer all seven before expanding anything.
+
+**Q1.** Which of the following accounts is the best example of a **privileged** account?
+
+- **A.** The CEO's email account
+- **B.** A service account that can modify firewall rules
+- **C.** A sales manager's account with access to the CRM
+- **D.** A guest Wi-Fi account
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — a phishing email or malicious website would compromise a fully privileged account.**
-Everyday activities are where compromise typically arrives, and they must land on an account that
-cannot do much.
+**B.** Changing firewall rules is a high-impact, security-sensitive action.
 
-- **A** is an operational annoyance and not a security concern.
-- **C** is factually wrong — administrative accounts can use email perfectly well, which is exactly
-  why the practice is common and dangerous.
-- **D** invents a technical limitation that is irrelevant to security.
+- **A** is the trap: the CEO is important, but privilege is about what the *account can do*, not who owns it.
+- **C** is ordinary business access.
+- **D** is the least-privileged account of the lot.
 
 </details>
 
-**Q2.** Which approach BEST reduces the risk associated with privileged accounts?
+**Q2.** A system administrator uses the same account to read email, browse the web and manage domain controllers. What is the best recommendation?
 
-- **A.** Granting permanent administrative rights to a small, trusted group
-- **B.** Providing just-in-time elevation for the duration of the task, with approval and logging
-- **C.** Sharing a single administrator account with a strong password
-- **D.** Requiring administrators to change their password monthly
+- **A.** Enable a stronger password on that account
+- **B.** Create separate standard and administrative accounts
+- **C.** Block web browsing for all employees
+- **D.** Give the administrator a second laptop
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — just-in-time elevation with approval and logging.** Privilege exists only while it is being
-used, so there is no permanently available target, and each elevation is an auditable event.
+**B — separate standard and admin accounts.** If the everyday account is phished, the attacker shouldn't get admin rights along with it.
 
-- **A** reduces the number of holders and leaves standing privilege in place, which remains the
-  core weakness.
-- **C** destroys individual accountability entirely, and the password's strength does nothing about
-  that.
-- **D** is a minor hygiene measure that does not address standing privilege, and aggressive
-  rotation is no longer considered strong practice.
+- **A** helps a little but doesn't fix the exposure of admin rights to email and web threats.
 
 </details>
 
-**Q3.** Why should privileged account activity be logged to storage that administrators cannot
-modify?
+**Q3.** An engineer requests administrator rights, a manager approves, and the rights are removed automatically after two hours. What is this called?
 
-- **A.** To improve log query performance
-- **B.** Because a privileged user could otherwise delete the record of their own actions
-- **C.** To comply with data retention limits
-- **D.** Because local disks have insufficient capacity
+- **A.** Segregation of duties
+- **B.** Just-in-time (temporary) privileged access
+- **C.** Discretionary access control
+- **D.** Credential rotation
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — because a privileged user could otherwise delete the record of their own actions.**
-Privileged accounts can typically disable auditing and remove logs, so accountability requires the
-evidence to sit beyond their reach.
-
-- **A** is an operational benefit of centralised logging and not the security reason.
-- **C** concerns how long logs are kept, not who can alter them.
-- **D** is a capacity consideration unrelated to the control's purpose.
+**B — just-in-time access.** Elevated privilege is granted only when needed, and expires on its own.
 
 </details>
 
-**Q4.** An application uses a service account that was granted domain administrator rights during
-troubleshooting two years ago. What should happen?
+**Q4.** An administrator moved to a non-technical role eight months ago but still holds domain admin rights. Which control would most likely have caught this?
 
-- **A.** Leave it, since the application is working correctly
-- **B.** Reduce the account's privileges to the minimum the service requires
-- **C.** Convert it to a shared account so administrators can also use it
-- **D.** Delete the account and run the service as a named administrator
+- **A.** MFA
+- **B.** Credential rotation
+- **C.** Periodic access review
+- **D.** Alerting on unusual logins
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — reduce the account's privileges to the minimum the service requires.** Elevated rights
-granted for troubleshooting and never revoked are a textbook least privilege failure, and this is
-the direct remedy.
+**C — periodic access review.** Regularly asking "does this person still need this?" is how leftover privilege gets found and removed.
 
-- **A** accepts a high-value permanently privileged account because nothing has broken yet, which
-  is how this situation arises in the first place.
-- **C** makes it worse by adding shared human use to an over-privileged account, destroying
-  accountability as well.
-- **D** replaces a scoped non-human identity with a named person's privileged account, which is
-  worse on every count — it ties a service to an individual and gives it their rights.
+- **A** and **B** protect the login and the password but don't remove access that is no longer needed.
 
 </details>
 
-**Q5.** Which statement about break-glass accounts is correct?
+**Q5.** Which control most directly helps an organization **detect** that an administrator created a new admin account at 3 a.m.?
 
-- **A.** They should be used routinely to avoid elevation delays
-- **B.** Their use should trigger an alert and be reviewed afterwards
-- **C.** They should have the same controls as ordinary administrative accounts
-- **D.** They should be shared among all administrators for availability
+- **A.** Least privilege
+- **B.** Logging, monitoring and alerting
+- **C.** Separate admin accounts
+- **D.** Password complexity rules
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — their use should trigger an alert and be reviewed afterwards.** A break-glass account is a
-deliberate exception to normal controls, and the compensating control is that using it is
-impossible to do quietly.
-
-- **A** turns an emergency exception into a routine bypass, which defeats the entire purpose.
-- **C** misunderstands why it exists. It is deliberately exempt from controls that might block it
-  in an emergency — which is precisely why it needs *stronger* monitoring, not the same.
-- **D** would put an unmonitored high-privilege credential in many hands, and shared credentials
-  destroy accountability.
+**B.** Privileged activity must be logged, and high-risk events like creating an admin should raise an alert. The other options are preventive, not detective.
 
 </details>
 
----
+**Q6.** What is Privileged Access Management (PAM)?
 
-## 🎓 The grown-up version
+- **A.** A type of firewall that blocks admin traffic
+- **B.** A security approach and tooling that controls, protects and monitors privileged accounts and sessions
+- **C.** A policy that forbids anyone from having admin rights
+- **D.** An access control model based on job roles
 
 <details>
-<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
+<summary><b>Answer</b></summary>
 
-**Why attackers hunt privilege specifically.** Almost every significant intrusion follows the same
-arc: initial access through phishing or an exposed service, then privilege escalation, then
-lateral movement using the new rights, then objectives. The middle step is where defence has the
-most leverage, because an attacker confined to an ordinary user's rights on one machine has
-limited options. This is why credential theft tooling exists and why protections against
-extracting credentials from memory matter so much.
+**B.** PAM wraps privileged accounts with credential vaulting and rotation, temporary elevation, session logging and monitoring.
 
-**The tiered administration model.** Mature environments separate administrative accounts into
-tiers by the sensitivity of what they control: tier 0 for identity infrastructure such as domain
-controllers, tier 1 for servers and applications, tier 2 for user workstations. The rule is that
-credentials from a higher tier are never used on lower-tier machines, because a compromised
-workstation can capture any credential used on it. Without tiering, an administrator logging into
-an infected laptop with domain administrator rights hands over the entire directory.
-
-**Service account rotation is genuinely hard.** Changing a service account password means
-updating it everywhere the service runs, in configuration files, scheduled tasks and application
-settings, and anything missed fails at an unpredictable moment. This is why service account
-passwords go unchanged for years. The modern answer is to eliminate the password entirely —
-managed service accounts that rotate their own credentials, or workload identities that obtain
-short-lived tokens from the platform and never hold a static secret.
-
-**Session recording has limits and costs.** Recording what an administrator did is powerful for
-investigation and creates a large store of highly sensitive material — the recording of someone
-configuring a system contains everything they saw. It also raises legitimate monitoring concerns
-that vary by jurisdiction. It is a control that works best when clearly disclosed, tightly
-protected, and used for investigation rather than routine supervision.
-
-**Break-glass in the cloud.** Cloud platforms make this concrete: if conditional access policies
-are misconfigured, an organisation can lock every administrator out of its own tenant with no
-physical console to fall back on. Providers therefore recommend maintaining emergency access
-accounts excluded from conditional access, with long random credentials, monitored for any sign
-of use. It is one of the clearest cases of an availability control accepted as a deliberate
-confidentiality risk.
+- **D** describes RBAC.
 
 </details>
 
----
+**Q7.** Why do privileged accounts require stronger controls than ordinary accounts?
 
-## 📝 Cram lines
+- **A.** Because they are used more often
+- **B.** Because they belong to senior staff
+- **C.** Because compromising them can cause far greater damage
+- **D.** Because regulations forbid ordinary accounts from using MFA
 
-Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
+<details>
+<summary><b>Answer</b></summary>
 
-- **Privileged = can change the SYSTEM, not just use it — including DISABLING THE LOGS.**
-- **Privileged accounts are the main objective of most intrusions.**
-- **SEPARATE admin account.** Admins do email and browsing on an ordinary account. Most-examined control here.
-- **Just-in-time beats standing privilege.** Granted, used, removed.
-- **MFA on every privileged account.** No exceptions.
-- **Individual named accounts, never a shared `admin`** — shared destroys accountability.
-- **Log privileged activity to storage admins CANNOT edit.**
-- **Review privileged access MORE often than ordinary access.**
-- **Service accounts:** scope to minimum, rotate credentials, deny interactive logon, disable when the service retires.
-- **Break-glass = monitored emergency exception.** Use triggers an **alert**, is documented, and credentials change after.
+**C.** Their power to change security settings, create accounts and access sensitive systems makes them the attacker's top target — and the biggest blast radius if stolen.
 
----
-
-<div align="center">
-<sub><a href="../README.md">← back to 03 · IAM Concepts</a> &nbsp;·&nbsp; <a href="../identity-lifecycle/">next: Identity lifecycle →</a></sub>
-</div>
+</details>
