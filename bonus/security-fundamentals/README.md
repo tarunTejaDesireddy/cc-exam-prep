@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-42%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-43%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -127,7 +127,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/40-https.md">HTTPS</a></li>
 <li>✅ <a href="topics/41-tls.md">TLS</a></li>
 <li>✅ <a href="topics/42-ssh.md">SSH</a></li>
-<li>⬜ FTP / SFTP</li>
+<li>✅ <a href="topics/43-ftp-sftp.md">FTP / SFTP</a></li>
 <li>⬜ SMTP</li>
 <li>⬜ IMAP / POP3</li>
 </ul>
@@ -646,7 +646,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 40. [HTTPS](topics/40-https.md)
 - [x] 41. [TLS](topics/41-tls.md)
 - [x] 42. [SSH](topics/42-ssh.md)
-- [ ] 43. FTP / SFTP
+- [x] 43. [FTP / SFTP](topics/43-ftp-sftp.md)
 - [ ] 44. SMTP
 - [ ] 45. IMAP / POP3
 
