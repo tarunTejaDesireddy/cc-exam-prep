@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-55%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-56%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -156,7 +156,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 
 **⬜ 6. Network Devices — 0/9**
 <ul>
-<li>⬜ Switch</li>
+<li>✅ <a href="topics/56-switch.md">Switch</a></li>
 <li>⬜ Router</li>
 <li>⬜ Firewall</li>
 <li>⬜ Access Point</li>
@@ -663,7 +663,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 55. [Tunneling](topics/55-tunneling.md)
 
 ### 🔌 6. Network Devices
-- [ ] 56. Switch
+- [x] 56. [Switch](topics/56-switch.md)
 - [ ] 57. Router
 - [ ] 58. Firewall
 - [ ] 59. Access Point
