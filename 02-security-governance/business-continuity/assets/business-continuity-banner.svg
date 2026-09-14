@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Business Continuity — keep the critical things running through a disruption">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07171c"/>
+      <stop offset="55%" stop-color="#0d2b33"/>
+      <stop offset="100%" stop-color="#141d39"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12B5A5"/>
+      <stop offset="100%" stop-color="#5C7CFA"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <circle cx="1010" cy="70" r="120" fill="#12B5A5" opacity="0.15" filter="url(#soft)"/>
+  <circle cx="860" cy="256" r="100" fill="#5C7CFA" opacity="0.13" filter="url(#soft)"/>
+  <rect x="0" y="0" width="6" height="300" rx="3" fill="url(#accent)"/>
+
+  <text x="58" y="82" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="44" font-weight="700" letter-spacing="1" fill="#f1f8f8">Business Continuity</text>
+  <text x="58" y="120" font-family="Georgia, Cambria, Times New Roman, serif" font-size="21" font-style="italic" fill="#9dc0bf">Keep the critical things running through the storm</text>
+  <rect x="58" y="142" width="74" height="4" rx="2" fill="url(#accent)"/>
+  <text x="58" y="186" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="2.5" fill="#6d9291">ISC2 CC · DOMAIN 2 · SECURITY GOVERNANCE</text>
+
+  <g transform="translate(58,208)" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="600">
+    <rect x="0" y="0" width="118" height="32" rx="8" fill="#1d3a2a" stroke="#2F9E44" stroke-width="1.5"/>
+    <text x="14" y="21" fill="#cbe9d4">⭐ Critical</text>
+    <rect x="134" y="0" width="150" height="32" rx="8" fill="#3a2c12" stroke="#F08C00" stroke-width="1.5"/>
+    <text x="148" y="21" fill="#f6dfb8">🟡 Reduced</text>
+    <rect x="300" y="0" width="128" height="32" rx="8" fill="#26292e" stroke="#868E96" stroke-width="1.5"/>
+    <text x="314" y="21" fill="#dbe7e6">🟢 Can wait</text>
+  </g>
+
+  <g transform="translate(950,56)">
+    <path d="M20 10 q40 -20 70 0 q30 20 60 0 l0 20 q-30 20 -60 0 q-30 -20 -70 0 Z" fill="#26292e" opacity="0.6"/>
+    <path d="M40 60 Q0 100 30 150 Q50 175 90 165 Q140 178 165 140 Q185 100 145 70 Q100 45 40 60 Z" fill="#3c4a52" stroke="#4d6f6e" stroke-width="2"/>
+    <path d="M60 100 h60 M60 116 h60 M60 132 h40" stroke="#12B5A5" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>
