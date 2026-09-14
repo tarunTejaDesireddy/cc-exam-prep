@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-74%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-75%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -194,7 +194,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/72-osi-model.md">OSI Model</a></li>
 <li>✅ <a href="topics/73-tcp-ip-model.md">TCP/IP Model</a></li>
 <li>✅ <a href="topics/74-encapsulation.md">Encapsulation</a></li>
-<li>⬜ Decapsulation</li>
+<li>✅ <a href="topics/75-decapsulation.md">Decapsulation</a></li>
 <li>⬜ Layer 2 vs Layer 3</li>
 <li>⬜ Layer 4</li>
 <li>⬜ Layer 7</li>
@@ -692,7 +692,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 72. [OSI Model](topics/72-osi-model.md)
 - [x] 73. [TCP/IP Model](topics/73-tcp-ip-model.md)
 - [x] 74. [Encapsulation](topics/74-encapsulation.md)
-- [ ] 75. Decapsulation
+- [x] 75. [Decapsulation](topics/75-decapsulation.md)
 - [ ] 76. Layer 2 vs Layer 3
 - [ ] 77. Layer 4
 - [ ] 78. Layer 7
