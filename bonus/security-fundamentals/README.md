@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-53%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-54%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -147,7 +147,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/51-reverse-proxy.md">Reverse Proxy</a></li>
 <li>✅ <a href="topics/52-load-balancer.md">Load Balancer</a></li>
 <li>✅ <a href="topics/53-cdn.md">CDN</a></li>
-<li>⬜ VPN</li>
+<li>✅ <a href="topics/54-vpn.md">VPN</a></li>
 <li>⬜ Tunneling</li>
 </ul>
 
@@ -659,7 +659,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 51. [Reverse Proxy](topics/51-reverse-proxy.md)
 - [x] 52. [Load Balancer](topics/52-load-balancer.md)
 - [x] 53. [CDN](topics/53-cdn.md)
-- [ ] 54. VPN
+- [x] 54. [VPN](topics/54-vpn.md)
 - [ ] 55. Tunneling
 
 ### 🔌 6. Network Devices
