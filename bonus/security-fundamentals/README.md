@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-66%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-67%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -178,7 +178,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <ul>
 <li>✅ <a href="topics/65-malware-overview.md">Malware (Overview)</a></li>
 <li>✅ <a href="topics/66-virus.md">Virus</a></li>
-<li>⬜ Worm</li>
+<li>✅ <a href="topics/67-worm.md">Worm</a></li>
 <li>⬜ Trojan</li>
 <li>⬜ Ransomware</li>
 <li>⬜ Spyware</li>
@@ -680,7 +680,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 ### 🦠 7. Malware & Email Security
 - [x] 65. [Malware (Overview)](topics/65-malware-overview.md)
 - [x] 66. [Virus](topics/66-virus.md)
-- [ ] 67. Worm
+- [x] 67. [Worm](topics/67-worm.md)
 - [ ] 68. Trojan
 - [ ] 69. Ransomware
 - [ ] 70. Spyware
