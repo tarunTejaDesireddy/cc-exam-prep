@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/authentication-banner.svg" alt="Authentication — proving to Grog that you are who you say you are" width="100%">
+<img src="assets/authentication-banner.svg" alt="Authentication — proving to the caveman that you are who you say you are" width="100%">
 
 # 🔑 Authentication
 
@@ -20,31 +20,32 @@
 Imagine a big, safe cave. Inside this cave is a warm fire, the best mammoth meat, and dry furs to
 sleep on. You want to go inside.
 
-But there is a problem. A giant, angry guard named **Grog** stands at the cave entrance holding a
-heavy club.
+But there is a problem. A giant, angry **caveman** guard stands at the cave entrance holding a heavy
+club.
 
-Grog's job is simple: Let tribe members in. Keep bad guys and hungry wolves out. When you walk up
-to the cave, Grog grunts and blocks your path. He needs to know if you are a friend or a stranger.
+The caveman's job is simple: Let tribe members in. Keep bad guys and hungry wolves out. When you
+walk up to the cave, the caveman grunts and blocks your path. He needs to know if you are a friend
+or a stranger.
 
-**Authentication** is simply how you prove to Grog that you are who you say you are. If you prove
-it, you get mammoth meat. If you cannot prove it, Grog hits you with the club.
+**Authentication** is simply how you prove to the caveman that you are who you say you are. If you
+prove it, you get mammoth meat. If you cannot prove it, the caveman hits you with the club.
 
-Here is how you can prove to Grog who you are, from the easiest way to the hardest way.
+Here is how you can prove to the caveman who you are, from the easiest way to the hardest way.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
     YOU["🧍 You, at the cave mouth"]
-    YOU --> GROG["🪨 GROG the guard<br/>friend or stranger?"]
-    GROG --> K["🤫 What You Know<br/>the secret grunt"]
-    GROG --> H["💎 What You Have<br/>the shiny striped rock"]
-    GROG --> A["🖐️ What You Are<br/>your face and thumb"]
+    YOU --> GUARD["🪨 THE CAVEMAN<br/>friend or stranger?"]
+    GUARD --> K["🤫 What You Know<br/>the secret grunt"]
+    GUARD --> H["💎 What You Have<br/>the shiny striped rock"]
+    GUARD --> A["🖐️ What You Are<br/>your face and thumb"]
     K --> IN["🔥 Warm fire and<br/>mammoth meat"]
     H --> IN
     A --> IN
 
     style YOU fill:#26292e,stroke:#868E96,color:#fff
-    style GROG fill:#0f3038,stroke:#12B5A5,color:#fff
+    style GUARD fill:#0f3038,stroke:#12B5A5,color:#fff
     style K fill:#12243f,stroke:#5C7CFA,color:#fff
     style H fill:#1d3a2a,stroke:#2F9E44,color:#fff
     style A fill:#3a2c12,stroke:#F08C00,color:#fff
@@ -60,14 +61,14 @@ flowchart TD
 The tribe leader gathers everyone around the fire and whispers a secret phrase. The phrase is:
 *"Sabertooth-Tiger-Belly-Rub-99."*
 
-When you walk up to the cave, Grog holds up his hand and says, "Secret grunt?"
-You whisper, *"Sabertooth-Tiger-Belly-Rub-99."* Grog nods and lets you in.
+When you walk up to the cave, the caveman holds up his hand and says, "Secret grunt?" You whisper,
+*"Sabertooth-Tiger-Belly-Rub-99."* The caveman nods and lets you in.
 
 > [!CAUTION]
-> **The danger:** If you yell the secret grunt too loudly, a bad guy hiding in the bushes might
-> hear it. Grog is not very smart. If the bad guy walks up to Grog and says the secret grunt, Grog
-> will let the bad guy in to steal the mammoth meat. This is why you must keep your secret grunt
-> hidden, and never use a simple grunt like *"Rock123."*
+> **The danger:** If you yell the secret grunt too loudly, a bad guy hiding in the bushes might hear
+> it. The caveman is not very smart. If the bad guy walks up to the caveman and says the secret
+> grunt, the caveman will let the bad guy in to steal the mammoth meat. This is why you must keep
+> your secret grunt hidden, and never use a simple grunt like *"Rock123."*
 
 ---
 
@@ -80,23 +81,23 @@ special, shiny striped rock. Only you have this exact rock.
 
 Now, when you walk to the cave, the rules are harder:
 
-1. Grog asks for the secret grunt. You say it.
-2. Grog holds out his hand and grunts, "Show rock." You show him your shiny striped rock.
+1. The caveman asks for the secret grunt. You say it.
+2. The caveman holds out his hand and grunts, "Show rock." You show him your shiny striped rock.
 
-Only after you do **both** things will Grog let you in.
+Only after you do **both** things will the caveman let you in.
 
 > [!TIP]
-> **Why this is better:** If a bad guy hears your secret grunt, it does not matter. When he goes
-> to the cave, Grog will ask for the shiny rock. The bad guy does not have your rock, so Grog hits
-> him with the club. To trick Grog, the bad guy would have to learn your secret grunt *and* steal
-> your rock at the exact same time.
+> **Why this is better:** If a bad guy hears your secret grunt, it does not matter. When he goes to
+> the cave, the caveman will ask for the shiny rock. The bad guy does not have your rock, so the
+> caveman hits him with the club. To trick the caveman, the bad guy would have to learn your secret
+> grunt *and* steal your rock at the exact same time.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
     BAD["🐺 Bad guy in the bushes<br/>overhears your grunt"]
-    BAD --> G1{"Grog asks for<br/>the secret grunt"}
-    G1 -->|"he knows it now"| G2{"Grog asks to see<br/>the shiny rock"}
+    BAD --> G1{"Caveman asks for<br/>the secret grunt"}
+    G1 -->|"he knows it now"| G2{"Caveman asks to see<br/>the shiny rock"}
     G2 -->|"he has no rock"| CLUB["🪵 Club. No meat.<br/>The tribe is safe."]
     G2 -.->|"only if he also<br/>stole your rock"| GOT["🔥 He gets in"]
 
@@ -116,12 +117,12 @@ flowchart LR
 You lost your shiny rock in a river, and you hit your head on a tree and forgot the secret grunt.
 How do you get in?
 
-Grog looks closely at you. He grabs your hand and presses your thumb into a soft patch of clay to
-look at your thumb-swirls. He looks at the big scar on your nose. He smells your unique caveman
-smell.
+The caveman looks closely at you. He grabs your hand and presses your thumb into a soft patch of
+clay to look at your thumb-swirls. He looks at the big scar on your nose. He smells your unique
+caveman smell.
 
-Grog thinks: *"Nobody else has this exact face, this exact thumb-swirl, and smells exactly like
-this."* Grog knows it is you. He lets you in.
+The caveman thinks: *"Nobody else has this exact face, this exact thumb-swirl, and smells exactly
+like this."* The caveman knows it is you. He lets you in.
 
 > [!IMPORTANT]
 > **Why this is the strongest:** A bad guy can steal your rock. A bad guy can guess your secret
@@ -146,16 +147,16 @@ flowchart LR
 
 ---
 
-## 🧔 The Caveman Summary
+## 📋 The Summary
 
-| Proving to Grog | Modern Tech Word | How It Works |
+| Proving to the caveman | Modern Tech Word | How It Works |
 | --- | --- | --- |
 | **Secret Grunt** | Password | You remember a secret word in your head. |
 | **Shiny Rock** | Token / 2FA | You carry a special object in your pocket. |
 | **Your Face/Smell** | Biometrics | The guard checks your actual body parts. |
 
-Authentication is just Grog doing his job. It is the process of presenting your secret grunt, your
-shiny rock, or your face to prove you belong by the warm fire.
+Authentication is just the caveman doing his job. It is the process of presenting your secret grunt,
+your shiny rock, or your face to prove you belong by the warm fire.
 
 ---
 
