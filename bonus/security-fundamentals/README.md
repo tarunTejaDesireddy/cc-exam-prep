@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-39%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-40%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -124,7 +124,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/37-dns.md">DNS</a></li>
 <li>✅ <a href="topics/38-dhcp.md">DHCP</a></li>
 <li>✅ <a href="topics/39-http.md">HTTP</a></li>
-<li>⬜ HTTPS</li>
+<li>✅ <a href="topics/40-https.md">HTTPS</a></li>
 <li>⬜ TLS</li>
 <li>⬜ SSH</li>
 <li>⬜ FTP / SFTP</li>
@@ -643,7 +643,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 37. [DNS](topics/37-dns.md)
 - [x] 38. [DHCP](topics/38-dhcp.md)
 - [x] 39. [HTTP](topics/39-http.md)
-- [ ] 40. HTTPS
+- [x] 40. [HTTPS](topics/40-https.md)
 - [ ] 41. TLS
 - [ ] 42. SSH
 - [ ] 43. FTP / SFTP
