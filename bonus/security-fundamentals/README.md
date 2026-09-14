@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-46%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-47%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -140,7 +140,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 **⬜ 5. How the Internet Works — 0/10**
 <ul>
 <li>✅ <a href="topics/46-dns-resolution.md">DNS Resolution</a></li>
-<li>⬜ What Happens When You Enter a URL</li>
+<li>✅ <a href="topics/47-what-happens-when-you-enter-a-url.md">What Happens When You Enter a URL</a></li>
 <li>⬜ HTTP Request and Response</li>
 <li>⬜ Web Server</li>
 <li>⬜ Proxy</li>
@@ -652,7 +652,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 
 ### 🖥️ 5. How the Internet Works
 - [x] 46. [DNS Resolution](topics/46-dns-resolution.md)
-- [ ] 47. What Happens When You Enter a URL
+- [x] 47. [What Happens When You Enter a URL](topics/47-what-happens-when-you-enter-a-url.md)
 - [ ] 48. HTTP Request and Response
 - [ ] 49. Web Server
 - [ ] 50. Proxy
