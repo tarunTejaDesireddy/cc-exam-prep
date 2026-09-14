@@ -10,6 +10,17 @@ The exam wants you to correctly identify **three things**:
 2. 📄 **Object**
 3. 📜 **Rule**
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    S["👤 SUBJECT<br/>who is asking"] -->|"wants to act on"| O["📄 OBJECT<br/>the resource"]
+    R["📜 RULE<br/>what is allowed"] -.->|"governs"| O
+
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style O fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#3a2c12,stroke:#F08C00,color:#fff
+```
+
 ---
 
 # 👤 1. Subject — "WHO?"
@@ -161,6 +172,21 @@ or:
 
 > **Bob + Delete + Payroll.xlsx + Rule denies delete → DENY ❌**
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    S["👤 Subject<br/>Bob"] --> A["🗑️ Action<br/>Delete"] --> O["📄 Object<br/>Payroll.xlsx"] --> R{"📜 Does the rule<br/>allow this action?"}
+    R -->|"yes"| Y["✅ ALLOW"]
+    R -->|"no"| N["❌ DENY"]
+
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#26292e,stroke:#868E96,color:#fff
+    style O fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#3a2c12,stroke:#F08C00,color:#fff
+    style Y fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style N fill:#3a1616,stroke:#E03131,color:#fff
+```
+
 ---
 
 # 🪨 Caveman Example
@@ -263,6 +289,23 @@ So:
 
 > **Authorization applies rules to decide what that subject can do.**
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    U["👤 'I am Alice'"] --> AN{"🔑 Authentication<br/>WHO are you?"}
+    AN -->|"identity proven"| AZ{"🎟️ Authorization<br/>WHAT may you do?"}
+    AN -->|"identity not proven"| X["❌ Stopped at the door"]
+    AZ -->|"rule allows"| OK["✅ Access granted"]
+    AZ -->|"rule denies"| NO["❌ Access denied"]
+
+    style U fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AN fill:#0f3038,stroke:#12B5A5,color:#fff
+    style AZ fill:#3a2c12,stroke:#F08C00,color:#fff
+    style X fill:#3a1616,stroke:#E03131,color:#fff
+    style OK fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style NO fill:#3a1616,stroke:#E03131,color:#fff
+```
+
 ---
 
 # 🧠 The Exam Trick
@@ -310,3 +353,122 @@ Imagine Grog standing at a cave door:
 ### One sentence to memorize:
 
 > **A subject requests an action on an object, and the applicable rule determines whether access is allowed or denied.**
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    G["👤 GROG<br/>Subject"] --> T["✋ TAKE<br/>Action"] --> F["🥩 FOOD<br/>Object"] --> R{"📜 Only hunters<br/>may take food"}
+    R -->|"Grog is a hunter"| Y["✅ ALLOW"]
+    R -->|"Grog is not a hunter"| N["❌ DENY"]
+
+    style G fill:#12243f,stroke:#5C7CFA,color:#fff
+    style T fill:#26292e,stroke:#868E96,color:#fff
+    style F fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#3a2c12,stroke:#F08C00,color:#fff
+    style Y fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style N fill:#3a1616,stroke:#E03131,color:#fff
+```
+
+---
+
+# ✅ Check You Actually Got It
+
+Answer all six before expanding anything.
+
+**Q1.** A backup service reads files from a database server. In this transaction, what is the backup service?
+
+- **A.** The object, because it is a system component
+- **B.** The subject, because it is requesting access
+- **C.** The rule, because it decides what gets copied
+- **D.** Neither — only humans can be subjects
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — the subject.** Whoever *requests* access is the subject, and that can be a process or service, not just a person.
+
+- **A** reverses it. Being a system component doesn't make it the object; the database server is the object.
+- **C** is wrong: the rule is the policy that says what is allowed, not a party to the request.
+- **D** is the trap. Applications, services and computer accounts are all subjects when they ask for access.
+
+</details>
+
+**Q2.** Alice opens `Payroll.xlsx` to read it. What is `Payroll.xlsx`?
+
+- **A.** The subject
+- **B.** The object
+- **C.** The action
+- **D.** The rule
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — the object.** It is the resource being accessed. Alice is the subject, reading is the action, and the policy is the rule.
+
+</details>
+
+**Q3.** A policy states: *"Contractors may read project documents but may not delete them."* In access-control terms, this statement is the:
+
+- **A.** Subject
+- **B.** Object
+- **C.** Rule
+- **D.** Authentication
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C — the rule.** It defines what a subject (contractors) may do with an object (project documents).
+
+- **A** and **B** are *named inside* the rule but are not the rule itself.
+- **D** is wrong: authentication proves who someone is; this statement decides what they may do — that's authorization.
+
+</details>
+
+**Q4.** Bob logs in successfully with his password and MFA, then tries to delete a database he only has read permission on. What happens?
+
+- **A.** Allowed, because Bob authenticated successfully
+- **B.** Denied, because authentication failed
+- **C.** Denied, because authorization does not permit delete
+- **D.** Allowed, because Bob already has read access
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C — denied by authorization.** Authentication proved *who* Bob is. It says nothing about *what* he may do. The rule only grants read, so delete is denied.
+
+- **A** is the classic trap: logging in is not permission.
+- **B** is wrong: authentication succeeded.
+- **D** is wrong: read permission does not include delete.
+
+</details>
+
+**Q5.** Which step answers the question *"WHAT are you allowed to do?"*
+
+- **A.** Identification
+- **B.** Authentication
+- **C.** Authorization
+- **D.** Accounting
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C — authorization.** Authentication asks "WHO are you?"; authorization applies the rules to decide what that subject can do.
+
+</details>
+
+**Q6.** A web application queries the customer database to display order history. Which breakdown is correct?
+
+- **A.** Subject: customer database · Object: web app · Action: read
+- **B.** Subject: web app · Object: customer database · Action: read
+- **C.** Subject: web app · Object: order history page · Action: write
+- **D.** Subject: customer · Object: web app · Action: execute
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.** The web app is the one requesting access (subject), the customer database is the resource (object), and querying data is a read.
+
+- **A** swaps subject and object — the most common exam trap.
+- **C** and **D** misidentify the resource and the action in *this* request.
+
+</details>
