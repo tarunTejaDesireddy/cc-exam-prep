@@ -2,7 +2,7 @@
 
 <img src="../assets/module-04-banner.svg" alt="04 · Network Security" width="100%">
 
-# 🪜 The OSI and TCP/IP models
+# 🌐 OSI & TCP/IP Models — Caveman Style
 
 ### *Seven layers, four layers, and knowing which one anything belongs to*
 
@@ -16,486 +16,854 @@
 
 ---
 
-## 🧸 The big idea
+Think of networking like sending a message from Grog's cave to another cave.
 
-Sending a trade proposal from one chief to another actually takes seven separate jobs, each
-handled by a different specialist, each one only caring about their own piece:
+The network has **layers**, and each layer has a different job.
 
-The chief decides *what* to say — the actual trade offer. A scribe translates it into a shared
-symbol system both villages understand. A negotiator opens the "conversation" between the two
-chiefs and keeps track of where it's up to. A courier splits a long message into numbered
-pieces and makes sure every single one arrives, resending any that go missing. A route-master
-works out which villages the message must pass through to get there at all. A local runner in
-each village only needs to know which hut to hand it to next. And underneath all of that, the
-actual road, drums, or smoke signal physically carries it.
+For exams, you need to know:
 
-That's the whole idea. Networking is complicated, so it is broken into **layers**. Each layer
-does one job and hands its result to the layer below, which does its own job and hands it down
-again. At the far end the stack runs in reverse.
-
-The advantage of layering is independence: the route-master can be swapped for someone using a
-completely different set of trade roads, and the chief never even notices — because you can
-change the wireless card without rewriting the web browser, since each layer only needs to know
-how to talk to its neighbours.
-
-There are two models, and the exam uses both:
-
-- **OSI** — seven layers. A conceptual reference model. This is the one that gets tested.
-- **TCP/IP** — four layers. The model the internet actually runs on.
-
-**Learn OSI properly and map TCP/IP onto it.** The overwhelming majority of layer questions are
-OSI questions.
+- 🧱 The **7 OSI layers**
+- 🧱 The **4 TCP/IP layers**
+- 🔗 How the two models map to each other
+- 🎯 Which technology/protocol belongs to which layer
 
 ---
 
-## 📖 Words you will keep seeing
+# 🏔️ The 7 OSI Layers
 
-| Word | What it means on this exam |
-|---|---|
-| **OSI model** | Open Systems Interconnection. A seven-layer conceptual reference model. |
-| **TCP/IP model** | The four-layer model the internet is built on. Sometimes shown as five layers. |
-| **Encapsulation** | Each layer wrapping the data from the layer above with its own header. |
-| **PDU** — Protocol Data Unit | The name for the data unit at a given layer: bits, frames, packets, segments, data. |
-| **TCP** | Transmission Control Protocol. Connection-oriented and reliable. |
-| **UDP** | User Datagram Protocol. Connectionless and fast, with no delivery guarantee. |
-| **Three-way handshake** | How TCP establishes a connection: **SYN → SYN-ACK → ACK**. |
-| **Segment** | The layer 4 PDU in TCP. |
-| **Packet** | The layer 3 PDU. |
-| **Frame** | The layer 2 PDU. |
+Memorize these **from Layer 7 down to Layer 1**:
 
----
+> **A P S T N D P**
 
-## 🪜 The seven OSI layers
+### 7️⃣ Application
 
-The chief's trade proposal, laid out top to bottom: the chief (7 · Application), the scribe (6 ·
-Presentation), the negotiator (5 · Session), the courier numbering the pieces (4 · Transport),
-the route-master (3 · Network), the local runner (2 · Data Link), and the road itself (1 ·
-Physical).
+### 6️⃣ Presentation
 
-Numbered from the bottom up. Layer 1 is the cable; layer 7 is the application.
+### 5️⃣ Session
+
+### 4️⃣ Transport
+
+### 3️⃣ Network
+
+### 2️⃣ Data Link
+
+### 1️⃣ Physical
+
+A useful sentence:
+
+> **A**ll **P**eople **S**eem **T**o **N**eed **D**ata **P**rocessing.
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart TD
-    L7["7 · APPLICATION<br/>what the user interacts with<br/>HTTP · FTP · SMTP · DNS"]
-    L6["6 · PRESENTATION<br/>format, encrypt, compress<br/>TLS/SSL · JPEG · ASCII"]
-    L5["5 · SESSION<br/>set up and tear down<br/>conversations"]
-    L4["4 · TRANSPORT<br/>end to end delivery<br/>TCP · UDP · ports"]
-    L3["3 · NETWORK<br/>routing between networks<br/>IP · ICMP · routers"]
-    L2["2 · DATA LINK<br/>within one network<br/>MAC · ARP · switches"]
-    L1["1 · PHYSICAL<br/>cables, signals, radio<br/>hubs · repeaters"]
-
+    L7["7️⃣ Application — what service?<br/>HTTP · DNS · SMTP · SSH"]
+    L6["6️⃣ Presentation — what format?<br/>encoding · encryption · compression"]
+    L5["5️⃣ Session — what conversation?<br/>start · keep · end"]
+    L4["4️⃣ Transport — how delivered?<br/>TCP · UDP · ports"]
+    L3["3️⃣ Network — which network?<br/>IP · ICMP · router"]
+    L2["2️⃣ Data Link — which local device?<br/>Ethernet · Wi-Fi · MAC · switch"]
+    L1["1️⃣ Physical — what signals?<br/>copper · fiber · radio"]
     L7 --> L6 --> L5 --> L4 --> L3 --> L2 --> L1
 
-    style L7 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style L7 fill:#2b1d3a,stroke:#9C36B5,color:#fff
     style L6 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style L5 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style L4 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style L3 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style L2 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style L1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style L5 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style L4 fill:#3a3512,stroke:#E8B500,color:#fff
+    style L3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style L2 fill:#3a1616,stroke:#E03131,color:#fff
+    style L1 fill:#26292e,stroke:#868E96,color:#fff
 ```
-
-| # | Layer | Does | PDU | Protocols | Devices |
-|:--:|---|---|---|---|---|
-| **7** | **Application** | Interfaces with the user's software | Data | HTTP, HTTPS, FTP, SMTP, DNS, SNMP, DHCP | Application gateway, WAF |
-| **6** | **Presentation** | Formats, encrypts, compresses | Data | TLS/SSL, JPEG, ASCII, MPEG | — |
-| **5** | **Session** | Establishes, manages, ends sessions | Data | NetBIOS, RPC, PPTP | — |
-| **4** | **Transport** | End-to-end delivery, **ports** | **Segment** | **TCP, UDP** | Basic firewall (with L3) |
-| **3** | **Network** | Routing between networks, **IP** | **Packet** | **IP, ICMP**, IPSec | **Router**, layer 3 switch |
-| **2** | **Data Link** | Delivery within one network, **MAC** | **Frame** | **ARP**, Ethernet, PPP | **Switch**, bridge, NIC |
-| **1** | **Physical** | Bits as electrical, light or radio signals | **Bit** | — | **Hub**, repeater, cable, modem |
-
-### The four layers that carry the marks
-
-Most exam questions live in **1, 2, 3 and 4**. Fix these and the rest follows:
-
-| Layer | Address | Device | Unit |
-|---|---|---|---|
-| **4 · Transport** | **Port number** | — | Segment |
-| **3 · Network** | **IP address** | **Router** | Packet |
-| **2 · Data Link** | **MAC address** | **Switch** | Frame |
-| **1 · Physical** | none | **Hub** | Bit |
-
-> 🎯 **Address type identifies the layer.** MAC → 2. IP → 3. Port → 4. That single rule answers a
-> great many questions.
 
 ---
 
-## 🌐 The TCP/IP model
+# 🪨 Caveman Version
 
-Four layers, mapping onto OSI like this:
+Imagine Grog sending:
+
+> 🗣️ "MEAT!"
+
+Each layer handles a different part of the journey.
+
+---
+
+# 7️⃣ Application — "What network service does the app need?"
+
+This is closest to the user/application.
+
+Examples:
+
+- 🌐 HTTP / HTTPS
+- 📧 SMTP
+- 📬 IMAP
+- 📁 FTP
+- 🌐 DNS
+- 🔐 SSH
+
+Think:
+
+> **"What network service is the application using?"**
+
+### 🪨 Caveman
+
+> "Grog wants webpage!"
+
+---
+
+# 6️⃣ Presentation — "How is the data represented?"
+
+Handles things such as:
+
+- 🔤 Data formatting
+- 🔐 Encryption/decryption
+- 🗜️ Compression
+
+Think:
+
+> **"What does the data look like, and how is it encoded/protected?"**
+
+Examples often associated with this layer conceptually include:
+
+- Encryption
+- Compression
+- Character encoding
+
+> [!NOTE]
+> In real modern networks, many of these functions don't fit neatly into a single OSI layer.
+
+---
+
+# 5️⃣ Session — "Keep the conversation going"
+
+The Session layer deals with establishing, managing, and ending communication sessions.
+
+Think:
+
+> 🗣️ **"Start conversation → keep conversation → end conversation."**
+
+Again, modern protocols often combine these functions with other layers.
+
+---
+
+# 4️⃣ Transport — "End-to-end delivery"
+
+This is a **very important exam layer**.
+
+Main protocols:
+
+> 🔵 **TCP**
+
+> 🟢 **UDP**
+
+Transport handles things such as:
+
+- Segmentation
+- Reliability
+- Flow control
+- Port numbers
+- End-to-end communication
+
+### TCP
+
+> Reliable, connection-oriented transport.
+
+### UDP
+
+> Connectionless, lower-overhead transport.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    subgraph TCPIP["TCP/IP · 4 layers"]
-        T4["Application"]
-        T3["Transport"]
-        T2["Internet"]
-        T1["Network Access"]
+    subgraph TCP["🔵 TCP — reliable, connection-oriented"]
+        T1["SYN"] --> T2["SYN-ACK"] --> T3["ACK"] --> T4["📦 data + acknowledgements<br/>resend if lost"]
     end
-    subgraph OSI["OSI · 7 layers"]
-        O7["7 Application<br/>6 Presentation<br/>5 Session"]
+    subgraph UDP["🟢 UDP — connectionless, fast"]
+        U1["📦 just send it"] --> U2["no handshake<br/>no guarantee"]
+    end
+
+    style T1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style T2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style T3 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style T4 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style U1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style U2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+```
+
+### 🪨 Caveman
+
+> **"Get message from this application to that application."**
+
+---
+
+# 3️⃣ Network — "Where is the destination?"
+
+Main idea:
+
+> 🌐 **IP addressing and routing**
+
+Important protocols:
+
+- IPv4
+- IPv6
+- ICMP
+
+Common device:
+
+> 🛣️ **Router**
+
+Think:
+
+> **"Which network should this packet travel through?"**
+
+### 🪨 Caveman
+
+> "Which cave?"
+
+---
+
+# 2️⃣ Data Link — "Get it across this local network"
+
+This layer deals with **frames** and local network delivery.
+
+Examples:
+
+- Ethernet
+- Wi-Fi / IEEE 802.11
+- MAC addresses
+- ARP is often discussed around the boundary between Layer 2 and Layer 3, depending on the model/treatment.
+
+Common devices:
+
+> 🔀 **Switch**
+
+Think:
+
+> **"Which device on this local network should get this frame?"**
+
+---
+
+# 1️⃣ Physical — "Bits become signals"
+
+This is the actual physical transmission.
+
+Examples:
+
+- 🔌 Copper cable
+- 💡 Fiber-optic cable
+- 📡 Radio signals
+- Electrical/optical/radio signaling
+- Connectors and physical media
+
+Think:
+
+> **"How do 1s and 0s physically travel?"**
+
+---
+
+# 🧠 The Seven Layers at a Glance
+
+| OSI | Layer | Think |
+| --- | --- | --- |
+| 7 | 🟣 Application | Network services |
+| 6 | 🔵 Presentation | Format/encryption/compression |
+| 5 | 🟢 Session | Manage conversations |
+| 4 | 🟡 Transport | TCP/UDP, ports |
+| 3 | 🟠 Network | IP, routing |
+| 2 | 🔴 Data Link | Frames, MAC, Ethernet/Wi-Fi |
+| 1 | ⚫ Physical | Cables/signals/bits |
+
+---
+
+# 🌐 Now the TCP/IP Model
+
+The TCP/IP model is commonly taught as **4 layers**:
+
+### 4️⃣ Application
+
+### 3️⃣ Transport
+
+### 2️⃣ Internet
+
+### 1️⃣ Network Access / Link
+
+---
+
+# 🔗 OSI → TCP/IP Mapping
+
+This is **extremely important**.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    subgraph OSI["OSI — 7 layers"]
+        O7["7 Application"]
+        O6["6 Presentation"]
+        O5["5 Session"]
         O4["4 Transport"]
         O3["3 Network"]
-        O2["2 Data Link<br/>1 Physical"]
+        O2["2 Data Link"]
+        O1["1 Physical"]
     end
-    T4 -.-> O7
-    T3 -.-> O4
-    T2 -.-> O3
-    T1 -.-> O2
+    subgraph TCPIP["TCP/IP — 4 layers"]
+        A["4 Application"]
+        T["3 Transport"]
+        I["2 Internet"]
+        N["1 Network Access / Link"]
+    end
+    O7 --> A
+    O6 --> A
+    O5 --> A
+    O4 --> T
+    O3 --> I
+    O2 --> N
+    O1 --> N
 
-    style T4 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T3 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T2 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style O7 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style O4 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style O3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style O2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style TCPIP fill:#07171c,stroke:#12B5A5,color:#dbe7e6
-    style OSI fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
+    style O7 fill:#2b1d3a,stroke:#9C36B5,color:#fff
+    style O6 fill:#2b1d3a,stroke:#9C36B5,color:#fff
+    style O5 fill:#2b1d3a,stroke:#9C36B5,color:#fff
+    style A fill:#2b1d3a,stroke:#9C36B5,color:#fff
+    style O4 fill:#3a3512,stroke:#E8B500,color:#fff
+    style T fill:#3a3512,stroke:#E8B500,color:#fff
+    style O3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style I fill:#3a2c12,stroke:#F08C00,color:#fff
+    style O2 fill:#3a1616,stroke:#E03131,color:#fff
+    style O1 fill:#3a1616,stroke:#E03131,color:#fff
+    style N fill:#3a1616,stroke:#E03131,color:#fff
 ```
 
-| TCP/IP layer | Absorbs OSI layers |
-|---|---|
-| **Application** | 7 + 6 + 5 |
-| **Transport** | 4 |
-| **Internet** | 3 |
-| **Network Access** (or Link) | 2 + 1 |
+```
+OSI                         TCP/IP
 
-> ⚠️ **The TCP/IP layer is called "Internet", not "Network".** OSI layer 3 is Network; the
-> equivalent TCP/IP layer is Internet. This naming difference is examined.
+7 Application ───────┐
+6 Presentation ──────┼──→ 4 Application
+5 Session ───────────┘
+
+4 Transport ─────────────→ 3 Transport
+
+3 Network ───────────────→ 2 Internet
+
+2 Data Link ──────────┐
+1 Physical ───────────┴──→ 1 Network Access / Link
+```
+
+### 🧠 Memorize:
+
+> **OSI 7 + 6 + 5 → TCP/IP Application**
+
+> **OSI 4 → TCP/IP Transport**
+
+> **OSI 3 → TCP/IP Internet**
+
+> **OSI 2 + 1 → TCP/IP Network Access**
 
 ---
 
-## 🔄 TCP versus UDP
+# 🎯 The Big Exam Trick
 
-Both live at layer 4. The distinction comes up repeatedly.
+If they ask:
 
-| | **TCP** | **UDP** |
-|---|---|---|
-| Connection | **Connection-oriented** — handshake first | **Connectionless** — just sends |
-| Reliability | **Guaranteed delivery**, acknowledged, retransmits | **No guarantee**, no acknowledgement |
-| Ordering | Reassembles in order | No ordering |
-| Speed | Slower — more overhead | **Faster** — minimal overhead |
-| Used for | Web, email, file transfer — anything that must arrive intact | Streaming, voice, video, DNS queries, gaming |
+> **"What layer is TCP?"**
 
-**The three-way handshake** establishes a TCP connection:
+Answer:
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["💻 Client"] -->|"1 · SYN"| B["🖥️ Server"]
-    B -->|"2 · SYN-ACK"| A
-    A -->|"3 · ACK"| B
+> **OSI Layer 4 — Transport**
 
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+TCP/IP model:
 
-**SYN → SYN-ACK → ACK.** Know this sequence: it is the basis of the SYN flood attack, where an
-attacker sends many SYNs and never completes the handshake, exhausting the server's table of
-half-open connections.
+> **Transport layer**
 
 ---
 
-## 📦 Encapsulation
+If they ask:
 
-As data moves down the stack, each layer adds its own header. Coming back up, each layer strips
-its own header off.
+> **"What layer is IP?"**
+
+Answer:
+
+> **OSI Layer 3 — Network**
+
+TCP/IP:
+
+> **Internet layer**
+
+---
+
+If they ask:
+
+> **"What layer is Ethernet?"**
+
+Answer:
+
+> **OSI Layer 2 — Data Link**
+
+TCP/IP:
+
+> **Network Access/Link**
+
+---
+
+# 📦 Common Things and Their Layers
+
+## 🟣 Layer 7 — Application
+
+Think:
+
+> **HTTP, HTTPS, DNS, SMTP, FTP, SSH**
+
+| Technology | OSI |
+| --- | --- |
+| HTTP | 7 |
+| HTTPS | 7 |
+| DNS | 7 |
+| SMTP | 7 |
+| FTP | 7 |
+| SSH | 7 |
+
+---
+
+## 🟡 Layer 4 — Transport
+
+> **TCP / UDP**
+
+| Technology | OSI |
+| --- | --- |
+| TCP | 4 |
+| UDP | 4 |
+| Port numbers | 4 |
+
+Examples:
+
+> TCP 443
+
+> UDP 53
+
+The **port number** points toward a service/application endpoint, but ports are a **Transport-layer** concept.
+
+---
+
+## 🟠 Layer 3 — Network
+
+> **IP / routing**
+
+| Technology | OSI |
+| --- | --- |
+| IPv4 | 3 |
+| IPv6 | 3 |
+| ICMP | 3 |
+| IP address | 3 |
+| Router | 3 |
+
+Example:
+
+> `192.168.1.10`
+
+That's an **IP address**.
+
+Think:
+
+> 🌍 **Layer 3 = Which network/device destination?**
+
+---
+
+## 🔴 Layer 2 — Data Link
+
+> **MAC / Ethernet / Wi-Fi**
+
+| Technology | OSI |
+| --- | --- |
+| Ethernet | 2 |
+| Wi-Fi (802.11) | 2 |
+| MAC address | 2 |
+| Switch | 2 |
+
+Example:
+
+> `00:1A:2B:3C:4D:5E`
+
+That's a **MAC address**.
+
+Think:
+
+> 🏠 **Layer 2 = Local network delivery**
+
+---
+
+## ⚫ Layer 1 — Physical
+
+Think:
+
+> **Cable, fiber, radio, signals**
+
+Examples:
+
+- Ethernet cable as physical media
+- Fiber
+- Radio transmission
+- Connectors
+- Electrical signals
+
+---
+
+# 🧠 IP vs MAC — Don't Mix Them
+
+This is a classic exam question.
+
+### 🌐 IP address
+
+> **Layer 3 — Network**
+
+Used for:
+
+> **Routing between networks**
+
+Think:
+
+> "Which cave/network?"
+
+---
+
+### 🏠 MAC address
+
+> **Layer 2 — Data Link**
+
+Used for:
+
+> **Local network delivery**
+
+Think:
+
+> "Which device on this local network?"
+
+---
+
+# 🔀 Router vs Switch
+
+### 🛣️ Router
+
+Primarily:
+
+> **Layer 3**
+
+Uses:
+
+> **IP addresses**
+
+Routes traffic between networks.
+
+---
+
+### 🔀 Switch
+
+Primarily:
+
+> **Layer 2**
+
+Uses:
+
+> **MAC addresses**
+
+Forwards frames within a local network.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    D["📄 Data<br/>layer 7"] --> S["📦 + TCP header = SEGMENT<br/>layer 4 · adds ports"]
-    S --> P["📮 + IP header = PACKET<br/>layer 3 · adds IP addresses"]
-    P --> F["🖼️ + Ethernet header = FRAME<br/>layer 2 · adds MAC addresses"]
-    F --> B["⚡ BITS on the wire<br/>layer 1"]
+flowchart LR
+    subgraph LANA["🏠 Network A"]
+        PC1["💻 PC 1"] --- SW1["🔀 Switch<br/>Layer 2 · MAC"]
+        PC2["💻 PC 2"] --- SW1
+    end
+    subgraph LANB["🏠 Network B"]
+        SW2["🔀 Switch<br/>Layer 2 · MAC"] --- PC3["💻 PC 3"]
+    end
+    SW1 --- R["🛣️ Router<br/>Layer 3 · IP<br/>between networks"] --- SW2
 
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style F fill:#12243f,stroke:#5C7CFA,color:#fff
+    style PC1 fill:#26292e,stroke:#868E96,color:#fff
+    style PC2 fill:#26292e,stroke:#868E96,color:#fff
+    style PC3 fill:#26292e,stroke:#868E96,color:#fff
+    style SW1 fill:#3a1616,stroke:#E03131,color:#fff
+    style SW2 fill:#3a1616,stroke:#E03131,color:#fff
+    style R fill:#3a2c12,stroke:#F08C00,color:#fff
+```
+
+---
+
+# 📦 PDU Names — Extra Exam Points
+
+Each layer has a common name for the data unit.
+
+From upper layers downward:
+
+> **Data → Segment → Packet → Frame → Bits**
+
+### Layer 7/6/5
+
+> 📄 **Data**
+
+### Layer 4
+
+> 📦 **Segment** — TCP
+
+> 📦 **Datagram** — UDP
+
+### Layer 3
+
+> 📦 **Packet**
+
+### Layer 2
+
+> 🖼️ **Frame**
+
+### Layer 1
+
+> 01010101 **Bits**
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    D["📄 DATA<br/>L7-5"] -->|"+ TCP/UDP header"| S["📦 SEGMENT<br/>L4"] -->|"+ IP header"| P["📦 PACKET<br/>L3"] -->|"+ MAC header/trailer"| F["🖼️ FRAME<br/>L2"] -->|"signals"| B["01010101 BITS<br/>L1"]
+
+    style D fill:#2b1d3a,stroke:#9C36B5,color:#fff
+    style S fill:#3a3512,stroke:#E8B500,color:#fff
+    style P fill:#3a2c12,stroke:#F08C00,color:#fff
+    style F fill:#3a1616,stroke:#E03131,color:#fff
     style B fill:#26292e,stroke:#868E96,color:#fff
 ```
 
-> 🧠 **Data → Segment → Packet → Frame → Bits**, going down. Reverse coming up.
+---
+
+# 🪨 Caveman Journey
+
+Suppose Grog visits a website.
+
+## 7️⃣ Application
+
+Grog's browser uses:
+
+> **HTTPS**
 
 ---
 
-## 🔬 Encapsulation, seen for real — and defeating a SYN flood
+## 4️⃣ Transport
 
-Open any capture in **Wireshark** and the encapsulation diagram above stops being theory —
-clicking through a single captured packet shows exactly those nested layers, literally labelled
-`Frame → Ethernet II → Internet Protocol → TCP → HTTP`, each one a real header you can expand
-and read byte by byte. This is genuinely the fastest way to make the OSI model click: it isn't
-an abstraction someone invented for an exam, it's what's actually sitting inside every packet
-your machine sends.
+HTTPS traffic uses:
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    SYN["📥 SYN arrives"] --> ENC["🔐 Server computes<br/>a SYN cookie<br/>(no state stored)"]
-    ENC --> RPL["📤 Sends SYN-ACK<br/>with cookie as<br/>sequence number"]
-    RPL --> WAIT{"Final ACK<br/>ever arrives?"}
-    WAIT -->|"yes, cookie<br/>checks out"| EST["✅ Connection<br/>established"]
-    WAIT -->|"no"| NOTHING["😌 Nothing was<br/>ever allocated"]
+> **TCP**
 
-    style SYN fill:#26292e,stroke:#868E96,color:#fff
-    style ENC fill:#0f3038,stroke:#12B5A5,color:#fff
-    style RPL fill:#12243f,stroke:#5C7CFA,color:#fff
-    style WAIT fill:#3a2c12,stroke:#F08C00,color:#fff
-    style EST fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style NOTHING fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+and a port such as:
 
-**SYN cookies are the real, deployed defence against the SYN flood attack described above.**
-Normally a server allocates a slot in a "half-open connections" table the instant a SYN arrives
-— which is exactly the resource a flood exhausts. With SYN cookies, the server instead
-**encodes** the connection details cryptographically into the sequence number it sends back in
-the SYN-ACK, and stores *nothing*. If the real final ACK ever comes back, the server decodes the
-cookie from it and only *then* builds the connection — a flood of SYNs that never complete
-simply costs the server a moment of CPU to generate cookies, never a slot in a table that could
-run out.
+> **443**
 
 ---
 
-## ⚖️ Told apart
+## 3️⃣ Network
 
-| | Layer | Not to be confused with |
-|---|---|---|
-| **Switch** | 2 — Data Link, uses MAC | **Router**, layer 3, uses IP |
-| **Hub** | 1 — Physical, no addressing at all | **Switch**, layer 2, which makes forwarding decisions |
-| **IP** | 3 — Network | **TCP/UDP**, layer 4. IP gets it to the host; ports get it to the application |
-| **ARP** | **2 — Data Link** | Commonly misplaced at layer 3 because it resolves IP to MAC. It operates at layer 2 |
-| **TLS/SSL** | **6 — Presentation** | Often assumed to be layer 7 or 4. ISC2 places encryption at Presentation |
-| **TCP** | Connection-oriented, reliable, slower | **UDP**, connectionless, unreliable, faster |
-| **OSI layer 3** | Called **Network** | **TCP/IP layer 2**, called **Internet**. Same function, different name |
-| **Packet** | Layer 3 PDU | **Frame** (layer 2) and **segment** (layer 4) |
+The packet gets:
 
-> [!CAUTION]
-> **The two most-missed placements are ARP and TLS.**
-> **ARP is layer 2** — it resolves an IP address to a MAC address, and it operates within the
-> local network at the data link layer.
-> **TLS/SSL is layer 6, Presentation**, because encryption and formatting are what that layer
-> does. Some material argues for other placements; on this exam, answer Presentation.
+> **IP addresses**
+
+Routers use those addresses to move it between networks.
 
 ---
 
-## ⚠️ Where your instinct is wrong
+## 2️⃣ Data Link
 
-> [!WARNING]
-> **In the job:** TLS is a transport-security protocol that rides on TCP, and you would place it
-> at layer 4 or call the whole question academic.
->
-> **On the exam:** **TLS/SSL is layer 6, Presentation.** Encryption is a presentation-layer
-> function in the OSI model. Answer the model, not the implementation.
+The local network uses:
 
-> [!WARNING]
-> **In the job:** the OSI model is a teaching artefact nobody uses; real work happens in the
-> TCP/IP stack.
->
-> **On the exam:** OSI is the primary model and seven-layer questions dominate. Learn it
-> thoroughly and treat TCP/IP as a mapping exercise.
-
-> [!WARNING]
-> **In the job:** a modern firewall inspects application content, so calling it a layer 3/4 device
-> is out of date.
->
-> **On the exam:** a basic **firewall is layer 3 and 4**, filtering on IP addresses and ports.
-> Application-aware inspection is described separately, as an application-layer or
-> next-generation capability.
+> **Ethernet/Wi-Fi + MAC addresses**
 
 ---
 
-## 🧠 How to remember it
+## 1️⃣ Physical
 
-🧠 **Layer 7 down to 1:**
-**A**ll **P**eople **S**eem **T**o **N**eed **D**ata **P**rocessing
-*Application, Presentation, Session, Transport, Network, Data Link, Physical.*
+The bits travel through:
 
-🧠 **Layer 1 up to 7:**
-**P**lease **D**o **N**ot **T**hrow **S**ausage **P**izza **A**way
-
-🧠 **The address rule:** **MAC = 2, IP = 3, Port = 4.**
-
-🧠 **The PDU chain going down:** **D**o **S**ome **P**eople **F**ear **B**irthdays —
-Data, Segment, Packet, Frame, Bits.
-
-🧠 **Handshake:** **SYN → SYN-ACK → ACK.**
+> 🔌 Cable / 📡 Wi-Fi / 💡 Fiber
 
 ---
 
-## ✅ Check you actually got it
+# 🎯 Scenario Recognition
 
-Answer all five before expanding anything.
+### "The device needs to find the destination network."
 
-**Q1.** At which OSI layer does a switch primarily operate?
+→ **Layer 3 — Network**
+
+---
+
+### "The application needs reliable delivery."
+
+→ **Layer 4 — Transport / TCP**
+
+---
+
+### "A switch forwards traffic using MAC addresses."
+
+→ **Layer 2 — Data Link**
+
+---
+
+### "A signal travels through fiber."
+
+→ **Layer 1 — Physical**
+
+---
+
+### "A browser requests a webpage."
+
+→ **Layer 7 — Application / HTTP(S)**
+
+---
+
+# 🧠 The Ultimate Memory Ladder
+
+From **7 → 1**:
+
+> 🟣 **Application** = What service?
+
+> 🔵 **Presentation** = What format?
+
+> 🟢 **Session** = What conversation?
+
+> 🟡 **Transport** = Which application endpoint / how delivered?
+
+> 🟠 **Network** = Which network?
+
+> 🔴 **Data Link** = Which local device?
+
+> ⚫ **Physical** = What signals?
+
+And the **TCP/IP shortcut**:
+
+> **OSI 7-6-5 → TCP/IP Application**
+
+> **OSI 4 → Transport**
+
+> **OSI 3 → Internet**
+
+> **OSI 2-1 → Network Access**
+
+### 🪨 One-line exam cheat code:
+
+> **HTTP/DNS = 7, TCP/UDP/ports = 4, IP/router = 3, Ethernet/MAC/switch = 2, cables/signals = 1.**
+
+---
+
+# ✅ Check You Actually Got It
+
+Answer all eight before expanding anything.
+
+**Q1.** At which OSI layer does TCP operate?
+
+- **A.** Layer 3 — Network
+- **B.** Layer 4 — Transport
+- **C.** Layer 5 — Session
+- **D.** Layer 7 — Application
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — Layer 4, Transport.** TCP and UDP are the transport protocols; ports live here too.
+
+</details>
+
+**Q2.** A network device forwards traffic between two different networks by examining destination IP addresses. What device is it and at which OSI layer does it primarily work?
+
+- **A.** Switch — Layer 2
+- **B.** Hub — Layer 1
+- **C.** Router — Layer 3
+- **D.** Firewall — Layer 7
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C — router, Layer 3.** Routing between networks using IP addresses is the Network layer's job.
+
+- **A** — a switch forwards within a local network using MAC addresses.
+
+</details>
+
+**Q3.** Which pair of OSI layers maps to the TCP/IP **Network Access (Link)** layer?
+
+- **A.** Layers 7, 6 and 5
+- **B.** Layers 4 and 3
+- **C.** Layers 3 and 2
+- **D.** Layers 2 and 1
+
+<details>
+<summary><b>Answer</b></summary>
+
+**D — Data Link (2) and Physical (1).**
+
+- **A** maps to the TCP/IP Application layer.
+- Layer 4 maps to Transport, and Layer 3 to Internet.
+
+</details>
+
+**Q4.** An address such as `00:1A:2B:3C:4D:5E` is used at which layer?
+
+- **A.** Layer 2 — Data Link
+- **B.** Layer 3 — Network
+- **C.** Layer 4 — Transport
+- **D.** Layer 1 — Physical
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A — Layer 2.** That's a MAC address, used for local network delivery. IP addresses are Layer 3.
+
+</details>
+
+**Q5.** A user types a website address into a browser, and a DNS query is sent. At which OSI layer does DNS operate?
+
+- **A.** Layer 3
+- **B.** Layer 4
+- **C.** Layer 6
+- **D.** Layer 7
+
+<details>
+<summary><b>Answer</b></summary>
+
+**D — Layer 7, Application.** DNS is an application-layer service, even though it rides on UDP (Layer 4) port 53.
+
+- **B** is the trap: the *port* is Layer 4, but the *protocol* is Layer 7.
+
+</details>
+
+**Q6.** What is the correct order of PDU names from the upper layers down?
+
+- **A.** Bits → Frame → Packet → Segment → Data
+- **B.** Data → Segment → Packet → Frame → Bits
+- **C.** Data → Packet → Segment → Frame → Bits
+- **D.** Segment → Data → Frame → Packet → Bits
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.** Data (L7-5) → Segment (L4) → Packet (L3) → Frame (L2) → Bits (L1). **A** is the same list in reverse (bottom-up).
+
+</details>
+
+**Q7.** Which OSI layer is most associated with data formatting, encryption and compression?
+
+- **A.** Session
+- **B.** Presentation
+- **C.** Transport
+- **D.** Data Link
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — Presentation (Layer 6).** "What does the data look like, and how is it encoded or protected?"
+
+</details>
+
+**Q8.** An attacker cuts a fiber-optic cable between two buildings. Which OSI layer is being attacked?
 
 - **A.** Layer 1 — Physical
 - **B.** Layer 2 — Data Link
 - **C.** Layer 3 — Network
-- **D.** Layer 4 — Transport
+- **D.** Layer 7 — Application
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — layer 2, Data Link.** A switch forwards frames using MAC addresses, and MAC addressing is a
-layer 2 function.
-
-- **A** is where a hub operates. Hubs repeat signals without examining any address.
-- **C** is where a router operates, forwarding packets by IP address. Layer 3 switches exist, but
-  the exam's basic model places a switch at layer 2.
-- **D** is where ports and TCP/UDP live. Switches do not examine port numbers.
+**A — Physical.** The cable, fiber, radio and signals themselves are Layer 1.
 
 </details>
-
-**Q2.** Which protocol resolves an IP address to a MAC address, and at which layer does it
-operate?
-
-- **A.** DNS, at layer 7
-- **B.** ARP, at layer 2
-- **C.** ARP, at layer 3
-- **D.** ICMP, at layer 3
-
-<details>
-<summary><b>Answer</b></summary>
-
-**B — ARP, at layer 2.** Address Resolution Protocol maps a known IP address to the MAC address
-needed to deliver a frame within the local network, and it operates at the data link layer.
-
-- **A** describes DNS, which resolves *names* to IP addresses — a different job entirely, at the
-  application layer.
-- **C** is the single most common error on this topic. ARP *involves* IP addresses, which makes
-  layer 3 feel right, but it functions at layer 2 to enable local frame delivery.
-- **D** names ICMP, which carries error and diagnostic messages such as those used by ping. It
-  does not resolve addresses.
-
-</details>
-
-**Q3.** Which statement correctly distinguishes TCP from UDP?
-
-- **A.** TCP is faster because it has less overhead
-- **B.** UDP guarantees delivery through acknowledgements
-- **C.** TCP is connection-oriented and reliable; UDP is connectionless and unreliable
-- **D.** TCP operates at layer 3 and UDP at layer 4
-
-<details>
-<summary><b>Answer</b></summary>
-
-**C — TCP is connection-oriented and reliable; UDP is connectionless and unreliable.** TCP
-establishes a session with a handshake, acknowledges data and retransmits what is lost; UDP
-simply sends.
-
-- **A** is reversed. UDP is the faster one, precisely because it lacks TCP's overhead.
-- **B** is reversed. Acknowledged, guaranteed delivery is TCP's defining feature, and its absence
-  is UDP's.
-- **D** is wrong — both operate at layer 4, the transport layer.
-
-</details>
-
-**Q4.** A firewall filtering traffic based on source IP address and destination port number is
-operating at which layers?
-
-- **A.** Layers 1 and 2
-- **B.** Layers 3 and 4
-- **C.** Layers 5 and 6
-- **D.** Layer 7 only
-
-<details>
-<summary><b>Answer</b></summary>
-
-**B — layers 3 and 4.** IP addresses are layer 3 and port numbers are layer 4, so a firewall
-examining both operates across those two layers.
-
-- **A** covers physical signalling and MAC addressing, neither of which is mentioned in the stem.
-- **C** covers session management and formatting or encryption. Not relevant to address and port
-  filtering.
-- **D** would describe an application-layer firewall inspecting content such as HTTP requests —
-  a genuine capability, but not what this stem describes.
-
-</details>
-
-**Q5.** What is the correct order of the TCP three-way handshake?
-
-- **A.** ACK → SYN → SYN-ACK
-- **B.** SYN → ACK → SYN-ACK
-- **C.** SYN → SYN-ACK → ACK
-- **D.** SYN-ACK → SYN → ACK
-
-<details>
-<summary><b>Answer</b></summary>
-
-**C — SYN → SYN-ACK → ACK.** The client requests a connection with SYN, the server acknowledges
-and requests in return with SYN-ACK, and the client confirms with ACK.
-
-- **A**, **B** and **D** all scramble the sequence. The logic is fixed: a request cannot be
-  acknowledged before it is made, so any order not beginning with SYN is impossible.
-
-Worth knowing cleanly, because the SYN flood attack works by sending many SYNs and never sending
-the final ACK, leaving the server holding half-open connections.
-
-</details>
-
----
-
-## 🎓 The grown-up version
-
-<details>
-<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
-
-**OSI never shipped.** The model was developed as part of a full protocol suite intended to be
-*the* standard for networking. The protocols lost to TCP/IP comprehensively, and what survived was
-the reference model — a vocabulary rather than an implementation. This is why real protocols map
-onto it awkwardly: they were never designed against it. TLS is the obvious case, sitting between
-transport and application and satisfying nobody's clean placement.
-
-**Session and Presentation barely exist in practice.** In the TCP/IP world their functions are
-absorbed into applications. There is no distinct session-layer protocol in a normal web request —
-the application manages its own sessions, often with cookies, and does its own content
-negotiation. These two layers are largely why practitioners call OSI academic, and also why exam
-questions about layers 5 and 6 are comparatively rare.
-
-**Layer 8.** An informal joke term for the user, occasionally extended to layers 9 and 10 for
-politics and money. It appears in security writing as shorthand for "the problem is not
-technical". Never a correct exam answer, but worth recognising.
-
-**Why layer placement matters for defence.** The layer at which a control operates determines what
-it can and cannot see. A layer 3/4 firewall sees addresses and ports but not content, so it cannot
-tell legitimate HTTPS from an attack inside the tunnel. A WAF at layer 7 sees the request body but
-must terminate TLS to do it, creating its own exposure. Understanding layer placement is
-therefore not trivia — it tells you the blind spot of every device in the path, which is exactly
-the reasoning defence in depth is built on.
-
-**Encapsulation and tunnelling.** A VPN works by encapsulating whole packets inside other packets,
-which is why the same PDU vocabulary applies twice over in a tunnelled connection — an inner
-packet carrying the real addresses, wrapped in an outer packet carrying the tunnel endpoints. This
-is also why tunnelling can bypass filtering: a firewall inspecting the outer headers sees only
-traffic to the VPN endpoint.
-
-</details>
-
----
-
-## 📝 Cram lines
-
-Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
-
-- **All People Seem To Need Data Processing** — Application, Presentation, Session, Transport, Network, Data Link, Physical (7→1).
-- **MAC = layer 2. IP = layer 3. Port = layer 4.** The address tells you the layer.
-- **Hub = 1. Switch = 2. Router = 3. Basic firewall = 3+4.**
-- **PDUs going down: Data → Segment → Packet → Frame → Bits.**
-- **ARP is LAYER 2**, not 3. Most-missed placement.
-- **TLS/SSL is LAYER 6 (Presentation)** on this exam.
-- **TCP** = connection-oriented, reliable, acknowledged, slower. **UDP** = connectionless, unreliable, faster.
-- **Handshake: SYN → SYN-ACK → ACK.**
-- **TCP/IP has 4 layers:** Application (7+6+5), Transport (4), **Internet** (3), Network Access (2+1).
-- **TCP/IP calls layer 3 "Internet", OSI calls it "Network".**
-
----
-
-<div align="center">
-<sub><a href="../README.md">← back to 04 · Networking and Cloud Security Concepts</a> &nbsp;·&nbsp; <a href="../ip-addressing/">next: IP addressing →</a></sub>
-</div>
