@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-71%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-72%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -191,7 +191,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 
 **⬜ 8. Network Models — 0/7**
 <ul>
-<li>⬜ OSI Model</li>
+<li>✅ <a href="topics/72-osi-model.md">OSI Model</a></li>
 <li>⬜ TCP/IP Model</li>
 <li>⬜ Encapsulation</li>
 <li>⬜ Decapsulation</li>
@@ -689,7 +689,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 71a. [SPF, DKIM and DMARC](topics/71a-spf-dkim-dmarc.md)
 
 ### 🧩 8. Network Models
-- [ ] 72. OSI Model
+- [x] 72. [OSI Model](topics/72-osi-model.md)
 - [ ] 73. TCP/IP Model
 - [ ] 74. Encapsulation
 - [ ] 75. Decapsulation
