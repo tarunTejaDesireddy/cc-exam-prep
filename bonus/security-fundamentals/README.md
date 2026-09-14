@@ -165,6 +165,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/62-ids.md">IDS</a></li>
 <li>✅ <a href="topics/63-ips.md">IPS</a></li>
 <li>✅ <a href="topics/64-waf.md">WAF</a></li>
+<li>✅ <a href="topics/64a-ids-vs-ips.md">IDS vs IPS</a></li>
 </ul>
 
 </td>
@@ -672,6 +673,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 62. [IDS](topics/62-ids.md)
 - [x] 63. [IPS](topics/63-ips.md)
 - [x] 64. [WAF](topics/64-waf.md)
+- [x] 64a. [IDS vs IPS](topics/64a-ids-vs-ips.md)
 
 ### 🦠 7. Malware & Email Security
 - [ ] 65. Malware (Overview)
