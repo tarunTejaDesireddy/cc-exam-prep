@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Governance Documents — policy, standard, procedure, guideline">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07171c"/>
+      <stop offset="55%" stop-color="#0d2b33"/>
+      <stop offset="100%" stop-color="#141d39"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12B5A5"/>
+      <stop offset="100%" stop-color="#5C7CFA"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <circle cx="1010" cy="70" r="120" fill="#12B5A5" opacity="0.15" filter="url(#soft)"/>
+  <circle cx="860" cy="256" r="100" fill="#5C7CFA" opacity="0.13" filter="url(#soft)"/>
+  <rect x="0" y="0" width="6" height="300" rx="3" fill="url(#accent)"/>
+
+  <text x="58" y="82" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="1" fill="#f1f8f8">Governance Documents</text>
+  <text x="58" y="120" font-family="Georgia, Cambria, Times New Roman, serif" font-size="21" font-style="italic" fill="#9dc0bf">What, must, how, and should</text>
+  <rect x="58" y="142" width="74" height="4" rx="2" fill="url(#accent)"/>
+  <text x="58" y="186" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="2.5" fill="#6d9291">ISC2 CC · DOMAIN 1 · SECURITY PRINCIPLES</text>
+
+  <g transform="translate(58,208)" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="600">
+    <rect x="0" y="0" width="112" height="32" rx="8" fill="#12243f" stroke="#5C7CFA" stroke-width="1.5"/>
+    <text x="14" y="21" fill="#cdd9fb">📜 Policy</text>
+    <rect x="128" y="0" width="128" height="32" rx="8" fill="#3a2c12" stroke="#F08C00" stroke-width="1.5"/>
+    <text x="142" y="21" fill="#f6dfb8">📏 Standard</text>
+    <rect x="272" y="0" width="140" height="32" rx="8" fill="#1d3a2a" stroke="#2F9E44" stroke-width="1.5"/>
+    <text x="286" y="21" fill="#cbe9d4">📋 Procedure</text>
+    <rect x="428" y="0" width="130" height="32" rx="8" fill="#26292e" stroke="#868E96" stroke-width="1.5"/>
+    <text x="442" y="21" fill="#dbe7e6">💡 Guideline</text>
+  </g>
+
+  <g transform="translate(960,44)">
+    <polygon points="90,0 0,45 180,45" fill="#12243f" stroke="#5C7CFA" stroke-width="2"/>
+    <polygon points="0,50 180,50 165,90 15,90" fill="#3a2c12" stroke="#F08C00" stroke-width="2"/>
+    <polygon points="15,95 165,95 152,135 28,135" fill="#1d3a2a" stroke="#2F9E44" stroke-width="2"/>
+    <polygon points="28,140 152,140 140,175 40,175" fill="#26292e" stroke="#868E96" stroke-width="2"/>
+  </g>
+</svg>
