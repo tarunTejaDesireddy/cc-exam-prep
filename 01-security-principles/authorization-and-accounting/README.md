@@ -1,430 +1,297 @@
 <div align="center">
 
-<img src="../assets/module-01-banner.svg" alt="01 · Security Principles" width="100%">
+<img src="assets/authorization-accounting-banner.svg" alt="Authorization and Accounting — what you can do, and what you did" width="100%">
 
-# 🎫 Authorisation and accounting
+# 🎫 Authorization and Accounting — Caveman Style
 
-### *What you are allowed to do once you have proven who you are — and the record that you did it*
+[![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=for-the-badge&labelColor=07171c)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain_1-24%25-12B5A5?style=for-the-badge&labelColor=0f3038)](../README.md)
 
-[![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
-
-📌 *The other two thirds of AAA. The exam tests whether you can put a given control in the right one of the three stages.*
+[![Authorization](https://img.shields.io/badge/1-Authorization-5C7CFA?style=flat-square&labelColor=12243f)](#-1-authorization)
+[![Accounting](https://img.shields.io/badge/2-Accounting-2F9E44?style=flat-square&labelColor=1d3a2a)](#-2-accounting)
+[![AAA](https://img.shields.io/badge/AAA-All_Three_Together-F08C00?style=flat-square&labelColor=3a2c12)](#-the-aaa-example)
 
 </div>
 
 ---
 
-## 🧸 The big idea
+Let's continue with Grog's cave. 🪨
 
-Back to the cave guard from the last topic. He already proved the stranger's identity — the
-whistle checked out, it really is Grog from the next valley. Two more questions remain before
-Grog gets anywhere.
+You already learned:
 
-*"Fine, you're Grog — but which rooms of this cave are you allowed into? The berry store, sure.
-The chief's sleeping area, absolutely not."* That's a decision about **what Grog may do**, made
-only now, after his identity was already settled.
+- 🔐 **Authentication** = "Who are you?"
+- 🎫 **Authorization** = "What are you allowed to do?"
+- 📋 **Accounting** = "What did you do?"
 
-And every time Grog walks past, the guard scratches a mark on the cave wall — *Grog, berry
-store, this morning.* Not to stop him. Just so that if berries go missing later, there's a
-record of who was actually in there.
+These three are often grouped together as **AAA**:
 
-That's the whole topic. Access happens in three stages, always in the same order.
-
-1. **Authentication** — *who are you?* You prove your identity. (The whistle, last topic.)
-2. **Authorisation** — *what are you allowed to do?* The system checks your permissions. (Which
-   rooms Grog can enter.)
-3. **Accounting** — *what did you actually do?* The system records it. (The scratch marks on the
-   wall.)
-
-Together they are **AAA**, and the order is fixed. You cannot authorise someone whose identity
-you have not established, and you cannot meaningfully account for actions you cannot attribute
-to an identity.
-
-The exam's favourite move is to describe one stage and offer all three as options. If you can
-say which question a control answers — *who are you*, *what may you do*, or *what did you do* —
-you have the answer.
-
----
-
-## 📖 Words you will keep seeing
-
-| Word | What it means on this exam |
-|---|---|
-| **Authorisation** | Granting or denying a proven identity the right to access a resource or perform an action. |
-| **Accounting** | Recording what an authenticated identity actually did. Also called **auditing**. |
-| **Accountability** | The ability to trace an action back to a specific individual and hold them responsible. |
-| **Permission** | A specific right over a specific resource — read, write, execute, delete. |
-| **Privilege** | A right to perform a system-level action, such as installing software or changing configuration. |
-| **Audit trail** | The chronological record produced by accounting. |
-| **Access control list (ACL)** | The list attached to a resource saying which subjects may do what to it. |
-| **Principle of least privilege** | Granting only the access needed to perform a role, and nothing more. |
-| **Subject** | The active party requesting access — a user, a process, a device. |
-| **Object** | The passive thing being accessed — a file, a database, a room. |
-
----
-
-## 🔍 The three stages
+> Authentication + Authorization + Accounting = **AAA**
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
 flowchart LR
-    U["🙋 Subject"] --> A1["1 · AUTHENTICATION<br/>Who are you?<br/>password · token · biometric"]
-    A1 --> A2["2 · AUTHORISATION<br/>What may you do?<br/>permissions · ACLs · roles"]
-    A2 --> A3["3 · ACCOUNTING<br/>What did you do?<br/>logs · audit trail · monitoring"]
-    A3 --> R["📊 Accountability<br/>the action traces back<br/>to one person"]
+    N["🔐 Authentication<br/>Who are you?"] --> Z["🎫 Authorization<br/>What can you do?"]
+    Z --> C["📋 Accounting<br/>What did you do?"]
 
-    style U fill:#26292e,stroke:#868E96,color:#fff
-    style A1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A2 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style A3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
-
-Read it as a sentence: **prove who you are, get told what you may do, and have what you did
-written down.**
-
-### 🎫 Authorisation
-
-This is the guard deciding which rooms of the cave Grog can walk into. Authorisation happens
-**after** authentication and decides what a proven identity may do.
-
-Two people can authenticate equally successfully and be authorised completely differently — a
-clerk and a finance director both log in, and the system permits them different things. That
-separation is the point.
-
-**Where authorisation lives:** permissions on files, access control lists, role assignments,
-group membership, database grants, firewall rules.
-
-> ⚠️ **Authenticating successfully does not entitle you to anything.** A valid login to a system
-> where you have no permissions gets you nowhere. The exam sometimes describes a user who "logged
-> in successfully but could not open the file" — that is authorisation working correctly, not an
-> authentication failure.
-
-**Least privilege** governs how authorisation should be granted: only what the role requires,
-and nothing beyond it. Most real-world over-permissioning comes from access accumulating as
-people change jobs and nobody removes the old rights — **privilege creep**.
-
-### 📋 Accounting
-
-This is the scratch marks on the cave wall. Accounting records what was done: who, what, when,
-and to which object.
-
-It is a **detective** control. It prevents nothing. Its value is that it makes actions
-attributable after the fact, which supports investigation, supports discipline, and — because
-people behave differently when they know they are logged — has a real deterrent effect.
-
-**What accounting produces:** audit trails, system and application logs, access records, session
-records, change histories.
-
-**Accounting depends on everything above it.** If several people share one account, the logs
-show the account, not the person, and attribution is gone. That is why shared accounts are
-treated so harshly on this exam: they destroy accountability at the source.
-
----
-
-## 🔗 Accountability is the outcome, not a stage
-
-This distinction is worth holding clearly.
-
-- **Accounting** is the *activity* — recording what happened.
-- **Accountability** is the *property that results* — an action can be traced to a specific
-  individual who can be held responsible.
-
-Accountability requires the whole chain to work: unique identification, successful
-authentication, correct authorisation, and reliable accounting. Break any link — a shared
-account, an unlogged system, a generic "admin" login — and accountability is lost even though
-the other stages ran fine.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    U1["👤 Unique ID<br/>per person"] --> AU["🔐 Authentication"]
-    AU --> AZ["🎫 Authorisation"]
-    AZ --> AC["📋 Accounting"]
-    AC --> ACC["⚖️ ACCOUNTABILITY"]
-    S["👥 Shared account"] -.->|"breaks the chain here"| ACC
-
-    style U1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AU fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AZ fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AC fill:#12243f,stroke:#5C7CFA,color:#fff
-    style ACC fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style S fill:#3a1a20,stroke:#E03131,color:#fff
+    style N fill:#12243f,stroke:#5C7CFA,color:#fff
+    style Z fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style C fill:#3a2c12,stroke:#F08C00,color:#fff
 ```
 
 ---
 
-## 🔬 How this actually works under the hood
+## 🎫 1. Authorization
+
+Imagine Grog finally proves that he is Grog.
+
+The guard says:
+
+> "Okay, I know who you are. But where are you allowed to go?"
+
+Grog might be allowed to:
+
+- Enter the sleeping cave ✅
+- Get his own food ✅
+- Use the hunting tools ✅
+
+But maybe Grog is not allowed to:
+
+- Enter the chief's secret cave ❌
+- Take another tribe member's food ❌
+- Change the tribe's rules ❌
+
+That's authorization.
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    D["📡 Device / user"] -->|"1 · credentials"| R["🖧 RADIUS / TACACS+<br/>server"]
-    R -->|"2 · Access-Accept<br/>+ permitted attrs"| D
-    D -->|"3 · session usage"| R
-    R --> LOG["📋 Accounting record<br/>time · bytes · duration"]
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart TD
+    G["🧑 Grog, already<br/>authenticated"]
+    G --> A1["✅ Sleeping cave"]
+    G --> A2["✅ His own food"]
+    G --> A3["✅ Hunting tools"]
+    G -.-> D1["❌ Chief's secret cave"]
+    G -.-> D2["❌ Another's food"]
+    G -.-> D3["❌ Change tribe rules"]
 
-    style D fill:#26292e,stroke:#868E96,color:#fff
-    style R fill:#0f3038,stroke:#12B5A5,color:#fff
-    style LOG fill:#12243f,stroke:#5C7CFA,color:#fff
+    style G fill:#0f3038,stroke:#12B5A5,color:#fff
+    style A1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style A2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style A3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style D1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style D2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style D3 fill:#3a1a20,stroke:#E03131,color:#fff
 ```
 
-**AAA started as a real network protocol, not just an exam acronym.** RADIUS and TACACS+ are
-still what actually runs when a VPN gateway or Wi-Fi controller checks a login: the device asks
-a central RADIUS server to authenticate the credential, the server replies with an Access-Accept
-that carries authorisation attributes (which VLAN, what session timeout), and the device reports
-usage back for accounting — traditionally billed by the minute, which is the actual historical
-reason the third A is "accounting" and not "auditing."
+### 💻 In computers
 
-**Authorisation is enforced differently depending on where you are.** On Linux, every file
-carries **permission bits** — read/write/execute for owner, group, and everyone else — checked
-by the kernel on every single file access; a POSIX **ACL** extends that to named individual
-users beyond the three basic categories. On Windows, an NTFS file carries a **DACL** — a list
-of **ACEs** (Access Control Entries), each one an allow-or-deny rule tied to a specific user or
-group SID, evaluated top to bottom until a match is found. In a web application, authorisation
-usually travels as a **JWT** — a signed token containing claims like `role: finance-clerk` that
-the server checks on every request without needing to re-query a database each time.
+Authorization determines:
 
-**Accounting has to survive the very people it watches.** A log an administrator can quietly
-edit isn't actually evidence of anything. Real audit systems ship logs to storage the writer
-can't modify — **WORM** (write-once, read-many) storage, or a **hash chain** where each log
-entry includes the hash of the one before it, so altering an old entry breaks every hash after
-it and the tampering becomes mathematically obvious.
+> **What resources can this authenticated user access, and what actions can they perform?**
 
----
+For example, at a company. Employee:
 
-## ⚖️ Told apart
+- View their own files ✅
+- Edit their own documents ✅
+- View the CEO's private files ❌
+- Delete the company's database ❌
 
-| | Answers | Not to be confused with |
-|---|---|---|
-| **Identification** | "Who do you claim to be?" | **Authentication** — the proof of that claim. |
-| **Authentication** | "Can you prove it?" | **Authorisation** — what you may do once proven. Authentication always comes first. |
-| **Authorisation** | "What are you allowed to do?" | **Authentication.** Successfully logging in and being denied a file is authorisation working, not an authentication failure. |
-| **Accounting** | "What did you do?" | **Accountability** — the *result*, being able to hold a named person responsible. |
-| **Permission** | A right over a specific resource — read this file. | **Privilege** — a system-level right, such as installing software. |
-| **Least privilege** | Grant only what the role needs. | **Need to know**, which restricts access to specific *information* required for a task. Related, narrower, often paired. |
-| **Privilege creep** | Rights accumulating as someone changes roles. | **Privilege escalation**, which is an attacker gaining rights they were never granted. |
+The employee has been authenticated, but their permissions determine what they can do.
+
+### 🔐 Authentication vs 🎫 Authorization
+
+This is one of the most important differences to remember.
+
+Imagine a nightclub. 🕺
+
+**Authentication** — The guard checks your ID. "Are you really Grog?" ✅ Authentication
+
+**Authorization** — The guard checks your ticket. "Okay, you're Grog. But does your ticket allow
+you into the VIP area?" 🎫 Authorization
 
 > [!IMPORTANT]
-> **Privilege creep versus privilege escalation** is a reliable exam pair. Creep is an
-> administrative failure that happens slowly and legitimately, one job change at a time.
-> Escalation is an attack.
+> 🔐 **Authentication** = WHO are you?
+> 🎫 **Authorization** = WHAT are you allowed to do?
 
 ---
 
-## ⚠️ Where your instinct is wrong
+## 📋 2. Accounting
 
-> [!WARNING]
-> **In the job:** logging is plumbing — you configure it and move on to detection content.
->
-> **On the exam:** accounting is one third of the model and carries real weight. It is the
-> **detective** leg of AAA, the foundation of accountability, and the answer to any question
-> about proving what a user did.
+Now let's say Grog is allowed into the cave.
 
-> [!WARNING]
-> **In the job:** a shared service account with a vaulted password is a normal, well-managed
-> thing.
->
-> **On the exam:** shared accounts are close to always wrong, because they destroy the ability to
-> attribute actions to an individual. If an option recommends individual accounts over a shared
-> one, it is very likely correct.
+The tribe's guard writes down everything Grog does:
 
-> [!WARNING]
-> **In the job:** you would say authorisation decisions are increasingly continuous and
-> re-evaluated per request.
->
-> **On the exam:** AAA is a clean three-step sequence. Authenticate, then authorise, then account.
-> Answer in that model.
+> 🕐 8:00 — Grog entered the cave
+> 🕐 8:15 — Grog opened the food storage
+> 🕐 8:20 — Grog took 2 pieces of meat
+> 🕐 9:00 — Grog left the cave
 
----
+That's accounting.
 
-## 🧠 How to remember it
+Accounting means:
 
-🧠 **Who? · What may? · What did?**
+> **Recording and tracking what users do on a system.**
 
-- Authentication — **who** are you
-- Authorisation — **what may** you do
-- Accounting — **what did** you do
+It's sometimes called auditing or logging.
 
-For any control in a question, ask which of those three it answers.
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+sequenceDiagram
+    participant G as 🧑 Grog
+    participant L as 📋 The guard's log
+    G->>L: 8:00 entered the cave
+    G->>L: 8:15 opened food storage
+    G->>L: 8:20 took 2 meat
+    G->>L: 9:00 left the cave
+    Note over L: 📋 Full record kept
+```
 
-🧠 **AAA is alphabetical in its own order:** Authentication → Authorisation → Accounting. "Authen"
-before "Author" before "Account" — and that is the sequence.
+### 💻 Computer example
 
----
+Imagine you work for a company. You log into the company's computer system. The system can record:
 
-## ✅ Check you actually got it
+```
+User: Grog
+Login: 08:00
+IP: 192.168.1.25
 
-Answer all five before expanding anything.
+File opened: salary.xlsx
+Time: 08:15
 
-**Q1.** A user successfully signs in to a file server but receives "access denied" when opening a
-folder. Which process denied the request?
+File modified: salary.xlsx
+Time: 08:20
 
-- **A.** Authentication, because the credentials were insufficient
-- **B.** Authorisation, because the user lacks permission to that folder
-- **C.** Accounting, because the attempt was logged and blocked
-- **D.** Identification, because the user's identity was not established
+Logout: 17:00
+```
 
-<details>
-<summary><b>Answer</b></summary>
+This information can help the company answer:
 
-**B — authorisation.** The sign-in succeeded, which means authentication already passed. What
-failed is the check on what this proven identity may do.
+> "Who did what, and when?"
 
-- **A** is contradicted by the stem — the user *successfully signed in*, so authentication worked.
-- **C** misunderstands accounting. Accounting records what happened; it has no power to block
-  anything. It is detective, not preventive.
-- **D** is wrong for the same reason as A: identification and authentication both completed at
-  sign-in.
+That's accounting.
 
-</details>
+### 🚨 Why is Accounting important?
 
-**Q2.** Five administrators share a single `admin` account. Which security property is MOST
-directly undermined?
+Imagine someone deletes an important company file. The company asks:
 
-- **A.** Confidentiality
-- **B.** Authentication
-- **C.** Accountability
-- **D.** Availability
+> "Who deleted it?"
 
-<details>
-<summary><b>Answer</b></summary>
+Without logs: 🤷 "We don't know."
 
-**C — accountability.** The logs record the account, not the person, so no action can be traced
-to a named individual. Everything downstream of that — investigation, discipline, deterrence —
-fails with it.
+With accounting/logging: 📋 "Grog's account deleted the file at 14:32."
 
-- **A** is affected indirectly, in that more people hold a powerful credential, but the direct and
-  complete loss is attribution.
-- **B** is not undermined: the account still authenticates correctly every time. That is precisely
-  the problem — authentication succeeds while telling you nothing about who is behind it.
-- **D** is unaffected; the systems remain fully accessible.
+Now security administrators can investigate.
 
-</details>
+Accounting can help with:
 
-**Q3.** An employee moves from finance to marketing. Their finance system access is never removed,
-so they now hold rights in both. What is this called?
+- 🔍 Investigating security incidents
+- 🚨 Detecting suspicious activity
+- 📊 Monitoring users
+- 📝 Keeping audit records
+- ⚖️ Providing evidence during investigations
+- 💰 Tracking resource usage
 
-- **A.** Privilege escalation
-- **B.** Privilege creep
-- **C.** Separation of duties failure
-- **D.** Unauthorised access
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    DEL["🗑️ File deleted"] --> Q{"Logs exist?"}
+    Q -->|no| SHRUG["🤷 We don't know<br/>who did it"]
+    Q -->|yes| KNOW["📋 Grog's account<br/>deleted it at 14:32"]
+    KNOW --> INV["🔍 Security team<br/>investigates"]
 
-<details>
-<summary><b>Answer</b></summary>
-
-**B — privilege creep.** Access accumulated across role changes because deprovisioning did not
-happen. Every grant was legitimate when made; the failure is that none were revoked.
-
-- **A** is an attack, in which someone obtains rights that were never granted to them. Here every
-  right was granted deliberately.
-- **C** names a related consequence — the employee may now hold a conflicting combination of
-  rights — but the term for the accumulation itself is privilege creep.
-- **D** is wrong because the access was formally authorised. It is unnecessary, not unauthorised,
-  and that distinction is the point of the question.
-
-</details>
-
-**Q4.** Which control PRIMARILY supports accounting?
-
-- **A.** Requiring multi-factor authentication at login
-- **B.** Assigning permissions through role-based groups
-- **C.** Enabling detailed audit logging of file access
-- **D.** Encrypting data at rest on the file server
-
-<details>
-<summary><b>Answer</b></summary>
-
-**C — enabling detailed audit logging.** Recording what identities actually did is exactly what
-accounting is.
-
-- **A** is authentication — establishing who the user is.
-- **B** is authorisation — deciding what the proven identity may do.
-- **D** is a confidentiality control and sits outside AAA entirely.
-
-</details>
-
-**Q5.** Which statement about AAA is correct?
-
-- **A.** Authorisation may precede authentication where a resource is public
-- **B.** Accounting can substitute for authorisation in low-risk systems
-- **C.** Accountability requires unique identification for each individual
-- **D.** Authentication and authorisation are two names for the same process
-
-<details>
-<summary><b>Answer</b></summary>
-
-**C — accountability requires unique identification for each individual.** Without a distinct
-identity per person, log entries cannot be tied to anyone, and the whole chain collapses at the
-final step.
-
-- **A** inverts the fixed order. If a resource is genuinely public, no authorisation decision about
-  a *specific identity* is being made at all.
-- **B** confuses a detective control with a preventive one. Recording that someone did something
-  they should not have done is not a substitute for stopping them.
-- **D** conflates proving identity with granting access. They are separate stages, and the
-  distinction is most of what this topic tests.
-
-</details>
+    style DEL fill:#3a1a20,stroke:#E03131,color:#fff
+    style Q fill:#0f3038,stroke:#12B5A5,color:#fff
+    style SHRUG fill:#26292e,stroke:#868E96,color:#fff
+    style KNOW fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style INV fill:#12243f,stroke:#5C7CFA,color:#fff
+```
 
 ---
 
-## 🎓 The grown-up version
+## 🧑‍💻 The AAA example
 
-<details>
-<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
+Imagine you log into a company's server.
 
-**Where AAA comes from.** The term is inherited from network access protocols — RADIUS, TACACS+,
-Diameter — where a network device asks a central server to authenticate a user, authorise a level
-of access, and account for session usage, historically for billing. That billing heritage is why
-the third A is "accounting" rather than "auditing": it originally counted minutes and bytes. The
-security meaning grew out of the operational one.
+### Step 1 — Authentication 🔐
 
-**Why "accounting" and "auditing" get used interchangeably.** Some material says AAA is
-Authentication, Authorisation and Auditing. Treat them as the same third A. If both appear as
-options in one question, read the rest of the option text rather than the label to decide.
+You enter your username and password. The server asks:
 
-**Authorisation models sit on top of this.** *How* the authorisation decision gets made — an ACL
-on the object, a role the subject holds, an attribute-based policy evaluated at request time — is
-a separate subject, and it is Domain 3 material. AAA describes the sequence; the access control
-models describe the logic inside step two.
+> "Are you really Grog?"
 
-**Service accounts, honestly.** The exam's position that shared accounts are bad is correct about
-human users, and the real world complicates it for machine identities. A service account used by
-an application is shared in the sense that several administrators may be able to invoke it, and
-the mature answer is not "give each admin their own service account" but to remove standing human
-access to it entirely: credentials in a vault, checked out with individual authentication, every
-checkout logged. Accountability is preserved at the *checkout* rather than at the login. That
-nuance is right in practice and out of scope on the paper — where shared account still means loss
-of accountability, full stop.
+You prove your identity.
 
-**Continuous authorisation.** Zero trust architectures re-evaluate authorisation on every request
-rather than granting it once at session start, incorporating signals such as device posture,
-location and behaviour. This makes AAA less of a three-step pipeline and more of a loop. CC
-touches zero trust in Domain 4 but still teaches the sequential model here, and the sequential
-model is what to answer with.
+✅ Authentication successful.
 
-</details>
+### Step 2 — Authorization 🎫
+
+The server checks your permissions.
+
+> "Grog is an employee. He can access the employee folder."
+
+You try to access the CEO folder.
+
+❌ Access denied.
+
+That's authorization.
+
+### Step 3 — Accounting 📋
+
+The server records:
+
+```
+Grog logged in at 09:01
+Grog accessed employee-folder
+Grog downloaded report.pdf
+Grog logged out at 17:05
+```
+
+That's accounting.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
+flowchart LR
+    S1["🔐 Authentication<br/>prove it's Grog"] --> S2["🎫 Authorization<br/>employee folder: yes<br/>CEO folder: no"]
+    S2 --> S3["📋 Accounting<br/>login, access,<br/>download, logout logged"]
+
+    style S1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style S3 fill:#3a2c12,stroke:#F08C00,color:#fff
+```
 
 ---
 
-## 📝 Cram lines
+## 🧠 The easiest way to remember AAA
 
-Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
+Think about entering a VIP cave:
 
-- **AAA = Authentication → Authorisation → Accounting.** Order is fixed.
-- **Who? · What may? · What did?**
-- **Logged in but denied the file = authorisation**, not an authentication failure.
-- **Accounting is DETECTIVE.** It records; it never blocks.
-- **Accountability = the outcome.** Needs unique IDs + authentication + logging.
-- **Shared accounts destroy accountability.** Almost always the wrong answer.
-- **Privilege creep** = rights accumulating over role changes (admin failure). **Privilege escalation** = an attack.
-- **Least privilege** = only what the role needs. **Need to know** = only the information required for the task.
+- 🔐 **Authentication** — "WHO ARE YOU?"
+- 🎫 **Authorization** — "WHAT ARE YOU ALLOWED TO DO?"
+- 📋 **Accounting** — "WHAT DID YOU DO?"
+
+So:
+
+> **AAA = Who are you? → What can you do? → What did you do?**
+
+---
+
+## 🎯 Exam-ready definitions
+
+**Authentication:** The process of verifying the identity of a user, device, or system.
+
+**Authorization:** The process of determining what an authenticated user is permitted to access or
+do.
+
+**Accounting:** The process of recording and monitoring a user's activities and resource usage.
+
+---
+
+## 🪨 Caveman memory trick
+
+- 🔐 **Authentication:** "PROVE YOU ARE Grog."
+- 🎫 **Authorization:** "Grog, YOU MAY ENTER THIS CAVE."
+- 📋 **Accounting:** "Grog ENTERED AT 8:00 AND TOOK 2 MEAT."
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 01 · Security Principles</a> &nbsp;·&nbsp; <a href="../non-repudiation/">next: Non-repudiation →</a></sub>
+<sub><a href="../README.md">← Back to 01 · Security Principles</a></sub>
 </div>
