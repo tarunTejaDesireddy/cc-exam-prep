@@ -17,7 +17,7 @@
 
 [![Exam](https://img.shields.io/badge/Exam-5%20November%202026-12B5A5?style=for-the-badge)](EXAM-DAY.md)
 [![Modules](https://img.shields.io/badge/Modules-9-0d2b33?style=for-the-badge)](#-the-9-modules)
-[![Questions](https://img.shields.io/badge/Practice%20Qs-738-0d2b33?style=for-the-badge)](#-whats-in-it)
+[![Questions](https://img.shields.io/badge/Practice%20Qs-738-0d2b33?style=for-the-badge)](07-question-bank/README.md)
 [![Pass mark](https://img.shields.io/badge/Pass-700%2F1000-5C7CFA?style=for-the-badge)](00-foundations/how-the-exam-works/)
 [![Format](https://img.shields.io/badge/Format-CAT%20·%20100--125%20items-F08C00?style=for-the-badge)](00-foundations/how-the-exam-works/)
 [![Progress](https://img.shields.io/badge/Progress-COMPLETE-2F9E44?style=for-the-badge)](.github/ROADMAP.md)
@@ -87,34 +87,7 @@ really done.
 
 ---
 
-## 📌 Progress
-
-**The repo is rebuilt for the live outline, effective 1 September 2026.** All 53 domain topics,
-the term bank, the question bank, three mock exams and the final cram page are written.
-
-| Module | Status |
-|---|---|
-| 🧱 00 · Foundations | `5 / 5` ✅ |
-| 🧭 01 · Security Principles | `12 / 12` ✅ |
-| 🚨 02 · Security Governance | `7 / 7` ✅ |
-| 🚪 03 · IAM Concepts | `6 / 6` ✅ |
-| 🌐 04 · Networking and Cloud Security | `14 / 14` ✅ |
-| ⚙️ 05 · Security Operations and IR | `14 / 14` ✅ |
-| 🗂️ 06 · Term Bank | `complete` ✅ |
-| ❓ 07 · Question Bank | `complete` ✅ |
-| 📝 08 · Mock Exams | `complete` ✅ |
-| 🎓 `EXAM-DAY.md` | `complete` ✅ |
-
-### What's in it
-
-| | |
-|---|---|
-| **Topic pages** | 53, each with definitions, told-apart blocks, traps, 5 questions and cram lines |
-| **Practice questions** | **738** — 265 in the topics, 173 in the drills, 300 in the mocks |
-| **Flashcards** | **651**, generated from the term tables |
-| **Checks** | `.github/ci/check-diagrams.sh` · `.github/ci/check-links.sh` · `.github/ci/make-flashcards.sh` |
-
-### Start here
+## 🚀 Start here
 
 1. [`00-foundations/how-isc2-thinks/`](00-foundations/how-isc2-thinks/) — the highest-value page
 2. [`00-foundations/study-schedule/`](00-foundations/study-schedule/README.md) — the day-by-day plan
