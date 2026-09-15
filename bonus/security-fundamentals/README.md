@@ -15,7 +15,7 @@
 
 ### A caveman-simple, professionally-written path from zero to solid networking &amp; security fundamentals
 
-![Progress](https://img.shields.io/badge/Progress-83%20%2F%20290%20topics-3b82f6?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Progress-84%20%2F%20290%20topics-3b82f6?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Professional-22c55e?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-f59e0b?style=for-the-badge)
 
@@ -233,7 +233,7 @@ All 29 sections, with every topic name, in one place — no scrolling through on
 <li>✅ <a href="topics/95-arp-spoofing.md">ARP Spoofing</a></li>
 <li>✅ <a href="topics/96-dns-spoofing.md">DNS Spoofing</a></li>
 <li>✅ <a href="topics/97-man-in-the-middle-attack.md">Man-in-the-Middle Attack</a></li>
-<li>⬜ DDoS</li>
+<li>✅ <a href="topics/98-ddos.md">DDoS</a></li>
 <li>⬜ DNS Tunneling</li>
 <li>⬜ IP Spoofing</li>
 <li>⬜ Session Hijacking</li>
@@ -724,7 +724,7 @@ Topics are unlocked and pushed **one at a time**, in order. Checked boxes are li
 - [x] 95. [ARP Spoofing](topics/95-arp-spoofing.md)
 - [x] 96. [DNS Spoofing](topics/96-dns-spoofing.md)
 - [x] 97. [Man-in-the-Middle Attack](topics/97-man-in-the-middle-attack.md)
-- [ ] 98. DDoS
+- [x] 98. [DDoS](topics/98-ddos.md)
 - [ ] 99. DNS Tunneling
 - [ ] 100. IP Spoofing
 - [ ] 101. Session Hijacking
