@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/hero-banner.svg" alt="ISC2 CC exam prep — pass the CC exam: 53 topics, 738 questions, 3 mock exams" width="100%">
+<img src=".github/assets/hero-banner.svg" alt="ISC2 CC exam prep — pass the CC exam: 53 topics, 738 questions, 3 mock exams" width="100%">
 
 <h1>
 🛡️&nbsp; ISC2 CC — Certified in Cybersecurity
@@ -20,7 +20,7 @@
 [![Questions](https://img.shields.io/badge/Practice%20Qs-738-0d2b33?style=for-the-badge)](#-whats-in-it)
 [![Pass mark](https://img.shields.io/badge/Pass-700%2F1000-5C7CFA?style=for-the-badge)](00-foundations/how-the-exam-works/)
 [![Format](https://img.shields.io/badge/Format-CAT%20·%20100--125%20items-F08C00?style=for-the-badge)](00-foundations/how-the-exam-works/)
-[![Progress](https://img.shields.io/badge/Progress-COMPLETE-2F9E44?style=for-the-badge)](ROADMAP.md)
+[![Progress](https://img.shields.io/badge/Progress-COMPLETE-2F9E44?style=for-the-badge)](.github/ROADMAP.md)
 
 <sub>🌐 Prefer to browse? <a href="docs/index.html"><code>docs/index.html</code></a> is a filterable index of every
 topic — open it locally, or turn on GitHub Pages from the <code>/docs</code> folder.</sub>
@@ -112,7 +112,7 @@ the term bank, the question bank, three mock exams and the final cram page are w
 | **Topic pages** | 53, each with definitions, told-apart blocks, traps, 5 questions and cram lines |
 | **Practice questions** | **738** — 265 in the topics, 173 in the drills, 300 in the mocks |
 | **Flashcards** | **651**, generated from the term tables |
-| **Checks** | `ci/check-diagrams.sh` · `ci/check-links.sh` · `ci/make-flashcards.sh` |
+| **Checks** | `.github/ci/check-diagrams.sh` · `.github/ci/check-links.sh` · `.github/ci/make-flashcards.sh` |
 
 ### Start here
 
@@ -120,7 +120,7 @@ the term bank, the question bank, three mock exams and the final cram page are w
 2. [`00-foundations/study-schedule/`](00-foundations/study-schedule/README.md) — the day-by-day plan
 3. Then Domain 1, and work the schedule
 
-> 🔥 Having a rough week? [`MOTIVATION.md`](MOTIVATION.md) is a one-page pep talk for exactly
+> 🔥 Having a rough week? [`MOTIVATION.md`](.github/MOTIVATION.md) is a one-page pep talk for exactly
 > that — bookmark it now, before you need it.
 
 ---
@@ -136,7 +136,7 @@ practice bank they run slightly kinder than the real thing. That is why
 [`08-mock-exams/scoring-guide.md`](08-mock-exams/scoring-guide.md) sets **80%** as the target
 rather than 70%.
 
-Released under the [MIT licence](LICENSE) — use it, fork it, correct it. If you spot an error,
+Released under the [MIT licence](.github/LICENSE) — use it, fork it, correct it. If you spot an error,
 open an issue.
 
 ---

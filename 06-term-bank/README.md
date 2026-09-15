@@ -93,11 +93,12 @@ flowchart LR
 [`flashcards.csv`](flashcards.csv) holds **651 cards** as term, definition and domain tag —
 importable into Anki, Quizlet or any flashcard application.
 
-It is **generated** from the domain term files by [`ci/make-flashcards.sh`](../ci/make-flashcards.sh),
+It is **generated** from the domain term files by
+[`ci/make-flashcards.sh`](../.github/ci/make-flashcards.sh),
 so the cards can never drift out of step with the pages. Re-run it after editing any term table:
 
 ```bash
-./ci/make-flashcards.sh
+./.github/ci/make-flashcards.sh
 ```
 
 Spaced repetition software does the "work only your misses" rule for you automatically, which is

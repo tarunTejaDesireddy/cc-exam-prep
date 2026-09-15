@@ -177,7 +177,7 @@ Now the home of incident response too, plus data security, testing, and asset pr
 weeks 6 and 7 should go.
 
 > 🔥 If that score knocks your confidence, that's exactly the moment
-> [`MOTIVATION.md`](../../MOTIVATION.md) exists for. Read it, then keep going.
+> [`MOTIVATION.md`](../../.github/MOTIVATION.md) exists for. Read it, then keep going.
 
 ---
 

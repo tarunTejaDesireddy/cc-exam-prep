@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Audit every mermaid diagram in the repo for the things that make GitHub
-# render them badly. Run from the repo root:  ./ci/check-diagrams.sh
+# render them badly. Run from the repo root:  ./.github/ci/check-diagrams.sh
 #
 # Checks, per node label:
 #   1. No HTML tags (<sub>, <b>, <i>, <em>, <strong>) — GitHub measures the label
@@ -74,7 +74,7 @@ while IFS= read -r file; do
     }
     END { exit (bad>0 ? 1 : 0) }
   ' "$file" || fails=$((fails+1))
-done < <(grep -rl '```mermaid' --include='*.md' . | grep -v '^./_templates/')
+done < <(grep -rl '```mermaid' --include='*.md' . | grep -v '^./.github/_templates/')
 
 if [ "$fails" -eq 0 ]; then
   echo "✅ all mermaid diagrams clean"

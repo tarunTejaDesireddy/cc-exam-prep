@@ -72,7 +72,7 @@ not a failed attempt. Quitting is the only thing that actually costs you the exa
 > — Helen Hayes
 
 A mediocre score on Mock 1 is not a verdict — it's the entire reason Mock 1 exists. Go re-read
-[`00-foundations/study-schedule/`](00-foundations/study-schedule/README.md) if you've forgotten
+[`00-foundations/study-schedule/`](../00-foundations/study-schedule/README.md) if you've forgotten
 why it's placed where it is.
 
 ---
@@ -106,7 +106,7 @@ certificate is just proof of something that will already be true.
 > — Maya Angelou
 
 If it's the night before your exam and you found this page instead of `EXAM-DAY.md` — go read
-[`EXAM-DAY.md`](EXAM-DAY.md) instead. You've done the work. Trust it.
+[`EXAM-DAY.md`](../EXAM-DAY.md) instead. You've done the work. Trust it.
 
 ---
 
@@ -123,6 +123,6 @@ Now close this file, and go do one topic. Just one.
 ---
 
 <div align="center">
-<sub><a href="README.md">← back to the repo index</a></sub> &nbsp;·&nbsp; <sub><a href="00-foundations/study-schedule/README.md">back to the schedule →</a></sub>
+<sub><a href="../README.md">← back to the repo index</a></sub> &nbsp;·&nbsp; <sub><a href="../00-foundations/study-schedule/README.md">back to the schedule →</a></sub>
 </div>
 </content>

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Verify every relative markdown link and image in the repo resolves to a real file.
 #
-#   ./ci/check-links.sh
+#   ./.github/ci/check-links.sh
 #
 # Skips external URLs (http/https), anchors (#...) and mailto:. Directory links
 # are accepted if the directory exists (GitHub serves its README.md).
@@ -9,13 +9,13 @@
 # Exit 0 = all links resolve, 1 = broken links found.
 
 set -uo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 
 broken=0
 checked=0
 
 while IFS= read -r file; do
-  case "$file" in ./_templates/*) continue ;; esac
+  case "$file" in ./.github/_templates/*) continue ;; esac
   dir=$(dirname "$file")
 
   # Pull the target out of every ](...), src="..." and href="..." occurrence

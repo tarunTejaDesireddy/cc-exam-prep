@@ -56,6 +56,13 @@ NN-module-name/
 Module numbers **01–05 are ISC2's own domain numbers** and must not be renumbered — the
 official syllabus maps directly onto them. `00` is foundations; `06`–`08` are drill material.
 
+Repo-meta files that aren't exam content — `LICENSE`, `MOTIVATION.md`, `ROADMAP.md`, the
+`ci/` scripts, `_templates/`, and the repo-level `assets/` (banners for the root README,
+not the per-module `assets/` above) — live under `.github/` to keep the repo root to just the
+numbered modules, `bonus/`, `docs/`, `README.md` and `EXAM-DAY.md`. `EXAM-DAY.md` and
+`CLAUDE.md` stay at the root: `CLAUDE.md` because Claude Code only auto-loads it from the
+project root, `EXAM-DAY.md` because it's exam content, not meta.
+
 ---
 
 ## 4 · Page layout
@@ -87,7 +94,7 @@ Module `README.md` files use numbered sections in the `master-the-azure` manner:
 Generated, never hand-written:
 
 ```bash
-./assets/make-banner.sh "03 · Access Control Concepts" "Who gets in, to what" "22% of the exam" 03-access-control/assets/module-03-banner.svg
+./.github/assets/make-banner.sh "03 · Access Control Concepts" "Who gets in, to what" "22% of the exam" 03-access-control/assets/module-03-banner.svg
 ```
 
 ### Mermaid palette
@@ -132,7 +139,7 @@ accent colours: `12B5A5` (teal), `5C7CFA` (indigo), `0d2b33` (dark).
 Two places, updated in the same commit that lands a topic:
 
 - `README.md` — the per-module counts table
-- `ROADMAP.md` — the per-topic checkbox list
+- `.github/ROADMAP.md` — the per-topic checkbox list
 - the module's own `README.md` — the topic checkbox
 
 `EXAM-DAY.md` grows as topics land: append each topic's 📝 cram lines when it is written.
@@ -145,10 +152,10 @@ Run all three before considering any change finished.
 
 | Script | Checks |
 |---|---|
-| `./ci/check-diagrams.sh` | No HTML tags in mermaid labels, no over-long label lines, every node and subgraph explicitly styled |
-| `./ci/check-links.sh` | Every relative markdown link, `src` and `href` resolves to a real file |
-| `./ci/make-flashcards.sh` | Regenerates `06-term-bank/flashcards.csv` from the domain term tables |
-| `./ci/make-docs-index.sh` | Regenerates `docs/index.html` from the repo's pages |
+| `./.github/ci/check-diagrams.sh` | No HTML tags in mermaid labels, no over-long label lines, every node and subgraph explicitly styled |
+| `./.github/ci/check-links.sh` | Every relative markdown link, `src` and `href` resolves to a real file |
+| `./.github/ci/make-flashcards.sh` | Regenerates `06-term-bank/flashcards.csv` from the domain term tables |
+| `./.github/ci/make-docs-index.sh` | Regenerates `docs/index.html` from the repo's pages |
 
 The two generators are the reason the flashcard deck and the browsable index cannot drift from the
 pages. **Re-run them after editing any term table or adding any page.**

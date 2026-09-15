@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/repo-banner.svg" alt="ISC2 CC" width="100%">
+<img src=".github/assets/repo-banner.svg" alt="ISC2 CC" width="100%">
 
 # 🎓 EXAM DAY
 
@@ -386,7 +386,7 @@
 
 <br>
 
-<sub><a href="README.md">← back to the repo index</a></sub> &nbsp;·&nbsp; <sub><a href="MOTIVATION.md">🔥 nervous tonight? read this</a></sub>
+<sub><a href="README.md">← back to the repo index</a></sub> &nbsp;·&nbsp; <sub><a href=".github/MOTIVATION.md">🔥 nervous tonight? read this</a></sub>
 
 </div>
 </content>

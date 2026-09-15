@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # Regenerate 06-term-bank/flashcards.csv from the domain term tables.
 #
-#   ./ci/make-flashcards.sh
+#   ./.github/ci/make-flashcards.sh
 #
 # Reads every domain-0N-terms.md, pulls the two-column markdown tables, and
 # writes a CSV of term,definition,domain suitable for Anki / Quizlet import.
 # Keeping this generated means the flashcards cannot drift from the pages.
 
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 
 OUT=06-term-bank/flashcards.csv
 

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # Generate docs/index.html - a filterable, offline index of every page in the repo.
 #
-#   ./ci/make-docs-index.sh
+#   ./.github/ci/make-docs-index.sh
 #
 # Walks the module directories, reads each page's H1 and its 📌 blurb, and writes
 # a single self-contained HTML file. Generated, so it cannot drift from the repo.
 
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 
 OUT=docs/index.html
 mkdir -p docs
