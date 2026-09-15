@@ -47,33 +47,6 @@ really done.
 
 ---
 
-## 📊 What the exam weighs
-
-<div align="center">
-<img src="assets/weights.svg" alt="Live domain weights: Security Principles 24%, Networking and Cloud Security Concepts 21.3%, IAM Concepts 20%, Security Governance 17.3%, Security Operations and Incident Response 17.3%" width="100%">
-</div>
-
-| | Domain | Weight | Module |
-|:--:|---|--:|---|
-| 🧭 | **Security Principles** | **24%** | [`01-security-principles/`](01-security-principles/README.md) |
-| 🌐 | **Networking and Cloud Security Concepts** | **21.3%** | [`04-network-security/`](04-network-security/README.md) |
-| 🚪 | **IAM Concepts** | **20%** | [`03-access-control/`](03-access-control/README.md) |
-| 🚨 | **Security Governance** | **17.3%** | [`02-security-governance/`](02-security-governance/README.md) |
-| ⚙️ | **Security Operations and Incident Response** | **17.3%** | [`05-security-operations/`](05-security-operations/README.md) |
-
-**Domains 1, 4 and 3 are 65.3% of the paper between them.** Study in weight order — 1, then 4,
-then 3, then 2 and 5 tied — and if the schedule slips, it slips on whichever of Governance or
-Security Operations you reach last, not on Domains 1, 4 or 3.
-
-> [!IMPORTANT]
-> These are the **live outline weights, effective 1 September 2026.** The old outline (26% /
-> 24% / 22% / 18% / 10%, with Domain 2 = "BC, DR & Incident Response") no longer applies.
-> Incident response now lives in Domain 5; Domain 2 is Security Governance (GRC, redundancy,
-> awareness, measuring effectiveness).
-
-
----
-
 ## 📚 The 9 modules
 
 > **Key** &nbsp; 🧱 foundations &nbsp;·&nbsp; 📘 exam domain &nbsp;·&nbsp; 🎯 drill material
