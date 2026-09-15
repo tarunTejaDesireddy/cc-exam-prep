@@ -15,13 +15,6 @@
 <sub>Built for the <strong>live exam outline, effective 1 September 2026</strong>. Everything the exam can ask, written to be read once and drilled twice. Nothing here is a copy of the ISC2 courseware.</sub>
 </p>
 
-[![Exam](https://img.shields.io/badge/Exam-5%20November%202026-12B5A5?style=for-the-badge)](EXAM-DAY.md)
-[![Modules](https://img.shields.io/badge/Modules-9-0d2b33?style=for-the-badge)](#-the-9-modules)
-[![Questions](https://img.shields.io/badge/Practice%20Qs-738-0d2b33?style=for-the-badge)](07-question-bank/README.md)
-[![Pass mark](https://img.shields.io/badge/Pass-700%2F1000-5C7CFA?style=for-the-badge)](00-foundations/how-the-exam-works/)
-[![Format](https://img.shields.io/badge/Format-CAT%20·%20100--125%20items-F08C00?style=for-the-badge)](00-foundations/how-the-exam-works/)
-[![Progress](https://img.shields.io/badge/Progress-COMPLETE-2F9E44?style=for-the-badge)](.github/ROADMAP.md)
-
 <sub>🌐 Prefer to browse? <a href="docs/index.html"><code>docs/index.html</code></a> is a filterable index of every
 topic — open it locally, or turn on GitHub Pages from the <code>/docs</code> folder.</sub>
 
