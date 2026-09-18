@@ -53,20 +53,7 @@ This module adds what the topic pages structurally cannot:
 
 ## 🎯 03 · How to work a drill
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["✍️ Answer ALL of them<br/>before expanding<br/>anything"] --> B["📖 Read EVERY<br/>explanation<br/>including the ones<br/>you got right"]
-    B --> C["📝 Write down<br/>each MISS<br/>and its topic"]
-    C --> D["📚 Re-read those<br/>topic pages"]
-    D --> E["🔁 Redo the drill<br/>a week later"]
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style E fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Four rules:**
 

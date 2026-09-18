@@ -66,22 +66,7 @@ when people know they are logged.
 
 ## 📋 What to log
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    L["📊 Every log entry<br/>should answer"] --> W1["👤 WHO<br/>which identity"]
-    L --> W2["⚡ WHAT<br/>which action"]
-    L --> W3["🕐 WHEN<br/>accurate timestamp"]
-    L --> W4["📁 WHERE<br/>which system, which object"]
-    L --> W5["✅ OUTCOME<br/>success or failure"]
-
-    style L fill:#0f3038,stroke:#12B5A5,color:#fff
-    style W1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W4 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W5 fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Events worth logging:**
 
@@ -117,22 +102,7 @@ and reads every watchman's night side by side — spotting a pattern none of the
 Logs scattered across hundreds of systems are of little use. **Centralising** them serves two
 purposes.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    S1["🖥️ Servers"] --> C["🗄️ CENTRAL LOG STORE<br/>attacker cannot edit<br/>from the source system"]
-    S2["🌐 Network devices"] --> C
-    S3["💻 Endpoints"] --> C
-    S4["☁️ Cloud services"] --> C
-    C --> SI["🔍 SIEM<br/>correlates across sources<br/>and ALERTS"]
-
-    style S1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S4 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style SI fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **One: correlation.** A single failed login is noise. The same account failing on forty systems
 within a minute is an attack. Only a central view shows that.
@@ -176,16 +146,7 @@ The tribe posts guards facing outward at the gate, watching for wolves and raide
 **out** in the dead of night. By the time grain is leaving, a thief is already inside — and the
 back of the storehouse is where you'd actually catch him.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    I["🌍 Internet"] -->|"INGRESS<br/>attacks coming IN"| N["🏢 The network"]
-    N -->|"EGRESS<br/>DATA GOING OUT<br/>exfiltration · C2"| I2["🌍 Internet"]
-
-    style I fill:#3a1a20,stroke:#E03131,color:#fff
-    style N fill:#12243f,stroke:#5C7CFA,color:#fff
-    style I2 fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 | | Watches | Finds |
 |---|---|---|
@@ -224,24 +185,7 @@ routine triage so human attention goes where it is needed.
 Different devices speak different log formats natively, which is a real interoperability
 problem a SIEM has to solve before it can correlate anything at all.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    FW["🔥 Firewall log"] --> N["🔄 Normalised to<br/>syslog / CEF format"]
-    ED["💻 EDR log"] --> N
-    AD["🔑 Directory log"] --> N
-    N --> SIEM["🔍 SIEM ingests<br/>one common shape"]
-    SIEM --> RULE["📜 Detection rule<br/>(written once,<br/>Sigma format)"]
-    RULE --> ALERT["🚨 Alert"]
-
-    style FW fill:#26292e,stroke:#868E96,color:#fff
-    style ED fill:#26292e,stroke:#868E96,color:#fff
-    style AD fill:#26292e,stroke:#868E96,color:#fff
-    style N fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SIEM fill:#0f3038,stroke:#12B5A5,color:#fff
-    style RULE fill:#3a2c12,stroke:#F08C00,color:#fff
-    style ALERT fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 **Syslog (RFC 5424) and CEF (Common Event Format)** are the two real standards that make this
 possible — a firewall, an EDR agent and a directory server all describe wildly different events,

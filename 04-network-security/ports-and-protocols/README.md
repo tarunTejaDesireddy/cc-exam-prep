@@ -57,16 +57,7 @@ class of question — "which protocol should replace this one?"
 
 ## 🔢 The port ranges
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    W["0 – 1023<br/>WELL-KNOWN<br/>standard services"] --> R["1024 – 49151<br/>REGISTERED<br/>specific applications"]
-    R --> D["49152 – 65535<br/>DYNAMIC<br/>temporary, client side"]
-
-    style W fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 > 🎯 **0–1023 is well-known.** That boundary is asked directly. The other two ranges are worth
 > recognising but are tested far less often.
@@ -96,20 +87,7 @@ Learn this table cold. It is the highest ratio of marks to effort anywhere on th
 | **636** | **LDAPS** | LDAP over TLS | TCP | ✅ |
 | **3389** | **RDP** | Windows remote desktop | TCP | — |
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    IP["🌍 IP address<br/>203.0.113.5<br/>finds the MACHINE"] --> SRV["🖥️ One server"]
-    SRV --> P80["🚪 :80 → web server"]
-    SRV --> P25["🚪 :25 → mail server"]
-    SRV --> P22["🚪 :22 → SSH daemon"]
-
-    style IP fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SRV fill:#26292e,stroke:#868E96,color:#fff
-    style P80 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style P25 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style P22 fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 Read it as a sentence: **the IP address finds the machine, and the port number finds the program
 on it.** One address, many doors.
@@ -127,23 +105,7 @@ If time is short, these are the ones that appear most:
 
 A recurring question type: *"which protocol should replace X?"*
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    T["❌ Telnet · 23"] -->|replace with| S["✅ SSH · 22"]
-    F["❌ FTP · 21"] -->|replace with| SF["✅ SFTP · 22"]
-    H["❌ HTTP · 80"] -->|replace with| HS["✅ HTTPS · 443"]
-    L["❌ LDAP · 389"] -->|replace with| LS["✅ LDAPS · 636"]
-
-    style T fill:#3a1a20,stroke:#E03131,color:#fff
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-    style H fill:#3a1a20,stroke:#E03131,color:#fff
-    style L fill:#3a1a20,stroke:#E03131,color:#fff
-    style S fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style SF fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style HS fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style LS fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 | Insecure | Port | Replace with | Port |
 |---|:--:|---|:--:|
@@ -168,20 +130,7 @@ flowchart LR
 
 ## 🔬 How you actually check what's listening
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    S["🔍 nmap sends<br/>a SYN packet"] --> R{"Response?"}
-    R -->|"SYN-ACK"| O["✅ OPEN"]
-    R -->|"RST"| C["🛑 CLOSED"]
-    R -->|"nothing / ICMP<br/>unreachable"| F["🧱 FILTERED<br/>(firewall dropping it)"]
-
-    style S fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#3a2c12,stroke:#F08C00,color:#fff
-    style O fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 **`nmap` finds open ports by exploiting the three-way handshake itself.** A default SYN scan
 sends a bare SYN to each port and reads the reply: a **SYN-ACK** means something is genuinely
@@ -213,16 +162,7 @@ rather than just believing a configuration file that says so.
 | **Port** | Identifies the application on a host. Layer 4. | **IP address**, which identifies the host. Layer 3. |
 | **DNS on 53** | Uses **UDP** for normal queries. | TCP, which DNS uses for zone transfers and large responses. UDP is the expected answer. |
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    U["👤 You"] -->|"SENDING<br/>SMTP · 25"| S["📮 Mail server"]
-    S -->|"RECEIVING<br/>POP3 · 110<br/>downloads and removes"| U
-    S -->|"RECEIVING<br/>IMAP · 143<br/>leaves it on the server"| U
-
-    style U fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 **One arrow out, two arrows back.** If a question says mail cannot be *sent*, it is SMTP; if it
 cannot be *received*, it is POP3 or IMAP.

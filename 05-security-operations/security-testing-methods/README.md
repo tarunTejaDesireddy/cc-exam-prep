@@ -57,19 +57,7 @@ notes at the fire the next morning. A **purple** exercise has them signalling to
 *during* the raid itself — the mock raider calling out "I just got past your east post" the
 moment it happens, so the watchmen learn the gap immediately instead of the next day.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    R["🔴 RED TEAM<br/>simulates the attacker"] -.->|"adversarial, sequential"| B["🔵 BLUE TEAM<br/>detects & responds"]
-    R2["🔴 Red"] <-->|"collaborative, real-time"| P["🟣 PURPLE<br/>shared findings<br/>during the exercise"]
-    P <--> B2["🔵 Blue"]
-
-    style R fill:#3a1a20,stroke:#E03131,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R2 fill:#3a1a20,stroke:#E03131,color:#fff
-    style P fill:#26292e,stroke:#868E96,color:#fff
-    style B2 fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 | Team | Role | Style |
 |---|---|---|
@@ -99,16 +87,7 @@ hinge always snaps eventually" checks.
 | **DAST** | A **running** application, from the outside | Later — once the app is deployed/running | Flaws only visible from actual runtime behaviour (how it responds to malicious input) |
 | **Threat modeling** | The system's **design** | Design/architecture time — often the earliest of all | Structural weaknesses before any code is even written |
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    T["🧩 Threat modeling<br/>DESIGN"] --> S["📄 SAST<br/>SOURCE CODE"] --> D["🖥️ DAST<br/>RUNNING APP"] --> V["🔍 Vuln scanning<br/>ONGOING, any stage"]
-
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#0f3038,stroke:#12B5A5,color:#fff
-    style D fill:#3a2c12,stroke:#F08C00,color:#fff
-    style V fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 > 🎯 **SAST reads; DAST attacks.** SAST never runs the application — it reads the code. DAST
 > never reads the code — it interacts with the running application the way a user or attacker
@@ -148,22 +127,7 @@ The "design → code → running app" ordering isn't abstract — in a modern so
 these techniques is wired into a specific stage of the CI/CD pipeline, and failing one can block
 a release automatically.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    DES["📐 Design review<br/>threat modeling"] --> COMMIT["💻 Developer<br/>commits code"]
-    COMMIT --> CI["⚙️ CI pipeline runs<br/>SAST + dependency scan"]
-    CI --> DEPLOY["🚀 Deploy to<br/>staging"]
-    DEPLOY --> DASTS["🖥️ DAST runs against<br/>the live staging app"]
-    DASTS --> PROD["✅ Release to<br/>production"]
-
-    style DES fill:#12243f,stroke:#5C7CFA,color:#fff
-    style COMMIT fill:#26292e,stroke:#868E96,color:#fff
-    style CI fill:#0f3038,stroke:#12B5A5,color:#fff
-    style DEPLOY fill:#26292e,stroke:#868E96,color:#fff
-    style DASTS fill:#3a2c12,stroke:#F08C00,color:#fff
-    style PROD fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 **SAST runs on every commit, before anything is even built.** Tools like SonarQube, Semgrep or
 CodeQL parse the source as the pipeline starts and can fail the build outright if they find a

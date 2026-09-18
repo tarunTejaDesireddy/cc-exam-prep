@@ -73,18 +73,7 @@ whole defence from first principles. That's **education.**
 
 ## 🔺 The three levels
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    A["📢 AWARENESS<br/>everyone, continuous<br/>'security exists, stay alert'<br/>posters · bulletins · reminders"]
-    T["🎓 TRAINING<br/>role-specific, skills<br/>'here is HOW to do it'<br/>courses · exercises"]
-    E["🏛️ EDUCATION<br/>security professionals<br/>'here is WHY it works'<br/>degrees · certifications"]
-    A --> T --> E
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T fill:#0f3038,stroke:#12B5A5,color:#fff
-    style E fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 | | **Awareness** | **Training** | **Education** |
 |---|---|---|---|
@@ -123,24 +112,7 @@ flowchart TD
 Controlled, fake phishing messages sent to staff to measure susceptibility and provide teaching
 at the moment of the mistake.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    S["📧 Simulated phish<br/>sent to staff"] --> C{"What did<br/>they do?"}
-    C -->|"clicked"| T["🎓 Immediate teaching<br/>not punishment"]
-    C -->|"reported it"| P["👏 Positive reinforcement<br/>this is the goal"]
-    C -->|"ignored it"| N["😐 Neutral<br/>no report, no click"]
-    T --> M["📈 Measure the trend<br/>over time"]
-    P --> M
-    N --> M
-
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#3a2c12,stroke:#F08C00,color:#fff
-    style T fill:#0f3038,stroke:#12B5A5,color:#fff
-    style P fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style N fill:#26292e,stroke:#868E96,color:#fff
-    style M fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 > [!IMPORTANT]
 > **Simulations should teach, not punish.** Punishing people for clicking produces a culture where
@@ -157,17 +129,7 @@ susceptibility falls and reporting rises over time.
 The end state a programme is aiming at: an environment where **secure behaviour is normal** and
 people raise concerns without hesitation.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    B["😨 BLAME culture<br/>mistakes get hidden"] --> L["💀 Incidents found<br/>months later"]
-    R["🤝 REPORTING culture<br/>mistakes get raised"] --> F["🙂 Incidents contained<br/>in minutes"]
-
-    style B fill:#3a1a20,stroke:#E03131,color:#fff
-    style L fill:#3a1a20,stroke:#E03131,color:#fff
-    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style F fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 **What builds it:**
 
@@ -186,20 +148,7 @@ flowchart LR
 
 Training teaches people to report. Here's the real pipeline that report travels through.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    RP["🖱️ 'Report Phish'<br/>mail-client button"] --> FW["📤 Forwarded with<br/>full headers"]
-    FW --> AT["🤖 Automated triage<br/>SPF/DKIM/DMARC check"]
-    AT --> H["👤 Human analyst<br/>confirms"]
-    H --> IOC["🚫 Sender/URL blocked<br/>at the mail gateway"]
-
-    style RP fill:#0f3038,stroke:#12B5A5,color:#fff
-    style FW fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AT fill:#12243f,stroke:#5C7CFA,color:#fff
-    style H fill:#3a2c12,stroke:#F08C00,color:#fff
-    style IOC fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 That "Report Phish" button (built into Outlook/Gmail via platforms like KnowBe4 or Proofpoint)
 isn't just a delete key — it forwards the message **with its full technical headers** to a

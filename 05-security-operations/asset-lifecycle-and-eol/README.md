@@ -53,20 +53,7 @@ service, because new vulnerabilities discovered after EOL will **never** be patc
 
 ## 🔍 The lifecycle, and where EOL risk builds
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🛒 Acquire<br/>inventory it"] --> D["🚀 Deploy<br/>configure & baseline"]
-    D --> M["🔧 Maintain<br/>patch, monitor"]
-    M --> E["⚠️ EOL reached<br/>vendor stops patching"]
-    E --> R["🗑️ Retire / decommission<br/>sanitise & dispose"]
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style E fill:#3a1a20,stroke:#E03131,color:#fff
-    style R fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Why EOL is the highest-risk stage:** every stage before it has an active vendor fixing newly
 discovered vulnerabilities. Past EOL, **new vulnerabilities are never patched** — the asset's
@@ -93,18 +80,7 @@ in service. The toolmaker has left camp; every crack from here on is permanent.
 "Track EOL dates in the inventory" sounds like a spreadsheet column somebody updates. In
 practice it is fed automatically.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    APP["📦 An application"] --> SBOM["📋 SBOM lists every<br/>embedded component<br/>+ version"]
-    SBOM --> FEED["🔄 Compared against<br/>vendor lifecycle data"]
-    FEED --> FLAG["⚠️ Flags components<br/>already past EOL"]
-
-    style APP fill:#26292e,stroke:#868E96,color:#fff
-    style SBOM fill:#0f3038,stroke:#12B5A5,color:#fff
-    style FEED fill:#12243f,stroke:#5C7CFA,color:#fff
-    style FLAG fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **An SBOM (Software Bill of Materials) is the real artefact that solves the embedded-EOL
 problem.** It is a machine-readable manifest — in a standard format such as **CycloneDX** or

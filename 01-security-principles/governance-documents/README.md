@@ -45,19 +45,7 @@ Think of Grog's tribe:
 
 **Guideline:** 💡 "Here are recommended ways to create a strong password."
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    P["📜 Policy<br/>protect the cave"]
-    P --> S["📏 Standard<br/>door must be 2m<br/>and 1m thick"]
-    S --> PR["📋 Procedure<br/>find rocks, stack,<br/>test, hand over key"]
-    PR --> G["💡 Guideline<br/>recommended ways to<br/>build it well"]
-
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#3a2c12,stroke:#F08C00,color:#fff
-    style PR fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style G fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -198,18 +186,7 @@ verify your identity, enter the new password, and confirm." Step-by-step instruc
 **💡 Guideline** — "Consider using a password manager to generate and store unique passwords."
 Recommended advice.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    P["📜 'Protect your<br/>accounts'"] --> S["📏 '14+ characters,<br/>no reuse'"]
-    S --> PR["📋 'Open portal,<br/>verify, confirm'"]
-    PR --> G["💡 'Consider a<br/>password manager'"]
-
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#3a2c12,stroke:#F08C00,color:#fff
-    style PR fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style G fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -300,29 +277,7 @@ If the question says:
 
 **"Prioritized cybersecurity safeguards / CIS Controls"** → 🛡️ **CIS**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    K1["📝 'High-level<br/>direction'"] --> P["📜 Policy"]
-    K2["📝 'Mandatory<br/>requirement'"] --> S["📏 Standard"]
-    K3["📝 'Step-by-step<br/>instructions'"] --> PR["📋 Procedure"]
-    K4["📝 'Recommended<br/>advice'"] --> G["💡 Guideline"]
-    K5["📝 'ISO 27001'"] --> I["🌍 ISO"]
-    K6["📝 'CIS Controls'"] --> C["🛡️ CIS"]
-
-    style K1 fill:#26292e,stroke:#868E96,color:#fff
-    style K2 fill:#26292e,stroke:#868E96,color:#fff
-    style K3 fill:#26292e,stroke:#868E96,color:#fff
-    style K4 fill:#26292e,stroke:#868E96,color:#fff
-    style K5 fill:#26292e,stroke:#868E96,color:#fff
-    style K6 fill:#26292e,stroke:#868E96,color:#fff
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#3a2c12,stroke:#F08C00,color:#fff
-    style PR fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style G fill:#0f3038,stroke:#12B5A5,color:#fff
-    style I fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### One line to memorize
 

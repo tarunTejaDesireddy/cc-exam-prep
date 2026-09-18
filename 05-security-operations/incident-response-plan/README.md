@@ -70,23 +70,7 @@ Two things the exam does with this:
 
 ## 🔄 The six phases
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    P["1 · PREPARATION<br/>before anything<br/>happens"] --> D["2 · DETECTION<br/>AND ANALYSIS<br/>what is happening?"]
-    D --> C["3 · CONTAINMENT<br/>stop the spread"]
-    C --> E["4 · ERADICATION<br/>remove the cause"]
-    E --> R["5 · RECOVERY<br/>restore to normal"]
-    R --> L["6 · POST-INCIDENT<br/>lessons learned"]
-    L -.->|"feeds back into"| P
-
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#3a2c12,stroke:#F08C00,color:#fff
-    style E fill:#3a2c12,stroke:#F08C00,color:#fff
-    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Note the dotted line: **the cycle closes.** Lessons learned feed back into preparation, which is
 what makes the next response better.
@@ -183,20 +167,7 @@ that hunts for someone to punish gets no honest information, and the next incide
 
 ## 🚦 What to do FIRST
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    I["🚨 An incident<br/>is discovered"] --> S{"Is anyone<br/>in danger?"}
-    S -->|yes| P["🧍 PROTECT PEOPLE<br/>evacuate · always first"]
-    S -->|no| F["📋 FOLLOW THE IR PLAN<br/>and NOTIFY<br/>this is the exam answer"]
-    F --> T["🔧 Then the technical<br/>steps, in phase order"]
-
-    style I fill:#3a1a20,stroke:#E03131,color:#fff
-    style S fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style F fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 > [!CAUTION]
 > **This is the highest-value pattern in the domain.** When a scenario asks what to do FIRST and
@@ -231,24 +202,7 @@ usable.
 
 RFC 3227 spells out the exact order, more finely than "memory before disk":
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    A["1. CPU registers,<br/>cache"] --> B["2. RAM"]
-    B --> C["3. Network state<br/>(connections, routing)"]
-    C --> D["4. Running<br/>processes"]
-    D --> E["5. Disk"]
-    E --> F["6. Remote<br/>logs"]
-    F --> G["7. Archival<br/>media"]
-
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style B fill:#3a1a20,stroke:#E03131,color:#fff
-    style C fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#3a2c12,stroke:#F08C00,color:#fff
-    style E fill:#12243f,stroke:#5C7CFA,color:#fff
-    style F fill:#12243f,stroke:#5C7CFA,color:#fff
-    style G fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 **A real memory capture uses a specific tool before the machine is ever touched further** — an
 investigator runs something like FTK Imager or WinPmem to dump the entire contents of RAM to a

@@ -72,22 +72,7 @@ just raw alert volume.
 scheduled task, and an outbound connection to an unusual IP — investigated separately, each
 looks minor. Correlated, they describe a single intrusion in progress.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A1["🔔 Failed login"] --> C["🔗 Correlation<br/>links related events"]
-    A2["🔔 New scheduled task"] --> C
-    A3["🔔 Unusual outbound conn"] --> C
-    C --> P["⚖️ Prioritisation<br/>severity + confidence"]
-    P --> R["🚨 Escalate as<br/>ONE incident"]
-
-    style A1 fill:#26292e,stroke:#868E96,color:#fff
-    style A2 fill:#26292e,stroke:#868E96,color:#fff
-    style A3 fill:#26292e,stroke:#868E96,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#3a2c12,stroke:#F08C00,color:#fff
-    style R fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 > 🎯 **Correlation usually comes before prioritisation in practice** — you can't accurately
 > judge severity of three isolated-looking alerts until you realise they're one attack chain.
@@ -173,22 +158,7 @@ rather than in free-text prose unique to that report.
 The grown-up section mentions a model ranking IOC types by how costly they are for an attacker
 to change. Here it is, drawn out.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    T["TTPs<br/>hardest to change"] --> TOOLS["Tools"]
-    TOOLS --> NET["Network/host<br/>artefacts"]
-    NET --> DOM["Domain names"]
-    DOM --> IP["IP addresses"]
-    IP --> H["Hash values<br/>easiest to change"]
-
-    style T fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style TOOLS fill:#0f3038,stroke:#12B5A5,color:#fff
-    style NET fill:#12243f,stroke:#5C7CFA,color:#fff
-    style DOM fill:#3a2c12,stroke:#F08C00,color:#fff
-    style IP fill:#3a2c12,stroke:#F08C00,color:#fff
-    style H fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 Blocking a hash costs an attacker nothing — they change one byte and get a new hash. Blocking
 their actual **TTPs** (how they establish persistence, how they move laterally) costs them

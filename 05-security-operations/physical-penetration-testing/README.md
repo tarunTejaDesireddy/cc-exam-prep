@@ -87,19 +87,7 @@ not escalate into a real security incident or an arrest.
 The vocabulary section mentions badge cloning as a supporting technique. The reason it works is
 a specific technical weakness in older credentials.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    OLD["🪪 Legacy prox card<br/>broadcasts a fixed ID<br/>no crypto at all"] --> READ["📡 Attacker's reader<br/>captures it from<br/>inside a bag"]
-    READ --> CLONE["💳 Written to a<br/>blank card"]
-    NEW["🔐 Modern smart card<br/>challenge-response<br/>with a secret key"] --> FAIL["🛑 Nothing useful<br/>to capture"]
-
-    style OLD fill:#3a1a20,stroke:#E03131,color:#fff
-    style READ fill:#3a1a20,stroke:#E03131,color:#fff
-    style CLONE fill:#3a1a20,stroke:#E03131,color:#fff
-    style NEW fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style FAIL fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Older proximity cards simply shout a fixed number.** A legacy 125 kHz prox card holds a static
 identifier and transmits it, unencrypted and unauthenticated, to any reader that energises it —

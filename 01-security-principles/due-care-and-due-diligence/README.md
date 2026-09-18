@@ -54,16 +54,7 @@ what the investigation found.**
 
 ## 🔍 Investigate, then act
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    D["🔍 DUE DILIGENCE<br/>research and verify<br/>BEFORE acting"] --> C["✅ DUE CARE<br/>act reasonably<br/>ON WHAT YOU FOUND"]
-    C -.->|"failure to do this"| N["⚠️ NEGLIGENCE"]
-
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style N fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Examples, matched to the right term:**
 
@@ -82,24 +73,7 @@ flowchart LR
 "Review the target's security" is not one action — it's a specific document checklist a real
 security or M&A team works through.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    Q["📋 Security<br/>questionnaire (SIG)"] --> S["📄 SOC 2 Type II<br/>report"]
-    S --> P["🎯 Recent pen-test<br/>results"]
-    P --> B["🕵️ Breach history<br/>disclosure"]
-    B --> I["🛡️ Cyber insurance<br/>coverage"]
-    I --> SC["📊 Third-party score<br/>(BitSight, SecurityScorecard)"]
-    SC --> DEC["✅ Go / no-go<br/>decision"]
-
-    style Q fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style I fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SC fill:#3a2c12,stroke:#F08C00,color:#fff
-    style DEC fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **A SIG (Standardised Information Gathering) questionnaire** is the actual document a vendor
 fills out — hundreds of standardised yes/no and descriptive questions covering everything from

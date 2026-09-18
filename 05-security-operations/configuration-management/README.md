@@ -69,21 +69,7 @@ being hardened.
 
 ## 📋 Inventory first
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    I["📋 INVENTORY<br/>what do we have?"] --> C["🏷️ Classify it"]
-    C --> P["🛡️ Protect it<br/>patch · harden · monitor"]
-    P --> R["🔍 Review it"]
-    U["❓ UNKNOWN asset"] -.->|"gets none of this"| X["💀 Unpatched<br/>unmonitored<br/>unprotected"]
-
-    style I fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style U fill:#3a2c12,stroke:#F08C00,color:#fff
-    style X fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Read it as a sentence: **everything security does begins with a list, and anything missing from
 the list receives none of it.**
@@ -107,22 +93,7 @@ next question is always "what could go wrong, and how do we put it back the way 
 Most outages are caused by changes. Change control exists to make changes deliberate, reviewed
 and reversible.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    R["1 · REQUEST<br/>RFC raised"] --> A["2 · ASSESS<br/>impact and risk<br/>BACKOUT PLAN"]
-    A --> P["3 · APPROVE<br/>CAB or delegate"]
-    P --> T["4 · TEST<br/>where possible"]
-    T --> I["5 · IMPLEMENT<br/>in a change window"]
-    I --> V["6 · VERIFY<br/>and document"]
-
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-    style I fill:#12243f,stroke:#5C7CFA,color:#fff
-    style V fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 | Stage | What matters |
 |---|---|
@@ -158,20 +129,7 @@ before the repair starts, and the record gets written up the next morning regard
 
 Configuration management appears in a security exam for four concrete reasons.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    C["📐 Configuration<br/>management"] --> A["📋 Inventory enables<br/>every other control"]
-    C --> B["🛡️ Baselines keep systems<br/>hardened over time"]
-    C --> D["🔍 Change records tell you<br/>what changed before<br/>the incident"]
-    C --> E["🚫 Unapproved changes<br/>are detectable"]
-
-    style C fill:#0f3038,stroke:#12B5A5,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style E fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 | Reason | Means |
 |---|---|
@@ -190,20 +148,7 @@ flowchart TD
 The grown-up section says infrastructure as code merges the inventory and the baseline into one
 artefact. Here's literally what that file looks like and what watches it.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    TF["📄 Terraform state file<br/>= the literal inventory"] --> APPLY["🏗️ terraform apply<br/>builds/changes resources"]
-    APPLY --> LIVE["☁️ Live cloud<br/>resources"]
-    CFG["🔍 AWS Config /<br/>Azure Policy"] -->|"continuously compares"| LIVE
-    CFG -->|"mismatch found"| ALERT["🚨 Drift alert or<br/>auto-remediation"]
-
-    style TF fill:#0f3038,stroke:#12B5A5,color:#fff
-    style APPLY fill:#12243f,stroke:#5C7CFA,color:#fff
-    style LIVE fill:#26292e,stroke:#868E96,color:#fff
-    style CFG fill:#3a2c12,stroke:#F08C00,color:#fff
-    style ALERT fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Running `terraform state list` prints every single resource Terraform is managing — that literal
 command output *is* an inventory, generated from the same file that defines what each resource's

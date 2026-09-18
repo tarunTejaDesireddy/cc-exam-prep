@@ -29,30 +29,11 @@ Now the tribe needs to recover.
 
 ## ⏱️ The Timeline
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    F["💥 12:00<br/>System failure"] -->|"RTO"| REC["✅ System<br/>recovered"]
-    F -->|"MTD"| LIMIT["☠️ Maximum time the<br/>tribe can survive<br/>without service"]
-    REC -.->|"must land<br/>before"| LIMIT
-
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-    style REC fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style LIMIT fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 But **RPO is different** because it looks **backward from the failure point**:
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    RPO["💾 RPO<br/>looks backward<br/>into the past"] -.->|"data we're<br/>willing to lose"| F["💥 Failure"]
-    F -->|"RTO<br/>looks forward"| REC["✅ Recovery"]
-
-    style RPO fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-    style REC fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 This is the key:
 
@@ -146,18 +127,7 @@ Suppose:
 
 The system fails at **12:00**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    RPO["💾 11:00<br/>Recovery point /<br/>data boundary"] -.->|"RPO = 1h<br/>data we accept<br/>losing"| F["💥 12:00<br/>Failure"]
-    F -->|"RTO = 4h"| RT["✅ 16:00<br/>Target recovery"]
-    F -->|"MTD = 8h"| MT["☠️ 20:00<br/>Max tolerable<br/>downtime"]
-
-    style RPO fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-    style RT fill:#3a2c12,stroke:#F08C00,color:#fff
-    style MT fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 So:
 
@@ -221,19 +191,7 @@ And:
 
 The bank absolutely cannot tolerate the service being unavailable for more than **4 hours**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    RPO["💾 RPO = 15 min<br/>data we accept<br/>losing"] -.-> F["💥 Failure"]
-    F -->|"RTO = 1 hour"| RT["✅ Target<br/>recovery"]
-    F -->|"MTD = 4 hours"| MT["☠️ Max tolerable<br/>downtime"]
-    RT -.->|"RTO must land<br/>inside MTD"| MT
-
-    style RPO fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-    style RT fill:#3a2c12,stroke:#F08C00,color:#fff
-    style MT fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 The recovery target should be **inside the maximum tolerable downtime**.
 

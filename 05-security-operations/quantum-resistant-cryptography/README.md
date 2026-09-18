@@ -62,16 +62,7 @@ secrets, long-lived personal records — today's encryption may already be inade
 *future* decryption capability, even though it is completely secure against every attacker that
 exists right now.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    T["📦 Attacker captures<br/>encrypted data TODAY"] --> S["🗄️ Stores it,<br/>cannot decrypt yet"]
-    S -.->|"years later"| Q["🔓 Quantum computer<br/>matures, decrypts it"]
-
-    style T fill:#3a1a20,stroke:#E03131,color:#fff
-    style S fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Q fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 This is why standards bodies are already publishing quantum-resistant algorithms and why
 organisations with long-lived sensitive data are beginning migration now — the migration
@@ -87,18 +78,7 @@ mathematical problem than the factoring and discrete-logarithm problems RSA and 
 cryptography rely on, which is exactly why Shor's algorithm doesn't help against them: it was
 built to solve *those specific* problems, not lattice problems.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    C["🔒 Classical<br/>ECDHE key exchange"] --> H["🤝 Hybrid handshake<br/>BOTH run together"]
-    Q["🔮 Post-quantum<br/>ML-KEM key exchange"] --> H
-    H --> S["🔑 Session key needs<br/>BOTH to be broken"]
-
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style Q fill:#12243f,stroke:#5C7CFA,color:#fff
-    style H fill:#3a2c12,stroke:#F08C00,color:#fff
-    style S fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **This migration isn't hypothetical — it's already running in production today, via hybrid
 deployment.** Chrome and Cloudflare, among others, now run TLS handshakes combining a classical

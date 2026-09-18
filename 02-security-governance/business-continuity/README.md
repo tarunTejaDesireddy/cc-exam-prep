@@ -69,23 +69,7 @@ The important activities continue even though the tribe isn't operating normally
 
 That's business continuity.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    S["🌪️ Storm damages<br/>the cave"]
-    S --> C1["🥩 Food collection<br/>MUST continue"]
-    S --> C2["💧 Water supply<br/>MUST continue"]
-    S --> C3["🏥 Medical care<br/>MUST continue"]
-    S -.-> W1["🎨 Cave paintings<br/>can wait"]
-    S -.-> W2["🪨 Decorations<br/>can wait"]
-
-    style S fill:#3a1a20,stroke:#E03131,color:#fff
-    style C1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style C2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style C3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style W1 fill:#26292e,stroke:#868E96,color:#fff
-    style W2 fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -132,19 +116,7 @@ The organization might prioritize:
 
 The objective is to keep critical services available.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    D["🌪️ Disaster hits<br/>headquarters"]
-    D --> A["⭐ Critical<br/>payments, banking,<br/>security ops"]
-    D --> B["🟡 Reduced<br/>customer support"]
-    D --> C["🟢 Can wait<br/>marketing, some<br/>office activities"]
-
-    style D fill:#3a1a20,stroke:#E03131,color:#fff
-    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style B fill:#3a2c12,stroke:#F08C00,color:#fff
-    style C fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -166,23 +138,7 @@ injured, so Bob performs the job."
 **📦 Alternate suppliers** — If the normal supplier cannot provide materials: "Use another
 supplier."
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    N["⭐ Keep critical<br/>functions running"]
-    N --> L["🏢 Alternate<br/>location"]
-    N --> R["🏠 Remote<br/>work"]
-    N --> S["🖥️ Redundant<br/>systems"]
-    N --> P["👥 Alternate<br/>personnel"]
-    N --> SUP["📦 Alternate<br/>suppliers"]
-
-    style N fill:#0f3038,stroke:#12B5A5,color:#fff
-    style L fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SUP fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -211,21 +167,7 @@ So:
 > **Business Continuity = Keep the business going.**
 > **Disaster Recovery = Restore systems.**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    F["🔥 Server room<br/>catches fire"]
-    F --> BC["🏢 Business Continuity<br/>'customers still need<br/>to place orders'"]
-    F --> DR["🖥️ Disaster Recovery<br/>'how do we restore<br/>the damaged systems?'"]
-    BC --> KG["✅ Business<br/>keeps going"]
-    DR --> RS["🔧 Systems get<br/>restored"]
-
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-    style BC fill:#12243f,stroke:#5C7CFA,color:#fff
-    style DR fill:#3a2c12,stroke:#F08C00,color:#fff
-    style KG fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style RS fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 

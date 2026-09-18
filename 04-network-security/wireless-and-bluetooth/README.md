@@ -66,17 +66,7 @@ approach and talk to the impostor instead — that's an **evil twin**, the same 
 - **An evil twin** is the same idea from *outside* — an attacker's AP broadcasting a familiar
   SSID so victims connect to it instead of the real network, exposing their traffic.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    R["🔓 Rogue AP<br/>installed from INSIDE<br/>bypasses the perimeter"] --> Risk1["⚠️ Unmonitored<br/>entry point"]
-    E["🎭 Evil twin<br/>impersonates SSID<br/>from OUTSIDE"] --> Risk2["⚠️ Victims connect<br/>to the attacker"]
-
-    style R fill:#3a1a20,stroke:#E03131,color:#fff
-    style E fill:#3a1a20,stroke:#E03131,color:#fff
-    style Risk1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Risk2 fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ## 🏢 Personal versus Enterprise, and why organisations pick one
 
@@ -128,18 +118,7 @@ Three very different levels of harm, all from someone nearby.
 
 ## 🔬 What actually happens inside an 802.1X connection
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    S["💻 Supplicant<br/>(the device)"] --> A["📡 Authenticator<br/>(the AP/switch)"]
-    A -->|"forwards the<br/>EAP exchange"| R["🖧 RADIUS server<br/>checks credentials"]
-    R -->|"Access-Accept<br/>or Access-Reject"| A
-    A -->|"opens or blocks<br/>the port"| S
-
-    style S fill:#26292e,stroke:#868E96,color:#fff
-    style A fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 802.1X names three specific roles: the **supplicant** (your laptop or phone) wants access, the
 **authenticator** (the AP or switch) is a dumb relay that won't open its port until told to, and

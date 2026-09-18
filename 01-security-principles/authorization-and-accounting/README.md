@@ -27,16 +27,7 @@ These three are often grouped together as **AAA**:
 
 > Authentication + Authorization + Accounting = **AAA**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    N["🔐 Authentication<br/>Who are you?"] --> Z["🎫 Authorization<br/>What can you do?"]
-    Z --> C["📋 Accounting<br/>What did you do?"]
-
-    style N fill:#12243f,stroke:#5C7CFA,color:#fff
-    style Z fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style C fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -62,25 +53,7 @@ But maybe Grog is not allowed to:
 
 That's authorization.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    G["🧑 Grog, already<br/>authenticated"]
-    G --> A1["✅ Sleeping cave"]
-    G --> A2["✅ His own food"]
-    G --> A3["✅ Hunting tools"]
-    G -.-> D1["❌ Chief's secret cave"]
-    G -.-> D2["❌ Another's food"]
-    G -.-> D3["❌ Change tribe rules"]
-
-    style G fill:#0f3038,stroke:#12B5A5,color:#fff
-    style A1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style A2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style A3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D1 fill:#3a1a20,stroke:#E03131,color:#fff
-    style D2 fill:#3a1a20,stroke:#E03131,color:#fff
-    style D3 fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 💻 In computers
 
@@ -133,17 +106,7 @@ Accounting means:
 
 It's sometimes called auditing or logging.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-sequenceDiagram
-    participant G as 🧑 Grog
-    participant L as 📋 The guard's log
-    G->>L: 8:00 entered the cave
-    G->>L: 8:15 opened food storage
-    G->>L: 8:20 took 2 meat
-    G->>L: 9:00 left the cave
-    Note over L: 📋 Full record kept
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### 💻 Computer example
 
@@ -190,20 +153,7 @@ Accounting can help with:
 - ⚖️ Providing evidence during investigations
 - 💰 Tracking resource usage
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    DEL["🗑️ File deleted"] --> Q{"Logs exist?"}
-    Q -->|no| SHRUG["🤷 We don't know<br/>who did it"]
-    Q -->|yes| KNOW["📋 Grog's account<br/>deleted it at 14:32"]
-    KNOW --> INV["🔍 Security team<br/>investigates"]
-
-    style DEL fill:#3a1a20,stroke:#E03131,color:#fff
-    style Q fill:#0f3038,stroke:#12B5A5,color:#fff
-    style SHRUG fill:#26292e,stroke:#868E96,color:#fff
-    style KNOW fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style INV fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -246,16 +196,7 @@ Grog logged out at 17:05
 
 That's accounting.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    S1["🔐 Authentication<br/>prove it's Grog"] --> S2["🎫 Authorization<br/>employee folder: yes<br/>CEO folder: no"]
-    S2 --> S3["📋 Accounting<br/>login, access,<br/>download, logout logged"]
-
-    style S1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style S3 fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 

@@ -69,23 +69,7 @@ Work top to bottom. The data topics set up the encryption ones.
 
 ## 🎯 03 · Where the marks are
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    E["🔐 Encryption<br/>and hashing"] --> M1["Symmetric vs asymmetric<br/>hashing is ONE-WAY"]
-    D["🗄️ Data handling<br/>and classification"] --> M2["Three states · masking<br/>disposal methods"]
-    I["🚑 Incident response"] --> M3["Phase ORDER<br/>is near-certain"]
-    T["🧪 Security testing"] --> M4["SAST vs DAST vs<br/>scan vs threat model"]
-
-    style E fill:#0f3038,stroke:#12B5A5,color:#fff
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-    style I fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style M2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style M3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style M4 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 

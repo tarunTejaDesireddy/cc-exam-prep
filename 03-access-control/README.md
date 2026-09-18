@@ -63,20 +63,7 @@ Work top to bottom. The first topic establishes the vocabulary the rest depend o
 
 ## 🎯 03 · Where the marks are
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    M["🗝️ The four models<br/>DAC · MAC · RBAC · ABAC"] --> H["Several questions<br/>describe a scenario<br/>and ask which"]
-    L["🔻 Least privilege"] --> H3["What should have<br/>prevented this?"]
-    I["🔄 Identity lifecycle"] --> H2["JML stage,<br/>and what breaks there"]
-
-    style M fill:#0f3038,stroke:#12B5A5,color:#fff
-    style L fill:#12243f,stroke:#5C7CFA,color:#fff
-    style I fill:#12243f,stroke:#5C7CFA,color:#fff
-    style H fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style H2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style H3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 If you run short of time in this domain, the model comparison in
 [`dac-mac-rbac-abac/`](dac-mac-rbac-abac/) is the page to know cold.

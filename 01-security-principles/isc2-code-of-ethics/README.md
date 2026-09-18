@@ -68,20 +68,7 @@ thing candidates get wrong — because in daily work the employer's interests fe
 
 ## 🔍 The four canons
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    C1["1 · SOCIETY<br/>protect the common good<br/>and the infrastructure"] --> C2["2 · HONOUR<br/>act honestly, justly<br/>and legally"]
-    C2 --> C3["3 · PRINCIPALS<br/>diligent, competent service<br/>to employer and clients"]
-    C3 --> C4["4 · PROFESSION<br/>advance and protect it"]
-    N["⚠️ When canons conflict<br/>the LOWER number wins"]
-
-    style C1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C4 fill:#26292e,stroke:#868E96,color:#fff
-    style N fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ### 1 · Protect society, the common good, necessary public trust and confidence, and the infrastructure
 
@@ -125,18 +112,7 @@ people who are not qualified.
 
 This is what the exam actually tests.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    S["🌍 Society<br/>Canon 1"] -->|beats| H["⚖️ Legal and honest<br/>Canon 2"]
-    H -->|beats| E["🏢 Employer<br/>Canon 3"]
-    E -->|beats| P["🎓 Profession<br/>Canon 4"]
-
-    style S fill:#0f3038,stroke:#12B5A5,color:#fff
-    style H fill:#12243f,stroke:#5C7CFA,color:#fff
-    style E fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **Society beats legality beats employer beats profession.**
 
@@ -162,22 +138,7 @@ The grown-up section mentions that "disclose or conceal" is too clean a choice i
 real mechanism professionals use is called **Coordinated Vulnerability Disclosure (CVD)**, and
 it has a genuinely standard shape.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    F["🔍 Flaw found"] --> R["📧 Privately reported<br/>to the vendor"]
-    R --> C["🆔 CVE ID reserved<br/>(not yet public)"]
-    C --> W["⏳ ~90-day embargo<br/>vendor builds a fix"]
-    W --> P["🩹 Patch released"]
-    P --> D["📢 Public disclosure<br/>+ technical writeup"]
-
-    style F fill:#26292e,stroke:#868E96,color:#fff
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 A researcher who finds a flaw reports it **privately** to the vendor first, rather than
 tweeting it — a vendor blindsided in public has no chance to protect users before attackers

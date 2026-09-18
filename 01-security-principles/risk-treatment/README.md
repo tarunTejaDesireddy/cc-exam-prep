@@ -28,21 +28,7 @@ There are **4 main risk treatments** you should know:
 3. 🤝 **Risk Transfer**
 4. 🤷 **Risk Acceptance**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    R["⚠️ Grog found<br/>a risk"]
-    R --> M["🔧 Mitigate<br/>make it smaller"]
-    R --> AV["🚫 Avoid<br/>don't do it"]
-    R --> TR["🤝 Transfer<br/>share the burden"]
-    R --> AC["🤷 Accept<br/>live with it"]
-
-    style R fill:#0f3038,stroke:#12B5A5,color:#fff
-    style M fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AV fill:#3a2c12,stroke:#F08C00,color:#fff
-    style TR fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style AC fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -209,18 +195,7 @@ They may:
 
 But their authority depends on the organization's policies.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    E["🧑 Employee finds<br/>a risk"] --> REP["📋 Reports /<br/>recommends"]
-    REP --> O["👑 Risk owner /<br/>management"]
-    O --> D["✅ Decides within<br/>their authority"]
-
-    style E fill:#26292e,stroke:#868E96,color:#fff
-    style REP fill:#12243f,stroke:#5C7CFA,color:#fff
-    style O fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -289,23 +264,7 @@ When you see:
 
 **"Know the risk but consciously do nothing more"** → 🤷 **Acceptance**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    K1["📝 'Install a<br/>security control'"] --> M["🔧 Mitigation"]
-    K2["📝 'Stop doing<br/>something'"] --> AV["🚫 Avoidance"]
-    K3["📝 'Insurance or<br/>contract'"] --> TR["🤝 Transfer"]
-    K4["📝 'Know it, do<br/>nothing more'"] --> AC["🤷 Acceptance"]
-
-    style K1 fill:#26292e,stroke:#868E96,color:#fff
-    style K2 fill:#26292e,stroke:#868E96,color:#fff
-    style K3 fill:#26292e,stroke:#868E96,color:#fff
-    style K4 fill:#26292e,stroke:#868E96,color:#fff
-    style M fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AV fill:#3a2c12,stroke:#F08C00,color:#fff
-    style TR fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style AC fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 

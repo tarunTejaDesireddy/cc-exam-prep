@@ -68,24 +68,7 @@ privilege. Least privilege limits what a *person* can do; least functionality li
 
 ## 🔩 What hardening involves
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    S["📦 Default install<br/>LARGE attack surface"] --> R["🗑️ REMOVE<br/>unneeded software<br/>services · sample content"]
-    R --> D["🔒 DISABLE<br/>unused ports<br/>and features"]
-    D --> C["🔑 CHANGE<br/>every default<br/>credential"]
-    C --> P["🩹 PATCH<br/>what remains"]
-    P --> L["🔻 RESTRICT<br/>least privilege<br/>on accounts"]
-    L --> H["🛡️ Hardened system<br/>SMALL attack surface"]
-
-    style S fill:#3a1a20,stroke:#E03131,color:#fff
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style L fill:#12243f,stroke:#5C7CFA,color:#fff
-    style H fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 | Step | Why |
 |---|---|
@@ -117,18 +100,7 @@ an extra door or cut a window for the view, and nobody notices until a wolf find
 A **baseline** is the documented minimum secure configuration for a class of system — all web
 servers, all laptops, all database servers.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    B["📐 BASELINE<br/>the approved<br/>secure configuration"] --> N["🖥️ New systems<br/>built from it"]
-    B --> M["🔍 Existing systems<br/>measured against it"]
-    M --> D["⚠️ DRIFT detected<br/>and corrected"]
-
-    style B fill:#0f3038,stroke:#12B5A5,color:#fff
-    style N fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 A baseline does two jobs: **new systems are built from it**, and **existing systems are measured
 against it**. The second is what catches **configuration drift** — systems slowly diverging as
@@ -152,20 +124,7 @@ sign-off, and finally check the mended spot actually holds under a shove.
 Patching is the most visible part of hardening, and the exam expects the **process**, not just the
 act.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    I["1 · IDENTIFY<br/>which patches apply"] --> A["2 · ASSESS<br/>severity and risk"]
-    A --> T["3 · TEST<br/>in a non-production<br/>environment"]
-    T --> D["4 · DEPLOY<br/>through change control"]
-    D --> V["5 · VERIFY<br/>confirm applied<br/>and working"]
-
-    style I fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-    style V fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 > [!IMPORTANT]
 > **Test before deploying to production.** A patch that breaks a critical application causes an
@@ -214,18 +173,7 @@ fewer things.
 
 ## 🔬 How a baseline actually gets checked, and how a golden image gets built
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    B["📐 CIS Benchmark<br/>(a document)"] --> S["🤖 SCAP-compatible<br/>scanner (OpenSCAP)"]
-    S --> R["🖥️ Runs against a<br/>live system"]
-    R --> RES["📊 Pass/fail per<br/>numbered check"]
-
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#26292e,stroke:#868E96,color:#fff
-    style RES fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 A CIS Benchmark isn't just prose — it's published alongside a machine-readable **SCAP** (Security
 Content Automation Protocol) definition, and a scanner like **OpenSCAP** reads that definition and

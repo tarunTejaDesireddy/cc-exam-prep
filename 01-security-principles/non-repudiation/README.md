@@ -47,20 +47,7 @@ Grog can't reasonably deny that he made the transaction.
 
 That's the basic idea of non-repudiation.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-sequenceDiagram
-    participant G as 🧑 Grog
-    participant W as 🪨 Cave wall<br/>agreement
-    participant T as 🧑‍🤝‍🧑 The tribe
-    G->>W: 10 meat for 1 axe
-    G->>W: 🖐️ places his mark
-    Note over G: later...
-    G->>T: "I never agreed to that!"
-    T->>W: checks the mark
-    W->>T: mark matches Grog
-    T->>G: "You can't deny it"
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ## 💻 Computer example
 
@@ -103,20 +90,7 @@ The recipient can verify the signature.
 If the signature is valid, they have evidence that the message was signed by the holder of the
 corresponding private key and that the signed data wasn't altered.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    MSG["📝 'Give 10 meat<br/>to Bob'"] --> SIGN["🔑 Signed with<br/>Grog's private key"]
-    SIGN --> SEND["📨 Sent to Bob"]
-    SEND --> VER["🔓 Bob verifies with<br/>Grog's public key"]
-    VER --> OK["✅ Valid: signed by<br/>Grog, unaltered"]
-
-    style MSG fill:#26292e,stroke:#868E96,color:#fff
-    style SIGN fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SEND fill:#0f3038,stroke:#12B5A5,color:#fff
-    style VER fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style OK fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🔑 Private key and public key
 
@@ -166,17 +140,7 @@ Asks:
 
 The digital signature provides evidence associated with Grog's signing key.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    Q{"What's the<br/>question?"}
-    Q -->|"was it changed?"| I["✏️ Integrity<br/>signature verification<br/>fails if altered"]
-    Q -->|"can they deny<br/>signing it?"| N["🧾 Non-repudiation<br/>evidence ties the<br/>signature to Grog"]
-
-    style Q fill:#0f3038,stroke:#12B5A5,color:#fff
-    style I fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style N fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ## 🔐 Non-repudiation vs Authentication
 

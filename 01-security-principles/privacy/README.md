@@ -47,17 +47,7 @@ The tribe leader shouldn't take that information and announce it to the entire t
 
 That's privacy.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-sequenceDiagram
-    participant G as 🧑 Grog
-    participant L as 🏛️ Tribe leader
-    participant T as 🧑‍🤝‍🧑 The whole tribe
-    G->>L: "You can know where I live"
-    G->>L: "but don't tell everyone"
-    Note over L: 🕵️ Leader must respect<br/>Grog's stated purpose
-    L--xT: does NOT announce it
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ## 💻 Privacy in the real world
 
@@ -113,17 +103,7 @@ Example: Grog gives the tribe leader his location for a specific reason. The lea
 that information for an unrelated purpose or share it without appropriate permission. That's
 privacy.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    Q{"What's the<br/>concern?"}
-    Q -->|"can the wrong<br/>person see it?"| C["🔒 Confidentiality<br/>locked cave,<br/>keep strangers out"]
-    Q -->|"is MY info used<br/>the right way?"| P["🕵️ Privacy<br/>my location, only<br/>for the stated reason"]
-
-    style Q fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧠 Simple example
 
@@ -180,23 +160,7 @@ can help protect personal information.
 But cybersecurity alone doesn't automatically guarantee privacy. A company could have excellent
 security but still use personal information in an inappropriate way.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    CO["🏢 Company holds your<br/>personal information"]
-    CO --> SEC["🛡️ Strong cybersecurity<br/>encryption, access control,<br/>auditing"]
-    SEC --> KEPT["✅ Hackers kept out<br/>confidentiality holds"]
-    CO --> USE["🕵️ How the data<br/>is actually used"]
-    USE -.->|"used properly"| GOOD["✅ Privacy respected"]
-    USE -.->|"misused, even<br/>if never breached"| BAD["❌ Privacy harmed<br/>despite good security"]
-
-    style CO fill:#0f3038,stroke:#12B5A5,color:#fff
-    style SEC fill:#12243f,stroke:#5C7CFA,color:#fff
-    style KEPT fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style USE fill:#3a2c12,stroke:#F08C00,color:#fff
-    style GOOD fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style BAD fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ## 🧠 Caveman memory trick
 

@@ -45,26 +45,7 @@ hours, it is disorganised ones.
 
 ## 🗓️ The eight weeks
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    W0["Now<br/>12–13 Sep<br/>Foundations"] --> W1["W1–2<br/>14–27 Sep<br/>Domain 1 · 24%"]
-    W1 --> W3["W3<br/>28 Sep–4 Oct<br/>Domain 4 · 21.3%"]
-    W3 --> W4["W4<br/>5–11 Oct<br/>Domain 3 · 20%"]
-    W4 --> W5["W5<br/>12–18 Oct<br/>Domain 5 · 17.3%<br/>MOCK 1"]
-    W5 --> W6["W6<br/>19–25 Oct<br/>Domain 2 · 17.3%<br/>+ repair"]
-    W6 --> W7["W7<br/>26 Oct–1 Nov<br/>Mixed drills<br/>MOCK 2"]
-    W7 --> W8["W8<br/>2–5 Nov<br/>MOCK 3 · cram<br/>EXAM"]
-
-    style W0 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style W1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W4 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W5 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style W6 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style W7 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style W8 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 

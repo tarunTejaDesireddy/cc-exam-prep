@@ -24,22 +24,7 @@ The security goal is:
 
 > **Give the right access when needed, change it when the job changes, and remove it when the person leaves.**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    J["🟢 JOINER<br/>new person<br/>PROVISION"] --> M["🔄 MOVER<br/>job changes<br/>MODIFY"] --> L["🔴 LEAVER<br/>person leaves<br/>DEPROVISION"]
-    M -.->|"can repeat"| M
-    J -.- JD["⚠️ danger:<br/>wrong / excessive access"]
-    M -.- MD["⚠️ danger:<br/>privilege creep"]
-    L -.- LD["⚠️ danger:<br/>orphaned accounts"]
-
-    style J fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style M fill:#12243f,stroke:#5C7CFA,color:#fff
-    style L fill:#3a1616,stroke:#E03131,color:#fff
-    style JD fill:#26292e,stroke:#868E96,color:#fff
-    style MD fill:#26292e,stroke:#868E96,color:#fff
-    style LD fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -51,20 +36,7 @@ The organization needs to create his identity and give him the access required f
 
 ### Typical process
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["👤 New employee"] --> B["👥 HR record created"] --> C["🪪 Identity created"] --> D["⚙️ Account provisioned"]
-    D --> E["🎟️ Role/access assigned"] --> F["🔐 MFA enrolled"] --> G["✅ Employee can work"]
-
-    style A fill:#26292e,stroke:#868E96,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-    style E fill:#0f3038,stroke:#12B5A5,color:#fff
-    style F fill:#3a2c12,stroke:#F08C00,color:#fff
-    style G fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### Example
 
@@ -135,20 +107,7 @@ These can store identities and support authentication/authorization.
 
 Automated provisioning can create accounts and assign access when the HR system says someone has joined.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    HR["👥 HR system<br/>the trigger"] -->|"joined / moved / left"| IGA["🛡️ IAM / IGA<br/>decides + governs"]
-    IGA -->|"provisioning"| DIR["📁 Directory<br/>AD · Entra ID · LDAP"]
-    IGA -->|"provisioning (e.g. SCIM)"| APP["🧩 Applications"]
-    DIR --> SSO["🔑 SSO + 🔐 MFA"]
-
-    style HR fill:#3a2c12,stroke:#F08C00,color:#fff
-    style IGA fill:#12243f,stroke:#5C7CFA,color:#fff
-    style DIR fill:#0f3038,stroke:#12B5A5,color:#fff
-    style APP fill:#0f3038,stroke:#12B5A5,color:#fff
-    style SSO fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -210,19 +169,7 @@ The important thing is:
 
 # 🪨 Mover Process
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🔄 Job change"] --> B["👥 HR updates record"] --> C["🛡️ Lifecycle system<br/>detects change"]
-    C --> D["❌ Old access<br/>reviewed / removed"] --> E["✅ New access<br/>assigned"] --> F["🔍 Access verified"]
-
-    style A fill:#26292e,stroke:#868E96,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#3a1616,stroke:#E03131,color:#fff
-    style E fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style F fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 For example:
 
@@ -252,16 +199,7 @@ This is called **privilege accumulation** or **permission creep**.
 
 Sarah changes jobs several times:
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["💰 Accountant<br/>Finance"] --> B["📈 Finance Manager<br/>Finance + Budgets"] --> C["👥 HR Manager<br/>Finance + Budgets + HR"] --> D["📋 Project Manager<br/>Finance + Budgets + HR + Projects 😬"]
-
-    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style B fill:#3a2c12,stroke:#F08C00,color:#fff
-    style C fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 If nobody removes old permissions:
 
@@ -311,25 +249,7 @@ The organization needs to:
 
 # 🪨 Leaver Process
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    A["🔴 Employee leaves"] --> B["👥 HR records termination"] --> C["🪪 Identity marked inactive"]
-    C --> D["🚫 Accounts disabled"]
-    C --> E["🔌 Sessions / tokens revoked"]
-    C --> F["🧩 App, VPN, cloud access removed"]
-    C --> G["💻🎫 Devices + badges recovered"]
-    C --> H["🔑 Shared / privileged credentials changed"]
-
-    style A fill:#3a1616,stroke:#E03131,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#26292e,stroke:#868E96,color:#fff
-    style E fill:#26292e,stroke:#868E96,color:#fff
-    style F fill:#26292e,stroke:#868E96,color:#fff
-    style G fill:#26292e,stroke:#868E96,color:#fff
-    style H fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 Depending on the organization, this can include:
 

@@ -53,26 +53,7 @@ Run every question you are not immediately sure about through these five steps. 
 about twenty seconds once it is habit. Because CAT generally will not let you come back to an
 item, step 5 ends in a final commit, not a flag.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    S1["1 · Read the stem<br/>with the options covered"] --> S2["2 · Circle the qualifier<br/>FIRST · BEST · NOT · LEAST"]
-    S2 --> S3["3 · Answer it yourself<br/>before looking"]
-    S3 --> S4["4 · Delete what cannot be right<br/>absolutes · wrong level<br/>wrong phase"]
-    S4 --> S5{"One left?"}
-    S5 -->|yes| K["✅ Select it"]
-    S5 -->|"two left"| T["⚖️ Apply a tiebreaker<br/>plainest · most preventive<br/>· highest on the ladder"]
-    T --> G["✅ Commit and move on<br/>no going back on CAT"]
-
-    style S1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style S2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style S3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S4 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S5 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style K fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-    style G fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ### Step 1 · Read the stem with the options covered
 

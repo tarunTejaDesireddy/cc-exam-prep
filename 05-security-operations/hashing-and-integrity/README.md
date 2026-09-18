@@ -73,17 +73,7 @@ The two things a hash is for:
 
 ## 🔍 How hashing works
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    I1["📄 Any input<br/>one word or a film"] --> H["#️⃣ Hash function"]
-    H --> O["🔢 Fixed-length digest<br/>e.g. 256 bits"]
-    O -.->|"NO WAY BACK"| I1
-
-    style I1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style H fill:#0f3038,stroke:#12B5A5,color:#fff
-    style O fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **The properties the exam expects:**
 
@@ -103,24 +93,7 @@ flowchart LR
 
 ## ✅ Using hashing for integrity
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["📄 File before"] --> H1["#️⃣ Hash it<br/>store the digest"]
-    H1 --> T["⏳ Time passes<br/>transfer · storage"]
-    T --> H2["#️⃣ Hash it again"]
-    H2 --> C{"Same?"}
-    C -->|yes| Y["✅ Unchanged"]
-    C -->|no| N["🚨 ALTERED"]
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style H1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T fill:#26292e,stroke:#868E96,color:#fff
-    style H2 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Y fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style N fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 > ⚠️ **Hashing detects change; it does not prevent it.** That makes it a **detective** control. The
 > file can still be altered — you will simply know that it was.
@@ -144,24 +117,7 @@ the exact same word grinds into completely different flour for different people,
 thief's lookup book useless. Add unique random data — a **salt** — to each password before
 hashing.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    U1["👤 User A<br/>password: summer"] --> S1["🧂 + salt A1b2"]
-    U2["👤 User B<br/>password: summer"] --> S2["🧂 + salt X9y8"]
-    S1 --> H1["#️⃣ hash → 4f7a..."]
-    S2 --> H2["#️⃣ hash → c02e..."]
-    H1 --> R["🛡️ Same password,<br/>DIFFERENT hashes<br/>rainbow tables useless"]
-    H2 --> R
-
-    style U1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style U2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style S2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style H1 fill:#26292e,stroke:#868E96,color:#fff
-    style H2 fill:#26292e,stroke:#868E96,color:#fff
-    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 > 🎯 **Salting defeats rainbow tables.** This is one of the most reliable pairings on the exam.
 > The salt need not be secret — it is stored alongside the hash. Its job is **uniqueness**, not
@@ -178,20 +134,7 @@ A digital signature combines hashing and asymmetric encryption:
 3. The recipient **decrypts it with the signer's public key** to recover the hash.
 4. The recipient **hashes the message themselves** and compares.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    M["📄 Message"] --> H["#️⃣ Hash it"]
-    H --> E["🔏 Encrypt the hash<br/>with the PRIVATE key<br/>= the signature"]
-    E --> V["📬 Recipient decrypts<br/>with the PUBLIC key<br/>and re-hashes to compare"]
-    V --> R["✅ Integrity + origin<br/>= NON-REPUDIATION"]
-
-    style M fill:#12243f,stroke:#5C7CFA,color:#fff
-    style H fill:#0f3038,stroke:#12B5A5,color:#fff
-    style E fill:#0f3038,stroke:#12B5A5,color:#fff
-    style V fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 **A signature gives you three things and not the fourth:**
 
@@ -226,16 +169,7 @@ flowchart LR
 The grown-up section explains that password hashing needs to be deliberately slow. Here's what
 that actually looks like in guesses per second on ordinary attacker hardware.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    MD5["MD5 / SHA-256<br/>~billions/sec on a GPU"] --> BC["bcrypt<br/>~thousands/sec"]
-    BC --> AR["Argon2 (tuned)<br/>~hundreds/sec"]
-
-    style MD5 fill:#3a1a20,stroke:#E03131,color:#fff
-    style BC fill:#3a2c12,stroke:#F08C00,color:#fff
-    style AR fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 A general-purpose hash like SHA-256 is *designed* to be fast, because it's meant to hash gigabyte
 files quickly for integrity checks — which is exactly the wrong property for a password, where an

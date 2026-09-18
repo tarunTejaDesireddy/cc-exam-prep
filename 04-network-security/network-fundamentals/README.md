@@ -66,18 +66,7 @@ That is a confidentiality difference, and it is why hubs are obsolete.
 
 Whisper distance, one hut, one village, the whole known world — the same ladder, formalised.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    P["📱 PAN<br/>around one person<br/>Bluetooth"] --> L["🏢 LAN<br/>one building<br/>or office"]
-    L --> M["🏙️ MAN<br/>a city<br/>or campus"]
-    M --> W["🌍 WAN<br/>countries<br/>the internet"]
-
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style L fill:#0f3038,stroke:#12B5A5,color:#fff
-    style M fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Smallest to largest: PAN → LAN → MAN → WAN.** That is the whole classification.
 
@@ -115,17 +104,7 @@ read all of it.
 A **switch** learns which MAC address sits on which port and forwards each frame **only to that
 port**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    H["🔁 HUB<br/>floods every frame<br/>to every port"] --> HA["😐 Everyone sees<br/>everyone's traffic"]
-    S["🔀 SWITCH<br/>forwards only to the<br/>correct port"] --> SA["🙂 Devices see only<br/>their own traffic"]
-
-    style H fill:#3a1a20,stroke:#E03131,color:#fff
-    style HA fill:#3a1a20,stroke:#E03131,color:#fff
-    style S fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style SA fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 > 🎯 **This is a confidentiality question in disguise.** If a question asks why hubs were replaced
 > by switches for security reasons, the answer is that a hub broadcasts all traffic to all
@@ -138,28 +117,7 @@ flowchart LR
 
 > 🧠 *Switches work inside; routers work between.*
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    subgraph NETA["Network A"]
-        A1["💻"] --- SW1["🔀 Switch<br/>MAC · layer 2"]
-        A2["💻"] --- SW1
-    end
-    subgraph NETB["Network B"]
-        B1["💻"] --- SW2["🔀 Switch<br/>MAC · layer 2"]
-    end
-    SW1 --- R["🧭 Router<br/>IP · layer 3"]
-    R --- SW2
-
-    style A1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SW1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style SW2 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#3a2c12,stroke:#F08C00,color:#fff
-    style NETA fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
-    style NETB fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 The switches live **inside** the boxes. The router is the only thing spanning **between** them.
 
@@ -177,37 +135,7 @@ How devices are physically or logically arranged.
 | **Mesh** | Devices interconnect with multiple paths | Most resilient and most expensive. **Full mesh** connects every node to every other |
 | **Tree / hierarchical** | Stars connected into a hierarchy | Scales well; used in large networks |
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    subgraph BUS["BUS · one break kills all"]
-        B1["💻"] --- B2["💻"] --- B3["💻"]
-    end
-    subgraph STAR["STAR · most common"]
-        S1["💻"] --- SC["🔀 centre"]
-        S2["💻"] --- SC
-        S3["💻"] --- SC
-    end
-    subgraph MESH["MESH · most resilient"]
-        M1["💻"] --- M2["💻"]
-        M2 --- M3["💻"]
-        M3 --- M1
-    end
-
-    style B1 fill:#3a1a20,stroke:#E03131,color:#fff
-    style B2 fill:#3a1a20,stroke:#E03131,color:#fff
-    style B3 fill:#3a1a20,stroke:#E03131,color:#fff
-    style S1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SC fill:#3a2c12,stroke:#F08C00,color:#fff
-    style M1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style M2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style M3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style BUS fill:#07171c,stroke:#E03131,color:#dbe7e6
-    style STAR fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
-    style MESH fill:#07171c,stroke:#2F9E44,color:#dbe7e6
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Count the paths between any two nodes: **bus has one, star has one through an amber single point
 of failure, mesh has several.** That count is the resilience.
@@ -222,24 +150,7 @@ of failure, mesh has several.** That count is the resilience.
 A switch's "learn and forward only to the right port" behaviour lives in one specific piece of
 memory, and that memory has a limit.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    F["📥 Frame arrives<br/>on port 3"] --> CAM["📋 CAM table<br/>MAC → port mapping"]
-    CAM --> L{"MAC address<br/>already known?"}
-    L -->|"yes"| FWD["➡️ Forward only<br/>to that one port"]
-    L -->|"no"| FLOOD["📢 Flood all ports<br/>once, to learn"]
-    ATK["🦹 Attacker floods<br/>thousands of fake MACs"] -.->|"table fills up"| CAM
-    CAM -.->|"table full,<br/>fails open"| HUBLIKE["😱 Switch now behaves<br/>like a hub"]
-
-    style F fill:#26292e,stroke:#868E96,color:#fff
-    style CAM fill:#0f3038,stroke:#12B5A5,color:#fff
-    style L fill:#3a2c12,stroke:#F08C00,color:#fff
-    style FWD fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style FLOOD fill:#12243f,stroke:#5C7CFA,color:#fff
-    style ATK fill:#3a1a20,stroke:#E03131,color:#fff
-    style HUBLIKE fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 Every switch keeps a **CAM table** (Content Addressable Memory) — a real, size-limited table
 mapping each learned MAC address to the port it was seen on. This is the entire mechanism behind

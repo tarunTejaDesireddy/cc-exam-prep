@@ -69,20 +69,7 @@ When a scenario appears, ask which shape it is first. That eliminates most optio
 
 The well, the road, the gate, and the grain order — formalised.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    A["💥 Attack shapes"] --> O["🌊 OVERWHELM<br/>DoS · DDoS · SYN flood<br/>attacks AVAILABILITY"]
-    A --> I["👂 INTERCEPT<br/>on-path · sniffing<br/>attacks CONFIDENTIALITY"]
-    A --> M["🎭 IMPERSONATE<br/>spoofing · replay · hijacking<br/>attacks AUTHENTICATION"]
-    A --> J["💉 INJECT<br/>SQL injection · XSS<br/>attacks INTEGRITY"]
-
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style O fill:#12243f,stroke:#5C7CFA,color:#fff
-    style I fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#12243f,stroke:#5C7CFA,color:#fff
-    style J fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -99,18 +86,7 @@ flowchart TD
 | **Amplification / reflection** | Sends small spoofed requests to services that reply with far larger responses, aimed at the victim |
 | **Volumetric** | Simply saturates the available bandwidth |
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🦹 Attacker"] -->|"1 · SYN"| S["🖥️ Server<br/>opens a half-open<br/>connection and waits"]
-    S -->|"2 · SYN-ACK"| A
-    A -.->|"3 · ACK NEVER SENT"| S
-    S --> F["💥 Table fills<br/>real users refused"]
-
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 The SYN flood in one picture: **start thousands of handshakes, finish none, and the server runs
 out of room for the people who would have finished theirs.**
@@ -129,16 +105,7 @@ capacity, blackholing.
 The attacker sits between two parties, relaying and possibly altering traffic while both sides
 believe they are talking directly to each other.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["💻 Alice<br/>thinks she is<br/>talking to Bob"] --> M["🦹 Attacker<br/>relays and reads<br/>everything"]
-    M --> B["🖥️ Bob<br/>thinks he is<br/>talking to Alice"]
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#3a1a20,stroke:#E03131,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 **Defence:** strong encryption in transit, and certificate validation — which is what makes the
 attacker unable to impersonate either endpoint convincingly.
@@ -197,22 +164,7 @@ detect.
 
 ### 🔬 What an XSS attack actually does, step by step
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🦹 Attacker posts a<br/>comment with a hidden<br/>script tag inside"] --> DB["🗄️ Stored in the<br/>database, unescaped"]
-    DB --> V["👤 Victim views<br/>the page"]
-    V --> RUN["⚡ Browser runs the<br/>script AS the victim"]
-    RUN --> COOKIE["🍪 Steals the victim's<br/>session cookie"]
-    COOKIE --> SEND["📤 Sends it to the<br/>attacker's server"]
-
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style DB fill:#3a2c12,stroke:#F08C00,color:#fff
-    style V fill:#26292e,stroke:#868E96,color:#fff
-    style RUN fill:#3a1a20,stroke:#E03131,color:#fff
-    style COOKIE fill:#3a1a20,stroke:#E03131,color:#fff
-    style SEND fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 This particular flow is **stored XSS** — the payload sits in the database and hits every future
 visitor, which is why it's considered the most dangerous of the three variants. **Reflected XSS**
@@ -241,21 +193,7 @@ the injection from landing, and CSP stops it from executing even when encoding f
 | **Password spraying** | Tries **one common password across many accounts**, to avoid lockout thresholds |
 | **Rainbow table** | Uses precomputed hash lookups to reverse hashes. **Defeated by salting** |
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    B["🔨 BRUTE FORCE<br/>many passwords<br/>ONE account"] --> L["🔒 Lockout<br/>stops it"]
-    D["📖 DICTIONARY<br/>a likely list<br/>ONE account"] --> L
-    S["💦 SPRAYING<br/>ONE password<br/>many accounts"] --> E["😈 DODGES lockout<br/>few tries per account"]
-    C["📋 STUFFING<br/>pairs breached elsewhere<br/>exploits REUSE"] --> E
-
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#3a1a20,stroke:#E03131,color:#fff
-    style C fill:#3a1a20,stroke:#E03131,color:#fff
-    style L fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style E fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 The top two hammer one account and lockout stops them. The bottom two spread across many
 accounts, which is **exactly why they exist** — few enough attempts each that no threshold trips.

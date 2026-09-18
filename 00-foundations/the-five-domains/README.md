@@ -71,22 +71,7 @@ is the most common way candidates waste study time.
 > runs short, it runs short on whichever of Governance or Security Operations you reach last —
 > not because either is unimportant, but because they are tied for smallest.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    E["📄 The exam"] --> D1["1 · Security Principles<br/>24%"]
-    E --> D4["4 · Networking and<br/>Cloud Security<br/>21.3%"]
-    E --> D3["3 · IAM Concepts<br/>20%"]
-    E --> D2["2 · Security Governance<br/>17.3%"]
-    E --> D5["5 · Security Operations<br/>and Incident Response<br/>17.3%"]
-
-    style E fill:#0f3038,stroke:#12B5A5,color:#fff
-    style D1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D4 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D2 fill:#26292e,stroke:#868E96,color:#fff
-    style D5 fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 

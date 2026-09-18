@@ -26,16 +26,7 @@ The exam wants you to correctly identify **three things**:
 2. 📄 **Object**
 3. 📜 **Rule**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    S["👤 SUBJECT<br/>who is asking"] -->|"wants to act on"| O["📄 OBJECT<br/>the resource"]
-    R["📜 RULE<br/>what is allowed"] -.->|"governs"| O
-
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style O fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -188,20 +179,7 @@ or:
 
 > **Bob + Delete + Payroll.xlsx + Rule denies delete → DENY ❌**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    S["👤 Subject<br/>Bob"] --> A["🗑️ Action<br/>Delete"] --> O["📄 Object<br/>Payroll.xlsx"] --> R{"📜 Does the rule<br/>allow this action?"}
-    R -->|"yes"| Y["✅ ALLOW"]
-    R -->|"no"| N["❌ DENY"]
-
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A fill:#26292e,stroke:#868E96,color:#fff
-    style O fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Y fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style N fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -305,22 +283,7 @@ So:
 
 > **Authorization applies rules to decide what that subject can do.**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    U["👤 'I am Alice'"] --> AN{"🔑 Authentication<br/>WHO are you?"}
-    AN -->|"identity proven"| AZ{"🎟️ Authorization<br/>WHAT may you do?"}
-    AN -->|"identity not proven"| X["❌ Stopped at the door"]
-    AZ -->|"rule allows"| OK["✅ Access granted"]
-    AZ -->|"rule denies"| NO["❌ Access denied"]
-
-    style U fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AN fill:#0f3038,stroke:#12B5A5,color:#fff
-    style AZ fill:#3a2c12,stroke:#F08C00,color:#fff
-    style X fill:#3a1616,stroke:#E03131,color:#fff
-    style OK fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style NO fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -370,20 +333,7 @@ Imagine Grog standing at a cave door:
 
 > **A subject requests an action on an object, and the applicable rule determines whether access is allowed or denied.**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    G["👤 GROG<br/>Subject"] --> T["✋ TAKE<br/>Action"] --> F["🥩 FOOD<br/>Object"] --> R{"📜 Only hunters<br/>may take food"}
-    R -->|"Grog is a hunter"| Y["✅ ALLOW"]
-    R -->|"Grog is not a hunter"| N["❌ DENY"]
-
-    style G fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T fill:#26292e,stroke:#868E96,color:#fff
-    style F fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Y fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style N fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 

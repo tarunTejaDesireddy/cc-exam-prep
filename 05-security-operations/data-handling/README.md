@@ -68,22 +68,7 @@ terms have precisely that kind of distinction built in, and deleting a file is n
 
 ## 🔄 The data lifecycle
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    C["✏️ CREATE<br/>classify it here"] --> S["💾 STORE<br/>encrypt at rest"]
-    S --> U["⚙️ USE<br/>access control"]
-    U --> SH["📤 SHARE<br/>encrypt in transit"]
-    SH --> A["📦 ARCHIVE<br/>still classified"]
-    A --> D["🔥 DESTROY<br/>sanitise properly"]
-
-    style C fill:#0f3038,stroke:#12B5A5,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style U fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SH fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 > ⚠️ **Classification happens at creation.** Data should be labelled when it is made, because
 > every later protection decision depends on knowing what it is. Classifying afterwards means
@@ -96,18 +81,7 @@ sensitivity — a common real-world failure and a reasonable exam scenario.
 
 ## 🧊 The three states
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    D["📄 Data"] --> R["💾 AT REST<br/>on disk, in a database<br/>ENCRYPT AT REST"]
-    D --> T["🌐 IN TRANSIT<br/>crossing a network<br/>TLS · VPN"]
-    D --> U["⚙️ IN USE<br/>in memory, being processed<br/>HARDEST TO PROTECT"]
-
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-    style U fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 | | Where it is | Threats | Controls |
 |---|---|---|---|
@@ -151,18 +125,7 @@ who knows where to dig will still find it. This is where the exam gets specific.
 file does not remove the data**; it removes the pointer to it and marks the space reusable. The
 data remains until overwritten, which is **remanence**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    D["🗑️ DELETE<br/>pointer removed only<br/>DATA STILL THERE"] --> C["🧽 CLEARING<br/>overwrite<br/>media can be reused"]
-    C --> P["🧲 PURGING<br/>degauss or crypto-erase<br/>resists lab recovery"]
-    P --> X["🔨 DESTRUCTION<br/>shred · incinerate · pulverise<br/>media unusable"]
-
-    style D fill:#3a1a20,stroke:#E03131,color:#fff
-    style C fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style X fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Left to right, **more thorough and less reusable.**
 
@@ -199,18 +162,7 @@ that internal key. Every existing block instantly becomes unreadable ciphertext 
 left anywhere, which is why it's near-instant and reliable regardless of wear levelling: it's
 crypto-shredding, just performed *inside the drive itself* rather than at the application layer.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    APP["⚙️ Application<br/>processes plaintext"] --> ENC["🔒 CPU enclave<br/>(Intel SGX / AMD SEV)"]
-    ENC -->|"encrypted, even<br/>from the OS itself"| MEM["💾 RAM"]
-    ROOT["🦹 Attacker with<br/>root/hypervisor access"] -.->|"sees only<br/>ciphertext"| MEM
-
-    style APP fill:#26292e,stroke:#868E96,color:#fff
-    style ENC fill:#0f3038,stroke:#12B5A5,color:#fff
-    style MEM fill:#12243f,stroke:#5C7CFA,color:#fff
-    style ROOT fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 **A trusted execution environment is the concrete answer to "data in use is the hardest state to
 protect."** Intel SGX and AMD SEV carve out a hardware-enforced region of memory — an **enclave**

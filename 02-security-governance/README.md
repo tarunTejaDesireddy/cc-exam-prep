@@ -65,20 +65,7 @@ Work top to bottom.
 
 ## 🎯 03 · Where the marks are
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["⏱️ RTO vs RPO"] --> M1["Constantly swapped<br/>in distractors"]
-    B["🏃 BC vs DR"] --> M2["DURING vs AFTER<br/>the disruption"]
-    C["📈 KRI vs KPI"] --> M3["Warns vs grades"]
-
-    style A fill:#0f3038,stroke:#12B5A5,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#0f3038,stroke:#12B5A5,color:#fff
-    style M1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style M2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style M3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 If you have one hour for this entire domain, spend it on
 [`rto-rpo-mtd/`](rto-rpo-mtd/) and [`measuring-cybersecurity-effectiveness/`](measuring-cybersecurity-effectiveness/).

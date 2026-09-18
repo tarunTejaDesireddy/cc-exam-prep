@@ -77,20 +77,7 @@ useful thing to understand here.
 
 **One key. Both parties hold the same one.**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    P["📄 Plaintext"] --> E["🔒 Encrypt<br/>with THE key"]
-    E --> C["🔢 Ciphertext"]
-    C --> D["🔓 Decrypt<br/>with THE SAME key"]
-    D --> P2["📄 Plaintext"]
-
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style E fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C fill:#26292e,stroke:#868E96,color:#fff
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-    style P2 fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 | Strength | Weakness |
 |---|---|
@@ -119,23 +106,7 @@ key is published; the private key never leaves its owner.
 
 This is the part that earns marks. The direction depends on **what you are trying to achieve**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    subgraph CONF["For CONFIDENTIALITY"]
-        A1["Encrypt with the<br/>RECIPIENT'S PUBLIC key"] --> A2["Only their PRIVATE key<br/>can decrypt it"]
-    end
-    subgraph SIGN["For NON-REPUDIATION"]
-        B1["Sign with YOUR<br/>OWN PRIVATE key"] --> B2["Anyone verifies with<br/>your PUBLIC key"]
-    end
-
-    style A1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style B1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style CONF fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
-    style SIGN fill:#07171c,stroke:#12B5A5,color:#dbe7e6
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 | Goal | Encrypt / sign with | Decrypt / verify with |
 |---|---|---|
@@ -162,16 +133,7 @@ flowchart LR
 
 ## 🤝 How they work together
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    S["1 · ASYMMETRIC<br/>slow but solves<br/>key distribution"] --> K["2 · Exchange a<br/>SYMMETRIC session key<br/>safely"]
-    K --> B["3 · SYMMETRIC<br/>fast — encrypts all<br/>the actual traffic"]
-
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style K fill:#3a2c12,stroke:#F08C00,color:#fff
-    style B fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Read it as a sentence: **the slow method delivers the key, and the fast method does the work.**
 
@@ -184,18 +146,7 @@ symmetric's speed.
 
 ### 🔬 The hybrid model, as an actual TLS 1.3 handshake
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    C["💻 ClientHello<br/>+ a key share"] --> S["🖥️ ServerHello<br/>+ its key share<br/>+ certificate"]
-    S --> D["🔑 Both sides compute<br/>the SAME session key<br/>(ECDHE math)"]
-    D --> A["🔒 Application data,<br/>encrypted with AES<br/>(symmetric, fast)"]
-
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#3a2c12,stroke:#F08C00,color:#fff
-    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 This is the exact real exchange behind "asymmetric establishes a symmetric session key." Both
 sides send a **key share** — half of an ephemeral Diffie-Hellman exchange — and each

@@ -70,20 +70,7 @@ Indirectly, it is the highest-leverage module in the repo. A candidate who knows
 material but answers like a practitioner loses marks on every scenario question in all five
 domains. That is a systematic loss, and it is entirely fixable in an afternoon.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    K["🧰 What you<br/>already know<br/>years of SOC work"] --> G{"Answered<br/>how?"}
-    G -->|"like a practitioner"| L["❌ Marks lost<br/>on every scenario<br/>in all five domains"]
-    G -->|"like the courseware"| W["✅ Marks kept"]
-    F["🧱 This module"] -.->|"flips the switch"| G
-
-    style K fill:#12243f,stroke:#5C7CFA,color:#fff
-    style G fill:#3a2c12,stroke:#F08C00,color:#fff
-    style L fill:#3a1a20,stroke:#E03131,color:#fff
-    style W fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style F fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 

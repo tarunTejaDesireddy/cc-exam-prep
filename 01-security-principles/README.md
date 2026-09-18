@@ -67,21 +67,7 @@ Nearly a quarter of the paper comes from here directly. But the vocabulary leaks
 Domain 4 question about segmentation still turns on what a *preventive control* is, and a
 Domain 5 question about classification still turns on who the *data owner* is.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    D1["🧭 Domain 1<br/>Security Principles<br/>24% directly"]
-    D1 -->|"risk · control · CIA"| D4["🌐 Domain 4<br/>Networking & Cloud"]
-    D1 -->|"least privilege · authority"| D3["🚪 Domain 3<br/>IAM Concepts"]
-    D1 -->|"data owner · policy"| D5["⚙️ Domain 5<br/>Operations & IR"]
-    D1 -->|"impact · likelihood"| D2["🚨 Domain 2<br/>Governance"]
-
-    style D1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style D4 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D5 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D2 fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Read that as a sentence: **the words defined here are the words the rest of the exam is asked in.**
 

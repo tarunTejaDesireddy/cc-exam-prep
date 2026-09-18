@@ -100,20 +100,7 @@ process.
 
 ## 🔬 Mirai and Modbus: the two textbook mechanisms, concretely
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    SCAN["🔍 Scan the internet<br/>for open Telnet (23)"] --> TRY["🔑 Try ~60 factory-<br/>default credentials"]
-    TRY -->|"one works"| INF["🦠 Malware installed<br/>in device memory"]
-    INF --> BOT["🤖 Device joins<br/>the botnet"]
-    BOT --> DDOS["🌊 Thousands of<br/>devices flood a target"]
-
-    style SCAN fill:#12243f,stroke:#5C7CFA,color:#fff
-    style TRY fill:#12243f,stroke:#5C7CFA,color:#fff
-    style INF fill:#3a1a20,stroke:#E03131,color:#fff
-    style BOT fill:#3a1a20,stroke:#E03131,color:#fff
-    style DDOS fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Mirai needed no exploit, no vulnerability research, nothing clever at all** — it simply
 scanned the whole internet for devices with Telnet open and tried a hard-coded list of around

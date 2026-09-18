@@ -40,16 +40,7 @@ The easiest rule:
 
 > **More ready = More expensive**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    COLD["🧊 Cold<br/>cheapest,<br/>not ready"] --> WARM["🌡️ Warm<br/>medium cost,<br/>partly ready"]
-    WARM --> HOT["🔥 Hot<br/>most expensive,<br/>ready now"]
-
-    style COLD fill:#12243f,stroke:#5C7CFA,color:#fff
-    style WARM fill:#3a2c12,stroke:#F08C00,color:#fff
-    style HOT fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ### 🟢 1. Hot Site — "Ready NOW"
 
@@ -249,20 +240,7 @@ This provides a highly realistic test, but it can be risky and disruptive.
 
 A useful exam-oriented progression is:
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    C["📋 Checklist/Review<br/>least cost, least real"] --> T["🗣️ Tabletop"]
-    T --> S["🎭 Simulation"]
-    S --> P["🔄 Parallel"]
-    P --> F["💥 Full Interruption<br/>most cost, most real"]
-
-    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#3a2c12,stroke:#F08C00,color:#fff
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **Exact terminology and ordering can vary somewhat by framework or organization**, but the exam
 principle is:
@@ -282,17 +260,7 @@ readiness
 **🧪 Testing question** — "How do we verify the recovery plan works?" Answer: Review/checklist ·
 Tabletop · Simulation · Parallel · Full interruption. Think: 💰 Cost/effort vs realism
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    DR["🏢 Disaster<br/>Recovery"]
-    DR --> Q1["🏢 'Where will<br/>we recover?'<br/>Hot/Warm/Cold"]
-    DR --> Q2["🧪 'How do we<br/>verify it works?'<br/>5 test types"]
-
-    style DR fill:#0f3038,stroke:#12B5A5,color:#fff
-    style Q1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style Q2 fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 

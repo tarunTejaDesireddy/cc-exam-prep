@@ -60,17 +60,7 @@ The wolves-successfully-spotted count is a **KPI** — it looks at performance a
 and grades. A KPI (percentage of systems patched within SLA, phishing simulation click rate)
 tells you how well a control or process is actually operating.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    K1["📈 KRI<br/>rising overdue patches"] --> W["⚠️ Warns of<br/>growing exposure"]
-    K2["✅ KPI<br/>% patched within SLA"] --> P["📏 Grades<br/>process performance"]
-
-    style K1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style K2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style W fill:#3a1a20,stroke:#E03131,color:#fff
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Audience decides format.** The guard himself checks fresh wolf tracks by the fence every
 single night — that running, live view is a **dashboard.** Once a month, the hunt-leader gets a
@@ -96,23 +86,7 @@ quarter for a board or a regulator.
 Nobody manually stopwatches an incident. Real metrics get computed automatically from
 timestamps that already exist in other systems.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🚨 SIEM alert<br/>fires at T0"] --> TK["🎫 Ticket created<br/>ServiceNow/Jira, T1"]
-    TK --> RS["✅ Ticket resolved<br/>T2"]
-    A --> MTTD["MTTD = T1 − T0"]
-    TK --> MTTR["MTTR = T2 − T1"]
-    MTTD --> DASH["📊 Grafana / Power BI<br/>dashboard, auto-updated"]
-    MTTR --> DASH
-
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style TK fill:#12243f,stroke:#5C7CFA,color:#fff
-    style RS fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style MTTD fill:#3a2c12,stroke:#F08C00,color:#fff
-    style MTTR fill:#3a2c12,stroke:#F08C00,color:#fff
-    style DASH fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **MTTD (Mean Time to Detect)** and **MTTR (Mean Time to Respond/Remediate)** are two of the
 most-quoted security KPIs, and both are just subtraction between timestamps that already exist:

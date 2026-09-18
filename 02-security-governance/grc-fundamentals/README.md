@@ -28,19 +28,7 @@ The important exam idea is:
 
 Think of Grog's tribe. 🪨
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    G["🏛️ Governance<br/>sets direction"] --> R["⚠️ Risk<br/>identifies threats"]
-    R --> C["⚖️ Compliance<br/>checks requirements"]
-    C --> RE["📊 Results/reporting<br/>inform management"]
-    RE -.->|"adjusts"| G
-
-    style G fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R fill:#3a1a20,stroke:#E03131,color:#fff
-    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style RE fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -139,20 +127,7 @@ are the biggest dangers?" ❌ The organization might protect the wrong things.
 consider which risks actually threaten the tribe. ❌ He may spend huge amounts of resources simply
 checking boxes.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    G1["🏛️ Governance<br/>alone"] --> B1["❌ Protects the<br/>wrong things"]
-    R1["⚠️ Risk<br/>alone"] --> B2["❌ No authority to<br/>decide what's first"]
-    C1["⚖️ Compliance<br/>alone"] --> B3["❌ Just checking<br/>boxes, wrong focus"]
-
-    style G1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R1 fill:#3a1a20,stroke:#E03131,color:#fff
-    style C1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style B1 fill:#26292e,stroke:#868E96,color:#fff
-    style B2 fill:#26292e,stroke:#868E96,color:#fff
-    style B3 fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -192,20 +167,7 @@ reduced and required rules are being followed." The chief can now make better de
 
 That's GRC working as one program.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    G["🏛️ 'Protect our<br/>food supply'"] --> R["⚠️ Fire risk =<br/>high likelihood ×<br/>high impact"]
-    R --> T["🛡️ Safer fire area,<br/>food separated"]
-    T --> C["⚖️ Are we following<br/>storage rules?"]
-    C --> RE["📊 Chief gets the<br/>report, decides"]
-
-    style G fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R fill:#3a1a20,stroke:#E03131,color:#fff
-    style T fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style RE fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -287,23 +249,7 @@ For example:
 - Compliance team → compliance monitoring
 - Security team → security controls
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    M["👑 Management"] --> G["🏛️ Governance"]
-    RO["🧑‍💼 Risk owner"] --> R["⚠️ Risk decisions"]
-    CT["⚖️ Compliance team"] --> C["📋 Compliance<br/>monitoring"]
-    ST["🛡️ Security team"] --> SC["🔧 Security<br/>controls"]
-
-    style M fill:#26292e,stroke:#868E96,color:#fff
-    style RO fill:#26292e,stroke:#868E96,color:#fff
-    style CT fill:#26292e,stroke:#868E96,color:#fff
-    style ST fill:#26292e,stroke:#868E96,color:#fff
-    style G fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R fill:#3a1a20,stroke:#E03131,color:#fff
-    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style SC fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ### 5 · 📊 Better decision-making
 

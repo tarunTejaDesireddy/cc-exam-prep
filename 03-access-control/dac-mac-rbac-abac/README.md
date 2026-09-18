@@ -25,21 +25,7 @@ The key is to look at **WHO/WHAT determines access**.
 > **RBAC = Job role decides**<br>
 > **ABAC = Attributes decide**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    Q["🔑 WHO or WHAT<br/>decides access?"]
-    Q --> D["👑 DAC<br/>the OWNER"]
-    Q --> M["🏛️ MAC<br/>LABELS + CLEARANCE"]
-    Q --> R["👨‍💼 RBAC<br/>the JOB ROLE"]
-    Q --> A["🧬 ABAC<br/>ATTRIBUTES + context"]
-
-    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#3a1616,stroke:#E03131,color:#fff
-    style R fill:#0f3038,stroke:#12B5A5,color:#fff
-    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -143,25 +129,7 @@ Bob can't simply ask the owner to give him permission.
 
 ➡️ **MAC**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    subgraph DAC["👑 DAC"]
-        O1["Alice<br/>owner"] -->|"grants read"| B1["Bob"]
-        B1 --> Y["✅ Access"]
-    end
-    subgraph MAC["🏛️ MAC"]
-        B2["Bob<br/>CONFIDENTIAL clearance"] --> S{"System checks<br/>file = SECRET"}
-        S -->|"clearance too low"| N["❌ Denied<br/>owner can't override"]
-    end
-
-    style O1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B1 fill:#26292e,stroke:#868E96,color:#fff
-    style B2 fill:#26292e,stroke:#868E96,color:#fff
-    style S fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Y fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style N fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -215,21 +183,7 @@ Alice becomes a **Doctor**.
 
 Therefore she gets the permissions assigned to the Doctor role.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["👤 Alice"] -->|"assigned"| RD["🩺 Doctor role"]
-    C["👤 Carol"] -->|"assigned"| RA["🧮 Accountant role"]
-    RD --> P1["📁 Patient records"]
-    RA --> P2["📁 Financial records"]
-
-    style A fill:#26292e,stroke:#868E96,color:#fff
-    style C fill:#26292e,stroke:#868E96,color:#fff
-    style RD fill:#0f3038,stroke:#12B5A5,color:#fff
-    style RA fill:#0f3038,stroke:#12B5A5,color:#fff
-    style P1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P2 fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### Scenario
 
@@ -300,26 +254,7 @@ The decision uses several attributes:
 
 ➡️ **ABAC**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    U["👤 User = employee"] --> E{"🧬 Policy engine<br/>ALL conditions met?"}
-    D["💻 Device = managed"] --> E
-    N["🌐 Network = corporate"] --> E
-    T["🕐 Time = working hours"] --> E
-    R["📄 Resource = sensitive"] --> E
-    E -->|"yes"| Y["✅ ALLOW"]
-    E -->|"any fails"| X["❌ DENY"]
-
-    style U fill:#26292e,stroke:#868E96,color:#fff
-    style D fill:#26292e,stroke:#868E96,color:#fff
-    style N fill:#26292e,stroke:#868E96,color:#fff
-    style T fill:#26292e,stroke:#868E96,color:#fff
-    style R fill:#26292e,stroke:#868E96,color:#fff
-    style E fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Y fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style X fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -424,26 +359,7 @@ That's why it's called **Mandatory**.
 
 When you read the scenario, search for these words:
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    S["📖 Read the scenario"] --> Q1{"Does the OWNER<br/>grant access?"}
-    Q1 -->|"yes"| D["👑 DAC"]
-    Q1 -->|"no"| Q2{"Classification / clearance<br/>labels enforced?"}
-    Q2 -->|"yes"| M["🏛️ MAC"]
-    Q2 -->|"no"| Q3{"Access follows<br/>a JOB ROLE?"}
-    Q3 -->|"yes"| R["👨‍💼 RBAC"]
-    Q3 -->|"no — device, time,<br/>location, context"| A["🧬 ABAC"]
-
-    style S fill:#26292e,stroke:#868E96,color:#fff
-    style Q1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Q2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Q3 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#3a1616,stroke:#E03131,color:#fff
-    style R fill:#0f3038,stroke:#12B5A5,color:#fff
-    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ### 👑 DAC
 

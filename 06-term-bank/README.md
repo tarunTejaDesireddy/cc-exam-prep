@@ -51,19 +51,7 @@ the terms the exam deliberately swaps. If you only drill one thing, drill that.
 
 ## 🎯 03 · How to use it
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    C["🙈 COVER<br/>the meaning column"] --> S["🗣️ SAY IT<br/>out loud, from memory"]
-    S --> R["👀 REVEAL<br/>and compare"]
-    R --> M["✏️ MARK the misses<br/>drill those tomorrow"]
-    M --> C
-
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Four rules that make the difference:**
 

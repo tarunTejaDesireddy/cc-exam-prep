@@ -62,22 +62,7 @@ monitor or discipline against a rule it never wrote down and never communicated.
 
 ## 📜 The named policies
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    P["📜 Security policies"] --> U["✅ AUP<br/>what you may do<br/>with our systems"]
-    P --> B["📱 BYOD<br/>using YOUR device<br/>for work"]
-    P --> C["🔄 Change management<br/>how systems<br/>may be altered"]
-    P --> V["🕵️ Privacy<br/>how personal data<br/>is handled"]
-    P --> D["🗄️ Retention<br/>how long data<br/>is kept"]
-
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-    style U fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style V fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ### ✅ Acceptable Use Policy
 
@@ -166,18 +151,7 @@ by visitors and cleaners.
 
 ## 🔄 The order that answers questions
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    P["1 · POLICY<br/>write the rule down<br/>and approve it"] --> T["2 · TRAINING<br/>make sure people<br/>know it"]
-    T --> E["3 · TECHNICAL CONTROL<br/>enforce it"]
-    E --> M["4 · MONITOR<br/>and act on breaches"]
-
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-    style E fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 Read it as a sentence: **write it down, tell people, enforce it, then watch.**
 
@@ -210,18 +184,7 @@ Read it as a sentence: **write it down, tell people, enforce it, then watch.**
 A policy is administrative. Something technical has to actually make it happen, and for the two
 most-examined policies here that mechanism has a specific name.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    P["📜 BYOD policy<br/>(the written rule)"] --> MDM["📱 MDM enrols<br/>the device"]
-    MDM --> WP["📦 Work profile<br/>separate container<br/>on the same phone"]
-    WP --> SW["🧹 Selective wipe<br/>removes ONLY the<br/>work container"]
-
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style MDM fill:#0f3038,stroke:#12B5A5,color:#fff
-    style WP fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SW fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 **Containerisation is a real OS feature, not a vendor promise.** Android calls it a **work
 profile**; iOS achieves the equivalent through **managed apps and managed app configuration**. The

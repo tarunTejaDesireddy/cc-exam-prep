@@ -68,21 +68,7 @@ score, and that stays true under CAT exactly as it did under the old format.
 > states publicly. For anything beyond it, see
 > [isc2.org/certifications/computerized-adaptive-testing](https://www.isc2.org/certifications/computerized-adaptive-testing).
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    S["🚪 Start<br/>up to 120 minutes"] --> I["🧠 Item presented<br/>MCQ or advanced item"]
-    I --> A["✍️ Answer it<br/>this is close to final"]
-    A --> N{"Exam decides<br/>whether to<br/>continue"}
-    N -->|"more items needed"| I
-    N -->|"enough signal<br/>or item cap hit"| E["🎓 Exam ends<br/>100-125 items seen"]
-
-    style S fill:#0f3038,stroke:#12B5A5,color:#fff
-    style I fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A fill:#3a2c12,stroke:#F08C00,color:#fff
-    style N fill:#3a2c12,stroke:#F08C00,color:#fff
-    style E fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 

@@ -95,18 +95,7 @@ for it directly.
 
 ## 🏠 Private address ranges — memorise these
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    P["🏠 PRIVATE ranges<br/>not routable on the internet"] --> A["10.0.0.0 – 10.255.255.255<br/>10.0.0.0/8"]
-    P --> B["172.16.0.0 – 172.31.255.255<br/>172.16.0.0/12"]
-    P --> C["192.168.0.0 – 192.168.255.255<br/>192.168.0.0/16"]
-
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 | Range | CIDR | Typical use |
 |---|---|---|
@@ -132,26 +121,7 @@ flowchart TD
 > from DHCP, failed, and assigned itself one. If a question describes a client with a `169.254`
 > address unable to reach the network, the answer concerns DHCP failure.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    A["🔢 An address"] --> Q1{"Starts 127?"}
-    Q1 -->|yes| L["🔁 LOOPBACK<br/>this device itself"]
-    Q1 -->|no| Q2{"Starts 169.254?"}
-    Q2 -->|yes| P["⚠️ APIPA<br/>DHCP FAILED"]
-    Q2 -->|no| Q3{"10.x, 172.16-31.x<br/>or 192.168.x?"}
-    Q3 -->|yes| R["🏠 PRIVATE<br/>not internet-routable"]
-    Q3 -->|no| U["🌍 PUBLIC<br/>globally routable"]
-
-    style A fill:#26292e,stroke:#868E96,color:#fff
-    style Q1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Q2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Q3 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style L fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#3a1a20,stroke:#E03131,color:#fff
-    style R fill:#0f3038,stroke:#12B5A5,color:#fff
-    style U fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 Run any address in a question down this tree. **Watch the third question — `172.15` and `172.32`
 come out the bottom as public.**
@@ -160,16 +130,7 @@ come out the bottom as public.**
 
 ## 🔧 The three services
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    D["📋 DHCP<br/>gives you<br/>an address"] --> N["🔤 DNS<br/>turns names<br/>into addresses"]
-    N --> T["🔀 NAT<br/>swaps private for<br/>public on the way out"]
-
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style N fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### 📋 DHCP — hands out addresses
 
@@ -205,20 +166,7 @@ translation on the way back. Many internal hosts can share one public address.
 2. **A degree of obscurity** — internal addressing is hidden, and unsolicited inbound connections
    have nowhere to go by default.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["💻 192.168.1.10"] --> N["🔀 NAT device<br/>rewrites the source<br/>and remembers"]
-    B["💻 192.168.1.11"] --> N
-    C["💻 192.168.1.12"] --> N
-    N -->|"all appear as"| P["🌍 One public address<br/>203.0.113.5"]
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style N fill:#0f3038,stroke:#12B5A5,color:#fff
-    style P fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Read it as a sentence: **many private hosts leave through one public address, and the NAT device
 remembers who was who so replies get home.** That is address conservation — the purpose. The fact
@@ -234,22 +182,7 @@ that outsiders cannot see the private addresses is a side effect, not a control.
 
 ## 🔬 How a DNS lookup actually travels, and how poisoning it works
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    C["💻 Client asks:<br/>example.com?"] --> R["🔁 Recursive<br/>resolver"]
-    R --> ROOT["🌍 Root server:<br/>'ask .com'"]
-    ROOT --> TLD["📁 .com TLD server:<br/>'ask this one'"]
-    TLD --> AUTH["✅ Authoritative<br/>server: the real IP"]
-    AUTH --> R
-    R --> C
-
-    style C fill:#26292e,stroke:#868E96,color:#fff
-    style R fill:#0f3038,stroke:#12B5A5,color:#fff
-    style ROOT fill:#12243f,stroke:#5C7CFA,color:#fff
-    style TLD fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AUTH fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 A single DNS query is actually a **chain of referrals**: your resolver asks a root server which
 doesn't know the answer but knows who does — the `.com` TLD server — which in turn points to the

@@ -35,23 +35,7 @@ Cybersecurity says there are **three big things** you must protect:
 
 Together, these are called the **CIA Triad**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    CAVE["🏔️ Grog's cave<br/>food, fire, rocks,<br/>the hunting map"]
-    CAVE --> C["🔒 CONFIDENTIALITY<br/>who is allowed<br/>to see it"]
-    CAVE --> I["✏️ INTEGRITY<br/>is it still correct<br/>and unchanged"]
-    CAVE --> A["🟢 AVAILABILITY<br/>can I reach it<br/>when I need it"]
-    C --> SAFE["🛡️ The tribe's<br/>information is safe"]
-    I --> SAFE
-    A --> SAFE
-
-    style CAVE fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style I fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style A fill:#3a2c12,stroke:#F08C00,color:#fff
-    style SAFE fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -69,18 +53,7 @@ So Grog puts a big stone in front of the cave and gives the secret location only
 
 That's **Confidentiality**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    MAP["🗺️ Secret food map<br/>behind the big stone"] --> ASK{"Who is<br/>asking?"}
-    ASK -->|"Grog's tribe"| SEE["✅ Shown the map<br/>trusted, allowed"]
-    ASK -->|"rival tribe"| BLOCK["🚫 Stone stays shut<br/>never sees it"]
-
-    style MAP fill:#0f3038,stroke:#12B5A5,color:#fff
-    style ASK fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SEE fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style BLOCK fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 💻 Computer version
 
@@ -143,20 +116,7 @@ There is no food there.
 
 This is an **integrity problem**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🗺️ Map says:<br/>Food in Cave A"] --> S["😴 Grog sleeps"]
-    S --> T["✏️ Rival edits it<br/>Food in Cave B"]
-    T --> TR["🤔 Grog trusts<br/>the map"]
-    TR --> W["❌ Cave B is empty<br/>integrity broken"]
-
-    style A fill:#0f3038,stroke:#12B5A5,color:#fff
-    style S fill:#26292e,stroke:#868E96,color:#fff
-    style T fill:#3a1a20,stroke:#E03131,color:#fff
-    style TR fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### 💻 Computer version
 
@@ -226,16 +186,7 @@ His food exists. It's correct. But **he can't access it when he needs it**.
 
 That's an **availability problem**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    OK["🥩 Food safe & correct<br/>C ✅  I ✅"] --> ROCK["🪨 Boulder falls<br/>in front of the cave"]
-    ROCK --> STUCK["❌ Grog cannot get in<br/>availability broken"]
-
-    style OK fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style ROCK fill:#3a2c12,stroke:#F08C00,color:#fff
-    style STUCK fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ### 💻 Computer version
 
@@ -267,20 +218,7 @@ We can use:
 
 ## 💥 Each rule breaks a different way
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    F1["🔑 Hacker steals Grog's<br/>password, opens account"] --> B1["❌ Confidentiality broken<br/>the wrong person saw it"]
-    F2["✏️ Rival caveman edits<br/>the food map at night"] --> B2["❌ Integrity broken<br/>the map now lies"]
-    F3["🪨 Boulder falls in<br/>front of the cave"] --> B3["❌ Availability broken<br/>Grog can't get in"]
-
-    style F1 fill:#26292e,stroke:#868E96,color:#fff
-    style F2 fill:#26292e,stroke:#868E96,color:#fff
-    style F3 fill:#26292e,stroke:#868E96,color:#fff
-    style B1 fill:#3a1a20,stroke:#E03131,color:#fff
-    style B2 fill:#3a1a20,stroke:#E03131,color:#fff
-    style B3 fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 
@@ -372,25 +310,7 @@ You've potentially lost **all three**:
 - **Change information → Integrity**
 - **Shut down service → Availability**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    H["🕵️ Hacker breaks into<br/>the company system"]
-    H --> S1["📤 Steal customer<br/>information"]
-    H --> S2["✏️ Change customer<br/>records"]
-    H --> S3["🛑 Shut down the<br/>company website"]
-    S1 --> C["🔒 Confidentiality lost"]
-    S2 --> I["✏️ Integrity lost"]
-    S3 --> A["🟢 Availability lost"]
-
-    style H fill:#26292e,stroke:#868E96,color:#fff
-    style S1 fill:#3a1a20,stroke:#E03131,color:#fff
-    style S2 fill:#3a1a20,stroke:#E03131,color:#fff
-    style S3 fill:#3a1a20,stroke:#E03131,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style I fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style A fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 ---
 

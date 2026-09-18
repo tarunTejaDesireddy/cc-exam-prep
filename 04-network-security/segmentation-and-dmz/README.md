@@ -62,16 +62,7 @@ positioned so that compromising one does not deliver the internal network.
 
 ## 🔍 Why segmentation matters
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🦹 Attacker<br/>compromises<br/>one host"] --> F["🏚️ FLAT NETWORK<br/>reaches everything<br/>from that one host"]
-    A --> S["🧱 SEGMENTED<br/>stuck in one zone<br/>gated at every boundary"]
-
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-    style S fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **What segmentation buys you:**
 
@@ -94,20 +85,7 @@ A **DMZ** holds services that must be reachable from the internet: web servers, 
 relays, public DNS. It sits between the internet and the internal network, with firewall rules on
 both sides.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    I["🌍 Internet<br/>untrusted"] --> F1["🔥 Outer firewall"]
-    F1 --> D["🏗️ DMZ<br/>web · mail · public DNS<br/>semi-trusted"]
-    D --> F2["🔥 Inner firewall"]
-    F2 --> N["🏢 Internal network<br/>trusted"]
-
-    style I fill:#3a1a20,stroke:#E03131,color:#fff
-    style F1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style F2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style N fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **The rule that defines it:**
 
@@ -144,20 +122,7 @@ pass through a router or firewall, where it can be filtered.
 > exist, so a VLAN is not equivalent to physical separation. Where isolation genuinely matters,
 > the exam expects physical separation or an air gap.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    W["🚧 Weakest"] --> V["🔀 VLAN<br/>logical, in switch config<br/>VLAN hopping exists"]
-    V --> F["🔥 Firewalled segment<br/>separate, filtered<br/>rules can be wrong"]
-    F --> P["🔌 Physical separation<br/>different equipment"]
-    P --> A["✂️ AIR GAP<br/>no connection at all<br/>strongest"]
-
-    style W fill:#26292e,stroke:#868E96,color:#fff
-    style V fill:#3a1a20,stroke:#E03131,color:#fff
-    style F fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Left to right, isolation gets **stronger and less convenient.** A VLAN is a configuration an
 attacker may defeat; an air gap is an absence of cable.
@@ -194,24 +159,7 @@ container, regardless of which broad zone they sit in.
 Segmentation is one expression of a broader principle: **layer independent controls so that no
 single failure is fatal.**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🦹 Attacker"] --> L1["🏢 Physical<br/>locks · badges"]
-    L1 --> L2["🌐 Perimeter<br/>firewall · DMZ"]
-    L2 --> L3["🧱 Internal<br/>segmentation · VLANs"]
-    L3 --> L4["💻 Host<br/>hardening · HIDS"]
-    L4 --> L5["🔐 Data<br/>encryption · access control"]
-    L5 --> D["💎 The asset"]
-
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style L1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L4 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L5 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 The layers must be **independent**. Three controls that all fail when the same directory service
 fails are one control wearing three hats.
@@ -229,18 +177,7 @@ the *second*, inner tag naming the target VLAN — straight onto a trunk link, l
 reach a VLAN the attacker was never actually connected to. This is the literal mechanism behind
 "VLAN hopping," not just an abstract warning.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    I["🌍 Internet"] --> IGW["🚪 Internet<br/>gateway"]
-    IGW --> PUB["🏗️ Public subnet<br/>= the DMZ<br/>web tier"]
-    PUB -->|"security group<br/>allows only 443"| PRIV["🏢 Private subnet<br/>= internal<br/>app/DB tier"]
-
-    style I fill:#3a1a20,stroke:#E03131,color:#fff
-    style IGW fill:#3a2c12,stroke:#F08C00,color:#fff
-    style PUB fill:#12243f,stroke:#5C7CFA,color:#fff
-    style PRIV fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 **In AWS or Azure, the DMZ concept is built from a public subnet plus security groups, not a
 physical box.** A **public subnet** (one with a route to an internet gateway) hosts the web

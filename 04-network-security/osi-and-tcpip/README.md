@@ -53,26 +53,7 @@ A useful sentence:
 
 > **A**ll **P**eople **S**eem **T**o **N**eed **D**ata **P**rocessing.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    L7["7️⃣ Application — what service?<br/>HTTP · DNS · SMTP · SSH"]
-    L6["6️⃣ Presentation — what format?<br/>encoding · encryption · compression"]
-    L5["5️⃣ Session — what conversation?<br/>start · keep · end"]
-    L4["4️⃣ Transport — how delivered?<br/>TCP · UDP · ports"]
-    L3["3️⃣ Network — which network?<br/>IP · ICMP · router"]
-    L2["2️⃣ Data Link — which local device?<br/>Ethernet · Wi-Fi · MAC · switch"]
-    L1["1️⃣ Physical — what signals?<br/>copper · fiber · radio"]
-    L7 --> L6 --> L5 --> L4 --> L3 --> L2 --> L1
-
-    style L7 fill:#2b1d3a,stroke:#9C36B5,color:#fff
-    style L6 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style L5 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L4 fill:#3a3512,stroke:#E8B500,color:#fff
-    style L3 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style L2 fill:#3a1616,stroke:#E03131,color:#fff
-    style L1 fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -170,23 +151,7 @@ Transport handles things such as:
 
 > Connectionless, lower-overhead transport.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    subgraph TCP["🔵 TCP — reliable, connection-oriented"]
-        T1["SYN"] --> T2["SYN-ACK"] --> T3["ACK"] --> T4["📦 data + acknowledgements<br/>resend if lost"]
-    end
-    subgraph UDP["🟢 UDP — connectionless, fast"]
-        U1["📦 just send it"] --> U2["no handshake<br/>no guarantee"]
-    end
-
-    style T1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T3 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T4 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style U1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style U2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🪨 Caveman
 
@@ -291,44 +256,7 @@ The TCP/IP model is commonly taught as **4 layers**:
 
 This is **extremely important**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    subgraph OSI["OSI — 7 layers"]
-        O7["7 Application"]
-        O6["6 Presentation"]
-        O5["5 Session"]
-        O4["4 Transport"]
-        O3["3 Network"]
-        O2["2 Data Link"]
-        O1["1 Physical"]
-    end
-    subgraph TCPIP["TCP/IP — 4 layers"]
-        A["4 Application"]
-        T["3 Transport"]
-        I["2 Internet"]
-        N["1 Network Access / Link"]
-    end
-    O7 --> A
-    O6 --> A
-    O5 --> A
-    O4 --> T
-    O3 --> I
-    O2 --> N
-    O1 --> N
-
-    style O7 fill:#2b1d3a,stroke:#9C36B5,color:#fff
-    style O6 fill:#2b1d3a,stroke:#9C36B5,color:#fff
-    style O5 fill:#2b1d3a,stroke:#9C36B5,color:#fff
-    style A fill:#2b1d3a,stroke:#9C36B5,color:#fff
-    style O4 fill:#3a3512,stroke:#E8B500,color:#fff
-    style T fill:#3a3512,stroke:#E8B500,color:#fff
-    style O3 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style I fill:#3a2c12,stroke:#F08C00,color:#fff
-    style O2 fill:#3a1616,stroke:#E03131,color:#fff
-    style O1 fill:#3a1616,stroke:#E03131,color:#fff
-    style N fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ```
 OSI                         TCP/IP
@@ -563,25 +491,7 @@ Uses:
 
 Forwards frames within a local network.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    subgraph LANA["🏠 Network A"]
-        PC1["💻 PC 1"] --- SW1["🔀 Switch<br/>Layer 2 · MAC"]
-        PC2["💻 PC 2"] --- SW1
-    end
-    subgraph LANB["🏠 Network B"]
-        SW2["🔀 Switch<br/>Layer 2 · MAC"] --- PC3["💻 PC 3"]
-    end
-    SW1 --- R["🛣️ Router<br/>Layer 3 · IP<br/>between networks"] --- SW2
-
-    style PC1 fill:#26292e,stroke:#868E96,color:#fff
-    style PC2 fill:#26292e,stroke:#868E96,color:#fff
-    style PC3 fill:#26292e,stroke:#868E96,color:#fff
-    style SW1 fill:#3a1616,stroke:#E03131,color:#fff
-    style SW2 fill:#3a1616,stroke:#E03131,color:#fff
-    style R fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -615,17 +525,7 @@ From upper layers downward:
 
 > 01010101 **Bits**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    D["📄 DATA<br/>L7-5"] -->|"+ TCP/UDP header"| S["📦 SEGMENT<br/>L4"] -->|"+ IP header"| P["📦 PACKET<br/>L3"] -->|"+ MAC header/trailer"| F["🖼️ FRAME<br/>L2"] -->|"signals"| B["01010101 BITS<br/>L1"]
-
-    style D fill:#2b1d3a,stroke:#9C36B5,color:#fff
-    style S fill:#3a3512,stroke:#E8B500,color:#fff
-    style P fill:#3a2c12,stroke:#F08C00,color:#fff
-    style F fill:#3a1616,stroke:#E03131,color:#fff
-    style B fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 

@@ -61,18 +61,7 @@ What happens?
 The BIA helps determine how quickly the disruption becomes unacceptable and which activities are
 most important to recover.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    H1["😐 1 hour<br/>annoying"] --> D1["😟 1 day<br/>serious"]
-    D1 --> D3["😨 3 days<br/>food may be gone"]
-    D3 --> W1["💀 1 week<br/>serious danger"]
-
-    style H1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D3 fill:#3a1a20,stroke:#E03131,color:#fff
-    style W1 fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -161,16 +150,7 @@ That means:
 
 **RPO** — The organization can tolerate losing approximately: 💾 30 minutes of data
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    RPO["💾 RPO<br/>30 min of data<br/>we can afford to lose"] -.->|"looking back"| X["💥 Disruption<br/>happens here"]
-    X -->|"looking forward"| RTO["⏱️ RTO<br/>4 hours to<br/>get back up"]
-
-    style RPO fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style X fill:#3a1a20,stroke:#E03131,color:#fff
-    style RTO fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -204,14 +184,7 @@ Think:
 > ↓
 > **Continuity/Recovery Plans = "HOW will we do it?"**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    BIA["💥 BIA<br/>WHAT do we need?<br/>functions, RTO, RPO"] --> PLANS["🛠️ Plans<br/>HOW will we<br/>do it?"]
-
-    style BIA fill:#12243f,stroke:#5C7CFA,color:#fff
-    style PLANS fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -259,17 +232,7 @@ operations during a disruption.
 
 **Disaster Recovery Plan (DRP)** — Explain how systems/infrastructure will be recovered.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    BIA["💥 BIA<br/>what's critical,<br/>RTO, RPO"]
-    BIA --> BCP["🏢 BCP<br/>keep the business<br/>running during disruption"]
-    BIA --> DRP["🛠️ DRP<br/>restore systems/<br/>infrastructure"]
-
-    style BIA fill:#0f3038,stroke:#12B5A5,color:#fff
-    style BCP fill:#12243f,stroke:#5C7CFA,color:#fff
-    style DRP fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ### 🪨 Caveman Flow
 

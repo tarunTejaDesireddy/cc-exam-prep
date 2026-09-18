@@ -24,19 +24,7 @@ The easiest way to remember them:
 > 👀 **Need-to-know = What DO you need to see?**<br>
 > 👥 **Segregation of duties = Who SHOULD do each part?**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    Q["⚠️ What is the problem?"]
-    Q -->|"too many PERMISSIONS"| LP["🔑 LEAST PRIVILEGE<br/>minimum power"]
-    Q -->|"sees too much INFORMATION"| NK["👀 NEED-TO-KNOW<br/>minimum information"]
-    Q -->|"one person controls<br/>several CRITICAL STEPS"| SOD["👥 SEGREGATION OF DUTIES<br/>split the job"]
-
-    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
-    style LP fill:#12243f,stroke:#5C7CFA,color:#fff
-    style NK fill:#0f3038,stroke:#12B5A5,color:#fff
-    style SOD fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -80,22 +68,7 @@ They don't need:
 
 Give them only what their job requires.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    H["👤 Help-desk employee"] --> Y1["✅ Reset passwords"]
-    H --> Y2["✅ Unlock accounts"]
-    H -.-x N1["❌ Domain admin"]
-    H -.-x N2["❌ Payroll"]
-    H -.-x N3["❌ Security policies"]
-
-    style H fill:#12243f,stroke:#5C7CFA,color:#fff
-    style Y1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style Y2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style N1 fill:#3a1616,stroke:#E03131,color:#fff
-    style N2 fill:#3a1616,stroke:#E03131,color:#fff
-    style N3 fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🧠 Memory
 
@@ -185,25 +158,7 @@ Don't automatically give her access to:
 
 > 🔐 Confidential information unrelated to her work.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["👤 Alice · HR"]
-    A --> LP{"🔑 Least privilege<br/>which ACTIONS?"}
-    A --> NK{"👀 Need-to-know<br/>which DATA?"}
-    LP -->|"allowed"| R["👀 Read"]
-    LP -->|"not allowed"| D["🗑️ Delete"]
-    NK -->|"allowed"| S["💰 Salary data for her job"]
-    NK -->|"not allowed"| C["🔐 Unrelated confidential data"]
-
-    style A fill:#26292e,stroke:#868E96,color:#fff
-    style LP fill:#12243f,stroke:#5C7CFA,color:#fff
-    style NK fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style S fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D fill:#3a1616,stroke:#E03131,color:#fff
-    style C fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -253,23 +208,7 @@ That's:
 
 > 👥 **Segregation of Duties**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    subgraph BAD["😈 No SoD"]
-        G1["Grog creates"] --> G2["Grog approves"] --> G3["Grog takes money"]
-    end
-    subgraph GOOD["👥 With SoD"]
-        C1["Grog creates"] --> C2["Bob approves"] --> C3["Chief releases money"]
-    end
-
-    style G1 fill:#3a1616,stroke:#E03131,color:#fff
-    style G2 fill:#3a1616,stroke:#E03131,color:#fff
-    style G3 fill:#3a1616,stroke:#E03131,color:#fff
-    style C1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C2 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 

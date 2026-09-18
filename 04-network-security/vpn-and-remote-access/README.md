@@ -65,16 +65,7 @@ needed.
 
 ## 🔍 The two VPN types
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    B["🏢 Branch office<br/>network"] -->|"SITE-TO-SITE<br/>always on"| HQ["🏛️ Headquarters<br/>network"]
-    L["💻 Laptop in<br/>a hotel"] -->|"REMOTE ACCESS<br/>user initiates"| HQ
-
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style L fill:#12243f,stroke:#5C7CFA,color:#fff
-    style HQ fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 | | **Site-to-site** | **Remote access** |
 |---|---|---|
@@ -88,16 +79,7 @@ flowchart LR
 
 ## 🔒 What a VPN protects
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["💻 Endpoint<br/>NOT protected<br/>by the VPN"] --> T["🔐 Encrypted tunnel<br/>PROTECTED<br/>in transit"]
-    T --> B["🏛️ Gateway and beyond<br/>NOT protected<br/>by the VPN"]
-
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style T fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style B fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 | A VPN does | A VPN does **not** |
 |---|---|
@@ -117,21 +99,7 @@ flowchart LR
 | **Split tunnelling** | Only corporate traffic goes through the tunnel; internet traffic goes direct | Better performance, less load on the gateway — but internet traffic **bypasses corporate inspection** |
 | **Full tunnelling** | **All** traffic goes through the tunnel | Everything is inspected and logged — at the cost of performance and gateway capacity |
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    L1["💻 Laptop"] -->|"corporate traffic"| G1["🏛️ Gateway"]
-    L1 -->|"internet traffic<br/>SKIPS inspection"| W1["🌍 Internet"]
-    L2["💻 Laptop"] -->|"ALL traffic"| G2["🏛️ Gateway<br/>inspects everything"]
-    G2 --> W2["🌍 Internet"]
-
-    style L1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style G1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style W1 fill:#3a1a20,stroke:#E03131,color:#fff
-    style L2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style G2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style W2 fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Top row is **split** — note the red arrow going straight out, unseen by corporate controls.
 Bottom row is **full** — everything passes the green gateway first.
@@ -146,17 +114,7 @@ Bottom row is **full** — everything passes the green gateway first.
 | **Tunnel mode** | The **entire original packet**, wrapped in a new one | **Site-to-site** VPNs |
 | **Transport mode** | Only the **payload**; the original IP header remains | Host-to-host within a trusted network |
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    O["📄 Original packet<br/>header + payload"]
-    O --> T["🎁 TUNNEL MODE<br/>NEW header wraps<br/>the ENTIRE original<br/>site-to-site"]
-    O --> R["📮 TRANSPORT MODE<br/>original header stays<br/>only payload encrypted<br/>host-to-host"]
-
-    style O fill:#26292e,stroke:#868E96,color:#fff
-    style T fill:#0f3038,stroke:#12B5A5,color:#fff
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 > 🧠 **Tunnel mode wraps the whole thing.** Transport mode leaves the header showing.
 
@@ -198,21 +156,7 @@ anyone can listen to.
 **The WPA2 crack mentioned in the grown-up section works entirely offline, which is what makes
 it so practical.**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    D["📡 Attacker captures<br/>the 4-way handshake"] --> O["💻 Takes it home,<br/>offline, no rate limit"]
-    O --> G["🔨 Guesses passphrases,<br/>computes each PMK"]
-    G --> M{"Matches the<br/>captured hash?"}
-    M -->|"yes"| C["✅ Passphrase<br/>recovered"]
-    M -->|"no"| G
-
-    style D fill:#3a1a20,stroke:#E03131,color:#fff
-    style O fill:#3a2c12,stroke:#F08C00,color:#fff
-    style G fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#3a2c12,stroke:#F08C00,color:#fff
-    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 An attacker just needs to capture one **4-way handshake** — which can even be forced by sending
 a deauthentication frame to a connected client, prompting an automatic reconnection the attacker

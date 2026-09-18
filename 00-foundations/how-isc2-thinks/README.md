@@ -141,22 +141,7 @@ This is a generic test-taking heuristic, but CC rewards it unusually well.
 When a scenario question gives you four plausible actions, run them down this ladder and take
 the highest one that appears as an option.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    A["1 · Is anyone in danger?<br/>protect life"] --> B["2 · Is there a documented plan?<br/>follow it"]
-    B --> C["3 · Who must be told?<br/>notify / escalate"]
-    C --> D["4 · Is this a business decision?<br/>management or data owner decides"]
-    D --> E["5 · Now act technically<br/>contain, configure, block"]
-    E --> F["6 · Then document and review"]
-
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style B fill:#3a2c12,stroke:#F08C00,color:#fff
-    style C fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style E fill:#0f3038,stroke:#12B5A5,color:#fff
-    style F fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Read it as a sentence: **protect people, follow the plan, tell the right people, let the
 business decide, then touch the technology, then write it down.**

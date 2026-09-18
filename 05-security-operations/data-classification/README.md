@@ -63,19 +63,7 @@ An IT administrator who runs the database, takes the backups and sets the permis
 
 ## 👥 Who does what
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    O["🏛️ DATA OWNER<br/>a BUSINESS role<br/>CLASSIFIES the data<br/>approves who may access<br/>ACCOUNTABLE"]
-    C["🔧 DATA CUSTODIAN<br/>usually IT<br/>IMPLEMENTS protection<br/>storage · backups · permissions<br/>RESPONSIBLE"]
-    U["👤 DATA USER<br/>everyone else<br/>FOLLOWS the handling rules"]
-    O -->|"delegates protection"| C
-    C -->|"provides access to"| U
-
-    style O fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style U fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 | Role | Decides? | Typical person |
 |---|---|---|
@@ -98,31 +86,7 @@ flowchart TD
 
 There is no single universal scheme. The exam expects you to recognise both common families.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    subgraph COM["Commercial"]
-        C1["Public"] --> C2["Internal"]
-        C2 --> C3["Confidential"]
-        C3 --> C4["Restricted"]
-    end
-    subgraph GOV["Government / military"]
-        G1["Unclassified"] --> G2["Confidential"]
-        G2 --> G3["Secret"]
-        G3 --> G4["Top Secret"]
-    end
-
-    style C1 fill:#26292e,stroke:#868E96,color:#fff
-    style C2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C3 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style C4 fill:#3a1a20,stroke:#E03131,color:#fff
-    style G1 fill:#26292e,stroke:#868E96,color:#fff
-    style G2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style G3 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style G4 fill:#3a1a20,stroke:#E03131,color:#fff
-    style COM fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
-    style GOV fill:#07171c,stroke:#12B5A5,color:#dbe7e6
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **Classification is driven by impact:** how much harm would result if this data were disclosed,
 altered or lost? That question — not the data's format or volume — decides the label.
@@ -156,20 +120,7 @@ A classification is only useful if it carries **handling requirements**. An illu
 A name is not sensitive. A postcode is not sensitive. A job title is not sensitive. Together they
 identify an individual, and combined with a salary figure they become a serious disclosure.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["📄 Name<br/>Internal"] --> S["🔀 Combined"]
-    B["📄 Postcode<br/>Internal"] --> S
-    C["📄 Salary band<br/>Internal"] --> S
-    S --> R["⚠️ Identifies a person<br/>and their pay<br/>CONFIDENTIAL"]
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#3a2c12,stroke:#F08C00,color:#fff
-    style R fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 > 🎯 **A dataset takes the classification of its most sensitive element, or higher if aggregation
 > raises it.** This is why reports and exports are so often mishandled — each field looked
@@ -196,24 +147,7 @@ left to drift.
 The grown-up section mentions automated classification tools inspecting content for patterns.
 Here's the real pipeline, as it runs in something like Microsoft Purview Information Protection.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    F["📄 File saved"] --> SCAN["🔍 Content scanner<br/>regex: card numbers,<br/>national IDs, keywords"]
-    SCAN --> LABEL["🏷️ Sensitivity label<br/>embedded in the<br/>file's own metadata"]
-    LABEL --> TRAVEL["📤 Label travels<br/>WITH the file"]
-    TRAVEL --> DLP{"DLP policy at<br/>an egress point:<br/>email, USB, upload"}
-    DLP -->|"label = Restricted"| BLOCK["🛑 Blocked or<br/>encrypted automatically"]
-    DLP -->|"label = Public"| ALLOW["✅ Allowed through"]
-
-    style F fill:#26292e,stroke:#868E96,color:#fff
-    style SCAN fill:#12243f,stroke:#5C7CFA,color:#fff
-    style LABEL fill:#0f3038,stroke:#12B5A5,color:#fff
-    style TRAVEL fill:#12243f,stroke:#5C7CFA,color:#fff
-    style DLP fill:#3a2c12,stroke:#F08C00,color:#fff
-    style BLOCK fill:#3a1a20,stroke:#E03131,color:#fff
-    style ALLOW fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 A content scanner reads a document for recognisable patterns — a 16-digit sequence matching a
 card-number checksum, a national ID format, keywords like "confidential" already in the

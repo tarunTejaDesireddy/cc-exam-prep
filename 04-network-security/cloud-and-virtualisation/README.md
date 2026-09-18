@@ -79,20 +79,7 @@ by layer.**
 
 ## 🔍 The shared responsibility model
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    O["🏠 ON-PREMISES<br/>you manage everything"]
-    I["🧱 IaaS<br/>you: OS, apps, data<br/>them: hardware, virtualisation"]
-    P["⚙️ PaaS<br/>you: apps, data<br/>them: OS and runtime too"]
-    S["📦 SaaS<br/>you: DATA and ACCESS only<br/>them: everything else"]
-    O --> I --> P --> S
-
-    style O fill:#12243f,stroke:#5C7CFA,color:#fff
-    style I fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 | Layer | On-prem | IaaS | PaaS | SaaS |
 |---|:--:|:--:|:--:|:--:|
@@ -108,32 +95,7 @@ flowchart TD
 
 ### Where the responsibility line sits
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    subgraph IAAS["IaaS"]
-        IA["YOU: data · access<br/>apps · runtime · OS"]
-        IB["THEM: virtualisation<br/>hardware · facility"]
-    end
-    subgraph PAAS["PaaS"]
-        PA["YOU: data · access<br/>apps"]
-        PB["THEM: runtime · OS<br/>virtualisation · hardware"]
-    end
-    subgraph SAAS["SaaS"]
-        SA["YOU: data · access"]
-        SB["THEM: everything else"]
-    end
-
-    style IA fill:#0f3038,stroke:#12B5A5,color:#fff
-    style PA fill:#0f3038,stroke:#12B5A5,color:#fff
-    style SA fill:#0f3038,stroke:#12B5A5,color:#fff
-    style IB fill:#26292e,stroke:#868E96,color:#fff
-    style PB fill:#26292e,stroke:#868E96,color:#fff
-    style SB fill:#26292e,stroke:#868E96,color:#fff
-    style IAAS fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
-    style PAAS fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
-    style SAAS fill:#07171c,stroke:#5C7CFA,color:#dbe7e6
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 The teal box shrinks as you move down — but **it never empties.** Data and access stay yours.
 
@@ -193,29 +155,7 @@ own hardware.
 
 > 🧠 **Type 1 is closer to the metal** — one fewer layer, smaller attack surface.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    subgraph T1["Type 1 · bare metal"]
-        A1["VM · VM · VM"] --> B1["Hypervisor"]
-        B1 --> C1["Hardware"]
-    end
-    subgraph T2["Type 2 · hosted"]
-        A2["VM · VM"] --> B2["Hypervisor"]
-        B2 --> C2["Host operating system"]
-        C2 --> D2["Hardware"]
-    end
-
-    style A1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C1 fill:#26292e,stroke:#868E96,color:#fff
-    style A2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B2 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D2 fill:#26292e,stroke:#868E96,color:#fff
-    style T1 fill:#07171c,stroke:#2F9E44,color:#dbe7e6
-    style T2 fill:#07171c,stroke:#868E96,color:#dbe7e6
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 The extra amber layer in Type 2 is the host operating system — one more thing to attack, and one
 more thing to patch.
@@ -235,31 +175,7 @@ more thing to patch.
 **Containers** share the host operating system kernel rather than virtualising hardware, making
 them lighter but providing **weaker isolation** than a virtual machine.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    subgraph VMS["VMs · STRONGER isolation"]
-        V1["App + its OWN kernel"]
-        V2["App + its OWN kernel"]
-        V1 --> VH["Hypervisor"]
-        V2 --> VH
-    end
-    subgraph CON["Containers · WEAKER isolation"]
-        C1["App"]
-        C2["App"]
-        C1 --> CK["ONE SHARED kernel"]
-        C2 --> CK
-    end
-
-    style V1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style V2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style VH fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style CK fill:#3a1a20,stroke:#E03131,color:#fff
-    style VMS fill:#07171c,stroke:#2F9E44,color:#dbe7e6
-    style CON fill:#07171c,stroke:#E03131,color:#dbe7e6
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Read it as a sentence: **each VM has its own kernel, so escaping means defeating the hypervisor —
 while every container shares one kernel, so a single kernel flaw is reachable from all of them.**
@@ -290,16 +206,7 @@ used, data protection, threat detection, compliance.
 
 **The canonical cloud breach starts with one wrong setting on a storage bucket.**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    B["🪣 Storage bucket<br/>ACL set to<br/>'public-read'"] --> W["🌍 Anyone with<br/>the URL can<br/>read every object"]
-    C["🔍 CSPM tool<br/>continuously scans<br/>cloud config"] -->|"flags or<br/>auto-fixes"| B
-
-    style B fill:#3a1a20,stroke:#E03131,color:#fff
-    style W fill:#3a1a20,stroke:#E03131,color:#fff
-    style C fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 A bucket's access-control setting is often a single field — `public-read` instead of `private` —
 and there's no physical barrier stopping it, unlike unplugging a cable on-premises: click the

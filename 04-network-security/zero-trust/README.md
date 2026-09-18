@@ -62,32 +62,11 @@ based on who is asking, what device they are using, and what they are asking for
 
 ## 🔍 The shift
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    T["🏰 TRADITIONAL<br/>strong perimeter<br/>everything inside trusted"] --> P["😬 One phished credential<br/>and the attacker is<br/>inside the trusted zone"]
-    Z["🚦 ZERO TRUST<br/>no implicit trust<br/>verify every request"] --> G["🙂 Being inside<br/>earns nothing<br/>every request checked"]
-
-    style T fill:#3a1a20,stroke:#E03131,color:#fff
-    style P fill:#3a1a20,stroke:#E03131,color:#fff
-    style Z fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style G fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ### The three principles
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    Z["🚦 ZERO TRUST"] --> V["1 · VERIFY EXPLICITLY<br/>authenticate and authorise<br/>every single request"]
-    Z --> L["2 · LEAST PRIVILEGE<br/>minimum access<br/>for minimum time"]
-    Z --> A["3 · ASSUME BREACH<br/>design as though the<br/>attacker is already in"]
-
-    style Z fill:#0f3038,stroke:#12B5A5,color:#fff
-    style V fill:#12243f,stroke:#5C7CFA,color:#fff
-    style L fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 | Principle | Means |
 |---|---|
@@ -100,23 +79,7 @@ flowchart TD
 Every request is evaluated freshly against all available signals, and the decision is to one
 **application** — never to the network.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    R["📨 A request"] --> S["📊 Signals<br/>who · which device<br/>where · behaviour"]
-    S --> P["⚖️ Policy engine<br/>evaluates every time"]
-    P -->|"permit"| G["✅ Access to ONE app<br/>not to the network"]
-    P -->|"deny"| D["🛑 Refused<br/>and logged"]
-    G --> C["🔄 Re-verified<br/>during the session"]
-    C --> P
-
-    style R fill:#26292e,stroke:#868E96,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-    style G fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D fill:#3a1a20,stroke:#E03131,color:#fff
-    style C fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Read it as a sentence: **a request plus its signals is judged on every attempt, granted only to
 one application, and re-checked while it continues.**
@@ -142,19 +105,7 @@ one application, and re-checked while it continues.**
 "A policy engine evaluates every request" is not hand-waving — NIST SP 800-207 names the two
 specific components that do it, and they show up by name in real products.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    U["👤 User/device<br/>requests access"] --> PEP["🚧 PEP<br/>Policy Enforcement Point<br/>sits in the path"]
-    PEP -->|"asks: allow?"| PDP["🧠 PDP<br/>Policy Decision Point<br/>evaluates signals"]
-    PDP -->|"decision"| PEP
-    PEP -->|"if allowed"| APP["📦 The one<br/>application"]
-
-    style U fill:#26292e,stroke:#868E96,color:#fff
-    style PEP fill:#0f3038,stroke:#12B5A5,color:#fff
-    style PDP fill:#3a2c12,stroke:#F08C00,color:#fff
-    style APP fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 The **PEP (Policy Enforcement Point)** is the gate that actually sits in the traffic's way —
 it has no judgment of its own, it just asks the **PDP (Policy Decision Point)** "should this go
@@ -197,22 +148,7 @@ established rather than assumed. These are straight definition questions.
 
 > 🎯 **MSA is the umbrella; SOW is the specific job.** One MSA governs many SOWs.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    M["📑 MSA<br/>master contract<br/>general terms · BINDING"] --> S1["📋 SOW<br/>specific job 1"]
-    M --> S2["📋 SOW<br/>specific job 2"]
-    M --> SL["📊 SLA<br/>service levels<br/>uptime · response"]
-    U["🤝 MOU<br/>statement of intent<br/>usually NOT binding"]
-    N["🔒 NDA<br/>protects shared<br/>confidential information"]
-
-    style M fill:#0f3038,stroke:#12B5A5,color:#fff
-    style S1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SL fill:#12243f,stroke:#5C7CFA,color:#fff
-    style U fill:#26292e,stroke:#868E96,color:#fff
-    style N fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 Read it as a sentence: **one binding master agreement sits above many specific statements of
 work and the service levels they are held to — while an MOU sits outside, binding nobody.**

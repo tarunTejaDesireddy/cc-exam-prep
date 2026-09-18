@@ -61,26 +61,7 @@ An attacker must defeat **every** layer. A defender needs only **one** to hold.
 
 ## 🔍 What the layers look like
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🦹 Attacker"] --> L1["🏢 PHYSICAL<br/>fence · door · badge"]
-    L1 --> L2["📋 ADMINISTRATIVE<br/>policy · vetting · training"]
-    L2 --> L3["🌐 PERIMETER<br/>firewall · DMZ"]
-    L3 --> L4["🧱 INTERNAL<br/>segmentation · VLANs"]
-    L4 --> L5["💻 HOST<br/>hardening · endpoint tools"]
-    L5 --> L6["🔐 DATA<br/>access control · encryption"]
-    L6 --> D["💎 The asset"]
-
-    style A fill:#3a1a20,stroke:#E03131,color:#fff
-    style L1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L4 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L5 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style L6 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Read it as a sentence: **the attacker must get into the building, past the process, through the
 perimeter, across the segment, onto the host, and then through the encryption — and any one of
@@ -104,27 +85,7 @@ to fail for the same reasons.
 
 ## ⚠️ Independence is the whole point
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    F["💥 One failure:<br/>the directory is compromised"]
-    F --> B1["🔓 SSO login — fails"]
-    F --> B2["🔓 File permissions — fail"]
-    F --> B3["🔓 VPN authentication — fails"]
-    G["💥 One failure:<br/>the directory is compromised"]
-    G --> C1["🔓 SSO login — fails"]
-    G --> C2["🔒 Encryption, separate keys<br/>HOLDS"]
-    G --> C3["🔒 Physical door lock — HOLDS"]
-
-    style F fill:#3a1a20,stroke:#E03131,color:#fff
-    style B1 fill:#3a1a20,stroke:#E03131,color:#fff
-    style B2 fill:#3a1a20,stroke:#E03131,color:#fff
-    style B3 fill:#3a1a20,stroke:#E03131,color:#fff
-    style G fill:#3a2c12,stroke:#F08C00,color:#fff
-    style C1 fill:#3a1a20,stroke:#E03131,color:#fff
-    style C2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style C3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **Top: three controls, one failure, everything opens.** That is not depth — it is one control
 counted three times.
@@ -164,17 +125,7 @@ encryption, requires four different kinds of attack.
 
 ## 🎯 How it appears on the exam
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    Q["❓ The question<br/>describes ONE control<br/>being defeated"] --> A["✅ The answer:<br/>another layer should<br/>have been present"]
-    Q2["❓ Which option is<br/>BEST?"] --> A2["✅ The one adding a<br/>DIFFERENT KIND of control"]
-
-    style Q fill:#12243f,stroke:#5C7CFA,color:#fff
-    style Q2 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style A2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Two recurring shapes:
 
@@ -191,20 +142,7 @@ The clearest real-world example of "layers that looked independent but shared on
 is a **software supply-chain compromise** — attackers compromise a trusted vendor and ship
 malware inside that vendor's own, legitimately signed software update.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    V["🦹 Vendor's build<br/>system compromised"] --> S["✍️ Malware signed<br/>with the vendor's<br/>real, legitimate key"]
-    S --> L1["🛡️ Antivirus allowlist<br/>trusts the signature — PASSES"]
-    S --> L2["🔥 Firewall allows the<br/>vendor's known IPs — PASSES"]
-    S --> L3["📋 Change approval trusts<br/>'it's just a routine<br/>vendor update' — PASSES"]
-
-    style V fill:#3a1a20,stroke:#E03131,color:#fff
-    style S fill:#3a1a20,stroke:#E03131,color:#fff
-    style L1 fill:#3a1a20,stroke:#E03131,color:#fff
-    style L2 fill:#3a1a20,stroke:#E03131,color:#fff
-    style L3 fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Three layers that looked genuinely different on paper — an antivirus signature check, a network
 firewall rule, and a change-management approval process — all shared exactly one hidden

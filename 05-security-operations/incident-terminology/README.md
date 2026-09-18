@@ -67,18 +67,7 @@ Two consequences the exam tests:
 
 ## 🔽 The funnel
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    E["📋 EVENTS<br/>millions daily<br/>anything observable<br/>NEUTRAL"] --> A["🔔 ALERTS<br/>events flagged as<br/>possibly mattering"]
-    A --> I["🚨 INCIDENTS<br/>genuinely threaten<br/>C, I or A"]
-    I --> B["💀 BREACHES<br/>data ACTUALLY<br/>disclosed or taken"]
-
-    style E fill:#26292e,stroke:#868E96,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style I fill:#3a2c12,stroke:#F08C00,color:#fff
-    style B fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Read it as a sentence: **everything that happens is an event, some of it raises an alert, some
 alerts turn out to be incidents, and some incidents turn out to be breaches.**
@@ -155,24 +144,7 @@ The distinguishing word is **actually**. A breach is a confirmed disclosure, not
 
 ## 🔍 Why the words matter
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🔔 Alert"] --> T["🔍 TRIAGE<br/>is it real?"]
-    T -->|"no"| F["📁 False positive<br/>close and tune"]
-    T -->|"yes"| I["🚨 Declare an INCIDENT<br/>the plan starts here"]
-    I --> D{"Was data actually<br/>disclosed?"}
-    D -->|no| N["📋 Incident only"]
-    D -->|yes| B["⚖️ BREACH<br/>notification obligations"]
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T fill:#3a2c12,stroke:#F08C00,color:#fff
-    style F fill:#26292e,stroke:#868E96,color:#fff
-    style I fill:#0f3038,stroke:#12B5A5,color:#fff
-    style D fill:#3a2c12,stroke:#F08C00,color:#fff
-    style N fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 **Declaring an incident is a decision with consequences.** It starts the incident response plan,
 brings in a defined team, triggers communications, and begins a formal record. That is why the
@@ -182,20 +154,7 @@ vocabulary is precise rather than pedantic — each word marks a different set o
 
 ## 🔬 What "declaring an incident" triggers in real tooling
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    D["🚨 Incident declared"] --> SEV["🎫 SEV1 ticket created<br/>(ServiceNow/Jira)"]
-    SEV --> PAGE["📟 On-call paged<br/>automatically (PagerDuty)"]
-    D --> LEGAL["⚖️ Legal/DPO review:<br/>is this a breach?"]
-    LEGAL -->|"yes"| CLOCK["⏱️ 72-hour clock starts<br/>tracked in a compliance tool"]
-
-    style D fill:#3a1a20,stroke:#E03131,color:#fff
-    style SEV fill:#12243f,stroke:#5C7CFA,color:#fff
-    style PAGE fill:#3a2c12,stroke:#F08C00,color:#fff
-    style LEGAL fill:#12243f,stroke:#5C7CFA,color:#fff
-    style CLOCK fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 "Declaring an incident" isn't a phrase in a policy document — it's a real button someone
 presses in a real ticketing system. A **SEV1** (or similarly named highest-severity) ticket

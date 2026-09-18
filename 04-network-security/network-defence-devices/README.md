@@ -97,18 +97,7 @@ smaller organisations that want one appliance rather than a rack of specialised 
 > a single point of failure — if it goes down or is misconfigured, every function it provided
 > goes with it.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    P["📦 Packet filter<br/>this packet alone<br/>STATELESS"] --> S["🔗 Stateful<br/>this packet in its<br/>connection's context"]
-    S --> A["🔍 Application level<br/>the full layer 7<br/>content"]
-    A --> N["🧠 Next generation<br/>apps · users · content<br/>plus all the above"]
-
-    style P fill:#26292e,stroke:#868E96,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style N fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Left to right, each firewall type **sees more and costs more** to inspect with.
 
@@ -116,18 +105,7 @@ Left to right, each firewall type **sees more and costs more** to inspect with.
 required. If an option offers "deny by default and permit by exception", it is almost certainly
 correct.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    T["📨 Traffic arrives"] --> R{"Matches an<br/>explicit ALLOW<br/>rule?"}
-    R -->|yes| P["✅ Permitted"]
-    R -->|no| D["🛑 DENIED<br/>the default"]
-
-    style T fill:#26292e,stroke:#868E96,color:#fff
-    style R fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 > ⚠️ **A firewall cannot inspect what it cannot read.** Encrypted traffic passing through a basic
 > firewall is opaque to it. This is why an attacker using HTTPS on port 443 for command and
@@ -135,22 +113,7 @@ flowchart LR
 
 ### 🔬 What "stateful" actually means, in a real table
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    OUT["📤 Internal host sends<br/>SYN to a web server"] --> CT["📋 Conntrack table<br/>entry created:<br/>NEW → ESTABLISHED"]
-    CT --> IN["📥 Reply packet<br/>arrives from the server"]
-    IN --> CHECK{"Matches an<br/>ESTABLISHED entry?"}
-    CHECK -->|"yes"| ALLOW["✅ Permitted<br/>automatically"]
-    CHECK -->|"no, unsolicited"| BLOCK["🛑 Dropped"]
-
-    style OUT fill:#26292e,stroke:#868E96,color:#fff
-    style CT fill:#0f3038,stroke:#12B5A5,color:#fff
-    style IN fill:#26292e,stroke:#868E96,color:#fff
-    style CHECK fill:#3a2c12,stroke:#F08C00,color:#fff
-    style ALLOW fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style BLOCK fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 On Linux, this is a literal, inspectable table — **conntrack** (part of `netfilter`, which
 `iptables` and its successor `nftables` are built on) — holding one row per active connection
@@ -171,23 +134,7 @@ never looks past the IP and port headers at all.
 
 ## 🚨 IDS versus IPS
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    T1["🌐 Traffic"] --> S["🔀 Switch"]
-    S -->|"a COPY"| IDS["👁️ IDS<br/>out of band<br/>ALERTS only"]
-    S --> D1["🖥️ Destination"]
-    T2["🌐 Traffic"] --> IPS["🛑 IPS<br/>IN LINE<br/>can DROP traffic"]
-    IPS --> D2["🖥️ Destination"]
-
-    style T1 fill:#26292e,stroke:#868E96,color:#fff
-    style T2 fill:#26292e,stroke:#868E96,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style IDS fill:#3a2c12,stroke:#F08C00,color:#fff
-    style IPS fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D2 fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 | | **IDS** | **IPS** |
 |---|---|---|
@@ -226,21 +173,7 @@ flowchart LR
 > ⚠️ **A false negative is the dangerous error** — a real attack went unnoticed. A false positive
 > is merely expensive.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    A["🚨 Alerted"] --> AT["✅ TRUE POSITIVE<br/>real attack, caught"]
-    A --> AF["😤 FALSE POSITIVE<br/>legitimate traffic flagged<br/>COSTLY"]
-    Q["🔇 Not alerted"] --> QT["🙂 TRUE NEGATIVE<br/>normal traffic, ignored"]
-    Q --> QF["💀 FALSE NEGATIVE<br/>real attack MISSED<br/>DANGEROUS"]
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style Q fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AT fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style QT fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style AF fill:#3a2c12,stroke:#F08C00,color:#fff
-    style QF fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 **Amber costs you money. Red costs you the breach.**
 
@@ -258,21 +191,7 @@ A proxy makes requests on someone's behalf, so the two parties never connect dir
 > ⚠️ **Forward protects/serves the client; reverse protects/serves the server.** That is the whole
 > distinction, and it is a reliable question.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    C["💻 Your clients"] --> FP["➡️ FORWARD proxy<br/>acts FOR the client"]
-    FP --> W["🌍 The internet"]
-    U["🌍 Outside users"] --> RP["⬅️ REVERSE proxy<br/>acts FOR the server"]
-    RP --> SV["🖥️ Your servers"]
-
-    style C fill:#12243f,stroke:#5C7CFA,color:#fff
-    style FP fill:#0f3038,stroke:#12B5A5,color:#fff
-    style W fill:#26292e,stroke:#868E96,color:#fff
-    style U fill:#26292e,stroke:#868E96,color:#fff
-    style RP fill:#0f3038,stroke:#12B5A5,color:#fff
-    style SV fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 Read it as a sentence: **a forward proxy stands in front of your users looking out, and a reverse
 proxy stands in front of your servers looking in.**

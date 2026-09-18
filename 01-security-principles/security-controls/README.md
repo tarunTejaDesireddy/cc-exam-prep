@@ -25,20 +25,7 @@ Think of it as asking **two separate questions** about the same control:
 
 A single control can therefore have **one type + one function**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    CTRL["🛡️ One security<br/>control"]
-    CTRL --> T{"Axis 1<br/>What TYPE?"}
-    CTRL --> F{"Axis 2<br/>What FUNCTION?"}
-    T --> ANS["= TYPE + FUNCTION<br/>e.g. Technical + Preventive"]
-    F --> ANS
-
-    style CTRL fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-    style F fill:#3a2c12,stroke:#F08C00,color:#fff
-    style ANS fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -241,18 +228,7 @@ system.
 
 **Answer:** **Technical + Preventive**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    T["💻 Technical<br/>uses technology"] --> FW["🔥 Firewall"]
-    F["🛑 Preventive<br/>blocks before entry"] --> FW
-    FW --> A["= Technical +<br/>Preventive"]
-
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-    style F fill:#3a2c12,stroke:#F08C00,color:#fff
-    style FW fill:#0f3038,stroke:#12B5A5,color:#fff
-    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🎯 Example 2: Security Camera
 
@@ -304,19 +280,7 @@ If the guard **physically stops someone from entering**: 🛑 **Preventive**
 This is why you should focus on **what the control actually does in the scenario**, not just
 memorize a fixed label.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    G["🚪 Physical<br/>security guard"]
-    G -->|"discourages<br/>attackers"| D["🚧 Deterrent"]
-    G -->|"spots<br/>intruders"| DT["👀 Detective"]
-    G -->|"physically<br/>stops entry"| P["🛑 Preventive"]
-
-    style G fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style DT fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 

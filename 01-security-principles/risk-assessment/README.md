@@ -65,22 +65,7 @@ Grog can't fix everything at once.
 
 So he needs to **assess the risks**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    P1["🕳️ Hole in the wall"] --> G["🧠 Grog can't fix<br/>everything at once"]
-    P2["🔥 Fire near food"] --> G
-    P3["🐻 Bear nearby"] --> G
-    P4["🪨 Loose rocks<br/>above entrance"] --> G
-    G --> AS["⚠️ Must assess<br/>the risks"]
-
-    style P1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P3 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P4 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style G fill:#26292e,stroke:#868E96,color:#fff
-    style AS fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -229,23 +214,7 @@ Grog looks at the results and says:
 
 So he fixes the hole first.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    R1["🕳️ Enemy enters cave<br/>5 × 10 = 50"] --> FIX1["🛡️ Fixed FIRST"]
-    R2["🔥 Fire damages food<br/>3 × 8 = 24"] --> FIX2["🛠️ Fixed second"]
-    R3["🐻 Bear attacks<br/>2 × 10 = 20"] --> FIX3["🛠️ Fixed third"]
-    R4["🪨 Falling rocks<br/>1 × 6 = 6"] --> FIX4["🕓 Fixed last"]
-
-    style R1 fill:#3a1a20,stroke:#E03131,color:#fff
-    style R2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style R3 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style R4 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style FIX1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style FIX2 fill:#26292e,stroke:#868E96,color:#fff
-    style FIX3 fill:#26292e,stroke:#868E96,color:#fff
-    style FIX4 fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -338,19 +307,7 @@ So organizations continuously reassess risks because:
 - Attack methods evolve
 - Existing controls may stop working
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    FIX["🛡️ Grog fixes<br/>the hole"] --> TIME["🕓 Six months pass"]
-    TIME --> STORM["🌧️ Huge storm floods<br/>the cave"]
-    STORM --> NEW["⚠️ New risk<br/>reassessment needed"]
-    NEW -.-> FIX
-
-    style FIX fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style TIME fill:#26292e,stroke:#868E96,color:#fff
-    style STORM fill:#3a1a20,stroke:#E03131,color:#fff
-    style NEW fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -402,14 +359,7 @@ Think of Grog:
 
 > 🛡️ "Let's block the hole, put a guard outside, and create a backup food store."
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["⚠️ Risk Assessment<br/>huge hole, enemy<br/>nearby, could lose food"] --> M["🛡️ Risk Management<br/>block hole, add guard,<br/>backup food store"]
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -427,18 +377,7 @@ flowchart LR
 3. 🚦 Rank the risks
 4. 🛡️ Decide what to do
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    F["🔍 FIND<br/>the risks"] --> A["🧮 ANALYZE<br/>likelihood × impact"]
-    A --> R["🚦 RANK<br/>biggest problem first"]
-    R --> D["🛡️ DECIDE<br/>mitigate, accept,<br/>avoid, or transfer"]
-
-    style F fill:#12243f,stroke:#5C7CFA,color:#fff
-    style A fill:#3a2c12,stroke:#F08C00,color:#fff
-    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ### Ultimate caveman sentence
 

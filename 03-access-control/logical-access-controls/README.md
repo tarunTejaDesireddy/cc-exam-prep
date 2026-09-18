@@ -22,18 +22,7 @@ The big exam question is:
 
 That separates **logical access controls** from **physical access controls**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    C["🎛️ A control"] --> Q{"What does it control<br/>access TO?"}
-    Q -->|"system · app · network<br/>file · data"| L["💻 LOGICAL"]
-    Q -->|"building · room<br/>equipment · place"| P["🚪 PHYSICAL"]
-
-    style C fill:#26292e,stroke:#868E96,color:#fff
-    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
-    style L fill:#12243f,stroke:#5C7CFA,color:#fff
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -127,21 +116,7 @@ The exam may deliberately give you one.
 
 The trick is to look at **what the control is actually controlling**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    B["🎫 Badge / smart card"] -->|"opens a door"| P1["🚪 Physical"]
-    B -->|"logs into a computer"| L1["💻 Logical"]
-    F["👆 Fingerprint"] -->|"opens a secure room"| P2["🚪 Physical"]
-    F -->|"unlocks a laptop"| L2["💻 Logical"]
-
-    style B fill:#26292e,stroke:#868E96,color:#fff
-    style F fill:#26292e,stroke:#868E96,color:#fff
-    style P1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style P2 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style L1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style L2 fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -331,21 +306,7 @@ Inside a **computer/system/application**?
 
 → Logical
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    Q1{"1️⃣ What is being protected?"}
-    Q1 -->|"building / room"| P["🚪 PHYSICAL"]
-    Q1 -->|"system / data / network"| L["💻 LOGICAL"]
-    Q1 -->|"not sure"| Q2{"2️⃣ Where does the<br/>access decision happen?"}
-    Q2 -->|"at a door"| P
-    Q2 -->|"inside a system / app"| L
-
-    style Q1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Q2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-    style L fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 

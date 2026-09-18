@@ -60,17 +60,7 @@ The guard says:
 
 That's authentication.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-sequenceDiagram
-    participant G as 🧑 Caveman<br/>claiming to be Grog
-    participant D as 🪨 Stone door<br/>guard
-    G->>D: "I am Grog"
-    D->>G: "Prove it"
-    G->>D: "Fire burns" 🗣️
-    D->>G: "Correct! You are Grog"
-    Note over D: 🚪 Door opens
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -118,23 +108,7 @@ Something based on your physical characteristics. Examples:
 
 For example: 👆 Fingerprint scanner → "Yep, that's Grog."
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    ID["❓ Who are you?"]
-    ID --> K["🔑 Something You Know<br/>password · PIN<br/>security question"]
-    ID --> H["📱 Something You Have<br/>phone · token<br/>smart card"]
-    ID --> A["👆 Something You Are<br/>fingerprint · face<br/>iris · voice"]
-    K --> PROOF["✅ Evidence of<br/>your identity"]
-    H --> PROOF
-    A --> PROOF
-
-    style ID fill:#0f3038,stroke:#12B5A5,color:#fff
-    style K fill:#12243f,stroke:#5C7CFA,color:#fff
-    style H fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style A fill:#3a2c12,stroke:#F08C00,color:#fff
-    style PROOF fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -164,24 +138,7 @@ That's **Multi-Factor Authentication (MFA)**.
 >
 > 🚪 OPEN!
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    W1["🗣️ Secret word:<br/>ROCK"] --> F1{"Correct?"}
-    F1 -->|yes| S1["🪨 Show magic stone"]
-    F1 -->|no| CLUB["🚫 Rejected"]
-    S1 --> F2{"Has it?"}
-    F2 -->|yes| OPEN["🚪 Door opens<br/>2 factors matched"]
-    F2 -->|no| CLUB2["🚫 Rejected<br/>knew word, no stone"]
-
-    style W1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style F1 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style S1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style F2 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style OPEN fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style CLUB fill:#3a1a20,stroke:#E03131,color:#fff
-    style CLUB2 fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -200,22 +157,7 @@ So remember:
 - 🔐 **Authentication** = Who are you?
 - 🛂 **Authorization** = What can you do?
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    GROG["🧑 Grog at<br/>the food room door"] --> AUTHN{"🔐 Authentication<br/>Is this really Grog?"}
-    AUTHN -->|no| DENY["🚫 Not Grog<br/>stop here"]
-    AUTHN -->|yes| AUTHZ{"🛂 Authorization<br/>Can Grog enter<br/>the food room?"}
-    AUTHZ -->|no| DENY2["🚫 It's Grog, but<br/>not allowed in here"]
-    AUTHZ -->|yes| IN["✅ Grog enters<br/>the food room"]
-
-    style GROG fill:#26292e,stroke:#868E96,color:#fff
-    style AUTHN fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AUTHZ fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style DENY fill:#3a1a20,stroke:#E03131,color:#fff
-    style DENY2 fill:#3a1a20,stroke:#E03131,color:#fff
-    style IN fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 

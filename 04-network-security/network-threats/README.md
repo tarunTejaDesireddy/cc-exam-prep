@@ -83,20 +83,7 @@ The road's various troublemakers, ranked.
 > 🎯 **Ranked by capability, nation-state actors are the top and script kiddies the bottom.** If a
 > question describes long-term stealthy access with substantial resources, it wants **APT**.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    K["🧒 Script kiddie<br/>others' tools<br/>LOW"] --> H["✊ Hacktivist<br/>a cause<br/>LOW-MED"]
-    H --> O["💰 Organised crime<br/>money, professional<br/>HIGH"]
-    O --> N["🏛️ Nation state / APT<br/>patient and funded<br/>HIGHEST"]
-    I["🕵️ Insider<br/>capability varies<br/>ALREADY INSIDE"]
-
-    style K fill:#26292e,stroke:#868E96,color:#fff
-    style H fill:#12243f,stroke:#5C7CFA,color:#fff
-    style O fill:#3a2c12,stroke:#F08C00,color:#fff
-    style N fill:#3a1a20,stroke:#E03131,color:#fff
-    style I fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 The insider sits outside the ladder deliberately: their capability varies enormously, and it
 hardly matters, because they start past every perimeter control you own.
@@ -123,24 +110,7 @@ proper leaver process.
 
 ## 🦠 The malware taxonomy
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    M["🦠 Malware"] --> V["🧬 VIRUS<br/>attaches to a file<br/>needs a human to run it"]
-    M --> W["🪱 WORM<br/>spreads by itself<br/>no human needed"]
-    M --> T["🐴 TROJAN<br/>pretends to be useful<br/>human installs it willingly"]
-    M --> R["🔒 RANSOMWARE<br/>encrypts data<br/>demands payment"]
-    M --> S["👁️ SPYWARE<br/>watches and<br/>reports back"]
-    M --> K["🥷 ROOTKIT<br/>hides itself<br/>deep in the system"]
-
-    style M fill:#3a1a20,stroke:#E03131,color:#fff
-    style V fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style K fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### The three that get confused
 
@@ -150,21 +120,7 @@ flowchart TD
 | **Worm** | **Self-propagates** across networks | ❌ **No** | ❌ No — standalone |
 | **Trojan** | Disguised as legitimate software | ✅ Yes — installs it | ❌ No |
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    Q{"Did a human<br/>have to do<br/>something?"}
-    Q -->|"NO — it spread itself"| W["🪱 WORM"]
-    Q -->|"yes"| Q2{"What did<br/>they run?"}
-    Q2 -->|"a file they already wanted"| V["🧬 VIRUS"]
-    Q2 -->|"software they were tricked into installing"| T["🐴 TROJAN"]
-
-    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
-    style Q2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style W fill:#0f3038,stroke:#12B5A5,color:#fff
-    style V fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Two questions separate all three. Run any scenario through them.
 
@@ -214,20 +170,7 @@ Attacking the person rather than the technology. It appears in Domain 4 and agai
 > door. **Piggybacking has consent** — the person held the door. **Tailgating does not** — they
 > did not know.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    P["🎣 PHISHING<br/>broad, by email"] --> S["🎯 SPEAR PHISHING<br/>one named target"]
-    S --> W["🐋 WHALING<br/>a senior executive"]
-    P --> V["📞 VISHING<br/>by voice call"]
-    P --> M["💬 SMISHING<br/>by SMS"]
-
-    style P fill:#0f3038,stroke:#12B5A5,color:#fff
-    style S fill:#12243f,stroke:#5C7CFA,color:#fff
-    style W fill:#3a1a20,stroke:#E03131,color:#fff
-    style V fill:#12243f,stroke:#5C7CFA,color:#fff
-    style M fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Going down the middle, the target narrows: **anyone → one person → one important person.** The
 two branches change the *channel*, not the targeting.
@@ -242,22 +185,7 @@ two branches change the *channel*, not the targeting.
 The grown-up section mentions fileless, living-off-the-land techniques. Here's concretely why
 they slip past one kind of defence and not another.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    F["📄 File on disk"] --> H["🔢 Hash it"] --> SIG["📋 Compare to<br/>known-bad signature DB"]
-    SIG -->|"match"| BLOCK["🛑 Blocked"]
-    P["⚙️ Process behaviour:<br/>Word spawns PowerShell<br/>spawns network connection"] --> EDR["👁️ EDR watches<br/>the ACTION CHAIN"]
-    EDR -->|"matches a known<br/>attack pattern"| FLAG["🚩 Flagged, regardless<br/>of any file's hash"]
-
-    style F fill:#26292e,stroke:#868E96,color:#fff
-    style H fill:#12243f,stroke:#5C7CFA,color:#fff
-    style SIG fill:#12243f,stroke:#5C7CFA,color:#fff
-    style BLOCK fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style P fill:#26292e,stroke:#868E96,color:#fff
-    style EDR fill:#0f3038,stroke:#12B5A5,color:#fff
-    style FLAG fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 **Traditional signature-based antivirus hashes a file and checks that hash against a database of
 known-bad hashes.** This is exactly why it's blind to fileless, living-off-the-land attacks:

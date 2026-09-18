@@ -132,18 +132,7 @@ That's an **exploit**.
 
 **Exploit = way of using the weakness**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    HOLE["🕳️ Hole in the wall<br/>vulnerability"] --> SEE["👹 Enemy sees<br/>'easy way inside'"]
-    SEE --> CLIMB["🧗 Enemy climbs<br/>through it — exploit"]
-    CLIMB --> IN["🏕️ Enemy is<br/>inside the cave"]
-
-    style HOLE fill:#3a2c12,stroke:#F08C00,color:#fff
-    style SEE fill:#3a1a20,stroke:#E03131,color:#fff
-    style CLIMB fill:#3a1a20,stroke:#E03131,color:#fff
-    style IN fill:#26292e,stroke:#868E96,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -167,18 +156,7 @@ That's a **risk**.
 
 > **Risk = The possibility that a threat will exploit a vulnerability and cause harm to an asset.**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    T["👹 Threat<br/>enemy tribe"] --> V["🕳️ Vulnerability<br/>hole in cave"]
-    V --> A["🥩 Asset<br/>Grog's food"]
-    A --> R["⚠️ Risk<br/>food may be stolen"]
-
-    style T fill:#3a1a20,stroke:#E03131,color:#fff
-    style V fill:#3a2c12,stroke:#F08C00,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -250,18 +228,7 @@ So:
 The exact mathematical formulas used in real organizations can be more sophisticated, but this is a
 useful basic model.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    L["🎯 Likelihood = 5<br/>enemy nearby daily"] --> X["✖️"]
-    IM["💥 Impact = 10<br/>lose all the food"] --> X
-    X --> RS["⚠️ Risk = 50<br/>high likelihood ×<br/>high impact"]
-
-    style L fill:#3a2c12,stroke:#F08C00,color:#fff
-    style IM fill:#3a1a20,stroke:#E03131,color:#fff
-    style X fill:#26292e,stroke:#868E96,color:#fff
-    style RS fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -448,46 +415,11 @@ Example:
 
 🛡️ **Control:** Block the hole
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["🥩 Asset<br/>Grog's food"] --> T["👹 Threat<br/>enemy tribe"]
-    T --> V["🕳️ Vulnerability<br/>hole in cave"]
-    V --> E["🧗 Exploit<br/>enemy enters"]
-    E --> R["⚠️ Risk<br/>food stolen"]
-    R --> I["💥 Impact<br/>tribe has no food"]
-    R --> C["🛡️ Control<br/>block the hole"]
-
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style T fill:#3a1a20,stroke:#E03131,color:#fff
-    style V fill:#3a2c12,stroke:#F08C00,color:#fff
-    style E fill:#3a1a20,stroke:#E03131,color:#fff
-    style R fill:#0f3038,stroke:#12B5A5,color:#fff
-    style I fill:#3a1a20,stroke:#E03131,color:#fff
-    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Once you have a risk, there are several ways to respond to it:
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica Neue, Arial, sans-serif','fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    R["⚠️ Risk identified<br/>hole in the cave"]
-    R --> M["🛠️ Mitigate<br/>repair the hole"]
-    R --> AC["🤷 Accept<br/>crack too cheap<br/>to bother fixing"]
-    R --> AV["🚫 Avoid<br/>stop hunting near<br/>the bear entirely"]
-    R --> TR["🤝 Transfer<br/>another tribe shares<br/>the burden"]
-    R --> D["🛡️ Deter<br/>warning sign,<br/>visible guards"]
-    R --> DT["🔍 Detect<br/>guard watches<br/>for the enemy"]
-
-    style R fill:#0f3038,stroke:#12B5A5,color:#fff
-    style M fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style AC fill:#26292e,stroke:#868E96,color:#fff
-    style AV fill:#3a2c12,stroke:#F08C00,color:#fff
-    style TR fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#3a2c12,stroke:#F08C00,color:#fff
-    style DT fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 

@@ -84,31 +84,7 @@ Therefore:
 
 > **Privileged access = powerful access that could significantly affect security or operations.**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    subgraph N["👤 Normal user"]
-        N1["📧 Read email"]
-        N2["📄 Create documents"]
-        N3["🧩 Use approved apps"]
-    end
-    subgraph P["👑 Privileged user"]
-        P1["👥 Create accounts"]
-        P2["🎟️ Change permissions"]
-        P3["💻 Install software"]
-        P4["🛡️ Modify security controls"]
-        P5["⚙️ Configure systems"]
-    end
-
-    style N1 fill:#26292e,stroke:#868E96,color:#fff
-    style N2 fill:#26292e,stroke:#868E96,color:#fff
-    style N3 fill:#26292e,stroke:#868E96,color:#fff
-    style P1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P2 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P3 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P4 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style P5 fill:#3a2c12,stroke:#F08C00,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -120,23 +96,7 @@ The big idea is:
 
 Here are the important ones.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    PA["👑 PRIVILEGED ACCOUNT"]
-    PA --> A["🔐 Protect the login<br/>MFA · separate admin account"]
-    PA --> B["🔑 Limit the power<br/>least privilege · just-in-time"]
-    PA --> C["👥 Add oversight<br/>approval · access reviews"]
-    PA --> D["📝 Watch everything<br/>logging · monitoring · alerting"]
-    PA --> E["🛡️ Wrap it in PAM<br/>vaulting · rotation · session recording"]
-
-    style PA fill:#3a2c12,stroke:#F08C00,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#0f3038,stroke:#12B5A5,color:#fff
-    style C fill:#26292e,stroke:#868E96,color:#fff
-    style D fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style E fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -181,23 +141,7 @@ Why?
 
 > If Alice's everyday account gets compromised, the attacker doesn't automatically get administrator privileges.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    A["👤 Alice"] --> D["Alice<br/>daily account"]
-    A --> X["Alice-Admin<br/>admin account"]
-    D --> D1["📧 Email · 🌐 Browsing"]
-    X --> X1["⚙️ Admin work only"]
-    PH["🎣 Phishing link"] -.->|"compromises"| D
-    D -.-x|"no admin rights to steal"| X1
-
-    style A fill:#26292e,stroke:#868E96,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-    style X fill:#3a2c12,stroke:#F08C00,color:#fff
-    style D1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style X1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style PH fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### 🧠 Exam clue
 
@@ -225,18 +169,7 @@ A powerful account doesn't necessarily need powerful access **all the time**.
 
 Instead:
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    N["👤 Normal access"] --> R["⏳ Request elevated<br/>privilege"] --> AP["🔐 Approval"] --> T["👑 Temporary<br/>admin access"] --> E["⏰ Access expires"]
-    E -.->|"back to"| N
-
-    style N fill:#26292e,stroke:#868E96,color:#fff
-    style R fill:#12243f,stroke:#5C7CFA,color:#fff
-    style AP fill:#0f3038,stroke:#12B5A5,color:#fff
-    style T fill:#3a2c12,stroke:#F08C00,color:#fff
-    style E fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 This is often called **just-in-time (JIT) access**.
 
@@ -432,21 +365,7 @@ Not:
 
 > ❌ **"How important is the person?"**
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    Q{"🧠 What can the<br/>account DO?"}
-    CEO["👔 CEO<br/>email · reports · approvals"] --> Q
-    JR["🧑‍💻 Junior sysadmin<br/>create admins · change security"] --> Q
-    Q -->|"ordinary actions"| NP["👤 Not privileged"]
-    Q -->|"high-impact actions"| PR["👑 Privileged"]
-
-    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
-    style CEO fill:#26292e,stroke:#868E96,color:#fff
-    style JR fill:#26292e,stroke:#868E96,color:#fff
-    style NP fill:#12243f,stroke:#5C7CFA,color:#fff
-    style PR fill:#3a1616,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 

@@ -74,18 +74,7 @@ Work top to bottom. The early topics build the vocabulary the attack and defence
 
 ## 🎯 03 · The trap in this domain
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'14px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    Q["❓ A network<br/>question"] --> D{"Answer from<br/>what?"}
-    D -->|"how it really deploys"| W["❌ A distractor built<br/>from exactly that nuance"]
-    D -->|"the simplified model"| R["✅ The mark"]
-
-    style Q fill:#12243f,stroke:#5C7CFA,color:#fff
-    style D fill:#3a2c12,stroke:#F08C00,color:#fff
-    style W fill:#3a1a20,stroke:#E03131,color:#fff
-    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Three examples of the simplification you are being graded against:
 
