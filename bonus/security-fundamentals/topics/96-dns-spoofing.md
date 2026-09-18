@@ -78,19 +78,7 @@ With DNS spoofing:
 
 The victim **thinks they're going to the legitimate site**.
 
-```mermaid
-flowchart LR
-    subgraph OK["✅ NORMAL"]
-        U1["👤 'Where is bank.com?'"]:::info --> D1["🔎 DNS<br/>honest answer"]:::good --> B1["🏦 Real bank server"]:::good
-    end
-    subgraph BAD["😈 DNS SPOOFING"]
-        U2["👤 'Where is bank.com?'"]:::info --> D2["🎭 Forged DNS answer<br/>192.0.2.50"]:::bad --> B2["💀 Attacker's server<br/>🎣 fake bank login page"]:::bad
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -164,17 +152,7 @@ Think:
 
 In some security materials, the terms are **used loosely or interchangeably**, so follow the wording of the question.
 
-```mermaid
-flowchart TD
-    A["😈 Attacker"]:::bad -->|"🎭 forged answer:<br/>bank.com = 192.0.2.50"| R["🔎 Company DNS resolver<br/>☠️ stores it in cache"]:::bad
-    R --> U1["👤 User 1 → 💀 fake site"]:::bad
-    R --> U2["👤 User 2 → 💀 fake site"]:::bad
-    R --> U3["👤 User 3 → 💀 fake site"]:::bad
-    R -.- N["⏰ Keeps lying to everyone<br/>until the cached record expires"]:::warn
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 > 🧠 **Spoofing lies once. Poisoning puts the lie in the cache — so it hits every user of that resolver.**
 
@@ -251,17 +229,7 @@ So:
 
 > 🎭 **IP spoofing = fake source IP**
 
-```mermaid
-flowchart TD
-    Q["🎭 Which lie is the attacker telling?"]:::info
-    Q -->|"name → IP<br/>'bank.com is at 192.0.2.50'"| DNS["🔎 DNS SPOOFING<br/>wrong destination"]:::bad
-    Q -->|"IP → MAC<br/>'192.168.1.1 is at AA:AA:AA'"| ARP["🔗 ARP SPOOFING<br/>local redirect"]:::warn
-    Q -->|"fake SOURCE IP<br/>on a packet"| IP["🌐 IP SPOOFING<br/>hide / impersonate sender"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -303,18 +271,7 @@ However, properly configured **HTTPS/TLS certificate validation** makes it **muc
 
 For example:
 
-```mermaid
-sequenceDiagram
-    participant U as 👤 Grog's browser
-    participant D as 🎭 Spoofed DNS
-    participant A as 😈 Attacker 192.0.2.50
-    U->>D: Where is bank.com?
-    D->>U: 192.0.2.50 (a lie)
-    U->>A: 🔒 TLS hello — prove you are bank.com
-    A->>U: 🪪 Certificate (not for bank.com / untrusted)
-    Note over U: ❌ Certificate check FAILS<br/>🚨 browser shows a warning
-    Note over U: ⚠️ Only works if the user<br/>does NOT click through the warning
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 The browser **should warn the user** rather than silently treating the attacker's site as the legitimate site.
 

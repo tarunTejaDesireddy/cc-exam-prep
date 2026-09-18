@@ -14,15 +14,7 @@ The server **answers**.
 > 📤 **HTTP Request = "Give me this."**<br>
 > 📥 **HTTP Response = "Here you go."**
 
-```mermaid
-sequenceDiagram
-    participant B as 🧑 Browser (client)
-    participant S as 🖥️ Web server
-    B->>S: 📤 REQUEST — GET /login + headers (+ body)
-    Note over S: Processes it
-    S->>B: 📥 RESPONSE — 200 OK + headers + body
-    Note over B: 🎨 Renders the page
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -45,16 +37,7 @@ Accept: text/html
 
 There are **four things to recognize**:
 
-```mermaid
-flowchart TD
-    R["📤 HTTP REQUEST"]:::info --> M["🔵 Method<br/>GET · POST · PUT · PATCH · DELETE"]:::warn
-    R --> P["📍 Path / URL<br/>/login"]:::warn
-    R --> H["🏷️ Headers<br/>Host · User-Agent · Cookie"]:::warn
-    R --> BD["📦 Body (sometimes)<br/>form / JSON data"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -273,15 +256,7 @@ Content-Length: 1234
 
 The response contains:
 
-```mermaid
-flowchart TD
-    R["📥 HTTP RESPONSE"]:::good --> S["🚦 Status code<br/>200 · 301 · 403 · 404 · 500"]:::warn
-    R --> H["🏷️ Headers<br/>Content-Type · Set-Cookie · Location"]:::warn
-    R --> BD["📦 Body<br/>HTML · JSON · image"]:::warn
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -369,20 +344,7 @@ Think:
 5xx → Server problem
 ```
 
-```mermaid
-flowchart LR
-    C1["1xx<br/>ℹ️ Information"]:::info
-    C2["2xx<br/>✅ Success<br/>200 · 201"]:::good
-    C3["3xx<br/>🔀 Redirect<br/>301 · 302"]:::info
-    C4["4xx<br/>👤 Client problem<br/>400 · 401 · 403 · 404"]:::warn
-    C5["5xx<br/>🖥️ Server problem<br/>500 · 503"]:::bad
-    C1 --- C2 --- C3 --- C4 --- C5
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 The big ones:
 
@@ -426,19 +388,7 @@ Example:
 
 > User is authenticated but lacks permission.
 
-```mermaid
-flowchart TD
-    Q["📤 Request for /admin"]:::info --> A{"🔑 Authenticated?<br/>who are you?"}:::warn
-    A -->|"no / failed"| E401["🔐 401 Unauthorized<br/>'Who are you?'"]:::bad
-    A -->|"yes"| Z{"🎟️ Authorized?<br/>allowed here?"}:::warn
-    Z -->|"no"| E403["🚫 403 Forbidden<br/>'I know you. NO.'"]:::bad
-    Z -->|"yes"| OK["✅ 200 OK"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ### 🪨 Easy memory:
 
@@ -569,14 +519,7 @@ the HTTP request/response is **protected by TLS** while traveling across the net
 
 Conceptually:
 
-```mermaid
-flowchart LR
-    R["📤 HTTP request"]:::info --> T1["🔐 TLS encrypts"]:::warn --> N["🌐 Network<br/>unreadable in transit"]:::good --> T2["🔓 TLS decrypts<br/>at the server"]:::warn --> P["🖥️ Server processes<br/>the HTTP request"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 So remember:
 
@@ -682,14 +625,7 @@ So remember:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    Req["📤 REQUEST<br/>METHOD + PATH + HEADERS + BODY"]:::info --> Srv["🖥️ Server"]:::warn --> Resp["📥 RESPONSE<br/>STATUS + HEADERS + BODY"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/7.svg" alt="diagram"></p>
 
 ### Request:
 

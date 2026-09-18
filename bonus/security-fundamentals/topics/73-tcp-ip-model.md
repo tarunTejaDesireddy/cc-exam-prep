@@ -29,19 +29,7 @@ Think:
 | 2️⃣ **Internet** | IP addressing and routing | IP, ICMP |
 | 1️⃣ **Network Access** | Local network + physical transmission | Ethernet, Wi-Fi |
 
-```mermaid
-flowchart TD
-    A["4️⃣ APPLICATION · 🟦 WHAT?<br/>HTTP · DNS · SMTP · SSH · FTP"]:::info
-    T["3️⃣ TRANSPORT · 🟩 HOW between apps?<br/>TCP · UDP · ports"]:::good
-    I["2️⃣ INTERNET · 🟨 WHERE?<br/>IP · ICMP · routing · 🌐 router"]:::warn
-    N["1️⃣ NETWORK ACCESS · 🟥 HOW across the link?<br/>Ethernet · Wi-Fi · MAC · frames"]:::bad
-    A --- T --- I --- N
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -111,19 +99,7 @@ Think:
 
 > 📦 "Throw the package quickly. Don't wait for confirmation."
 
-```mermaid
-flowchart LR
-    subgraph TCP["🔵 TCP — reliable, ordered"]
-        H1["🤝 Handshake first"]:::info --> D1["📦 Send"]:::info --> K1["✅ ACK received<br/>🔄 resend if lost"]:::good
-    end
-    subgraph UDP["🟢 UDP — fast, no promises"]
-        D2["📦 Just send"]:::info --> K2["🤷 No ACK · no resend<br/>⚡ low overhead"]:::warn
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🎯 Exam clue
 
@@ -266,33 +242,7 @@ OSI                         TCP/IP
 1️⃣ Physical ────┴──────→ 1️⃣ Network Access
 ```
 
-```mermaid
-flowchart LR
-    subgraph OSI["OSI — 7 layers"]
-        O7["7 Application"]:::info
-        O6["6 Presentation"]:::info
-        O5["5 Session"]:::info
-        O4["4 Transport"]:::good
-        O3["3 Network"]:::warn
-        O2["2 Data Link"]:::bad
-        O1["1 Physical"]:::bad
-    end
-    subgraph TCPIP["TCP/IP — 4 layers"]
-        A["4 Application"]:::info
-        T["3 Transport"]:::good
-        I["2 Internet"]:::warn
-        N["1 Network Access"]:::bad
-    end
-    O7 & O6 & O5 -->|"3 → 1"| A
-    O4 --> T
-    O3 -->|"renamed"| I
-    O2 & O1 -->|"2 → 1"| N
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -369,19 +319,7 @@ The packet is placed into a **local-network frame** and transmitted through Ethe
 ⚡ Physical transmission
 ```
 
-```mermaid
-flowchart TD
-    A["4️⃣ APPLICATION<br/>🌐 Browser → HTTPS request<br/>📄 Data"]:::info
-    A -->|"+ TCP header · port 443"| T["3️⃣ TRANSPORT<br/>🔵 TCP<br/>📦 Segment"]:::good
-    T -->|"+ IP header · src/dst IP"| I["2️⃣ INTERNET<br/>🌐 IP · 🗺️ routed<br/>📦 Packet"]:::warn
-    I -->|"+ MAC header"| N["1️⃣ NETWORK ACCESS<br/>🔌 Ethernet / 📡 Wi-Fi<br/>🖼️ Frame → ⚡ bits"]:::bad
-    N ==>|"🌐 across the network"| S["🖥️ example.com server<br/>unwraps in reverse ⬆️"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 

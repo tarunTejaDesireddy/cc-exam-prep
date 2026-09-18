@@ -32,23 +32,7 @@ Think of two caves.
 
 > 🌐 **IP addresses**
 
-```mermaid
-flowchart LR
-    subgraph L2["🔗 LAYER 2 — inside ONE cave"]
-        A["💻 Grog"]:::info --- SW["🔀 Switch<br/>🏷️ MAC"]:::good --- B["💻 Friend"]:::info
-    end
-    subgraph L3["🌐 LAYER 3 — between caves"]
-        R["🌐 Router<br/>🌐 IP · 🗺️ routing"]:::warn
-    end
-    subgraph OTHER["🏠 Another cave / network"]
-        C["💻 Destination"]:::info
-    end
-    SW --- R --- C
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -181,16 +165,7 @@ That's a **different network**.
 
 **Layer 3 is needed** to route the packet toward the destination network.
 
-```mermaid
-flowchart TD
-    G["💻 Grog 192.168.1.10<br/>wants to send"]:::info --> Q{"Is the destination on<br/>my local network?"}:::warn
-    Q -->|"✅ 192.168.1.20 — same network"| L["🔗 LAYER 2 job<br/>🔀 switch delivers by MAC<br/>no router needed"]:::good
-    Q -->|"❌ 8.8.8.8 — different network"| R["🌐 LAYER 3 job<br/>send to 🌐 router → routed by IP<br/>(Layer 2 still carries each hop)"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -254,21 +229,7 @@ Data is called a:
 
 So a **frame can carry a Layer 3 packet**.
 
-```mermaid
-flowchart LR
-    subgraph FRAME["🖼️ LAYER 2 FRAME"]
-        H2["🏷️ L2 header<br/>src/dst MAC"]:::good
-        subgraph PACKET["📦 LAYER 3 PACKET"]
-            H3["🌐 L3 header<br/>src/dst IP"]:::warn
-            DATA["📄 Transport data"]:::info
-        end
-        T2["🧾 L2 trailer<br/>error check"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -322,16 +283,7 @@ But Ethernet needs a **MAC address** for local delivery.
 
 Then Grog can create the Layer 2 frame.
 
-```mermaid
-sequenceDiagram
-    participant G as 💻 Grog 192.168.1.10
-    participant ALL as 📢 Everyone on the LAN
-    participant F as 💻 Friend 192.168.1.20
-    Note over G: I know the IP (L3)…<br/>but I need the MAC (L2)!
-    G->>ALL: 📢 ARP broadcast: "Who has 192.168.1.20?"
-    F->>G: "That's me — my MAC is AA:BB:CC:11:22:33"
-    Note over G: Build the frame with that MAC<br/>and send it via the 🔀 switch
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ### 🧠 Remember:
 
@@ -375,14 +327,7 @@ while:
 
 This distinction is **extremely important**.
 
-```mermaid
-flowchart LR
-    A["💻 A"]:::info -->|"🖼️ Frame 1<br/>MAC: A → Router<br/>📦 IP: A → B"| R["🌐 Router<br/>✂️ strips frame 1<br/>🖼️ builds frame 2"]:::warn
-    R -->|"🖼️ Frame 2<br/>MAC: Router → B<br/>📦 IP: A → B"| B["💻 B"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🏷️ **MAC changed** (A → Router, then Router → B) · 🌐 **IP stayed** A → B the whole way.
 

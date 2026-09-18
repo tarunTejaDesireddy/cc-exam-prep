@@ -126,24 +126,7 @@ It might monitor:
 
 → **HIDS**
 
-```mermaid
-flowchart TD
-    subgraph N["🌐 NIDS — watches the NETWORK"]
-        I["🌐 Internet"]:::info --> FW["🧱 Firewall"]:::warn --> TAP["📡 Copy of traffic"]:::warn
-        TAP -.-> NI["🕵️ NIDS<br/>scans · exploits · odd traffic"]:::good
-        FW --> LAN["🏢 Internal network"]:::info
-    end
-    subgraph H["🖥️ HIDS — watches ONE HOST"]
-        S["🖥️ Critical server"]:::info --- HI["🕵️ HIDS agent<br/>logs · file changes<br/>processes · logins"]:::good
-    end
-    NI --> AL["🚨 Alert → 👨‍💻 Security team"]:::bad
-    HI --> AL
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -179,20 +162,7 @@ The traffic **can continue** unless another control blocks it.
 ❌ BLOCK
 ```
 
-```mermaid
-flowchart LR
-    subgraph D["🕵️ IDS — out of the path, watches a copy"]
-        A1["😈 Attack"]:::bad --> T1["🖥️ Target<br/>attack still arrives"]:::bad
-        A1 -.->|"copy"| IDS["🕵️ IDS"]:::warn --> AL["🚨 ALERT"]:::warn
-    end
-    subgraph P["✋ IPS — in the path, traffic passes through it"]
-        A2["😈 Attack"]:::bad --> IPS["✋ IPS"]:::good -.-x|"❌ BLOCKED"| T2["🖥️ Target<br/>safe"]:::good
-    end
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -308,24 +278,7 @@ IDS:
 
 > Can produce **false positives**.
 
-```mermaid
-flowchart TD
-    subgraph SIG["📋 SIGNATURE-BASED"]
-        S1["📦 Traffic"]:::info --> S2{"Matches a known<br/>attack pattern?"}:::warn
-        S2 -->|"yes"| S3["🚨 Alert<br/>✅ great for KNOWN attacks"]:::good
-        S2 -->|"no"| S4["😴 No alert<br/>⚠️ misses NEW attacks"]:::bad
-    end
-    subgraph ANO["📊 ANOMALY-BASED"]
-        A1["📈 Baseline:<br/>100 requests/min"]:::info --> A2{"Big deviation<br/>from normal?"}:::warn
-        A2 -->|"100,000/min!"| A3["🚨 Alert<br/>✅ can catch UNKNOWN attacks"]:::good
-        A2 -.->|"unusual but legit"| A4["⚠️ False positives"]:::bad
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -478,16 +431,7 @@ A **host IDS** might be installed directly on:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    T["🌐 Traffic / 🖥️ host activity"]:::info --> IDS["🕵️ IDS<br/>NIDS · HIDS<br/>📋 signature · 📊 anomaly"]:::warn --> AL["🚨 ALERT<br/>👀 I SEE!"]:::bad
-    AL -.->|"blocking = IPS ✋ I STOP!"| X["❌"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 > 🕵️ **IDS = Intrusion Detection System**
 

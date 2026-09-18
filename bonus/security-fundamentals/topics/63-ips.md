@@ -59,21 +59,7 @@ So an IPS isn't just watching.
 
 > **It takes action.**
 
-```mermaid
-flowchart TD
-    T["📦 Traffic passes through"]:::info --> I{"🛡️ IPS inspects<br/>looks like an attack?"}:::warn
-    I -->|"no"| OK["✅ Forward to network"]:::good
-    I -->|"yes"| ACT["✋ TAKE ACTION"]:::bad
-    ACT --> A1["❌ Drop packets"]:::bad
-    ACT --> A2["🚫 Block IP / session"]:::bad
-    ACT --> A3["🛑 Terminate connection"]:::bad
-    ACT --> A4["📢 Alert security team"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -176,21 +162,7 @@ Because:
 
 > **If the IPS wants to block traffic, the traffic needs to pass through it.**
 
-```mermaid
-flowchart LR
-    subgraph OOB["🕵️ IDS — OUT OF BAND (watches a copy)"]
-        A1["😈 Attack"]:::bad ==> S1["🖥️ Server<br/>💥 still hit"]:::bad
-        A1 -.->|"📋 copy of traffic"| D["🕵️ IDS"]:::warn --> AL["🚨 Alert only"]:::warn
-    end
-    subgraph INL["🛡️ IPS — INLINE (traffic must pass through)"]
-        A2["😈 Attack"]:::bad ==> P["🛡️ IPS"]:::good
-        P -.-x|"❌ dropped"| S2["🖥️ Server<br/>✅ protected"]:::good
-    end
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -280,19 +252,7 @@ That's a:
 
 > **False negative**
 
-```mermaid
-flowchart TD
-    subgraph FP["⚠️ FALSE POSITIVE — IPS is too strict"]
-        U["👨‍💻 Legitimate user"]:::good --> IP1["🛡️ IPS<br/>'looks suspicious!'"]:::warn --> B["❌ BLOCKED<br/>💼 business disrupted"]:::bad
-    end
-    subgraph FN["😴 FALSE NEGATIVE — IPS misses it"]
-        X["😈 Real attack"]:::bad --> IP2["🛡️ IPS<br/>'looks fine'"]:::warn --> S["🖥️ Server<br/>💥 compromised"]:::bad
-    end
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -328,14 +288,7 @@ Example:
 
 They **can work together**:
 
-```mermaid
-flowchart LR
-    I["🌐 Internet"]:::info --> FW["🧱 Firewall<br/>'Allowed port/IP?'<br/>TCP 443 ✅ · TCP 23 ❌"]:::warn --> IPS["🛡️ IPS<br/>'Allowed traffic —<br/>but is it an attack?'"]:::good --> N["🏢 Network"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -469,17 +422,7 @@ Protects a network by **inspecting network traffic**.
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    T["📦 Traffic"]:::info ==>|"inline 🔌"| IPS{"🛡️ IPS<br/>📋 signature · 📊 anomaly"}:::warn
-    IPS -->|"clean"| OK["✅ Pass"]:::good
-    IPS -->|"attack"| NO["✋ Block · drop · terminate<br/>+ 🚨 alert"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🛡️ **IPS = Intrusion Prevention System**
 

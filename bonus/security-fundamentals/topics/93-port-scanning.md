@@ -65,18 +65,7 @@ For example:
 
 The results reveal the machine's **attack surface**.
 
-```mermaid
-flowchart LR
-    subgraph ATK["😈 ATTACKER — reconnaissance"]
-        A1["🔍 Scan target"]:::bad --> A2["📋 Open ports = doors to try"]:::bad --> A3["💥 Pick a service to attack"]:::bad
-    end
-    subgraph DEF["🛡️ DEFENDER — know your exposure"]
-        D1["🔍 Scan own servers"]:::good --> D2["📋 Find unexpected open ports"]:::good --> D3["🔒 Close / firewall them"]:::good
-    end
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 > 🧠 **Same tool, different intent** — attackers scan to find a way in; defenders scan to shrink the attack surface.
 
@@ -142,18 +131,7 @@ Grog **doesn't know** whether someone is behind the door.
 | 🔴 **Closed** | Host reachable, but no service listening |
 | 🟡 **Filtered** | Filtering prevents determining the state |
 
-```mermaid
-flowchart TD
-    K["🪨 Scanner knocks on a port<br/>(sends TCP SYN)"]:::info --> R{"What comes back?"}:::warn
-    R -->|"SYN-ACK<br/>'come in!'"| O["🟢 OPEN<br/>service is listening"]:::good
-    R -->|"RST<br/>'nobody here'"| C["🔴 CLOSED<br/>host reachable, no service"]:::bad
-    R -->|"nothing / blocked<br/>'...silence...'"| F["🟡 FILTERED<br/>🧱 firewall hides the answer"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### Exam clue:
 
@@ -221,22 +199,7 @@ Think:
 
 > 📦 **"Grog throws a message through the door and waits to see what happens."**
 
-```mermaid
-sequenceDiagram
-    participant S as 🔍 Scanner
-    participant T as 🖥️ Target :22
-    Note over S,T: 🤝 TCP CONNECT SCAN — full handshake
-    S->>T: SYN
-    T->>S: SYN-ACK (open!)
-    S->>T: ACK — connection completed
-    Note over S,T: 👊 SYN SCAN — "half-open"
-    S->>T: SYN
-    T->>S: SYN-ACK (open!)
-    S->>T: RST — never finishes the connection
-    Note over S,T: 📦 UDP SCAN — no handshake to watch
-    S->>T: UDP message
-    Note over S: Silence = open? filtered? hard to tell
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -308,16 +271,7 @@ Then:
 443 → 🟢
 ```
 
-```mermaid
-flowchart LR
-    N["🌐 NETWORK SCAN<br/>'which caves exist?'<br/>10.0.0.1 🟢 · 10.0.0.2 🟢 · 10.0.0.3 🔴"]:::info
-    N --> P["🔍 PORT SCAN<br/>'which doors are open?'<br/>10.0.0.1 → 22 · 80 · 443 🟢"]:::warn
-    P --> V["🧪 VULNERABILITY SCAN<br/>'is anything behind the door weak?'<br/>443 → outdated web server ⚠️"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -436,17 +390,7 @@ HTTPS     → 🌐 Application service → Layer 7
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    G["🪨 Knock on the door<br/>🔍 port scan"]:::info --> O["🟢 Open<br/>someone answers"]:::good
-    G --> C["🔴 Closed<br/>nobody home"]:::bad
-    G --> F["🟡 Filtered<br/>🧱 guard blocks the knock"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🔍 **Port scanning = find open/closed/filtered ports**
 

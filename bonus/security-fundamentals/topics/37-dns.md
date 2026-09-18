@@ -20,14 +20,7 @@ DNS exists to bridge this gap. It lets people use simple, memorable names, while
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-sequenceDiagram
-    participant U as 🖥️ Your Device
-    participant D as 📖 DNS Server
-    U->>D: "What's the IP address for example.com?"
-    D->>U: "It's 203.0.113.45"
-    U->>U: Now connects directly using that IP address
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step, at a basic level:
 
@@ -38,14 +31,7 @@ Step by step, at a basic level:
 
 🔍 This process at a high level is called **DNS resolution**, and it involves more steps and different types of servers working together behind the scenes — this is covered in full detail in the upcoming [DNS Resolution](46-dns-resolution.md) topic. For now, the important idea is simply: DNS is the system that converts names into addresses.
 
-```mermaid
-flowchart LR
-    Name["🏷️ example.com"]:::info --> DNS["📖 DNS"]:::warn --> IP["🌐 203.0.113.45"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -65,14 +51,7 @@ You type `example.com` into your browser:
 3. The DNS server responds: "203.0.113.45."
 4. Your browser now connects directly to `203.0.113.45` to actually load the website.
 
-```mermaid
-flowchart TB
-    You["🧑 You type:<br/>example.com"]:::info --> DNS["📖 DNS lookup"]:::warn --> Site["🌍 Connects to<br/>203.0.113.45"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If DNS didn't exist, you would need to type `203.0.113.45` directly into your browser every time you wanted to visit that particular website — and remember a completely different number for every other website too.
 
@@ -130,14 +109,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    Name["🏷️ Domain Name"]:::info --> DNS["📖 DNS"]:::warn --> IP["🌐 IP Address"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - DNS translates human-friendly domain names into the IP addresses computers actually use.
 - It exists because IP addresses are impractical for people to remember at scale.

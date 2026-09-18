@@ -50,23 +50,7 @@ The goal is usually:
 
 > **Collect information secretly.**
 
-```mermaid
-flowchart LR
-    subgraph PC["💻 Victim's computer — everything looks normal 😊"]
-        B["🌐 Browsing"]:::info
-        C["🔑 Credentials"]:::info
-        P["📋 Personal info"]:::info
-        E["📧 Emails / messages"]:::info
-        F["📁 Sensitive files"]:::info
-        K["⌨️ Keystrokes"]:::info
-        S["🕵️ SPYWARE<br/>hidden, silent"]:::bad
-        B & C & P & E & F & K -.-> S
-    end
-    S ==>|"📡 quietly sends out"| A["👤 Attacker"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -121,18 +105,7 @@ A keylogger can therefore be used as a **form of spyware**.
 💰 Pay
 ```
 
-```mermaid
-flowchart LR
-    subgraph SPY["🕵️ SPYWARE — wants you NOT to notice"]
-        S1["📁 Your data"]:::info -->|"📡 copied out silently"| S2["👤 Attacker has it<br/>you keep using the PC 😊"]:::bad
-    end
-    subgraph RAN["🔒 RANSOMWARE — wants you TO notice"]
-        R1["📁 Your data"]:::info -->|"🔐 encrypted"| R2["🚨 Ransom note on screen<br/>💰 PAY!"]:::bad
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -152,16 +125,7 @@ flowchart LR
 | Can monitor browsing? | ✅ | ❌ Not necessarily |
 | Keylogger can be spyware? | — | ✅ |
 
-```mermaid
-flowchart TD
-    SP["🕵️ SPYWARE<br/>broad: secretly watches + collects"]:::bad
-    SP --> KL["⌨️ Keylogger<br/>specific: records typing"]:::warn
-    SP --> BR["🌐 Browsing tracker"]:::warn
-    SP --> SC["🖥️ Screen / file capture"]:::warn
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### Exam trick:
 
@@ -251,19 +215,7 @@ They are **not the same thing**.
 
 When you see **"Secretly monitors"**, **"Secretly collects information"** or **"Tracks user activity"** → 🕵️ **SPYWARE**
 
-```mermaid
-flowchart TD
-    Q["📖 Keyword in the question?"]:::info
-    Q -->|"secretly monitors ·<br/>collects info · tracks activity"| S["🕵️ SPYWARE"]:::bad
-    Q -->|"records every keystroke"| K["⌨️ KEYLOGGER"]:::warn
-    Q -->|"encrypts + demands payment"| R["🔒 RANSOMWARE"]:::bad
-    Q -->|"pretends to be legitimate"| T["🐴 TROJAN"]:::warn
-    Q -->|"spreads by itself"| W["🪱 WORM"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Compare:
 
@@ -309,13 +261,7 @@ Compare:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    U["👤 User works normally 😊"]:::info --> S["🕵️ Spyware watches silently<br/>🌐 browsing · 🔑 passwords · ⌨️ typing"]:::bad ==>|"📡"| A["👤 Attacker"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🕵️ **Spyware = secretly watches + collects**
 

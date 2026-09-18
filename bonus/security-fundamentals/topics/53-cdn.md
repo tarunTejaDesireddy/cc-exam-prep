@@ -21,18 +21,7 @@ If Grog always gets files from America:
 
 Instead, a CDN keeps **cached copies of content in locations around the world**:
 
-```mermaid
-flowchart TD
-    O["🏠 Origin server 🇺🇸"]:::info --> E1["📍 Edge — Europe"]:::good
-    O --> E2["📍 Edge — Middle East"]:::good
-    O --> E3["📍 Edge — Asia"]:::good
-    G["🪨 Grog 🇶🇦"]:::warn ==>|"⚡ short trip"| E2
-    G -.->|"🐢 long trip (without CDN)"| O
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Grog can receive content from a **nearby CDN location**.
 
@@ -182,19 +171,7 @@ The CDN gets the content from the origin.
 
 The CDN may then **cache it for future users**.
 
-```mermaid
-flowchart TD
-    U["🪨 GET /image.jpg"]:::info --> E{"📍 Edge server<br/>in cache?"}:::warn
-    E -->|"✅ YES — cache hit"| H["⚡ Return cached copy<br/>origin not touched"]:::good
-    E -->|"❌ NO — cache miss"| O["🏠 Fetch from origin"]:::bad
-    O --> C["📦 Store in edge cache"]:::warn --> R["📤 Return to user"]:::good
-    C -.->|"next user = cache hit"| H
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -236,24 +213,7 @@ Main job:
 
 > **Deliver cached content from locations closer to users.**
 
-```mermaid
-flowchart LR
-    subgraph LB["⚖️ LOAD BALANCER — spread the WORK"]
-        U1["🌐 Users"]:::info --> B["⚖️ LB<br/>one site"]:::warn
-        B --> S1["🖥️ Server 1"]:::good
-        B --> S2["🖥️ Server 2"]:::good
-        B --> S3["🖥️ Server 3"]:::good
-    end
-    subgraph CDN["🌍 CDN — spread the CONTENT"]
-        U2["🇪🇺 User"]:::info --> EU["📍 Europe edge 📦"]:::good
-        U3["🇶🇦 User"]:::info --> ME["📍 Middle East edge 📦"]:::good
-        U4["🇯🇵 User"]:::info --> AS["📍 Asia edge 📦"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -295,18 +255,7 @@ Some CDN providers offer a **Web Application Firewall**.
 
 CDNs can often **terminate HTTPS/TLS connections at the edge**.
 
-```mermaid
-flowchart LR
-    A["😈 DDoS flood"]:::bad --> E["📍 CDN edge<br/>🧱 DDoS filtering · 🛡️ WAF<br/>🔐 TLS termination"]:::warn
-    U["👤 Real users"]:::info -->|"🔐 HTTPS"| E
-    E -->|"✅ clean traffic only"| O["🏠 Origin server"]:::good
-    A -.-x|"blocked before origin"| O
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -421,17 +370,7 @@ So think:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    U["🪨 User"]:::info --> E{"📍 Nearby edge<br/>cached?"}:::warn
-    E -->|"✅ hit"| F["⚡ Fast reply"]:::good
-    E -->|"❌ miss"| O["🏠 Origin"]:::bad --> F
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🌍 **CDN = Content Delivery Network**
 

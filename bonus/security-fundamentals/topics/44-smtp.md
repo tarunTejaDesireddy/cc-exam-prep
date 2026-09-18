@@ -21,14 +21,7 @@ SMTP is mainly for:
 
 For example:
 
-```mermaid
-flowchart LR
-    A["👤 Alice<br/>email client"]:::info -->|"📤 SMTP<br/>submission"| M1["📧 Alice's mail server"]:::warn -->|"📤 SMTP<br/>relay"| M2["📧 Bob's mail server"]:::warn -->|"📥 IMAP / POP3<br/>read"| B["👤 Bob<br/>email client"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 So SMTP is involved when:
 
@@ -89,17 +82,7 @@ But if the question specifically says **secure/authenticated mail submission**, 
 
 > **587** (commonly)
 
-```mermaid
-flowchart TD
-    Q{"📧 Which SMTP job?"}:::warn
-    Q -->|"server → server relay"| P25["TCP 25"]:::info
-    Q -->|"client submits,<br/>authenticated"| P587["TCP 587<br/>+ STARTTLS"]:::good
-    Q -->|"client submits over<br/>implicit TLS"| P465["TCP 465"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -119,16 +102,7 @@ You may see:
 
 This allows a connection to be **upgraded to TLS**.
 
-```mermaid
-sequenceDiagram
-    participant C as 📧 Client / server
-    participant S as 📧 Mail server
-    C->>S: Connect (plain SMTP)
-    S->>C: Hello — I support STARTTLS
-    C->>S: STARTTLS
-    Note over C,S: 🔐 TLS handshake — connection upgraded
-    C->>S: 🔐 AUTH + message, now encrypted
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -165,18 +139,7 @@ Modern email security uses mechanisms such as:
 
 to help address sender authentication and spoofing.
 
-```mermaid
-flowchart LR
-    ATK["😈 Attacker's server"]:::bad -->|"From: bank@example.com<br/>(forged)"| RS["📧 Recipient's mail server"]:::warn
-    RS --> CHK{"SPF · DKIM · DMARC<br/>checks"}:::info
-    CHK -->|"pass"| IN["📥 Inbox"]:::good
-    CHK -->|"fail"| JUNK["🚫 Reject / quarantine"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 For a basic SMTP question, however:
 
@@ -194,14 +157,7 @@ It normally uses TCP for transport.
 
 Simplified:
 
-```mermaid
-flowchart TD
-    A["📧 SMTP — Layer 7"]:::info --> T["🚚 TCP — Layer 4"]:::warn --> I["🌐 IP — Layer 3"]:::good --> N["🔌 Network — Layers 2/1"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 
@@ -303,14 +259,7 @@ Secure variants commonly use:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    S["📤 SMTP<br/>SEND · 25 / 587 / 465"]:::info --> MS["📧 Mail servers"]:::warn --> R["📥 IMAP 143/993 · POP3 110/995<br/>READ"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 > 📤 **SMTP = SEND**
 

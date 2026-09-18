@@ -11,15 +11,7 @@ Think:
 > 🪨 Grog is far away from the server cave.<br>
 > Instead of walking there, he opens a **secure remote tunnel** and controls the computer from his own cave.
 
-```mermaid
-flowchart LR
-    G["💻 Grog's laptop<br/>SSH client"]:::info ==>|"🔐 encrypted tunnel<br/>TCP 22"| S["🖥️ Linux server<br/>SSH server"]:::good
-    A["🕵️ Attacker"]:::bad -.->|"sees only scrambled data"| G
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -65,15 +57,7 @@ A user can authenticate using:
 - 🔑 SSH keys
 - Other supported authentication mechanisms
 
-```mermaid
-flowchart TD
-    S["🔐 SSH"]:::info --> C["🔒 Confidentiality<br/>session encrypted"]:::good
-    S --> I["🛡️ Integrity<br/>tampering detected"]:::good
-    S --> A["🪪 Authentication<br/>password · SSH keys"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -97,17 +81,7 @@ Think:
 
 The server can verify that Grog possesses the corresponding private key **without Grog sending the private key across the network**.
 
-```mermaid
-sequenceDiagram
-    participant G as 💻 Grog (🔑 private key stays here)
-    participant S as 🖥️ Server (🔓 Grog's public key stored)
-    G->>S: I want to log in as grog
-    S->>G: Prove it — sign this challenge 🎲
-    Note over G: Signs challenge<br/>with private key
-    G->>S: Signed challenge ✍️
-    Note over S: Checks signature<br/>with public key
-    S->>G: ✅ Logged in — private key never left Grog's laptop
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 > [!WARNING]
 > **Never share the private key.**
@@ -150,14 +124,7 @@ It runs over TCP.
 
 Simplified:
 
-```mermaid
-flowchart TD
-    A["🖥️ SSH — Layer 7"]:::info --> T["🚚 TCP 22 — Layer 4"]:::warn --> I["🌍 IP — Layer 3"]:::good --> N["🔌 Network access — Layers 2/1"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -205,20 +172,7 @@ Therefore:
 
 > **SSH replaced Telnet for secure remote administration.**
 
-```mermaid
-flowchart LR
-    subgraph T["🔴 Telnet — TCP 23"]
-        A1["💻 Admin"]:::info -->|"user=admin pass=12345<br/>plaintext"| X1["🕵️ Attacker reads it"]:::bad --> S1["🖥️ Server"]:::info
-    end
-    subgraph S["🟢 SSH — TCP 22"]
-        A2["💻 Admin"]:::info -->|"k#8Q!x2...<br/>encrypted"| X2["🕵️ Attacker sees gibberish"]:::warn --> S2["🖥️ Server"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 
@@ -246,17 +200,7 @@ Don't confuse:
 
 SFTP is a **different protocol that operates over SSH**.
 
-```mermaid
-flowchart TD
-    SSH["🔐 SSH<br/>TCP 22"]:::info --> SH["🖥️ Remote shell<br/>run commands"]:::good
-    SSH --> SCP["📄 SCP<br/>copy files"]:::good
-    SSH --> SFTP["📁 SFTP<br/>file transfer protocol"]:::good
-    FTP["📂 FTP<br/>TCP 21 · plaintext<br/>NOT related to SFTP"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 ---
 
@@ -354,14 +298,7 @@ Both use cryptography, but they're designed for **different purposes**.
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    SSH["🔐 SSH<br/>Secure Shell"]:::info --> P["🖥️ Secure remote admin<br/>TCP 22 · Layer 7"]:::good --> K["🔑 Password or key pair<br/>🔒🛡️🪪 encrypted session"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/7.svg" alt="diagram"></p>
 
 > **SSH = Secure Shell** 🔐
 

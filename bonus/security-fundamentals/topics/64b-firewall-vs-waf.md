@@ -116,16 +116,7 @@ For example, it can help detect/block attacks such as:
 | Example | Block TCP 23 | Block SQL injection |
 | Main question | "Should this network traffic pass?" | "Is this web request malicious?" |
 
-```mermaid
-flowchart LR
-    P["📦 One packet arriving"]:::info
-    P --> FW["🧱 FIREWALL reads the envelope<br/>src IP · dst IP · port · protocol · state"]:::warn
-    P --> WAF["🕸️ WAF reads the letter inside<br/>URL · headers · cookies · parameters · body"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -167,20 +158,7 @@ Now suppose the attacker is coming from an **unauthorized IP**:
 
 The firewall can **block the traffic before it reaches the web application**.
 
-```mermaid
-flowchart TD
-    A1["😈 Attacker A<br/>from blocked IP 203.0.113.50"]:::bad --> FW{"🧱 Firewall<br/>IP / port allowed?"}:::warn
-    A2["😈 Attacker B<br/>allowed IP, port 443<br/>SQL injection in form"]:::bad --> FW
-    U["👤 Normal user<br/>allowed IP, port 443"]:::good --> FW
-    FW -->|"❌ blocked IP"| X1["🚫 Stopped at the gate"]:::bad
-    FW -->|"✅ passes"| WAF{"🕸️ WAF<br/>is the request malicious?"}:::warn
-    WAF -->|"❌ SQL injection"| X2["🚫 Stopped by WAF"]:::bad
-    WAF -->|"✅ clean"| APP["🖥️ Web app"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -296,17 +274,7 @@ If it says **"IP / port / protocol / network traffic"** → 🧱 **Firewall**
 | XSS | 🕸️ WAF |
 | URL/HTTP parameters | 🕸️ WAF |
 
-```mermaid
-flowchart TD
-    Q["📖 Keyword in the question?"]:::info
-    Q -->|"IP · port · protocol ·<br/>network traffic"| F["🧱 FIREWALL"]:::warn
-    Q -->|"HTTP · web app · SQLi ·<br/>XSS · URL parameters"| W["🕸️ WAF"]:::good
-    Q -->|"broad attack detection +<br/>blocking on the network"| I["🛡️ IPS"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 

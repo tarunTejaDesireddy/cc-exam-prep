@@ -46,21 +46,7 @@ Suppose you type:
 
 into your browser.
 
-```mermaid
-flowchart TD
-    U["👤 Type www.example.com"]:::info --> B{"1️⃣ Browser cache?"}:::warn
-    B -->|"hit"| OK["✅ Use cached IP"]:::good
-    B -->|"miss"| O{"2️⃣ OS cache?"}:::warn
-    O -->|"hit"| OK
-    O -->|"miss"| R{"3️⃣ Ask DNS resolver<br/>resolver cache?"}:::warn
-    R -->|"hit"| OK
-    R -->|"miss"| H["4️⃣ Resolver walks the hierarchy<br/>Root → TLD → Authoritative"]:::info
-    H --> OK
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ## 1️⃣ Browser checks its own cache
 
@@ -183,24 +169,7 @@ HTTPS connection
 
 # 🧠 The Whole Process
 
-```mermaid
-sequenceDiagram
-    participant C as 🖥️ Computer
-    participant R as 📖 DNS Resolver
-    participant Root as 🌍 Root
-    participant T as 🏷️ TLD (.com)
-    participant A as 🏠 Authoritative DNS
-    C->>R: Where is www.example.com?
-    R->>Root: Where is www.example.com?
-    Root->>R: Don't know — ask the .com servers
-    R->>T: Where is www.example.com?
-    T->>R: Don't know — ask example.com's name servers
-    R->>A: Where is www.example.com?
-    A->>R: 93.184.216.34 (TTL 3600)
-    Note over R: Caches the answer ⏰
-    R->>C: 93.184.216.34
-    C->>C: 🌐 Connect to that IP
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -244,16 +213,7 @@ That's:
 
 > **1 hour**
 
-```mermaid
-flowchart LR
-    Q["❓ First query"]:::info --> F["🌍 Full lookup<br/>root → TLD → authoritative"]:::warn --> C["🧠 Cached<br/>TTL 3600 s"]:::good
-    C -->|"asked again within 1 hour"| H["⚡ Instant answer from cache"]:::good
-    C -->|"TTL expired"| F
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### 🧠 Memory
 
@@ -350,20 +310,7 @@ Don't confuse them with DNSSEC:
 
 > **DoH/DoT = encrypt DNS transport**
 
-```mermaid
-flowchart TD
-    subgraph SEC["🔐 DNSSEC"]
-        S1["✍️ Signed answer<br/>proves it's genuine + untampered"]:::good
-        S2["👀 Query still readable"]:::warn
-    end
-    subgraph ENC["🔒 DoH / DoT"]
-        E1["🔐 Query + answer encrypted<br/>nobody can read them"]:::good
-        E2["⚠️ Doesn't prove the data itself is authentic"]:::warn
-    end
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -437,14 +384,7 @@ HTTPS:
 Connect to that IP
 ```
 
-```mermaid
-flowchart LR
-    D["🪄 DHCP<br/>gives MY device its IP,<br/>gateway, DNS server"]:::info --> N["📖 DNS<br/>finds the IP of<br/>example.com"]:::warn --> H["🌐 HTTPS<br/>connects to that IP"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 
@@ -476,14 +416,7 @@ flowchart LR
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    N["👤 example.com"]:::info --> C["🧠 Cache?"]:::warn --> R["🌍 Root → 🏷️ TLD → 🏠 Authoritative"]:::warn --> IP["🌐 93.184.216.34"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 > 📖 **DNS = Name → Address**
 

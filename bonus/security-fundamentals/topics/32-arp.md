@@ -22,16 +22,7 @@ ARP exists to solve this gap. It provides a standard way for a device to ask, "w
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-sequenceDiagram
-    participant A as 🖥️ Device A (192.168.1.10)
-    participant N as 🌐 Local Network (broadcast)
-    participant B as 🖥️ Device B (192.168.1.20)
-    A->>N: ARP Request: "Who has 192.168.1.20? Tell 192.168.1.10"
-    N->>B: Broadcast reaches every device
-    B->>A: ARP Reply: "192.168.1.20 is at MAC AA:BB:CC:11:22:33"
-    A->>A: Store in ARP cache for future use
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -41,13 +32,7 @@ Step by step:
 4. That device (Device B) replies directly to Device A with its MAC address.
 5. Device A now has what it needs to deliver data directly at the hardware level, and stores this information temporarily in a local **ARP cache**, so it doesn't need to repeat this process for every single message.
 
-```mermaid
-flowchart LR
-    Q["❓ Who has<br/>192.168.1.20?"]:::warn --> Cache["📇 ARP Cache<br/>IP → MAC mappings"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -67,15 +52,7 @@ Device A (`192.168.1.10`) wants to send a file to Device B (`192.168.1.20`) for 
 3. Device B recognizes its own IP address in the request and replies directly: "192.168.1.20 is at MAC AA:BB:CC:11:22:33."
 4. Device A stores this mapping in its ARP cache and uses it to address the file transfer at the hardware level.
 
-```mermaid
-flowchart TB
-    Req["📢 ARP Request<br/>(broadcast)"]:::warn --> All["🖥️🖥️🖥️ Every device<br/>on local network receives it"]:::info
-    All --> Match["✅ Only 192.168.1.20<br/>recognizes itself and replies"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If Device A sends another file to Device B shortly afterward, it can simply reuse the MAC address already stored in its ARP cache, skipping the request-and-reply process entirely — at least until that cache entry eventually expires.
 
@@ -140,14 +117,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    IP["🌐 Known IP Address"]:::info --> ARP["📇 ARP"]:::warn --> MAC["🔧 Discovered MAC Address"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - ARP resolves a known IP address into its corresponding MAC address, on a local network.
 - It works through a broadcast request and a direct reply from the owning device.

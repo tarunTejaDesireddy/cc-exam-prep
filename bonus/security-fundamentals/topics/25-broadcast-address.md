@@ -24,28 +24,13 @@ The broadcast address solves this by providing one predictable destination that 
 
 For a subnet like `192.168.1.0/24`, the broadcast address is `192.168.1.255` — the host portion (the last octet) is entirely set to its maximum value (`255`, meaning all 1s in binary).
 
-```mermaid
-flowchart TB
-    S["📤 Device sends to<br/>192.168.1.255<br/>(Broadcast Address)"]:::warn --> D1["🖥️ Device 1"]:::good
-    S --> D2["🖥️ Device 2"]:::good
-    S --> D3["🖥️ Device 3"]:::good
-    S --> D4["🖥️ Device 4"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Unlike a normal message sent to one specific device's address, a message sent to the broadcast address is delivered to *every* device on that particular subnet at the same time. Just like the network address, the broadcast address is reserved and can never be assigned to an individual device.
 
 What happens if broadcast traffic tries to cross into a different subnet:
 
-```mermaid
-flowchart LR
-    B["📢 Broadcast on<br/>Subnet A"]:::warn -.->|"❌ Does NOT cross<br/>into Subnet B"| R["📡 Router"]:::bad
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 By default, routers do not forward broadcast traffic from one subnet into another — broadcasts stay contained within their own local subnet. This is actually one of the benefits of [subnetting](23-subnetting.md): it limits how far broadcast traffic can spread.
 
@@ -67,13 +52,7 @@ Usable range:        192.168.1.1 to 192.168.1.254
 Broadcast Address:  192.168.1.255  (reaches every device on this subnet)
 ```
 
-```mermaid
-flowchart LR
-    NA["🏷️ .0<br/>Network Address"]:::warn --> U["💻 .1 - .254<br/>Usable Addresses"]:::good --> BC["📢 .255<br/>Broadcast Address"]:::warn
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If a new device joins this network and needs to find a DHCP server to obtain an IP address (a process covered in a later topic), it can send a request to `192.168.1.255`, and every device on the subnet — including the DHCP server — will receive it, even though the new device doesn't yet know the DHCP server's specific address.
 
@@ -127,13 +106,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    NA["🏷️ Network Address<br/>(all host bits = 0)"]:::warn
-    BC["📢 Broadcast Address<br/>(all host bits = 1)"]:::warn
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - The broadcast address delivers data to every device on a subnet at once.
 - It is identified by all host bits being set to one (e.g., 192.168.1.255 for a /24 subnet).

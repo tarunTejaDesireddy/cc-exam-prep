@@ -65,17 +65,7 @@ Usually **between the client and the web application**:
 
 The request **must pass through the WAF** before reaching the application.
 
-```mermaid
-flowchart LR
-    U["👤 Normal user<br/>GET /products"]:::good --> W{"🕸️ WAF<br/>inspects every<br/>HTTP/HTTPS request"}:::warn
-    A["😈 Attacker<br/>' OR 1=1 --"]:::bad --> W
-    W -->|"✅ clean"| S["🖥️ Web server"]:::good --> D["🗄️ Database"]:::good
-    W -->|"❌ SQL injection pattern"| X["🚫 Blocked<br/>never reaches the app"]:::bad
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -103,20 +93,7 @@ The WAF examines the request and asks:
 
 > 🕸️ **"Does this look like an attack?"**
 
-```mermaid
-flowchart TD
-    R["📨 ONE HTTP REQUEST"]:::info
-    R --> M["🔵 Method<br/>GET · POST"]:::warn
-    R --> U["📍 URL + query params<br/>/search?q=..."]:::warn
-    R --> H["🏷️ Headers"]:::warn
-    R --> C["🍪 Cookies"]:::warn
-    R --> B["📦 Body / form input<br/>username=..."]:::warn
-    M & U & H & C & B --> Q{"🕸️ Does any part<br/>look like an attack?"}:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -181,16 +158,7 @@ Think:
 
 > 🕸️ **WAF = web application traffic**
 
-```mermaid
-flowchart LR
-    REQ["📦 TCP 443 from 203.0.113.9<br/>POST /login<br/>username=' OR 1=1 --"]:::info
-    REQ --> FW["🧱 FIREWALL sees<br/>IP 203.0.113.9 · TCP · port 443<br/>→ ✅ allowed port, let it in"]:::warn
-    FW --> WAF["🕸️ WAF sees<br/>the HTTP body: ' OR 1=1 --<br/>→ ❌ SQL injection, BLOCK"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -277,14 +245,7 @@ A WAF is a **defense layer**, **not a substitute for fixing vulnerable applicati
 
 Think:
 
-```mermaid
-flowchart TD
-    A["😈 Attack"]:::bad --> L1["🧱 Network controls<br/>firewall · IPS"]:::warn --> L2["🕸️ WAF<br/>filters web requests"]:::warn --> L3["🔐 Authentication<br/>+ authorization"]:::warn --> L4["🧑‍💻 Secure code<br/>fixes the real bug"]:::good --> APP["🖥️ Web application"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Good security uses **multiple layers**.
 
@@ -384,17 +345,7 @@ The deployment changes, but the core purpose stays the same:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    I["🌍 Internet"]:::info --> W{"🕸️ WAF · Layer 7<br/>reads HTTP/HTTPS<br/>SQLi · XSS"}:::warn
-    W -->|"clean"| A["🖥️ Web app"]:::good
-    W -->|"malicious"| X["❌ Block"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🕸️ **WAF = Web Application Firewall**
 

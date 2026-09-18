@@ -14,16 +14,7 @@ And remember:
 > 📤 **SMTP sends email**<br>
 > 📥 **IMAP/POP3 receive email**
 
-```mermaid
-flowchart LR
-    A["👤 Sender"]:::info -->|"📤 SMTP<br/>send"| MS["📧 Mail server<br/>mailbox"]:::warn
-    MS -->|"📥 IMAP<br/>access + sync"| D1["📱💻 Many devices<br/>same mailbox"]:::good
-    MS -->|"📥 POP3<br/>download"| D2["💻 One device<br/>local copy"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -156,16 +147,7 @@ Why?
 
 > **IMAP synchronizes the mailbox with the server.**
 
-```mermaid
-sequenceDiagram
-    participant P as 📱 Grog's phone
-    participant S as 📧 Mail server
-    participant L as 💻 Grog's laptop
-    P->>S: IMAP — open "hunting permit" email
-    Note over S: Server marks it READ ✅
-    L->>S: IMAP — sync mailbox
-    S->>L: Same email, already marked READ ✅
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -179,17 +161,7 @@ The message is primarily handled by the local client.
 
 Another device may not have the same mailbox state unless the configuration/server behavior provides for it.
 
-```mermaid
-sequenceDiagram
-    participant L as 💻 Grog's laptop
-    participant S as 📧 Mail server
-    participant P as 📱 Grog's phone
-    L->>S: POP3 — give me my mail
-    S->>L: 📥 Email downloaded to laptop
-    Note over S: Traditionally removed from server<br/>(unless "leave a copy" is set)
-    P->>S: POP3 — give me my mail
-    S->>P: 🤷 Nothing new / no read status
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -227,17 +199,7 @@ It can be useful where simple local retrieval is desired.
 
 → **POP3**
 
-```mermaid
-flowchart TD
-    Q{"📥 What does the<br/>scenario need?"}:::warn
-    Q -->|"sync across phone,<br/>laptop, tablet"| I["📥 IMAP"]:::good
-    Q -->|"download to one<br/>local device"| P["📥 POP3"]:::good
-    Q -->|"send / relay mail"| S["📤 SMTP — not these!"]:::bad
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -281,14 +243,7 @@ Think:
 
 > **IMAPS or POP3S**, depending on which protocol is specified.
 
-```mermaid
-flowchart LR
-    I1["📥 IMAP<br/>TCP 143<br/>plaintext"]:::bad -->|"+ TLS"| I2["🔐 IMAPS<br/>TCP 993"]:::good
-    P1["📥 POP3<br/>TCP 110<br/>plaintext"]:::bad -->|"+ TLS"| P2["🔐 POP3S<br/>TCP 995"]:::good
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 
@@ -320,16 +275,7 @@ flowchart LR
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    S["📤 SMTP<br/>SEND"]:::info
-    I["📥 IMAP<br/>SYNC · 143 / 993"]:::good
-    P["📥 POP3<br/>DOWNLOAD · 110 / 995"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 > 📤 **SMTP = Send**
 

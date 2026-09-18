@@ -28,15 +28,7 @@ Without this layered structure, every device in the world would need to somehow 
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart TB
-    L1["🏠 LAN<br/>Home Network"]:::info --> W["🛣️ WAN<br/>Connects Multiple Locations"]:::info
-    L2["🏢 LAN<br/>Office Network"]:::info --> W
-    W --> I["🌍 Internet<br/>Global Network of Networks"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step, in terms of scale:
 

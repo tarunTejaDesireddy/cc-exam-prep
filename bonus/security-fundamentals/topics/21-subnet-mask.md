@@ -29,18 +29,7 @@ The subnet mask solves this by clearly splitting an IP address into two parts: t
 
 A subnet mask uses the same four-number (octet) format as an IPv4 address, but its purpose is different — it acts as a pattern, marking which bits belong to the network and which belong to the host.
 
-```mermaid
-flowchart TB
-    IP["📍 IP Address<br/>192.168.1.10"]:::info
-    SM["🎭 Subnet Mask<br/>255.255.255.0"]:::warn
-    IP --> N["🌐 Network Portion<br/>192.168.1"]:::good
-    IP --> H["💻 Host Portion<br/>10"]:::good
-    SM -.->|"Defines the split"| N
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 In a subnet mask, a value of `255` in an octet means "this whole part of the address is the network portion." A value of `0` means "this part is available for identifying individual devices (hosts)."
 
@@ -52,17 +41,7 @@ This means any device with an address starting with `192.168.1.` (like `192.168.
 
 What happens without a shared understanding of the network portion:
 
-```mermaid
-flowchart LR
-    A["🖥️ Device A<br/>192.168.1.10"]:::info -- "Is 10.0.0.5 on my<br/>local network?"--> Q{"🎭 Check against<br/>Subnet Mask"}:::warn
-    Q -- "❌ No — different network" --> R["🌐 Must go through<br/>a router"]:::bad
-    Q -- "✅ Yes — same network" --> D["🔗 Deliver directly"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -84,14 +63,7 @@ Two devices on a home network:
 
 Both devices apply the subnet mask `255.255.255.0` to their own address and to each other's address, and find that the network portion (`192.168.1`) matches for both. This tells each device: "this other device is on my same local network — I can talk to it directly."
 
-```mermaid
-flowchart TB
-    A["🖥️ Device A<br/>Network: 192.168.1<br/>Host: 10"]:::info
-    B["🖥️ Device B<br/>Network: 192.168.1<br/>Host: 20"]:::info
-    A -- "Same network portion<br/>→ Direct communication" --> B
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If Device B instead had the IP `192.168.2.20` (a different network portion), Device A would recognize that Device B is on a *different* network, and any communication would need to go through a router rather than happening directly.
 
@@ -154,16 +126,7 @@ inet 192.168.1.10/24
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    IP["192.168.1.10"]:::info --> N["Network: 192.168.1"]:::good
-    IP --> H["Host: 10"]:::good
-    M["Subnet Mask: 255.255.255.0"]:::warn -.-> N
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - A subnet mask splits an IP address into a network portion and a host portion.
 - Devices with matching network portions are on the same local network and can talk directly.

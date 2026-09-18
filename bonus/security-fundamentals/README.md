@@ -37,16 +37,7 @@ Every topic here is a **self-contained lesson** that follows the same promise: r
 
 The path is organized into **29 sections**, grouped into five broad phases — from raw networking basics, through core security thinking, into specialized modern security domains, and finally practical/career skills:
 
-```mermaid
-flowchart TD
-    P1["🌱 Phase 1<br/>Foundations<br/>(Sections 1-2)"]:::done --> P2["🌐 Phase 2<br/>Networking Deep Dive<br/>(Sections 3-8)"]:::todo
-    P2 --> P3["🔐 Phase 3<br/>Security Practices<br/>(Sections 9-13)"]:::todo
-    P3 --> P4["🎯 Phase 4<br/>Specialized Security<br/>(Sections 14-24)"]:::todo
-    P4 --> P5["🎓 Phase 5<br/>Human, Resilience &amp; Career<br/>(Sections 25-29)"]:::todo
-
-    classDef done fill:#22c55e,stroke:#15803d,color:#fff
-    classDef todo fill:#3b82f6,stroke:#1d4ed8,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 🟢 Green = phase in progress or complete &nbsp;·&nbsp; 🔵 Blue = not started yet
 

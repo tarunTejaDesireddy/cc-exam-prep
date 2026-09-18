@@ -22,18 +22,7 @@ Defense in depth exists to reduce this risk. By layering multiple different type
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart TB
-    A["😈 Attacker"]:::bad --> L1["🌐 Layer 1: Firewall"]:::info
-    L1 --> L2["🔐 Layer 2: Strong Authentication"]:::info
-    L2 --> L3["🛡️ Layer 3: Endpoint Protection"]:::info
-    L3 --> L4["📋 Layer 4: Access Control"]:::info
-    L4 --> L5["🔒 Layer 5: Encrypted Data"]:::good
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Defense in depth typically spans several different categories of controls, working together:
 
@@ -47,15 +36,7 @@ Defense in depth typically spans several different categories of controls, worki
 
 If an attacker bypasses the network layer (say, by tricking an employee through phishing rather than breaking through a firewall), the identity and endpoint layers can still stop them — for example, multi-factor authentication blocking the use of a stolen password.
 
-```mermaid
-flowchart LR
-    P["🔴 Firewall Bypassed"]:::bad --> Q["🟡 But MFA Still Blocks Login"]:::warn
-    Q --> S["🟢 Attack Stopped"]:::good
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -75,16 +56,7 @@ Consider a company protecting its customer database:
 - **Layer 3 (Application)**: The application connecting to the database validates all input, preventing attacks like SQL injection (covered in a later topic).
 - **Layer 4 (Data)**: Even if someone did gain access to the raw database files, the sensitive data inside is encrypted.
 
-```mermaid
-flowchart TB
-    D["🗄️ Customer Database"]:::info --> L1["🌐 Firewall"]:::good
-    D --> L2["🔐 MFA-Protected Accounts"]:::good
-    D --> L3["✅ Input Validation"]:::good
-    D --> L4["🔒 Encrypted Data"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If an attacker somehow bypasses the firewall, they would still need valid, MFA-protected credentials. If they somehow got those, the application would still validate their input against common attacks. And even in a worst-case scenario, the actual sensitive data remains encrypted and unreadable without the correct keys.
 
@@ -138,13 +110,7 @@ Each line represents a distinct layer. No single item on this list is expected t
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    L1["🌐 Network"]:::info --> L2["🔐 Identity"]:::info --> L3["🛡️ Endpoint"]:::info --> L4["🔒 Data"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - Defense in depth uses multiple, different layers of security so no single failure leads to a full compromise.
 - Layers can include network, endpoint, identity, application, data, and human/awareness controls.

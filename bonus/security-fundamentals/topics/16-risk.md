@@ -28,31 +28,11 @@ Risk exists as a concept to help make that decision rationally. Instead of treat
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart LR
-    L["📊 Likelihood<br/>(How probable?)"]:::info --> R["⚖️ Risk"]:::warn
-    I["💥 Impact<br/>(How bad?)"]:::info --> R
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Risk is often visualized using a simple grid, comparing likelihood against impact:
 
-```mermaid
-flowchart TB
-    subgraph Grid["Risk Assessment Grid"]
-    direction LR
-    A["🟢 Low Likelihood<br/>Low Impact<br/>= Low Risk"]:::good
-    B["🟡 High Likelihood<br/>Low Impact<br/>= Medium Risk"]:::warn
-    C["🟡 Low Likelihood<br/>High Impact<br/>= Medium Risk"]:::warn
-    D["🔴 High Likelihood<br/>High Impact<br/>= High Risk"]:::bad
-    end
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 Once a risk is identified and measured, organizations generally choose one of a few standard responses:
 
@@ -61,17 +41,7 @@ Once a risk is identified and measured, organizations generally choose one of a 
 3. **Transfer** the risk — shift the burden elsewhere, such as buying cyber insurance.
 4. **Accept** the risk — knowingly decide the risk is low enough, or the cost of addressing it high enough, that no action is taken.
 
-```mermaid
-flowchart TB
-    R["⚖️ Identified Risk"]:::warn --> Av["🚫 Avoid"]:::info
-    R --> Re["🛡️ Reduce"]:::good
-    R --> Tr["📄 Transfer"]:::info
-    R --> Ac["✅ Accept"]:::info
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -89,14 +59,7 @@ Consider a small company evaluating two different issues:
 - **Issue A**: An old, rarely-used internal tool has a known vulnerability, but it is only accessible from inside the office network, and contains no sensitive data. Likelihood of exploitation: low. Impact if exploited: low. **Risk: Low.**
 - **Issue B**: The company's customer database, containing credit card numbers, is missing a critical security patch and is reachable from the internet. Likelihood of exploitation: high. Impact if exploited: very high (financial loss, legal consequences, reputational damage). **Risk: High.**
 
-```mermaid
-flowchart LR
-    A["🟢 Old internal tool<br/>Low likelihood, low impact"]:::good
-    B["🔴 Customer database<br/>High likelihood, high impact"]:::bad
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Even though both issues are technically vulnerabilities, the risk they represent is very different. A security team with limited time should fix Issue B first, because its risk is far higher.
 
@@ -153,14 +116,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    L["📊 Likelihood"]:::info --> R["⚖️ Risk"]:::warn
-    I["💥 Impact"]:::info --> R
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 - Risk combines likelihood (how probable) and impact (how bad) into one measure.
 - Risk helps prioritize limited security resources toward the most serious problems first.

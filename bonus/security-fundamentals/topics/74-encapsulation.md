@@ -51,19 +51,7 @@ Imagine putting a letter into **several envelopes**:
 
 Each layer **adds information needed for its job**.
 
-```mermaid
-flowchart TD
-    D["📄 DATA<br/>'ME WANT FOOD'"]:::info
-    D -->|"➕ TCP header<br/>🔢 ports · sequence"| S["📦 SEGMENT<br/>[TCP | DATA]"]:::good
-    S -->|"➕ IP header<br/>🌐 src/dst IP"| P["📦 PACKET<br/>[IP | TCP | DATA]"]:::warn
-    P -->|"➕ Ethernet header + trailer<br/>🏷️ src/dst MAC · error check"| F["🖼️ FRAME<br/>[ETH | IP | TCP | DATA | ETH]"]:::bad
-    F -->|"➡️ converted to signals"| B["⚡ BITS<br/>0101101010…"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -232,21 +220,7 @@ So:
 
 > 📤 **Decapsulation = remove information**
 
-```mermaid
-flowchart LR
-    subgraph SEND["💻 SENDER — ENCAPSULATION ⬇️ add"]
-        S1["📄 Data"]:::info --> S2["📦 Segment"]:::good --> S3["📦 Packet"]:::warn --> S4["🖼️ Frame"]:::bad --> S5["⚡ Bits"]:::bad
-    end
-    subgraph RECV["🖥️ RECEIVER — DECAPSULATION ⬆️ remove"]
-        R5["⚡ Bits"]:::bad --> R4["🖼️ Frame"]:::bad --> R3["📦 Packet"]:::warn --> R2["📦 Segment"]:::good --> R1["📄 Data"]:::info
-    end
-    S5 ==>|"🌐 across the network"| R5
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -346,18 +320,7 @@ So each layer **adds its own information**.
 
 It's like **wrapping a package multiple times**.
 
-```mermaid
-flowchart LR
-    subgraph ETH["🖼️ ETHERNET — 🏷️ MAC: which local device?"]
-        subgraph IP["📦 IP — 🌐 IP address: which computer/network?"]
-            subgraph TCP["📦 TCP — 🔢 port: which application?"]
-                DATA["📄 DATA<br/>ME WANT FOOD"]:::info
-            end
-        end
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 

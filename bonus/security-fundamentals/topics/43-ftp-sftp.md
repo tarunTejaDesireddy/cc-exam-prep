@@ -9,20 +9,7 @@ The exam trick is:
 > **FTP = file transfer, but not securely encrypted by itself**<br>
 > **SFTP = secure file transfer over SSH**
 
-```mermaid
-flowchart LR
-    subgraph F["📁 FTP — TCP 21"]
-        C1["🖥️ Client"]:::info -->|"user · password · files<br/>plaintext"| A1["🕵️ Attacker reads it"]:::bad --> S1["🗄️ FTP server"]:::info
-    end
-    subgraph S["🔐 SFTP — TCP 22"]
-        C2["🖥️ Client"]:::info -->|"🔐 inside SSH<br/>encrypted"| A2["🕵️ Attacker sees gibberish"]:::warn --> S2["🗄️ SFTP server"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -66,14 +53,7 @@ For exam purposes, the key fact is:
 
 > **FTP = TCP 21**
 
-```mermaid
-flowchart LR
-    C["🖥️ Client"]:::info -->|"🎛️ control: commands + login<br/>TCP 21"| S["🗄️ FTP server"]:::warn
-    S -->|"📦 data: the files<br/>TCP 20 (active mode)"| C
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -166,20 +146,7 @@ So:
 
 They provide secure file transfer in different ways.
 
-```mermaid
-flowchart TD
-    Q["📁 Need to transfer files"]:::info
-    Q --> FTP["📁 FTP<br/>TCP 21<br/>❌ no encryption"]:::bad
-    Q --> SFTP["🔐 SFTP<br/>runs over SSH<br/>TCP 22"]:::good
-    Q --> FTPS["🔒 FTPS<br/>FTP + TLS"]:::good
-    FTP -.->|"add TLS"| FTPS
-    SSH["🔐 SSH"]:::warn -.->|"different family"| SFTP
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -223,18 +190,7 @@ If it specifically mentions **TLS**:
 
 → **FTPS**
 
-```mermaid
-flowchart TD
-    S["🔍 Secure file transfer scenario"]:::info --> Q{"Which technology<br/>is mentioned?"}:::warn
-    Q -->|"SSH"| A["🔐 SFTP"]:::good
-    Q -->|"TLS"| B["🔒 FTPS"]:::good
-    Q -->|"no encryption"| C["📁 FTP"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -282,15 +238,7 @@ flowchart TD
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    F["📁 FTP<br/>TCP 21 · plaintext"]:::bad
-    S["🔐 SFTP<br/>TCP 22 · over SSH"]:::good
-    T["🔒 FTPS<br/>FTP + TLS"]:::good
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > **FTP → 21 → No encryption by default**
 

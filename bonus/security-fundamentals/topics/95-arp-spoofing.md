@@ -52,16 +52,7 @@ So:
 
 > **ARP maps an IPv4 address to a MAC address on the local network.**
 
-```mermaid
-sequenceDiagram
-    participant G as 💻 Grog
-    participant ALL as 📢 Whole LAN
-    participant R as 🌐 Router 192.168.1.1
-    G->>ALL: 📢 "Who has 192.168.1.1?"
-    R->>G: "That's me! My MAC is RR:RR:RR"
-    Note over G: 📋 ARP cache<br/>192.168.1.1 → RR:RR:RR ✅
-    G->>R: 📦 Traffic to the real router
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -95,19 +86,7 @@ AA:AA:AA   ← Attacker's MAC 😈
 
 Now traffic intended for the router **may be sent to the attacker**.
 
-```mermaid
-sequenceDiagram
-    participant G as 💻 Grog
-    participant A as 😈 Attacker AA:AA:AA
-    participant R as 🌐 Router RR:RR:RR
-    A->>G: 🎭 Fake ARP: "192.168.1.1 is at AA:AA:AA"
-    Note over G: 📋 ARP cache POISONED<br/>192.168.1.1 → AA:AA:AA ❌
-    G->>A: 📦 Traffic meant for the router
-    Note over A: 👀 read · ✏️ modify · 📝 log
-    A->>R: 📦 Forwards it on (so nobody notices)
-    R->>A: 📦 Reply
-    A->>G: 📦 Reply
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -173,20 +152,7 @@ So:
 
 > **ARP spoofing does not automatically defeat HTTPS.**
 
-```mermaid
-flowchart LR
-    subgraph P["🔓 HTTP through the attacker"]
-        G1["💻 Grog"]:::info --> A1["😈 Attacker<br/>👀 reads password<br/>✏️ can change page"]:::bad --> R1["🌐 Router"]:::info
-    end
-    subgraph S["🔒 HTTPS through the attacker"]
-        G2["💻 Grog"]:::info --> A2["😈 Attacker<br/>📦 captures packets<br/>❓ content unreadable<br/>🚨 tampering breaks TLS"]:::warn --> R2["🌐 Router"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -271,15 +237,7 @@ So:
 
 > **ARP spoofing can help an attacker get into a position where traffic can be intercepted.**
 
-```mermaid
-flowchart LR
-    AS["🎭 ARP SPOOFING<br/>lie: 'I am the gateway'"]:::bad --> RD["↪️ Victim's traffic<br/>now flows via attacker"]:::bad --> SN["👃 PACKET SNIFFING<br/>capture it"]:::warn --> MITM["👤 MAN-IN-THE-MIDDLE<br/>read / modify"]:::bad
-    IP["🎭 IP SPOOFING<br/>fake SOURCE IP on a packet<br/>(different attack)"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -311,20 +269,7 @@ Those bindings can then **support controls such as Dynamic ARP Inspection**.
 
 HTTPS/TLS, SSH, VPNs, etc. **help protect data even if traffic is intercepted**.
 
-```mermaid
-flowchart TD
-    DH["🔀 DHCP SNOOPING<br/>watches DHCP → builds trusted table<br/>IP + MAC + switch port"]:::info
-    DH --> T["📋 Binding table<br/>192.168.1.1 → RR:RR:RR · port 1"]:::info
-    T --> DAI{"🔒 DYNAMIC ARP INSPECTION<br/>does this ARP message<br/>match the table?"}:::warn
-    F["🎭 Fake ARP from port 7:<br/>'192.168.1.1 is at AA:AA:AA'"]:::bad --> DAI
-    DAI -->|"❌ mismatch"| DROP["🗑️ Dropped · 🚨 logged"]:::good
-    DAI -->|"✅ matches"| OK["📨 Forwarded"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 

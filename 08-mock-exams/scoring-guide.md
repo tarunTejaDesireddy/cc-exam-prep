@@ -40,20 +40,7 @@ Not 70%. Three reasons, and all three are real:
 
 ### The four miss types
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    M["❌ A miss"] --> A["1 · DIDN'T KNOW<br/>never learned it<br/>→ read the topic"]
-    M --> B["2 · MISREAD THE QUALIFIER<br/>FIRST · BEST · NOT<br/>→ answering-technique"]
-    M --> C["3 · ANSWERED LIKE A PRACTITIONER<br/>operationally right<br/>→ how-isc2-thinks"]
-    M --> D["4 · CONFUSED A PAIR<br/>RTO/RPO, DAC/MAC...<br/>→ most-confused-pairs"]
-
-    style M fill:#3a1a20,stroke:#E03131,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style B fill:#3a2c12,stroke:#F08C00,color:#fff
-    style C fill:#3a1a20,stroke:#E03131,color:#fff
-    style D fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Each type needs a completely different fix**, which is why the count alone is almost useless:
 
@@ -106,20 +93,7 @@ the raw count — 6 misses out of 24 in Domain 1 is better than 6 out of 17 in D
 
 ## 📈 Tracking across the three papers
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    M1["📝 MOCK 1<br/>end of week 5<br/>DIAGNOSTIC<br/>expect mediocre"] --> R1["📚 Weeks 6–7<br/>targeted repair"]
-    R1 --> M2["📝 MOCK 2<br/>week 7<br/>THE REAL SIGNAL"]
-    M2 --> R2["📚 Final gaps"]
-    R2 --> M3["📝 MOCK 3<br/>week 8<br/>CALIBRATION"]
-
-    style M1 fill:#3a2c12,stroke:#F08C00,color:#fff
-    style M2 fill:#0f3038,stroke:#12B5A5,color:#fff
-    style M3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style R1 fill:#12243f,stroke:#5C7CFA,color:#fff
-    style R2 fill:#12243f,stroke:#5C7CFA,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 Keep a simple record:
 
@@ -142,19 +116,7 @@ Keep a simple record:
 
 ## 🚦 The go / no-go decision
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart TD
-    Q{"Mock 2 and Mock 3<br/>both 80%+?"}
-    Q -->|yes| G["✅ GO<br/>light revision only<br/>then EXAM-DAY.md"]
-    Q -->|"75–79%"| A["⚠️ PROBABLY GO<br/>fix the weakest domain<br/>you are near the line"]
-    Q -->|"below 75%"| N["🛑 DECIDE BY END OF WEEK 6<br/>reschedule, or accept<br/>a real risk of failing"]
-
-    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
-    style G fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style A fill:#3a2c12,stroke:#F08C00,color:#fff
-    style N fill:#3a1a20,stroke:#E03131,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 > [!IMPORTANT]
 > **If you are going to reschedule, decide by the end of week 6.** Pearson VUE reschedules are

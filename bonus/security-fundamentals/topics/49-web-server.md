@@ -94,20 +94,7 @@ Browser
 
 The resulting page might contain Grog's account information.
 
-```mermaid
-flowchart LR
-    subgraph ST["📄 STATIC — file already exists"]
-        B1["🧑 GET /logo.png"]:::info --> W1["🖥️ Web server"]:::warn --> F["📁 logo.png<br/>sent as-is"]:::good
-    end
-    subgraph DY["⚙️ DYNAMIC — built per request"]
-        B2["🧑 GET /account"]:::info --> W2["🖥️ Web server"]:::warn --> A["⚙️ Application"]:::warn --> D["🗄️ Database"]:::good
-        D --> A2["⚙️ Builds Grog's<br/>account page"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -152,19 +139,7 @@ Think:
 
 Instead:
 
-```mermaid
-flowchart LR
-    I["🌐 Internet users"]:::info --> RP["🔀 Reverse proxy<br/>TLS · WAF · cache · load balance"]:::warn
-    RP --> A1["⚙️ App server 1"]:::good
-    RP --> A2["⚙️ App server 2"]:::good
-    A1 --> DB["🗄️ Database"]:::good
-    A2 --> DB
-    I -.-x|"no direct access"| A1
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 The reverse proxy can:
 
@@ -229,15 +204,7 @@ Logs can help with:
 
 > 🔎 **Detection and investigation**
 
-```mermaid
-flowchart LR
-    U["🌐 Request from the Internet"]:::info --> FW["🧱 Firewall<br/>only 80/443 allowed"]:::warn --> WAF["🛡️ WAF<br/>blocks malicious HTTP"]:::warn --> TLS["🔒 HTTPS / TLS"]:::warn --> WS["🖥️ Web server<br/>🔑 authN · 🚫 authZ"]:::good
-    WS --> LOG["📝 Logs<br/>🔎 detection + investigation"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -331,15 +298,7 @@ A **web server is not the same thing as a database server**.
 
 Think:
 
-```mermaid
-flowchart LR
-    C["🌐 Client"]:::info --> W["🖥️ Web server"]:::warn --> A["⚙️ Application"]:::warn --> D["🗄️ Database"]:::good
-    C -.-x|"❌ should never connect directly"| D
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 The browser normally **shouldn't directly connect to the database**.
 
@@ -373,14 +332,7 @@ The browser normally **shouldn't directly connect to the database**.
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    B["🧑 Browser"]:::info -->|"80 / 443"| RP["🔀 Reverse proxy<br/>🛡️ WAF"]:::warn --> WS["🖥️ Web server<br/>📄 static"]:::good --> AP["⚙️ App server<br/>dynamic"]:::good --> DB["🗄️ Database"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🖥️ **Web server = receives HTTP/HTTPS requests and serves web content**
 

@@ -24,16 +24,7 @@ It also forces a team to think from an attacker's perspective, rather than only 
 
 A common, simple way to threat model is to ask four questions about a system:
 
-```mermaid
-flowchart TB
-    Q1["1️⃣ What are we building?"]:::info --> Q2["2️⃣ What can go wrong?"]:::warn
-    Q2 --> Q3["3️⃣ What are we going to do about it?"]:::good
-    Q3 --> Q4["4️⃣ Did we do a good job?"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 1. **What are we building?** — Understand the system: its components, data flows, and boundaries.
 2. **What can go wrong?** — Brainstorm threats and vulnerabilities specific to this system.
@@ -42,18 +33,7 @@ flowchart TB
 
 One popular structured method for step 2 (identifying what can go wrong) is called **STRIDE**, which stands for six categories of threats:
 
-```mermaid
-flowchart TB
-    S["🗺️ STRIDE"]:::info --> Sp["Spoofing<br/>Pretending to be someone else"]:::warn
-    S --> T["Tampering<br/>Changing data without permission"]:::warn
-    S --> R["Repudiation<br/>Denying an action took place"]:::warn
-    S --> I["Information Disclosure<br/>Exposing data improperly"]:::warn
-    S --> D["Denial of Service<br/>Making a system unavailable"]:::warn
-    S --> E["Elevation of Privilege<br/>Gaining more access than allowed"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 🔍 You do not need to memorize STRIDE in detail at this stage — it is simply an example of how threat modeling can be made structured and repeatable, rather than relying on random guessing about what might go wrong.
 
@@ -75,17 +55,7 @@ Imagine a team building a new online payment feature for a website. Before writi
 - **What are we going to do about it?** Use HTTPS/TLS to protect data in transit, verify requests are properly authenticated, and add rate limiting to prevent flooding.
 - **Did we do a good job?** Review the plan with the security team before development begins, checking whether these controls sufficiently reduce the identified risks.
 
-```mermaid
-flowchart LR
-    U["🖥️ User submits<br/>payment form"]:::info --> Risk1["🔴 Risk: Data intercepted<br/>in transit"]:::bad
-    Risk1 --> Fix1["🟢 Fix: Use HTTPS/TLS"]:::good
-    U --> Risk2["🔴 Risk: Fake requests<br/>flooding the page"]:::bad
-    Risk2 --> Fix2["🟢 Fix: Rate limiting"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Because this thinking happened before the feature launched, the necessary protections (HTTPS, rate limiting) were built in from the start, rather than added later in a rush after a real incident.
 
@@ -140,14 +110,7 @@ This kind of entry documents one identified threat, categorizes it, and records 
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    Q1["What are we building?"]:::info --> Q2["What can go wrong?"]:::warn --> Q3["What will we do about it?"]:::good --> Q4["Did we do it well?"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - Threat modeling is a structured way to think about security risks before (or while) building a system.
 - It brings together threats, vulnerabilities, risk, and controls into one deliberate exercise.

@@ -22,17 +22,7 @@ The concept of "attack surface" exists to help security teams think clearly abou
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart TB
-    S["🖥️ System"]:::info --> P1["🔌 Open Port 443"]:::warn
-    S --> P2["🔌 Open Port 22"]:::warn
-    S --> P3["👤 User Login Page"]:::warn
-    S --> P4["📧 Employee Email Accounts"]:::warn
-    S --> P5["📱 Mobile App"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Each of these yellow boxes represents one part of the system's attack surface — a point that could potentially be targeted. None of them are inherently "bad" to have; they exist because the system needs them to function. But each one requires attention: it needs to be secured, monitored, and kept up to date.
 
@@ -42,15 +32,7 @@ Reducing the attack surface generally means:
 2. Removing or disabling anything that is not actually needed.
 3. Properly securing everything that remains necessary.
 
-```mermaid
-flowchart LR
-    Before["🎯 Large Attack Surface<br/>10 open ports, 5 unused accounts"]:::bad --> Review["🔍 Review & Clean Up"]:::warn
-    Review --> After["🎯 Small Attack Surface<br/>2 open ports, 0 unused accounts"]:::good
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -72,18 +54,7 @@ Imagine a small company server that has, over time, accumulated the following:
 - A remote login service on port 22, accessible from anywhere on the internet (needed for administrators, but currently open to everyone, not just trusted IP addresses)
 - Three employee accounts that left the company two years ago but were never deactivated
 
-```mermaid
-flowchart TB
-    Srv["🖥️ Company Server"]:::info --> Good["✅ Port 443 — Website<br/>(needed, kept)"]:::good
-    Srv --> Bad1["🔴 Port 8080 — Forgotten test app<br/>(unnecessary, should be removed)"]:::bad
-    Srv --> Warn1["🟡 Port 22 — Open to everyone<br/>(needed, but should be restricted)"]:::warn
-    Srv --> Bad2["🔴 3 old employee accounts<br/>(should be deactivated)"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Reducing the attack surface here means removing the forgotten test application, restricting the remote login service to trusted addresses only, and deactivating the old employee accounts — while keeping the website running, since it is actually needed.
 
@@ -140,15 +111,7 @@ Each listening port here is a potential entry point and part of the server's att
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    A["🎯 Attack Surface"]:::info --> B["Every possible entry point"]:::good
-    A --> C["Includes tech AND people"]:::good
-    A --> D["Smaller = easier to defend"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - The attack surface is every possible point where a system could be attacked.
 - It includes technical exposure (ports, services, apps) and human exposure (employees, processes).

@@ -112,21 +112,7 @@ TCP provides mechanisms for things such as:
 
 TCP uses a **three-way handshake** to establish a connection:
 
-```mermaid
-sequenceDiagram
-    participant C as 💻 Client
-    participant S as 🖥️ Server :443
-    C->>S: 1️⃣ SYN — "Can we talk?"
-    S->>C: 2️⃣ SYN-ACK — "Yes, can you hear me?"
-    C->>S: 3️⃣ ACK — "Yes!"
-    Note over C,S: 🤝 Connection established
-    C->>S: 📦 Segment 1
-    S->>C: ✅ ACK 1
-    C->>S: 📦 Segment 2 (lost ❌)
-    Note over C: No ACK → 🔄 retransmit
-    C->>S: 📦 Segment 2 again
-    S->>C: ✅ ACK 2
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ### 🧠 Exam clue:
 
@@ -171,21 +157,7 @@ Common uses include situations where **low overhead or timely delivery matters**
 | Overhead | Higher | Lower |
 | Speed/latency | Generally more overhead | Generally lower overhead |
 
-```mermaid
-flowchart LR
-    subgraph TCP["🔵 TCP — 'did all 10 rocks arrive?'"]
-        T1["🤝 Handshake"]:::info --> T2["📦📦📦 Send"]:::info --> T3["✅ ACKs · 🔢 in order<br/>🔄 resend lost ones"]:::good
-        T3 -.- TU["📁 Web · 📧 email · 🔐 SSH · file transfer"]:::good
-    end
-    subgraph UDP["🟢 UDP — 'throw it, oh well'"]
-        U1["📦📦📦 Just send"]:::info --> U2["🤷 No ACK · no order<br/>⚡ low overhead"]:::warn
-        U2 -.- UU["📖 DNS · 🎮 gaming · 📞 voice/video · 📺 streaming"]:::warn
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -299,21 +271,7 @@ So:
 
 > 🔢 **Layer 4 finds the room.**
 
-```mermaid
-flowchart LR
-    P["📦 Arriving data<br/>to 192.168.1.10:443"]:::info --> CAVE
-    subgraph CAVE["🏠 Cave — 🌐 IP 192.168.1.10 (Layer 3 finds it)"]
-        R80["🚪 Room 80<br/>HTTP"]:::good
-        R443["🚪 Room 443<br/>HTTPS ✅"]:::warn
-        R22["🚪 Room 22<br/>SSH"]:::good
-        R25["🚪 Room 25<br/>SMTP"]:::good
-    end
-    CAVE -.->|"🔢 Layer 4 picks the room"| R443
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -375,17 +333,7 @@ Provides communication **between application endpoints on hosts**.
 
 This is worth memorizing **as one picture**:
 
-```mermaid
-flowchart TD
-    L2["🔗 LAYER 2<br/>🏷️ MAC · 🖼️ Frame · 🔀 Switch<br/>'Which local device?'"]:::good
-    L3["🌐 LAYER 3<br/>🌐 IP · 📦 Packet · 🌐 Router<br/>'Which network/path?'"]:::warn
-    L4["📦 LAYER 4<br/>🔵 TCP / 🟢 UDP · 🔢 Port · Segment/Datagram<br/>'Which application + how?'"]:::info
-    L2 --> L3 --> L4
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 

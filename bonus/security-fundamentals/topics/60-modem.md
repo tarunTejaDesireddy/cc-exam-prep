@@ -35,14 +35,7 @@ Historically, a modem **converted digital computer data into signals suitable fo
 
 Today, "modem" is also used broadly for ISP access devices such as **cable or DSL modems**.
 
-```mermaid
-flowchart LR
-    D1["💻 Digital data<br/>1 0 1 1 0"]:::info -->|"MOdulate"| M1["📡 Modem"]:::warn -->|"〰️ signal on the line<br/>phone · cable · radio"| M2["📡 ISP side"]:::warn -->|"DEModulate"| D2["💻 Digital data<br/>1 0 1 1 0"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -151,18 +144,7 @@ Provides:
 🏠 Network → 📡 Modem → 🏢 ISP
 ```
 
-```mermaid
-flowchart LR
-    W["📱💻 Wi-Fi devices"]:::info -.->|"AP's job:<br/>Wi-Fi → LAN"| AP["📶 Access point"]:::good
-    AP --> RT["🌐 Router<br/>job: route IP traffic"]:::warn
-    RT --> MO["📡 Modem<br/>job: talk to ISP line"]:::bad
-    MO -->|"DSL · cable · cellular"| ISP["🏢 ISP → 🌍 Internet"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -220,17 +202,7 @@ Uses a **cellular** network.
 💻 → 📡 Cellular Modem → 📡 Mobile Network
 ```
 
-```mermaid
-flowchart TD
-    H["🏠 Your network"]:::info
-    H --> DSL["📞 DSL modem"]:::warn -->|"telephone line"| I1["☎️ ISP"]:::good
-    H --> CAB["📺 Cable modem"]:::warn -->|"coax cable"| I2["📺 Cable ISP"]:::good
-    H --> CEL["📱 Cellular modem"]:::warn -->|"radio / 4G / 5G"| I3["📡 Mobile network"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -290,15 +262,7 @@ flowchart TD
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    D["📱📱💻"]:::info --> AP["📶 AP<br/>use Wi-Fi"]:::good --> SW["🔀 Switch<br/>connect LAN"]:::good --> RT["🌐 Router<br/>other networks"]:::warn --> MO["📡 Modem<br/>talk to ISP"]:::bad --> I["🌍 Internet"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 > 📡 **Modem = connects to ISP access network**
 

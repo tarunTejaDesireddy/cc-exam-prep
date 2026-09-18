@@ -22,17 +22,7 @@ Least privilege exists to limit the damage that can be done if something goes wr
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart TB
-    U["👤 User/Program"]:::info --> Q{"What does this<br/>actually need to do?"}:::warn
-    Q --> G["✅ Grant only that<br/>specific access"]:::good
-    Q -.->|"❌ Avoid"| E["🔴 Granting broad,<br/>unnecessary access 'just in case'"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Applying least privilege generally involves:
 
@@ -42,14 +32,7 @@ Applying least privilege generally involves:
 
 This is the opposite of a common but risky shortcut: giving broad "administrator" or "full access" permissions to everyone by default, simply because it's easier than carefully scoping access, or because it might be occasionally convenient.
 
-```mermaid
-flowchart LR
-    Compromised["😈 Compromised Account"]:::bad --> Limited["🟢 With Least Privilege:<br/>Limited damage"]:::good
-    Compromised --> Broad["🔴 Without Least Privilege:<br/>Full system access to attacker"]:::bad
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -68,16 +51,7 @@ Consider a company's file server with three types of employees:
 - **HR staff** need access to employee records, but not to the finance department's files.
 - **IT administrators** need broad access to manage the server itself.
 
-```mermaid
-flowchart TB
-    S["🗄️ File Server"]:::info --> E["👤 Regular Employee<br/>Own department folder only"]:::good
-    S --> H["👤 HR Staff<br/>Employee records only"]:::good
-    S --> A["👤 IT Admin<br/>Full server access<br/>(needed for their role)"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If a regular employee's account is compromised through a phishing email, the attacker only gains access to that one department's folder — not HR records, not finance data, and not the ability to manage the entire server. This containment is the direct benefit of following least privilege.
 
@@ -131,15 +105,7 @@ This is different from an approach that would simply grant Jane full access to e
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    LP["🔑 Least Privilege"]:::info --> A["Only the access actually needed"]:::good
-    LP --> B["Limits damage if compromised"]:::good
-    LP --> C["Applies to people AND systems"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - Least privilege means granting only the minimum access necessary, nothing extra.
 - It applies to human users, software, and automated processes alike.

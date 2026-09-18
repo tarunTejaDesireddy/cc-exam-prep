@@ -103,19 +103,7 @@ or
 
 > ❌ **DENY/BLOCK**
 
-```mermaid
-flowchart TD
-    T["📦 Incoming traffic<br/>src IP · dst IP · protocol · port"]:::info --> R1{"Rule 1<br/>HTTPS TCP 443?"}:::warn
-    R1 -->|"match"| A1["✅ ALLOW"]:::good
-    R1 -->|"no match"| R2{"Rule 2<br/>SSH TCP 22 from<br/>admin network?"}:::warn
-    R2 -->|"match"| A2["✅ ALLOW"]:::good
-    R2 -->|"no match"| D["❌ DENY<br/>nothing matched"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -213,19 +201,7 @@ rather than:
 
 > **Stateless = evaluates packets independently**
 
-```mermaid
-sequenceDiagram
-    participant C as 💻 Client
-    participant F as 🧱 Stateful firewall
-    participant S as 🖥️ Server
-    C->>F: Outbound request to server:443
-    Note over F: 📋 Remember: client started<br/>this connection (state table)
-    F->>S: Forward
-    S->>F: Reply
-    Note over F: ✅ Matches a known connection → allow
-    F->>C: Reply delivered
-    Note over F: A stateless firewall has no memory —<br/>the reply needs its own explicit rule
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -245,14 +221,7 @@ For example:
 
 > **"Don't just block port 443; identify and control the application using that traffic."**
 
-```mermaid
-flowchart LR
-    P["1️⃣ Packet filter<br/>IP · port · protocol"]:::info --> S["2️⃣ Stateful<br/>+ remembers connections"]:::warn --> N["4️⃣ NGFW<br/>+ apps · users<br/>+ threat signatures · IPS"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -401,21 +370,7 @@ Think:
 
 > 🚪 **"Allowed through the door or not?"**
 
-```mermaid
-flowchart TD
-    subgraph CMP["Who does what?"]
-        FW["🧱 FIREWALL<br/>🚪 allow / block by rules<br/>IP · port · protocol · state"]:::warn
-        WAF["🛡️ WAF<br/>inspects HTTP/HTTPS<br/>protects web apps"]:::info
-        IDS["🕵️ IDS<br/>👀 detects + ALERTS<br/>does not block"]:::info
-        IPS["🛡️ IPS<br/>✋ detects + BLOCKS"]:::good
-        RT["🌐 ROUTER<br/>where does the packet go?"]:::info
-        PX["🛡️ PROXY<br/>forwards requests<br/>on someone's behalf"]:::info
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -440,16 +395,7 @@ You can also have **multiple security zones**.
 
 For example:
 
-```mermaid
-flowchart TD
-    I["🌐 Internet<br/>untrusted"]:::bad --> F1["🧱 Outer firewall"]:::warn --> DMZ["🟨 DMZ<br/>🖥️ public web server<br/>📧 public mail server"]:::warn
-    DMZ --> F2["🧱 Inner firewall"]:::warn --> INT["🟩 Internal network<br/>💻 PCs · 🗄️ databases<br/>most trusted"]:::good
-    I -.-x|"❌ no direct path"| INT
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 
@@ -555,17 +501,7 @@ The idea is:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    T["📦 Traffic"]:::info --> FW{"🧱 FIREWALL<br/>rules: IP · port ·<br/>protocol · state"}:::warn
-    FW -->|"allowed"| OK["✅ Pass"]:::good
-    FW -->|"denied"| NO["❌ Stop"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 > 🧱 **Firewall = allow/block traffic**
 

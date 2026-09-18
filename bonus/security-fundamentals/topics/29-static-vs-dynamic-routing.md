@@ -22,49 +22,15 @@ But larger, more complex networks (especially the internet itself) have far too 
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart TB
-    SR["🔒 Static Routing"]:::info --> SR1["Manually configured by an administrator"]:::good
-    SR --> SR2["Stays fixed until manually changed"]:::good
-    SR --> SR3["Simple, but doesn't adapt automatically"]:::warn
-
-    DR["🔄 Dynamic Routing"]:::good2 --> DR1["Routers automatically share information"]:::good
-    DR --> DR2["Routing tables update automatically"]:::good
-    DR --> DR3["Adapts to failures and changes on its own"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef good2 fill:#8b5cf6,stroke:#6d28d9,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 With **static routing**, if a link between two routers fails, and no alternate static route was manually configured in advance, traffic along that path simply stops working until a human notices and fixes the configuration.
 
-```mermaid
-flowchart LR
-    A["🖥️ Source"]:::info --> R1["📡 Router 1"]:::warn
-    R1 -.->|"❌ Link down,<br/>no backup configured"| R2["📡 Router 2"]:::bad
-    R1 -.->|"🔴 Traffic stuck<br/>(static route only)"| X["🚫 Destination Unreachable"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 With **dynamic routing**, if that same link fails, routers running a routing protocol automatically detect the failure and recalculate an alternate path, without needing a human to intervene.
 
-```mermaid
-flowchart LR
-    A["🖥️ Source"]:::info --> R1["📡 Router 1"]:::warn
-    R1 -.->|"❌ Link down"| R2["📡 Router 2"]:::bad
-    R1 -->|"✅ Automatically reroutes"| R4["📡 Router 4"]:::good
-    R4 --> D["🖥️ Destination"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -87,14 +53,7 @@ This is simple and predictable — there's only one possible path, so there's li
 
 A large company with dozens of interconnected offices and multiple redundant links between them would typically use dynamic routing instead, since manually maintaining and updating routes across so many possible paths — and reacting quickly to failures — would be impractical for a human to manage by hand.
 
-```mermaid
-flowchart TB
-    Small["🏢 Small office,<br/>2 routers, 1 link"]:::good --> StaticChoice["🔒 Static routing<br/>is practical here"]:::good
-    Large["🏢🏢🏢 Large company,<br/>dozens of offices, many links"]:::warn --> DynamicChoice["🔄 Dynamic routing<br/>is practical here"]:::good
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -142,14 +101,7 @@ This single command tells the router: "to reach the `192.168.2.0/24` network, se
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    S["🔒 Static<br/>Manual, fixed"]:::info
-    D["🔄 Dynamic<br/>Automatic, adaptive"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 - Static routing uses manually configured, fixed routes.
 - Dynamic routing uses routing protocols to automatically discover and adapt routes.

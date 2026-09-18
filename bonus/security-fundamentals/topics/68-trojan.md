@@ -40,19 +40,7 @@ The word to remember is:
 
 A typical scenario:
 
-```mermaid
-flowchart TD
-    A["1️⃣ 👤 Attacker creates<br/>malicious program"]:::bad --> B["2️⃣ 🎭 Disguises it as a<br/>useful app 🎮 'FREE GAME'"]:::warn
-    B --> C["3️⃣ 📧 Sends it to victim /<br/>🌐 puts it online"]:::warn
-    C --> D{"4️⃣ 👤 Does the victim<br/>trust it?"}:::warn
-    D -->|"no — suspicious"| X["🛡️ Not installed<br/>attack fails"]:::good
-    D -->|"yes — looks safe"| E["5️⃣ 📥 Victim installs/runs it"]:::bad
-    E --> F["6️⃣ 🐴 Trojan executes"]:::bad --> G["7️⃣ 💥 Malicious activity<br/>backdoor · theft · more malware"]:::bad
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 The important trick is **social engineering/deception**.
 
@@ -140,22 +128,7 @@ versus:
 💻 Computer C
 ```
 
-```mermaid
-flowchart LR
-    subgraph T["🐴 TROJAN — tricks"]
-        T1["🎭 Looks legitimate"]:::warn --> T2["👤 Human is fooled<br/>installs it"]:::bad --> T3["💻 One victim<br/>no self-copying"]:::bad
-    end
-    subgraph V["🦠 VIRUS — attaches"]
-        V1["📄 Host file"]:::info -->|"🔗 + virus"| V2["📄🦠 Infected file<br/>spreads when run/shared"]:::bad
-    end
-    subgraph W["🪱 WORM — spreads itself"]
-        W1["💻 A"]:::bad ==>|"🌐 auto"| W2["💻 B"]:::bad ==>|"🌐 auto"| W3["💻 C"]:::bad
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -177,19 +150,7 @@ So you can have:
 
 > 🐴 **Trojan that delivers ransomware**
 
-```mermaid
-flowchart LR
-    subgraph HOW["🐴 HOW it got in = Trojan"]
-        F["🎮 Fake application"]:::warn --> T["🐴 Trojan installed<br/>by a fooled user"]:::bad
-    end
-    subgraph WHAT["🔒 WHAT it does = Ransomware"]
-        R["🔒 Ransomware runs"]:::bad --> E["📁🔒 Files encrypted"]:::bad --> M["💰 Ransom demand"]:::bad
-    end
-    T ==>|"delivers"| R
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 This is an **important exam concept**: malware categories can describe **different characteristics of the same attack**.
 
@@ -225,16 +186,7 @@ The important thing for the exam is still:
 
 > **Trojan = disguised/pretends to be legitimate.**
 
-```mermaid
-flowchart TD
-    TR["🐴 TROJAN<br/>🎭 always = disguise"]:::warn
-    TR --> RAT["🐴 RAT<br/>👤 attacker gets remote control"]:::bad
-    TR --> BANK["🔑 Banking Trojan<br/>💳 steals financial credentials"]:::bad
-    TR --> DL["📥 Downloader Trojan<br/>🦠 pulls in more malware"]:::bad
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -283,18 +235,7 @@ A Trojan **doesn't have to automatically replicate**.
 
 # 🧠 5-Second Exam Trick
 
-```mermaid
-flowchart TD
-    Q["📖 Keyword in the question?"]:::info
-    Q -->|"pretends to be legitimate"| T["🐴 TROJAN"]:::warn
-    Q -->|"attaches to a file"| V["🦠 VIRUS"]:::bad
-    Q -->|"self-replicates /<br/>spreads automatically"| W["🪱 WORM"]:::bad
-    Q -->|"encrypts files +<br/>demands payment"| R["🔒 RANSOMWARE"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 If the question says **"Pretends to be legitimate"** → 🐴 **TROJAN**
 
@@ -334,13 +275,7 @@ If it says **"Encrypts files and demands payment"** → 🔒 **RANSOMWARE**
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    G["🎁 Looks like a gift<br/>🎮 free game · useful app"]:::warn -->|"👤 user is tricked"| I["📥 Installed"]:::bad --> H["🐴 Hidden malware runs<br/>RAT · banking · downloader"]:::bad
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 > 🐴 **Trojan = disguise / tricks the user**
 

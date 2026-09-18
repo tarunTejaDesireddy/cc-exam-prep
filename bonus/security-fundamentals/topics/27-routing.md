@@ -22,17 +22,7 @@ Routing exists to solve this. It allows data to travel across multiple, indirect
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart LR
-    A["🖥️ Source<br/>Device"]:::info --> R1["📡 Router 1"]:::warn
-    R1 --> R2["📡 Router 2"]:::warn
-    R2 --> R3["📡 Router 3"]:::warn
-    R3 --> B["🖥️ Destination<br/>Device"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -46,18 +36,7 @@ Each router only needs to know the best *next step*, not the entire end-to-end p
 
 What happens if a router along the path fails or a specific path becomes unavailable:
 
-```mermaid
-flowchart LR
-    A["🖥️ Source"]:::info --> R1["📡 Router 1"]:::warn
-    R1 -.->|"❌ Router 2 down"| R2["📡 Router 2"]:::bad
-    R1 -->|"✅ Alternate path found"| R4["📡 Router 4"]:::good
-    R4 --> B["🖥️ Destination"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 Well-designed networks often have multiple possible paths between two points, so if one route becomes unavailable, routers can adapt and use an alternate path instead — a concept explored further in the Static vs Dynamic Routing topic.
 
@@ -80,17 +59,7 @@ Imagine sending data from a home computer to a website hosted on a server in ano
 4. Eventually, the data reaches a router close to the destination website's server.
 5. That final router delivers the data directly to the server.
 
-```mermaid
-flowchart LR
-    H["🏠 Home Computer"]:::info --> HR["📡 Home Router"]:::warn
-    HR --> ISP["📡 ISP Router"]:::warn
-    ISP --> BB["📡 Backbone Routers"]:::warn
-    BB --> WS["🖥️ Website Server"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 The home computer doesn't need to know this entire chain of routers in advance — it only needs to know its own default gateway. Each router along the way handles its own small part of the journey.
 
@@ -149,14 +118,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    A["🖥️ Source"]:::info --> R["📡 Router → Router → Router"]:::warn --> B["🖥️ Destination"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - Routing moves data across multiple networks, hop by hop, toward its destination.
 - Each router only decides the best next step, not the entire end-to-end path.

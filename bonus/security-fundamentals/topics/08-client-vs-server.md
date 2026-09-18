@@ -30,14 +30,7 @@ This separation makes systems easier to manage. A company can update or fix its 
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart LR
-    C["🖥️ Client<br/>(Web Browser)"]:::info -- "1. Request" --> S["🖥️ Server<br/>(Website Host)"]:::good
-    S -- "2. Response" --> C
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 

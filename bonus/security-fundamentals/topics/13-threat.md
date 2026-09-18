@@ -25,13 +25,7 @@ Defining "threat" as its own concept lets security teams think specifically abou
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart LR
-    T["⚠️ Threat<br/>(e.g., a hacker)"]:::bad -- "Wants to cause harm" --> S["🖥️ System"]:::info
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Threats generally fall into a few broad categories:
 
@@ -40,17 +34,7 @@ Threats generally fall into a few broad categories:
 3. **Environmental/natural threats** — events like fires, floods, or power outages that can damage systems, with no human attacker involved at all.
 4. **Technical threats** — automated things like malware or worms that can spread and cause harm without a human directly steering every action.
 
-```mermaid
-flowchart TB
-    Threats["⚠️ Types of Threats"]:::info --> H1["😈 Intentional Human<br/>(hackers, insiders)"]:::bad
-    Threats --> H2["😳 Unintentional Human<br/>(mistakes, accidents)"]:::warn
-    Threats --> E["🌪️ Environmental<br/>(fire, flood, power loss)"]:::warn
-    Threats --> M["🦠 Automated/Technical<br/>(malware, worms)"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -71,16 +55,7 @@ Consider a small online store:
 - **Threat 2**: An employee who might accidentally email a spreadsheet of customer data to the wrong recipient. This is an unintentional human threat.
 - **Threat 3**: A fire in the building housing the store's servers, which could destroy them. This is an environmental threat.
 
-```mermaid
-flowchart TB
-    Store["🛒 Online Store"]:::info --> T1["😈 Cybercriminal targeting<br/>credit card data"]:::bad
-    Store --> T2["😳 Employee accidentally<br/>leaking customer data"]:::warn
-    Store --> T3["🔥 Fire damaging<br/>the server room"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 None of these threats have necessarily succeeded yet — they are simply things that *could* cause harm. Whether they actually succeed depends on whether a matching vulnerability exists (the next topic) and how well the store is defended.
 
@@ -134,15 +109,7 @@ Each line names a distinct source of potential harm. Security measures — such 
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    T["⚠️ Threat"]:::bad --> A["Has potential to cause harm"]:::info
-    T --> B["Can be human, natural, or technical"]:::info
-    T --> C["Different from a vulnerability"]:::info
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - A threat is any person, group, or event that has the potential to cause harm.
 - Threats can be intentional (attackers), unintentional (human error), environmental (fires, floods), or automated (malware).

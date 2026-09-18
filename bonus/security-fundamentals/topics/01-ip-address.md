@@ -43,14 +43,7 @@ When one device wants to send data to another, it needs to know the destination 
 
 The basic flow looks like this:
 
-```mermaid
-flowchart LR
-    A["🖥️ Device A<br/>192.168.1.10"]:::info -- "Send data to 192.168.1.20" --> B["🌐 Network"]:::info
-    B --> C["🖥️ Device B<br/>192.168.1.20"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -64,15 +57,7 @@ At this stage, you do not need to know how the network actually decides the exac
 
 What happens if the address is wrong:
 
-```mermaid
-flowchart LR
-    A["🖥️ Device A<br/>192.168.1.10"]:::info -- "Send to 192.168.1.99<br/>(no such device)" --> N["🌐 Network"]:::warn
-    N -- "❌ No device matches" --> X["🚫 Delivery Fails"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 If the destination address doesn't match a real device on the network, the data simply has nowhere correct to go — it is dropped rather than delivered.
 
@@ -103,15 +88,7 @@ If Computer A wants to send a file to Computer B, it does the following:
 
 If Computer A used the wrong address, such as `192.168.1.99` (a device that does not exist), the data would not reach Computer B. It would either be dropped or sent nowhere useful.
 
-```mermaid
-sequenceDiagram
-    participant A as 🖥️ Computer A (.10)
-    participant R as 📡 Router
-    participant B as 🖥️ Computer B (.20)
-    A->>R: Send file, destination = 192.168.1.20
-    R->>B: Forward file to 192.168.1.20
-    B-->>A: File received ✅
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -120,16 +97,7 @@ sequenceDiagram
 - Smart home devices (cameras, TVs, thermostats) each get their own IP address on your home network.
 - When you check "network settings" on a computer, you can see its current IP address listed there.
 
-```mermaid
-flowchart TB
-    IP["🌐 IP Address"]:::info --> W["🖥️ Website Servers"]:::good
-    IP --> PH["📱 Phones on Wi-Fi/Mobile"]:::good
-    IP --> SH["📷 Smart Home Devices"]:::good
-    IP --> PC["💻 Your Computer"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ## ⚠️ Common Confusion
 
@@ -188,16 +156,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    IP["192 . 168 . 1 . 10"]:::info --> O1["Octet 1: 192"]:::good
-    IP --> O2["Octet 2: 168"]:::good
-    IP --> O3["Octet 3: 1"]:::good
-    IP --> O4["Octet 4: 10"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 - An IP address is a unique number that identifies a device on a network.
 - It exists so that data can be delivered to the correct destination.

@@ -40,18 +40,7 @@ The attacker may:
 
 The exact capabilities **depend on the attack and the security controls in place**.
 
-```mermaid
-sequenceDiagram
-    participant G as 💻 Grog
-    participant A as 😈 Attacker (hidden)
-    participant S as 🖥️ Server
-    Note over G,S: Grog and the server both THINK they talk directly
-    G->>A: "Send 10 coins to Bob"
-    Note over A: 👀 intercept · 📖 read<br/>✏️ change to "1000 coins to Attacker"
-    A->>S: "Send 1000 coins to Attacker"
-    S->>A: "Done ✅"
-    A->>G: 🔁 relays "Done ✅" — looks normal
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -127,19 +116,7 @@ bank.example
 
 If an attacker attempts to **impersonate a secure website**, **proper certificate validation should detect the mismatch**.
 
-```mermaid
-flowchart TD
-    GOAL["😈 GOAL: get in the middle<br/>👤 MITM position"]:::bad
-    ARP["🎭 ARP spoofing<br/>'I am the gateway' on the LAN"]:::warn --> GOAL
-    EVIL["📶 Evil twin / rogue AP<br/>fake 'CoffeeShop-WiFi'"]:::warn --> GOAL
-    DNS["🎭 DNS spoofing<br/>bank.example → attacker IP"]:::warn --> GOAL
-    CERT["🔐 Fake certificate<br/>impersonate an HTTPS site"]:::warn --> GOAL
-    CERT -.->|"🛡️ certificate validation<br/>should catch it"| STOP["🚨 Browser warning"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -175,20 +152,7 @@ The attacker **may be able to read or modify** the traffic.
 
 The attacker can potentially **capture** the encrypted traffic, but **cannot simply read or successfully modify** the protected application data without defeating the cryptographic protections.
 
-```mermaid
-flowchart LR
-    subgraph PLAIN["🔓 No encryption"]
-        V1["💻 Victim"]:::info --> M1["😈 MITM<br/>📖 reads password<br/>✏️ changes data"]:::bad --> S1["🌐 Server"]:::info
-    end
-    subgraph TLS["🔒 Properly validated TLS"]
-        V2["💻 Victim"]:::info --> M2["😈 MITM<br/>📦 sees encrypted bytes<br/>❓ can't read<br/>✏️ changes → detected ❌"]:::warn --> S2["🌐 Server"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -272,21 +236,7 @@ Examples:
 
 **Spoofing techniques can therefore be used to enable MITM.**
 
-```mermaid
-flowchart LR
-    subgraph SN["👃 PACKET SNIFFING — beside the path"]
-        A1["💻"]:::info -->|"📦"| B1["🖥️"]:::info
-        A1 -.->|"copy"| S["👃 listens only"]:::warn
-    end
-    subgraph MI["👤 MITM — IN the path"]
-        A2["💻"]:::info --> M["😈 relays · reads · modifies"]:::bad --> B2["🖥️"]:::info
-    end
-    SP["🎭 SPOOFING<br/>ARP · DNS · rogue AP"]:::bad ==>|"is HOW they get in the path"| M
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 

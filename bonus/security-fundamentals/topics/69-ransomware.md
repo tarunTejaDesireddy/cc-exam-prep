@@ -44,17 +44,7 @@ The key words to remember are:
 
 A simplified attack:
 
-```mermaid
-flowchart TD
-    A["1️⃣ 📧 User receives<br/>malicious email"]:::warn --> B["2️⃣ 👤 User opens<br/>malicious attachment"]:::warn
-    B --> C["3️⃣ 🦠 Ransomware executes"]:::bad
-    C --> D["4️⃣ 🔐 Files encrypted<br/>📄 payroll.xlsx · 📄 customers.docx · 📸 photos.jpg"]:::bad
-    D --> E["5️⃣ 🚨 Ransom note appears"]:::bad
-    E --> F["6️⃣ 💰 Attacker demands payment<br/>often cryptocurrency"]:::bad
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 For example:
 
@@ -168,21 +158,7 @@ The same malware campaign can potentially have multiple characteristics, but the
 
 A **worm can even be used to spread ransomware** across a network.
 
-```mermaid
-flowchart LR
-    subgraph HOW["HOW it spreads"]
-        T["🐴 Trojan<br/>tricks a user"]:::warn
-        W["🪱 Worm<br/>spreads itself<br/>💻 A → 💻 B → 💻 C"]:::warn
-    end
-    subgraph WHAT["WHAT it does"]
-        R["🔒 RANSOMWARE<br/>encrypt files + demand 💰"]:::bad
-    end
-    T ==>|"delivers"| R
-    W ==>|"delivers to every PC"| R
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -207,19 +183,7 @@ Think:
 
 > 📢 **"And I'll publish your stolen data."**
 
-```mermaid
-flowchart TD
-    A["😈 Attacker gets in"]:::bad --> S["📤 1. Steal a copy of<br/>sensitive data"]:::bad
-    A --> E["🔐 2. Encrypt the<br/>victim's data"]:::bad
-    S & E --> D["💰 3. Demand payment"]:::bad
-    D --> T1["🔒 Threat 1:<br/>'your files stay locked'"]:::warn
-    D --> T2["📢 Threat 2:<br/>'we publish your data'"]:::warn
-    T2 -.- N["⚠️ Backups fix threat 1<br/>but NOT threat 2"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -231,16 +195,7 @@ The **most important control** to remember is:
 
 If your organization has **reliable, protected backups**:
 
-```mermaid
-flowchart LR
-    R["🔒 Attacker encrypts<br/>production data"]:::bad --> Q{"💾 Clean, protected,<br/>tested backup?"}:::warn
-    Q -->|"✅ yes"| OK["🔄 Restore data<br/>no ransom paid"]:::good
-    Q -->|"❌ no / also encrypted /<br/>never tested"| BAD["😱 Data lost or<br/>pressure to pay"]:::bad
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Other defenses include:
 
@@ -353,15 +308,7 @@ Compare:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    I["📧🐴🪱 Gets in"]:::warn --> L["🔒 LOCKS data<br/>(+ 📤 may steal it)"]:::bad --> D["💰 DEMANDS payment"]:::bad
-    B["💾 Tested, protected backups"]:::good -.->|"🔄 restore, don't pay"| L
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🔒 **Ransomware = locks + demands**
 

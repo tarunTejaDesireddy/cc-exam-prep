@@ -71,20 +71,7 @@ A **botnet** is a **collection of compromised devices controlled by an attacker*
 
 The devices might **belong to ordinary users who don't realize their systems have been compromised**.
 
-```mermaid
-flowchart TD
-    A["😈 Attacker"]:::bad --> C2["📡 Command & control"]:::bad
-    C2 --> B1["💻 Bot"]:::warn
-    C2 --> B2["📱 Bot"]:::warn
-    C2 --> B3["📷 Bot<br/>hacked camera"]:::warn
-    C2 --> B4["🖥️ Bot"]:::warn
-    B1 & B2 & B3 & B4 ==>|"🌊 all at once"| T["🎯 Target server<br/>💥 overwhelmed"]:::bad
-    U["👤 Real customers"]:::info -.-x|"🚫 can't get in"| T
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -123,24 +110,7 @@ This distinction is **very important**.
 
 > **DDoS = distributed across many sources**
 
-```mermaid
-flowchart LR
-    subgraph DOS["🌊 DoS — ONE source"]
-        S1["😈 1 attacker"]:::bad --> T1["🎯 Server"]:::warn
-        T1 -.- N1["🧱 block that one IP → attack stops"]:::good
-    end
-    subgraph DDOS["🌊 DDoS — MANY sources"]
-        S2["😈"]:::bad --> T2["🎯 Server"]:::bad
-        S3["😈"]:::bad --> T2
-        S4["😈"]:::bad --> T2
-        S5["😈"]:::bad --> T2
-        T2 -.- N2["⚠️ thousands of IPs → can't just block one"]:::warn
-    end
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -231,18 +201,7 @@ The requests **may look normal**, but there are so many that the application bec
 
 > It can instead **exhaust application resources**.
 
-```mermaid
-flowchart TD
-    D["🌊 DDoS — what does it exhaust?"]:::bad
-    D --> V["1️⃣ VOLUMETRIC<br/>🚰 fill the pipe<br/>📶 bandwidth"]:::warn
-    D --> P["2️⃣ PROTOCOL / NETWORK<br/>🪨 junk traffic ties up equipment<br/>🔢 connection tables · firewalls"]:::warn
-    D --> A["3️⃣ APPLICATION (Layer 7)<br/>👤 normal-looking requests<br/>GET /expensive-page ×1,000,000<br/>🖥️ CPU · 🧠 memory · 🗄️ database"]:::warn
-    A -.- N["⚠️ can work with LITTLE bandwidth<br/>and is hardest to tell apart from real users"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -356,20 +315,7 @@ Internet connection
 
 That's why large organizations may use **upstream/cloud-based DDoS mitigation and distributed infrastructure**.
 
-```mermaid
-flowchart TD
-    subgraph WEAK["❌ Firewall only"]
-        F1["🌊🌊🌊 100 Gbps flood"]:::bad --> P1["📶 Office link: 1 Gbps<br/>💥 PIPE FULL"]:::bad --> FW1["🧱 Firewall<br/>never gets the chance"]:::warn --> S1["🎯 Server offline"]:::bad
-    end
-    subgraph STRONG["✅ Upstream / cloud mitigation"]
-        F2["🌊🌊🌊 100 Gbps flood"]:::bad --> CL["☁️ DDoS scrubbing / CDN edge<br/>huge capacity<br/>🧹 filters attack traffic"]:::good
-        CL -->|"✅ clean traffic only"| P2["📶 Office link: 1 Gbps"]:::good --> FW2["🧱 Firewall"]:::good --> S2["🎯 Server stays up"]:::good
-    end
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 

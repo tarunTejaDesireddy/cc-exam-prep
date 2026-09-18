@@ -22,17 +22,7 @@ PAT solves this by adding port numbers into the mix. Since each device's connect
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart TB
-    D1["🖥️ 192.168.1.10<br/>Port 51000"]:::info --> R["📡 Router<br/>203.0.113.45"]:::warn
-    D2["📱 192.168.1.20<br/>Port 51500"]:::info --> R
-    R --> W1["🌍 203.0.113.45:51000"]:::good
-    R --> W2["🌍 203.0.113.45:51500"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -42,14 +32,7 @@ Step by step:
 4. The router's translation table now tracks entries by this full combination (public IP + port), not just the IP address alone.
 5. When responses come back addressed to `203.0.113.45:51000` versus `203.0.113.45:51500`, the router knows exactly which private device each one actually belongs to.
 
-```mermaid
-flowchart LR
-    Table["📋 PAT Translation Table"]:::info --> E1["203.0.113.45:51000<br/>↔ 192.168.1.10"]:::good
-    Table --> E2["203.0.113.45:51500<br/>↔ 192.168.1.20"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 Because there are thousands of possible port numbers (as covered in the [Port](05-port.md) topic), one public IP address, combined with PAT, can support a very large number of simultaneous connections from many different private devices at once.
 
@@ -71,15 +54,7 @@ A small office has ten computers, all sharing a single public IP address, `203.0
 192.168.1.13:54000  →  203.0.113.45:60003
 ```
 
-```mermaid
-flowchart TB
-    R["📡 Router (PAT)<br/>Public IP: 203.0.113.45"]:::warn --> C1["Employee 1's connection<br/>Port 60001"]:::good
-    R --> C2["Employee 2's connection<br/>Port 60002"]:::good
-    R --> C3["Employee 3's connection<br/>Port 60003"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Even though all ten computers appear to the internet as coming from the exact same public IP address, the router keeps every individual connection correctly sorted using the unique port number assigned to each one.
 
@@ -136,14 +111,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    D["🖥️🖥️🖥️ Many Private Devices"]:::info --> PAT["🔢 PAT<br/>(same IP, different ports)"]:::warn --> Pub["🌐 One Shared Public IP"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - PAT lets many private devices share exactly one public IP address at the same time.
 - It works by assigning each connection a unique port number alongside the shared IP.

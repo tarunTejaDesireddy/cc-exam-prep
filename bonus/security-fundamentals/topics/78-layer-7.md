@@ -40,18 +40,7 @@ So think:
 
 > **Layer 7 = Network services used by applications**
 
-```mermaid
-flowchart TD
-    L7["7️⃣ APPLICATION LAYER<br/>'WHAT does the app want to do?'"]:::info
-    L7 --> W["🌐 Web<br/>HTTP / HTTPS"]:::good
-    L7 --> N["🔎 Names<br/>DNS"]:::good
-    L7 --> E["📧 Email<br/>SMTP · IMAP · POP3"]:::good
-    L7 --> F["📁 Files<br/>FTP"]:::good
-    L7 --> R["🔐 Remote access<br/>SSH"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -112,19 +101,7 @@ Layer 7 is concerned with the **application-level communication**.
 1️⃣ Bits/signals
 ```
 
-```mermaid
-flowchart TD
-    B["🌐 Grog's browser<br/>https://example.com"]:::info --> L7["7️⃣ HTTPS request<br/>'GET the homepage' — the WHAT"]:::info
-    L7 --> L4["4️⃣ TCP · port 443<br/>reliable delivery"]:::good
-    L4 --> L3["3️⃣ IP<br/>route to the server"]:::warn
-    L3 --> L2["2️⃣ Ethernet / Wi-Fi<br/>next local hop"]:::bad
-    L2 --> L1["1️⃣ Bits / signals"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -211,16 +188,7 @@ Think:
 
 > 🕸️ **WAF:** "What is this web request trying to do?"
 
-```mermaid
-flowchart LR
-    REQ["📨 HTTPS request<br/>to 203.0.113.5:443<br/>body: ' OR 1=1 --"]:::info
-    REQ --> FW["🧱 Firewall · L3/L4<br/>sees IP + port 443<br/>✅ allowed"]:::warn
-    FW --> WAF["🕸️ WAF · Layer 7<br/>reads the HTTP content<br/>❌ SQL injection → block"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -306,19 +274,7 @@ Instead:
 
 For example, your browser's graphical interface isn't itself "Layer 7." **HTTP/HTTPS communication used by the browser** is associated with Layer 7.
 
-```mermaid
-flowchart LR
-    subgraph NOT["❌ NOT Layer 7"]
-        UI["🖥️ Browser window<br/>buttons · tabs · the page you see"]:::bad
-    end
-    subgraph YES["✅ Layer 7"]
-        PR["🔒 HTTPS request/response<br/>the protocol the browser speaks"]:::good
-    end
-    UI -->|"uses"| PR
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -377,15 +333,7 @@ SSH        → Secure remote access
 
 And the exam shortcut:
 
-```mermaid
-flowchart LR
-    L2["🔗 L2 = MAC<br/>local"]:::bad --> L3["🌐 L3 = IP<br/>routing"]:::warn --> L4["📦 L4 = TCP/UDP + ports<br/>transport"]:::good --> L7["🧑‍💻 L7 = app protocols<br/>services"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > **L2 = MAC** → 🔗 local<br>
 > **L3 = IP** → 🌐 routing<br>

@@ -22,19 +22,7 @@ TCP exists to guarantee exactly this. It adds a layer of tracking, confirmation,
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-sequenceDiagram
-    participant A as 🖥️ Sender
-    participant B as 🖥️ Receiver
-    A->>B: Packet 1
-    B-->>A: Acknowledged (Got packet 1)
-    A->>B: Packet 2
-    Note over B: Packet 2 lost in transit
-    A->>B: Packet 2 (resent after timeout)
-    B-->>A: Acknowledged (Got packet 2)
-    A->>B: Packet 3
-    B-->>A: Acknowledged (Got packet 3)
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Key mechanisms TCP uses to guarantee reliable delivery:
 
@@ -43,15 +31,7 @@ Key mechanisms TCP uses to guarantee reliable delivery:
 3. **Retransmission** — if the sender doesn't receive an acknowledgment within a reasonable time, it assumes the data was lost and sends it again.
 4. **Connection setup** — before exchanging data, TCP first establishes a formal connection between the two devices, using a process called the [TCP 3-Way Handshake](36-tcp-3-way-handshake.md), covered in an upcoming topic.
 
-```mermaid
-flowchart LR
-    TCP["🤝 TCP"]:::info --> A["✅ Ordered delivery"]:::good
-    TCP --> B["✅ Confirms receipt"]:::good
-    TCP --> C["✅ Resends lost data"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -73,16 +53,7 @@ Consider downloading a small file made up of five packets:
 4. After waiting a short time with no confirmation, the sender resends packet 3.
 5. The receiver gets packet 3, and — using the sequence numbers — correctly reassembles the file in the proper order: 1, 2, 3, 4, 5.
 
-```mermaid
-flowchart TB
-    P["📦 Packets Sent: 1,2,3,4,5"]:::info --> R["📥 Received: 1,2,4,5<br/>(3 missing)"]:::warn
-    R --> Resend["🔁 Packet 3 resent"]:::warn
-    Resend --> Complete["✅ File reassembled correctly: 1,2,3,4,5"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Without TCP handling this automatically, the application itself (or the user) would need to somehow detect and fix the missing piece manually — TCP makes this invisible and automatic.
 
@@ -140,15 +111,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    TCP["🤝 TCP"]:::info --> A["Ordered"]:::good
-    TCP --> B["Confirmed"]:::good
-    TCP --> C["Reliable"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - TCP provides reliable, ordered delivery of data between two devices.
 - It uses sequence numbers, acknowledgments, and retransmission to guarantee nothing is lost or out of order.

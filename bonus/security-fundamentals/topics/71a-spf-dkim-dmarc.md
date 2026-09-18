@@ -30,14 +30,7 @@ Remember:
 > **DKIM = Signature**<br>
 > **DMARC = Decision**
 
-```mermaid
-flowchart LR
-    S["🟢 SPF<br/>SENDER<br/>who may send?"]:::good --> D["🔵 DKIM<br/>SIGNATURE<br/>was it signed?"]:::info --> M["🔴 DMARC<br/>DECISION<br/>what if it fails?"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -95,16 +88,7 @@ An attacker sends:
 
 SPF can identify that the **sending server isn't authorized**.
 
-```mermaid
-sequenceDiagram
-    participant A as 😈 Attacker's server
-    participant R as 📨 Receiving mail server
-    participant DNS as 📖 DNS for example.com
-    A->>R: Email "From: boss@example.com"
-    R->>DNS: What is example.com's SPF record?
-    DNS->>R: Only Mail Server A and B may send
-    Note over R: Sender is NOT A or B<br/>❌ SPF fail
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -152,23 +136,7 @@ The receiver checks the seal using the corresponding public key.
 
 If someone **changes the signed content**, the signature verification can fail.
 
-```mermaid
-flowchart LR
-    subgraph SEND["📤 Sending domain"]
-        P["🔐 Private key<br/>kept secret"]:::bad --> SIG["📧 + 🔏 signature added"]:::warn
-    end
-    subgraph RECV["📨 Receiver"]
-        PUB["🔑 Public key<br/>fetched from DNS"]:::info --> CHK{"Signature<br/>verifies?"}:::warn
-        CHK -->|"yes"| OK["✅ Signed by domain<br/>+ not altered"]:::good
-        CHK -->|"no"| NO["❌ DKIM fail<br/>forged or tampered"]:::bad
-    end
-    SIG ==> CHK
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -235,23 +203,7 @@ Think:
 
 Very simplified:
 
-```mermaid
-flowchart TD
-    E["📧 Email arrives<br/>From: boss@example.com"]:::info
-    E --> SPF["🟢 SPF check<br/>authorized server?"]:::good
-    E --> DKIM["🔵 DKIM check<br/>valid signature?"]:::info
-    SPF & DKIM --> AL{"🔴 DMARC<br/>passed AND aligned<br/>with example.com?"}:::warn
-    AL -->|"✅ yes"| DEL["📥 Deliver"]:::good
-    AL -->|"❌ no → apply policy"| POL{"📜 Domain's DMARC policy"}:::bad
-    POL -->|"p=none"| N["👀 Deliver + report"]:::good
-    POL -->|"p=quarantine"| Q["🗑️ Junk / quarantine"]:::warn
-    POL -->|"p=reject"| R["❌ Reject"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -270,19 +222,7 @@ boss@example.com
 
 If the message is authenticated using a **completely unrelated domain**, that can **fail DMARC alignment**.
 
-```mermaid
-flowchart LR
-    subgraph PASS["✅ ALIGNED"]
-        F1["👀 From: boss@example.com"]:::info --- A1["🔵 DKIM signed by<br/>example.com ✅"]:::good
-    end
-    subgraph FAIL["❌ NOT ALIGNED"]
-        F2["👀 From: boss@example.com"]:::info --- A2["🔵 DKIM signed by<br/>evil-mailer.net ✅ valid…<br/>but a DIFFERENT domain"]:::bad
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 So don't simplify DMARC to merely:
 
@@ -410,16 +350,7 @@ A **legitimate domain can still send**:
 
 So email security uses **multiple controls**.
 
-```mermaid
-flowchart LR
-    E["📧 Email"]:::info --> AUTH["🟢 SPF · 🔵 DKIM · 🔴 DMARC<br/>'is it REALLY from that domain?'"]:::warn --> ESG["🛡️ Email Security Gateway<br/>'is the content dangerous?'"]:::warn --> U["🧑‍💻 User awareness<br/>'does this make sense?'"]:::good --> M["📥 Safer inbox"]:::good
-    L["😈 attacker-owned domain<br/>with valid SPF/DKIM/DMARC"]:::bad -.->|"passes authentication!"| ESG
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 ---
 

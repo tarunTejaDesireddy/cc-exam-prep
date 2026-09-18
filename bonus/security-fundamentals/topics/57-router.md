@@ -91,17 +91,7 @@ So it sends the packet to its:
 
 Usually, the default gateway is a router.
 
-```mermaid
-flowchart TD
-    P["💻 PC wants 8.8.8.8"]:::info --> Q{"Is the destination<br/>on my local network?"}:::warn
-    Q -->|"✅ yes"| L["🔀 Deliver directly on the LAN"]:::good
-    Q -->|"❌ no"| G["🚪 Send to default gateway<br/>🌐 router"]:::warn
-    G --> RT["📋 Router checks routing table<br/>→ next hop"]:::warn --> I["🌍 Internet"]:::good --> D["🖥️ Destination"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -163,19 +153,7 @@ For a basic exam, remember:
 
 > **More specific route wins.**
 
-```mermaid
-flowchart TD
-    PK["📦 Packet to 10.1.2.3"]:::info --> RT{"📋 Routing table<br/>which routes match?"}:::warn
-    RT -.->|"matches, /0 — least specific"| R0["0.0.0.0/0 → ISP"]:::bad
-    RT -.->|"matches, /8"| R8["10.0.0.0/8 → Router A"]:::warn
-    RT ==>|"matches, /16 — MOST specific ✅"| R16["10.1.0.0/16 → Router B"]:::good
-    RT -.-x|"no match"| RL["192.168.1.0/24 → LAN"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 > The `10.1.0.0/16` route is added here only to show the rule — the most specific match wins.
 
@@ -263,19 +241,7 @@ But they're **separate functions**.
 
 Your home "Wi-Fi router" often performs **several jobs at once**:
 
-```mermaid
-flowchart TD
-    HR["🏠 HOME 'WI-FI ROUTER'<br/>one box, many jobs"]:::warn
-    HR --> RO["🌐 Routing<br/>LAN ↔ Internet"]:::good
-    HR --> NA["🔄 NAT<br/>private ↔ public IP"]:::info
-    HR --> DH["📋 DHCP<br/>hands out IPs"]:::info
-    HR --> AP["📡 Wi-Fi access point<br/>devices join the LAN"]:::info
-    HR --> FW["🧱 Basic firewall"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 It may provide:
 
@@ -339,22 +305,7 @@ Examples include:
 
 > **Dynamic = routing protocol learns/updates routes**
 
-```mermaid
-flowchart LR
-    subgraph ST["🛣️ STATIC — admin types it in"]
-        AD["👨‍💻 Admin"]:::info -->|"manual route"| R1["🌐 Router"]:::warn
-        R1 -.- X["⚠️ link fails →<br/>route does NOT adapt"]:::bad
-    end
-    subgraph DY["🔄 DYNAMIC — routers talk to each other"]
-        RA["🌐 Router A"]:::good <-->|"OSPF / BGP / EIGRP<br/>share routes"| RB["🌐 Router B"]:::good
-        RB -.- Y["✅ link fails →<br/>routes update automatically"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -469,14 +420,7 @@ A home router may perform this function, but the specific function is **NAT**.
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    H["💻 Host"]:::info -->|"not local →"| G["🚪 Default gateway<br/>🌐 ROUTER · L3 · IP"]:::warn -->|"📋 routing table<br/>⭐ longest prefix wins"| N["🌍 Other networks"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🌐 **Router = connects different networks**
 

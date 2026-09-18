@@ -22,15 +22,7 @@ Memorize this order:
 
 In simple terms:
 
-```mermaid
-flowchart TD
-    U["🌐 Enter URL"]:::info --> D["📖 DNS finds IP"]:::info --> T["🤝 TCP connection<br/>port 443"]:::warn --> S["🔐 TLS handshake<br/>certificate check"]:::warn
-    S --> H["📨 HTTP request"]:::good --> W["🖥️ Web server responds"]:::good --> F["📄 Browser receives files"]:::good --> R["🎨 Browser renders webpage"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Now let's go through it carefully.
 
@@ -161,26 +153,7 @@ If the TLS setup succeeds:
 
 > 🔐 Secure communication can begin.
 
-```mermaid
-sequenceDiagram
-    participant B as 🖥️ Browser
-    participant D as 📖 DNS resolver
-    participant S as 🌐 Web server
-    B->>D: What is the IP of www.example.com?
-    D->>B: 93.184.216.34
-    Note over B,S: 🤝 TCP three-way handshake (port 443)
-    B->>S: SYN
-    S->>B: SYN-ACK
-    B->>S: ACK
-    Note over B,S: 🔐 TLS handshake
-    B->>S: TLS hello
-    S->>B: Certificate 🪪
-    Note over B: Trusted? Valid? Right hostname? Not expired?
-    B->>S: Key setup 🔑
-    Note over B,S: 📨 HTTP inside TLS
-    B->>S: 🔐 GET /login
-    S->>B: 🔐 200 OK + HTML
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -218,15 +191,7 @@ It may:
 
 For example:
 
-```mermaid
-flowchart LR
-    B["🖥️ Browser"]:::info -->|"request"| W["🌐 Web server"]:::warn --> A["⚙️ Application<br/>authN · authZ"]:::warn --> DB["🗄️ Database"]:::good
-    DB --> A --> W -->|"response"| B
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -325,14 +290,7 @@ Finally, the browser:
 
 and produces the webpage you see.
 
-```mermaid
-flowchart LR
-    H["📄 HTML<br/>parse"]:::info --> C["🎨 CSS<br/>style"]:::warn --> J["⚙️ JavaScript<br/>run"]:::warn --> I["🖼️ Images · fonts<br/>load"]:::warn --> P["✅ Page on screen"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -449,14 +407,7 @@ This one scenario can test many exam topics.
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    U["🌐 URL"]:::info --> D["📖 DNS"]:::info --> T["🤝 TCP"]:::warn --> S["🔐 TLS"]:::warn --> H["📨 HTTP"]:::good --> R["📩 Response"]:::good --> P["🎨 Render"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 If the question says:
 

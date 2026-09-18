@@ -117,19 +117,7 @@ So it asks around:
 
 Once the switch learns where B is, future traffic can be forwarded directly.
 
-```mermaid
-flowchart TD
-    F["📦 Frame arrives on Port 1<br/>from A → to B"]:::info --> L["📋 LEARN<br/>source MAC of A = Port 1<br/>add to MAC table"]:::warn
-    L --> Q{"🔍 Is B's MAC<br/>in the table?"}:::warn
-    Q -->|"✅ yes"| FW["🎯 FORWARD<br/>send only out B's port"]:::good
-    Q -->|"❌ no"| FL["📢 FLOOD<br/>send out all other ports"]:::bad
-    FL -.->|"B replies → switch learns B's port<br/>next time = forward"| FW
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -201,22 +189,7 @@ Think:
 
 Example:
 
-```mermaid
-flowchart LR
-    subgraph LANA["🏠 LAN A"]
-        A1["💻"]:::info --- SWA["🔀 Switch<br/>L2 · MAC"]:::warn
-        A2["💻"]:::info --- SWA
-    end
-    subgraph LANB["🏠 LAN B"]
-        SWB["🔀 Switch<br/>L2 · MAC"]:::warn --- B1["💻"]:::info
-        SWB --- B2["💻"]:::info
-    end
-    SWA --- R["🌐 Router<br/>L3 · IP<br/>between networks"]:::good --- SWB
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -248,25 +221,7 @@ A → Hub → B
         → D
 ```
 
-```mermaid
-flowchart LR
-    subgraph HUB["📢 HUB — 'Everybody listen!'"]
-        HA["💻 A"]:::info --> H["📢 Hub"]:::bad
-        H --> HB["💻 B ✅"]:::good
-        H --> HC["💻 C 👂"]:::bad
-        H --> HD["💻 D 👂"]:::bad
-    end
-    subgraph SW["🔀 SWITCH — 'I know where B is.'"]
-        SA["💻 A"]:::info --> S["🔀 Switch"]:::good
-        S ==> SB["💻 B ✅"]:::good
-        S -.-x SC["💻 C"]:::info
-        S -.-x SD["💻 D"]:::info
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -306,20 +261,7 @@ This provides **logical segmentation**.
 
 Can **require devices/users to authenticate** before gaining network access through a switch port.
 
-```mermaid
-flowchart TD
-    SW["🔀 ONE PHYSICAL SWITCH"]:::warn
-    SW --> V10["🧱 VLAN 10<br/>👩‍💼 Employees"]:::info
-    SW --> V20["🧱 VLAN 20<br/>👨‍💻 Servers"]:::good
-    SW --> V30["🧱 VLAN 30<br/>📱 Guests"]:::bad
-    PS["🔐 Port security<br/>only allowed MACs"]:::good -.-> SW
-    DX["🛡️ 802.1X<br/>authenticate before access"]:::good -.-> SW
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -414,16 +356,7 @@ This is an important distinction.
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    SW["🔀 SWITCH<br/>L2 · MAC · LAN"]:::warn --> T["📋 MAC table<br/>learn → forward<br/>unknown → flood"]:::info
-    SW --> S["🛡️ VLANs · port security · 802.1X"]:::good
-    SW -.->|"vs"| R["🌐 ROUTER<br/>L3 · IP · between networks"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🔀 **Switch = connects devices on a LAN**
 

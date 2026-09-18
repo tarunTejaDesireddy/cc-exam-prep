@@ -114,19 +114,7 @@ Now Grog uses **HTTPS**:
 >
 > It makes the captured content **much harder to understand**.
 
-```mermaid
-flowchart LR
-    subgraph HTTP["🔓 HTTP / Telnet / FTP — unencrypted"]
-        H1["👤 Grog"]:::info -->|"📦"| H2["👃 Sniffer SEES:<br/>🌐 IPs · 🔢 ports · 📡 protocol<br/>📄 username=Grog<br/>🔑 password=secret"]:::bad
-    end
-    subgraph HTTPS["🔒 HTTPS / SSH / SFTP — encrypted"]
-        S1["👤 Grog"]:::info -->|"📦"| S2["👃 Sniffer SEES:<br/>🌐 IPs · 🔢 ports · 📡 protocol<br/>❓ x9#fQ!2zL… unreadable"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 > 🧠 **Either way the sniffer captures the packets and still sees metadata** — encryption only hides the content.
 
@@ -194,18 +182,7 @@ So:
 
 > 🎭 **Spoof = pretend**
 
-```mermaid
-flowchart TD
-    Q["😈 What is the attacker doing?"]:::info
-    Q -->|"🚪 knocking on ports<br/>to find open services"| PS["🔍 PORT SCANNING<br/>knock on doors"]:::warn
-    Q -->|"👂 quietly capturing<br/>traffic going past"| SN["👃 PACKET SNIFFING<br/>listen"]:::good
-    Q -->|"🎭 faking a source address<br/>or identity"| SP["🎭 SPOOFING<br/>pretend"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -233,20 +210,7 @@ Think:
 
 > 🪨 Grog doesn't just listen — he **throws his own fake messages into the conversation**.
 
-```mermaid
-flowchart LR
-    subgraph PAS["🤫 PASSIVE — sniffing"]
-        A1["💻 A"]:::info -->|"📦 untouched"| B1["💻 B"]:::info
-        A1 -.->|"copy"| G1["👃 Grog listens<br/>hard to detect"]:::warn
-    end
-    subgraph ACT["😈 ACTIVE"]
-        A2["💻 A"]:::info -->|"📦"| G2["🪨 Grog changes /<br/>injects fake messages"]:::bad -->|"📦✏️ altered"| B2["💻 B"]:::info
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -267,23 +231,7 @@ However, traffic can potentially be exposed through things such as:
 - Wireless environments
 - Man-in-the-middle situations
 
-```mermaid
-flowchart TD
-    SW["🔀 Normal switch<br/>sends A→B traffic only to B's port"]:::good
-    SW -.->|"❌ random port sees nothing"| X["👃 Sniffer on a random port"]:::info
-    SW --> EXP["⚠️ But traffic CAN be exposed via…"]:::warn
-    EXP --> M1["🪞 Port mirroring / SPAN"]:::bad
-    EXP --> M2["🔌 Network tap"]:::bad
-    EXP --> M3["⚙️ Misconfiguration"]:::bad
-    EXP --> M4["💀 Compromised infrastructure"]:::bad
-    EXP --> M5["📶 Wireless"]:::bad
-    EXP --> M6["🧑‍💻 Man-in-the-middle"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 

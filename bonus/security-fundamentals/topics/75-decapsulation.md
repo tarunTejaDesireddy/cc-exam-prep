@@ -43,19 +43,7 @@ Remember:
 
 Suppose Grog receives a web request.
 
-```mermaid
-flowchart TD
-    B["1️⃣ PHYSICAL<br/>⚡ signals → bits<br/>0101010101…"]:::bad
-    B --> F["2️⃣ DATA LINK · 🖼️ FRAME<br/>check 🏷️ destination MAC = me?<br/>check 🧾 trailer for errors<br/>✂️ remove Ethernet header + trailer"]:::bad
-    F --> P["3️⃣ INTERNET · 📦 PACKET<br/>check 🌐 destination IP = me?<br/>✂️ remove IP header"]:::warn
-    P --> S["4️⃣ TRANSPORT · 📦 SEGMENT<br/>read 🔢 destination port → which app?<br/>reorder via sequence numbers<br/>✂️ remove TCP header"]:::good
-    S --> D["5️⃣ APPLICATION · 📄 DATA<br/>🌐 browser / web server gets<br/>the original HTTP request"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ## 1️⃣ Physical Layer
 
@@ -177,21 +165,7 @@ RECEIVING — DECAPSULATION
 📄 DATA
 ```
 
-```mermaid
-flowchart LR
-    subgraph ENC["💻 SENDER — 📦 ENCAPSULATION ⬇️ WRAP"]
-        E1["📄 Data"]:::info --> E2["📦 + TCP"]:::good --> E3["📦 + IP"]:::warn --> E4["🖼️ + Ethernet"]:::bad --> E5["⚡ Bits"]:::bad
-    end
-    subgraph DEC["🖥️ RECEIVER — 📤 DECAPSULATION ⬆️ UNWRAP"]
-        D5["⚡ Bits"]:::bad --> D4["🖼️ − Ethernet"]:::bad --> D3["📦 − IP"]:::warn --> D2["📦 − TCP"]:::good --> D1["📄 Data"]:::info
-    end
-    E5 ==>|"🌐 network"| D5
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -289,20 +263,7 @@ For exam purposes, however:
 
 > **Decapsulation = headers/trailers processed/removed going UP**
 
-```mermaid
-flowchart TD
-    IN["📥 Frame arrives<br/>[ETH | IP | TCP | DATA | ETH]"]:::bad
-    IN --> L2{"2️⃣ Is the MAC for me?<br/>trailer OK?"}:::warn
-    L2 -->|"no / corrupted"| X2["🗑️ Discard"]:::bad
-    L2 -->|"yes → pass up payload"| L3{"3️⃣ Is the IP for me?"}:::warn
-    L3 -->|"no"| X3["🗑️ Discard<br/>(or a router forwards it)"]:::bad
-    L3 -->|"yes → pass up payload"| L4{"4️⃣ Which port / app?"}:::warn
-    L4 -->|"port 443"| APP["📄 Web server gets DATA"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 

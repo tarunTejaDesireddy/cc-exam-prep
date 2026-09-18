@@ -42,20 +42,7 @@ This is the word to remember:
 
 A simplified sequence:
 
-```mermaid
-flowchart TD
-    A["1️⃣ 🦠 Virus enters computer<br/>email · download · USB"]:::bad --> B["2️⃣ 📄 Attaches to a file/program<br/>🔗 the host"]:::bad
-    B --> C{"3️⃣ 👤 Does someone run<br/>the infected file?"}:::warn
-    C -->|"no"| S["😴 Virus sits dormant"]:::info
-    C -->|"yes"| D["4️⃣ 🦠 Virus activates<br/>💥 payload runs"]:::bad
-    D --> E["5️⃣ 📄📄 Other files infected"]:::bad
-    E --> F["6️⃣ 📤 Infected files shared<br/>→ next computer"]:::bad
-    F -.->|"cycle repeats"| C
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Depending on the virus, it might:
 
@@ -104,17 +91,7 @@ Can:
 💻 D
 ```
 
-```mermaid
-flowchart LR
-    subgraph V["🦠 VIRUS — needs a host AND a human"]
-        V1["📄 Infected file"]:::bad -->|"👤 run"| V2["💻 PC 1"]:::bad -->|"👤 share + run"| V3["💻 PC 2"]:::bad
-    end
-    subgraph W["🪱 WORM — spreads by itself"]
-        W1["💻 A"]:::bad ==>|"🌐 auto"| W2["💻 B"]:::bad ==>|"🌐 auto"| W3["💻 C"]:::bad ==>|"🌐 auto"| W4["💻 D"]:::bad
-    end
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -146,19 +123,7 @@ Example:
 
 The defining characteristic of a Trojan is **deception, not self-replication**.
 
-```mermaid
-flowchart LR
-    subgraph VIR["🦠 VIRUS — defining trait: ATTACHES + REPLICATES"]
-        G["📄 Good program"]:::info -->|"🔗 + virus code"| I["📄 Infected program<br/>copies itself into more files"]:::bad
-    end
-    subgraph TRO["🐴 TROJAN — defining trait: DECEIVES"]
-        F["🎮 'FREE GAME'<br/>looks legitimate"]:::warn -->|"👤 user installs it"| H["🐴 Hidden malware runs<br/>does not copy itself"]:::bad
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -215,17 +180,7 @@ Think of it like this:
 
 # 🧠 5-Second Exam Trick
 
-```mermaid
-flowchart TD
-    Q["📖 Keyword in the question?"]:::info
-    Q -->|"attaches to a file"| V["🦠 VIRUS"]:::bad
-    Q -->|"self-replicates across<br/>the network"| W["🪱 WORM"]:::bad
-    Q -->|"pretends to be legitimate"| T["🐴 TROJAN"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 When you see **"Attaches to a file"** → 🦠 **VIRUS**
 
@@ -263,13 +218,7 @@ When you see **"Pretends to be legitimate"** → 🐴 **TROJAN**
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    F["📄 Good file"]:::info -->|"🔗 attaches"| I["📄🦠 Infected file"]:::bad -->|"👤 executed / shared"| S["🦠 Spreads to more files<br/>+ more computers"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🦠 **Virus = attaches to a host file/program**
 

@@ -38,16 +38,7 @@ A device's full network address for a specific service is actually a combination
 
 This means: "the device at IP address `203.0.113.45`, specifically its service running on port `443`" (in this example, that would typically be a secure website).
 
-```mermaid
-flowchart LR
-    C["🖥️ Client"]:::info -- "Request to 203.0.113.45:443" --> S["🖥️ Server<br/>203.0.113.45"]:::info
-    S --> P1["🔌 Port 80<br/>(Website - HTTP)"]:::info
-    S --> P2["🔌 Port 443<br/>(Website - HTTPS)"]:::good
-    S --> P3["🔌 Port 22<br/>(Remote login - SSH)"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -60,14 +51,7 @@ If the same server was also running an SSH service on port 22, a completely sepa
 
 What happens if nothing is listening on the requested port:
 
-```mermaid
-flowchart LR
-    C["🖥️ Client"]:::info -- "Request to 203.0.113.45:8080" --> S["🖥️ Server<br/>203.0.113.45"]:::info
-    S --> P["🚫 No service listening<br/>on port 8080"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 If no service is actively listening on the requested port, the connection is refused — the IP address may be perfectly reachable, but that specific "door" is closed.
 

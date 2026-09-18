@@ -41,30 +41,13 @@ Both IPv4 and IPv6 do the same job — labeling devices so data can be delivered
 
 🔍 **Hexadecimal** is just a different way of writing numbers, using digits 0–9 and letters A–F. You do not need to calculate hexadecimal by hand to understand this topic — just recognize that IPv6 addresses look longer and contain letters, while IPv4 addresses are shorter and use only numbers and dots.
 
-```mermaid
-flowchart TB
-    A["🌐 IP Addressing"]:::info --> B["🔵 IPv4<br/>32-bit<br/>~4.3 billion addresses"]:::info
-    A --> C["🟣 IPv6<br/>128-bit<br/>Practically unlimited addresses"]:::special
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef special fill:#8b5cf6,stroke:#6d28d9,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Both address types are used to do the exact same task shown in the previous topic: label data so it reaches the correct device. The difference is only in the size and format of the label, and how many unique labels are possible.
 
 What happens when the IPv4 pool runs low — networks squeeze more devices onto fewer public addresses:
 
-```mermaid
-flowchart LR
-    P["🌐 Limited Pool of<br/>IPv4 Addresses"]:::warn --> D1["🖥️ Device 1"]:::info
-    P --> D2["📱 Device 2"]:::info
-    P --> D3["📷 Device 3"]:::info
-    P -.->|"❌ No addresses left"| D4["🖥️ Device 4"]:::bad
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 

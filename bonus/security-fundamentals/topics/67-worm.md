@@ -39,18 +39,7 @@ The word to remember is:
 
 A simplified attack might look like this:
 
-```mermaid
-flowchart TD
-    A["1️⃣ 🪱 Worm infects Computer A"]:::bad --> B["2️⃣ 🔎 Scans the network<br/>finds vulnerable Computer B"]:::warn
-    B --> C["3️⃣ 💥 Exploits the weakness<br/>unpatched service · weak password"]:::bad
-    C --> D["4️⃣ 🪱 Copies itself to B"]:::bad
-    D --> E["5️⃣ 🔎 B now scans too<br/>finds Computer C"]:::warn
-    E --> F["6️⃣ 🪱 Copies itself again"]:::bad
-    F -.->|"🔄 no human needed —<br/>repeats automatically"| B
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 This can happen **very quickly**.
 
@@ -69,17 +58,7 @@ This is one of the **most important exam distinctions**.
 | Spreads through infected files/programs | Often spreads across networks |
 | **Attach** | **Self-spread** |
 
-```mermaid
-flowchart LR
-    subgraph V["🦠 VIRUS — waits for a human"]
-        V1["📄🦠 Infected file"]:::bad -->|"👤 someone runs it"| V2["💻 PC 1"]:::bad -->|"👤 someone shares it"| V3["💻 PC 2"]:::bad
-    end
-    subgraph W["🪱 WORM — moves on its own"]
-        W1["💻 A"]:::bad ==>|"🌐 auto"| W2["💻 B"]:::bad ==>|"🌐 auto"| W3["💻 C"]:::bad
-    end
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -135,19 +114,7 @@ Imagine:
 
 **One infected machine can become many.**
 
-```mermaid
-flowchart TD
-    P1["💻 1 infected"]:::bad
-    P1 ==> P2["💻 2"]:::bad
-    P1 ==> P3["💻 3"]:::bad
-    P2 ==> P4["💻 4"]:::bad
-    P2 ==> P5["💻 5"]:::bad
-    P3 ==> P6["💻 6"]:::bad
-    P3 ==> P7["💻 7"]:::bad
-    P4 & P5 & P6 & P7 ==> O["💻💻💻💻💻💻💻💻<br/>1 → 2 → 4 → 8 → …<br/>🌐 network-wide outbreak"]:::bad
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 This can cause:
 
@@ -184,18 +151,7 @@ A simplified example:
 🪱 Spreads
 ```
 
-```mermaid
-flowchart LR
-    W["🪱 Worm tries to spread"]:::bad --> PT{"🔄 System patched?<br/>strong config?"}:::warn
-    PT -->|"❌ no"| IN["💻 Infected → spreads further"]:::bad
-    PT -->|"✅ yes"| SAFE["🛡️ Worm can't get in"]:::good
-    SEG["🧱 Network segmentation<br/>limits how far it can reach"]:::good -.-> W
-    IPS["🛡️ IPS / firewall<br/>blocks the exploit traffic"]:::good -.-> W
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -229,17 +185,7 @@ flowchart LR
 
 # 🧠 5-Second Exam Trick
 
-```mermaid
-flowchart TD
-    Q["📖 Keyword in the question?"]:::info
-    Q -->|"self-replicates ·<br/>automatically spreads ·<br/>scans for vulnerable systems"| W["🪱 WORM"]:::bad
-    Q -->|"attaches to a file"| V["🦠 VIRUS"]:::bad
-    Q -->|"pretends to be legitimate"| T["🐴 TROJAN"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 When you see **"Self-replicates"**, **"Automatically spreads across the network"** or **"Scans for vulnerable systems and infects them"** → 🪱 **WORM**
 
@@ -277,14 +223,7 @@ When you see **"Pretends to be legitimate"** → 🐴 **TROJAN**
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    A["🪱💻 One infected PC"]:::bad ==>|"🔎 scan · 💥 exploit · 🪱 copy<br/>no human needed"| B["💻💻💻💻 Many infected PCs"]:::bad
-    P["🔄 Patch · 🧱 segment · 🛡️ IPS"]:::good -.->|"stops the spread"| B
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 > 🪱 **Worm = self-replicates + spreads automatically**
 

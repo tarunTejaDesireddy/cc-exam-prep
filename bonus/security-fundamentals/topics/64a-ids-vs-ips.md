@@ -105,23 +105,7 @@ Because it needs to be able to:
 
 > **Stop the traffic.**
 
-```mermaid
-flowchart LR
-    subgraph IDS["🕵️ IDS — beside the path"]
-        T1["🌐 Traffic"]:::info ==> S1["🖥️ Server"]:::bad
-        T1 -.->|"copy"| D["🕵️ IDS"]:::warn --> A["🚨 Alert"]:::warn
-    end
-    subgraph IPS["🛡️ IPS — in the path"]
-        T2["🌐 Traffic"]:::info ==> P{"🛡️ IPS"}:::good
-        P -->|"clean"| S2["🖥️ Server"]:::good
-        P -->|"attack"| X["❌ Dropped"]:::bad
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -231,15 +215,7 @@ This comparison is **excellent for exams**:
 
 > 🕸️ **WAF = Web-app guard**
 
-```mermaid
-flowchart LR
-    I["🌐 Internet"]:::info --> FW["🧱 FIREWALL = Gate<br/>IP · port · rules"]:::warn --> IPS["🛡️ IPS = Guard<br/>detect + block"]:::good --> WAF["🕸️ WAF = Web-app guard<br/>HTTP/HTTPS"]:::good --> APP["🖥️ Web app"]:::info
-    FW -.->|"copy"| IDS["🕵️ IDS = Watchman<br/>detect + alert"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -273,19 +249,7 @@ flowchart LR
 
 # 🧠 The 5-Second Exam Trick
 
-```mermaid
-flowchart TD
-    Q["📖 Read the question —<br/>which keyword is there?"]:::info
-    Q -->|"detects · alerts"| A["🕵️ IDS"]:::warn
-    Q -->|"blocks · drops · prevents"| B["🛡️ IPS"]:::good
-    Q -->|"HTTP/HTTPS web application"| C["🕸️ WAF"]:::good
-    Q -->|"IP · port · protocol ·<br/>allow/deny rules"| D["🧱 Firewall"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If the question says **"Detects" / "alerts"** → 🕵️ **IDS**
 

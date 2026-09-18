@@ -84,16 +84,7 @@ Then:
 
 The gateway is the **exit door**.
 
-```mermaid
-flowchart TD
-    G["💻 Grog wants to send a packet"]:::info --> Q{"Is the destination on<br/>my local network?"}:::warn
-    Q -->|"✅ yes — same subnet"| F["💻 Friend<br/>deliver directly on the LAN"]:::good
-    Q -->|"❌ no — somewhere else"| GW["🚪 Default gateway<br/>the exit door (router)"]:::warn --> I["🌐 Internet / other network"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -163,18 +154,7 @@ So it sends the packet toward:
 
 That's the **default gateway**.
 
-```mermaid
-sequenceDiagram
-    participant PC as 💻 PC 192.168.1.50
-    participant GW as 🚪 Gateway 192.168.1.1
-    participant NET as 🌐 Internet
-    participant D as 🖥️ 8.8.8.8
-    Note over PC: Mask 255.255.255.0 → local = 192.168.1.x<br/>8.8.8.8 is NOT local
-    PC->>GW: Packet for 8.8.8.8 (next hop = gateway)
-    GW->>NET: Route toward 8.8.8.8
-    NET->>D: Delivered
-    D->>PC: Reply comes back through the gateway
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -240,19 +220,7 @@ But in basic networking questions:
 
 > **Gateway → think default gateway/router.**
 
-```mermaid
-flowchart TD
-    GW["🚪 GATEWAY<br/>a way in/out between<br/>different systems"]:::warn
-    GW --> D["🌐 Default gateway<br/>LAN → other networks<br/>⭐ exam default meaning"]:::good
-    GW --> E["📧 Email gateway<br/>filters mail in/out"]:::info
-    GW --> A["🔌 API gateway<br/>front door to APIs"]:::info
-    GW --> V["☎️ VoIP gateway<br/>phone ↔ IP network"]:::info
-    GW --> P["💳 Payment gateway<br/>shop ↔ bank"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -326,16 +294,7 @@ flowchart TD
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    H["💻 Host"]:::info --> Q{"Local?"}:::warn
-    Q -->|"yes"| L["🏠 Stay on LAN"]:::good
-    Q -->|"no"| G["🚪 Default gateway<br/>usually the router"]:::warn --> O["🌍 Outside network"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 > 🚪 **Gateway = way in/out to another network or system**
 

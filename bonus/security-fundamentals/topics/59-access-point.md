@@ -28,17 +28,7 @@ Remember:
 
 It takes wireless Wi-Fi traffic and **connects it to the wired LAN**.
 
-```mermaid
-flowchart LR
-    P["📱 Phone"]:::info -.->|"📶 Wi-Fi"| AP["📡 Access point<br/>SSID: Grog-Cave-WiFi"]:::warn
-    L["💻 Laptop"]:::info -.->|"📶 Wi-Fi"| AP
-    T["🪨 Tablet"]:::info -.->|"📶 Wi-Fi"| AP
-    AP -->|"🔌 Ethernet"| SW["🔀 Switch"]:::good --> N["🏢 Wired network"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -112,21 +102,7 @@ Common Wi-Fi security technologies include:
 
 The exact authentication architecture depends on the deployment.
 
-```mermaid
-flowchart LR
-    subgraph HOME["🏠 WPA2/WPA3-Personal"]
-        H1["📱 Device"]:::info --> H2["📡 AP"]:::warn --> H3{"🔑 Shared Wi-Fi<br/>password correct?"}:::warn
-        H3 -->|"yes"| H4["✅ Joined"]:::good
-    end
-    subgraph ENT["🏢 WPA2/WPA3-Enterprise (802.1X)"]
-        E1["💻 Device"]:::info --> E2["📡 AP"]:::warn --> E3["🪪 Auth server<br/>checks each user's<br/>own credentials"]:::warn
-        E3 -->|"approved"| E4["✅ Joined"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -134,18 +110,7 @@ flowchart LR
 
 In a company, **APs are often centrally managed**.
 
-```mermaid
-flowchart TD
-    N["🏢 Network"]:::info --> C["🎛️ Wireless controller<br/>one place to manage all APs"]:::warn
-    C --> A1["📡 AP 1<br/>Floor 1"]:::good
-    C --> A2["📡 AP 2<br/>Floor 2"]:::good
-    C --> A3["📡 AP 3<br/>Floor 3"]:::good
-    U["🚶 Employee walks<br/>between floors"]:::info -.->|"stays connected"| A2
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 This makes it **easier to manage many APs**.
 
@@ -189,20 +154,7 @@ A home device often **combines both**.
 
 When you buy a home Wi-Fi router, it may actually contain **several functions**:
 
-```mermaid
-flowchart TD
-    HD["🏠 HOME 'WI-FI ROUTER'<br/>one box, many jobs"]:::warn
-    HD --> AP["📡 Access point<br/>Wi-Fi"]:::good
-    HD --> RT["🌐 Router"]:::info
-    HD --> SW["🔀 Switch ports"]:::info
-    HD --> NT["🔄 NAT"]:::info
-    HD --> DH["📋 DHCP"]:::info
-    HD --> FW["🧱 Firewall"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 It may also provide:
 
@@ -297,17 +249,7 @@ Common in enterprise environments for network access authentication.
 
 For example:
 
-```mermaid
-flowchart LR
-    AP["📡 ONE ACCESS POINT"]:::warn
-    AP --> EMP["🟢 SSID: Employee-WiFi<br/>🔐 WPA3-Enterprise"]:::good --> INT["🏢 Internal network<br/>🖥️ servers · 📁 files"]:::good
-    AP --> GST["🟡 SSID: Guest-WiFi"]:::warn --> WEB["🌍 Internet only"]:::info
-    GST -.-x|"❌ blocked"| INT
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 That's **network segmentation**.
 
@@ -399,14 +341,7 @@ rather than getting stuck on radio details.
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    D["📱💻 Wi-Fi devices"]:::info -.->|"📶 SSID<br/>🔐 WPA2/WPA3 · 802.1X"| AP["📡 ACCESS POINT<br/>wireless doorway"]:::warn -->|"🔌 Ethernet"| SW["🔀 Switch → LAN"]:::good --> RT["🌐 Router → Internet"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 > 📡 **AP = wireless doorway into the LAN**
 

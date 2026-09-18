@@ -12,15 +12,7 @@ Think:
 
 > 🔐 TLS puts the message into a **locked, tamper-evident tunnel**.
 
-```mermaid
-flowchart LR
-    G["🪨 Grog's cave<br/>client"]:::info ==>|"🔐 TLS tunnel<br/>locked · tamper-evident"| C["🏔️ Other cave<br/>server"]:::good
-    A["🕵️ Attacker"]:::bad -.->|"sees only scrambled data"| G
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -52,15 +44,7 @@ TLS can **authenticate the server** using a **digital certificate**.
 
 The server presents a certificate that the browser validates using its **trusted certificate authorities**.
 
-```mermaid
-flowchart TD
-    T["🔐 TLS"]:::info --> C["🔒 Confidentiality<br/>encryption"]:::good
-    T --> I["🛡️ Integrity<br/>tampering detected"]:::good
-    T --> A["🪪 Authentication<br/>server certificate"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -70,19 +54,7 @@ Before protected communication begins, the client and server perform a **TLS han
 
 Very simplified:
 
-```mermaid
-sequenceDiagram
-    participant C as 🖥️ Client
-    participant S as 🌐 Server
-    C->>S: Hello 👋 (supported TLS versions + ciphers)
-    S->>C: Hello + Certificate 🪪
-    Note over C: Verify certificate<br/>trusted CA? right name? not expired?
-    C->>S: Key setup 🔑
-    S->>C: Key setup 🔑
-    Note over C,S: Both now share symmetric session keys
-    C->>S: 🔐 Encrypted communication
-    S->>C: 🔐 Encrypted communication
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 The exact handshake differs between TLS versions, but for exam purposes remember:
 
@@ -110,19 +82,7 @@ Why?
 
 Modern TLS uses **authenticated encryption** mechanisms such as **AES-GCM** or **ChaCha20-Poly1305**.
 
-```mermaid
-flowchart LR
-    subgraph P1["1️⃣ Handshake — slow but only once"]
-        AS["🪪 Asymmetric crypto<br/>+ certificates"]:::warn
-    end
-    subgraph P2["2️⃣ Data — fast, every message"]
-        SY["🔐 Symmetric session keys<br/>AES-GCM · ChaCha20-Poly1305"]:::good
-    end
-    AS -->|"authenticate server +<br/>agree session keys"| SY
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -170,15 +130,7 @@ Instead memorize:
 
 > ✅ **HTTPS commonly uses TCP 443 and uses TLS for security.**
 
-```mermaid
-flowchart TD
-    TLS["🔐 TLS<br/>no port of its own"]:::info
-    TLS --> H["🌐 HTTPS<br/>TCP 443"]:::good
-    TLS --> O["📧 Other apps using TLS<br/>use their own ports"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 
@@ -200,14 +152,7 @@ For an exam question asking about modern secure communication:
 
 > ✅ **TLS = correct answer**
 
-```mermaid
-flowchart LR
-    S["🦴 SSL<br/>old · obsolete · insecure"]:::bad --> T1["🔐 TLS 1.0 / 1.1<br/>deprecated"]:::warn --> T2["🔐 TLS 1.2 / 1.3<br/>modern · use these"]:::good
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 ---
 
@@ -219,14 +164,7 @@ TLS **doesn't map cleanly** to one of the seven OSI layers.
 
 Conceptually, it sits **above TCP and below the application protocol**:
 
-```mermaid
-flowchart TD
-    A["🌐 Application — HTTP / HTTPS"]:::info --> T["🔐 TLS"]:::warn --> P["🚚 TCP"]:::good --> I["🌍 IP"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/7.svg" alt="diagram"></p>
 
 Don't answer:
 
@@ -298,14 +236,7 @@ The word **Transport** in its name **does not mean OSI Transport Layer**.
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    H["🤝 Handshake<br/>certificate + keys"]:::info --> E["🔐 Encrypted data<br/>symmetric session keys"]:::good --> CIA["🔒 Confidentiality<br/>🛡️ Integrity<br/>🪪 Authentication"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/8.svg" alt="diagram"></p>
 
 > 🔐 **TLS = protect communication in transit**
 

@@ -22,16 +22,7 @@ NAT solves both problems at once. It lets an entire private network, potentially
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart LR
-    D1["🖥️ 192.168.1.10"]:::info --> R["📡 Router<br/>Public IP: 203.0.113.45"]:::warn
-    D2["📱 192.168.1.20"]:::info --> R
-    R --> I["🌍 Internet"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step, when a private device sends data to the internet:
 
@@ -41,17 +32,7 @@ Step by step, when a private device sends data to the internet:
 4. The router keeps a record (a translation table) noting which private device made this particular request.
 5. When the response comes back from the internet, addressed to the router's public address, the router checks its translation table, figures out which private device the response actually belongs to, and forwards it there correctly.
 
-```mermaid
-flowchart TB
-    Req["📤 Request leaves:<br/>Source = 192.168.1.10"]:::info --> Translate["🔁 NAT translates to:<br/>Source = 203.0.113.45"]:::warn
-    Translate --> Sent["🌍 Sent to internet"]:::good
-    Resp["📥 Response returns:<br/>Destination = 203.0.113.45"]:::info --> Lookup["🔁 NAT looks up table,<br/>translates back to 192.168.1.10"]:::warn
-    Lookup --> Delivered["✅ Delivered to correct device"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 This translation table is what allows many devices to appear, to the outside internet, as if they were just one single device — while the router quietly keeps track of who actually asked for what, behind the scenes.
 
@@ -78,17 +59,7 @@ Public IP (router): 203.0.113.45
 
 When the laptop visits a website, the router performs NAT: the website sees the request coming from `203.0.113.45`, with no visibility into the fact that it actually originated from `192.168.1.10` specifically, or that two other devices exist on the same home network at all.
 
-```mermaid
-flowchart LR
-    L["💻 Laptop"]:::info --> R["📡 Router<br/>NAT: 203.0.113.45"]:::warn
-    P["📱 Phone"]:::info --> R
-    T["📺 Smart TV"]:::info --> R
-    R --> W["🌍 Website sees only:<br/>203.0.113.45"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -145,14 +116,7 @@ Seeing two different addresses for the same device's traffic — one locally, on
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    Private["🔵 Private Addresses<br/>(many devices)"]:::info --> NAT["🔁 NAT"]:::warn --> Public["🌐 One Public Address"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - NAT translates private IP addresses into a shared public IP address, and back again.
 - It exists mainly to conserve limited public IPv4 addresses while still allowing private devices to reach the internet.

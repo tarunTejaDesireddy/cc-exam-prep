@@ -28,16 +28,7 @@ Subnetting solves these problems by intentionally splitting a network into small
 
 Subnetting takes one larger address block and divides it into multiple smaller blocks by using a longer CIDR prefix (as shown in the previous topic — a longer prefix means a smaller network).
 
-```mermaid
-flowchart TB
-    Big["🏢 192.168.1.0/24<br/>(254 addresses, one big network)"]:::info --> S1["🏬 192.168.1.0/26<br/>HR — 62 addresses"]:::good
-    Big --> S2["🏬 192.168.1.64/26<br/>Finance — 62 addresses"]:::good
-    Big --> S3["🏬 192.168.1.128/26<br/>IT — 62 addresses"]:::good
-    Big --> S4["🏬 192.168.1.192/26<br/>Guests — 62 addresses"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -48,14 +39,7 @@ Step by step:
 
 Once divided, devices within the same subnet can communicate directly (as shown in the Subnet Mask topic), while communication *between* different subnets must pass through a router — which gives network administrators a natural checkpoint to monitor, control, or restrict that traffic if needed.
 
-```mermaid
-flowchart LR
-    HR["🏬 HR Subnet"]:::good -- "Must pass through a router" --> R["📡 Router"]:::warn
-    R --> IT["🏬 IT Subnet"]:::good
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -77,17 +61,7 @@ IT:       192.168.1.128/26  (addresses .128 to .191)
 Guests:   192.168.1.192/26  (addresses .192 to .255)
 ```
 
-```mermaid
-flowchart TB
-    N["192.168.1.0/24"]:::info --> A["HR: .0/26"]:::good
-    N --> B["Finance: .64/26"]:::good
-    N --> C["IT: .128/26"]:::good
-    N --> D["Guests: .192/26"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 With this structure, the company can now set a rule, for example, blocking the Guest subnet from ever reaching the Finance subnet directly — something that would have been much harder to enforce cleanly if every device shared one single flat network.
 
@@ -142,14 +116,7 @@ Each line defines one subnet's address range and its intended purpose — a comm
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    Big["🏢 One Big Network"]:::info --> Sub["🧩 Subnetting"]:::warn --> Small["🏬🏬🏬 Multiple Smaller Subnets"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - Subnetting divides one larger network into smaller, more manageable subnets.
 - It improves performance, organization, and enables better security control between groups of devices.

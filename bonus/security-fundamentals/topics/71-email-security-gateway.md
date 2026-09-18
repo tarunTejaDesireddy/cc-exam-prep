@@ -57,19 +57,7 @@ It may then:
 - 🕵️ Quarantine it
 - 🚨 Alert administrators
 
-```mermaid
-flowchart TD
-    I["🌐 Internet"]:::info --> M["📧 Incoming email"]:::info --> G{"🛡️ EMAIL SECURITY GATEWAY<br/>checks 👤 sender · reputation<br/>📝 content · 🔗 links · 📎 attachments"}:::warn
-    G -->|"✅ clean"| MB["📥 User's mailbox"]:::good
-    G -->|"🗑️ spam"| SP["🗑️ Spam / junk folder"]:::warn
-    G -->|"🎣 phishing link"| Q["🕵️ Quarantine"]:::bad
-    G -->|"🦠 malware"| B["❌ Block + 🚨 alert admins"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -178,16 +166,7 @@ It examines things such as:
 - Email content
 - Spam/phishing indicators
 
-```mermaid
-flowchart LR
-    E["📧 Email arriving<br/>TCP 25 · attachment invoice.pdf.exe"]:::info
-    E --> FW["🧱 FIREWALL sees<br/>IP · TCP 25 SMTP allowed<br/>→ ✅ let it through"]:::warn
-    FW --> ESG["📧 EMAIL GATEWAY opens the envelope<br/>📎 .pdf.exe = malware<br/>→ ❌ quarantine"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -269,17 +248,7 @@ Think:
 
 Checks messages **against organizational rules**.
 
-```mermaid
-flowchart LR
-    A["📎 Unknown attachment<br/>not a known virus"]:::warn --> SB["🕵️ SANDBOX<br/>🏔️ separate test cave<br/>open + watch what it does"]:::info
-    SB -->|"behaves normally"| OK["✅ Deliver to mailbox"]:::good
-    SB -->|"encrypts files · calls attacker ·<br/>drops more malware"| NO["❌ Quarantine<br/>Grog's real cave stays safe"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -327,19 +296,7 @@ flowchart LR
 
 If the question mentions **📧 Email, 📎 Attachment, 🎣 Phishing, 🗑️ Spam** or **🔗 Malicious email link** → 🛡️ **EMAIL SECURITY GATEWAY**
 
-```mermaid
-flowchart TD
-    Q["📖 What does the question protect?"]:::info
-    Q -->|"email · attachment ·<br/>phishing · spam"| E["📧 EMAIL SECURITY GATEWAY"]:::good
-    Q -->|"IP · port · protocol"| F["🧱 FIREWALL"]:::warn
-    Q -->|"detect + alert"| D["🕵️ IDS"]:::warn
-    Q -->|"detect + block"| P["🛡️ IPS"]:::warn
-    Q -->|"web app · HTTP · SQLi"| W["🕸️ WAF"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Compare:
 
@@ -383,17 +340,7 @@ Compare:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    I["🌐 Internet email"]:::info --> G{"📧🛡️ EMAIL GATEWAY<br/>🦠 malware · 🎣 phishing<br/>🗑️ spam · 🔗 URLs · 🕵️ sandbox"}:::warn
-    G -->|"✅ safe"| M["📥 Mailbox"]:::good
-    G -->|"❌ threat"| Q["🕵️ Quarantine / block"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 📧 **Email Security Gateway = the guard at the mail door**
 

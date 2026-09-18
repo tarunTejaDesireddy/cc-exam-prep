@@ -69,20 +69,7 @@ the mix totals 100, rounding Domain 5 up by one.)
 
 ## 🎯 03 · How to sit one
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#4d6f6e','textColor':'#dbe7e6'}}}%%
-flowchart LR
-    P["📵 Phone away<br/>notes closed<br/>timer set to 2:00"] --> A["🏃 Work top to bottom<br/>commit to each,<br/>no going back<br/>(CAT-style discipline)"]
-    A --> C["✅ Confirm all 100<br/>are answered"]
-    C --> D["📊 Mark it<br/>tally by DOMAIN"]
-    D --> E["📚 Review EVERY<br/>miss against<br/>its topic page"]
-
-    style P fill:#3a1a20,stroke:#E03131,color:#fff
-    style A fill:#12243f,stroke:#5C7CFA,color:#fff
-    style C fill:#1d3a2a,stroke:#2F9E44,color:#fff
-    style D fill:#3a2c12,stroke:#F08C00,color:#fff
-    style E fill:#0f3038,stroke:#12B5A5,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 **Non-negotiables if the score is to mean anything:**
 

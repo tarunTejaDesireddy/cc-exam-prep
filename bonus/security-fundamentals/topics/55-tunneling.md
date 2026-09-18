@@ -69,15 +69,7 @@ Tunnel endpoint removes outer wrapping
 
 This process is called **encapsulation**.
 
-```mermaid
-flowchart LR
-    A["📦 Original packet<br/>private traffic"]:::info --> B["🚇 Tunnel start<br/>+ outer headers<br/>= wrap it"]:::warn --> C["🌐 Internet<br/>only sees the<br/>outer packet"]:::bad --> D["🚇 Tunnel end<br/>remove outer headers<br/>= unwrap it"]:::warn --> E["📦 Original packet<br/>delivered"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -99,19 +91,7 @@ But:
 
 > 🔐 **Encrypted traffic inside another protocol = secure/encrypted tunneling**
 
-```mermaid
-flowchart TD
-    subgraph PLAIN["🚇 Tunnel WITHOUT encryption"]
-        P1["📦 Outer packet"]:::warn --> P2["👀 Inner traffic<br/>still READABLE"]:::bad
-    end
-    subgraph SEC["🔐 Tunnel WITH encryption (e.g. VPN)"]
-        S1["📦 Outer packet"]:::warn --> S2["🔒 Inner traffic<br/>UNREADABLE without key"]:::good
-    end
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -206,17 +186,7 @@ Application
 🌐 Network
 ```
 
-```mermaid
-flowchart TD
-    T["🚇 TUNNELING EXAMPLES"]:::warn
-    T --> V["🔐 VPN<br/>private traffic inside<br/>IPsec / TLS / WireGuard"]:::good
-    T --> I["🌐 IPv6 over IPv4<br/>IPv6 packet inside<br/>an IPv4 packet"]:::info
-    T --> S["🖥️ SSH tunneling<br/>another app's traffic<br/>inside an SSH session"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -268,14 +238,7 @@ Think:
 
 > **Tunneling = using the wrapping to carry traffic through somewhere**
 
-```mermaid
-flowchart LR
-    EN["📦 ENCAPSULATION<br/>the wrapping<br/>(what)"]:::info -->|"used to carry traffic<br/>through another network"| TU["🚇 TUNNELING<br/>the journey<br/>(how it's transported)"]:::warn -->|"optionally add"| EC["🔐 ENCRYPTION<br/>makes it unreadable<br/>(protection)"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -335,15 +298,7 @@ flowchart LR
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    O["📦 Traffic"]:::info --> W["🚇 Wrapped in<br/>another protocol"]:::warn --> N["🌐 Network"]:::warn --> U["📦 Unwrapped"]:::good
-    W -.->|"🔐 encryption?<br/>only if added (e.g. VPN)"| N
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 > 🚇 **Tunneling = carrying traffic inside another protocol/network**
 

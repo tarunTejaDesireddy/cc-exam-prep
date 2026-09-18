@@ -20,17 +20,7 @@ If all 100 go to one cook:
 
 Instead, a load balancer spreads them out:
 
-```mermaid
-flowchart LR
-    U["👥👥👥 Users"]:::info --> LB["⚖️ Load balancer"]:::warn
-    LB --> S1["🖥️ Server 1"]:::good
-    LB --> S2["🖥️ Server 2"]:::good
-    LB --> S3["🖥️ Server 3"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Now the work is shared.
 
@@ -88,17 +78,7 @@ It can perform a **health check**.
 
 For example:
 
-```mermaid
-sequenceDiagram
-    participant LB as ⚖️ Load balancer
-    participant S1 as 🖥️ Server 1
-    participant S2 as 🖥️ Server 2
-    LB->>S1: ❤️ Are you alive?
-    S1->>LB: 200 OK ✅
-    LB->>S2: ❤️ Are you alive?
-    Note over S2: 💥 crashed — no reply
-    Note over LB: ❌ Remove Server 2 from the pool
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 If a server stops responding properly:
 
@@ -108,18 +88,7 @@ This is called:
 
 > **Health checking**
 
-```mermaid
-flowchart LR
-    I["🌐 Users"]:::info --> LB["⚖️ Load balancer<br/>❤️ health checks"]:::warn
-    LB --> S1["🖥️ Server 1 ✅"]:::good
-    LB -.-x S2["🖥️ Server 2 ❌<br/>removed from pool"]:::bad
-    LB --> S3["🖥️ Server 3 ✅"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -202,28 +171,7 @@ Server 3 → weight 3
 
 Server 3 might receive more requests because it has **greater capacity**.
 
-```mermaid
-flowchart TD
-    subgraph RR["🔄 Round robin — take turns"]
-        R["⚖️"]:::warn -->|"1, 4"| RA["🖥️ S1"]:::good
-        R -->|"2, 5"| RB["🖥️ S2"]:::good
-        R -->|"3"| RC["🖥️ S3"]:::good
-    end
-    subgraph LC["📊 Least connections — least busy"]
-        L["⚖️"]:::warn -.-> LA["🖥️ S1 · 50"]:::bad
-        L ==>|"✅ new request"| LB2["🖥️ S2 · 12"]:::good
-        L -.-> LC2["🖥️ S3 · 40"]:::bad
-    end
-    subgraph WT["🏋️ Weighted — bigger gets more"]
-        W["⚖️"]:::warn -->|"1 share"| WA["🖥️ S1 · w1"]:::good
-        W -->|"2 shares"| WB["🖥️ S2 · w2"]:::good
-        W ==>|"3 shares"| WC["🖥️ S3 · w3"]:::good
-    end
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -266,22 +214,7 @@ Example:
 /shop/*      → shopping servers
 ```
 
-```mermaid
-flowchart LR
-    subgraph L4["🌐 LAYER 4 — sees IP + port only"]
-        A["📦 203.0.113.7 → TCP 443"]:::info --> B["⚖️ L4 LB"]:::warn --> C["🖥️ Any server"]:::good
-    end
-    subgraph L7["📨 LAYER 7 — reads the HTTP request"]
-        D["📨 GET /api/orders"]:::info --> E{"⚖️ L7 LB<br/>check path"}:::warn
-        E -->|"/api/*"| F["⚙️ API servers"]:::good
-        E -->|"/images/*"| G["🖼️ Image servers"]:::good
-        E -->|"/shop/*"| H["🛒 Shop servers"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -363,18 +296,7 @@ Main question:
 
 They can **both exist in the same architecture**.
 
-```mermaid
-flowchart LR
-    I["🌐 Internet"]:::info --> FW["🧱 Firewall<br/>allow or block?"]:::bad --> LB["⚖️ Load balancer<br/>which healthy server?"]:::warn
-    LB --> S1["🖥️"]:::good
-    LB --> S2["🖥️"]:::good
-    LB --> S3["🖥️"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 ---
 
@@ -446,14 +368,7 @@ flowchart LR
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    U["👥 Traffic"]:::info --> LB["⚖️ Load balancer<br/>❤️ health checks<br/>🔄 RR · 📊 least conn · 🏋️ weighted<br/>L4 or L7 · 🔐 TLS termination"]:::warn --> P["🖥️🖥️🖥️ Healthy server pool<br/>📈 add more = horizontal scaling"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/7.svg" alt="diagram"></p>
 
 > ⚖️ **Load balancer = distributes traffic**
 

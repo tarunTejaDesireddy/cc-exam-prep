@@ -28,15 +28,7 @@ The CIA Triad exists to give security a clear, shared definition. Almost every s
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart TB
-    CIA["🔐 CIA Triad"]:::info --> C["🕵️ Confidentiality<br/>Keep it private"]:::good
-    CIA --> I["✅ Integrity<br/>Keep it accurate"]:::good
-    CIA --> A["🟢 Availability<br/>Keep it accessible"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Each of the three goals addresses a different kind of failure:
 
@@ -48,15 +40,7 @@ Good security usually requires balancing all three. Focusing entirely on one can
 
 What it looks like when one part of the triad fails:
 
-```mermaid
-flowchart LR
-    S["🗄️ Sensitive Data"]:::info --> X1["🔴 Confidentiality broken:<br/>Unauthorized person reads it"]:::bad
-    S --> X2["🔴 Integrity broken:<br/>Data secretly changed"]:::bad
-    S --> X3["🔴 Availability broken:<br/>Authorized user can't access it"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -75,15 +59,7 @@ Consider an online banking system:
 - **Integrity**: If you have $500 in your account, that number should stay accurate until a legitimate transaction changes it — no one should be able to quietly edit it to a different value.
 - **Availability**: When you want to check your balance or transfer money, the banking app or website should be up and working, not crashed or unreachable.
 
-```mermaid
-flowchart TB
-    B["🏦 Online Banking System"]:::info --> C["🕵️ Confidentiality:<br/>Only you see your balance"]:::good
-    B --> I["✅ Integrity:<br/>Balance can't be secretly edited"]:::good
-    B --> A["🟢 Availability:<br/>App works when you need it"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If an attacker steals your login and views your balance, that is a confidentiality failure. If someone secretly changes your balance in the database, that is an integrity failure. If the bank's servers go down during a DDoS attack (covered in a later topic) and you cannot check your account at all, that is an availability failure.
 
@@ -134,14 +110,7 @@ Each of these is a different kind of protection, addressing a different one of t
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    C["🕵️ Confidentiality<br/>Private"]:::good
-    I["✅ Integrity<br/>Accurate"]:::good
-    A["🟢 Availability<br/>Accessible"]:::good
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - The CIA Triad defines three core goals of security: Confidentiality, Integrity, and Availability.
 - Confidentiality means only authorized people can see information.

@@ -22,29 +22,14 @@ DHCP exists to automate this entirely. A device simply asks for an address when 
 
 The DHCP process is often remembered by the acronym **DORA**:
 
-```mermaid
-sequenceDiagram
-    participant C as 🖥️ New Device
-    participant S as 🏷️ DHCP Server
-    C->>S: 1️⃣ Discover ("Is there a DHCP server out there?")
-    S->>C: 2️⃣ Offer ("Yes — here's an available address")
-    C->>S: 3️⃣ Request ("I'd like to use that address")
-    S->>C: 4️⃣ Acknowledge ("Confirmed — it's yours")
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 1. **Discover** — a new device joining the network broadcasts a message asking if any DHCP server is available (this relies on the [broadcast address](25-broadcast-address.md), since the new device doesn't have an IP address of its own yet).
 2. **Offer** — a DHCP server responds, offering an available IP address, along with related settings like the subnet mask and default gateway.
 3. **Request** — the device replies, confirming it would like to actually use the offered address.
 4. **Acknowledge** — the DHCP server confirms the assignment, and the device can now begin using that address on the network.
 
-```mermaid
-flowchart LR
-    D["🔍 Discover"]:::warn --> O["📩 Offer"]:::info --> R["✅ Request"]:::warn --> A["🎉 Acknowledge"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 DHCP-assigned addresses are typically **leased** for a limited period of time, rather than assigned permanently — meaning the device may need to renew its address periodically, and the address can be reassigned to a different device later if it's no longer in use.
 
@@ -66,14 +51,7 @@ You connect your laptop to a coffee shop's Wi-Fi network for the first time:
 3. Your laptop requests to use that offered address.
 4. The router acknowledges the assignment, and your laptop is now fully configured — with an IP address, subnet mask, and default gateway — ready to browse the internet.
 
-```mermaid
-flowchart TB
-    L["💻 Your Laptop<br/>(new to this network)"]:::info --> Process["🏷️ DORA Process"]:::warn --> Ready["✅ Fully configured:<br/>IP, subnet mask, gateway"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 You didn't need to manually type in any network settings — DHCP handled the entire process automatically, in the background, within moments of connecting.
 
@@ -131,14 +109,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    D["🔍 Discover"]:::warn --> O["📩 Offer"]:::info --> R["✅ Request"]:::warn --> A["🎉 Acknowledge"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - DHCP automatically assigns IP addresses and network settings to devices joining a network.
 - The process follows four steps: Discover, Offer, Request, Acknowledge (DORA).

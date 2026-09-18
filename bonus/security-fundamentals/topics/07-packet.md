@@ -26,19 +26,7 @@ Breaking data into packets solves these problems. Each packet is small enough to
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart LR
-    D["📄 Original Data"]:::info --> P1["📦 Packet 1"]:::info
-    D --> P2["📦 Packet 2"]:::info
-    D --> P3["📦 Packet 3"]:::info
-    P1 --> N["🌐 Network"]:::info
-    P2 --> N
-    P3 --> N
-    N --> R["🖥️ Destination<br/>Reassembles Packets"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -50,18 +38,7 @@ Step by step:
 
 What happens when a packet doesn't make it:
 
-```mermaid
-flowchart LR
-    P1["📦 Packet 1"]:::good --> R["🖥️ Destination"]:::info
-    P2["📦 Packet 2"]:::bad -.->|"❌ Lost in transit"| R
-    P3["📦 Packet 3"]:::good --> R
-    R --> W["🟡 Gap detected —<br/>Packet 2 requested again"]:::warn
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 This is exactly why breaking data into packets is so resilient — losing packet 2 out of 2,000 only means resending that one small piece, not the whole file.
 

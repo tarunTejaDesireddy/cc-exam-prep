@@ -22,13 +22,7 @@ UDP exists to serve exactly this kind of need: applications that would rather re
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart LR
-    A["🖥️ Sender"]:::info -- "Sends data,<br/>no confirmation expected" --> B["🖥️ Receiver"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Unlike TCP, UDP:
 
@@ -38,18 +32,7 @@ Unlike TCP, UDP:
 
 This makes UDP much simpler and faster than TCP, but it also means that if reliability is actually needed, the *application itself* (not the network protocol) must handle it — for example, by tolerating small gaps, or by building its own lightweight recovery mechanism if truly necessary.
 
-```mermaid
-flowchart TB
-    T["🤝 TCP"]:::info --> T1["Reliable, ordered"]:::good
-    T --> T2["More overhead, some delay"]:::warn
-    U["⚡ UDP"]:::info2 --> U1["Fast, simple"]:::good
-    U --> U2["No delivery guarantee"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef info2 fill:#8b5cf6,stroke:#6d28d9,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -68,19 +51,7 @@ Consider a live video call using UDP:
 2. If a small chunk of data is lost somewhere along the network, the receiving device simply skips it and continues playing what does arrive.
 3. The result might be a very brief, often barely noticeable glitch — but the call continues smoothly in real time, without pausing to recover that lost piece.
 
-```mermaid
-flowchart LR
-    S["🎥 Live Video Sender"]:::info --> D["📦 Chunk 1"]:::good
-    S --> D2["📦 Chunk 2 — lost"]:::bad
-    S --> D3["📦 Chunk 3"]:::good
-    D --> R["🖥️ Receiver plays<br/>1, (gap), 3"]:::warn
-    D3 --> R
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Using TCP for this same live call instead would mean pausing to recover every single lost chunk in order, which — for something happening live, in real time — would actually make the experience noticeably worse, not better.
 
@@ -138,14 +109,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    TCP["🤝 TCP<br/>Reliable, ordered"]:::info
-    UDP["⚡ UDP<br/>Fast, simple"]:::info2
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef info2 fill:#8b5cf6,stroke:#6d28d9,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - UDP sends data quickly and simply, without guaranteeing delivery, order, or confirmation.
 - It is connectionless — no formal setup happens before data is sent.

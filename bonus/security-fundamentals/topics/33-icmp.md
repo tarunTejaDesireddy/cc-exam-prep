@@ -24,13 +24,7 @@ Without a way to communicate these conditions, network problems would be silent 
 
 The most well-known use of ICMP is the **ping** utility (covered in more depth in a later topic), which tests whether a destination device is reachable.
 
-```mermaid
-sequenceDiagram
-    participant A as 🖥️ Device A
-    participant B as 🖥️ Device B
-    A->>B: ICMP Echo Request ("Are you there?")
-    B->>A: ICMP Echo Reply ("Yes, I'm here")
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -40,15 +34,7 @@ Step by step:
 
 ICMP is also used to report specific error conditions, without needing a direct request first:
 
-```mermaid
-flowchart LR
-    A["📤 Device A sends data"]:::info --> R["📡 Router along the path"]:::warn
-    R -.->|"❌ Cannot deliver<br/>(e.g., destination unreachable)"| E["📩 ICMP error message<br/>sent back to Device A"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 Common ICMP messages include:
 
@@ -75,17 +61,7 @@ ping 203.0.113.45
 
 If the server is reachable, it responds with ICMP Echo Replies, and the administrator sees output confirming the server is up, along with how long each round trip took. If the server is offline or unreachable, no replies come back, and the administrator sees a timeout instead — a simple, immediate signal that something is wrong.
 
-```mermaid
-flowchart TB
-    P["🏓 ping 203.0.113.45"]:::info --> Q{"Reply received?"}:::warn
-    Q -- "✅ Yes" --> Up["🟢 Server is reachable"]:::good
-    Q -- "❌ No (timeout)" --> Down["🔴 Server unreachable<br/>or not responding"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -141,15 +117,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    ICMP["📡 ICMP"]:::info --> A["Network status & error messages"]:::good
-    ICMP --> B["Powers ping and traceroute"]:::good
-    ICMP --> C["Not for regular application data"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - ICMP is used for network status and error messages, not application data.
 - The `ping` utility relies on ICMP Echo Request and Echo Reply messages.

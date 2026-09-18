@@ -33,14 +33,7 @@ Protocols exist to make sure that communication is predictable and reliable, no 
 
 A protocol defines a specific set of steps or message formats that both sides of a conversation must follow. Different protocols are designed for different purposes.
 
-```mermaid
-flowchart LR
-    A["🖥️ Device A"]:::info -- "Follows Protocol Rules" --> B["🖥️ Device B"]:::good
-    B -- "Responds Using Same Protocol Rules" --> A
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 General idea, step by step:
 
@@ -51,14 +44,7 @@ General idea, step by step:
 
 What happens when both sides don't share the same protocol:
 
-```mermaid
-flowchart LR
-    A["🖥️ Device A<br/>Speaks Protocol X"]:::info -- "Sends message in Protocol X" --> B["🖥️ Device B<br/>Only understands Protocol Y"]:::bad
-    B --> F["🚫 Message Not Understood"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 If Device B doesn't understand Protocol X, the message can't be interpreted correctly — regardless of whether the network delivery itself worked fine.
 

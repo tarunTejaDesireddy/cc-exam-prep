@@ -22,15 +22,7 @@ Without this upfront confirmation, a device might start sending data to another 
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-sequenceDiagram
-    participant A as 🖥️ Client
-    participant B as 🖥️ Server
-    A->>B: 1️⃣ SYN ("I'd like to connect")
-    B->>A: 2️⃣ SYN-ACK ("Okay, I'm ready too")
-    A->>B: 3️⃣ ACK ("Great, let's begin")
-    Note over A,B: Connection established — data exchange begins
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 The three steps are:
 
@@ -40,24 +32,11 @@ The three steps are:
 
 Only after all three of these steps complete does actual application data (like a web page request) begin flowing over the connection.
 
-```mermaid
-flowchart LR
-    S1["1️⃣ SYN"]:::info --> S2["2️⃣ SYN-ACK"]:::warn --> S3["3️⃣ ACK"]:::good --> D["📦 Data exchange begins"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 What happens if a step doesn't complete:
 
-```mermaid
-flowchart LR
-    S1["1️⃣ SYN sent"]:::info -.->|"❌ No SYN-ACK received"| Fail["🚫 Connection never<br/>established"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If the server doesn't respond, or the client never sends the final ACK, the connection simply never becomes established, and no application data is exchanged.
 
@@ -78,16 +57,7 @@ A web browser connecting to a website's server:
 2. The server responds with a SYN-ACK, saying, "Understood, and I'm ready to talk too."
 3. The browser sends an ACK, saying, "Great, let's proceed" — and only now does the browser actually send its request for the web page content.
 
-```mermaid
-sequenceDiagram
-    participant Browser as 🖥️ Browser
-    participant Server as 🖥️ Web Server
-    Browser->>Server: SYN
-    Server->>Browser: SYN-ACK
-    Browser->>Server: ACK
-    Browser->>Server: GET /index.html (actual request)
-    Server->>Browser: Page content
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 Notice that the actual web page request only happens *after* the three-step handshake has already completed — the handshake itself carries no page content, only the setup needed to begin.
 
@@ -143,14 +113,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    SYN["1️⃣ SYN"]:::info --> SA["2️⃣ SYN-ACK"]:::warn --> ACK["3️⃣ ACK"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 - The TCP 3-way handshake (SYN, SYN-ACK, ACK) establishes a connection before any application data is exchanged.
 - It confirms both devices are ready and reachable before committing to real communication.

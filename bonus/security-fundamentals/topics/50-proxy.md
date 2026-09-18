@@ -32,18 +32,7 @@ Suppose Grog wants:
 
 The process can look like:
 
-```mermaid
-sequenceDiagram
-    participant C as 🧑 Client
-    participant P as 🛡️ Proxy
-    participant S as 🌐 Web server
-    C->>P: 1. Request for example.com
-    Note over P: Check policy · log · cache?
-    P->>S: 2. Forward request
-    S->>P: 3. Response
-    P->>C: 4. Response
-    Note over C,S: The server only ever sees the proxy
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 The client communicates **with the proxy**, and the proxy communicates **with the destination**.
 
@@ -95,18 +84,7 @@ Imagine a company says:
 
 The proxy can **inspect requests and enforce a policy**:
 
-```mermaid
-flowchart LR
-    E["🏢 Employee"]:::info --> P{"🛡️ Forward proxy<br/>policy check"}:::warn
-    P -->|"example.com"| A["✅ Allow → Internet"]:::good
-    P -->|"blocked-site.com"| B["❌ Block"]:::bad
-    P -.-> L["📝 Log: user · site · time"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 It can also log:
 
@@ -145,19 +123,7 @@ This is **very important** for exams.
 | Main direction | Internal → Internet | Internet → Internal servers |
 | Example | Company web proxy | Web application front end |
 
-```mermaid
-flowchart LR
-    subgraph FWD["👤 FORWARD proxy — users going OUT"]
-        U1["🏢 Employees"]:::info --> FP["🛡️ Forward proxy"]:::warn --> I1["🌐 Internet sites"]:::good
-    end
-    subgraph REV["🖥️ REVERSE proxy — requests coming IN"]
-        I2["🌐 Internet users"]:::info --> RP["🛡️ Reverse proxy"]:::warn --> S1["🖥️ Internal servers"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -191,17 +157,7 @@ It can **reject unwanted requests**.
 
 It can **distribute requests among multiple backend servers**.
 
-```mermaid
-flowchart LR
-    I["🌐 Internet"]:::info -->|"🔐 HTTPS"| RP["🛡️ Reverse proxy<br/>TLS termination · filtering · cache"]:::warn
-    RP --> S1["🖥️ Server 1"]:::good
-    RP --> S2["🖥️ Server 2"]:::good
-    RP --> S3["🖥️ Server 3"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ### 📦 Caching
 
@@ -265,25 +221,7 @@ A proxy can have security functions, but:
 
 > **Proxy ≠ firewall**
 
-```mermaid
-flowchart TD
-    subgraph NAT["🔄 NAT — rewrites addresses"]
-        N1["192.168.1.10"]:::info -->|"translated"| N2["203.0.113.5<br/>public IP"]:::good
-    end
-    subgraph FW["🧱 Firewall — allow or deny"]
-        F1["📦 Traffic"]:::info --> F2{"rule?"}:::warn
-        F2 -->|"allow"| F3["✅"]:::good
-        F2 -->|"deny"| F4["❌"]:::bad
-    end
-    subgraph PX["🛡️ Proxy — makes the request for you"]
-        P1["🧑 Client"]:::info --> P2["🛡️ Proxy"]:::warn --> P3["🌐 Server"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ---
 
@@ -375,14 +313,7 @@ The proxy may **inspect, filter, cache, or log** web requests depending on how i
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    U["👤 Users"]:::info -->|"OUT"| FP["🛡️ Forward proxy"]:::warn --> NET["🌐 Internet"]:::good -->|"IN"| RP["🛡️ Reverse proxy"]:::warn --> S["🖥️ Servers"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 > 🛡️ **Proxy = middleman**
 

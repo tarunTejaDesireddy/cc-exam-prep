@@ -20,17 +20,7 @@ But if the destination is *not* on the local network — for example, a website 
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart LR
-    D["🖥️ Device<br/>192.168.1.10"]:::info --> Q{"Is destination<br/>on my local network?"}:::warn
-    Q -- "✅ Yes" --> Local["🔗 Deliver directly<br/>on local network"]:::good
-    Q -- "❌ No" --> GW["🚪 Send to Default Gateway<br/>192.168.1.1"]:::warn
-    GW --> Internet["🌍 Internet / Other Networks"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -42,15 +32,7 @@ Step by step:
 
 Without a correctly configured default gateway, a device could still communicate perfectly fine with other devices on its own local network, but would be completely unable to reach anything outside it, including the internet.
 
-```mermaid
-flowchart LR
-    D["🖥️ Device<br/>No default gateway configured"]:::bad -.->|"❌ Cannot reach<br/>outside networks"| I["🌍 Internet"]:::info
-    D --> L["✅ Can still reach<br/>local devices"]:::good
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -76,16 +58,7 @@ If this device wants to reach another device on the same home network, like a pr
 
 If this device wants to visit a website hosted at, say, `203.0.113.45`, it recognizes that this address is *not* on its local subnet, and instead sends the request to its default gateway, `192.168.1.1` — the home router — which then forwards it on toward the internet.
 
-```mermaid
-flowchart TB
-    D["🖥️ 192.168.1.10"]:::info -- "Printer request<br/>(local)" --> P["🖨️ 192.168.1.20"]:::good
-    D -- "Website request<br/>(not local)" --> GW["🚪 192.168.1.1<br/>Default Gateway"]:::warn
-    GW --> Web["🌍 203.0.113.45"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -147,15 +120,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    D["🖥️ Device"]:::info --> Local["✅ Local destination:<br/>Deliver directly"]:::good
-    D --> GW["🚪 Non-local destination:<br/>Send to Default Gateway"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - The default gateway handles traffic that needs to leave the local subnet.
 - It is typically the router connecting a local network to the internet or other networks.

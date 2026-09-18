@@ -39,21 +39,7 @@ The exam usually tests:
 | 2 | **Data Link** | 🔗 Move frames on local network | Ethernet, MAC, switches |
 | 1 | **Physical** | ⚡ Send raw bits | Cables, radio, signals |
 
-```mermaid
-flowchart TD
-    L7["7️⃣ APPLICATION · 🧑‍💻 what the app uses<br/>HTTP · DNS · SMTP"]:::info
-    L6["6️⃣ PRESENTATION · 🔄 format / encrypt<br/>encoding · compression · TLS"]:::info
-    L5["5️⃣ SESSION · 🤝 start / manage / end<br/>sessions"]:::info
-    L4["4️⃣ TRANSPORT · 📦 app-to-app delivery<br/>TCP · UDP · ports"]:::warn
-    L3["3️⃣ NETWORK · 🗺️ path between networks<br/>IP · 🌐 router"]:::warn
-    L2["2️⃣ DATA LINK · 🔗 local delivery<br/>MAC · Ethernet · 🔀 switch"]:::good
-    L1["1️⃣ PHYSICAL · ⚡ raw bits<br/>🔌 cables · radio · signals"]:::good
-    L7 --- L6 --- L5 --- L4 --- L3 --- L2 --- L1
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -174,20 +160,7 @@ Think:
 
 > 📦 "Just throw the package quickly; don't wait for confirmation."
 
-```mermaid
-flowchart LR
-    subgraph TCP["🔵 TCP — reliable"]
-        T1["📦 1"]:::info --> T2["📦 2 ❌ lost"]:::bad
-        T2 -->|"🔄 resend"| T3["📦 2 ✅"]:::good --> T4["📦 3 ✅<br/>all arrive, in order"]:::good
-    end
-    subgraph UDP["🟢 UDP — fast"]
-        U1["📦 1"]:::info --> U2["📦 2 ❌ lost<br/>no resend"]:::bad --> U3["📦 3<br/>keep going ⚡"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ### Exam clue:
 
@@ -313,20 +286,7 @@ Suppose Grog visits:
 
 Data travels **down** the OSI layers on Grog's computer, crosses the network, and travels back **up** on the receiving computer:
 
-```mermaid
-flowchart LR
-    subgraph SENDER["💻 Grog's computer — DOWN ⬇️"]
-        S7["7 Application"]:::info --> S6["6 Presentation"]:::info --> S5["5 Session"]:::info --> S4["4 Transport"]:::warn --> S3["3 Network"]:::warn --> S2["2 Data Link"]:::good --> S1["1 Physical"]:::good
-    end
-    subgraph RECEIVER["🖥️ Web server — UP ⬆️"]
-        R1["1 Physical"]:::good --> R2["2 Data Link"]:::good --> R3["3 Network"]:::warn --> R4["4 Transport"]:::warn --> R5["5 Session"]:::info --> R6["6 Presentation"]:::info --> R7["7 Application"]:::info
-    end
-    S1 ==>|"🌐 bits across the network"| R1
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -346,14 +306,7 @@ The exam may test **what the data is called at different layers**.
 
 > **Segment → Packet → Frame → Bits**
 
-```mermaid
-flowchart LR
-    D["📄 DATA<br/>L7–5"]:::info -->|"+ TCP/UDP header"| S["📦 SEGMENT<br/>L4"]:::warn -->|"+ IP header"| P["📦 PACKET<br/>L3"]:::warn -->|"+ MAC header"| F["🖼️ FRAME<br/>L2"]:::good -->|"signals"| B["⚡ BITS<br/>L1"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -427,32 +380,7 @@ The rough mapping:
 | Data Link | Network Access |
 | Physical | Network Access |
 
-```mermaid
-flowchart LR
-    subgraph OSI["OSI — 7"]
-        O7["7 Application"]:::info
-        O6["6 Presentation"]:::info
-        O5["5 Session"]:::info
-        O4["4 Transport"]:::warn
-        O3["3 Network"]:::warn
-        O2["2 Data Link"]:::good
-        O1["1 Physical"]:::good
-    end
-    subgraph TCPIP["TCP/IP — 4"]
-        A["Application"]:::info
-        T["Transport"]:::warn
-        I["Internet"]:::warn
-        N["Network Access"]:::good
-    end
-    O7 & O6 & O5 --> A
-    O4 --> T
-    O3 --> I
-    O2 & O1 --> N
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 

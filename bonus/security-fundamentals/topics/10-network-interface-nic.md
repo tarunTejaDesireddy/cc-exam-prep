@@ -22,14 +22,7 @@ The network interface exists to be that dedicated hardware. It handles the physi
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-flowchart LR
-    D["🖥️ Device"]:::info --> NIC["🔌 Network Interface<br/>(Wi-Fi or Ethernet)"]:::good
-    NIC --> N["🌐 Network"]:::info
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -43,13 +36,7 @@ Step by step:
 
 What happens if a device has no working network interface:
 
-```mermaid
-flowchart LR
-    D["🖥️ Device<br/>(No working NIC)"]:::bad -.->|"❌ No connection possible"| N["🌐 Network"]:::info
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 If the network interface is missing, disabled, or broken, the device cannot reach the network at all — regardless of how correctly everything else, like its IP address, is configured.
 
@@ -69,14 +56,7 @@ A typical laptop usually has two network interfaces:
 - A Wi-Fi interface, used to connect wirelessly to a home or office network.
 - An Ethernet interface, used to connect via a physical cable.
 
-```mermaid
-flowchart TB
-    L["💻 Laptop"]:::info --> WIFI["📶 Wi-Fi Interface<br/>MAC: AA:BB:CC:11:22:33"]:::good
-    L --> ETH["🔗 Ethernet Interface<br/>MAC: AA:BB:CC:44:55:66"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If the laptop is connected to both at the same time, it effectively has two separate network connections active — each through its own interface, each with its own MAC address, and potentially each with its own IP address too.
 
@@ -144,16 +124,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    NIC["🔌 Network Interface"]:::info --> A["Physical connection point"]:::good
-    NIC --> B["Carries a MAC address"]:::good
-    NIC --> C["Can be wired or wireless"]:::good
-    NIC --> D["A device can have more than one"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - A network interface (NIC) is the hardware that lets a device connect to a network.
 - It can be wired (Ethernet) or wireless (Wi-Fi).

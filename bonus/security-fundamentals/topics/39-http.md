@@ -22,13 +22,7 @@ HTTP exists to solve this by defining a clear, standard structure: how a request
 
 ## ⚙️ How Does It Work?
 
-```mermaid
-sequenceDiagram
-    participant B as 🖥️ Browser (Client)
-    participant S as 🖥️ Web Server
-    B->>S: HTTP Request ("GET /index.html")
-    S->>B: HTTP Response (Page content + status code)
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 An HTTP exchange follows a simple request-response pattern:
 
@@ -44,18 +38,7 @@ Common types of HTTP requests, called **methods**:
 
 Common HTTP **status codes** in a response:
 
-```mermaid
-flowchart TB
-    Codes["📋 HTTP Status Codes"]:::info --> S2["✅ 200 OK<br/>Success"]:::good
-    Codes --> S4a["🟡 404 Not Found<br/>Resource doesn't exist"]:::warn
-    Codes --> S4b["🔴 403 Forbidden<br/>Access denied"]:::bad
-    Codes --> S5["🔴 500 Server Error<br/>Something broke on the server"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 🔍 HTTP relies on [TCP](34-tcp.md) underneath it to actually deliver its requests and responses reliably — HTTP defines *what* is being asked for and returned, while TCP handles making sure that data actually arrives correctly.
 
@@ -77,14 +60,7 @@ Visiting a website by typing its address into a browser:
 2. The web server locates that content and responds with an HTTP response, including the status code `200 OK` and the actual page content (text, images, layout instructions).
 3. Your browser receives this response and renders the page on your screen.
 
-```mermaid
-flowchart LR
-    Req["📨 GET /index.html"]:::info --> Server["🖥️ Web Server"]:::warn --> Resp["📩 200 OK + Page Content"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If you had instead requested a page that doesn't exist, the server would respond with a `404 Not Found` status code instead, along with a page telling you the content couldn't be located.
 
@@ -142,14 +118,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    Req["📨 Request"]:::info --> Server["🖥️ Server"]:::warn --> Resp["📩 Response"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - HTTP is the protocol used to request and deliver web content, following a request-response pattern.
 - Requests use methods like GET (retrieve) and POST (submit data); responses include a status code.

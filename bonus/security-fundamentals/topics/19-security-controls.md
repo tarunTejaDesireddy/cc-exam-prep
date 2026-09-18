@@ -24,29 +24,11 @@ Having a clear category called "security controls" helps organize security work 
 
 Security controls are commonly grouped by **what they do**:
 
-```mermaid
-flowchart TB
-    C["🧰 Security Controls"]:::info --> P["🚫 Preventive<br/>Stop it before it happens"]:::good
-    C --> D["🔍 Detective<br/>Notice it while/after it happens"]:::warn
-    C --> R["🛠️ Corrective<br/>Fix things after it happens"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 They are also commonly grouped by **what type of control** they are:
 
-```mermaid
-flowchart TB
-    T["🧰 Control Types"]:::info --> Ph["🚪 Physical<br/>(locks, cameras, guards)"]:::good
-    T --> Te["💻 Technical<br/>(firewalls, encryption, MFA)"]:::good
-    T --> Ad["📋 Administrative<br/>(policies, training, procedures)"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 These two ways of grouping controls can be combined — for example, a security camera is a *physical, detective* control (it's physical hardware, and it helps notice something happening, rather than stopping it outright). A locked door is a *physical, preventive* control. A password policy is an *administrative, preventive* control.
 
@@ -70,18 +52,7 @@ Consider how a company protects against an employee's laptop being stolen with s
 - **Detective, Technical**: A device-tracking service that alerts IT if the laptop connects from an unusual location.
 - **Corrective, Administrative**: A documented incident response procedure for what to do if a laptop is reported stolen (such as remotely wiping it).
 
-```mermaid
-flowchart TB
-    L["💻 Company Laptop"]:::info --> P1["🔒 Cable Lock<br/>(Preventive, Physical)"]:::good
-    L --> P2["🔐 Disk Encryption<br/>(Preventive, Technical)"]:::good
-    L --> D1["📡 Location Tracking<br/>(Detective, Technical)"]:::warn
-    L --> C1["📋 Incident Response Plan<br/>(Corrective, Administrative)"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 Together, these four different controls address the same risk (a stolen laptop) from several different angles — before, during, and after an incident.
 
@@ -143,16 +114,7 @@ Each entry names one specific control, its type, and its purpose — this kind o
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    Pr["🚫 Preventive"]:::good
-    De["🔍 Detective"]:::warn
-    Co["🛠️ Corrective"]:::bad
-
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - A security control is any safeguard put in place to reduce risk.
 - Controls can be preventive (stop it), detective (notice it), or corrective (fix it afterward).

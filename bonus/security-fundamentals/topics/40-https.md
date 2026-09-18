@@ -32,20 +32,7 @@ An attacker who can observe the traffic may be able to read or manipulate it.
 
 HTTP is carried over **TLS**, providing protection for the connection.
 
-```mermaid
-flowchart LR
-    subgraph H["📬 HTTP"]
-        B1["🖥️ Browser"]:::info -->|"password=12345<br/>readable"| A1["🕵️ Attacker<br/>reads + changes it"]:::bad --> S1["🖥️ Server"]:::info
-    end
-    subgraph S["🔐 HTTPS"]
-        B2["🖥️ Browser"]:::info -->|"x9#fQ!2zL...<br/>encrypted"| A2["🕵️ Attacker<br/>sees gibberish"]:::warn --> S2["🖥️ Server"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -77,28 +64,9 @@ TLS certificates help the browser authenticate the server's identity.
 
 The server presents a certificate that can be validated through the certificate/CA trust system.
 
-```mermaid
-flowchart TD
-    H["🔐 HTTPS"]:::info --> C["🔒 Confidentiality<br/>nobody can read it"]:::good
-    H --> I["🛡️ Integrity<br/>nobody can secretly change it"]:::good
-    H --> A["🪪 Authentication<br/>server proves who it is"]:::good
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
-
-```mermaid
-sequenceDiagram
-    participant B as 🖥️ Browser
-    participant S as 🏦 Bank server
-    B->>S: TCP connection to port 443
-    B->>S: TLS hello — "let's talk securely"
-    S->>B: Here is my certificate 🪪
-    Note over B: Checks certificate:<br/>trusted CA? right name? not expired?
-    B->>S: Agree on session keys 🔑
-    B->>S: 🔐 Encrypted HTTP request (GET /login)
-    S->>B: 🔐 Encrypted HTTP response
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -116,15 +84,7 @@ HTTPS means the connection to that site is protected; it doesn't mean the site's
 
 Also, HTTPS doesn't protect data **after the server receives and decrypts it**.
 
-```mermaid
-flowchart LR
-    B["🖥️ Browser"]:::info -->|"🔐 protected by HTTPS"| S["🖥️ Server"]:::warn --> D["🗄️ Stored data<br/>NOT protected by HTTPS"]:::bad
-    P["🎣 Phishing site<br/>with a valid certificate"]:::bad -.->|"still HTTPS 🔒"| B
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -181,14 +141,7 @@ TLS provides security for application communication and is commonly positioned *
 
 Think:
 
-```mermaid
-flowchart TD
-    A["🌐 HTTP — Layer 7"]:::info --> T["🔐 TLS — between 7 and 4<br/>adds encryption"]:::warn --> P["🚚 TCP — Layer 4<br/>port 443"]:::good --> I["🌍 IP — Layer 3"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 So:
 
@@ -291,14 +244,7 @@ If you see:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    HTTP["🌐 HTTP"]:::info -->|"+ TLS"| HTTPS["🔐 HTTPS<br/>TCP 443 · Layer 7"]:::good --> CIA["🔒 Confidentiality<br/>🛡️ Integrity<br/>🪪 Authentication"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 > 🌐 **HTTP = Web communication**
 

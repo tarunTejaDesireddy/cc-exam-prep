@@ -34,14 +34,7 @@ MAC addresses exist to solve a specific problem: **on a local network segment, h
 
 When a device sends data to another device on the same local network, the local network hardware (like a switch, covered in a later topic) uses MAC addresses to deliver that data to the correct physical device.
 
-```mermaid
-flowchart LR
-    A["🖥️ Device A<br/>MAC: 00:1A:2B:3C:4D:5E"]:::info --> S["🌐 Switch"]:::info
-    S --> B["🖥️ Device B<br/>MAC: 00:1A:2B:3C:4D:5F"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Step by step, on a local network:
 

@@ -44,19 +44,7 @@ A **reverse proxy** represents/protects the servers:
 🌐 Internet → 🛡️ Reverse Proxy → 🖥️ Servers
 ```
 
-```mermaid
-flowchart LR
-    subgraph F["➡️ FORWARD — in front of CLIENTS"]
-        C1["👤 Clients"]:::info --> FP["🛡️ Forward proxy"]:::warn --> I1["🌐 Internet"]:::good
-    end
-    subgraph R["⬅️ REVERSE — in front of SERVERS"]
-        I2["🌐 Internet"]:::info --> RP["🛡️ Reverse proxy"]:::warn --> S["🖥️ Servers"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ### 🧠 Exam memory
 
@@ -74,20 +62,7 @@ Suppose you visit:
 
 The request travels in through the reverse proxy, and the response comes back out the same way:
 
-```mermaid
-sequenceDiagram
-    participant B as 👤 Browser
-    participant RP as 🛡️ Reverse proxy
-    participant A as 🖥️ Web/App server
-    participant D as 🗄️ Database
-    B->>RP: 🔐 HTTPS request (Internet)
-    RP->>A: Forward to the right backend
-    A->>D: Query
-    D->>A: Data
-    A->>RP: Response
-    RP->>B: 🔐 Response back to browser
-    Note over B,RP: Browser only ever talks to the reverse proxy
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -95,19 +70,7 @@ sequenceDiagram
 
 There are several functions you should recognize.
 
-```mermaid
-flowchart TD
-    RP["🛡️ REVERSE PROXY"]:::warn
-    RP --> R1["🔀 Route requests"]:::good
-    RP --> R2["⚖️ Load balance"]:::good
-    RP --> R3["🔐 Terminate TLS"]:::good
-    RP --> R4["🛡️ Filter / protect"]:::good
-    RP --> R5["🙈 Hide backend servers"]:::good
-    RP --> R6["⚡ Cache content"]:::good
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ## 1. 🔀 Request Routing
 
@@ -117,17 +80,7 @@ The reverse proxy can decide:
 
 For example:
 
-```mermaid
-flowchart LR
-    Q["🌐 Request"]:::info --> RP{"🛡️ Reverse proxy<br/>check the path"}:::warn
-    RP -->|"/shop"| S1["🛒 Shop server"]:::good
-    RP -->|"/login"| S2["🔐 Login server"]:::good
-    RP -->|"/api"| S3["⚙️ API server"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -135,17 +88,7 @@ flowchart LR
 
 A reverse proxy can **distribute requests across multiple servers**.
 
-```mermaid
-flowchart LR
-    U["👥👥👥 Users"]:::info --> RP["🛡️ Reverse proxy<br/>⚖️ load balancer"]:::warn
-    RP --> S1["🖥️ Server 1"]:::good
-    RP --> S2["🖥️ Server 2"]:::good
-    RP --> S3["🖥️ Server 3"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 Instead of sending every user to one server:
 
@@ -211,21 +154,7 @@ The Internet **doesn't need direct access** to the backend servers.
 
 Instead:
 
-```mermaid
-flowchart LR
-    I["🌐 Internet"]:::info --> RP["🛡️ Reverse proxy<br/>one public endpoint"]:::warn
-    subgraph INT["🔒 Internal network"]
-        B1["🖥️ Backend 1"]:::good
-        B2["🖥️ Backend 2"]:::good
-    end
-    RP --> B1
-    RP --> B2
-    I -.-x|"❌ no direct route"| B1
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 This can **reduce direct exposure** of backend infrastructure.
 
@@ -418,17 +347,7 @@ Backend server
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    I["🌐 INTERNET"]:::info --> RP["🛡️ REVERSE PROXY<br/>🔀 route · ⚖️ balance · 🔐 TLS<br/>🛡️ filter · ⚡ cache · 🙈 hide"]:::warn
-    RP --> S1["🖥️ Server 1"]:::good
-    RP --> S2["🖥️ Server 2"]:::good
-    RP --> S3["🖥️ Server 3"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/7.svg" alt="diagram"></p>
 
 Remember its major jobs:
 

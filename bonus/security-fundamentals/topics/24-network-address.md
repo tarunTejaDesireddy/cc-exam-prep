@@ -24,28 +24,13 @@ The network address solves this by giving every subnet one predictable, reserved
 
 For a subnet like `192.168.1.0/24`, the address `192.168.1.0` itself is the network address — notice that the host portion (the last octet, based on what was covered in the [Subnet Mask](21-subnet-mask.md) topic) is entirely zeros.
 
-```mermaid
-flowchart TB
-    Subnet["🧩 Subnet: 192.168.1.0/24"]:::info --> NA["🏷️ 192.168.1.0<br/>Network Address<br/>(represents the subnet itself)"]:::warn
-    Subnet --> H1["💻 192.168.1.1<br/>Usable device address"]:::good
-    Subnet --> H2["💻 192.168.1.2<br/>Usable device address"]:::good
-    Subnet --> BC["📢 192.168.1.255<br/>Broadcast Address<br/>(covered in the next topic)"]:::warn
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 Because the network address (all host bits set to zero) and the broadcast address (all host bits set to one, covered next) are both reserved for special purposes, they are **not** available to be assigned to an actual device. This is why a `/24` subnet, despite mathematically containing 256 total addresses, only provides 254 *usable* addresses for real devices.
 
 What happens if someone mistakenly tries to assign the network address to a device:
 
-```mermaid
-flowchart LR
-    A["🖥️ Attempt to assign<br/>192.168.1.0 to a laptop"]:::bad --> R["🚫 Invalid —<br/>this is the reserved network address"]:::bad
-
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -67,13 +52,7 @@ Last usable:          192.168.1.254
 Broadcast Address:  192.168.1.255  (covered next — also not assignable)
 ```
 
-```mermaid
-flowchart LR
-    NA["🏷️ .0<br/>Network Address"]:::warn --> U["💻 .1 to .254<br/>Usable Addresses"]:::good --> BC["📢 .255<br/>Broadcast Address"]:::warn
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 If a network administrator wanted to write a firewall rule blocking all traffic originating from this entire subnet, they would write it using the network address in CIDR form: `192.168.1.0/24` — referring to the whole group at once, rather than listing all 254 individual addresses.
 
@@ -127,15 +106,7 @@ What this means:
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    NA["🏷️ Network Address"]:::warn --> A["Represents the whole subnet"]:::info
-    NA --> B["Never assigned to a device"]:::info
-    NA --> C["Always has host bits = 0"]:::info
-
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 - The network address represents an entire subnet, not any individual device.
 - It is identified by having all host bits set to zero (e.g., 192.168.1.0 for a /24 subnet).

@@ -35,20 +35,7 @@ With VPN:
 
 The Internet sees **encrypted VPN traffic**, rather than the protected traffic inside the tunnel.
 
-```mermaid
-flowchart LR
-    subgraph NO["❌ Without VPN"]
-        G1["🪨 Grog"]:::info -->|"readable traffic"| E1["🕵️ Eavesdropper<br/>🌲👀 reads it"]:::bad --> C1["🏢 Company"]:::info
-    end
-    subgraph YES["✅ With VPN"]
-        G2["🪨 Grog"]:::info ==>|"🔐 encrypted tunnel"| E2["🕵️ Eavesdropper<br/>sees only gibberish"]:::warn ==> C2["🏢 VPN gateway"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
 
 ---
 
@@ -108,15 +95,7 @@ The VPN can **authenticate the user/device and/or VPN endpoints**, depending on 
 
 > 🪪 "Prove who/what is allowed to establish this connection."
 
-```mermaid
-flowchart TD
-    V["🔐 VPN"]:::info --> C["🔒 Confidentiality<br/>encrypted in transit"]:::good
-    V --> I["🛡️ Integrity<br/>tampering detected"]:::good
-    V --> A["🪪 Authentication<br/>who may connect"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
 
 ---
 
@@ -172,21 +151,7 @@ This is called:
 
 > **Site-to-site VPN**
 
-```mermaid
-flowchart LR
-    subgraph RA["🏠 REMOTE-ACCESS — one person connects"]
-        L["👩‍💻 Laptop<br/>VPN client"]:::info ==>|"🔐 tunnel"| GW1["🔐 VPN gateway"]:::warn --> N1["🏢 Company network"]:::good
-    end
-    subgraph S2S["🏢 SITE-TO-SITE — two networks connect"]
-        A["🏢 Office A<br/>👥👥👥"]:::info --- GA["🔐 Gateway A"]:::warn
-        GA ==>|"🔐 always-on tunnel<br/>over Internet"| GB["🔐 Gateway B"]:::warn
-        GB --- B["🏢 Office B<br/>👥👥👥"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
 
 ---
 
@@ -219,15 +184,7 @@ Think:
 
 Conceptually:
 
-```mermaid
-flowchart LR
-    O1["📦 Original traffic"]:::info --> EN["🔐 Encapsulate + encrypt<br/>package inside a locked box"]:::warn --> NET["🌐 Internet<br/>untrusted road"]:::bad --> DE["🔓 VPN endpoint<br/>unwrap + decrypt"]:::warn --> O2["📦 Original traffic"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
 
 ---
 
@@ -287,23 +244,7 @@ Computer
    └── Internal applications
 ```
 
-```mermaid
-flowchart LR
-    subgraph H["🔐 HTTPS — one web connection"]
-        B["🌐 Browser"]:::info ==>|"🔐"| W["🖥️ One website"]:::good
-    end
-    subgraph V["🔐 VPN — one tunnel, many apps"]
-        PC["💻 Computer"]:::info ==>|"🔐 tunnel"| GW["🔐 VPN gateway"]:::warn
-        GW --> T1["🌐 Web"]:::good
-        GW --> T2["📖 DNS"]:::good
-        GW --> T3["📁 File shares"]:::good
-        GW --> T4["⚙️ Internal apps"]:::good
-    end
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
 
 ### Memory:
 
@@ -357,15 +298,7 @@ So:
 
 > ❌ **VPN ≠ magical anonymity**
 
-```mermaid
-flowchart LR
-    D["💻 Your device"]:::info ==>|"🔐 protected part"| VP["🔐 VPN endpoint<br/>👀 can see metadata"]:::warn -->|"normal Internet from here"| S["🌐 Website"]:::bad
-    S -.- ID["🍪 Cookies · 🔑 logins<br/>🖐️ fingerprinting<br/>still identify you"]:::bad
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
-```
+<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
 
 ---
 
@@ -439,14 +372,7 @@ flowchart LR
 
 ## 🧠 Remember This
 
-```mermaid
-flowchart LR
-    U["🏠 User / 🏢 Site"]:::info ==>|"🔐 tunnel over untrusted Internet<br/>🔒 C · 🛡️ I · 🪪 A"| G["🔐 VPN gateway"]:::warn --> N["🏢 Private network"]:::good
-
-    classDef info fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    classDef warn fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef good fill:#22c55e,stroke:#15803d,color:#fff
-```
+<p align="center"><img src="diagrams/7.svg" alt="diagram"></p>
 
 > 🔐 **VPN = Virtual Private Network**
 
