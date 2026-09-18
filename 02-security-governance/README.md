@@ -65,7 +65,7 @@ Work top to bottom.
 
 ## 🎯 03 · Where the marks are
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 If you have one hour for this entire domain, spend it on
 [`rto-rpo-mtd/`](rto-rpo-mtd/) and [`measuring-cybersecurity-effectiveness/`](measuring-cybersecurity-effectiveness/).

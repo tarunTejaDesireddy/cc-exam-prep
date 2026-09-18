@@ -97,7 +97,7 @@ smaller organisations that want one appliance rather than a rack of specialised 
 > a single point of failure — if it goes down or is misconfigured, every function it provided
 > goes with it.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 Left to right, each firewall type **sees more and costs more** to inspect with.
 
@@ -105,7 +105,7 @@ Left to right, each firewall type **sees more and costs more** to inspect with.
 required. If an option offers "deny by default and permit by exception", it is almost certainly
 correct.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 > ⚠️ **A firewall cannot inspect what it cannot read.** Encrypted traffic passing through a basic
 > firewall is opaque to it. This is why an attacker using HTTPS on port 443 for command and
@@ -113,7 +113,7 @@ correct.
 
 ### 🔬 What "stateful" actually means, in a real table
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 On Linux, this is a literal, inspectable table — **conntrack** (part of `netfilter`, which
 `iptables` and its successor `nftables` are built on) — holding one row per active connection
@@ -134,7 +134,7 @@ never looks past the IP and port headers at all.
 
 ## 🚨 IDS versus IPS
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 | | **IDS** | **IPS** |
 |---|---|---|
@@ -173,7 +173,7 @@ never looks past the IP and port headers at all.
 > ⚠️ **A false negative is the dangerous error** — a real attack went unnoticed. A false positive
 > is merely expensive.
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 **Amber costs you money. Red costs you the breach.**
 
@@ -191,7 +191,7 @@ A proxy makes requests on someone's behalf, so the two parties never connect dir
 > ⚠️ **Forward protects/serves the client; reverse protects/serves the server.** That is the whole
 > distinction, and it is a reliable question.
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/6.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **a forward proxy stands in front of your users looking out, and a reverse
 proxy stands in front of your servers looking in.**

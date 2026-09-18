@@ -62,7 +62,7 @@ secrets, long-lived personal records — today's encryption may already be inade
 *future* decryption capability, even though it is completely secure against every attacker that
 exists right now.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 This is why standards bodies are already publishing quantum-resistant algorithms and why
 organisations with long-lived sensitive data are beginning migration now — the migration
@@ -78,7 +78,7 @@ mathematical problem than the factoring and discrete-logarithm problems RSA and 
 cryptography rely on, which is exactly why Shor's algorithm doesn't help against them: it was
 built to solve *those specific* problems, not lattice problems.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **This migration isn't hypothetical — it's already running in production today, via hybrid
 deployment.** Chrome and Cloudflare, among others, now run TLS handshakes combining a classical

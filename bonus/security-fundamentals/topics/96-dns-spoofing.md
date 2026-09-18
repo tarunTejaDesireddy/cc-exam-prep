@@ -78,7 +78,7 @@ With DNS spoofing:
 
 The victim **thinks they're going to the legitimate site**.
 
-<p align="center"><img src="diagrams/96-dns-spoofing-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/96-dns-spoofing-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -152,7 +152,7 @@ Think:
 
 In some security materials, the terms are **used loosely or interchangeably**, so follow the wording of the question.
 
-<p align="center"><img src="diagrams/96-dns-spoofing-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/96-dns-spoofing-2.svg" alt="diagram" width="500"></p>
 
 > 🧠 **Spoofing lies once. Poisoning puts the lie in the cache — so it hits every user of that resolver.**
 
@@ -229,7 +229,7 @@ So:
 
 > 🎭 **IP spoofing = fake source IP**
 
-<p align="center"><img src="diagrams/96-dns-spoofing-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/96-dns-spoofing-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -271,7 +271,7 @@ However, properly configured **HTTPS/TLS certificate validation** makes it **muc
 
 For example:
 
-<p align="center"><img src="diagrams/96-dns-spoofing-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/96-dns-spoofing-4.svg" alt="diagram" width="500"></p>
 
 The browser **should warn the user** rather than silently treating the attacker's site as the legitimate site.
 

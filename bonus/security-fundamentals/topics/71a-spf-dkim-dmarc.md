@@ -30,7 +30,7 @@ Remember:
 > **DKIM = Signature**<br>
 > **DMARC = Decision**
 
-<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -88,7 +88,7 @@ An attacker sends:
 
 SPF can identify that the **sending server isn't authorized**.
 
-<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -136,7 +136,7 @@ The receiver checks the seal using the corresponding public key.
 
 If someone **changes the signed content**, the signature verification can fail.
 
-<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -203,7 +203,7 @@ Think:
 
 Very simplified:
 
-<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -222,7 +222,7 @@ boss@example.com
 
 If the message is authenticated using a **completely unrelated domain**, that can **fail DMARC alignment**.
 
-<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-5.svg" alt="diagram" width="500"></p>
 
 So don't simplify DMARC to merely:
 
@@ -350,7 +350,7 @@ A **legitimate domain can still send**:
 
 So email security uses **multiple controls**.
 
-<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71a-spf-dkim-dmarc-6.svg" alt="diagram" width="500"></p>
 
 ---
 

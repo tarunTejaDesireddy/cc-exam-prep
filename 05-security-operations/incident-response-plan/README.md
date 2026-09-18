@@ -70,7 +70,7 @@ Two things the exam does with this:
 
 ## 🔄 The six phases
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 Note the dotted line: **the cycle closes.** Lessons learned feed back into preparation, which is
 what makes the next response better.
@@ -167,7 +167,7 @@ that hunts for someone to punish gets no honest information, and the next incide
 
 ## 🚦 What to do FIRST
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 > [!CAUTION]
 > **This is the highest-value pattern in the domain.** When a scenario asks what to do FIRST and
@@ -202,7 +202,7 @@ usable.
 
 RFC 3227 spells out the exact order, more finely than "memory before disk":
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 **A real memory capture uses a specific tool before the machine is ever touched further** — an
 investigator runs something like FTK Imager or WinPmem to dump the entire contents of RAM to a

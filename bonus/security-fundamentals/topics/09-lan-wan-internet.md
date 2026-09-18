@@ -28,7 +28,7 @@ Without this layered structure, every device in the world would need to somehow 
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/09-lan-wan-internet-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/09-lan-wan-internet-1.svg" alt="diagram" width="500"></p>
 
 Step by step, in terms of scale:
 

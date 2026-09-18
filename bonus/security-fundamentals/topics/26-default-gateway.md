@@ -20,7 +20,7 @@ But if the destination is *not* on the local network — for example, a website 
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/26-default-gateway-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/26-default-gateway-1.svg" alt="diagram" width="500"></p>
 
 Step by step:
 
@@ -32,7 +32,7 @@ Step by step:
 
 Without a correctly configured default gateway, a device could still communicate perfectly fine with other devices on its own local network, but would be completely unable to reach anything outside it, including the internet.
 
-<p align="center"><img src="diagrams/26-default-gateway-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/26-default-gateway-2.svg" alt="diagram" width="500"></p>
 
 ## 🧩 Important Parts
 
@@ -58,7 +58,7 @@ If this device wants to reach another device on the same home network, like a pr
 
 If this device wants to visit a website hosted at, say, `203.0.113.45`, it recognizes that this address is *not* on its local subnet, and instead sends the request to its default gateway, `192.168.1.1` — the home router — which then forwards it on toward the internet.
 
-<p align="center"><img src="diagrams/26-default-gateway-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/26-default-gateway-3.svg" alt="diagram" width="500"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -120,7 +120,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/26-default-gateway-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/26-default-gateway-4.svg" alt="diagram" width="500"></p>
 
 - The default gateway handles traffic that needs to leave the local subnet.
 - It is typically the router connecting a local network to the internet or other networks.

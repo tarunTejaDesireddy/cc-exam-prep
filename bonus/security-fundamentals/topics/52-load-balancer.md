@@ -20,7 +20,7 @@ If all 100 go to one cook:
 
 Instead, a load balancer spreads them out:
 
-<p align="center"><img src="diagrams/52-load-balancer-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/52-load-balancer-1.svg" alt="diagram" width="500"></p>
 
 Now the work is shared.
 
@@ -78,7 +78,7 @@ It can perform a **health check**.
 
 For example:
 
-<p align="center"><img src="diagrams/52-load-balancer-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/52-load-balancer-2.svg" alt="diagram" width="500"></p>
 
 If a server stops responding properly:
 
@@ -88,7 +88,7 @@ This is called:
 
 > **Health checking**
 
-<p align="center"><img src="diagrams/52-load-balancer-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/52-load-balancer-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -171,7 +171,7 @@ Server 3 → weight 3
 
 Server 3 might receive more requests because it has **greater capacity**.
 
-<p align="center"><img src="diagrams/52-load-balancer-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/52-load-balancer-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -214,7 +214,7 @@ Example:
 /shop/*      → shopping servers
 ```
 
-<p align="center"><img src="diagrams/52-load-balancer-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/52-load-balancer-5.svg" alt="diagram" width="500"></p>
 
 ### 🧠 Memory:
 
@@ -296,7 +296,7 @@ Main question:
 
 They can **both exist in the same architecture**.
 
-<p align="center"><img src="diagrams/52-load-balancer-6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/52-load-balancer-6.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -368,7 +368,7 @@ They can **both exist in the same architecture**.
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/52-load-balancer-7.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/52-load-balancer-7.svg" alt="diagram" width="500"></p>
 
 > ⚖️ **Load balancer = distributes traffic**
 

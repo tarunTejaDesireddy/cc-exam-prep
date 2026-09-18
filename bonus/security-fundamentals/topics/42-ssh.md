@@ -11,7 +11,7 @@ Think:
 > 🪨 Grog is far away from the server cave.<br>
 > Instead of walking there, he opens a **secure remote tunnel** and controls the computer from his own cave.
 
-<p align="center"><img src="diagrams/42-ssh-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/42-ssh-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -57,7 +57,7 @@ A user can authenticate using:
 - 🔑 SSH keys
 - Other supported authentication mechanisms
 
-<p align="center"><img src="diagrams/42-ssh-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/42-ssh-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -81,7 +81,7 @@ Think:
 
 The server can verify that Grog possesses the corresponding private key **without Grog sending the private key across the network**.
 
-<p align="center"><img src="diagrams/42-ssh-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/42-ssh-3.svg" alt="diagram" width="500"></p>
 
 > [!WARNING]
 > **Never share the private key.**
@@ -124,7 +124,7 @@ It runs over TCP.
 
 Simplified:
 
-<p align="center"><img src="diagrams/42-ssh-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/42-ssh-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -172,7 +172,7 @@ Therefore:
 
 > **SSH replaced Telnet for secure remote administration.**
 
-<p align="center"><img src="diagrams/42-ssh-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/42-ssh-5.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -200,7 +200,7 @@ Don't confuse:
 
 SFTP is a **different protocol that operates over SSH**.
 
-<p align="center"><img src="diagrams/42-ssh-6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/42-ssh-6.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -298,7 +298,7 @@ Both use cryptography, but they're designed for **different purposes**.
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/42-ssh-7.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/42-ssh-7.svg" alt="diagram" width="500"></p>
 
 > **SSH = Secure Shell** 🔐
 

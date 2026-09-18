@@ -84,7 +84,7 @@ Therefore:
 
 > **Privileged access = powerful access that could significantly affect security or operations.**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -96,7 +96,7 @@ The big idea is:
 
 Here are the important ones.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -141,7 +141,7 @@ Why?
 
 > If Alice's everyday account gets compromised, the attacker doesn't automatically get administrator privileges.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ### 🧠 Exam clue
 
@@ -169,7 +169,7 @@ A powerful account doesn't necessarily need powerful access **all the time**.
 
 Instead:
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 This is often called **just-in-time (JIT) access**.
 
@@ -365,7 +365,7 @@ Not:
 
 > ❌ **"How important is the person?"**
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 ---
 

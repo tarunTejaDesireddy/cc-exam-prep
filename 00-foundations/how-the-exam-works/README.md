@@ -68,7 +68,7 @@ score, and that stays true under CAT exactly as it did under the old format.
 > states publicly. For anything beyond it, see
 > [isc2.org/certifications/computerized-adaptive-testing](https://www.isc2.org/certifications/computerized-adaptive-testing).
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 

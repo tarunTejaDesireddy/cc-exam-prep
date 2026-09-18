@@ -100,7 +100,7 @@ process.
 
 ## 🔬 Mirai and Modbus: the two textbook mechanisms, concretely
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **Mirai needed no exploit, no vulnerability research, nothing clever at all** — it simply
 scanned the whole internet for devices with Telnet open and tried a hard-coded list of around

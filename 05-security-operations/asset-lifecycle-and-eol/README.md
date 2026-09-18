@@ -53,7 +53,7 @@ service, because new vulnerabilities discovered after EOL will **never** be patc
 
 ## 🔍 The lifecycle, and where EOL risk builds
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **Why EOL is the highest-risk stage:** every stage before it has an active vendor fixing newly
 discovered vulnerabilities. Past EOL, **new vulnerabilities are never patched** — the asset's
@@ -80,7 +80,7 @@ in service. The toolmaker has left camp; every crack from here on is permanent.
 "Track EOL dates in the inventory" sounds like a spreadsheet column somebody updates. In
 practice it is fed automatically.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **An SBOM (Software Bill of Materials) is the real artefact that solves the embedded-EOL
 problem.** It is a machine-readable manifest — in a standard format such as **CycloneDX** or

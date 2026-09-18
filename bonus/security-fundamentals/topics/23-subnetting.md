@@ -28,7 +28,7 @@ Subnetting solves these problems by intentionally splitting a network into small
 
 Subnetting takes one larger address block and divides it into multiple smaller blocks by using a longer CIDR prefix (as shown in the previous topic — a longer prefix means a smaller network).
 
-<p align="center"><img src="diagrams/23-subnetting-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/23-subnetting-1.svg" alt="diagram" width="500"></p>
 
 Step by step:
 
@@ -39,7 +39,7 @@ Step by step:
 
 Once divided, devices within the same subnet can communicate directly (as shown in the Subnet Mask topic), while communication *between* different subnets must pass through a router — which gives network administrators a natural checkpoint to monitor, control, or restrict that traffic if needed.
 
-<p align="center"><img src="diagrams/23-subnetting-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/23-subnetting-2.svg" alt="diagram" width="500"></p>
 
 ## 🧩 Important Parts
 
@@ -61,7 +61,7 @@ IT:       192.168.1.128/26  (addresses .128 to .191)
 Guests:   192.168.1.192/26  (addresses .192 to .255)
 ```
 
-<p align="center"><img src="diagrams/23-subnetting-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/23-subnetting-3.svg" alt="diagram" width="500"></p>
 
 With this structure, the company can now set a rule, for example, blocking the Guest subnet from ever reaching the Finance subnet directly — something that would have been much harder to enforce cleanly if every device shared one single flat network.
 
@@ -116,7 +116,7 @@ Each line defines one subnet's address range and its intended purpose — a comm
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/23-subnetting-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/23-subnetting-4.svg" alt="diagram" width="500"></p>
 
 - Subnetting divides one larger network into smaller, more manageable subnets.
 - It improves performance, organization, and enables better security control between groups of devices.

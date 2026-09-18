@@ -24,13 +24,13 @@ The network address solves this by giving every subnet one predictable, reserved
 
 For a subnet like `192.168.1.0/24`, the address `192.168.1.0` itself is the network address — notice that the host portion (the last octet, based on what was covered in the [Subnet Mask](21-subnet-mask.md) topic) is entirely zeros.
 
-<p align="center"><img src="diagrams/24-network-address-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/24-network-address-1.svg" alt="diagram" width="500"></p>
 
 Because the network address (all host bits set to zero) and the broadcast address (all host bits set to one, covered next) are both reserved for special purposes, they are **not** available to be assigned to an actual device. This is why a `/24` subnet, despite mathematically containing 256 total addresses, only provides 254 *usable* addresses for real devices.
 
 What happens if someone mistakenly tries to assign the network address to a device:
 
-<p align="center"><img src="diagrams/24-network-address-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/24-network-address-2.svg" alt="diagram" width="500"></p>
 
 ## 🧩 Important Parts
 
@@ -52,7 +52,7 @@ Last usable:          192.168.1.254
 Broadcast Address:  192.168.1.255  (covered next — also not assignable)
 ```
 
-<p align="center"><img src="diagrams/24-network-address-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/24-network-address-3.svg" alt="diagram" width="500"></p>
 
 If a network administrator wanted to write a firewall rule blocking all traffic originating from this entire subnet, they would write it using the network address in CIDR form: `192.168.1.0/24` — referring to the whole group at once, rather than listing all 254 individual addresses.
 
@@ -106,7 +106,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/24-network-address-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/24-network-address-4.svg" alt="diagram" width="500"></p>
 
 - The network address represents an entire subnet, not any individual device.
 - It is identified by having all host bits set to zero (e.g., 192.168.1.0 for a /24 subnet).

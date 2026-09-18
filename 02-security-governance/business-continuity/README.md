@@ -69,7 +69,7 @@ The important activities continue even though the tribe isn't operating normally
 
 That's business continuity.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -116,7 +116,7 @@ The organization might prioritize:
 
 The objective is to keep critical services available.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -138,7 +138,7 @@ injured, so Bob performs the job."
 **📦 Alternate suppliers** — If the normal supplier cannot provide materials: "Use another
 supplier."
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -167,7 +167,7 @@ So:
 > **Business Continuity = Keep the business going.**
 > **Disaster Recovery = Restore systems.**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ---
 

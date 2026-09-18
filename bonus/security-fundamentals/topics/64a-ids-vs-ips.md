@@ -105,7 +105,7 @@ Because it needs to be able to:
 
 > **Stop the traffic.**
 
-<p align="center"><img src="diagrams/64a-ids-vs-ips-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64a-ids-vs-ips-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -215,7 +215,7 @@ This comparison is **excellent for exams**:
 
 > 🕸️ **WAF = Web-app guard**
 
-<p align="center"><img src="diagrams/64a-ids-vs-ips-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64a-ids-vs-ips-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -249,7 +249,7 @@ This comparison is **excellent for exams**:
 
 # 🧠 The 5-Second Exam Trick
 
-<p align="center"><img src="diagrams/64a-ids-vs-ips-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64a-ids-vs-ips-3.svg" alt="diagram" width="500"></p>
 
 If the question says **"Detects" / "alerts"** → 🕵️ **IDS**
 

@@ -34,7 +34,7 @@ Public IP addresses, on the other hand, must be globally unique, because they id
 
 A typical home or office network has one public IP address, shared by all the devices inside it. Each individual device inside that network gets its own private IP address.
 
-<p align="center"><img src="diagrams/03-public-vs-private-ip-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/03-public-vs-private-ip-1.svg" alt="diagram" width="500"></p>
 
 Step by step:
 
@@ -45,7 +45,7 @@ Step by step:
 
 What happens if someone on the internet tries to reach a private address directly:
 
-<p align="center"><img src="diagrams/03-public-vs-private-ip-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/03-public-vs-private-ip-2.svg" alt="diagram" width="500"></p>
 
 Private addresses like `192.168.1.10` simply don't exist as destinations on the public internet — routers across the internet are built to ignore them. This is exactly why NAT is needed for a private device to reach the internet at all.
 

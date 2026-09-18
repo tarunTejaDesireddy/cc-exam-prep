@@ -37,7 +37,7 @@ Every topic here is a **self-contained lesson** that follows the same promise: r
 
 The path is organized into **29 sections**, grouped into five broad phases — from raw networking basics, through core security thinking, into specialized modern security domains, and finally practical/career skills:
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 🟢 Green = phase in progress or complete &nbsp;·&nbsp; 🔵 Blue = not started yet
 

@@ -69,7 +69,7 @@ Work top to bottom. The data topics set up the encryption ones.
 
 ## 🎯 03 · Where the marks are
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 

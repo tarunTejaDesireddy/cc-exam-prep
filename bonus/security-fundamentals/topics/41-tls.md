@@ -12,7 +12,7 @@ Think:
 
 > 🔐 TLS puts the message into a **locked, tamper-evident tunnel**.
 
-<p align="center"><img src="diagrams/41-tls-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/41-tls-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -44,7 +44,7 @@ TLS can **authenticate the server** using a **digital certificate**.
 
 The server presents a certificate that the browser validates using its **trusted certificate authorities**.
 
-<p align="center"><img src="diagrams/41-tls-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/41-tls-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -54,7 +54,7 @@ Before protected communication begins, the client and server perform a **TLS han
 
 Very simplified:
 
-<p align="center"><img src="diagrams/41-tls-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/41-tls-3.svg" alt="diagram" width="500"></p>
 
 The exact handshake differs between TLS versions, but for exam purposes remember:
 
@@ -82,7 +82,7 @@ Why?
 
 Modern TLS uses **authenticated encryption** mechanisms such as **AES-GCM** or **ChaCha20-Poly1305**.
 
-<p align="center"><img src="diagrams/41-tls-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/41-tls-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -130,7 +130,7 @@ Instead memorize:
 
 > ✅ **HTTPS commonly uses TCP 443 and uses TLS for security.**
 
-<p align="center"><img src="diagrams/41-tls-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/41-tls-5.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -152,7 +152,7 @@ For an exam question asking about modern secure communication:
 
 > ✅ **TLS = correct answer**
 
-<p align="center"><img src="diagrams/41-tls-6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/41-tls-6.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -164,7 +164,7 @@ TLS **doesn't map cleanly** to one of the seven OSI layers.
 
 Conceptually, it sits **above TCP and below the application protocol**:
 
-<p align="center"><img src="diagrams/41-tls-7.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/41-tls-7.svg" alt="diagram" width="500"></p>
 
 Don't answer:
 
@@ -236,7 +236,7 @@ The word **Transport** in its name **does not mean OSI Transport Layer**.
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/41-tls-8.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/41-tls-8.svg" alt="diagram" width="500"></p>
 
 > 🔐 **TLS = protect communication in transit**
 

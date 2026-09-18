@@ -59,7 +59,7 @@ So an IPS isn't just watching.
 
 > **It takes action.**
 
-<p align="center"><img src="diagrams/63-ips-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/63-ips-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -162,7 +162,7 @@ Because:
 
 > **If the IPS wants to block traffic, the traffic needs to pass through it.**
 
-<p align="center"><img src="diagrams/63-ips-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/63-ips-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -252,7 +252,7 @@ That's a:
 
 > **False negative**
 
-<p align="center"><img src="diagrams/63-ips-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/63-ips-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -288,7 +288,7 @@ Example:
 
 They **can work together**:
 
-<p align="center"><img src="diagrams/63-ips-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/63-ips-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -422,7 +422,7 @@ Protects a network by **inspecting network traffic**.
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/63-ips-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/63-ips-5.svg" alt="diagram" width="500"></p>
 
 > 🛡️ **IPS = Intrusion Prevention System**
 

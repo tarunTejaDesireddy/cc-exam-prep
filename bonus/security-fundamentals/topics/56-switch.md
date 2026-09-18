@@ -117,7 +117,7 @@ So it asks around:
 
 Once the switch learns where B is, future traffic can be forwarded directly.
 
-<p align="center"><img src="diagrams/56-switch-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/56-switch-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -189,7 +189,7 @@ Think:
 
 Example:
 
-<p align="center"><img src="diagrams/56-switch-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/56-switch-2.svg" alt="diagram" width="500"></p>
 
 ### 🧠 Memory:
 
@@ -221,7 +221,7 @@ A → Hub → B
         → D
 ```
 
-<p align="center"><img src="diagrams/56-switch-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/56-switch-3.svg" alt="diagram" width="500"></p>
 
 ### 🧠 Memory:
 
@@ -261,7 +261,7 @@ This provides **logical segmentation**.
 
 Can **require devices/users to authenticate** before gaining network access through a switch port.
 
-<p align="center"><img src="diagrams/56-switch-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/56-switch-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -356,7 +356,7 @@ This is an important distinction.
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/56-switch-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/56-switch-5.svg" alt="diagram" width="500"></p>
 
 > 🔀 **Switch = connects devices on a LAN**
 

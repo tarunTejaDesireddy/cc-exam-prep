@@ -57,7 +57,7 @@ class of question — "which protocol should replace this one?"
 
 ## 🔢 The port ranges
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 > 🎯 **0–1023 is well-known.** That boundary is asked directly. The other two ranges are worth
 > recognising but are tested far less often.
@@ -87,7 +87,7 @@ Learn this table cold. It is the highest ratio of marks to effort anywhere on th
 | **636** | **LDAPS** | LDAP over TLS | TCP | ✅ |
 | **3389** | **RDP** | Windows remote desktop | TCP | — |
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **the IP address finds the machine, and the port number finds the program
 on it.** One address, many doors.
@@ -105,7 +105,7 @@ If time is short, these are the ones that appear most:
 
 A recurring question type: *"which protocol should replace X?"*
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 | Insecure | Port | Replace with | Port |
 |---|:--:|---|:--:|
@@ -130,7 +130,7 @@ A recurring question type: *"which protocol should replace X?"*
 
 ## 🔬 How you actually check what's listening
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 **`nmap` finds open ports by exploiting the three-way handshake itself.** A default SYN scan
 sends a bare SYN to each port and reads the reply: a **SYN-ACK** means something is genuinely
@@ -162,7 +162,7 @@ rather than just believing a configuration file that says so.
 | **Port** | Identifies the application on a host. Layer 4. | **IP address**, which identifies the host. Layer 3. |
 | **DNS on 53** | Uses **UDP** for normal queries. | TCP, which DNS uses for zone transfers and large responses. UDP is the expected answer. |
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 **One arrow out, two arrows back.** If a question says mail cannot be *sent*, it is SMTP; if it
 cannot be *received*, it is POP3 or IMAP.

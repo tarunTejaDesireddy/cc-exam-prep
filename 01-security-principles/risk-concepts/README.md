@@ -132,7 +132,7 @@ That's an **exploit**.
 
 **Exploit = way of using the weakness**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -156,7 +156,7 @@ That's a **risk**.
 
 > **Risk = The possibility that a threat will exploit a vulnerability and cause harm to an asset.**
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -228,7 +228,7 @@ So:
 The exact mathematical formulas used in real organizations can be more sophisticated, but this is a
 useful basic model.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -415,11 +415,11 @@ Example:
 
 🛡️ **Control:** Block the hole
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 Once you have a risk, there are several ways to respond to it:
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 ---
 

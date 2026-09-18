@@ -57,7 +57,7 @@ It may then:
 - 🕵️ Quarantine it
 - 🚨 Alert administrators
 
-<p align="center"><img src="diagrams/71-email-security-gateway-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71-email-security-gateway-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -166,7 +166,7 @@ It examines things such as:
 - Email content
 - Spam/phishing indicators
 
-<p align="center"><img src="diagrams/71-email-security-gateway-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71-email-security-gateway-2.svg" alt="diagram" width="500"></p>
 
 ### 🧠 Memory:
 
@@ -248,7 +248,7 @@ Think:
 
 Checks messages **against organizational rules**.
 
-<p align="center"><img src="diagrams/71-email-security-gateway-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71-email-security-gateway-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -296,7 +296,7 @@ Checks messages **against organizational rules**.
 
 If the question mentions **📧 Email, 📎 Attachment, 🎣 Phishing, 🗑️ Spam** or **🔗 Malicious email link** → 🛡️ **EMAIL SECURITY GATEWAY**
 
-<p align="center"><img src="diagrams/71-email-security-gateway-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71-email-security-gateway-4.svg" alt="diagram" width="500"></p>
 
 Compare:
 
@@ -340,7 +340,7 @@ Compare:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/71-email-security-gateway-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/71-email-security-gateway-5.svg" alt="diagram" width="500"></p>
 
 > 📧 **Email Security Gateway = the guard at the mail door**
 

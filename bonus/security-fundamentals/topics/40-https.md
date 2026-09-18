@@ -32,7 +32,7 @@ An attacker who can observe the traffic may be able to read or manipulate it.
 
 HTTP is carried over **TLS**, providing protection for the connection.
 
-<p align="center"><img src="diagrams/40-https-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/40-https-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -64,9 +64,9 @@ TLS certificates help the browser authenticate the server's identity.
 
 The server presents a certificate that can be validated through the certificate/CA trust system.
 
-<p align="center"><img src="diagrams/40-https-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/40-https-2.svg" alt="diagram" width="500"></p>
 
-<p align="center"><img src="diagrams/40-https-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/40-https-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -84,7 +84,7 @@ HTTPS means the connection to that site is protected; it doesn't mean the site's
 
 Also, HTTPS doesn't protect data **after the server receives and decrypts it**.
 
-<p align="center"><img src="diagrams/40-https-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/40-https-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -141,7 +141,7 @@ TLS provides security for application communication and is commonly positioned *
 
 Think:
 
-<p align="center"><img src="diagrams/40-https-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/40-https-5.svg" alt="diagram" width="500"></p>
 
 So:
 
@@ -244,7 +244,7 @@ If you see:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/40-https-6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/40-https-6.svg" alt="diagram" width="500"></p>
 
 > 🌐 **HTTP = Web communication**
 

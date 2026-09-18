@@ -24,13 +24,13 @@ The broadcast address solves this by providing one predictable destination that 
 
 For a subnet like `192.168.1.0/24`, the broadcast address is `192.168.1.255` — the host portion (the last octet) is entirely set to its maximum value (`255`, meaning all 1s in binary).
 
-<p align="center"><img src="diagrams/25-broadcast-address-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/25-broadcast-address-1.svg" alt="diagram" width="500"></p>
 
 Unlike a normal message sent to one specific device's address, a message sent to the broadcast address is delivered to *every* device on that particular subnet at the same time. Just like the network address, the broadcast address is reserved and can never be assigned to an individual device.
 
 What happens if broadcast traffic tries to cross into a different subnet:
 
-<p align="center"><img src="diagrams/25-broadcast-address-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/25-broadcast-address-2.svg" alt="diagram" width="500"></p>
 
 By default, routers do not forward broadcast traffic from one subnet into another — broadcasts stay contained within their own local subnet. This is actually one of the benefits of [subnetting](23-subnetting.md): it limits how far broadcast traffic can spread.
 
@@ -52,7 +52,7 @@ Usable range:        192.168.1.1 to 192.168.1.254
 Broadcast Address:  192.168.1.255  (reaches every device on this subnet)
 ```
 
-<p align="center"><img src="diagrams/25-broadcast-address-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/25-broadcast-address-3.svg" alt="diagram" width="500"></p>
 
 If a new device joins this network and needs to find a DHCP server to obtain an IP address (a process covered in a later topic), it can send a request to `192.168.1.255`, and every device on the subnet — including the DHCP server — will receive it, even though the new device doesn't yet know the DHCP server's specific address.
 
@@ -106,7 +106,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/25-broadcast-address-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/25-broadcast-address-4.svg" alt="diagram" width="500"></p>
 
 - The broadcast address delivers data to every device on a subnet at once.
 - It is identified by all host bits being set to one (e.g., 192.168.1.255 for a /24 subnet).

@@ -61,7 +61,7 @@ An attacker must defeat **every** layer. A defender needs only **one** to hold.
 
 ## 🔍 What the layers look like
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **the attacker must get into the building, past the process, through the
 perimeter, across the segment, onto the host, and then through the encryption — and any one of
@@ -85,7 +85,7 @@ to fail for the same reasons.
 
 ## ⚠️ Independence is the whole point
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **Top: three controls, one failure, everything opens.** That is not depth — it is one control
 counted three times.
@@ -125,7 +125,7 @@ encryption, requires four different kinds of attack.
 
 ## 🎯 How it appears on the exam
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 Two recurring shapes:
 
@@ -142,7 +142,7 @@ The clearest real-world example of "layers that looked independent but shared on
 is a **software supply-chain compromise** — attackers compromise a trusted vendor and ship
 malware inside that vendor's own, legitimately signed software update.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 Three layers that looked genuinely different on paper — an antivirus signature check, a network
 firewall rule, and a change-management approval process — all shared exactly one hidden

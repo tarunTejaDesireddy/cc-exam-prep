@@ -66,7 +66,7 @@ approach and talk to the impostor instead — that's an **evil twin**, the same 
 - **An evil twin** is the same idea from *outside* — an attacker's AP broadcasting a familiar
   SSID so victims connect to it instead of the real network, exposing their traffic.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ## 🏢 Personal versus Enterprise, and why organisations pick one
 
@@ -118,7 +118,7 @@ Three very different levels of harm, all from someone nearby.
 
 ## 🔬 What actually happens inside an 802.1X connection
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 802.1X names three specific roles: the **supplicant** (your laptop or phone) wants access, the
 **authenticator** (the AP or switch) is a dumb relay that won't open its port until told to, and

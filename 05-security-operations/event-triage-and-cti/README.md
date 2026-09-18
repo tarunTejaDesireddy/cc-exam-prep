@@ -72,7 +72,7 @@ just raw alert volume.
 scheduled task, and an outbound connection to an unusual IP — investigated separately, each
 looks minor. Correlated, they describe a single intrusion in progress.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 > 🎯 **Correlation usually comes before prioritisation in practice** — you can't accurately
 > judge severity of three isolated-looking alerts until you realise they're one attack chain.
@@ -158,7 +158,7 @@ rather than in free-text prose unique to that report.
 The grown-up section mentions a model ranking IOC types by how costly they are for an attacker
 to change. Here it is, drawn out.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 Blocking a hash costs an attacker nothing — they change one byte and get a new hash. Blocking
 their actual **TTPs** (how they establish persistence, how they move laterally) costs them

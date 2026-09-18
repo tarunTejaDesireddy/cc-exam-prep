@@ -25,7 +25,7 @@ Think of it as asking **two separate questions** about the same control:
 
 A single control can therefore have **one type + one function**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -228,7 +228,7 @@ system.
 
 **Answer:** **Technical + Preventive**
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ## 🎯 Example 2: Security Camera
 
@@ -280,7 +280,7 @@ If the guard **physically stops someone from entering**: 🛑 **Preventive**
 This is why you should focus on **what the control actually does in the scenario**, not just
 memorize a fixed label.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 

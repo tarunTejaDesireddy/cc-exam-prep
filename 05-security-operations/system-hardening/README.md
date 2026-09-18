@@ -68,7 +68,7 @@ privilege. Least privilege limits what a *person* can do; least functionality li
 
 ## 🔩 What hardening involves
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 | Step | Why |
 |---|---|
@@ -100,7 +100,7 @@ an extra door or cut a window for the view, and nobody notices until a wolf find
 A **baseline** is the documented minimum secure configuration for a class of system — all web
 servers, all laptops, all database servers.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 A baseline does two jobs: **new systems are built from it**, and **existing systems are measured
 against it**. The second is what catches **configuration drift** — systems slowly diverging as
@@ -124,7 +124,7 @@ sign-off, and finally check the mended spot actually holds under a shove.
 Patching is the most visible part of hardening, and the exam expects the **process**, not just the
 act.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 > [!IMPORTANT]
 > **Test before deploying to production.** A patch that breaks a critical application causes an
@@ -173,7 +173,7 @@ fewer things.
 
 ## 🔬 How a baseline actually gets checked, and how a golden image gets built
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 A CIS Benchmark isn't just prose — it's published alongside a machine-readable **SCAP** (Security
 Content Automation Protocol) definition, and a scanner like **OpenSCAP** reads that definition and

@@ -21,7 +21,7 @@ SMTP is mainly for:
 
 For example:
 
-<p align="center"><img src="diagrams/44-smtp-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/44-smtp-1.svg" alt="diagram" width="500"></p>
 
 So SMTP is involved when:
 
@@ -82,7 +82,7 @@ But if the question specifically says **secure/authenticated mail submission**, 
 
 > **587** (commonly)
 
-<p align="center"><img src="diagrams/44-smtp-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/44-smtp-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -102,7 +102,7 @@ You may see:
 
 This allows a connection to be **upgraded to TLS**.
 
-<p align="center"><img src="diagrams/44-smtp-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/44-smtp-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -139,7 +139,7 @@ Modern email security uses mechanisms such as:
 
 to help address sender authentication and spoofing.
 
-<p align="center"><img src="diagrams/44-smtp-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/44-smtp-4.svg" alt="diagram" width="500"></p>
 
 For a basic SMTP question, however:
 
@@ -157,7 +157,7 @@ It normally uses TCP for transport.
 
 Simplified:
 
-<p align="center"><img src="diagrams/44-smtp-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/44-smtp-5.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -259,7 +259,7 @@ Secure variants commonly use:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/44-smtp-6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/44-smtp-6.svg" alt="diagram" width="500"></p>
 
 > 📤 **SMTP = SEND**
 

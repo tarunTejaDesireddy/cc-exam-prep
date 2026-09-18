@@ -61,7 +61,7 @@ What happens?
 The BIA helps determine how quickly the disruption becomes unacceptable and which activities are
 most important to recover.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -150,7 +150,7 @@ That means:
 
 **RPO** — The organization can tolerate losing approximately: 💾 30 minutes of data
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -184,7 +184,7 @@ Think:
 > ↓
 > **Continuity/Recovery Plans = "HOW will we do it?"**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -232,7 +232,7 @@ operations during a disruption.
 
 **Disaster Recovery Plan (DRP)** — Explain how systems/infrastructure will be recovered.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ### 🪨 Caveman Flow
 

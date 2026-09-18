@@ -53,7 +53,7 @@ Run every question you are not immediately sure about through these five steps. 
 about twenty seconds once it is habit. Because CAT generally will not let you come back to an
 item, step 5 ends in a final commit, not a flag.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ### Step 1 · Read the stem with the options covered
 

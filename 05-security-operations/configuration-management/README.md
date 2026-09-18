@@ -69,7 +69,7 @@ being hardened.
 
 ## 📋 Inventory first
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **everything security does begins with a list, and anything missing from
 the list receives none of it.**
@@ -93,7 +93,7 @@ next question is always "what could go wrong, and how do we put it back the way 
 Most outages are caused by changes. Change control exists to make changes deliberate, reviewed
 and reversible.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 | Stage | What matters |
 |---|---|
@@ -129,7 +129,7 @@ before the repair starts, and the record gets written up the next morning regard
 
 Configuration management appears in a security exam for four concrete reasons.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 | Reason | Means |
 |---|---|
@@ -148,7 +148,7 @@ Configuration management appears in a security exam for four concrete reasons.
 The grown-up section says infrastructure as code merges the inventory and the baseline into one
 artefact. Here's literally what that file looks like and what watches it.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 Running `terraform state list` prints every single resource Terraform is managing — that literal
 command output *is* an inventory, generated from the same file that defines what each resource's

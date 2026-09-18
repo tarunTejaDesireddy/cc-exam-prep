@@ -62,11 +62,11 @@ based on who is asking, what device they are using, and what they are asking for
 
 ## 🔍 The shift
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ### The three principles
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 | Principle | Means |
 |---|---|
@@ -79,7 +79,7 @@ based on who is asking, what device they are using, and what they are asking for
 Every request is evaluated freshly against all available signals, and the decision is to one
 **application** — never to the network.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **a request plus its signals is judged on every attempt, granted only to
 one application, and re-checked while it continues.**
@@ -105,7 +105,7 @@ one application, and re-checked while it continues.**
 "A policy engine evaluates every request" is not hand-waving — NIST SP 800-207 names the two
 specific components that do it, and they show up by name in real products.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 The **PEP (Policy Enforcement Point)** is the gate that actually sits in the traffic's way —
 it has no judgment of its own, it just asks the **PDP (Policy Decision Point)** "should this go
@@ -148,7 +148,7 @@ established rather than assumed. These are straight definition questions.
 
 > 🎯 **MSA is the umbrella; SOW is the specific job.** One MSA governs many SOWs.
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **one binding master agreement sits above many specific statements of
 work and the service levels they are held to — while an MOU sits outside, binding nobody.**

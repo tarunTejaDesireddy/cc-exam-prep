@@ -70,7 +70,7 @@ Indirectly, it is the highest-leverage module in the repo. A candidate who knows
 material but answers like a practitioner loses marks on every scenario question in all five
 domains. That is a systematic loss, and it is entirely fixable in an afternoon.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 

@@ -77,7 +77,7 @@ useful thing to understand here.
 
 **One key. Both parties hold the same one.**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 | Strength | Weakness |
 |---|---|
@@ -106,7 +106,7 @@ key is published; the private key never leaves its owner.
 
 This is the part that earns marks. The direction depends on **what you are trying to achieve**.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 | Goal | Encrypt / sign with | Decrypt / verify with |
 |---|---|---|
@@ -133,7 +133,7 @@ This is the part that earns marks. The direction depends on **what you are tryin
 
 ## 🤝 How they work together
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **the slow method delivers the key, and the fast method does the work.**
 
@@ -146,7 +146,7 @@ symmetric's speed.
 
 ### 🔬 The hybrid model, as an actual TLS 1.3 handshake
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 This is the exact real exchange behind "asymmetric establishes a symmetric session key." Both
 sides send a **key share** — half of an ephemeral Diffie-Hellman exchange — and each

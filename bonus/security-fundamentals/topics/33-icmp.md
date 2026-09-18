@@ -24,7 +24,7 @@ Without a way to communicate these conditions, network problems would be silent 
 
 The most well-known use of ICMP is the **ping** utility (covered in more depth in a later topic), which tests whether a destination device is reachable.
 
-<p align="center"><img src="diagrams/33-icmp-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/33-icmp-1.svg" alt="diagram" width="500"></p>
 
 Step by step:
 
@@ -34,7 +34,7 @@ Step by step:
 
 ICMP is also used to report specific error conditions, without needing a direct request first:
 
-<p align="center"><img src="diagrams/33-icmp-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/33-icmp-2.svg" alt="diagram" width="500"></p>
 
 Common ICMP messages include:
 
@@ -61,7 +61,7 @@ ping 203.0.113.45
 
 If the server is reachable, it responds with ICMP Echo Replies, and the administrator sees output confirming the server is up, along with how long each round trip took. If the server is offline or unreachable, no replies come back, and the administrator sees a timeout instead — a simple, immediate signal that something is wrong.
 
-<p align="center"><img src="diagrams/33-icmp-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/33-icmp-3.svg" alt="diagram" width="500"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -117,7 +117,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/33-icmp-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/33-icmp-4.svg" alt="diagram" width="500"></p>
 
 - ICMP is used for network status and error messages, not application data.
 - The `ping` utility relies on ICMP Echo Request and Echo Reply messages.

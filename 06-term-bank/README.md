@@ -51,7 +51,7 @@ the terms the exam deliberately swaps. If you only drill one thing, drill that.
 
 ## 🎯 03 · How to use it
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **Four rules that make the difference:**
 

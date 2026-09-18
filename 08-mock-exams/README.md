@@ -69,7 +69,7 @@ the mix totals 100, rounding Domain 5 up by one.)
 
 ## 🎯 03 · How to sit one
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **Non-negotiables if the score is to mean anything:**
 

@@ -28,7 +28,7 @@ The CIA Triad exists to give security a clear, shared definition. Almost every s
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/11-cia-triad-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/11-cia-triad-1.svg" alt="diagram" width="500"></p>
 
 Each of the three goals addresses a different kind of failure:
 
@@ -40,7 +40,7 @@ Good security usually requires balancing all three. Focusing entirely on one can
 
 What it looks like when one part of the triad fails:
 
-<p align="center"><img src="diagrams/11-cia-triad-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/11-cia-triad-2.svg" alt="diagram" width="500"></p>
 
 ## 🧩 Important Parts
 
@@ -59,7 +59,7 @@ Consider an online banking system:
 - **Integrity**: If you have $500 in your account, that number should stay accurate until a legitimate transaction changes it — no one should be able to quietly edit it to a different value.
 - **Availability**: When you want to check your balance or transfer money, the banking app or website should be up and working, not crashed or unreachable.
 
-<p align="center"><img src="diagrams/11-cia-triad-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/11-cia-triad-3.svg" alt="diagram" width="500"></p>
 
 If an attacker steals your login and views your balance, that is a confidentiality failure. If someone secretly changes your balance in the database, that is an integrity failure. If the bank's servers go down during a DDoS attack (covered in a later topic) and you cannot check your account at all, that is an availability failure.
 
@@ -110,7 +110,7 @@ Each of these is a different kind of protection, addressing a different one of t
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/11-cia-triad-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/11-cia-triad-4.svg" alt="diagram" width="500"></p>
 
 - The CIA Triad defines three core goals of security: Confidentiality, Integrity, and Availability.
 - Confidentiality means only authorized people can see information.

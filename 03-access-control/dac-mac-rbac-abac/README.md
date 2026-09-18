@@ -25,7 +25,7 @@ The key is to look at **WHO/WHAT determines access**.
 > **RBAC = Job role decides**<br>
 > **ABAC = Attributes decide**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -129,7 +129,7 @@ Bob can't simply ask the owner to give him permission.
 
 ➡️ **MAC**
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -183,7 +183,7 @@ Alice becomes a **Doctor**.
 
 Therefore she gets the permissions assigned to the Doctor role.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ### Scenario
 
@@ -254,7 +254,7 @@ The decision uses several attributes:
 
 ➡️ **ABAC**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -359,7 +359,7 @@ That's why it's called **Mandatory**.
 
 When you read the scenario, search for these words:
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 ### 👑 DAC
 

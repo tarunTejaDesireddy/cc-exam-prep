@@ -27,7 +27,7 @@ These three are often grouped together as **AAA**:
 
 > Authentication + Authorization + Accounting = **AAA**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -53,7 +53,7 @@ But maybe Grog is not allowed to:
 
 That's authorization.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ### 💻 In computers
 
@@ -106,7 +106,7 @@ Accounting means:
 
 It's sometimes called auditing or logging.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ### 💻 Computer example
 
@@ -153,7 +153,7 @@ Accounting can help with:
 - ⚖️ Providing evidence during investigations
 - 💰 Tracking resource usage
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -196,7 +196,7 @@ Grog logged out at 17:05
 
 That's accounting.
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 ---
 

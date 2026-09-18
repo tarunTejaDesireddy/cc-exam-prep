@@ -53,7 +53,7 @@ A useful sentence:
 
 > **A**ll **P**eople **S**eem **T**o **N**eed **D**ata **P**rocessing.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -151,7 +151,7 @@ Transport handles things such as:
 
 > Connectionless, lower-overhead transport.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ### 🪨 Caveman
 
@@ -256,7 +256,7 @@ The TCP/IP model is commonly taught as **4 layers**:
 
 This is **extremely important**.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ```
 OSI                         TCP/IP
@@ -491,7 +491,7 @@ Uses:
 
 Forwards frames within a local network.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -525,7 +525,7 @@ From upper layers downward:
 
 > 01010101 **Bits**
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 ---
 

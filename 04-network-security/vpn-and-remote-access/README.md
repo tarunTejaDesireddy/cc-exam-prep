@@ -65,7 +65,7 @@ needed.
 
 ## 🔍 The two VPN types
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 | | **Site-to-site** | **Remote access** |
 |---|---|---|
@@ -79,7 +79,7 @@ needed.
 
 ## 🔒 What a VPN protects
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 | A VPN does | A VPN does **not** |
 |---|---|
@@ -99,7 +99,7 @@ needed.
 | **Split tunnelling** | Only corporate traffic goes through the tunnel; internet traffic goes direct | Better performance, less load on the gateway — but internet traffic **bypasses corporate inspection** |
 | **Full tunnelling** | **All** traffic goes through the tunnel | Everything is inspected and logged — at the cost of performance and gateway capacity |
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 Top row is **split** — note the red arrow going straight out, unseen by corporate controls.
 Bottom row is **full** — everything passes the green gateway first.
@@ -114,7 +114,7 @@ Bottom row is **full** — everything passes the green gateway first.
 | **Tunnel mode** | The **entire original packet**, wrapped in a new one | **Site-to-site** VPNs |
 | **Transport mode** | Only the **payload**; the original IP header remains | Host-to-host within a trusted network |
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 > 🧠 **Tunnel mode wraps the whole thing.** Transport mode leaves the header showing.
 
@@ -156,7 +156,7 @@ anyone can listen to.
 **The WPA2 crack mentioned in the grown-up section works entirely offline, which is what makes
 it so practical.**
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 An attacker just needs to capture one **4-way handshake** — which can even be forced by sending
 a deauthentication frame to a connected client, prompting an automatic reconnection the attacker

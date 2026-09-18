@@ -87,7 +87,7 @@ not escalate into a real security incident or an arrest.
 The vocabulary section mentions badge cloning as a supporting technique. The reason it works is
 a specific technical weakness in older credentials.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **Older proximity cards simply shout a fixed number.** A legacy 125 kHz prox card holds a static
 identifier and transmits it, unencrypted and unauthenticated, to any reader that energises it —

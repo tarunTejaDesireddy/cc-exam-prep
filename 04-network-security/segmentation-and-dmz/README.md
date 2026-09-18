@@ -62,7 +62,7 @@ positioned so that compromising one does not deliver the internal network.
 
 ## 🔍 Why segmentation matters
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **What segmentation buys you:**
 
@@ -85,7 +85,7 @@ A **DMZ** holds services that must be reachable from the internet: web servers, 
 relays, public DNS. It sits between the internet and the internal network, with firewall rules on
 both sides.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **The rule that defines it:**
 
@@ -122,7 +122,7 @@ pass through a router or firewall, where it can be filtered.
 > exist, so a VLAN is not equivalent to physical separation. Where isolation genuinely matters,
 > the exam expects physical separation or an air gap.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 Left to right, isolation gets **stronger and less convenient.** A VLAN is a configuration an
 attacker may defeat; an air gap is an absence of cable.
@@ -159,7 +159,7 @@ container, regardless of which broad zone they sit in.
 Segmentation is one expression of a broader principle: **layer independent controls so that no
 single failure is fatal.**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 The layers must be **independent**. Three controls that all fail when the same directory service
 fails are one control wearing three hats.
@@ -177,7 +177,7 @@ the *second*, inner tag naming the target VLAN — straight onto a trunk link, l
 reach a VLAN the attacker was never actually connected to. This is the literal mechanism behind
 "VLAN hopping," not just an abstract warning.
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 **In AWS or Azure, the DMZ concept is built from a public subnet plus security groups, not a
 physical box.** A **public subnet** (one with a route to an internet gateway) hosts the web

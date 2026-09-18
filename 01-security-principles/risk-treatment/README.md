@@ -28,7 +28,7 @@ There are **4 main risk treatments** you should know:
 3. 🤝 **Risk Transfer**
 4. 🤷 **Risk Acceptance**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -195,7 +195,7 @@ They may:
 
 But their authority depends on the organization's policies.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -264,7 +264,7 @@ When you see:
 
 **"Know the risk but consciously do nothing more"** → 🤷 **Acceptance**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 

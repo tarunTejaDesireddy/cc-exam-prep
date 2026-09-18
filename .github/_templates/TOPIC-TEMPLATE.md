@@ -38,7 +38,7 @@
 <!-- Short sections. A diagram where it genuinely clarifies. Cut anything the exam
      cannot ask about. -->
 
-<p align="center"><img src="diagrams/TOPIC-TEMPLATE-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/TOPIC-TEMPLATE-1.svg" alt="diagram" width="500"></p>
 
 ---
 

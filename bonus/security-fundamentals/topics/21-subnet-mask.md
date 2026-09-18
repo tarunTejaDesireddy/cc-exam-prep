@@ -29,7 +29,7 @@ The subnet mask solves this by clearly splitting an IP address into two parts: t
 
 A subnet mask uses the same four-number (octet) format as an IPv4 address, but its purpose is different — it acts as a pattern, marking which bits belong to the network and which belong to the host.
 
-<p align="center"><img src="diagrams/21-subnet-mask-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/21-subnet-mask-1.svg" alt="diagram" width="500"></p>
 
 In a subnet mask, a value of `255` in an octet means "this whole part of the address is the network portion." A value of `0` means "this part is available for identifying individual devices (hosts)."
 
@@ -41,7 +41,7 @@ This means any device with an address starting with `192.168.1.` (like `192.168.
 
 What happens without a shared understanding of the network portion:
 
-<p align="center"><img src="diagrams/21-subnet-mask-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/21-subnet-mask-2.svg" alt="diagram" width="500"></p>
 
 ## 🧩 Important Parts
 
@@ -63,7 +63,7 @@ Two devices on a home network:
 
 Both devices apply the subnet mask `255.255.255.0` to their own address and to each other's address, and find that the network portion (`192.168.1`) matches for both. This tells each device: "this other device is on my same local network — I can talk to it directly."
 
-<p align="center"><img src="diagrams/21-subnet-mask-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/21-subnet-mask-3.svg" alt="diagram" width="500"></p>
 
 If Device B instead had the IP `192.168.2.20` (a different network portion), Device A would recognize that Device B is on a *different* network, and any communication would need to go through a router rather than happening directly.
 
@@ -126,7 +126,7 @@ inet 192.168.1.10/24
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/21-subnet-mask-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/21-subnet-mask-4.svg" alt="diagram" width="500"></p>
 
 - A subnet mask splits an IP address into a network portion and a host portion.
 - Devices with matching network portions are on the same local network and can talk directly.

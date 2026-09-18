@@ -126,7 +126,7 @@ It might monitor:
 
 → **HIDS**
 
-<p align="center"><img src="diagrams/62-ids-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/62-ids-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -162,7 +162,7 @@ The traffic **can continue** unless another control blocks it.
 ❌ BLOCK
 ```
 
-<p align="center"><img src="diagrams/62-ids-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/62-ids-2.svg" alt="diagram" width="500"></p>
 
 ### 🧠 Memory:
 
@@ -278,7 +278,7 @@ IDS:
 
 > Can produce **false positives**.
 
-<p align="center"><img src="diagrams/62-ids-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/62-ids-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -431,7 +431,7 @@ A **host IDS** might be installed directly on:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/62-ids-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/62-ids-4.svg" alt="diagram" width="500"></p>
 
 > 🕵️ **IDS = Intrusion Detection System**
 

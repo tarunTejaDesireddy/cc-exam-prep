@@ -22,7 +22,7 @@ Defense in depth exists to reduce this risk. By layering multiple different type
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/17-defense-in-depth-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/17-defense-in-depth-1.svg" alt="diagram" width="500"></p>
 
 Defense in depth typically spans several different categories of controls, working together:
 
@@ -36,7 +36,7 @@ Defense in depth typically spans several different categories of controls, worki
 
 If an attacker bypasses the network layer (say, by tricking an employee through phishing rather than breaking through a firewall), the identity and endpoint layers can still stop them — for example, multi-factor authentication blocking the use of a stolen password.
 
-<p align="center"><img src="diagrams/17-defense-in-depth-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/17-defense-in-depth-2.svg" alt="diagram" width="500"></p>
 
 ## 🧩 Important Parts
 
@@ -56,7 +56,7 @@ Consider a company protecting its customer database:
 - **Layer 3 (Application)**: The application connecting to the database validates all input, preventing attacks like SQL injection (covered in a later topic).
 - **Layer 4 (Data)**: Even if someone did gain access to the raw database files, the sensitive data inside is encrypted.
 
-<p align="center"><img src="diagrams/17-defense-in-depth-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/17-defense-in-depth-3.svg" alt="diagram" width="500"></p>
 
 If an attacker somehow bypasses the firewall, they would still need valid, MFA-protected credentials. If they somehow got those, the application would still validate their input against common attacks. And even in a worst-case scenario, the actual sensitive data remains encrypted and unreadable without the correct keys.
 
@@ -110,7 +110,7 @@ Each line represents a distinct layer. No single item on this list is expected t
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/17-defense-in-depth-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/17-defense-in-depth-4.svg" alt="diagram" width="500"></p>
 
 - Defense in depth uses multiple, different layers of security so no single failure leads to a full compromise.
 - Layers can include network, endpoint, identity, application, data, and human/awareness controls.

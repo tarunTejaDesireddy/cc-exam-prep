@@ -30,7 +30,7 @@ This separation makes systems easier to manage. A company can update or fix its 
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/08-client-vs-server-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/08-client-vs-server-1.svg" alt="diagram" width="500"></p>
 
 Step by step:
 

@@ -66,7 +66,7 @@ That is a confidentiality difference, and it is why hubs are obsolete.
 
 Whisper distance, one hut, one village, the whole known world — the same ladder, formalised.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **Smallest to largest: PAN → LAN → MAN → WAN.** That is the whole classification.
 
@@ -104,7 +104,7 @@ read all of it.
 A **switch** learns which MAC address sits on which port and forwards each frame **only to that
 port**.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 > 🎯 **This is a confidentiality question in disguise.** If a question asks why hubs were replaced
 > by switches for security reasons, the answer is that a hub broadcasts all traffic to all
@@ -117,7 +117,7 @@ port**.
 
 > 🧠 *Switches work inside; routers work between.*
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 The switches live **inside** the boxes. The router is the only thing spanning **between** them.
 
@@ -135,7 +135,7 @@ How devices are physically or logically arranged.
 | **Mesh** | Devices interconnect with multiple paths | Most resilient and most expensive. **Full mesh** connects every node to every other |
 | **Tree / hierarchical** | Stars connected into a hierarchy | Scales well; used in large networks |
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 Count the paths between any two nodes: **bus has one, star has one through an amber single point
 of failure, mesh has several.** That count is the resilience.
@@ -150,7 +150,7 @@ of failure, mesh has several.** That count is the resilience.
 A switch's "learn and forward only to the right port" behaviour lives in one specific piece of
 memory, and that memory has a limit.
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 Every switch keeps a **CAM table** (Content Addressable Memory) — a real, size-limited table
 mapping each learned MAC address to the port it was seen on. This is the entire mechanism behind

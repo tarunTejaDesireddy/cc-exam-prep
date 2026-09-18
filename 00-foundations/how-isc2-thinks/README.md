@@ -141,7 +141,7 @@ This is a generic test-taking heuristic, but CC rewards it unusually well.
 When a scenario question gives you four plausible actions, run them down this ladder and take
 the highest one that appears as an option.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **protect people, follow the plan, tell the right people, let the
 business decide, then touch the technology, then write it down.**

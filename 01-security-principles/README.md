@@ -67,7 +67,7 @@ Nearly a quarter of the paper comes from here directly. But the vocabulary leaks
 Domain 4 question about segmentation still turns on what a *preventive control* is, and a
 Domain 5 question about classification still turns on who the *data owner* is.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 Read that as a sentence: **the words defined here are the words the rest of the exam is asked in.**
 

@@ -43,7 +43,7 @@ When one device wants to send data to another, it needs to know the destination 
 
 The basic flow looks like this:
 
-<p align="center"><img src="diagrams/01-ip-address-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/01-ip-address-1.svg" alt="diagram" width="500"></p>
 
 Step by step:
 
@@ -57,7 +57,7 @@ At this stage, you do not need to know how the network actually decides the exac
 
 What happens if the address is wrong:
 
-<p align="center"><img src="diagrams/01-ip-address-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/01-ip-address-2.svg" alt="diagram" width="500"></p>
 
 If the destination address doesn't match a real device on the network, the data simply has nowhere correct to go — it is dropped rather than delivered.
 
@@ -88,7 +88,7 @@ If Computer A wants to send a file to Computer B, it does the following:
 
 If Computer A used the wrong address, such as `192.168.1.99` (a device that does not exist), the data would not reach Computer B. It would either be dropped or sent nowhere useful.
 
-<p align="center"><img src="diagrams/01-ip-address-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/01-ip-address-3.svg" alt="diagram" width="500"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -97,7 +97,7 @@ If Computer A used the wrong address, such as `192.168.1.99` (a device that does
 - Smart home devices (cameras, TVs, thermostats) each get their own IP address on your home network.
 - When you check "network settings" on a computer, you can see its current IP address listed there.
 
-<p align="center"><img src="diagrams/01-ip-address-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/01-ip-address-4.svg" alt="diagram" width="500"></p>
 
 ## ⚠️ Common Confusion
 
@@ -156,7 +156,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/01-ip-address-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/01-ip-address-5.svg" alt="diagram" width="500"></p>
 
 - An IP address is a unique number that identifies a device on a network.
 - It exists so that data can be delivered to the correct destination.

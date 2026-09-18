@@ -65,7 +65,7 @@ Grog can't fix everything at once.
 
 So he needs to **assess the risks**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -214,7 +214,7 @@ Grog looks at the results and says:
 
 So he fixes the hole first.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -307,7 +307,7 @@ So organizations continuously reassess risks because:
 - Attack methods evolve
 - Existing controls may stop working
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -359,7 +359,7 @@ Think of Grog:
 
 > 🛡️ "Let's block the hole, put a guard outside, and create a backup food store."
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -377,7 +377,7 @@ Think of Grog:
 3. 🚦 Rank the risks
 4. 🛡️ Decide what to do
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 ### Ultimate caveman sentence
 

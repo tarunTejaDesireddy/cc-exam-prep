@@ -14,7 +14,7 @@ And remember:
 > 📤 **SMTP sends email**<br>
 > 📥 **IMAP/POP3 receive email**
 
-<p align="center"><img src="diagrams/45-imap-pop3-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/45-imap-pop3-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -147,7 +147,7 @@ Why?
 
 > **IMAP synchronizes the mailbox with the server.**
 
-<p align="center"><img src="diagrams/45-imap-pop3-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/45-imap-pop3-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -161,7 +161,7 @@ The message is primarily handled by the local client.
 
 Another device may not have the same mailbox state unless the configuration/server behavior provides for it.
 
-<p align="center"><img src="diagrams/45-imap-pop3-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/45-imap-pop3-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -199,7 +199,7 @@ It can be useful where simple local retrieval is desired.
 
 → **POP3**
 
-<p align="center"><img src="diagrams/45-imap-pop3-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/45-imap-pop3-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -243,7 +243,7 @@ Think:
 
 > **IMAPS or POP3S**, depending on which protocol is specified.
 
-<p align="center"><img src="diagrams/45-imap-pop3-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/45-imap-pop3-5.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -275,7 +275,7 @@ Think:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/45-imap-pop3-6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/45-imap-pop3-6.svg" alt="diagram" width="500"></p>
 
 > 📤 **SMTP = Send**
 

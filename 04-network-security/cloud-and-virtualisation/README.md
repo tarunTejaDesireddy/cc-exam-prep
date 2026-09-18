@@ -79,7 +79,7 @@ by layer.**
 
 ## 🔍 The shared responsibility model
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 | Layer | On-prem | IaaS | PaaS | SaaS |
 |---|:--:|:--:|:--:|:--:|
@@ -95,7 +95,7 @@ by layer.**
 
 ### Where the responsibility line sits
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 The teal box shrinks as you move down — but **it never empties.** Data and access stay yours.
 
@@ -155,7 +155,7 @@ own hardware.
 
 > 🧠 **Type 1 is closer to the metal** — one fewer layer, smaller attack surface.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 The extra amber layer in Type 2 is the host operating system — one more thing to attack, and one
 more thing to patch.
@@ -175,7 +175,7 @@ more thing to patch.
 **Containers** share the host operating system kernel rather than virtualising hardware, making
 them lighter but providing **weaker isolation** than a virtual machine.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **each VM has its own kernel, so escaping means defeating the hypervisor —
 while every container shares one kernel, so a single kernel flaw is reachable from all of them.**
@@ -206,7 +206,7 @@ used, data protection, threat detection, compliance.
 
 **The canonical cloud breach starts with one wrong setting on a storage bucket.**
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 A bucket's access-control setting is often a single field — `public-read` instead of `private` —
 and there's no physical barrier stopping it, unlike unplugging a cable on-premises: click the

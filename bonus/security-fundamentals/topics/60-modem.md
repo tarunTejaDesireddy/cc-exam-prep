@@ -35,7 +35,7 @@ Historically, a modem **converted digital computer data into signals suitable fo
 
 Today, "modem" is also used broadly for ISP access devices such as **cable or DSL modems**.
 
-<p align="center"><img src="diagrams/60-modem-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/60-modem-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -144,7 +144,7 @@ Provides:
 🏠 Network → 📡 Modem → 🏢 ISP
 ```
 
-<p align="center"><img src="diagrams/60-modem-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/60-modem-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -202,7 +202,7 @@ Uses a **cellular** network.
 💻 → 📡 Cellular Modem → 📡 Mobile Network
 ```
 
-<p align="center"><img src="diagrams/60-modem-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/60-modem-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -262,7 +262,7 @@ Uses a **cellular** network.
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/60-modem-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/60-modem-4.svg" alt="diagram" width="500"></p>
 
 > 📡 **Modem = connects to ISP access network**
 

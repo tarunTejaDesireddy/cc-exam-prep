@@ -114,7 +114,7 @@ Now Grog uses **HTTPS**:
 >
 > It makes the captured content **much harder to understand**.
 
-<p align="center"><img src="diagrams/94-packet-sniffing-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/94-packet-sniffing-1.svg" alt="diagram" width="500"></p>
 
 > 🧠 **Either way the sniffer captures the packets and still sees metadata** — encryption only hides the content.
 
@@ -182,7 +182,7 @@ So:
 
 > 🎭 **Spoof = pretend**
 
-<p align="center"><img src="diagrams/94-packet-sniffing-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/94-packet-sniffing-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -210,7 +210,7 @@ Think:
 
 > 🪨 Grog doesn't just listen — he **throws his own fake messages into the conversation**.
 
-<p align="center"><img src="diagrams/94-packet-sniffing-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/94-packet-sniffing-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -231,7 +231,7 @@ However, traffic can potentially be exposed through things such as:
 - Wireless environments
 - Man-in-the-middle situations
 
-<p align="center"><img src="diagrams/94-packet-sniffing-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/94-packet-sniffing-4.svg" alt="diagram" width="500"></p>
 
 ---
 

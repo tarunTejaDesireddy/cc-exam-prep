@@ -24,7 +24,7 @@ The security goal is:
 
 > **Give the right access when needed, change it when the job changes, and remove it when the person leaves.**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -36,7 +36,7 @@ The organization needs to create his identity and give him the access required f
 
 ### Typical process
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ### Example
 
@@ -107,7 +107,7 @@ These can store identities and support authentication/authorization.
 
 Automated provisioning can create accounts and assign access when the HR system says someone has joined.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -169,7 +169,7 @@ The important thing is:
 
 # 🪨 Mover Process
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 For example:
 
@@ -199,7 +199,7 @@ This is called **privilege accumulation** or **permission creep**.
 
 Sarah changes jobs several times:
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 If nobody removes old permissions:
 
@@ -249,7 +249,7 @@ The organization needs to:
 
 # 🪨 Leaver Process
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/6.svg" alt="diagram" width="500"></p>
 
 Depending on the organization, this can include:
 

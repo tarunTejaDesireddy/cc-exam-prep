@@ -68,7 +68,7 @@ thing candidates get wrong — because in daily work the employer's interests fe
 
 ## 🔍 The four canons
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ### 1 · Protect society, the common good, necessary public trust and confidence, and the infrastructure
 
@@ -112,7 +112,7 @@ people who are not qualified.
 
 This is what the exam actually tests.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **Society beats legality beats employer beats profession.**
 
@@ -138,7 +138,7 @@ The grown-up section mentions that "disclose or conceal" is too clean a choice i
 real mechanism professionals use is called **Coordinated Vulnerability Disclosure (CVD)**, and
 it has a genuinely standard shape.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 A researcher who finds a flaw reports it **privately** to the vendor first, rather than
 tweeting it — a vendor blindsided in public has no chance to protect users before attackers

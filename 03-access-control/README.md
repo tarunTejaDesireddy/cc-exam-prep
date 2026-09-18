@@ -63,7 +63,7 @@ Work top to bottom. The first topic establishes the vocabulary the rest depend o
 
 ## 🎯 03 · Where the marks are
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 If you run short of time in this domain, the model comparison in
 [`dac-mac-rbac-abac/`](dac-mac-rbac-abac/) is the page to know cold.

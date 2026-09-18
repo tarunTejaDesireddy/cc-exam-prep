@@ -68,7 +68,7 @@ terms have precisely that kind of distinction built in, and deleting a file is n
 
 ## 🔄 The data lifecycle
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 > ⚠️ **Classification happens at creation.** Data should be labelled when it is made, because
 > every later protection decision depends on knowing what it is. Classifying afterwards means
@@ -81,7 +81,7 @@ sensitivity — a common real-world failure and a reasonable exam scenario.
 
 ## 🧊 The three states
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 | | Where it is | Threats | Controls |
 |---|---|---|---|
@@ -125,7 +125,7 @@ who knows where to dig will still find it. This is where the exam gets specific.
 file does not remove the data**; it removes the pointer to it and marks the space reusable. The
 data remains until overwritten, which is **remanence**.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 Left to right, **more thorough and less reusable.**
 
@@ -162,7 +162,7 @@ that internal key. Every existing block instantly becomes unreadable ciphertext 
 left anywhere, which is why it's near-instant and reliable regardless of wear levelling: it's
 crypto-shredding, just performed *inside the drive itself* rather than at the application layer.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 **A trusted execution environment is the concrete answer to "data in use is the hardest state to
 protect."** Intel SGX and AMD SEV carve out a hardware-enforced region of memory — an **enclave**

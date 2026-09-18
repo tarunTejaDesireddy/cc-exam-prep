@@ -52,7 +52,7 @@ So:
 
 > **ARP maps an IPv4 address to a MAC address on the local network.**
 
-<p align="center"><img src="diagrams/95-arp-spoofing-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/95-arp-spoofing-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -86,7 +86,7 @@ AA:AA:AA   ← Attacker's MAC 😈
 
 Now traffic intended for the router **may be sent to the attacker**.
 
-<p align="center"><img src="diagrams/95-arp-spoofing-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/95-arp-spoofing-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -152,7 +152,7 @@ So:
 
 > **ARP spoofing does not automatically defeat HTTPS.**
 
-<p align="center"><img src="diagrams/95-arp-spoofing-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/95-arp-spoofing-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -237,7 +237,7 @@ So:
 
 > **ARP spoofing can help an attacker get into a position where traffic can be intercepted.**
 
-<p align="center"><img src="diagrams/95-arp-spoofing-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/95-arp-spoofing-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -269,7 +269,7 @@ Those bindings can then **support controls such as Dynamic ARP Inspection**.
 
 HTTPS/TLS, SSH, VPNs, etc. **help protect data even if traffic is intercepted**.
 
-<p align="center"><img src="diagrams/95-arp-spoofing-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/95-arp-spoofing-5.svg" alt="diagram" width="500"></p>
 
 ---
 

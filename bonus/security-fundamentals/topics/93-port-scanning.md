@@ -65,7 +65,7 @@ For example:
 
 The results reveal the machine's **attack surface**.
 
-<p align="center"><img src="diagrams/93-port-scanning-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/93-port-scanning-1.svg" alt="diagram" width="500"></p>
 
 > 🧠 **Same tool, different intent** — attackers scan to find a way in; defenders scan to shrink the attack surface.
 
@@ -131,7 +131,7 @@ Grog **doesn't know** whether someone is behind the door.
 | 🔴 **Closed** | Host reachable, but no service listening |
 | 🟡 **Filtered** | Filtering prevents determining the state |
 
-<p align="center"><img src="diagrams/93-port-scanning-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/93-port-scanning-2.svg" alt="diagram" width="500"></p>
 
 ### Exam clue:
 
@@ -199,7 +199,7 @@ Think:
 
 > 📦 **"Grog throws a message through the door and waits to see what happens."**
 
-<p align="center"><img src="diagrams/93-port-scanning-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/93-port-scanning-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -271,7 +271,7 @@ Then:
 443 → 🟢
 ```
 
-<p align="center"><img src="diagrams/93-port-scanning-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/93-port-scanning-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -390,7 +390,7 @@ HTTPS     → 🌐 Application service → Layer 7
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/93-port-scanning-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/93-port-scanning-5.svg" alt="diagram" width="500"></p>
 
 > 🔍 **Port scanning = find open/closed/filtered ports**
 

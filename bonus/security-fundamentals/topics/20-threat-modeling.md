@@ -24,7 +24,7 @@ It also forces a team to think from an attacker's perspective, rather than only 
 
 A common, simple way to threat model is to ask four questions about a system:
 
-<p align="center"><img src="diagrams/20-threat-modeling-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/20-threat-modeling-1.svg" alt="diagram" width="500"></p>
 
 1. **What are we building?** — Understand the system: its components, data flows, and boundaries.
 2. **What can go wrong?** — Brainstorm threats and vulnerabilities specific to this system.
@@ -33,7 +33,7 @@ A common, simple way to threat model is to ask four questions about a system:
 
 One popular structured method for step 2 (identifying what can go wrong) is called **STRIDE**, which stands for six categories of threats:
 
-<p align="center"><img src="diagrams/20-threat-modeling-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/20-threat-modeling-2.svg" alt="diagram" width="500"></p>
 
 🔍 You do not need to memorize STRIDE in detail at this stage — it is simply an example of how threat modeling can be made structured and repeatable, rather than relying on random guessing about what might go wrong.
 
@@ -55,7 +55,7 @@ Imagine a team building a new online payment feature for a website. Before writi
 - **What are we going to do about it?** Use HTTPS/TLS to protect data in transit, verify requests are properly authenticated, and add rate limiting to prevent flooding.
 - **Did we do a good job?** Review the plan with the security team before development begins, checking whether these controls sufficiently reduce the identified risks.
 
-<p align="center"><img src="diagrams/20-threat-modeling-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/20-threat-modeling-3.svg" alt="diagram" width="500"></p>
 
 Because this thinking happened before the feature launched, the necessary protections (HTTPS, rate limiting) were built in from the start, rather than added later in a rush after a real incident.
 
@@ -110,7 +110,7 @@ This kind of entry documents one identified threat, categorizes it, and records 
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/20-threat-modeling-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/20-threat-modeling-4.svg" alt="diagram" width="500"></p>
 
 - Threat modeling is a structured way to think about security risks before (or while) building a system.
 - It brings together threats, vulnerabilities, risk, and controls into one deliberate exercise.

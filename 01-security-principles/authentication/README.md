@@ -60,7 +60,7 @@ The guard says:
 
 That's authentication.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -108,7 +108,7 @@ Something based on your physical characteristics. Examples:
 
 For example: 👆 Fingerprint scanner → "Yep, that's Grog."
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -138,7 +138,7 @@ That's **Multi-Factor Authentication (MFA)**.
 >
 > 🚪 OPEN!
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -157,7 +157,7 @@ So remember:
 - 🔐 **Authentication** = Who are you?
 - 🛂 **Authorization** = What can you do?
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ---
 

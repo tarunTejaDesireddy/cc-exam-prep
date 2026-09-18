@@ -62,7 +62,7 @@ monitor or discipline against a rule it never wrote down and never communicated.
 
 ## 📜 The named policies
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ### ✅ Acceptable Use Policy
 
@@ -151,7 +151,7 @@ by visitors and cleaners.
 
 ## 🔄 The order that answers questions
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **write it down, tell people, enforce it, then watch.**
 
@@ -184,7 +184,7 @@ Read it as a sentence: **write it down, tell people, enforce it, then watch.**
 A policy is administrative. Something technical has to actually make it happen, and for the two
 most-examined policies here that mechanism has a specific name.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 **Containerisation is a real OS feature, not a vendor promise.** Android calls it a **work
 profile**; iOS achieves the equivalent through **managed apps and managed app configuration**. The

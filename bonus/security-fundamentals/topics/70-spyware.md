@@ -50,7 +50,7 @@ The goal is usually:
 
 > **Collect information secretly.**
 
-<p align="center"><img src="diagrams/70-spyware-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/70-spyware-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -105,7 +105,7 @@ A keylogger can therefore be used as a **form of spyware**.
 💰 Pay
 ```
 
-<p align="center"><img src="diagrams/70-spyware-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/70-spyware-2.svg" alt="diagram" width="500"></p>
 
 ### 🧠 Memory:
 
@@ -125,7 +125,7 @@ A keylogger can therefore be used as a **form of spyware**.
 | Can monitor browsing? | ✅ | ❌ Not necessarily |
 | Keylogger can be spyware? | — | ✅ |
 
-<p align="center"><img src="diagrams/70-spyware-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/70-spyware-3.svg" alt="diagram" width="500"></p>
 
 ### Exam trick:
 
@@ -215,7 +215,7 @@ They are **not the same thing**.
 
 When you see **"Secretly monitors"**, **"Secretly collects information"** or **"Tracks user activity"** → 🕵️ **SPYWARE**
 
-<p align="center"><img src="diagrams/70-spyware-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/70-spyware-4.svg" alt="diagram" width="500"></p>
 
 Compare:
 
@@ -261,7 +261,7 @@ Compare:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/70-spyware-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/70-spyware-5.svg" alt="diagram" width="500"></p>
 
 > 🕵️ **Spyware = secretly watches + collects**
 

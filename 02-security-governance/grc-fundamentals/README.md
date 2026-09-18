@@ -28,7 +28,7 @@ The important exam idea is:
 
 Think of Grog's tribe. 🪨
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -127,7 +127,7 @@ are the biggest dangers?" ❌ The organization might protect the wrong things.
 consider which risks actually threaten the tribe. ❌ He may spend huge amounts of resources simply
 checking boxes.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -167,7 +167,7 @@ reduced and required rules are being followed." The chief can now make better de
 
 That's GRC working as one program.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -249,7 +249,7 @@ For example:
 - Compliance team → compliance monitoring
 - Security team → security controls
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ### 5 · 📊 Better decision-making
 

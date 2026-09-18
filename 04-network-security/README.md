@@ -74,7 +74,7 @@ Work top to bottom. The early topics build the vocabulary the attack and defence
 
 ## 🎯 03 · The trap in this domain
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 Three examples of the simplification you are being graded against:
 

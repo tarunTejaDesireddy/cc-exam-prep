@@ -9,7 +9,7 @@ The exam trick is:
 > **FTP = file transfer, but not securely encrypted by itself**<br>
 > **SFTP = secure file transfer over SSH**
 
-<p align="center"><img src="diagrams/43-ftp-sftp-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/43-ftp-sftp-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -53,7 +53,7 @@ For exam purposes, the key fact is:
 
 > **FTP = TCP 21**
 
-<p align="center"><img src="diagrams/43-ftp-sftp-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/43-ftp-sftp-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -146,7 +146,7 @@ So:
 
 They provide secure file transfer in different ways.
 
-<p align="center"><img src="diagrams/43-ftp-sftp-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/43-ftp-sftp-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -190,7 +190,7 @@ If it specifically mentions **TLS**:
 
 → **FTPS**
 
-<p align="center"><img src="diagrams/43-ftp-sftp-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/43-ftp-sftp-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -238,7 +238,7 @@ If it specifically mentions **TLS**:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/43-ftp-sftp-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/43-ftp-sftp-5.svg" alt="diagram" width="500"></p>
 
 > **FTP → 21 → No encryption by default**
 

@@ -29,11 +29,11 @@ Now the tribe needs to recover.
 
 ## ⏱️ The Timeline
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 But **RPO is different** because it looks **backward from the failure point**:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 This is the key:
 
@@ -127,7 +127,7 @@ Suppose:
 
 The system fails at **12:00**.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 So:
 
@@ -191,7 +191,7 @@ And:
 
 The bank absolutely cannot tolerate the service being unavailable for more than **4 hours**.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 The recovery target should be **inside the maximum tolerable downtime**.
 

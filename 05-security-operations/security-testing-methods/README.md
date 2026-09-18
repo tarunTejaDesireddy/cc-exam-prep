@@ -57,7 +57,7 @@ notes at the fire the next morning. A **purple** exercise has them signalling to
 *during* the raid itself — the mock raider calling out "I just got past your east post" the
 moment it happens, so the watchmen learn the gap immediately instead of the next day.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 | Team | Role | Style |
 |---|---|---|
@@ -87,7 +87,7 @@ hinge always snaps eventually" checks.
 | **DAST** | A **running** application, from the outside | Later — once the app is deployed/running | Flaws only visible from actual runtime behaviour (how it responds to malicious input) |
 | **Threat modeling** | The system's **design** | Design/architecture time — often the earliest of all | Structural weaknesses before any code is even written |
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 > 🎯 **SAST reads; DAST attacks.** SAST never runs the application — it reads the code. DAST
 > never reads the code — it interacts with the running application the way a user or attacker
@@ -127,7 +127,7 @@ The "design → code → running app" ordering isn't abstract — in a modern so
 these techniques is wired into a specific stage of the CI/CD pipeline, and failing one can block
 a release automatically.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 **SAST runs on every commit, before anything is even built.** Tools like SonarQube, Semgrep or
 CodeQL parse the source as the pipeline starts and can fail the build outright if they find a

@@ -35,7 +35,7 @@ Cybersecurity says there are **three big things** you must protect:
 
 Together, these are called the **CIA Triad**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -53,7 +53,7 @@ So Grog puts a big stone in front of the cave and gives the secret location only
 
 That's **Confidentiality**.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ### 💻 Computer version
 
@@ -116,7 +116,7 @@ There is no food there.
 
 This is an **integrity problem**.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ### 💻 Computer version
 
@@ -186,7 +186,7 @@ His food exists. It's correct. But **he can't access it when he needs it**.
 
 That's an **availability problem**.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ### 💻 Computer version
 
@@ -218,7 +218,7 @@ We can use:
 
 ## 💥 Each rule breaks a different way
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -310,7 +310,7 @@ You've potentially lost **all three**:
 - **Change information → Integrity**
 - **Shut down service → Availability**
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/6.svg" alt="diagram" width="500"></p>
 
 ---
 

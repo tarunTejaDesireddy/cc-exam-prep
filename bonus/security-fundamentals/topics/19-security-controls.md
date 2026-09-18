@@ -24,11 +24,11 @@ Having a clear category called "security controls" helps organize security work 
 
 Security controls are commonly grouped by **what they do**:
 
-<p align="center"><img src="diagrams/19-security-controls-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/19-security-controls-1.svg" alt="diagram" width="500"></p>
 
 They are also commonly grouped by **what type of control** they are:
 
-<p align="center"><img src="diagrams/19-security-controls-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/19-security-controls-2.svg" alt="diagram" width="500"></p>
 
 These two ways of grouping controls can be combined — for example, a security camera is a *physical, detective* control (it's physical hardware, and it helps notice something happening, rather than stopping it outright). A locked door is a *physical, preventive* control. A password policy is an *administrative, preventive* control.
 
@@ -52,7 +52,7 @@ Consider how a company protects against an employee's laptop being stolen with s
 - **Detective, Technical**: A device-tracking service that alerts IT if the laptop connects from an unusual location.
 - **Corrective, Administrative**: A documented incident response procedure for what to do if a laptop is reported stolen (such as remotely wiping it).
 
-<p align="center"><img src="diagrams/19-security-controls-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/19-security-controls-3.svg" alt="diagram" width="500"></p>
 
 Together, these four different controls address the same risk (a stolen laptop) from several different angles — before, during, and after an incident.
 
@@ -114,7 +114,7 @@ Each entry names one specific control, its type, and its purpose — this kind o
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/19-security-controls-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/19-security-controls-4.svg" alt="diagram" width="500"></p>
 
 - A security control is any safeguard put in place to reduce risk.
 - Controls can be preventive (stop it), detective (notice it), or corrective (fix it afterward).

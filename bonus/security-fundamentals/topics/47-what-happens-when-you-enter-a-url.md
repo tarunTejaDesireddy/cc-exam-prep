@@ -22,7 +22,7 @@ Memorize this order:
 
 In simple terms:
 
-<p align="center"><img src="diagrams/47-what-happens-when-you-enter-a-url-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/47-what-happens-when-you-enter-a-url-1.svg" alt="diagram" width="500"></p>
 
 Now let's go through it carefully.
 
@@ -153,7 +153,7 @@ If the TLS setup succeeds:
 
 > 🔐 Secure communication can begin.
 
-<p align="center"><img src="diagrams/47-what-happens-when-you-enter-a-url-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/47-what-happens-when-you-enter-a-url-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -191,7 +191,7 @@ It may:
 
 For example:
 
-<p align="center"><img src="diagrams/47-what-happens-when-you-enter-a-url-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/47-what-happens-when-you-enter-a-url-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -290,7 +290,7 @@ Finally, the browser:
 
 and produces the webpage you see.
 
-<p align="center"><img src="diagrams/47-what-happens-when-you-enter-a-url-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/47-what-happens-when-you-enter-a-url-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -407,7 +407,7 @@ This one scenario can test many exam topics.
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/47-what-happens-when-you-enter-a-url-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/47-what-happens-when-you-enter-a-url-5.svg" alt="diagram" width="500"></p>
 
 If the question says:
 

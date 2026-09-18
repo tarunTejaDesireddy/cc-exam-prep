@@ -71,7 +71,7 @@ is the most common way candidates waste study time.
 > runs short, it runs short on whichever of Governance or Security Operations you reach last —
 > not because either is unimportant, but because they are tied for smallest.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 

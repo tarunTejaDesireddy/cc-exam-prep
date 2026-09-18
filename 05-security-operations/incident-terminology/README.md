@@ -67,7 +67,7 @@ Two consequences the exam tests:
 
 ## 🔽 The funnel
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **everything that happens is an event, some of it raises an alert, some
 alerts turn out to be incidents, and some incidents turn out to be breaches.**
@@ -144,7 +144,7 @@ The distinguishing word is **actually**. A breach is a confirmed disclosure, not
 
 ## 🔍 Why the words matter
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **Declaring an incident is a decision with consequences.** It starts the incident response plan,
 brings in a defined team, triggers communications, and begins a formal record. That is why the
@@ -154,7 +154,7 @@ vocabulary is precise rather than pedantic — each word marks a different set o
 
 ## 🔬 What "declaring an incident" triggers in real tooling
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 "Declaring an incident" isn't a phrase in a policy document — it's a real button someone
 presses in a real ticketing system. A **SEV1** (or similarly named highest-severity) ticket

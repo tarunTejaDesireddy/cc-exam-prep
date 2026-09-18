@@ -39,7 +39,7 @@ The word to remember is:
 
 A simplified attack might look like this:
 
-<p align="center"><img src="diagrams/67-worm-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/67-worm-1.svg" alt="diagram" width="500"></p>
 
 This can happen **very quickly**.
 
@@ -58,7 +58,7 @@ This is one of the **most important exam distinctions**.
 | Spreads through infected files/programs | Often spreads across networks |
 | **Attach** | **Self-spread** |
 
-<p align="center"><img src="diagrams/67-worm-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/67-worm-2.svg" alt="diagram" width="500"></p>
 
 ### 🧠 Memory:
 
@@ -114,7 +114,7 @@ Imagine:
 
 **One infected machine can become many.**
 
-<p align="center"><img src="diagrams/67-worm-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/67-worm-3.svg" alt="diagram" width="500"></p>
 
 This can cause:
 
@@ -151,7 +151,7 @@ A simplified example:
 🪱 Spreads
 ```
 
-<p align="center"><img src="diagrams/67-worm-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/67-worm-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -185,7 +185,7 @@ A simplified example:
 
 # 🧠 5-Second Exam Trick
 
-<p align="center"><img src="diagrams/67-worm-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/67-worm-5.svg" alt="diagram" width="500"></p>
 
 When you see **"Self-replicates"**, **"Automatically spreads across the network"** or **"Scans for vulnerable systems and infects them"** → 🪱 **WORM**
 
@@ -223,7 +223,7 @@ When you see **"Pretends to be legitimate"** → 🐴 **TROJAN**
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/67-worm-6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/67-worm-6.svg" alt="diagram" width="500"></p>
 
 > 🪱 **Worm = self-replicates + spreads automatically**
 

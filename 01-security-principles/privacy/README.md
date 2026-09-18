@@ -47,7 +47,7 @@ The tribe leader shouldn't take that information and announce it to the entire t
 
 That's privacy.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ## 💻 Privacy in the real world
 
@@ -103,7 +103,7 @@ Example: Grog gives the tribe leader his location for a specific reason. The lea
 that information for an unrelated purpose or share it without appropriate permission. That's
 privacy.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ## 🧠 Simple example
 
@@ -160,7 +160,7 @@ can help protect personal information.
 But cybersecurity alone doesn't automatically guarantee privacy. A company could have excellent
 security but still use personal information in an inappropriate way.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ## 🧠 Caveman memory trick
 

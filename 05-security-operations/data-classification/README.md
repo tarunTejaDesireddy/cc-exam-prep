@@ -63,7 +63,7 @@ An IT administrator who runs the database, takes the backups and sets the permis
 
 ## 👥 Who does what
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 | Role | Decides? | Typical person |
 |---|---|---|
@@ -86,7 +86,7 @@ An IT administrator who runs the database, takes the backups and sets the permis
 
 There is no single universal scheme. The exam expects you to recognise both common families.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **Classification is driven by impact:** how much harm would result if this data were disclosed,
 altered or lost? That question — not the data's format or volume — decides the label.
@@ -120,7 +120,7 @@ A classification is only useful if it carries **handling requirements**. An illu
 A name is not sensitive. A postcode is not sensitive. A job title is not sensitive. Together they
 identify an individual, and combined with a salary figure they become a serious disclosure.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 > 🎯 **A dataset takes the classification of its most sensitive element, or higher if aggregation
 > raises it.** This is why reports and exports are so often mishandled — each field looked
@@ -147,7 +147,7 @@ left to drift.
 The grown-up section mentions automated classification tools inspecting content for patterns.
 Here's the real pipeline, as it runs in something like Microsoft Purview Information Protection.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 A content scanner reads a document for recognisable patterns — a 16-digit sequence matching a
 card-number checksum, a national ID format, keywords like "confidential" already in the

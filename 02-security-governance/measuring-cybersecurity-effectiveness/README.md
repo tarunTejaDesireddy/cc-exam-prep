@@ -60,7 +60,7 @@ The wolves-successfully-spotted count is a **KPI** — it looks at performance a
 and grades. A KPI (percentage of systems patched within SLA, phishing simulation click rate)
 tells you how well a control or process is actually operating.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **Audience decides format.** The guard himself checks fresh wolf tracks by the fence every
 single night — that running, live view is a **dashboard.** Once a month, the hunt-leader gets a
@@ -86,7 +86,7 @@ quarter for a board or a regulator.
 Nobody manually stopwatches an incident. Real metrics get computed automatically from
 timestamps that already exist in other systems.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **MTTD (Mean Time to Detect)** and **MTTR (Mean Time to Respond/Remediate)** are two of the
 most-quoted security KPIs, and both are just subtraction between timestamps that already exist:

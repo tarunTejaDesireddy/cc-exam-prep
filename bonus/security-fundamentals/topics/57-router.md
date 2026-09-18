@@ -91,7 +91,7 @@ So it sends the packet to its:
 
 Usually, the default gateway is a router.
 
-<p align="center"><img src="diagrams/57-router-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/57-router-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -153,7 +153,7 @@ For a basic exam, remember:
 
 > **More specific route wins.**
 
-<p align="center"><img src="diagrams/57-router-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/57-router-2.svg" alt="diagram" width="500"></p>
 
 > The `10.1.0.0/16` route is added here only to show the rule — the most specific match wins.
 
@@ -241,7 +241,7 @@ But they're **separate functions**.
 
 Your home "Wi-Fi router" often performs **several jobs at once**:
 
-<p align="center"><img src="diagrams/57-router-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/57-router-3.svg" alt="diagram" width="500"></p>
 
 It may provide:
 
@@ -305,7 +305,7 @@ Examples include:
 
 > **Dynamic = routing protocol learns/updates routes**
 
-<p align="center"><img src="diagrams/57-router-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/57-router-4.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -420,7 +420,7 @@ A home router may perform this function, but the specific function is **NAT**.
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/57-router-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/57-router-5.svg" alt="diagram" width="500"></p>
 
 > 🌐 **Router = connects different networks**
 

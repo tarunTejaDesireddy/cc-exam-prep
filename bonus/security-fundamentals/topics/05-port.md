@@ -38,7 +38,7 @@ A device's full network address for a specific service is actually a combination
 
 This means: "the device at IP address `203.0.113.45`, specifically its service running on port `443`" (in this example, that would typically be a secure website).
 
-<p align="center"><img src="diagrams/05-port-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/05-port-1.svg" alt="diagram" width="500"></p>
 
 Step by step:
 
@@ -51,7 +51,7 @@ If the same server was also running an SSH service on port 22, a completely sepa
 
 What happens if nothing is listening on the requested port:
 
-<p align="center"><img src="diagrams/05-port-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/05-port-2.svg" alt="diagram" width="500"></p>
 
 If no service is actively listening on the requested port, the connection is refused — the IP address may be perfectly reachable, but that specific "door" is closed.
 

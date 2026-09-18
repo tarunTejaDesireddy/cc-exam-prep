@@ -22,7 +22,7 @@ NAT solves both problems at once. It lets an entire private network, potentially
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/30-nat-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/30-nat-1.svg" alt="diagram" width="500"></p>
 
 Step by step, when a private device sends data to the internet:
 
@@ -32,7 +32,7 @@ Step by step, when a private device sends data to the internet:
 4. The router keeps a record (a translation table) noting which private device made this particular request.
 5. When the response comes back from the internet, addressed to the router's public address, the router checks its translation table, figures out which private device the response actually belongs to, and forwards it there correctly.
 
-<p align="center"><img src="diagrams/30-nat-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/30-nat-2.svg" alt="diagram" width="500"></p>
 
 This translation table is what allows many devices to appear, to the outside internet, as if they were just one single device — while the router quietly keeps track of who actually asked for what, behind the scenes.
 
@@ -59,7 +59,7 @@ Public IP (router): 203.0.113.45
 
 When the laptop visits a website, the router performs NAT: the website sees the request coming from `203.0.113.45`, with no visibility into the fact that it actually originated from `192.168.1.10` specifically, or that two other devices exist on the same home network at all.
 
-<p align="center"><img src="diagrams/30-nat-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/30-nat-3.svg" alt="diagram" width="500"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -116,7 +116,7 @@ Seeing two different addresses for the same device's traffic — one locally, on
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/30-nat-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/30-nat-4.svg" alt="diagram" width="500"></p>
 
 - NAT translates private IP addresses into a shared public IP address, and back again.
 - It exists mainly to conserve limited public IPv4 addresses while still allowing private devices to reach the internet.

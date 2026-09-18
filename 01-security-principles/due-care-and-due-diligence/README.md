@@ -54,7 +54,7 @@ what the investigation found.**
 
 ## 🔍 Investigate, then act
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **Examples, matched to the right term:**
 
@@ -73,7 +73,7 @@ what the investigation found.**
 "Review the target's security" is not one action — it's a specific document checklist a real
 security or M&A team works through.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **A SIG (Standardised Information Gathering) questionnaire** is the actual document a vendor
 fills out — hundreds of standardised yes/no and descriptive questions covering everything from

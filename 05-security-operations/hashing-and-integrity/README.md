@@ -73,7 +73,7 @@ The two things a hash is for:
 
 ## 🔍 How hashing works
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **The properties the exam expects:**
 
@@ -93,7 +93,7 @@ The two things a hash is for:
 
 ## ✅ Using hashing for integrity
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 > ⚠️ **Hashing detects change; it does not prevent it.** That makes it a **detective** control. The
 > file can still be altered — you will simply know that it was.
@@ -117,7 +117,7 @@ the exact same word grinds into completely different flour for different people,
 thief's lookup book useless. Add unique random data — a **salt** — to each password before
 hashing.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 > 🎯 **Salting defeats rainbow tables.** This is one of the most reliable pairings on the exam.
 > The salt need not be secret — it is stored alongside the hash. Its job is **uniqueness**, not
@@ -134,7 +134,7 @@ A digital signature combines hashing and asymmetric encryption:
 3. The recipient **decrypts it with the signer's public key** to recover the hash.
 4. The recipient **hashes the message themselves** and compares.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 **A signature gives you three things and not the fourth:**
 
@@ -169,7 +169,7 @@ A digital signature combines hashing and asymmetric encryption:
 The grown-up section explains that password hashing needs to be deliberately slow. Here's what
 that actually looks like in guesses per second on ordinary attacker hardware.
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 A general-purpose hash like SHA-256 is *designed* to be fast, because it's meant to hash gigabyte
 files quickly for integrity checks — which is exactly the wrong property for a password, where an

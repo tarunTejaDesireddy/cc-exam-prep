@@ -53,7 +53,7 @@ This module adds what the topic pages structurally cannot:
 
 ## 🎯 03 · How to work a drill
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **Four rules:**
 

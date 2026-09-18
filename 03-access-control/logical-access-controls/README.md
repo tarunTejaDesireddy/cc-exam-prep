@@ -22,7 +22,7 @@ The big exam question is:
 
 That separates **logical access controls** from **physical access controls**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -116,7 +116,7 @@ The exam may deliberately give you one.
 
 The trick is to look at **what the control is actually controlling**.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -306,7 +306,7 @@ Inside a **computer/system/application**?
 
 → Logical
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 

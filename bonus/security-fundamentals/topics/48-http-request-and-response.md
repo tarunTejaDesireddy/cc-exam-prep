@@ -14,7 +14,7 @@ The server **answers**.
 > 📤 **HTTP Request = "Give me this."**<br>
 > 📥 **HTTP Response = "Here you go."**
 
-<p align="center"><img src="diagrams/48-http-request-and-response-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/48-http-request-and-response-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -37,7 +37,7 @@ Accept: text/html
 
 There are **four things to recognize**:
 
-<p align="center"><img src="diagrams/48-http-request-and-response-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/48-http-request-and-response-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -256,7 +256,7 @@ Content-Length: 1234
 
 The response contains:
 
-<p align="center"><img src="diagrams/48-http-request-and-response-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/48-http-request-and-response-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -344,7 +344,7 @@ Think:
 5xx → Server problem
 ```
 
-<p align="center"><img src="diagrams/48-http-request-and-response-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/48-http-request-and-response-4.svg" alt="diagram" width="500"></p>
 
 The big ones:
 
@@ -388,7 +388,7 @@ Example:
 
 > User is authenticated but lacks permission.
 
-<p align="center"><img src="diagrams/48-http-request-and-response-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/48-http-request-and-response-5.svg" alt="diagram" width="500"></p>
 
 ### 🪨 Easy memory:
 
@@ -519,7 +519,7 @@ the HTTP request/response is **protected by TLS** while traveling across the net
 
 Conceptually:
 
-<p align="center"><img src="diagrams/48-http-request-and-response-6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/48-http-request-and-response-6.svg" alt="diagram" width="500"></p>
 
 So remember:
 
@@ -625,7 +625,7 @@ So remember:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/48-http-request-and-response-7.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/48-http-request-and-response-7.svg" alt="diagram" width="500"></p>
 
 ### Request:
 

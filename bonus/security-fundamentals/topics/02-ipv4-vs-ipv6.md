@@ -41,13 +41,13 @@ Both IPv4 and IPv6 do the same job — labeling devices so data can be delivered
 
 🔍 **Hexadecimal** is just a different way of writing numbers, using digits 0–9 and letters A–F. You do not need to calculate hexadecimal by hand to understand this topic — just recognize that IPv6 addresses look longer and contain letters, while IPv4 addresses are shorter and use only numbers and dots.
 
-<p align="center"><img src="diagrams/02-ipv4-vs-ipv6-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/02-ipv4-vs-ipv6-1.svg" alt="diagram" width="500"></p>
 
 Both address types are used to do the exact same task shown in the previous topic: label data so it reaches the correct device. The difference is only in the size and format of the label, and how many unique labels are possible.
 
 What happens when the IPv4 pool runs low — networks squeeze more devices onto fewer public addresses:
 
-<p align="center"><img src="diagrams/02-ipv4-vs-ipv6-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/02-ipv4-vs-ipv6-2.svg" alt="diagram" width="500"></p>
 
 ## 🧩 Important Parts
 

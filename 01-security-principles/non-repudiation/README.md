@@ -47,7 +47,7 @@ Grog can't reasonably deny that he made the transaction.
 
 That's the basic idea of non-repudiation.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ## 💻 Computer example
 
@@ -90,7 +90,7 @@ The recipient can verify the signature.
 If the signature is valid, they have evidence that the message was signed by the holder of the
 corresponding private key and that the signed data wasn't altered.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ## 🔑 Private key and public key
 
@@ -140,7 +140,7 @@ Asks:
 
 The digital signature provides evidence associated with Grog's signing key.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ## 🔐 Non-repudiation vs Authentication
 

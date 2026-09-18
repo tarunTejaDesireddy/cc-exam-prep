@@ -22,7 +22,7 @@ The concept of "attack surface" exists to help security teams think clearly abou
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/12-attack-surface-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/12-attack-surface-1.svg" alt="diagram" width="500"></p>
 
 Each of these yellow boxes represents one part of the system's attack surface — a point that could potentially be targeted. None of them are inherently "bad" to have; they exist because the system needs them to function. But each one requires attention: it needs to be secured, monitored, and kept up to date.
 
@@ -32,7 +32,7 @@ Reducing the attack surface generally means:
 2. Removing or disabling anything that is not actually needed.
 3. Properly securing everything that remains necessary.
 
-<p align="center"><img src="diagrams/12-attack-surface-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/12-attack-surface-2.svg" alt="diagram" width="500"></p>
 
 ## 🧩 Important Parts
 
@@ -54,7 +54,7 @@ Imagine a small company server that has, over time, accumulated the following:
 - A remote login service on port 22, accessible from anywhere on the internet (needed for administrators, but currently open to everyone, not just trusted IP addresses)
 - Three employee accounts that left the company two years ago but were never deactivated
 
-<p align="center"><img src="diagrams/12-attack-surface-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/12-attack-surface-3.svg" alt="diagram" width="500"></p>
 
 Reducing the attack surface here means removing the forgotten test application, restricting the remote login service to trusted addresses only, and deactivating the old employee accounts — while keeping the website running, since it is actually needed.
 
@@ -111,7 +111,7 @@ Each listening port here is a potential entry point and part of the server's att
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/12-attack-surface-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/12-attack-surface-4.svg" alt="diagram" width="500"></p>
 
 - The attack surface is every possible point where a system could be attacked.
 - It includes technical exposure (ports, services, apps) and human exposure (employees, processes).

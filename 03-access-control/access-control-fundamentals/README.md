@@ -26,7 +26,7 @@ The exam wants you to correctly identify **three things**:
 2. 📄 **Object**
 3. 📜 **Rule**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -179,7 +179,7 @@ or:
 
 > **Bob + Delete + Payroll.xlsx + Rule denies delete → DENY ❌**
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -283,7 +283,7 @@ So:
 
 > **Authorization applies rules to decide what that subject can do.**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -333,7 +333,7 @@ Imagine Grog standing at a cave door:
 
 > **A subject requests an action on an object, and the applicable rule determines whether access is allowed or denied.**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ---
 

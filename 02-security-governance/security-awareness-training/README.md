@@ -73,7 +73,7 @@ whole defence from first principles. That's **education.**
 
 ## 🔺 The three levels
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 | | **Awareness** | **Training** | **Education** |
 |---|---|---|---|
@@ -112,7 +112,7 @@ whole defence from first principles. That's **education.**
 Controlled, fake phishing messages sent to staff to measure susceptibility and provide teaching
 at the moment of the mistake.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 > [!IMPORTANT]
 > **Simulations should teach, not punish.** Punishing people for clicking produces a culture where
@@ -129,7 +129,7 @@ susceptibility falls and reporting rises over time.
 The end state a programme is aiming at: an environment where **secure behaviour is normal** and
 people raise concerns without hesitation.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 **What builds it:**
 
@@ -148,7 +148,7 @@ people raise concerns without hesitation.
 
 Training teaches people to report. Here's the real pipeline that report travels through.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 That "Report Phish" button (built into Outlook/Gmail via platforms like KnowBe4 or Proofpoint)
 isn't just a delete key — it forwards the message **with its full technical headers** to a

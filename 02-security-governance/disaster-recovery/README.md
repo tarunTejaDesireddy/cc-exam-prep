@@ -40,7 +40,7 @@ The easiest rule:
 
 > **More ready = More expensive**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ### 🟢 1. Hot Site — "Ready NOW"
 
@@ -240,7 +240,7 @@ This provides a highly realistic test, but it can be risky and disruptive.
 
 A useful exam-oriented progression is:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **Exact terminology and ordering can vary somewhat by framework or organization**, but the exam
 principle is:
@@ -260,7 +260,7 @@ readiness
 **🧪 Testing question** — "How do we verify the recovery plan works?" Answer: Review/checklist ·
 Tabletop · Simulation · Parallel · Full interruption. Think: 💰 Cost/effort vs realism
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 

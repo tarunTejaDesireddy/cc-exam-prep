@@ -69,7 +69,7 @@ When a scenario appears, ask which shape it is first. That eliminates most optio
 
 The well, the road, the gate, and the grain order — formalised.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -86,7 +86,7 @@ The well, the road, the gate, and the grain order — formalised.
 | **Amplification / reflection** | Sends small spoofed requests to services that reply with far larger responses, aimed at the victim |
 | **Volumetric** | Simply saturates the available bandwidth |
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 The SYN flood in one picture: **start thousands of handshakes, finish none, and the server runs
 out of room for the people who would have finished theirs.**
@@ -105,7 +105,7 @@ capacity, blackholing.
 The attacker sits between two parties, relaying and possibly altering traffic while both sides
 believe they are talking directly to each other.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 **Defence:** strong encryption in transit, and certificate validation — which is what makes the
 attacker unable to impersonate either endpoint convincingly.
@@ -164,7 +164,7 @@ detect.
 
 ### 🔬 What an XSS attack actually does, step by step
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 This particular flow is **stored XSS** — the payload sits in the database and hits every future
 visitor, which is why it's considered the most dangerous of the three variants. **Reflected XSS**
@@ -193,7 +193,7 @@ the injection from landing, and CSP stops it from executing even when encoding f
 | **Password spraying** | Tries **one common password across many accounts**, to avoid lockout thresholds |
 | **Rainbow table** | Uses precomputed hash lookups to reverse hashes. **Defeated by salting** |
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 The top two hammer one account and lockout stops them. The bottom two spread across many
 accounts, which is **exactly why they exist** — few enough attempts each that no threshold trips.

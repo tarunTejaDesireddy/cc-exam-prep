@@ -95,7 +95,7 @@ for it directly.
 
 ## 🏠 Private address ranges — memorise these
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 | Range | CIDR | Typical use |
 |---|---|---|
@@ -121,7 +121,7 @@ for it directly.
 > from DHCP, failed, and assigned itself one. If a question describes a client with a `169.254`
 > address unable to reach the network, the answer concerns DHCP failure.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 Run any address in a question down this tree. **Watch the third question — `172.15` and `172.32`
 come out the bottom as public.**
@@ -130,7 +130,7 @@ come out the bottom as public.**
 
 ## 🔧 The three services
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ### 📋 DHCP — hands out addresses
 
@@ -166,7 +166,7 @@ translation on the way back. Many internal hosts can share one public address.
 2. **A degree of obscurity** — internal addressing is hidden, and unsolicited inbound connections
    have nowhere to go by default.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 Read it as a sentence: **many private hosts leave through one public address, and the NAT device
 remembers who was who so replies get home.** That is address conservation — the purpose. The fact
@@ -182,7 +182,7 @@ that outsiders cannot see the private addresses is a side effect, not a control.
 
 ## 🔬 How a DNS lookup actually travels, and how poisoning it works
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 A single DNS query is actually a **chain of referrals**: your resolver asks a root server which
 doesn't know the answer but knows who does — the `.com` TLD server — which in turn points to the

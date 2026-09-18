@@ -83,7 +83,7 @@ The road's various troublemakers, ranked.
 > 🎯 **Ranked by capability, nation-state actors are the top and script kiddies the bottom.** If a
 > question describes long-term stealthy access with substantial resources, it wants **APT**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 The insider sits outside the ladder deliberately: their capability varies enormously, and it
 hardly matters, because they start past every perimeter control you own.
@@ -110,7 +110,7 @@ proper leaver process.
 
 ## 🦠 The malware taxonomy
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ### The three that get confused
 
@@ -120,7 +120,7 @@ proper leaver process.
 | **Worm** | **Self-propagates** across networks | ❌ **No** | ❌ No — standalone |
 | **Trojan** | Disguised as legitimate software | ✅ Yes — installs it | ❌ No |
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 Two questions separate all three. Run any scenario through them.
 
@@ -170,7 +170,7 @@ Attacking the person rather than the technology. It appears in Domain 4 and agai
 > door. **Piggybacking has consent** — the person held the door. **Tailgating does not** — they
 > did not know.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 Going down the middle, the target narrows: **anyone → one person → one important person.** The
 two branches change the *channel*, not the targeting.
@@ -185,7 +185,7 @@ two branches change the *channel*, not the targeting.
 The grown-up section mentions fileless, living-off-the-land techniques. Here's concretely why
 they slip past one kind of defence and not another.
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
 
 **Traditional signature-based antivirus hashes a file and checks that hash against a database of
 known-bad hashes.** This is exactly why it's blind to fileless, living-off-the-land attacks:

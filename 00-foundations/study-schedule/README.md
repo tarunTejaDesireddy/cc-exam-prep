@@ -45,7 +45,7 @@ hours, it is disorganised ones.
 
 ## 🗓️ The eight weeks
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 

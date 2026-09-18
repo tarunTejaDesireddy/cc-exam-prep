@@ -24,7 +24,7 @@ The easiest way to remember them:
 > 👀 **Need-to-know = What DO you need to see?**<br>
 > 👥 **Segregation of duties = Who SHOULD do each part?**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -68,7 +68,7 @@ They don't need:
 
 Give them only what their job requires.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ### 🧠 Memory
 
@@ -158,7 +158,7 @@ Don't automatically give her access to:
 
 > 🔐 Confidential information unrelated to her work.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -208,7 +208,7 @@ That's:
 
 > 👥 **Segregation of Duties**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 ---
 

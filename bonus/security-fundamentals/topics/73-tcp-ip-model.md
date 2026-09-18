@@ -29,7 +29,7 @@ Think:
 | 2️⃣ **Internet** | IP addressing and routing | IP, ICMP |
 | 1️⃣ **Network Access** | Local network + physical transmission | Ethernet, Wi-Fi |
 
-<p align="center"><img src="diagrams/73-tcp-ip-model-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/73-tcp-ip-model-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -99,7 +99,7 @@ Think:
 
 > 📦 "Throw the package quickly. Don't wait for confirmation."
 
-<p align="center"><img src="diagrams/73-tcp-ip-model-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/73-tcp-ip-model-2.svg" alt="diagram" width="500"></p>
 
 ### 🎯 Exam clue
 
@@ -242,7 +242,7 @@ OSI                         TCP/IP
 1️⃣ Physical ────┴──────→ 1️⃣ Network Access
 ```
 
-<p align="center"><img src="diagrams/73-tcp-ip-model-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/73-tcp-ip-model-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -319,7 +319,7 @@ The packet is placed into a **local-network frame** and transmitted through Ethe
 ⚡ Physical transmission
 ```
 
-<p align="center"><img src="diagrams/73-tcp-ip-model-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/73-tcp-ip-model-4.svg" alt="diagram" width="500"></p>
 
 ---
 

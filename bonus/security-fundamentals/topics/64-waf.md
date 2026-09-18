@@ -65,7 +65,7 @@ Usually **between the client and the web application**:
 
 The request **must pass through the WAF** before reaching the application.
 
-<p align="center"><img src="diagrams/64-waf-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64-waf-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -93,7 +93,7 @@ The WAF examines the request and asks:
 
 > 🕸️ **"Does this look like an attack?"**
 
-<p align="center"><img src="diagrams/64-waf-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64-waf-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -158,7 +158,7 @@ Think:
 
 > 🕸️ **WAF = web application traffic**
 
-<p align="center"><img src="diagrams/64-waf-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64-waf-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -245,7 +245,7 @@ A WAF is a **defense layer**, **not a substitute for fixing vulnerable applicati
 
 Think:
 
-<p align="center"><img src="diagrams/64-waf-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64-waf-4.svg" alt="diagram" width="500"></p>
 
 Good security uses **multiple layers**.
 
@@ -345,7 +345,7 @@ The deployment changes, but the core purpose stays the same:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/64-waf-5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64-waf-5.svg" alt="diagram" width="500"></p>
 
 > 🕸️ **WAF = Web Application Firewall**
 

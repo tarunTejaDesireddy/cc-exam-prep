@@ -84,7 +84,7 @@ Then:
 
 The gateway is the **exit door**.
 
-<p align="center"><img src="diagrams/61-gateway-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/61-gateway-1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -154,7 +154,7 @@ So it sends the packet toward:
 
 That's the **default gateway**.
 
-<p align="center"><img src="diagrams/61-gateway-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/61-gateway-2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -220,7 +220,7 @@ But in basic networking questions:
 
 > **Gateway → think default gateway/router.**
 
-<p align="center"><img src="diagrams/61-gateway-3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/61-gateway-3.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -294,7 +294,7 @@ But in basic networking questions:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/61-gateway-4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/61-gateway-4.svg" alt="diagram" width="500"></p>
 
 > 🚪 **Gateway = way in/out to another network or system**
 

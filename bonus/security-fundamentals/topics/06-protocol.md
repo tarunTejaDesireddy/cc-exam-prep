@@ -33,7 +33,7 @@ Protocols exist to make sure that communication is predictable and reliable, no 
 
 A protocol defines a specific set of steps or message formats that both sides of a conversation must follow. Different protocols are designed for different purposes.
 
-<p align="center"><img src="diagrams/06-protocol-1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/06-protocol-1.svg" alt="diagram" width="500"></p>
 
 General idea, step by step:
 
@@ -44,7 +44,7 @@ General idea, step by step:
 
 What happens when both sides don't share the same protocol:
 
-<p align="center"><img src="diagrams/06-protocol-2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/06-protocol-2.svg" alt="diagram" width="500"></p>
 
 If Device B doesn't understand Protocol X, the message can't be interpreted correctly — regardless of whether the network delivery itself worked fine.
 

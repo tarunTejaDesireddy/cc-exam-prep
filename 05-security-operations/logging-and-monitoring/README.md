@@ -66,7 +66,7 @@ when people know they are logged.
 
 ## 📋 What to log
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 **Events worth logging:**
 
@@ -102,7 +102,7 @@ and reads every watchman's night side by side — spotting a pattern none of the
 Logs scattered across hundreds of systems are of little use. **Centralising** them serves two
 purposes.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 **One: correlation.** A single failed login is noise. The same account failing on forty systems
 within a minute is an attack. Only a central view shows that.
@@ -146,7 +146,7 @@ The tribe posts guards facing outward at the gate, watching for wolves and raide
 **out** in the dead of night. By the time grain is leaving, a thief is already inside — and the
 back of the storehouse is where you'd actually catch him.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 | | Watches | Finds |
 |---|---|---|
@@ -185,7 +185,7 @@ routine triage so human attention goes where it is needed.
 Different devices speak different log formats natively, which is a real interoperability
 problem a SIEM has to solve before it can correlate anything at all.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
 
 **Syslog (RFC 5424) and CEF (Common Event Format)** are the two real standards that make this
 possible — a firewall, an EDR agent and a directory server all describe wildly different events,

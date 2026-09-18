@@ -45,7 +45,7 @@ Think of Grog's tribe:
 
 **Guideline:** 💡 "Here are recommended ways to create a strong password."
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -186,7 +186,7 @@ verify your identity, enter the new password, and confirm." Step-by-step instruc
 **💡 Guideline** — "Consider using a password manager to generate and store unique passwords."
 Recommended advice.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
 
 ---
 
@@ -277,7 +277,7 @@ If the question says:
 
 **"Prioritized cybersecurity safeguards / CIS Controls"** → 🛡️ **CIS**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
 
 ### One line to memorize
 
