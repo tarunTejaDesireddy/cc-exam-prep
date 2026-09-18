@@ -22,7 +22,7 @@ The network interface exists to be that dedicated hardware. It handles the physi
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/10-network-interface-nic-1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -36,7 +36,7 @@ Step by step:
 
 What happens if a device has no working network interface:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/10-network-interface-nic-2.svg" alt="diagram"></p>
 
 If the network interface is missing, disabled, or broken, the device cannot reach the network at all — regardless of how correctly everything else, like its IP address, is configured.
 
@@ -56,7 +56,7 @@ A typical laptop usually has two network interfaces:
 - A Wi-Fi interface, used to connect wirelessly to a home or office network.
 - An Ethernet interface, used to connect via a physical cable.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/10-network-interface-nic-3.svg" alt="diagram"></p>
 
 If the laptop is connected to both at the same time, it effectively has two separate network connections active — each through its own interface, each with its own MAC address, and potentially each with its own IP address too.
 
@@ -124,7 +124,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/10-network-interface-nic-4.svg" alt="diagram"></p>
 
 - A network interface (NIC) is the hardware that lets a device connect to a network.
 - It can be wired (Ethernet) or wireless (Wi-Fi).

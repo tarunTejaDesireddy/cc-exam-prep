@@ -103,7 +103,7 @@ or
 
 > ❌ **DENY/BLOCK**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/58-firewall-1.svg" alt="diagram"></p>
 
 ---
 
@@ -201,7 +201,7 @@ rather than:
 
 > **Stateless = evaluates packets independently**
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/58-firewall-2.svg" alt="diagram"></p>
 
 ---
 
@@ -221,7 +221,7 @@ For example:
 
 > **"Don't just block port 443; identify and control the application using that traffic."**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/58-firewall-3.svg" alt="diagram"></p>
 
 ---
 
@@ -370,7 +370,7 @@ Think:
 
 > 🚪 **"Allowed through the door or not?"**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/58-firewall-4.svg" alt="diagram"></p>
 
 ---
 
@@ -395,7 +395,7 @@ You can also have **multiple security zones**.
 
 For example:
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/58-firewall-5.svg" alt="diagram"></p>
 
 ---
 
@@ -501,7 +501,7 @@ The idea is:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/58-firewall-6.svg" alt="diagram"></p>
 
 > 🧱 **Firewall = allow/block traffic**
 

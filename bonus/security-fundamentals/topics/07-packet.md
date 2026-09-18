@@ -26,7 +26,7 @@ Breaking data into packets solves these problems. Each packet is small enough to
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/07-packet-1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -38,7 +38,7 @@ Step by step:
 
 What happens when a packet doesn't make it:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/07-packet-2.svg" alt="diagram"></p>
 
 This is exactly why breaking data into packets is so resilient — losing packet 2 out of 2,000 only means resending that one small piece, not the whole file.
 

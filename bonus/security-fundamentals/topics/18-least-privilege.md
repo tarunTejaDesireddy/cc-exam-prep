@@ -22,7 +22,7 @@ Least privilege exists to limit the damage that can be done if something goes wr
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/18-least-privilege-1.svg" alt="diagram"></p>
 
 Applying least privilege generally involves:
 
@@ -32,7 +32,7 @@ Applying least privilege generally involves:
 
 This is the opposite of a common but risky shortcut: giving broad "administrator" or "full access" permissions to everyone by default, simply because it's easier than carefully scoping access, or because it might be occasionally convenient.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/18-least-privilege-2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -51,7 +51,7 @@ Consider a company's file server with three types of employees:
 - **HR staff** need access to employee records, but not to the finance department's files.
 - **IT administrators** need broad access to manage the server itself.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/18-least-privilege-3.svg" alt="diagram"></p>
 
 If a regular employee's account is compromised through a phishing email, the attacker only gains access to that one department's folder — not HR records, not finance data, and not the ability to manage the entire server. This containment is the direct benefit of following least privilege.
 
@@ -105,7 +105,7 @@ This is different from an approach that would simply grant Jane full access to e
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/18-least-privilege-4.svg" alt="diagram"></p>
 
 - Least privilege means granting only the minimum access necessary, nothing extra.
 - It applies to human users, software, and automated processes alike.

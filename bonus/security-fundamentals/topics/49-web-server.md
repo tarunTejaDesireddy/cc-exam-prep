@@ -94,7 +94,7 @@ Browser
 
 The resulting page might contain Grog's account information.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/49-web-server-1.svg" alt="diagram"></p>
 
 ---
 
@@ -139,7 +139,7 @@ Think:
 
 Instead:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/49-web-server-2.svg" alt="diagram"></p>
 
 The reverse proxy can:
 
@@ -204,7 +204,7 @@ Logs can help with:
 
 > 🔎 **Detection and investigation**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/49-web-server-3.svg" alt="diagram"></p>
 
 ---
 
@@ -298,7 +298,7 @@ A **web server is not the same thing as a database server**.
 
 Think:
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/49-web-server-4.svg" alt="diagram"></p>
 
 The browser normally **shouldn't directly connect to the database**.
 
@@ -332,7 +332,7 @@ The browser normally **shouldn't directly connect to the database**.
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/49-web-server-5.svg" alt="diagram"></p>
 
 > 🖥️ **Web server = receives HTTP/HTTPS requests and serves web content**
 

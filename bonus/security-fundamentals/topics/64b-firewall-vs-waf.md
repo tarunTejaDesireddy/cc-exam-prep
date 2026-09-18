@@ -116,7 +116,7 @@ For example, it can help detect/block attacks such as:
 | Example | Block TCP 23 | Block SQL injection |
 | Main question | "Should this network traffic pass?" | "Is this web request malicious?" |
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64b-firewall-vs-waf-1.svg" alt="diagram"></p>
 
 ---
 
@@ -158,7 +158,7 @@ Now suppose the attacker is coming from an **unauthorized IP**:
 
 The firewall can **block the traffic before it reaches the web application**.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64b-firewall-vs-waf-2.svg" alt="diagram"></p>
 
 ---
 
@@ -274,7 +274,7 @@ If it says **"IP / port / protocol / network traffic"** → 🧱 **Firewall**
 | XSS | 🕸️ WAF |
 | URL/HTTP parameters | 🕸️ WAF |
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/64b-firewall-vs-waf-3.svg" alt="diagram"></p>
 
 ---
 

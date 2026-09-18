@@ -22,7 +22,7 @@ Without this upfront confirmation, a device might start sending data to another 
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/36-tcp-3-way-handshake-1.svg" alt="diagram"></p>
 
 The three steps are:
 
@@ -32,11 +32,11 @@ The three steps are:
 
 Only after all three of these steps complete does actual application data (like a web page request) begin flowing over the connection.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/36-tcp-3-way-handshake-2.svg" alt="diagram"></p>
 
 What happens if a step doesn't complete:
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/36-tcp-3-way-handshake-3.svg" alt="diagram"></p>
 
 If the server doesn't respond, or the client never sends the final ACK, the connection simply never becomes established, and no application data is exchanged.
 
@@ -57,7 +57,7 @@ A web browser connecting to a website's server:
 2. The server responds with a SYN-ACK, saying, "Understood, and I'm ready to talk too."
 3. The browser sends an ACK, saying, "Great, let's proceed" — and only now does the browser actually send its request for the web page content.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/36-tcp-3-way-handshake-4.svg" alt="diagram"></p>
 
 Notice that the actual web page request only happens *after* the three-step handshake has already completed — the handshake itself carries no page content, only the setup needed to begin.
 
@@ -113,7 +113,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/36-tcp-3-way-handshake-5.svg" alt="diagram"></p>
 
 - The TCP 3-way handshake (SYN, SYN-ACK, ACK) establishes a connection before any application data is exchanged.
 - It confirms both devices are ready and reachable before committing to real communication.

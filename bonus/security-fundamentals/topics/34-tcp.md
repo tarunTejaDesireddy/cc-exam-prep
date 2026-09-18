@@ -22,7 +22,7 @@ TCP exists to guarantee exactly this. It adds a layer of tracking, confirmation,
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/34-tcp-1.svg" alt="diagram"></p>
 
 Key mechanisms TCP uses to guarantee reliable delivery:
 
@@ -31,7 +31,7 @@ Key mechanisms TCP uses to guarantee reliable delivery:
 3. **Retransmission** — if the sender doesn't receive an acknowledgment within a reasonable time, it assumes the data was lost and sends it again.
 4. **Connection setup** — before exchanging data, TCP first establishes a formal connection between the two devices, using a process called the [TCP 3-Way Handshake](36-tcp-3-way-handshake.md), covered in an upcoming topic.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/34-tcp-2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -53,7 +53,7 @@ Consider downloading a small file made up of five packets:
 4. After waiting a short time with no confirmation, the sender resends packet 3.
 5. The receiver gets packet 3, and — using the sequence numbers — correctly reassembles the file in the proper order: 1, 2, 3, 4, 5.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/34-tcp-3.svg" alt="diagram"></p>
 
 Without TCP handling this automatically, the application itself (or the user) would need to somehow detect and fix the missing piece manually — TCP makes this invisible and automatic.
 
@@ -111,7 +111,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/34-tcp-4.svg" alt="diagram"></p>
 
 - TCP provides reliable, ordered delivery of data between two devices.
 - It uses sequence numbers, acknowledgments, and retransmission to guarantee nothing is lost or out of order.

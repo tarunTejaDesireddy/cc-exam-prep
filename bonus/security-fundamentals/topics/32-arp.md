@@ -22,7 +22,7 @@ ARP exists to solve this gap. It provides a standard way for a device to ask, "w
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/32-arp-1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -32,7 +32,7 @@ Step by step:
 4. That device (Device B) replies directly to Device A with its MAC address.
 5. Device A now has what it needs to deliver data directly at the hardware level, and stores this information temporarily in a local **ARP cache**, so it doesn't need to repeat this process for every single message.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/32-arp-2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -52,7 +52,7 @@ Device A (`192.168.1.10`) wants to send a file to Device B (`192.168.1.20`) for 
 3. Device B recognizes its own IP address in the request and replies directly: "192.168.1.20 is at MAC AA:BB:CC:11:22:33."
 4. Device A stores this mapping in its ARP cache and uses it to address the file transfer at the hardware level.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/32-arp-3.svg" alt="diagram"></p>
 
 If Device A sends another file to Device B shortly afterward, it can simply reuse the MAC address already stored in its ARP cache, skipping the request-and-reply process entirely — at least until that cache entry eventually expires.
 
@@ -117,7 +117,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/32-arp-4.svg" alt="diagram"></p>
 
 - ARP resolves a known IP address into its corresponding MAC address, on a local network.
 - It works through a broadcast request and a direct reply from the owning device.

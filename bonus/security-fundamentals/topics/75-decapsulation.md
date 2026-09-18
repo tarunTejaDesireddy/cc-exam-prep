@@ -43,7 +43,7 @@ Remember:
 
 Suppose Grog receives a web request.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/75-decapsulation-1.svg" alt="diagram"></p>
 
 ## 1️⃣ Physical Layer
 
@@ -165,7 +165,7 @@ RECEIVING — DECAPSULATION
 📄 DATA
 ```
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/75-decapsulation-2.svg" alt="diagram"></p>
 
 ---
 
@@ -263,7 +263,7 @@ For exam purposes, however:
 
 > **Decapsulation = headers/trailers processed/removed going UP**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/75-decapsulation-3.svg" alt="diagram"></p>
 
 ---
 

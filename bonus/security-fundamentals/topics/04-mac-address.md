@@ -34,7 +34,7 @@ MAC addresses exist to solve a specific problem: **on a local network segment, h
 
 When a device sends data to another device on the same local network, the local network hardware (like a switch, covered in a later topic) uses MAC addresses to deliver that data to the correct physical device.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/04-mac-address-1.svg" alt="diagram"></p>
 
 Step by step, on a local network:
 

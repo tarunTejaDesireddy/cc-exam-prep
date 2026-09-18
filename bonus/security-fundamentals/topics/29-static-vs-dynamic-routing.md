@@ -22,15 +22,15 @@ But larger, more complex networks (especially the internet itself) have far too 
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/29-static-vs-dynamic-routing-1.svg" alt="diagram"></p>
 
 With **static routing**, if a link between two routers fails, and no alternate static route was manually configured in advance, traffic along that path simply stops working until a human notices and fixes the configuration.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/29-static-vs-dynamic-routing-2.svg" alt="diagram"></p>
 
 With **dynamic routing**, if that same link fails, routers running a routing protocol automatically detect the failure and recalculate an alternate path, without needing a human to intervene.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/29-static-vs-dynamic-routing-3.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -53,7 +53,7 @@ This is simple and predictable — there's only one possible path, so there's li
 
 A large company with dozens of interconnected offices and multiple redundant links between them would typically use dynamic routing instead, since manually maintaining and updating routes across so many possible paths — and reacting quickly to failures — would be impractical for a human to manage by hand.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/29-static-vs-dynamic-routing-4.svg" alt="diagram"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -101,7 +101,7 @@ This single command tells the router: "to reach the `192.168.2.0/24` network, se
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/29-static-vs-dynamic-routing-5.svg" alt="diagram"></p>
 
 - Static routing uses manually configured, fixed routes.
 - Dynamic routing uses routing protocols to automatically discover and adapt routes.

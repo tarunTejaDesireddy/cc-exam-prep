@@ -24,7 +24,7 @@ The routing table exists to give the router exactly that organized reference —
 
 A routing table typically contains several entries, each describing one known destination network and how to reach it.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/28-routing-table-1.svg" alt="diagram"></p>
 
 Each entry in a routing table typically includes:
 
@@ -34,7 +34,7 @@ Each entry in a routing table typically includes:
 
 If no specific entry matches a destination, most routers fall back to a special catch-all entry called the **default route** — this is exactly the mechanism behind the [Default Gateway](26-default-gateway.md) concept covered earlier.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/28-routing-table-2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -56,7 +56,7 @@ Destination         Next Hop        Interface
 0.0.0.0/0 (default)  10.0.0.1                eth1
 ```
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/28-routing-table-3.svg" alt="diagram"></p>
 
 If data arrives destined for `192.168.1.50`, the router matches it against the first entry and delivers it directly, since that subnet is directly connected. If data arrives destined for a completely unrelated address like `203.0.113.45`, none of the specific entries match, so the router falls back to the default route (`0.0.0.0/0`), sending it toward `10.0.0.1`.
 
@@ -120,7 +120,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/28-routing-table-4.svg" alt="diagram"></p>
 
 - A routing table is the reference list a router uses to decide where to forward data.
 - Each entry pairs a destination network with a next hop and an outgoing interface.

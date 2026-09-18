@@ -22,7 +22,7 @@ UDP exists to serve exactly this kind of need: applications that would rather re
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/35-udp-1.svg" alt="diagram"></p>
 
 Unlike TCP, UDP:
 
@@ -32,7 +32,7 @@ Unlike TCP, UDP:
 
 This makes UDP much simpler and faster than TCP, but it also means that if reliability is actually needed, the *application itself* (not the network protocol) must handle it — for example, by tolerating small gaps, or by building its own lightweight recovery mechanism if truly necessary.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/35-udp-2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -51,7 +51,7 @@ Consider a live video call using UDP:
 2. If a small chunk of data is lost somewhere along the network, the receiving device simply skips it and continues playing what does arrive.
 3. The result might be a very brief, often barely noticeable glitch — but the call continues smoothly in real time, without pausing to recover that lost piece.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/35-udp-3.svg" alt="diagram"></p>
 
 Using TCP for this same live call instead would mean pausing to recover every single lost chunk in order, which — for something happening live, in real time — would actually make the experience noticeably worse, not better.
 
@@ -109,7 +109,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/35-udp-4.svg" alt="diagram"></p>
 
 - UDP sends data quickly and simply, without guaranteeing delivery, order, or confirmation.
 - It is connectionless — no formal setup happens before data is sent.

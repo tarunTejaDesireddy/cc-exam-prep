@@ -22,7 +22,7 @@ HTTP exists to solve this by defining a clear, standard structure: how a request
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/39-http-1.svg" alt="diagram"></p>
 
 An HTTP exchange follows a simple request-response pattern:
 
@@ -38,7 +38,7 @@ Common types of HTTP requests, called **methods**:
 
 Common HTTP **status codes** in a response:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/39-http-2.svg" alt="diagram"></p>
 
 🔍 HTTP relies on [TCP](34-tcp.md) underneath it to actually deliver its requests and responses reliably — HTTP defines *what* is being asked for and returned, while TCP handles making sure that data actually arrives correctly.
 
@@ -60,7 +60,7 @@ Visiting a website by typing its address into a browser:
 2. The web server locates that content and responds with an HTTP response, including the status code `200 OK` and the actual page content (text, images, layout instructions).
 3. Your browser receives this response and renders the page on your screen.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/39-http-3.svg" alt="diagram"></p>
 
 If you had instead requested a page that doesn't exist, the server would respond with a `404 Not Found` status code instead, along with a page telling you the content couldn't be located.
 
@@ -118,7 +118,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/39-http-4.svg" alt="diagram"></p>
 
 - HTTP is the protocol used to request and deliver web content, following a request-response pattern.
 - Requests use methods like GET (retrieve) and POST (submit data); responses include a status code.

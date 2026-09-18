@@ -44,7 +44,7 @@ A **reverse proxy** represents/protects the servers:
 🌐 Internet → 🛡️ Reverse Proxy → 🖥️ Servers
 ```
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/51-reverse-proxy-1.svg" alt="diagram"></p>
 
 ### 🧠 Exam memory
 
@@ -62,7 +62,7 @@ Suppose you visit:
 
 The request travels in through the reverse proxy, and the response comes back out the same way:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/51-reverse-proxy-2.svg" alt="diagram"></p>
 
 ---
 
@@ -70,7 +70,7 @@ The request travels in through the reverse proxy, and the response comes back ou
 
 There are several functions you should recognize.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/51-reverse-proxy-3.svg" alt="diagram"></p>
 
 ## 1. 🔀 Request Routing
 
@@ -80,7 +80,7 @@ The reverse proxy can decide:
 
 For example:
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/51-reverse-proxy-4.svg" alt="diagram"></p>
 
 ---
 
@@ -88,7 +88,7 @@ For example:
 
 A reverse proxy can **distribute requests across multiple servers**.
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/51-reverse-proxy-5.svg" alt="diagram"></p>
 
 Instead of sending every user to one server:
 
@@ -154,7 +154,7 @@ The Internet **doesn't need direct access** to the backend servers.
 
 Instead:
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/51-reverse-proxy-6.svg" alt="diagram"></p>
 
 This can **reduce direct exposure** of backend infrastructure.
 
@@ -347,7 +347,7 @@ Backend server
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/7.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/51-reverse-proxy-7.svg" alt="diagram"></p>
 
 Remember its major jobs:
 

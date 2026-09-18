@@ -69,7 +69,7 @@ Tunnel endpoint removes outer wrapping
 
 This process is called **encapsulation**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/55-tunneling-1.svg" alt="diagram"></p>
 
 ---
 
@@ -91,7 +91,7 @@ But:
 
 > 🔐 **Encrypted traffic inside another protocol = secure/encrypted tunneling**
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/55-tunneling-2.svg" alt="diagram"></p>
 
 ---
 
@@ -186,7 +186,7 @@ Application
 🌐 Network
 ```
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/55-tunneling-3.svg" alt="diagram"></p>
 
 ---
 
@@ -238,7 +238,7 @@ Think:
 
 > **Tunneling = using the wrapping to carry traffic through somewhere**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/55-tunneling-4.svg" alt="diagram"></p>
 
 ---
 
@@ -298,7 +298,7 @@ Think:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/55-tunneling-5.svg" alt="diagram"></p>
 
 > 🚇 **Tunneling = carrying traffic inside another protocol/network**
 

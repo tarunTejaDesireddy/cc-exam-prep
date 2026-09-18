@@ -21,7 +21,7 @@ If Grog always gets files from America:
 
 Instead, a CDN keeps **cached copies of content in locations around the world**:
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/53-cdn-1.svg" alt="diagram"></p>
 
 Grog can receive content from a **nearby CDN location**.
 
@@ -171,7 +171,7 @@ The CDN gets the content from the origin.
 
 The CDN may then **cache it for future users**.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/53-cdn-2.svg" alt="diagram"></p>
 
 ---
 
@@ -213,7 +213,7 @@ Main job:
 
 > **Deliver cached content from locations closer to users.**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/53-cdn-3.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -255,7 +255,7 @@ Some CDN providers offer a **Web Application Firewall**.
 
 CDNs can often **terminate HTTPS/TLS connections at the edge**.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/53-cdn-4.svg" alt="diagram"></p>
 
 ---
 
@@ -370,7 +370,7 @@ So think:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/53-cdn-5.svg" alt="diagram"></p>
 
 > 🌍 **CDN = Content Delivery Network**
 

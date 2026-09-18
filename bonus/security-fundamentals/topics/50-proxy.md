@@ -32,7 +32,7 @@ Suppose Grog wants:
 
 The process can look like:
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/50-proxy-1.svg" alt="diagram"></p>
 
 The client communicates **with the proxy**, and the proxy communicates **with the destination**.
 
@@ -84,7 +84,7 @@ Imagine a company says:
 
 The proxy can **inspect requests and enforce a policy**:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/50-proxy-2.svg" alt="diagram"></p>
 
 It can also log:
 
@@ -123,7 +123,7 @@ This is **very important** for exams.
 | Main direction | Internal → Internet | Internet → Internal servers |
 | Example | Company web proxy | Web application front end |
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/50-proxy-3.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -157,7 +157,7 @@ It can **reject unwanted requests**.
 
 It can **distribute requests among multiple backend servers**.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/50-proxy-4.svg" alt="diagram"></p>
 
 ### 📦 Caching
 
@@ -221,7 +221,7 @@ A proxy can have security functions, but:
 
 > **Proxy ≠ firewall**
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/50-proxy-5.svg" alt="diagram"></p>
 
 ---
 
@@ -313,7 +313,7 @@ The proxy may **inspect, filter, cache, or log** web requests depending on how i
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/50-proxy-6.svg" alt="diagram"></p>
 
 > 🛡️ **Proxy = middleman**
 

@@ -35,7 +35,7 @@ With VPN:
 
 The Internet sees **encrypted VPN traffic**, rather than the protected traffic inside the tunnel.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/54-vpn-1.svg" alt="diagram"></p>
 
 ---
 
@@ -95,7 +95,7 @@ The VPN can **authenticate the user/device and/or VPN endpoints**, depending on 
 
 > 🪪 "Prove who/what is allowed to establish this connection."
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/54-vpn-2.svg" alt="diagram"></p>
 
 ---
 
@@ -151,7 +151,7 @@ This is called:
 
 > **Site-to-site VPN**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/54-vpn-3.svg" alt="diagram"></p>
 
 ---
 
@@ -184,7 +184,7 @@ Think:
 
 Conceptually:
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/54-vpn-4.svg" alt="diagram"></p>
 
 ---
 
@@ -244,7 +244,7 @@ Computer
    └── Internal applications
 ```
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/54-vpn-5.svg" alt="diagram"></p>
 
 ### Memory:
 
@@ -298,7 +298,7 @@ So:
 
 > ❌ **VPN ≠ magical anonymity**
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/54-vpn-6.svg" alt="diagram"></p>
 
 ---
 
@@ -372,7 +372,7 @@ So:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/7.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/54-vpn-7.svg" alt="diagram"></p>
 
 > 🔐 **VPN = Virtual Private Network**
 

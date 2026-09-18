@@ -28,7 +28,7 @@ CIDR was introduced to allow far more flexible, precisely-sized network division
 
 The number after the slash in CIDR notation refers to how many of the 32 total bits in an IPv4 address are fixed as the network portion. The remaining bits are available for individual devices (hosts).
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/22-cidr-1.svg" alt="diagram"></p>
 
 Since each IPv4 octet is 8 bits, and there are 4 octets (32 bits total):
 
@@ -41,7 +41,7 @@ Since each IPv4 octet is 8 bits, and there are 4 octets (32 bits total):
 
 A larger number after the slash means more bits are used for the network, leaving fewer bits (and therefore fewer possible addresses) for hosts — meaning a *smaller* network. A smaller number after the slash means a *larger* network, with more room for individual devices.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/22-cidr-2.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -64,7 +64,7 @@ A small office needs a network for about 50 computers. Instead of being forced i
 
 A `/26` provides 64 total addresses (62 usable for devices, after accounting for two reserved addresses covered in later topics) — a much closer fit for 50 computers than the 254 addresses a `/24` would provide, or the far larger blocks that old class-based addressing would have required.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/22-cidr-3.svg" alt="diagram"></p>
 
 ## 🔍 How It Looks in Real Life
 
@@ -117,7 +117,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/22-cidr-4.svg" alt="diagram"></p>
 
 - CIDR is a shorthand way to write an IP address together with its network size, like `192.168.1.10/24`.
 - The number after the slash shows how many bits form the network portion.

@@ -40,7 +40,7 @@ So think:
 
 > **Layer 7 = Network services used by applications**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/78-layer-7-1.svg" alt="diagram"></p>
 
 ---
 
@@ -101,7 +101,7 @@ Layer 7 is concerned with the **application-level communication**.
 1️⃣ Bits/signals
 ```
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/78-layer-7-2.svg" alt="diagram"></p>
 
 ---
 
@@ -188,7 +188,7 @@ Think:
 
 > 🕸️ **WAF:** "What is this web request trying to do?"
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/78-layer-7-3.svg" alt="diagram"></p>
 
 ---
 
@@ -274,7 +274,7 @@ Instead:
 
 For example, your browser's graphical interface isn't itself "Layer 7." **HTTP/HTTPS communication used by the browser** is associated with Layer 7.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/78-layer-7-4.svg" alt="diagram"></p>
 
 ---
 
@@ -333,7 +333,7 @@ SSH        → Secure remote access
 
 And the exam shortcut:
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/78-layer-7-5.svg" alt="diagram"></p>
 
 > **L2 = MAC** → 🔗 local<br>
 > **L3 = IP** → 🌐 routing<br>

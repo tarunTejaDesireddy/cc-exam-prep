@@ -22,7 +22,7 @@ Routing exists to solve this. It allows data to travel across multiple, indirect
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/27-routing-1.svg" alt="diagram"></p>
 
 Step by step:
 
@@ -36,7 +36,7 @@ Each router only needs to know the best *next step*, not the entire end-to-end p
 
 What happens if a router along the path fails or a specific path becomes unavailable:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/27-routing-2.svg" alt="diagram"></p>
 
 Well-designed networks often have multiple possible paths between two points, so if one route becomes unavailable, routers can adapt and use an alternate path instead — a concept explored further in the Static vs Dynamic Routing topic.
 
@@ -59,7 +59,7 @@ Imagine sending data from a home computer to a website hosted on a server in ano
 4. Eventually, the data reaches a router close to the destination website's server.
 5. That final router delivers the data directly to the server.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/27-routing-3.svg" alt="diagram"></p>
 
 The home computer doesn't need to know this entire chain of routers in advance — it only needs to know its own default gateway. Each router along the way handles its own small part of the journey.
 
@@ -118,7 +118,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/27-routing-4.svg" alt="diagram"></p>
 
 - Routing moves data across multiple networks, hop by hop, toward its destination.
 - Each router only decides the best next step, not the entire end-to-end path.

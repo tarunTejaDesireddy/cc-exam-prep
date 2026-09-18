@@ -71,7 +71,7 @@ A **botnet** is a **collection of compromised devices controlled by an attacker*
 
 The devices might **belong to ordinary users who don't realize their systems have been compromised**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/98-ddos-1.svg" alt="diagram"></p>
 
 ---
 
@@ -110,7 +110,7 @@ This distinction is **very important**.
 
 > **DDoS = distributed across many sources**
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/98-ddos-2.svg" alt="diagram"></p>
 
 ---
 
@@ -201,7 +201,7 @@ The requests **may look normal**, but there are so many that the application bec
 
 > It can instead **exhaust application resources**.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/98-ddos-3.svg" alt="diagram"></p>
 
 ---
 
@@ -315,7 +315,7 @@ Internet connection
 
 That's why large organizations may use **upstream/cloud-based DDoS mitigation and distributed infrastructure**.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/98-ddos-4.svg" alt="diagram"></p>
 
 ---
 

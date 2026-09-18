@@ -46,7 +46,7 @@ Suppose you type:
 
 into your browser.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/46-dns-resolution-1.svg" alt="diagram"></p>
 
 ## 1️⃣ Browser checks its own cache
 
@@ -169,7 +169,7 @@ HTTPS connection
 
 # 🧠 The Whole Process
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/46-dns-resolution-2.svg" alt="diagram"></p>
 
 ---
 
@@ -213,7 +213,7 @@ That's:
 
 > **1 hour**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/46-dns-resolution-3.svg" alt="diagram"></p>
 
 ### 🧠 Memory
 
@@ -310,7 +310,7 @@ Don't confuse them with DNSSEC:
 
 > **DoH/DoT = encrypt DNS transport**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/46-dns-resolution-4.svg" alt="diagram"></p>
 
 ---
 
@@ -384,7 +384,7 @@ HTTPS:
 Connect to that IP
 ```
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/46-dns-resolution-5.svg" alt="diagram"></p>
 
 ---
 
@@ -416,7 +416,7 @@ Connect to that IP
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/46-dns-resolution-6.svg" alt="diagram"></p>
 
 > 📖 **DNS = Name → Address**
 

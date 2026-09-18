@@ -40,7 +40,7 @@ The attacker may:
 
 The exact capabilities **depend on the attack and the security controls in place**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/97-man-in-the-middle-attack-1.svg" alt="diagram"></p>
 
 ---
 
@@ -116,7 +116,7 @@ bank.example
 
 If an attacker attempts to **impersonate a secure website**, **proper certificate validation should detect the mismatch**.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/97-man-in-the-middle-attack-2.svg" alt="diagram"></p>
 
 ---
 
@@ -152,7 +152,7 @@ The attacker **may be able to read or modify** the traffic.
 
 The attacker can potentially **capture** the encrypted traffic, but **cannot simply read or successfully modify** the protected application data without defeating the cryptographic protections.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/97-man-in-the-middle-attack-3.svg" alt="diagram"></p>
 
 ---
 
@@ -236,7 +236,7 @@ Examples:
 
 **Spoofing techniques can therefore be used to enable MITM.**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/97-man-in-the-middle-attack-4.svg" alt="diagram"></p>
 
 ---
 

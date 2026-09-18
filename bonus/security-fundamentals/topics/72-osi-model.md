@@ -39,7 +39,7 @@ The exam usually tests:
 | 2 | **Data Link** | 🔗 Move frames on local network | Ethernet, MAC, switches |
 | 1 | **Physical** | ⚡ Send raw bits | Cables, radio, signals |
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/72-osi-model-1.svg" alt="diagram"></p>
 
 ---
 
@@ -160,7 +160,7 @@ Think:
 
 > 📦 "Just throw the package quickly; don't wait for confirmation."
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/72-osi-model-2.svg" alt="diagram"></p>
 
 ### Exam clue:
 
@@ -286,7 +286,7 @@ Suppose Grog visits:
 
 Data travels **down** the OSI layers on Grog's computer, crosses the network, and travels back **up** on the receiving computer:
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/72-osi-model-3.svg" alt="diagram"></p>
 
 ---
 
@@ -306,7 +306,7 @@ The exam may test **what the data is called at different layers**.
 
 > **Segment → Packet → Frame → Bits**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/72-osi-model-4.svg" alt="diagram"></p>
 
 ---
 
@@ -380,7 +380,7 @@ The rough mapping:
 | Data Link | Network Access |
 | Physical | Network Access |
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/72-osi-model-5.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 

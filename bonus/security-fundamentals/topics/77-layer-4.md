@@ -112,7 +112,7 @@ TCP provides mechanisms for things such as:
 
 TCP uses a **three-way handshake** to establish a connection:
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/77-layer-4-1.svg" alt="diagram"></p>
 
 ### 🧠 Exam clue:
 
@@ -157,7 +157,7 @@ Common uses include situations where **low overhead or timely delivery matters**
 | Overhead | Higher | Lower |
 | Speed/latency | Generally more overhead | Generally lower overhead |
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/77-layer-4-2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -271,7 +271,7 @@ So:
 
 > 🔢 **Layer 4 finds the room.**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/77-layer-4-3.svg" alt="diagram"></p>
 
 ---
 
@@ -333,7 +333,7 @@ Provides communication **between application endpoints on hosts**.
 
 This is worth memorizing **as one picture**:
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/77-layer-4-4.svg" alt="diagram"></p>
 
 ---
 

@@ -40,7 +40,7 @@ Not 70%. Three reasons, and all three are real:
 
 ### The four miss types
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/scoring-guide-1.svg" alt="diagram"></p>
 
 **Each type needs a completely different fix**, which is why the count alone is almost useless:
 
@@ -93,7 +93,7 @@ the raw count — 6 misses out of 24 in Domain 1 is better than 6 out of 17 in D
 
 ## 📈 Tracking across the three papers
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/scoring-guide-2.svg" alt="diagram"></p>
 
 Keep a simple record:
 
@@ -116,7 +116,7 @@ Keep a simple record:
 
 ## 🚦 The go / no-go decision
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/scoring-guide-3.svg" alt="diagram"></p>
 
 > [!IMPORTANT]
 > **If you are going to reschedule, decide by the end of week 6.** Pearson VUE reschedules are

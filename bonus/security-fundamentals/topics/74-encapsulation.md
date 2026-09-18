@@ -51,7 +51,7 @@ Imagine putting a letter into **several envelopes**:
 
 Each layer **adds information needed for its job**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/74-encapsulation-1.svg" alt="diagram"></p>
 
 ---
 
@@ -220,7 +220,7 @@ So:
 
 > 📤 **Decapsulation = remove information**
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/74-encapsulation-2.svg" alt="diagram"></p>
 
 ---
 
@@ -320,7 +320,7 @@ So each layer **adds its own information**.
 
 It's like **wrapping a package multiple times**.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/74-encapsulation-3.svg" alt="diagram"></p>
 
 ---
 

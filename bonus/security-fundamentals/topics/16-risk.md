@@ -28,11 +28,11 @@ Risk exists as a concept to help make that decision rationally. Instead of treat
 
 ## ⚙️ How Does It Work?
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/16-risk-1.svg" alt="diagram"></p>
 
 Risk is often visualized using a simple grid, comparing likelihood against impact:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/16-risk-2.svg" alt="diagram"></p>
 
 Once a risk is identified and measured, organizations generally choose one of a few standard responses:
 
@@ -41,7 +41,7 @@ Once a risk is identified and measured, organizations generally choose one of a 
 3. **Transfer** the risk — shift the burden elsewhere, such as buying cyber insurance.
 4. **Accept** the risk — knowingly decide the risk is low enough, or the cost of addressing it high enough, that no action is taken.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/16-risk-3.svg" alt="diagram"></p>
 
 ## 🧩 Important Parts
 
@@ -59,7 +59,7 @@ Consider a small company evaluating two different issues:
 - **Issue A**: An old, rarely-used internal tool has a known vulnerability, but it is only accessible from inside the office network, and contains no sensitive data. Likelihood of exploitation: low. Impact if exploited: low. **Risk: Low.**
 - **Issue B**: The company's customer database, containing credit card numbers, is missing a critical security patch and is reachable from the internet. Likelihood of exploitation: high. Impact if exploited: very high (financial loss, legal consequences, reputational damage). **Risk: High.**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/16-risk-4.svg" alt="diagram"></p>
 
 Even though both issues are technically vulnerabilities, the risk they represent is very different. A security team with limited time should fix Issue B first, because its risk is far higher.
 
@@ -116,7 +116,7 @@ What this means:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/16-risk-5.svg" alt="diagram"></p>
 
 - Risk combines likelihood (how probable) and impact (how bad) into one measure.
 - Risk helps prioritize limited security resources toward the most serious problems first.

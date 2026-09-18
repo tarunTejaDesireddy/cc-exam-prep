@@ -44,7 +44,7 @@ The key words to remember are:
 
 A simplified attack:
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/69-ransomware-1.svg" alt="diagram"></p>
 
 For example:
 
@@ -158,7 +158,7 @@ The same malware campaign can potentially have multiple characteristics, but the
 
 A **worm can even be used to spread ransomware** across a network.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/69-ransomware-2.svg" alt="diagram"></p>
 
 ---
 
@@ -183,7 +183,7 @@ Think:
 
 > 📢 **"And I'll publish your stolen data."**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/69-ransomware-3.svg" alt="diagram"></p>
 
 ---
 
@@ -195,7 +195,7 @@ The **most important control** to remember is:
 
 If your organization has **reliable, protected backups**:
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/69-ransomware-4.svg" alt="diagram"></p>
 
 Other defenses include:
 
@@ -308,7 +308,7 @@ Compare:
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/69-ransomware-5.svg" alt="diagram"></p>
 
 > 🔒 **Ransomware = locks + demands**
 

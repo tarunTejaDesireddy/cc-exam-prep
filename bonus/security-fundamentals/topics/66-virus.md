@@ -42,7 +42,7 @@ This is the word to remember:
 
 A simplified sequence:
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/66-virus-1.svg" alt="diagram"></p>
 
 Depending on the virus, it might:
 
@@ -91,7 +91,7 @@ Can:
 💻 D
 ```
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/66-virus-2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -123,7 +123,7 @@ Example:
 
 The defining characteristic of a Trojan is **deception, not self-replication**.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/66-virus-3.svg" alt="diagram"></p>
 
 ---
 
@@ -180,7 +180,7 @@ Think of it like this:
 
 # 🧠 5-Second Exam Trick
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/66-virus-4.svg" alt="diagram"></p>
 
 When you see **"Attaches to a file"** → 🦠 **VIRUS**
 
@@ -218,7 +218,7 @@ When you see **"Pretends to be legitimate"** → 🐴 **TROJAN**
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/66-virus-5.svg" alt="diagram"></p>
 
 > 🦠 **Virus = attaches to a host file/program**
 

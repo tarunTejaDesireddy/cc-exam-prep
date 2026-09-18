@@ -40,7 +40,7 @@ The word to remember is:
 
 A typical scenario:
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/68-trojan-1.svg" alt="diagram"></p>
 
 The important trick is **social engineering/deception**.
 
@@ -128,7 +128,7 @@ versus:
 💻 Computer C
 ```
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/68-trojan-2.svg" alt="diagram"></p>
 
 ### 🧠 Memory:
 
@@ -150,7 +150,7 @@ So you can have:
 
 > 🐴 **Trojan that delivers ransomware**
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/68-trojan-3.svg" alt="diagram"></p>
 
 This is an **important exam concept**: malware categories can describe **different characteristics of the same attack**.
 
@@ -186,7 +186,7 @@ The important thing for the exam is still:
 
 > **Trojan = disguised/pretends to be legitimate.**
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/68-trojan-4.svg" alt="diagram"></p>
 
 ---
 
@@ -235,7 +235,7 @@ A Trojan **doesn't have to automatically replicate**.
 
 # 🧠 5-Second Exam Trick
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/68-trojan-5.svg" alt="diagram"></p>
 
 If the question says **"Pretends to be legitimate"** → 🐴 **TROJAN**
 
@@ -275,7 +275,7 @@ If it says **"Encrypts files and demands payment"** → 🔒 **RANSOMWARE**
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/68-trojan-6.svg" alt="diagram"></p>
 
 > 🐴 **Trojan = disguise / tricks the user**
 

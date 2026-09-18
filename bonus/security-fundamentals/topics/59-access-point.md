@@ -28,7 +28,7 @@ Remember:
 
 It takes wireless Wi-Fi traffic and **connects it to the wired LAN**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/59-access-point-1.svg" alt="diagram"></p>
 
 ---
 
@@ -102,7 +102,7 @@ Common Wi-Fi security technologies include:
 
 The exact authentication architecture depends on the deployment.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/59-access-point-2.svg" alt="diagram"></p>
 
 ---
 
@@ -110,7 +110,7 @@ The exact authentication architecture depends on the deployment.
 
 In a company, **APs are often centrally managed**.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/59-access-point-3.svg" alt="diagram"></p>
 
 This makes it **easier to manage many APs**.
 
@@ -154,7 +154,7 @@ A home device often **combines both**.
 
 When you buy a home Wi-Fi router, it may actually contain **several functions**:
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/59-access-point-4.svg" alt="diagram"></p>
 
 It may also provide:
 
@@ -249,7 +249,7 @@ Common in enterprise environments for network access authentication.
 
 For example:
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/59-access-point-5.svg" alt="diagram"></p>
 
 That's **network segmentation**.
 
@@ -341,7 +341,7 @@ rather than getting stuck on radio details.
 
 ## 🧠 Remember This
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/59-access-point-6.svg" alt="diagram"></p>
 
 > 📡 **AP = wireless doorway into the LAN**
 

@@ -32,7 +32,7 @@ Think of two caves.
 
 > 🌐 **IP addresses**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/76-layer-2-vs-layer-3-1.svg" alt="diagram"></p>
 
 ---
 
@@ -165,7 +165,7 @@ That's a **different network**.
 
 **Layer 3 is needed** to route the packet toward the destination network.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/76-layer-2-vs-layer-3-2.svg" alt="diagram"></p>
 
 ---
 
@@ -229,7 +229,7 @@ Data is called a:
 
 So a **frame can carry a Layer 3 packet**.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/76-layer-2-vs-layer-3-3.svg" alt="diagram"></p>
 
 ---
 
@@ -283,7 +283,7 @@ But Ethernet needs a **MAC address** for local delivery.
 
 Then Grog can create the Layer 2 frame.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/76-layer-2-vs-layer-3-4.svg" alt="diagram"></p>
 
 ### 🧠 Remember:
 
@@ -327,7 +327,7 @@ while:
 
 This distinction is **extremely important**.
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram"></p>
+<p align="center"><img src="diagrams/76-layer-2-vs-layer-3-5.svg" alt="diagram"></p>
 
 > 🏷️ **MAC changed** (A → Router, then Router → B) · 🌐 **IP stayed** A → B the whole way.
 
