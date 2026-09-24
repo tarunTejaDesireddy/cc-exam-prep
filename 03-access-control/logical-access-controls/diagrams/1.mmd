@@ -1,0 +1,10 @@
+flowchart TD
+    A["Access control"] --> P["PHYSICAL<br/>keeps BODIES out of PLACES<br/>locks, guards, badges,<br/>fences, cameras"]
+    A --> L["LOGICAL / TECHNICAL<br/>keeps IDENTITIES out of<br/>SYSTEMS and DATA<br/>passwords, permissions,<br/>encryption, logs"]
+    P --> T["Test: could you<br/>TOUCH it?"]
+    L --> T
+
+    style A fill:#0f3038,stroke:#12B5A5,color:#fff
+    style P fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style L fill:#12243f,stroke:#5C7CFA,color:#fff
+    style T fill:#3a2c12,stroke:#F08C00,color:#fff

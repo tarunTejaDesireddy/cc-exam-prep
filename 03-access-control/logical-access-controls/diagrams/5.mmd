@@ -1,0 +1,11 @@
+flowchart LR
+    L["Laptop with<br/>full-disk encryption"] --> OFF["Stolen while<br/>POWERED OFF"]
+    L --> ON["Stolen while<br/>LOGGED IN and awake"]
+    OFF --> OFF2["Key is sealed:<br/>data unreadable"]
+    ON --> ON2["Disk already unlocked:<br/>screen lock and timeout<br/>must cover this gap"]
+
+    style L fill:#0f3038,stroke:#12B5A5,color:#fff
+    style OFF fill:#26292e,stroke:#868E96,color:#fff
+    style ON fill:#26292e,stroke:#868E96,color:#fff
+    style OFF2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style ON2 fill:#3a2c12,stroke:#F08C00,color:#fff

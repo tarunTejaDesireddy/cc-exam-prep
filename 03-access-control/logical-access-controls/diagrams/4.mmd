@@ -1,0 +1,10 @@
+flowchart LR
+    U["Ordinary user"] --> UI["The web page HIDES<br/>the admin button"]
+    U -->|"calls the API<br/>directly"| API["API with NO<br/>permission check"]
+    UI -.-> API
+    API --> X["Admin action<br/>SUCCEEDS: broken"]
+
+    style U fill:#26292e,stroke:#868E96,color:#fff
+    style UI fill:#12243f,stroke:#5C7CFA,color:#fff
+    style API fill:#3a1a20,stroke:#E03131,color:#fff
+    style X fill:#3a1a20,stroke:#E03131,color:#fff

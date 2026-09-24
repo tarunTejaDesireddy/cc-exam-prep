@@ -1,0 +1,13 @@
+flowchart LR
+    A["Attacker"] --> P1["PHYSICAL<br/>building, door,<br/>badge"]
+    P1 --> P2["LOGICAL<br/>password, MFA"]
+    P2 --> P3["LOGICAL<br/>permissions, ACLs"]
+    P3 --> P4["LOGICAL<br/>encryption"]
+    P4 --> D["The data"]
+
+    style A fill:#3a1a20,stroke:#E03131,color:#fff
+    style P1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style P2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P3 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P4 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style D fill:#0f3038,stroke:#12B5A5,color:#fff
