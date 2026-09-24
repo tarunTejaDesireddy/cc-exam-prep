@@ -1,0 +1,11 @@
+flowchart LR
+    ID["IDENTIFICATION<br/>the claim:<br/>'I am jsmith'"] --> AU["AUTHENTICATION<br/>the proof:<br/>'prove it'"]
+    AU --> K["Something you KNOW<br/>password, PIN,<br/>security question"]
+    AU --> H["Something you HAVE<br/>token, smart card,<br/>phone, OTP app"]
+    AU --> R["Something you ARE<br/>fingerprint, iris,<br/>face, voice"]
+
+    style ID fill:#26292e,stroke:#868E96,color:#fff
+    style AU fill:#0f3038,stroke:#12B5A5,color:#fff
+    style K fill:#12243f,stroke:#5C7CFA,color:#fff
+    style H fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style R fill:#3a2c12,stroke:#F08C00,color:#fff

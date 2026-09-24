@@ -1,0 +1,9 @@
+flowchart TD
+    S["Write K, H or A<br/>next to each credential"] --> Q{"Two or more<br/>DIFFERENT letters?"}
+    Q -->|"yes: K + H,<br/>H + A, K + A"| Y["Multi-factor"]
+    Q -->|"no: K + K,<br/>H + H, A + A"| N["Single-factor,<br/>however many<br/>credentials"]
+
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
+    style Y fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style N fill:#3a1a20,stroke:#E03131,color:#fff
