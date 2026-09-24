@@ -1,0 +1,13 @@
+flowchart LR
+    U1["User A<br/>password: summer"] --> S1["add salt A1b2"] --> H1["hash: 4f7a..."]
+    U2["User B<br/>password: summer"] --> S2["add salt X9y8"] --> H2["hash: c02e..."]
+    H1 --> R["Same password,<br/>DIFFERENT hashes:<br/>rainbow tables useless"]
+    H2 --> R
+
+    style U1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style U2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S1 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style S2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style H1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style H2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff

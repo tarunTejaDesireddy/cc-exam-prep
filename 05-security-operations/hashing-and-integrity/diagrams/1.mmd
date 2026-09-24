@@ -1,0 +1,8 @@
+flowchart LR
+    I["ANY input<br/>one word, or a whole film"] --> H["HASH FUNCTION"]
+    H --> O["Fixed-length digest<br/>e.g. 256 bits"]
+    O -.->|"NO WAY BACK"| I
+
+    style I fill:#12243f,stroke:#5C7CFA,color:#fff
+    style H fill:#3a2c12,stroke:#F08C00,color:#fff
+    style O fill:#0f3038,stroke:#12B5A5,color:#fff

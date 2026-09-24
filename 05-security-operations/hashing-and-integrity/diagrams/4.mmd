@@ -1,0 +1,11 @@
+flowchart TD
+    M["The message"] --> H["Hash it"]
+    H --> E["Encrypt that hash with<br/>YOUR PRIVATE key<br/>= the signature"]
+    E --> V["Recipient decrypts it with<br/>your PUBLIC key, then<br/>re-hashes to compare"]
+    V --> R["Unchanged AND from you<br/>= NON-REPUDIATION<br/>(but still readable)"]
+
+    style M fill:#12243f,stroke:#5C7CFA,color:#fff
+    style H fill:#0f3038,stroke:#12B5A5,color:#fff
+    style E fill:#3a2c12,stroke:#F08C00,color:#fff
+    style V fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff

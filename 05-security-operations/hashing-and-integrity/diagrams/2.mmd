@@ -1,0 +1,15 @@
+flowchart TD
+    A["The file, before"] --> H1["Hash it, save the digest"]
+    H1 --> T["Time passes: storage, transfer"]
+    T --> H2["Hash it again"]
+    H2 --> C(["Same digest?"])
+    C -->|"yes"| Y["Unchanged"]
+    C -->|"no"| N["ALTERED"]
+
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style H1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style T fill:#26292e,stroke:#868E96,color:#fff
+    style H2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C fill:#3a2c12,stroke:#F08C00,color:#fff
+    style Y fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style N fill:#3a1a20,stroke:#E03131,color:#fff
