@@ -1,0 +1,18 @@
+flowchart TD
+    subgraph BC["BUSINESS CONTINUITY: everything"]
+        P1["People and<br/>succession"] ~~~ P3["Premises and<br/>alternate sites"]
+        P2["Processes and<br/>manual workarounds"] ~~~ P4["Suppliers and<br/>communications"]
+        P1 ~~~ P2
+        subgraph DR["DISASTER RECOVERY: a subset"]
+            IT["IT systems and data"]
+        end
+        P2 ~~~ DR
+    end
+
+    style BC fill:#161b22,stroke:#F08C00,color:#fff
+    style DR fill:#161b22,stroke:#5C7CFA,color:#fff
+    style P1 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P4 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style IT fill:#12243f,stroke:#5C7CFA,color:#fff

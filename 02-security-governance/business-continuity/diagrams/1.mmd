@@ -1,0 +1,11 @@
+flowchart LR
+    N1["Normal"] --> D["DISRUPTION<br/>card machine dies"]
+    D --> C["BUSINESS CONTINUITY<br/>DURING: keep serving,<br/>take cash, write IOUs"]
+    C --> R["DISASTER RECOVERY<br/>AFTER: repair or replace<br/>the card machine"]
+    R --> N2["Normal again"]
+
+    style N1 fill:#26292e,stroke:#868E96,color:#fff
+    style D fill:#3a1a20,stroke:#E03131,color:#fff
+    style C fill:#3a2c12,stroke:#F08C00,color:#fff
+    style R fill:#12243f,stroke:#5C7CFA,color:#fff
+    style N2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
