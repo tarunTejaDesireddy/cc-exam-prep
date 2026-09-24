@@ -1,0 +1,30 @@
+flowchart LR
+    subgraph ON["ON-PREMISES"]
+        direction TB
+        OY["YOU<br/>everything, from<br/>the building<br/>to the data"]
+    end
+    subgraph IA["IaaS"]
+        direction TB
+        IY["YOU<br/>data, access<br/>apps, runtime, OS"] ~~~ IT["PROVIDER<br/>virtualisation<br/>hardware, building"]
+    end
+    subgraph PA["PaaS"]
+        direction TB
+        PY["YOU<br/>data, access<br/>apps"] ~~~ PT["PROVIDER<br/>runtime, OS<br/>virtualisation<br/>hardware, building"]
+    end
+    subgraph SA["SaaS"]
+        direction TB
+        SY["YOU<br/>data, access"] ~~~ ST["PROVIDER<br/>everything else"]
+    end
+    ON ~~~ IA ~~~ PA ~~~ SA
+
+    style OY fill:#0f3038,stroke:#12B5A5,color:#fff
+    style IY fill:#0f3038,stroke:#12B5A5,color:#fff
+    style IT fill:#26292e,stroke:#868E96,color:#fff
+    style PY fill:#0f3038,stroke:#12B5A5,color:#fff
+    style PT fill:#26292e,stroke:#868E96,color:#fff
+    style SY fill:#0f3038,stroke:#12B5A5,color:#fff
+    style ST fill:#26292e,stroke:#868E96,color:#fff
+    style ON fill:#161b22,stroke:#30363d,color:#e6edf3
+    style IA fill:#161b22,stroke:#30363d,color:#e6edf3
+    style PA fill:#161b22,stroke:#30363d,color:#e6edf3
+    style SA fill:#161b22,stroke:#30363d,color:#e6edf3

@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="../assets/module-04-banner.svg" alt="04 · Network Security" width="100%">
+<img src="../assets/module-04-banner.svg" alt="04 · Networking and Cloud Security Concepts" width="100%">
 
-# ☁️ Cloud and virtualisation
+# ☁️ Cloud and Virtualisation
 
-### *Three service models, four deployment models, and who is responsible for what*
+### *What makes something "cloud", who is responsible for what, and how virtual machines share a box*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
 
-📌 *The shared responsibility model is the most examined idea here. The rule that resolves it: the more the provider manages, the less you do — but the data is always yours.*
+📌 *Know the five cloud characteristics, the three service models and four deployment models. Master shared responsibility: the provider takes over more as you go IaaS → PaaS → SaaS, but your data and access are always yours.*
 
 </div>
 
@@ -18,40 +18,21 @@
 
 ## 🧸 The big idea
 
-Instead of carving your own cave out of the mountainside, your tribe rents space inside a
-neighbouring tribe's enormous shared mountain-warehouse. How much work you still do depends
-entirely on what kind of deal you struck.
+Think about where you live:
 
-Rent a bare, empty chamber and you still bring your own shelves, organise your own storage, and
-guard your own grain yourself — the mountain-owner just dug the room and keeps the roof from
-caving in. Rent a chamber that already comes fitted with shelves and you only need to bring the
-grain. Or pay for a fully-run pantry service, where the mountain-owner does everything —
-building, shelving, even stocking — and all you decide is who's allowed to take grain out and how
-much.
+- **Own a house**, and you fix everything, from the roof to the locks.
+- **Rent an empty flat**, and the landlord keeps the building standing, but you bring the
+  furniture and maintain it.
+- **Rent a furnished flat**, and the furniture comes with it. You just bring your belongings.
+- **Stay in a hotel**, and everything is done for you.
 
-**One thing never changes across any of those three deals: it is still your grain, and only you
-decide who eats it.** The mountain-owner never becomes responsible for that, no matter how much
-of the building work they take on.
+Cloud computing works the same way: you rent someone else's computers instead of owning them. The
+more you rent, the more the provider looks after. That's the **shared responsibility model**.
 
-That's the whole idea. Cloud computing is renting someone else's computing instead of owning it.
-What changes for security is **who is responsible for which layer**, and that depends entirely
-on how much you rent.
-
-Three service models, in order of how much the provider takes on:
-
-| | You get | You still manage |
-|---|---|---|
-| **IaaS** | Infrastructure — virtual machines, storage, networking | The OS, patching, applications, **data** |
-| **PaaS** | A platform — a runtime to deploy code onto | Your applications and **data** |
-| **SaaS** | Finished software | Your **data**, your users, your access settings |
-
-The pattern is a sliding scale. **Move from IaaS to SaaS and the provider takes over more, layer
-by layer.**
-
-> [!IMPORTANT]
-> **It is still your grain.** In every model, you remain responsible for your data, your users,
-> and who has access. The provider never becomes responsible for those. This is the single most
-> reliable answer in the whole topic.
+But notice what never changes. **Your belongings, and who you give a key to, are always your
+problem.** Even in a hotel, if you leave the door open or hand your key card to a stranger, the
+hotel isn't to blame. In the cloud, **your data and who can access it are always yours**, whatever
+you rent.
 
 ---
 
@@ -59,171 +40,137 @@ by layer.**
 
 | Word | What it means on this exam |
 |---|---|
-| **Cloud computing** | On-demand access to shared, configurable computing resources over a network. |
-| **IaaS** — Infrastructure as a Service | Virtualised infrastructure: compute, storage, networking. |
-| **PaaS** — Platform as a Service | A managed platform for deploying applications. |
-| **SaaS** — Software as a Service | Complete applications delivered over the internet. |
-| **Shared responsibility model** | The division of security duties between provider and customer. |
-| **Public cloud** | Shared infrastructure, available to anyone. |
+| **Cloud computing** | Renting shared computing resources on demand, over a network. |
+| **IaaS** (Infrastructure as a Service) | Renting raw infrastructure: virtual machines, storage, networking. |
+| **PaaS** (Platform as a Service) | Renting a ready-made platform to run your own code on. |
+| **SaaS** (Software as a Service) | Renting finished software that you use over the internet. |
+| **Shared responsibility model** | How security duties are split between the provider and the customer. |
+| **Public cloud** | Shared infrastructure, open to any customer. |
 | **Private cloud** | Infrastructure dedicated to one organisation. |
-| **Hybrid cloud** | A combination of public and private, with some integration. |
-| **Community cloud** | Shared by organisations with common requirements. |
-| **Multi-tenancy** | Multiple customers sharing the same physical infrastructure, logically separated. |
-| **Virtualisation** | Running multiple virtual machines on one physical host. |
-| **Hypervisor** | The software creating and managing virtual machines. |
-| **VM escape** | An attack breaking out of a virtual machine to reach the host or other VMs. |
-| **Vendor lock-in** | Difficulty moving away from a provider once committed. |
-| **CASB** — Cloud Access Security Broker | A control point enforcing policy between users and cloud services. |
+| **Hybrid cloud** | Public and private combined, and connected. |
+| **Community cloud** | Shared by several organisations with the same requirements. |
+| **Multi-tenancy** | Many customers sharing the same hardware, kept apart by software. |
+| **Virtualisation** | Running several virtual machines on one physical computer. |
+| **Hypervisor** | The software that creates and runs virtual machines. |
+| **VM escape** | Breaking out of a virtual machine to reach the hypervisor or other VMs. |
+| **Container** | A lightweight package for an app that shares the host's operating system kernel. |
+| **Vendor lock-in** | When moving away from a provider becomes hard and expensive. |
+| **CASB** (Cloud Access Security Broker) | A checkpoint between users and cloud services that enforces policy. |
 
 ---
 
-## 🔍 The shared responsibility model
+## 🔍 The explanation
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+### What makes something "cloud"
 
-| Layer | On-prem | IaaS | PaaS | SaaS |
-|---|:--:|:--:|:--:|:--:|
-| **Data and access** | You | **You** | **You** | **You** |
-| Applications | You | You | You | Provider |
-| Runtime / middleware | You | You | Provider | Provider |
-| Operating system | You | **You** | Provider | Provider |
-| Virtualisation | You | Provider | Provider | Provider |
-| Physical hardware | You | Provider | Provider | Provider |
-| Physical facility | You | Provider | Provider | Provider |
-
-> 🎯 **Read down the "data and access" row.** It says *You* four times. That is the examined point.
-
-### Where the responsibility line sits
-
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
-
-The teal box shrinks as you move down — but **it never empties.** Data and access stay yours.
-
-**The IaaS trap:** with IaaS you rent a virtual machine, and **patching its operating system is
-yours**. Candidates assume the provider patches because the provider owns the hardware. They do
-not.
-
-> ⚠️ **Accountability never transfers.** Even in SaaS, where the provider runs everything, the
-> organisation remains accountable to its regulators and customers for the data. Outsourcing the
-> processing does not outsource the responsibility.
-
----
-
-## 🧬 The five characteristics of cloud computing
-
-Before service and deployment models, the exam expects you to recognise **what makes something
-"cloud" at all** — a fixed list of five characteristics, commonly traced to NIST's definition of
-cloud computing.
+<p align="center"><img src="diagrams/1.svg" alt="Five characteristics make something cloud: on-demand self-service, where you set it up yourself with no human at the provider; broad network access from any device anywhere; resource pooling, where one provider's equipment is shared by many customers; rapid elasticity, growing and shrinking fast with demand; and measured service, where usage is metered and you pay for what you use" width="480"></p>
 
 | Characteristic | Means |
 |---|---|
-| **On-demand self-service** | A customer provisions resources (a VM, storage) without needing a human at the provider to act on the request. |
-| **Broad network access** | Resources are reachable over standard networks from varied devices — laptop, phone, anywhere. |
-| **Resource pooling** | The provider's physical resources serve multiple customers (multi-tenancy), dynamically assigned by demand. |
-| **Rapid elasticity** | Capacity can scale up or down quickly, often automatically, to match demand. |
-| **Measured service** | Usage is metered, monitored, and reported — the basis for pay-as-you-go billing. |
+| **On-demand self-service** | You create resources (a server, some storage) yourself. Nobody at the provider has to act on your request. |
+| **Broad network access** | You can reach it over ordinary networks, from a laptop, a phone, anywhere. |
+| **Resource pooling** | The provider's hardware serves many customers at once, handed out as demand changes. |
+| **Rapid elasticity** | Capacity grows or shrinks quickly, often automatically. |
+| **Measured service** | Usage is metered and reported. That's what makes pay-as-you-go billing possible. |
 
-> 🎯 **If a scenario describes automatic scaling with usage-based billing and no human
-> provisioning step, it is describing cloud computing** — even if the question never uses the
-> word "cloud". These five traits are the definition the exam is testing against.
+> 🎯 **A scenario with automatic scaling, usage-based billing and no human setup step is describing
+> cloud computing**, even if the question never says "cloud". These five traits are the definition
+> the exam tests against.
 
----
+### The three service models, and who does what
 
-## 🏗️ Deployment models
+The three models are steps on one scale. **From IaaS to PaaS to SaaS, the provider takes over more,
+layer by layer.**
+
+<p align="center"><img src="diagrams/2.svg" alt="On-premises, you look after everything from the building to the data; with IaaS you look after data, access, apps, runtime and OS while the provider looks after virtualisation, hardware and the building; with PaaS you look after data, access and apps while the provider also takes the runtime and OS; with SaaS you look after only data and access and the provider does everything else" width="780"></p>
+
+The "you" box shrinks from left to right, but **it never empties.** Data and access stay yours.
+
+| Layer | On-premises | IaaS | PaaS | SaaS |
+|---|:--:|:--:|:--:|:--:|
+| **Data and access** | You | **You** | **You** | **You** |
+| Applications | You | You | You | Provider |
+| Runtime and middleware | You | You | Provider | Provider |
+| Operating system | You | **You** | Provider | Provider |
+| Virtualisation | You | Provider | Provider | Provider |
+| Physical hardware | You | Provider | Provider | Provider |
+| The building | You | Provider | Provider | Provider |
+
+> 🎯 **Read along the "data and access" row.** It says *You* in every column. That is the point
+> being examined.
+
+> [!IMPORTANT]
+> **The IaaS trap:** with IaaS you rent a virtual machine, and **patching its operating system is
+> your job**. People assume the provider patches it because the provider owns the hardware. The
+> provider doesn't.
+
+> ⚠️ **Accountability never transfers.** Even in SaaS, where the provider runs everything, your
+> organisation is still answerable to its regulators and customers for the data. You can outsource
+> the work, but not the accountability.
+
+### The four deployment models
 
 | Model | Means | Trade-off |
 |---|---|---|
-| **Public** | Shared infrastructure, open to any customer | Cheapest and most scalable; least control; multi-tenant |
-| **Private** | Dedicated to one organisation, on-premises or hosted | Most control, meets strict regulatory needs; most expensive |
-| **Hybrid** | Public and private combined, with integration between them | Flexible — sensitive data private, burst capacity public; complex to secure |
-| **Community** | Shared by organisations with common requirements — several hospitals, several agencies | Shared cost among parties with aligned needs |
+| **Public** | Shared infrastructure, open to any customer | Cheapest and most scalable; least control |
+| **Private** | Dedicated to one organisation, on its own site or hosted by someone else | Most control, suits strict regulation; most expensive |
+| **Hybrid** | Public and private combined, and connected | Flexible (sensitive data private, extra capacity public), but complex to secure |
+| **Community** | Shared by organisations with the same requirements, such as several hospitals | The cost is shared among organisations with the same needs |
 
-> 🎯 **"Community" is the one people forget.** If a question describes several organisations with
-> the same regulatory requirements sharing an environment, that is community cloud.
+> 🎯 **"Community" is the one people forget.** If several organisations with the same regulatory
+> requirements share an environment, that's a community cloud.
 
----
+### 🖥️ Virtualisation
 
-## 🖥️ Virtualisation
-
-A **hypervisor** runs multiple virtual machines on one physical host, each believing it has its
-own hardware.
+A **hypervisor** runs several virtual machines on one physical computer, and each VM behaves as if
+it had the hardware to itself.
 
 | | Runs on | Also called | Used for |
 |---|---|---|---|
-| **Type 1** | **Bare metal**, directly on hardware | Native | Data centres, production. More efficient and more secure |
-| **Type 2** | On top of a host operating system | Hosted | Desktops, testing, labs |
+| **Type 1** | **Bare metal**, directly on the hardware | Native | Data centres and production. More efficient and more secure |
+| **Type 2** | On top of a normal operating system | Hosted | Desktops, testing, labs |
 
-> 🧠 **Type 1 is closer to the metal** — one fewer layer, smaller attack surface.
+<p align="center"><img src="diagrams/3.svg" alt="A type 1 hypervisor runs virtual machines directly on the hardware; a type 2 hypervisor runs on top of a host operating system, which adds one more layer to attack" width="500"></p>
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+> 🧠 **Type 1 sits on the metal.** One layer fewer means less to attack and less to patch.
 
-The extra amber layer in Type 2 is the host operating system — one more thing to attack, and one
-more thing to patch.
-
-**Virtualisation risks the exam expects:**
+**Virtualisation risks the exam expects you to know:**
 
 | Risk | Means |
 |---|---|
-| **VM escape** | Breaking out of a guest VM to reach the hypervisor or other VMs. The most serious virtualisation threat |
-| **VM sprawl** | Unmanaged virtual machines proliferating, unpatched and unmonitored |
-| **Hypervisor compromise** | Control of the hypervisor means control of **every** VM on it |
-| **Snapshot exposure** | Snapshots contain memory and disk contents, including secrets, and are often poorly protected |
+| **VM escape** | Breaking out of a VM to reach the hypervisor or other VMs. The most serious virtualisation threat |
+| **VM sprawl** | Forgotten virtual machines piling up, unpatched and unwatched |
+| **Hypervisor compromise** | Whoever controls the hypervisor controls **every** VM on it |
+| **Snapshot exposure** | Snapshots hold memory and disk contents, secrets included, and are often poorly protected |
 
-> ⚠️ **The hypervisor is a single point of failure.** Compromising it compromises every guest, which
-> is why its patching and access control matter more than any individual VM's.
+> ⚠️ **The hypervisor is a single point of failure.** Compromise it and every VM on it is
+> compromised. That's why its patching and access control matter more than any single VM's.
 
-**Containers** share the host operating system kernel rather than virtualising hardware, making
-them lighter but providing **weaker isolation** than a virtual machine.
+**Containers** are lighter than VMs because they share the host's operating system kernel instead
+of each getting their own. The price is **weaker isolation**:
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/4.svg" alt="Each virtual machine has its own kernel and sits on a hypervisor, giving stronger isolation; containers all share one kernel, so a single kernel flaw reaches every container, giving weaker isolation" width="740"></p>
 
-Read it as a sentence: **each VM has its own kernel, so escaping means defeating the hypervisor —
-while every container shares one kernel, so a single kernel flaw is reachable from all of them.**
+To escape a VM, an attacker has to beat the hypervisor. Every container shares one kernel, so a
+single flaw in that kernel can be reached from all of them.
 
----
-
-## ☁️ Cloud security concerns
+### ☁️ Cloud security concerns
 
 | Concern | Means |
 |---|---|
-| **Multi-tenancy** | Sharing physical infrastructure with other customers, separated logically |
-| **Data residency** | Which country the data physically sits in — often a legal requirement |
-| **Vendor lock-in** | Difficulty and cost of moving to another provider |
-| **Loss of visibility** | Less insight into the underlying infrastructure than on-premises |
-| **Misconfiguration** | **The leading cause of cloud breaches** — publicly exposed storage, over-permissive access |
-| **Account compromise** | Cloud administrative credentials are extremely high value |
+| **Multi-tenancy** | Sharing hardware with other customers, kept apart only by software |
+| **Data residency** | Which country the data physically sits in. Often a legal requirement |
+| **Vendor lock-in** | How hard and expensive it is to move to another provider |
+| **Loss of visibility** | You see less of the underlying infrastructure than you would on your own site |
+| **Misconfiguration** | **The leading cause of cloud breaches**: storage left public, access set too wide |
+| **Account compromise** | Cloud admin accounts are extremely valuable targets |
 
-> 🎯 **Misconfiguration, not provider failure, is the expected answer to "what causes most cloud
-> breaches".** Publicly readable storage buckets are the canonical example, and they are a customer
-> error, squarely on the customer's side of the responsibility line.
+> 🎯 **Misconfiguration, not provider failure, is the answer to "what causes most cloud
+> breaches".** Storage that anyone on the internet can read is the classic example. It's a customer
+> mistake, squarely on the customer's side of the responsibility line.
 
-**A CASB** sits between users and cloud services to enforce policy — visibility of what is being
-used, data protection, threat detection, compliance.
-
----
-
-## 🔬 A real misconfiguration, and the tool that catches it
-
-**The canonical cloud breach starts with one wrong setting on a storage bucket.**
-
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
-
-A bucket's access-control setting is often a single field — `public-read` instead of `private` —
-and there's no physical barrier stopping it, unlike unplugging a cable on-premises: click the
-wrong option once, and every object in that bucket is instantly reachable by anyone with the
-URL, indexed by search engines within hours. **CSPM (Cloud Security Posture Management)** tools
-exist specifically to catch this: they continuously query the cloud provider's own API asking
-"what's actually configured right now," compare it against a ruleset of known-bad patterns
-(public buckets, overly permissive IAM policies, unencrypted volumes), and either alert a human
-or auto-remediate the setting back to safe — running the exact same kind of check, all day
-every day, that would otherwise depend on someone remembering to look.
-
-**A managed database service is the concrete case of the responsibility line sitting oddly.**
-With Amazon RDS, AWS patches the underlying database engine itself — genuinely a provider
-responsibility most people assume is PaaS-like — while the customer still owns the schema, the
-actual data, and every access permission granted to it. It's neither a clean IaaS row nor a
-clean SaaS row on the table above; real cloud security work means checking the specific
-service's own documentation rather than assuming the generic three-tier model applies exactly.
+A **CASB** sits between users and cloud services to enforce policy. It shows which cloud services
+are in use, protects data, spots threats and supports compliance.
 
 ---
 
@@ -231,50 +178,53 @@ service's own documentation rather than assuming the generic three-tier model ap
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **IaaS** | You manage the **OS**, applications and data. | **PaaS**, where the provider manages the OS and runtime. OS patching is the dividing line. |
-| **PaaS** | You manage applications and data. | **SaaS**, where you manage only data and access. |
-| **SaaS** | You manage **data and access only**. | The idea that you manage nothing. Your data and your users remain yours. |
-| **Public cloud** | Shared, open to anyone. | **Community cloud**, shared among organisations with **common requirements**. |
-| **Private cloud** | Dedicated to one organisation. | **On-premises** — a private cloud may be hosted by a third party. |
-| **Type 1 hypervisor** | Bare metal. More secure. | **Type 2**, running on a host OS. |
-| **VM** | Virtualised **hardware**; each guest has its own OS. | **Container**, which shares the host kernel — lighter, **weaker isolation**. |
-| **Responsibility** | Can shift to the provider by model. | **Accountability**, which never leaves the customer. |
+| **IaaS** | You manage the **OS**, applications and data. | **PaaS** — the provider manages the OS and runtime. OS patching is the dividing line. |
+| **PaaS** | You manage applications and data. | **SaaS** — you manage only data and access. |
+| **SaaS** | You manage **data and access only**. | Managing nothing. Your data and your users are still yours. |
+| **Public cloud** | Shared, open to anyone. | **Community cloud** — shared by organisations with the **same requirements**. |
+| **Private cloud** | Dedicated to one organisation. | **On-premises** — a private cloud can be hosted by someone else. |
+| **Type 1 hypervisor** | Bare metal. More secure. | **Type 2** — runs on a host operating system. |
+| **VM** | Virtual **hardware**; each VM has its own operating system. | **Container** — shares the host kernel. Lighter, **weaker isolation**. |
+| **Responsibility** | Can move to the provider, depending on the model. | **Accountability** — never leaves the customer. |
 
 ---
 
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** "the cloud provider handles the infrastructure" is the working shorthand.
+> **In the job:** "the cloud provider handles the infrastructure" is the everyday shorthand.
 >
-> **On the exam:** in **IaaS the operating system is yours** — patching, hardening, configuration.
-> The provider's responsibility stops at the virtualisation layer.
+> **On the exam:** in **IaaS the operating system is yours**: patching, hardening, configuration.
+> The provider's job stops at the virtualisation layer.
 
 > [!WARNING]
-> **In the job:** using a reputable provider means data protection is largely handled.
+> **In the job:** using a big-name provider feels like data protection is taken care of.
 >
 > **On the exam:** **you are always responsible for your data and access controls**, in every
-> model. And accountability to regulators never transfers, whatever the contract says.
+> model. Accountability to regulators never transfers, whatever the contract says.
 
 > [!WARNING]
-> **In the job:** containers are the default deployment unit and the isolation is good enough.
+> **In the job:** containers are the normal way to deploy, and their isolation feels good enough.
 >
-> **On the exam:** containers share the host kernel and therefore provide **weaker isolation than
-> virtual machines**. If a question asks which provides stronger isolation, it is the VM.
+> **On the exam:** containers share the host kernel, so they give **weaker isolation than virtual
+> machines**. If a question asks which isolates better, it's the VM.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **"I · P · S" — Infrastructure, Platform, Software.** Each step, the provider takes over more.
+**House → empty flat → furnished flat → hotel = on-premises → IaaS → PaaS → SaaS.** Your belongings
+and your keys are yours in all four.
 
-🧠 **You always own the data.** Whatever the model, the data row says *you*.
+**I · P · S: Infrastructure, Platform, Software.** At each step the provider takes over more.
 
-🧠 **IaaS = I patch the OS.** The I does double duty.
+**IaaS = I patch the OS.**
 
-🧠 **Type 1 is on the metal, Type 2 is on an OS.** Lower number, lower layer.
+**The five traits: self-serve, anywhere, shared, stretchy, metered.**
 
-🧠 **Misconfiguration, not the provider.** The leading cause of cloud breaches.
+**Type 1 is on the metal, Type 2 is on an OS.** Lower number, lower layer.
+
+**Misconfiguration, not the provider**, causes most cloud breaches.
 
 ---
 
@@ -293,15 +243,14 @@ responsible for applying operating system security patches?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — the customer organisation.** Under IaaS the provider's responsibility ends at the
-virtualisation layer. Everything from the guest operating system upwards belongs to the customer.
+**B — the customer organisation.** Under IaaS, the provider's job ends at the virtualisation layer.
+Everything from the VM's operating system upwards belongs to the customer.
 
-- **A** is the common misconception this question exists to correct. Owning the hardware does not
-  extend the provider's duties into your virtual machine.
-- **C** invents a split that the shared responsibility model does not describe. The boundary is
-  defined, not shared, at each layer.
-- **D** is not a hypervisor function. Hypervisors allocate resources to guests; they do not manage
-  what runs inside them.
+- **A** is the misconception this question exists to correct. Owning the hardware doesn't stretch
+  the provider's duties into your virtual machine.
+- **C** invents a split the model doesn't have. Each layer has a defined owner; it isn't shared.
+- **D** isn't something a hypervisor does. It hands out resources to VMs; it doesn't manage what
+  runs inside them.
 
 </details>
 
@@ -315,13 +264,12 @@ virtualisation layer. Everything from the guest operating system upwards belongs
 <details>
 <summary><b>Answer</b></summary>
 
-**C — data, user accounts and access permissions.** Even where the provider runs the entire stack,
-the customer decides who has access, what permissions they hold, and what data goes in.
+**C — data, user accounts and access permissions.** Even when the provider runs the whole stack, the
+customer decides who gets access, what they can do, and what data goes in.
 
-- **A** is wrong in every service model, and it is the assumption behind a great many real cloud
-  incidents.
-- **B** is the provider's responsibility under SaaS. Those are customer duties under IaaS.
-- **D** is the provider's responsibility in every cloud model.
+- **A** is wrong in every model, and it's the assumption behind a great many real cloud incidents.
+- **B** belongs to the provider under SaaS. Those are customer jobs under IaaS.
+- **D** belongs to the provider in every cloud model.
 
 </details>
 
@@ -336,15 +284,15 @@ for their sector. Which deployment model is this?
 <details>
 <summary><b>Answer</b></summary>
 
-**C — community cloud.** It is shared between multiple organisations with **common requirements**,
-which is precisely the definition.
+**C — community cloud.** It's shared by several organisations with **the same requirements**, which
+is exactly the definition.
 
-- **A** would be open to any customer, with no shared requirement binding the tenants.
-- **B** would be dedicated to a single organisation. Here several organisations share it.
-- **D** would combine public and private infrastructure with integration between them, which the
-  stem does not describe.
+- **A** would be open to any customer, with no shared requirement tying the users together.
+- **B** would be dedicated to one organisation. Here, several share it.
+- **D** would combine public and private infrastructure and connect them, which the question
+  doesn't describe.
 
-Community is the most-forgotten of the four models, which is exactly why it appears.
+Community is the most forgotten of the four, which is exactly why it gets asked.
 
 </details>
 
@@ -358,16 +306,15 @@ Community is the most-forgotten of the four models, which is exactly why it appe
 <details>
 <summary><b>Answer</b></summary>
 
-**B — customer misconfiguration.** Publicly readable storage, over-permissive access policies and
-exposed management interfaces account for the great majority of cloud incidents — and all sit on
-the customer's side of the responsibility line.
+**B — customer misconfiguration.** Storage anyone can read, access policies set too wide and exposed
+admin interfaces cause most cloud incidents. All of them sit on the customer's side of the
+responsibility line.
 
-- **A** is rare. Major providers invest enormously in infrastructure security, and it is not where
-  incidents concentrate.
-- **C** is a genuine and serious risk, and is uncommon in practice. VM escape vulnerabilities are
-  significant news precisely because they are unusual.
-- **D** is very rare — data centre physical security is among the strongest controls providers
-  operate.
+- **A** is rare. Big providers spend enormous sums on their infrastructure, and incidents don't
+  cluster there.
+- **C** is a real and serious risk, but uncommon. VM escape flaws make headlines precisely because
+  they're unusual.
+- **D** is very rare. Data-centre physical security is among the strongest controls providers run.
 
 </details>
 
@@ -381,17 +328,14 @@ the customer's side of the responsibility line.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — virtual machines, because each has its own operating system kernel.** A VM virtualises
-hardware and runs a separate kernel, so escaping to another workload requires defeating the
-hypervisor.
+**B — virtual machines, because each has its own kernel.** A VM gets virtual hardware and its own
+kernel, so reaching another workload means beating the hypervisor.
 
-- **A** states real advantages of containers — speed and efficiency — which are not isolation
-  properties. The question asks about isolation specifically.
-- **C** is wrong. The difference in isolation strength is the central security distinction between
-  the two technologies.
-- **D** correctly describes how containers work and draws the wrong conclusion from it. Sharing the
-  host kernel is exactly what makes container isolation *weaker*: a kernel vulnerability is
-  reachable from every container on the host.
+- **A** lists real advantages of containers, speed and efficiency, but they aren't isolation. The
+  question asks about isolation.
+- **C** is wrong. The difference in isolation is the key security difference between the two.
+- **D** describes containers correctly but draws the wrong conclusion. Sharing the host kernel is
+  exactly what makes containers *weaker*: one kernel flaw can be reached from every container.
 
 </details>
 
@@ -403,39 +347,37 @@ hypervisor.
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
 **The shared responsibility model is a contract, not a law of nature.** Each provider publishes its
-own version and they differ in detail, particularly around managed services that sit awkwardly
-between PaaS and SaaS. A managed database, for example, has the provider patching the database
-engine while the customer owns schema, access and data — which is neither the textbook PaaS nor the
-textbook SaaS row. Real cloud security work involves reading the specific service's documentation
-rather than applying the generic diagram, and disputes after an incident usually turn on exactly
-this boundary.
+own version, and they differ in the details, especially for managed services that sit between PaaS
+and SaaS. With a managed database such as Amazon RDS, the provider patches the database engine,
+while the customer owns the design, the data and every permission. That's neither the textbook PaaS
+row nor the SaaS row. Real cloud security means reading the specific service's documentation rather
+than trusting the generic table, and arguments after an incident usually turn on exactly this line.
 
-**Why misconfiguration dominates.** Cloud platforms expose an enormous configuration surface
-through APIs, defaults have historically favoured convenience, and a single permissive setting can
-expose an entire dataset to the internet instantly. There is no physical constraint standing in
-the way as there would be on-premises, where exposing a file share to the world requires several
-deliberate steps. This is why cloud security posture management tooling exists and why
-infrastructure as code matters so much — configuration in a repository is reviewable, testable and
-diffable in a way that a console click is not.
+**Why misconfiguration dominates.** Cloud platforms expose a huge number of settings, defaults have
+often favoured convenience, and one wrong setting can expose a whole dataset to the internet
+instantly. On your own site, exposing a file share to the world takes several deliberate steps; in
+the cloud it can be one click. **Cloud Security Posture Management (CSPM)** tools exist to catch
+this. They constantly ask the provider's API what is actually configured, compare it with known-bad
+patterns (public storage, over-wide permissions, unencrypted disks), and alert someone or fix it
+automatically. It's also why **infrastructure as code** matters: settings kept in a repository can
+be reviewed and tested in a way a console click can't.
 
-**Multi-tenancy is better isolated than intuition suggests.** Sharing physical hardware with
-strangers sounds alarming, and hypervisor isolation combined with provider investment makes
-cross-tenant compromise genuinely rare. The more realistic concerns are side-channel attacks
-against shared CPU resources — the Spectre family demonstrated cross-VM information leakage — and
-resource contention from noisy neighbours. Both are real; neither is the everyday risk that
-misconfiguration is.
+**Multi-tenancy is safer than it sounds.** Sharing hardware with strangers sounds alarming, but
+hypervisor isolation plus the providers' investment make cross-customer compromise genuinely rare.
+The more realistic worries are side-channel attacks on shared processors (the Spectre family showed
+data leaking between VMs) and "noisy neighbours" hogging resources. Both are real; neither is the
+everyday risk that misconfiguration is.
 
-**Data residency has become a board-level issue.** Where data physically sits determines whose
-laws apply to it, and some jurisdictions assert access rights over data held by their companies
-regardless of where it is stored. This is why sovereign cloud regions exist and why the location
-of a storage bucket can be a compliance decision rather than a latency one.
+**Data residency is now a board-level issue.** Where data physically sits decides whose laws apply
+to it, and some countries claim access to data held by their companies wherever it's stored. That's
+why "sovereign cloud" regions exist, and why choosing a storage location can be a compliance
+decision rather than a speed one.
 
-**Vendor lock-in and the exit plan.** Moving between providers is hard in proportion to how much
-provider-specific functionality you have adopted. Lift-and-shift VMs move relatively easily;
-applications built on a provider's serverless, database and identity services do not. The security
-relevance is concentration risk and continuity: if the contract ends badly or the provider has a
-prolonged outage, what is the plan? Frequently there is not one, which is a risk acceptance nobody
-has formally documented.
+**Lock-in and the exit plan.** Moving providers gets harder the more provider-specific features you
+use. Plain VMs move fairly easily; applications built on a provider's own serverless, database and
+identity services don't. The security angle is concentration and continuity: if the contract ends
+badly or the provider has a long outage, what's the plan? Often there isn't one, which is a risk
+acceptance nobody ever wrote down.
 
 </details>
 
@@ -445,18 +387,15 @@ has formally documented.
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
+- **Five cloud characteristics:** on-demand self-service · broad network access · resource pooling · rapid elasticity · measured service.
 - **IaaS → PaaS → SaaS: the provider takes over more at each step.**
-- **IaaS** = you manage **OS + apps + data**. ***In IaaS, YOU patch the OS.***
-- **PaaS** = you manage **apps + data**. **SaaS** = you manage **data + access only**.
-- **In EVERY model you are responsible for your DATA, USERS and ACCESS.**
-- **Responsibility can shift to the provider. ACCOUNTABILITY never does.**
-- **Deployment models: public · private · hybrid · community.** Community = **shared by orgs with common requirements** (the forgotten one).
+- **IaaS** = you manage **OS + apps + data** (*in IaaS, YOU patch the OS*). **PaaS** = **apps + data**. **SaaS** = **data + access only**.
+- **In EVERY model, your DATA, USERS and ACCESS are yours.** Responsibility can shift; **ACCOUNTABILITY never does.**
+- **Deployment: public · private · hybrid · community.** Community = shared by orgs with **the same requirements** (the forgotten one).
 - **Type 1 hypervisor = bare metal** (more secure). **Type 2 = on a host OS.**
-- **VM escape** = breaking out of a guest. **Hypervisor compromise = every VM on it.**
+- **VM escape** = breaking out of a VM. **Hypervisor compromise = every VM on it.**
 - **Containers share the host kernel → WEAKER isolation than VMs.**
-- **Misconfiguration is the leading cause of cloud breaches** — not provider failure.
-- **Five cloud characteristics:** on-demand self-service, broad network access, resource
-  pooling, rapid elasticity, measured service.
+- **Misconfiguration is the leading cause of cloud breaches**, not provider failure.
 
 ---
 

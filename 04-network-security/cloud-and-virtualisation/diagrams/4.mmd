@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph VM["VMs: STRONGER isolation"]
+        direction TB
+        V1["App +<br/>its OWN kernel"] --> VH["Hypervisor"]
+        V2["App +<br/>its OWN kernel"] --> VH
+    end
+    subgraph CO["CONTAINERS: WEAKER isolation"]
+        direction TB
+        C1["App"] --> CK["ONE SHARED kernel<br/>one flaw reaches all"]
+        C2["App"] --> CK
+    end
+    VM ~~~ CO
+
+    style V1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style V2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style VH fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style C1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style CK fill:#3a2c12,stroke:#F08C00,color:#fff
+    style VM fill:#161b22,stroke:#30363d,color:#e6edf3
+    style CO fill:#161b22,stroke:#30363d,color:#e6edf3

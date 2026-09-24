@@ -1,0 +1,20 @@
+flowchart LR
+    subgraph T1["TYPE 1: bare metal"]
+        direction TB
+        A1["VM, VM, VM"] ~~~ B1["Hypervisor"] ~~~ C1["Hardware"]
+    end
+    subgraph T2["TYPE 2: hosted"]
+        direction TB
+        A2["VM, VM"] ~~~ B2["Hypervisor"] ~~~ C2["Host operating system<br/>one more layer to attack"] ~~~ D2["Hardware"]
+    end
+    T1 ~~~ T2
+
+    style A1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C1 fill:#26292e,stroke:#868E96,color:#fff
+    style A2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style D2 fill:#26292e,stroke:#868E96,color:#fff
+    style T1 fill:#161b22,stroke:#30363d,color:#e6edf3
+    style T2 fill:#161b22,stroke:#30363d,color:#e6edf3
