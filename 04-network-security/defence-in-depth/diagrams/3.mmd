@@ -1,0 +1,18 @@
+flowchart TB
+    subgraph RE["REDUNDANCY: a spare copy"]
+        direction LR
+        R1["Server A"] ~~~ R2["Server B<br/>takes over if A dies"]
+    end
+    subgraph DE["DEPTH: different obstacles in turn"]
+        direction LR
+        D1["Firewall"] --> D2["Segmentation"] --> D3["Encryption"]
+    end
+    RE ~~~ DE
+
+    style R1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style R2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style D1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style D2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style D3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style RE fill:#161b22,stroke:#30363d,color:#e6edf3
+    style DE fill:#161b22,stroke:#30363d,color:#e6edf3

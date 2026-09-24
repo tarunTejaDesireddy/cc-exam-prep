@@ -1,0 +1,22 @@
+flowchart TB
+    subgraph L1["PHYSICAL: fence, door, badge"]
+        subgraph L2["ADMINISTRATIVE: policy, training"]
+            subgraph L3["PERIMETER: firewall, DMZ"]
+                subgraph L4["INTERNAL: segmentation"]
+                    subgraph L5["HOST: hardening, endpoint tools"]
+                        subgraph L6["DATA: access control, encryption"]
+                            A["THE ASSET"]
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    style A fill:#3a2c12,stroke:#F08C00,color:#fff
+    style L1 fill:#161b22,stroke:#868E96,color:#e6edf3
+    style L2 fill:#161b22,stroke:#5C7CFA,color:#e6edf3
+    style L3 fill:#161b22,stroke:#12B5A5,color:#e6edf3
+    style L4 fill:#161b22,stroke:#2F9E44,color:#e6edf3
+    style L5 fill:#161b22,stroke:#5C7CFA,color:#e6edf3
+    style L6 fill:#161b22,stroke:#12B5A5,color:#e6edf3
