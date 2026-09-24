@@ -17,7 +17,8 @@ set -uo pipefail
 MAXLEN=${MAXLEN:-34}
 fails=0
 
-while IFS= read -r file; do
+check() {
+  local file="$1"
   awk -v F="$file" -v MAXLEN="$MAXLEN" '
     /^```mermaid/ { inm=1; delete nodes; delete styled; next }
     inm && /^```[[:space:]]*$/ {
@@ -73,8 +74,19 @@ while IFS= read -r file; do
       }
     }
     END { exit (bad>0 ? 1 : 0) }
-  ' "$file" || fails=$((fails+1))
+  ' || fails=$((fails+1))
+}
+
+# 1. Inline ```mermaid blocks in markdown (legacy; new pages should use diagrams/N.mmd)
+while IFS= read -r file; do
+  check "$file" < "$file"
 done < <(grep -rl '```mermaid' --include='*.md' . | grep -v '^./.github/_templates/')
+
+# 2. Diagram sources: diagrams/N.mmd, wrapped in a fence so the same checks apply.
+#    Process substitution (not a pipe) so the fails counter survives the function call.
+while IFS= read -r file; do
+  check "$file" < <(printf '%s\n' '```mermaid'; cat "$file"; printf '\n%s\n' '```')
+done < <(find . -name '*.mmd' -path '*/diagrams/*' -not -path './.git/*' -not -path './.github/_templates/*' | sort)
 
 if [ "$fails" -eq 0 ]; then
   echo "✅ all mermaid diagrams clean"
