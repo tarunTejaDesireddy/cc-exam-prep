@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph IOC["IOC: a thing left behind"]
+        direction LR
+        O1["A file hash,<br/>a malicious IP"] --> O2["EASY to change:<br/>new sample =<br/>new hash"]
+    end
+    subgraph IOA["IOA: behaviour in progress"]
+        direction LR
+        A1["An account suddenly<br/>using admin rights<br/>it never uses"] --> A2["HARDER to change:<br/>the goal doesn't<br/>shift so easily"]
+    end
+    IOC ~~~ IOA
+
+    style O1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style O2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style A1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style IOC fill:#161b22,stroke:#30363d,color:#e6edf3
+    style IOA fill:#161b22,stroke:#30363d,color:#e6edf3

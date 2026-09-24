@@ -2,15 +2,15 @@
 
 <img src="../assets/module-05-banner.svg" alt="05 · Security Operations and Incident Response" width="100%">
 
-# 🎯 Event triage and threat intelligence
+# 🎯 Event Triage and Threat Intelligence
 
-### *Deciding what matters, and who's likely behind it*
+### *Deciding fast what to look at first — and knowing who might be attacking you*
 
 [![Module](https://img.shields.io/badge/Module-05_Security_Operations-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~14%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
-📌 *Security event triage — prioritisation and correlation — plus the vocabulary of threat actors, cyber threat intelligence, and threat frameworks.*
+📌 *Correlation links related alerts; prioritisation ranks them by severity and confidence. Rank threat actors (nation-state at the top), know the three CTI levels, and tell an IOC from an IOA.*
 
 </div>
 
@@ -18,22 +18,21 @@
 
 ## 🧸 The big idea
 
-Every night, the tribe's watchmen hear dozens of rustles in the bushes around camp. Most are
-wind, or a raccoon, or nothing at all. One might be a wolf. Nobody has time to grab a spear and
-investigate every single rustle personally — so the watchmen have to decide, fast, which rustles
-deserve a closer look and in what order.
+A hospital emergency room can't treat everyone at once, so a nurse at the door does **triage**:
+quickly sorting who needs care first. A quiet patient having a heart attack goes ahead of a loud one
+with a sprained wrist.
 
-That's **triage**. Deciding fast, out of everything making noise, what deserves attention first.
-Two skills make triage work. **Prioritisation** — how bad would it be if this one is real, and
-how likely is it real — so a faint noise near the sleeping children outranks a loud one near an
-empty field. And **correlation** — noticing that paw prints near the henhouse, a missing chicken,
-and a distant growl aren't three separate rustles at all, but one wolf's whole night, told in
-three pieces.
+A security team faces the same problem with alerts. Thousands come in; you can't investigate every
+one at once. **Triage** is deciding, fast, what deserves attention first. Two skills make it work:
 
-Triage works better when you know **who might be raiding you and why** — that's **cyber
-threat intelligence (CTI)**, the tribe's intelligence about which raiders are in the valley and
-how they operate — and it's organised using **threat frameworks**: a shared almanac of raider
-tactics every tribe can read the same way, described in the same terms.
+- **Prioritisation.** How bad would it be if this alert is real, and how likely is it real? A quiet
+  but serious signal beats a loud but harmless one.
+- **Correlation.** Noticing that three separate alerts (a failed login, a new scheduled task, an odd
+  outbound connection) aren't three problems, but one attack told in three pieces.
+
+Triage works better when you know **who might be attacking you and how they operate**. That's **cyber
+threat intelligence (CTI)**, and it's organised using **threat frameworks**: a shared way to describe
+attacker behaviour that everyone reads the same way.
 
 ---
 
@@ -41,140 +40,86 @@ tactics every tribe can read the same way, described in the same terms.
 
 | Word | What it means on this exam |
 |---|---|
-| **Security event** | Any observable occurrence in a system or network — not necessarily bad. |
-| **Alert** | A system-generated notification that an event may warrant attention. |
-| **Triage** | The process of sorting and prioritising alerts/incidents for response. |
-| **Prioritisation** | Ranking alerts by severity and likelihood, so the worst genuine threats get attention first. |
-| **Correlation** | Linking related events across sources/time into one coherent picture rather than treating each alert in isolation. |
-| **Use case** (in this context) | A defined pattern of activity a detection is built to catch — e.g. "multiple failed logins followed by a success." |
-| **Threat actor** | The entity carrying out a threat — nation-state, organised crime, hacktivist, insider, script kiddie. |
-| **Cyber threat intelligence (CTI)** | Analysed information about threat actors, their capabilities, motivations and behaviour, used to inform defence. |
-| **Threat framework** | A published, structured way of describing attacker tactics and techniques consistently across organisations (e.g. MITRE ATT&CK). |
-| **IOC (Indicator of Compromise)** | Observable evidence that a compromise may have occurred — a malicious IP, a file hash, a suspicious registry key. |
-| **IOA (Indicator of Attack)** | Evidence of attacker *behaviour or intent* in progress (e.g. unusual privilege use), rather than a static artefact left behind. |
-| **TTP (Tactics, Techniques and Procedures)** | The pattern of *how* a threat actor operates — the highest-level, hardest-to-change thing to detect on. |
-| **SOAR (Security Orchestration, Automation and Response)** | Tooling that automates routine triage/response steps (enriching an alert, running a playbook) so analysts spend time on judgment calls, not repetitive lookups. |
-| **Alert tuning** | Adjusting detection rules to reduce false positives without losing real detections — the standing fix for alert fatigue. |
+| **Security event** | Any observable occurrence in a system or network. Not necessarily bad. |
+| **Alert** | A system notification that an event may need attention. |
+| **Triage** | Sorting and prioritising alerts for response. |
+| **Prioritisation** | Ranking alerts by severity and likelihood, so the worst real threats get seen first. |
+| **Correlation** | Linking related events into one picture, instead of treating each alert alone. |
+| **Threat actor** | Who is carrying out an attack: nation-state, organised crime, hacktivist, insider, script kiddie. |
+| **Cyber threat intelligence (CTI)** | Analysed information about threat actors, their capabilities and behaviour, used to guide defence. |
+| **Threat framework** | A published, structured way to describe attacker tactics consistently (e.g. MITRE ATT&CK). |
+| **IOC** (Indicator of Compromise) | A static artefact left behind: a malicious IP, a file hash, a suspicious registry key. |
+| **IOA** (Indicator of Attack) | Evidence of attacker *behaviour or intent* in progress, rather than an artefact left behind. |
+| **SOAR** (Security Orchestration, Automation and Response) | Tooling that automates routine triage steps, so analysts spend time on judgement calls. |
 
 ---
 
-## 🔍 Triage: prioritisation and correlation
+## 🔍 The explanation
 
-A faint growl near the sleeping children, matched against footprints by the fence and a howl an
-hour ago, is one wolf closing in — and it outranks the loud but lone raccoon rattling the
-grain-bin lid across camp, even though the raccoon is noisier right now.
+### Triage: correlation and prioritisation
 
-**Prioritisation** asks: of everything alerting right now, what do we look at first? It weighs
-severity (how bad if real) against confidence (how likely this is a true positive), not
-just raw alert volume.
+<p align="center"><img src="diagrams/1.svg" alt="A failed login, a new scheduled task and an odd outbound connection each feed into correlation, which links related events; prioritisation then ranks by severity and confidence, and the result is escalated as one incident" width="780"></p>
 
-**Correlation** asks: are these separate alerts actually one story? A failed login, a new
-scheduled task, and an outbound connection to an unusual IP — investigated separately, each
-looks minor. Correlated, they describe a single intrusion in progress.
+- **Prioritisation** asks: of everything alerting right now, what do we look at first? It weighs
+  severity (how bad if real) against confidence (how likely this is genuine), not raw alert volume.
+- **Correlation** asks: are these separate alerts actually one story? A failed login, a new scheduled
+  task and an outbound connection to an unusual IP each look minor alone. Linked, they describe one
+  intrusion in progress.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+> 🎯 **Correlation usually comes before prioritisation.** You can't judge the severity of three
+> isolated-looking alerts until you realise they're one attack chain. **Link it, then rank it.**
 
-> 🎯 **Correlation usually comes before prioritisation in practice** — you can't accurately
-> judge severity of three isolated-looking alerts until you realise they're one attack chain.
+**Why triage can't run on people alone.** A team facing thousands of daily alerts can't hand-correlate
+every one, which is why **detection patterns** and **SOAR playbooks** exist: they automate the
+mechanical parts (gathering context, initial correlation) so analysts' judgement goes where it's
+needed. When alert volume still overwhelms this, the fix is **tuning** the detections.
 
-**Why triage doesn't scale on humans alone.** A SOC with thousands of daily alerts cannot
-manually correlate every one, which is why **use cases** (predefined detection patterns) and
-**SOAR playbooks** exist — automating the mechanical parts of triage (enrichment, initial
-correlation) so an analyst's judgment is spent on the alerts that actually need it. When alert
-volume overwhelms this, the standing fix is **tuning** the detections, not simply hiring more
-analysts to look at more noise.
+> ⚠️ **"Add more rules" is rarely the answer to alert fatigue.** Tuning the existing rules to cut
+> noise, and correlating before escalating, are what the exam expects.
 
-> ⚠️ **"Add more rules" is rarely the textbook answer to alert fatigue.** Tuning existing rules
-> to cut noise, and correlating before escalating, are the answers the exam expects.
+### IOC versus IOA: artefact versus behaviour
 
----
+Not every clue is the same kind of clue. A footprint tells you a burglar was here last night, but a
+burglar who learns that footprints give them away just wears different shoes, and the clue is gone.
+Someone testing every window and door to find one that's unlocked is a different kind of clue: that
+*is* how a break-in works, and they can't easily stop doing it.
 
-## 🔎 IOC versus IOA — artefacts versus behaviour
+<p align="center"><img src="diagrams/2.svg" alt="An IOC is a thing left behind, such as a file hash or a malicious IP, which is easy to change because a new sample means a new hash; an IOA is behaviour in progress, such as an account suddenly using admin rights it never uses, which is harder to change because the attacker's goal doesn't shift so easily" width="460"></p>
 
-Not every clue is the same kind of clue. A paw print in the mud tells you a wolf passed through
-last night — but a wolf that learns the mud gives it away just starts walking through the stream
-instead, and the print is gone. A pack circling downwind of the herd before it strikes is a
-different kind of clue: that circling *is* how wolves hunt. They can't simply stop doing it
-without stopping being wolves.
+> 🎯 **IOCs tell you something bad already happened somewhere. IOAs can catch an attack while it's
+> still in progress.** That's why mature detection moves beyond IOC lists towards behaviour-based
+> detection.
 
-| | Looks at | Example | How easy to change |
-|---|---|---|---|
-| **IOC** | A static artefact left behind | A specific file hash, a malicious IP address | **Easy for an attacker to change** — a new sample has a new hash |
-| **IOA** | Behaviour or intent while it's happening | An account suddenly using admin privileges it's never used before | **Harder to change** — the underlying goal doesn't shift as easily as one file |
+### Threat actors and motivations
 
-> 🎯 **IOCs tell you something bad already happened somewhere. IOAs can catch an attack while
-> it's still in progress.** This is why mature detection strategies move beyond IOC lists
-> toward behaviour-based (IOA/TTP) detection.
-
----
-
-## 👤 Threat actors and motivations
-
-Not every raider is the same kind of threat. A lone scavenger poking at the fence with a stick is
-a different problem than a rival chief's trained war band sent to weaken your tribe on purpose —
-and a tribe-member who knows exactly where the grain store's weak plank is, because he built it,
-is a different problem again.
+Not every attacker is the same kind of threat:
 
 | Actor type | Typical motivation | Capability |
 |---|---|---|
-| **Nation-state / APT** | Espionage, disruption, strategic advantage | Highest — patient, funded, persistent |
-| **Organised crime** | Financial gain | High — professional, profit-driven |
-| **Hacktivist** | Ideological or political | Variable |
-| **Insider** | Grievance, financial gain, or simple negligence | Access-driven — already has legitimate credentials |
-| **Script kiddie** | Curiosity, reputation | Low — uses existing tools without deep understanding |
+| **Nation-state / APT** | Espionage, disruption, strategic advantage | Highest: patient, funded, persistent |
+| **Organised crime** | Money | High: professional, profit-driven |
+| **Hacktivist** | Ideology or politics | Varies |
+| **Insider** | Grievance, money, or plain carelessness | Access-driven: already has valid credentials |
+| **Script kiddie** | Curiosity, reputation | Low: uses others' tools without deep understanding |
 
-> 🎯 **Ranked by capability, nation-state actors are the top and script kiddies the bottom.** If
-> a question describes long-term stealthy access with substantial resources, it wants
+> 🎯 **Ranked by capability, nation-state actors are the top and script kiddies the bottom.** If a
+> question describes long-term, stealthy access with serious resources behind it, it wants
 > **nation-state / APT**.
 
----
+### Cyber threat intelligence
 
-## 🕵️ Cyber threat intelligence (CTI)
+CTI turns raw information into something a defender can act on. Different people need different
+versions of it, so it comes in three levels:
 
-CTI turns raw information into something a defender can act on. The chief doesn't need the same
-report as the watchman on the wall tonight — one needs to know which raiders to prepare for this
-season, the other needs to know exactly which howl to listen for before midnight. It's commonly
-described at three levels:
+<p align="center"><img src="diagrams/3.svg" alt="Strategic CTI is about which threats to plan around, for executives and risk owners; operational CTI is about which actor is targeting us now, for SOC managers and responders; tactical CTI is about which IOCs to block right now, for analysts and detection engineering" width="330"></p>
 
-| Level | Answers | Consumed by |
-|---|---|---|
-| **Strategic** | "What threats should leadership plan around?" | Executives, risk owners |
-| **Operational** | "What campaign or actor is currently targeting organisations like us?" | SOC managers, incident responders |
-| **Tactical** | "What specific IOCs should our tools block right now?" | Analysts, detection engineering |
+**Threat frameworks** give CTI a shared vocabulary. **MITRE ATT&CK** catalogues known attacker
+tactics and techniques (such as "initial access" and "lateral movement"), so intelligence from one
+incident can be described in terms other defenders recognise, instead of free-text prose unique to
+that report.
 
-**Threat frameworks** give CTI a shared vocabulary. A framework like **MITRE ATT&CK** catalogues
-known attacker tactics and techniques (e.g. "initial access," "lateral movement") so that
-intelligence from one incident can be described in terms other defenders will recognise,
-rather than in free-text prose unique to that report.
-
-> ⚠️ **At CC depth, you need to know that threat frameworks exist and what they're for** — a
-> shared, structured way to describe attacker behaviour — not to memorise a framework's
-> internal technique IDs.
-
----
-
-## 🔬 The Pyramid of Pain, and how CTI is actually shared
-
-The grown-up section mentions a model ranking IOC types by how costly they are for an attacker
-to change. Here it is, drawn out.
-
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
-
-Blocking a hash costs an attacker nothing — they change one byte and get a new hash. Blocking
-their actual **TTPs** (how they establish persistence, how they move laterally) costs them
-real, expensive retooling, because it targets *how* they operate rather than *what* they
-happened to use today. This is the concrete argument, in one picture, for why mature CTI moves
-up the pyramid rather than just collecting IOC lists.
-
-**STIX and TAXII are the real technical standards that let organisations share threat
-intelligence in a machine-readable way rather than a PDF report.** **STIX** (Structured Threat
-Information eXpression) is a standardised data format for describing a threat actor, an
-indicator, or a TTP as structured JSON rather than free prose. **TAXII** (Trusted Automated
-Exchange of Intelligence Information) is the transport protocol that moves STIX packages between
-organisations — an information-sharing group, a government feed, a vendor's threat intel
-platform — automatically and on a schedule. This is what actually makes tactical CTI
-"actionable": a SIEM can subscribe to a TAXII feed and automatically ingest thousands of new
-STIX-formatted indicators without an analyst manually retyping them from a report.
+> ⚠️ **At CC depth, know that threat frameworks exist and what they're for** (a shared, structured
+> way to describe attacker behaviour), not any framework's internal technique IDs.
 
 ---
 
@@ -182,12 +127,12 @@ STIX-formatted indicators without an analyst manually retyping them from a repor
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **Prioritisation** | Ranking alerts by severity and confidence. | **Correlation**, which links related alerts into one picture — often a prerequisite for accurate prioritisation. |
-| **CTI** | Analysed, actionable information about threats. | **An IOC**, which is one specific observable data point CTI might use as input. |
-| **Threat framework** | A structured way to *describe* attacker behaviour consistently. | **CTI itself**, which is the actual intelligence content the framework helps organise. |
-| **Threat actor** | Who is carrying out an attack. | **Threat vector**, the route or method used, a separate concept from Domain 1's risk vocabulary. |
-| **IOC** | A static artefact — a hash, an IP, a file name. | **IOA**, attacker behaviour or intent observed while it's happening, harder for an attacker to simply change. |
-| **Alert tuning** | Adjusting existing detection rules to cut false positives. | **Adding more detection rules**, which increases volume rather than fixing the noise problem. |
+| **Prioritisation** | Ranking alerts by severity and confidence. | **Correlation** — linking related alerts into one picture, usually done first. |
+| **CTI** | Analysed, actionable information about threats. | **An IOC** — one observable data point CTI might use as input. |
+| **Threat framework** | A structured way to *describe* attacker behaviour. | **CTI itself** — the actual intelligence the framework helps organise. |
+| **Threat actor** | Who is carrying out an attack. | **Threat vector** — the route or method used. |
+| **IOC** | A static artefact: a hash, an IP, a file name. | **IOA** — attacker behaviour or intent seen while it's happening, harder to change. |
+| **Alert tuning** | Adjusting existing rules to cut false positives. | **Adding more rules**, which increases volume rather than fixing the noise. |
 
 ---
 
@@ -196,17 +141,34 @@ STIX-formatted indicators without an analyst manually retyping them from a repor
 > [!WARNING]
 > **In the job:** you'd instinctively investigate the loudest or most recent alert first.
 >
-> **On the exam:** the textbook answer prioritises by a combination of **severity and
-> confidence**, informed by **correlation** — not by recency or alert volume alone. A quiet,
-> low-volume alert correlated with other signals into a coherent attack chain outranks a noisy
-> but isolated one.
+> **On the exam:** the expected answer prioritises by a mix of **severity and confidence**, informed
+> by **correlation**, not by recency or volume alone. A quiet, low-volume alert correlated with other
+> signals into a coherent attack chain outranks a noisy but isolated one.
+
+> [!WARNING]
+> **In the job:** blocking a bad file's hash or a bad IP feels like solid defence.
+>
+> **On the exam:** those are **IOCs**, and an attacker changes them cheaply (one new sample, one new
+> hash). Detecting on **behaviour (IOA / TTP)** is what actually costs an attacker.
+
+> [!WARNING]
+> **In the job:** more detection rules feels like better coverage.
+>
+> **On the exam:** more rules means more alerts, which is the cause of alert fatigue. **Tuning** the
+> existing rules is the answer.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **"Link it, then rank it."** Correlate related events into one picture before prioritising
-what to work first.
+**"Link it, then rank it."** Correlate related events into one picture before deciding what to work
+first.
+
+**Nation-state at the top, script kiddie at the bottom.**
+
+**CTI levels: Strategic (leadership) → Operational (campaigns) → Tactical (IOCs to block).**
+
+**IOC is a thing left behind (easy to change). IOA is behaviour in progress (harder to change).**
 
 ---
 
@@ -214,9 +176,9 @@ what to work first.
 
 Answer all five before expanding anything.
 
-**Q1.** A SOC analyst notices three separate low-severity alerts — a failed login, a new
-scheduled task, and an unusual outbound connection — all from the same host within ten
-minutes. What should the analyst do FIRST?
+**Q1.** A SOC analyst notices three separate low-severity alerts (a failed login, a new scheduled
+task, and an unusual outbound connection) all from the same host within ten minutes. What should the
+analyst do FIRST?
 
 - **A.** Dismiss each as low severity individually
 - **B.** Correlate the events to determine whether they represent a single incident
@@ -226,18 +188,17 @@ minutes. What should the analyst do FIRST?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — correlate the events.** Individually low-severity alerts can describe one serious
-incident when linked together; correlation should generally happen before final
-prioritisation.
+**B — correlate the events.** Individually low-severity alerts can add up to one serious incident when
+linked, and correlation should generally come before final prioritisation.
 
-- **A** ignores the pattern entirely by treating each alert in isolation.
-- **C** arbitrarily picks one alert without considering the combined picture.
-- **D** delays action while risk potentially escalates, with no justification for waiting.
+- **A** ignores the pattern by treating each alert alone.
+- **C** picks one alert at random without considering the combined picture.
+- **D** delays action while the risk may be escalating, with no reason to wait.
 
 </details>
 
-**Q2.** Which threat actor type is MOST associated with a well-resourced, patient, long-term
-covert intrusion?
+**Q2.** Which threat actor type is MOST associated with a well-resourced, patient, long-term covert
+intrusion?
 
 - **A.** Script kiddie
 - **B.** Hacktivist
@@ -247,20 +208,19 @@ covert intrusion?
 <details>
 <summary><b>Answer</b></summary>
 
-**C — nation-state / APT.** These actors are ranked highest in capability and are
-characteristically patient, funded, and persistent.
+**C — nation-state / APT.** These actors rank highest in capability and are typically patient, funded
+and persistent.
 
-- **A** describes low-capability, opportunistic activity.
-- **B** is ideologically motivated and typically less concerned with long-term stealth.
-- **D** already has legitimate access, which is a different risk profile from covert external
+- **A** is low-capability, opportunistic activity.
+- **B** is ideologically driven and usually less focused on long-term stealth.
+- **D** already has legitimate access, which is a different risk profile from a covert external
   intrusion.
 
 </details>
 
 **Q3.** What is the PRIMARY purpose of a threat framework such as MITRE ATT&CK?
 
-- **A.** To provide a shared, structured vocabulary for describing attacker tactics and
-  techniques
+- **A.** To provide a shared, structured vocabulary for describing attacker tactics and techniques
 - **B.** To automatically block all known attacks
 - **C.** To replace the need for a SOC
 - **D.** To certify individual security analysts
@@ -268,12 +228,12 @@ characteristically patient, funded, and persistent.
 <details>
 <summary><b>Answer</b></summary>
 
-**A — a shared, structured vocabulary for attacker behaviour.** This lets intelligence from
-different sources be described and compared consistently.
+**A — a shared, structured vocabulary for attacker behaviour.** It lets intelligence from different
+sources be described and compared consistently.
 
-- **B** overstates what a descriptive framework does — it organises knowledge, it doesn't
-  block anything by itself.
-- **C** and **D** describe unrelated functions the framework does not perform.
+- **B** overstates what a descriptive framework does. It organises knowledge; it doesn't block
+  anything by itself.
+- **C** and **D** describe things the framework doesn't do.
 
 </details>
 
@@ -287,37 +247,18 @@ different sources be described and compared consistently.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — cyber threat intelligence.** These three levels describe intelligence tailored to
-different audiences and decisions.
+**B — cyber threat intelligence.** The three levels describe intelligence aimed at different audiences
+and decisions.
 
-- **A** describes a separate concept — the phases of handling a declared incident.
-- **C** describes accept/avoid/mitigate/transfer, unrelated to intelligence levels.
-- **D** describes DAC/MAC/RBAC/ABAC, unrelated.
-
-</details>
-
-**Q5.** An indicator of compromise (IOC) is BEST described as which of the following?
-
-- **A.** A complete threat intelligence report
-- **B.** One specific observable piece of evidence that a compromise may have occurred
-- **C.** A named threat actor
-- **D.** A published threat framework
-
-<details>
-<summary><b>Answer</b></summary>
-
-**B — one specific observable piece of evidence.** A malicious IP, file hash, or suspicious
-registry key are all examples of individual IOCs.
-
-- **A** describes something broader that might incorporate many IOCs plus analysis.
-- **C** and **D** describe unrelated concepts — an actor and a framework, not a piece of
-  evidence.
+- **A** is a separate concept: the phases of handling a declared incident.
+- **C** is accept / avoid / mitigate / transfer, unrelated to intelligence levels.
+- **D** is DAC / MAC / RBAC / ABAC, unrelated.
 
 </details>
 
-**Q6.** An analyst notices a user account suddenly using administrative privileges it has
-never used before, though no known-malicious file or IP is involved. This is BEST described as
-an example of which of the following?
+**Q5.** An analyst notices a user account suddenly using administrative privileges it has never used
+before, though no known-malicious file or IP is involved. This is BEST described as which of the
+following?
 
 - **A.** An IOC
 - **B.** An IOA
@@ -327,12 +268,12 @@ an example of which of the following?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — an IOA.** This is behaviour/intent observed in progress, not a static artefact like a
-hash or IP — exactly what distinguishes an IOA from an IOC.
+**B — an IOA.** This is behaviour and intent seen in progress, not a static artefact like a hash or
+IP, which is exactly what separates an IOA from an IOC.
 
-- **A** requires a specific static artefact, which is absent here.
-- **C** describes a vocabulary for organising such observations, not the observation itself.
-- **D** assumes the activity is benign without evidence — unusual privilege use warrants
+- **A** needs a specific static artefact, which is absent here.
+- **C** is a vocabulary for organising such observations, not the observation itself.
+- **D** assumes the activity is harmless with no evidence. Unusual privilege use warrants
   investigation, not automatic dismissal.
 
 </details>
@@ -344,24 +285,34 @@ hash or IP — exactly what distinguishes an IOA from an IOC.
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**Alert fatigue is the real-world driver behind triage.** Analysts facing thousands of daily
-alerts inevitably start pattern-matching and dismissing quickly, which is exactly why
-correlation engines (SIEM correlation rules, SOAR playbooks) exist — to do the linking work
-automatically before a human ever sees the combined picture, rather than relying on an
-analyst to notice three unrelated-looking tickets belong together.
+**Alert fatigue is the real driver behind triage.** Analysts facing thousands of daily alerts start
+pattern-matching and dismissing quickly, which is exactly why correlation engines (SIEM correlation
+rules, SOAR playbooks) exist: to do the linking automatically before a human sees the combined
+picture, rather than relying on someone to notice that three unrelated-looking tickets belong
+together.
 
-**The pyramid of pain.** A commonly referenced (though not CC-required) model ranks IOC types
-by how much it costs an attacker when you block them — hash values are cheapest for an
-attacker to change, while their tactics, techniques and procedures (TTPs) are the most costly
-to alter. This is the practical argument for CTI maturing beyond simple IOC feeds toward
-behavioural, TTP-based detection.
+**The Pyramid of Pain.** A commonly referenced model (not required by CC) ranks indicator types by
+how much it costs an attacker when you block them.
 
-**Why SOAR complements rather than replaces analysts.** A playbook can reliably do the
-mechanical steps of triage — pull a file hash's reputation, check whether an IP has been seen
-before, open a ticket — every time, without fatigue. It cannot make the judgment call about
-whether a genuinely novel pattern of behaviour matters, which is precisely the part of triage
-that still needs a human, and precisely why "more automation" is not a universal answer to
-every alert-volume problem.
+<p align="center"><img src="diagrams/4.svg" alt="From hardest to easiest for an attacker to change: TTPs, how they operate, are hardest; then tools; then network and host artefacts; then domain names; then IP addresses; and hash values are easiest to change" width="300"></p>
+
+Blocking a hash costs an attacker nothing (change one byte, get a new hash). Blocking their **TTPs**
+(how they establish persistence, how they move laterally) costs them real, expensive retooling,
+because it targets *how* they operate rather than *what* they happened to use today. That's the
+argument, in one picture, for CTI moving up the pyramid instead of just collecting IOC lists.
+
+**How CTI is actually shared.** **STIX** (Structured Threat Information eXpression) is a standard data
+format for describing a threat actor, an indicator or a TTP as structured JSON rather than free prose.
+**TAXII** (Trusted Automated Exchange of Intelligence Information) is the protocol that moves STIX
+packages between organisations automatically. A SIEM can subscribe to a TAXII feed and ingest
+thousands of new indicators without an analyst retyping them from a report. That's what makes tactical
+CTI "actionable".
+
+**Why SOAR complements rather than replaces analysts.** A playbook reliably does the mechanical steps
+of triage (look up a file hash's reputation, check whether an IP has been seen before, open a ticket)
+every time, without fatigue. It can't make the judgement call about whether a genuinely new pattern of
+behaviour matters, which is exactly the part of triage that still needs a human, and exactly why "more
+automation" isn't a universal answer to every alert-volume problem.
 
 </details>
 
@@ -371,20 +322,15 @@ every alert-volume problem.
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-- **Correlation links related events. Prioritisation ranks them by severity + confidence.**
-  Correlation usually comes first.
-- **CTI levels: Strategic (leadership) → Operational (campaigns) → Tactical (IOCs).**
-- **Threat actors ranked by capability:** nation-state/APT > organised crime > hacktivist >
-  insider > script kiddie (context-dependent).
-- **A threat framework (e.g. MITRE ATT&CK) is a shared vocabulary for attacker behaviour** —
-  not a blocking tool.
-- **IOC = one observable piece of evidence**, not the whole intelligence picture.
-- **IOC = static artefact (easy to change). IOA = behaviour/intent (harder to change).**
-- **Alert fatigue → tune the rules**, not just add more of them.
+- **Correlation links related events. Prioritisation ranks them by severity + confidence.** Correlation usually comes first: *link it, then rank it.*
+- **Threat actors ranked by capability:** nation-state / APT > organised crime > hacktivist > insider > script kiddie.
+- **CTI levels: Strategic (leadership) → Operational (campaigns) → Tactical (IOCs to block).**
+- **A threat framework (e.g. MITRE ATT&CK) is a shared vocabulary for attacker behaviour**, not a blocking tool.
+- **IOC = a static artefact (easy to change). IOA = behaviour / intent (harder to change).**
+- **Alert fatigue → tune the rules**, don't just add more.
 
 ---
 
 <div align="center">
 <sub><a href="../README.md">← back to 05 · Security Operations and Incident Response</a> &nbsp;·&nbsp; <a href="../incident-terminology/">next: Incident terminology →</a></sub>
 </div>
-</content>

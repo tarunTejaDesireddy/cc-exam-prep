@@ -1,0 +1,9 @@
+flowchart TD
+    S["STRATEGIC<br/>which threats to plan around<br/>-> executives, risk owners"]
+    O["OPERATIONAL<br/>which actor is targeting us now<br/>-> SOC managers, responders"]
+    T["TACTICAL<br/>which IOCs to block right now<br/>-> analysts, detection engineering"]
+    S --> O --> T
+
+    style S fill:#3a2c12,stroke:#F08C00,color:#fff
+    style O fill:#12243f,stroke:#5C7CFA,color:#fff
+    style T fill:#0f3038,stroke:#12B5A5,color:#fff
