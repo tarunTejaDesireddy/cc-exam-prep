@@ -1,0 +1,19 @@
+flowchart LR
+    S["Fake phishing email<br/>sent to staff"] --> C["Clicked it"]
+    S --> R["Reported it"]
+    S --> N["Ignored it"]
+    C --> C2["Teach them on the spot<br/>NOT punishment"]
+    R --> R2["Praise it:<br/>THIS is the goal"]
+    N --> N2["Neutral"]
+    C2 --> M["Track the trend:<br/>reporting rate going UP"]
+    R2 --> M
+    N2 --> M
+
+    style S fill:#26292e,stroke:#868E96,color:#fff
+    style C fill:#26292e,stroke:#868E96,color:#fff
+    style R fill:#26292e,stroke:#868E96,color:#fff
+    style N fill:#26292e,stroke:#868E96,color:#fff
+    style C2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style R2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style N2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style M fill:#0f3038,stroke:#12B5A5,color:#fff
