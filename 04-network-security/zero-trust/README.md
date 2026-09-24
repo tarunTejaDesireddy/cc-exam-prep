@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="../assets/module-04-banner.svg" alt="04 · Network Security" width="100%">
+<img src="../assets/module-04-banner.svg" alt="04 · Networking and Cloud Security Concepts" width="100%">
 
-# 🚦 Zero trust
+# 🚦 Zero Trust
 
-### *Never trust, always verify — and the service-agreement terms that travel beside it*
+### *Never trust, always verify — plus the agreements that set trust with third parties*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
-📌 *One core assumption to learn, plus the third-party agreement vocabulary — SLA, MOU, MSA — that ISC2 groups into this part of the domain.*
+📌 *Zero trust removes trust based on network location. Know its three principles (verify explicitly, least privilege, assume breach), and the agreement vocabulary: SLA, MOU, MOA, MSA, SOW, NDA.*
 
 </div>
 
@@ -18,25 +18,20 @@
 
 ## 🧸 The big idea
 
-The old village had one big outer wall with a guard demanding the secret whistle at the gate —
-and nowhere else. Once you were past that one check, you could walk straight to the chief's own
-treasure hut with nobody asking you anything ever again. That's a **castle and moat.**
+In an old-style office, you show your badge at the front door, and after that nobody asks again.
+You can wander into any room, the server room included. Getting past the front door once is
+enough. That's the **castle-and-moat** model: whoever is inside is trusted.
 
-The trouble is obvious once someone actually tricks the outer guard just once: a thief who learns
-the whistle can now go anywhere, because being inside the walls was treated as proof enough all
-by itself.
+A modern hotel works differently. Your key card is checked at **every** door you try. It opens
+**only your room** (and perhaps the gym), and it **stops working at checkout**. Being inside the
+hotel earns you nothing on its own.
 
-Zero trust posts a guard at *every single hut door*, even the ones deep inside the village — and
-every one of them demands the whistle fresh, every single time, no matter that you already proved
-yourself at the outer gate. Being inside the walls earns you nothing on its own.
-
-That's the whole idea. **Zero trust removes the assumption that location implies trust.**
+That's **zero trust**:
 
 > **Never trust, always verify.**
 
-Every request is treated as though it came from an untrusted network, regardless of where it
-originated. Being on the corporate LAN earns you nothing. Every access decision is made freshly,
-based on who is asking, what device they are using, and what they are asking for.
+Being on the company network earns nothing. Every request is checked afresh, based on who is
+asking, which device they're using and what they're asking for.
 
 ---
 
@@ -44,114 +39,85 @@ based on who is asking, what device they are using, and what they are asking for
 
 | Word | What it means on this exam |
 |---|---|
-| **Zero trust** | A model in which no user, device or request is trusted by default, regardless of location. |
-| **Implicit trust** | The assumption that something inside the perimeter is trustworthy. Zero trust removes this. |
-| **Verify explicitly** | Authenticate and authorise every request using all available signals. |
-| **Assume breach** | Design as though an attacker is already inside. |
-| **Microsegmentation** | Segmentation down to individual workloads. |
-| **Least privilege** | Granting only the access a role requires and no more. |
-| **Continuous verification** | Re-evaluating trust throughout a session, not only at login. |
-| **SLA** — Service Level Agreement | A contract specifying the service levels a provider must meet, with consequences for failure. |
-| **MOU** — Memorandum of Understanding | A statement of intent between parties. **Not usually legally binding.** |
-| **MOA** — Memorandum of Agreement | More formal than an MOU; sets out specific responsibilities. |
-| **MSA** — Master Service Agreement | An overarching contract governing the general terms of a relationship. |
-| **SOW** — Statement of Work | Defines the specific work, deliverables and timelines under an MSA. |
-| **NDA** — Non-Disclosure Agreement | A contract protecting confidential information shared between parties. |
+| **Zero trust** | No user, device or request is trusted by default, wherever it comes from. |
+| **Implicit trust** | Assuming anything inside the network is trustworthy. Zero trust removes this. |
+| **Verify explicitly** | Check every request, using every signal available. |
+| **Assume breach** | Design as if an attacker is already inside. |
+| **Micro-segmentation** | Walls around individual workloads, not just between big zones. |
+| **Continuous verification** | Checking trust again during a session, not only at login. |
+| **SLA** (Service Level Agreement) | A contract setting the service levels a provider must meet, with remedies if it doesn't. |
+| **MOU** (Memorandum of Understanding) | A statement of intent between parties. **Usually not legally binding.** |
+| **MOA** (Memorandum of Agreement) | More formal than an MOU; sets out each party's specific responsibilities. |
+| **MSA** (Master Service Agreement) | The overall contract that sets the general terms of a relationship. |
+| **SOW** (Statement of Work) | The specific work, deliverables and deadlines under an MSA. |
+| **NDA** (Non-Disclosure Agreement) | A contract protecting confidential information the parties share. |
 
 ---
 
-## 🔍 The shift
+## 🔍 The explanation
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+### The shift
+
+<p align="center"><img src="diagrams/1.svg" alt="In the castle-and-moat model you pass the front door once, are then trusted everywhere inside the network, and one stolen password gives an attacker the run of the place; in zero trust every request is checked for who is asking, from which device and for what, and access is granted to one app only and checked again later" width="620"></p>
+
+The weakness of castle-and-moat is plain: phish one password, and the attacker is inside the
+trusted zone, where nobody checks anything again.
 
 ### The three principles
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/2.svg" alt="Zero trust rests on three principles: verify explicitly by checking every request every time; least privilege, giving the minimum access for the minimum time; and assume breach, designing as if the attacker is already inside" width="660"></p>
 
-| Principle | Means |
-|---|---|
-| **Verify explicitly** | Authenticate and authorise on every request, using identity, device health, location and behaviour |
-| **Use least privilege** | Grant the minimum access required, for the minimum time |
-| **Assume breach** | Design as though an attacker is already inside — segment, monitor, limit blast radius |
-
-### How a zero trust access decision is made
-
-Every request is evaluated freshly against all available signals, and the decision is to one
-**application** — never to the network.
-
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
-
-Read it as a sentence: **a request plus its signals is judged on every attempt, granted only to
-one application, and re-checked while it continues.**
-
-### What zero trust looks like in practice
-
-- **Strong authentication everywhere**, typically MFA, for every access — not just at the perimeter
-- **Device health checks** before access is granted: patched, encrypted, managed
-- **Microsegmentation**, so workloads are isolated from one another
-- **Continuous verification**, re-evaluating during a session rather than trusting it until logout
-- **Comprehensive logging**, because every request is a decision point worth recording
-- **Access to specific applications**, rather than placing a device on the network
-
-> 🎯 **Zero trust is an architecture and a philosophy, not a product.** If an option describes
-> buying a zero trust appliance, it is a distractor. It is achieved by combining identity,
-> segmentation, device posture and monitoring.
-
-> ⚠️ **Zero trust does not mean distrusting employees.** It means not granting trust based on
-> *network location*. The name misleads people, and questions occasionally play on it.
-
-### 🔬 The actual components, per NIST SP 800-207
-
-"A policy engine evaluates every request" is not hand-waving — NIST SP 800-207 names the two
-specific components that do it, and they show up by name in real products.
-
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-The **PEP (Policy Enforcement Point)** is the gate that actually sits in the traffic's way —
-it has no judgment of its own, it just asks the **PDP (Policy Decision Point)** "should this go
-through?" and obeys the answer. Splitting these apart is deliberate: the PDP can be updated,
-audited and reasoned about centrally, while PEPs are cheap to place everywhere a decision needs
-enforcing — in front of every application, not just at one perimeter.
-
-**Between services (not users), the real enforcement mechanism is often mTLS (mutual TLS).**
-In a service mesh (Istio, Linkerd), every service is issued its own short-lived certificate, and
-before Service A can call Service B, *both* sides present and verify a certificate — not just
-the client proving who it is to the server, which is how ordinary HTTPS works, but each proving
-its identity to the other. This is "verify explicitly" applied to machine-to-machine traffic:
-a service sitting on the "trusted" internal network gets exactly zero benefit from that location
-if it can't produce a valid certificate.
-
----
-
-## 🤝 Third-party agreements
-
-ISC2 groups this vocabulary alongside zero trust because both concern trust that has to be
-established rather than assumed. These are straight definition questions.
-
-| Agreement | What it is | Binding? |
+| Principle | Means | In the hotel |
 |---|---|---|
-| **SLA** | Specifies **service levels** — uptime, response times, support — with remedies if missed | ✅ Yes |
-| **MOU** | A **statement of intent** to work together. Broad, cooperative | ❌ **Usually not** |
-| **MOA** | More formal than an MOU; sets out **specific responsibilities** of each party | Generally yes |
-| **MSA** | An **overarching** contract setting general terms for an ongoing relationship | ✅ Yes |
-| **SOW** | Defines the **specific work**, deliverables and timelines under an MSA | ✅ Yes |
-| **NDA** | Protects **confidential information** shared between the parties | ✅ Yes |
+| **Verify explicitly** | Check every request, using identity, device health, location and behaviour | The card is checked at every door |
+| **Least privilege** | Give the minimum access needed, for the minimum time | The card opens only your room, until checkout |
+| **Assume breach** | Design as if an attacker is already inside: segment, monitor, limit the damage | A thief with a stolen card still gets into only one room |
+
+### How a zero trust decision is made
+
+Every request is judged afresh, and a "yes" opens one **application**, never the whole network:
+
+<p align="center"><img src="diagrams/3.svg" alt="A request comes in, signals are gathered about who is asking, which device, from where and whether the behaviour is usual; a policy engine decides whether to allow this request; if yes, access is granted to one app rather than the network and is checked again during the session; if no, the request is refused and logged" width="400"></p>
+
+### What it looks like in practice
+
+- **Strong authentication everywhere**, usually MFA, for every access, not just at the edge
+- **Device health checks** before access: patched, encrypted, managed
+- **Micro-segmentation**, so workloads are walled off from each other
+- **Continuous verification**: checking again during a session, not trusting it until logout
+- **Thorough logging**, because every request is a decision worth recording
+- **Access to specific applications**, instead of putting a device on the network
+
+> 🎯 **Zero trust is an architecture and a way of thinking, not a product.** An option about buying
+> a zero trust appliance is a distractor. You get zero trust by combining identity, segmentation,
+> device checks and monitoring.
+
+> ⚠️ **Zero trust doesn't mean distrusting employees.** It means network *location* earns no trust.
+> The name misleads people, and questions sometimes play on that.
+
+### 🤝 Third-party agreements
+
+This vocabulary sits in the same part of the syllabus because it's also about trust that has to
+be set up explicitly rather than assumed. These are straight definition questions.
+
+| Agreement | What it is | Legally binding? |
+|---|---|---|
+| **SLA** | Sets **service levels** (uptime, response times, support) and remedies if they're missed | ✅ Yes |
+| **MOU** | A **statement of intent** to work together. Broad and cooperative | ❌ **Usually not** |
+| **MOA** | More formal than an MOU; sets out **each party's specific responsibilities** | Generally yes |
+| **MSA** | The **overall** contract with the general terms of an ongoing relationship | ✅ Yes |
+| **SOW** | The **specific work**, deliverables and deadlines under an MSA | ✅ Yes |
+| **NDA** | Protects **confidential information** the parties share | ✅ Yes |
+
+<p align="center"><img src="diagrams/4.svg" alt="The MSA is the binding master contract with the general terms, and underneath it sit statements of work for each specific job and the SLA setting service levels such as uptime and response times; the MOU stands apart as a statement of intent that is usually not binding, and the NDA stands apart protecting secrets shared between the parties" width="640"></p>
 
 > [!IMPORTANT]
-> **The SLA is the one tested most.** It defines measurable service levels and what happens when
-> the provider misses them. If a question asks which document specifies guaranteed uptime or
-> response times, the answer is SLA.
+> **The SLA is tested most.** It sets measurable service levels and what happens when the provider
+> misses them. If a question asks which document guarantees uptime or response times, the answer is
+> the SLA.
 
-> ⚠️ **MOU versus MSA is the common confusion.** An **MOU** expresses **intent** and is usually not
-> legally binding. An **MSA** is a **binding master contract**, with an **SOW** underneath it
-> defining each specific piece of work.
-
-> 🎯 **MSA is the umbrella; SOW is the specific job.** One MSA governs many SOWs.
-
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
-
-Read it as a sentence: **one binding master agreement sits above many specific statements of
-work and the service levels they are held to — while an MOU sits outside, binding nobody.**
+> ⚠️ **MOU versus MSA is the common mix-up.** An **MOU** states **intent** and is usually not legally
+> binding. An **MSA** is a **binding master contract**, with **SOWs** under it for each specific job.
 
 ---
 
@@ -159,52 +125,53 @@ work and the service levels they are held to — while an MOU sits outside, bind
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **Zero trust** | No implicit trust based on **network location**. | Distrusting people. It is about where a request comes from, not who sends it. |
-| **Zero trust** | An architecture and philosophy. | A product you can purchase. |
-| **Assume breach** | Design as though an attacker is already inside. | Assuming you have been breached specifically — it is a design stance. |
-| **Microsegmentation** | Isolation per workload. | **VLAN segmentation**, which is far coarser. |
-| **SLA** | Measurable service levels with remedies. | **MOU**, a non-binding statement of intent. |
-| **MSA** | The binding master contract. | **SOW**, which defines specific work *under* an MSA. |
-| **MOU** | Intent. Usually **not binding**. | **MOA**, which is more formal and sets out responsibilities. |
+| **Zero trust** | No trust based on **network location**. | Distrusting people. It's about where a request comes from, not who sends it. |
+| **Zero trust** | An architecture and a way of thinking. | A product you can buy. |
+| **Assume breach** | A design stance: act as if an attacker is already in. | Believing you have actually been breached. |
+| **Micro-segmentation** | Walls around each workload. | **VLAN segmentation** — much coarser zones. |
+| **SLA** | Measurable service levels, with remedies. | **MOU** — a non-binding statement of intent. |
+| **MSA** | The binding master contract. | **SOW** — the specific work *under* an MSA. |
+| **MOU** | Intent. Usually **not binding**. | **MOA** — more formal, sets out responsibilities. |
 
 ---
 
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** zero trust is a vendor marketing term attached to whatever product is being sold.
+> **In the job:** "zero trust" is a marketing label stuck on whatever product is being sold.
 >
-> **On the exam:** it is a defined architectural model with three principles — verify explicitly,
-> least privilege, assume breach. Answer the model.
+> **On the exam:** it's a defined model with three principles: verify explicitly, least privilege,
+> assume breach. Answer the model.
 
 > [!WARNING]
-> **In the job:** a VPN is how remote access is secured, and that is broadly zero-trust-adjacent.
+> **In the job:** a VPN is how remote access is secured, and that feels close enough to zero trust.
 >
-> **On the exam:** a VPN grants **network-level** access, which is the implicit trust zero trust
-> removes. Once connected you are on the network. Zero trust brokers access to **specific
+> **On the exam:** a VPN grants **network-level** access, which is exactly the implicit trust zero
+> trust removes. Once connected, you're on the network. Zero trust grants access to **specific
 > applications** instead.
 
 > [!WARNING]
-> **In the job:** MOU and contract are used loosely for any signed document.
+> **In the job:** "MOU" and "contract" get used loosely for any signed document.
 >
-> **On the exam:** **an MOU is usually not legally binding.** That is its defining property and it
-> is what gets tested.
+> **On the exam:** **an MOU is usually not legally binding.** That's its defining property, and it's
+> what gets tested.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **"Never trust, always verify."** The one sentence that carries the topic.
+**"Never trust, always verify."** The one sentence that carries the topic.
 
-🧠 **Three principles: Verify explicitly · Least privilege · Assume breach.**
+**The hotel key card: checked at every door, opens only your room, dies at checkout.** Verify
+explicitly, least privilege, and trust that doesn't last forever.
 
-🧠 **Zero trust removes trust in the network, not in the person.**
+**Zero trust removes trust in the network, not in the person.**
 
-🧠 **SLA = Service **L**evels **A**greed** — uptime and response times, with penalties.
+**SLA = Service Levels Agreed.** Uptime and response times, with penalties.
 
-🧠 **MOU = **M**erely **O**ur **U**nderstanding** — intent, not binding.
+**MOU = Merely Our Understanding.** Intent, not binding.
 
-🧠 **MSA is the umbrella, SOW is the job.**
+**MSA is the umbrella; SOW is the job.**
 
 ---
 
@@ -222,14 +189,14 @@ Answer all five before expanding anything.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — no user or device is trusted by default, regardless of location.** Being on the corporate
-network confers no trust; every request is verified explicitly.
+**B — no user or device is trusted by default, wherever it is.** Being on the company network earns
+no trust; every request is checked.
 
-- **A** describes the traditional castle-and-moat model, which is exactly what zero trust replaces.
+- **A** describes the old castle-and-moat model, which is exactly what zero trust replaces.
 - **C** is the common misreading of the name. Zero trust removes trust based on **network
-  location**, not trust in people. It is an architectural stance, not a statement about staff.
-- **D** describes a product swap. Zero trust is an architecture built from identity,
-  segmentation, device posture and monitoring — not one device replacing another.
+  location**, not trust in people.
+- **D** describes swapping one product for another. Zero trust is built from identity,
+  segmentation, device checks and monitoring, not one box replacing another.
 
 </details>
 
@@ -244,14 +211,13 @@ not met?
 <details>
 <summary><b>Answer</b></summary>
 
-**C — the SLA.** It defines measurable service levels and the consequences of missing them.
+**C — the SLA.** It sets measurable service levels and what happens if they're missed.
 
-- **A** is a broad statement of intent between parties, usually not legally binding, and it
-  specifies no measurable service levels.
-- **B** protects confidential information shared between parties and says nothing about service
-  performance.
-- **D** defines the specific work, deliverables and timelines for a piece of work — what will be
-  done, rather than the service levels it will be delivered to.
+- **A** is a broad statement of intent, usually not legally binding, with no measurable service
+  levels in it.
+- **B** protects shared confidential information and says nothing about service performance.
+- **D** sets out the specific work, deliverables and deadlines: *what* will be done, not the service
+  levels it must meet.
 
 </details>
 
@@ -265,14 +231,14 @@ not met?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — it expresses intent to cooperate and is usually not legally binding.** That is the defining
-characteristic of an MOU and the reason it is tested.
+**B — it states an intention to cooperate and is usually not legally binding.** That's the defining
+feature of an MOU, and the reason it's tested.
 
-- **A** describes a binding contract such as an MSA or SLA. The absence of binding force is the
-  whole point of an MOU.
+- **A** describes a binding contract, such as an MSA or SLA. An MOU's lack of binding force is its
+  whole point.
 - **C** describes a Statement of Work.
-- **D** is wrong: an MOU is weaker than an MSA, not a substitute. Where enforceable obligations
-  are needed, an MSA with SOWs is the instrument.
+- **D** is wrong: an MOU is weaker than an MSA, not a replacement. Where enforceable obligations are
+  needed, the tool is an MSA with SOWs.
 
 </details>
 
@@ -287,15 +253,14 @@ access, and isolates workloads from each other. Which model is being implemented
 <details>
 <summary><b>Answer</b></summary>
 
-**B — zero trust.** Explicit verification of every request, device posture checking, and
-microsegmentation are the defining practices of the model.
+**B — zero trust.** Checking every request, checking device health and walling off workloads are the
+defining practices of the model.
 
-- **A** is the strongest distractor and describes layering independent controls generally. Zero
-  trust uses defence in depth, but the specific combination described — verify every request,
-  check device health, isolate workloads — names zero trust.
-- **C** is the perimeter-based model this approach explicitly rejects.
-- **D** is an access control principle preventing one person from completing a sensitive process
-  alone. Unrelated to what is described.
+- **A** is the strongest distractor. Defence in depth means layering independent controls in
+  general. Zero trust uses layers too, but this specific combination names zero trust.
+- **C** is the perimeter model this approach rejects.
+- **D** stops one person completing a sensitive process alone. It has nothing to do with what's
+  described.
 
 </details>
 
@@ -309,15 +274,14 @@ microsegmentation are the defining practices of the model.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — VPNs grant network-level access, creating implicit trust.** Once connected, the device is on
-the network and can reach whatever routing and firewall rules permit. Zero trust instead brokers
-access to individual applications, so a compromised device reaches only what it was explicitly
-authorised for.
+**B — VPNs grant network-level access, which creates implicit trust.** Once connected, the device is
+on the network and can reach whatever the routing and firewall rules allow. Zero trust grants access
+to individual applications, so a compromised device reaches only what it was explicitly allowed.
 
-- **A** is wrong — modern VPN encryption is strong. The issue is what happens *after* the tunnel
-  is established, not the tunnel itself.
-- **C** is wrong. VPNs commonly use MFA, and doing so is good practice.
-- **D** is wrong: remote access VPNs for individual devices are extremely common.
+- **A** is wrong: modern VPN encryption is strong. The problem is what happens *after* the tunnel is
+  up, not the tunnel itself.
+- **C** is wrong. VPNs often use MFA, and doing so is good practice.
+- **D** is wrong: remote access VPNs for single devices are extremely common.
 
 </details>
 
@@ -328,37 +292,44 @@ authorised for.
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**Where the term came from.** The idea of removing implicit network trust predates the branding by
-some years, and the best-documented large implementation is Google's BeyondCorp, developed after a
-major intrusion and published from 2014 onward. Its premise was that the corporate network should
-be no more trusted than the public internet, with access decisions made per request based on
-device and user rather than network position. NIST SP 800-207 later provided a vendor-neutral
-architecture description, which is the reference worth knowing exists.
+**Where it came from.** The idea of dropping implicit network trust is older than the label. The
+best-documented large rollout is Google's **BeyondCorp**, built after a major intrusion and
+published from 2014. Its premise: the company network should be trusted no more than the public
+internet, and every access decision should depend on the user and device, not network position.
+**NIST SP 800-207** later gave a vendor-neutral description of the architecture.
 
-**Implementation is incremental and slow.** No organisation switches to zero trust in a project.
-It typically starts with strong identity and MFA everywhere, then device posture, then
-application-level access brokering for the highest-value systems, with the flat internal network
-shrinking over years. The realistic end state for most organisations is a much-reduced trusted
-zone rather than its elimination — which is why "we are doing zero trust" usually means "we are
-partway through a multi-year identity and segmentation programme".
+**The parts inside the policy engine.** NIST SP 800-207 splits the decision in two. A **Policy
+Enforcement Point (PEP)** sits in the path of the traffic. It has no judgement of its own: it asks a
+**Policy Decision Point (PDP)** "should this go through?" and obeys the answer. Splitting them is
+deliberate. The PDP can be updated and audited in one place, while PEPs are cheap enough to put in
+front of every application, not just at one perimeter.
 
-**The hard parts.** Legacy applications that cannot do modern authentication, service-to-service
-communication that was never designed to authenticate, and operational technology that predates
-the idea of identity. These are precisely the systems most in need of the model and least able to
-adopt it, so they end up behind gateways and in isolated segments — compensating controls again.
+**Machines verify each other too.** Between services, the usual mechanism is **mutual TLS (mTLS)**.
+In a service mesh such as Istio or Linkerd, every service gets its own short-lived certificate, and
+before service A can call service B, *both* prove who they are. Ordinary HTTPS only proves the
+server's identity. A service on the "trusted" internal network gets no benefit from its location
+if it can't show a valid certificate.
 
-**Why the agreements sit here.** Trust in third parties has the same shape as trust in network
-location: it should be established explicitly and verified rather than assumed. Vendor risk
-management — assessing a supplier's security before onboarding, writing requirements into the
-contract, and reassessing periodically — is the organisational counterpart to verifying every
-request. A supply chain compromise is an attacker exploiting trust that was granted once and never
-re-examined.
+**It happens slowly.** Nobody switches to zero trust in one project. It usually starts with strong
+identity and MFA everywhere, then device checks, then application-level access for the most
+valuable systems, while the flat internal network shrinks over years. For most organisations, the
+realistic end state is a much smaller trusted zone rather than none at all.
 
-**SLAs are weaker than they look.** Service credits for missed uptime typically refund a
-percentage of fees, which rarely approaches the cost of the outage to the customer. An SLA is
-therefore better understood as a statement of expected performance and a trigger for escalation
-than as meaningful financial protection. If continuity genuinely matters, the answer is redundancy
-and an exit plan, not a stronger clause.
+**The hard parts.** Old applications that can't do modern authentication, services that were never
+designed to authenticate to each other, and industrial equipment that predates the idea of
+identity. These are the systems that most need the model and can least adopt it, so they end up
+behind gateways and in isolated segments, as compensating controls.
+
+**Why the agreements belong here.** Trust in suppliers has the same shape as trust in network
+location: it should be set up explicitly and checked, not assumed. **Vendor risk management** is
+the organisational version of verifying every request: assess a supplier's security before signing,
+write requirements into the contract, and reassess regularly. A supply chain attack exploits trust
+that was granted once and never looked at again.
+
+**SLAs are weaker than they look.** The credit for missed uptime is usually a percentage of the fee,
+which rarely comes close to what the outage cost the customer. Treat an SLA as a statement of
+expected performance and a trigger for escalation, not real financial protection. If continuity
+truly matters, the answer is redundancy and an exit plan, not a tougher clause.
 
 </details>
 
@@ -370,13 +341,11 @@ Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
 - **Zero trust = "never trust, always verify."** No trust based on **network location**.
 - **Three principles: verify explicitly · least privilege · assume breach.**
-- **It is an ARCHITECTURE, not a product.** Built from identity, MFA, device posture, microsegmentation, logging.
-- **It does not mean distrusting employees** — it means location earns no trust.
+- **An ARCHITECTURE, not a product:** identity, MFA, device checks, micro-segmentation, logging. It does **not** mean distrusting employees.
 - **A VPN grants NETWORK-level access** = implicit trust = the thing zero trust removes.
-- **SLA** = measurable **service levels** (uptime, response) with remedies. **Binding.** Most-tested.
+- **SLA** = measurable **service levels** (uptime, response) with remedies. **Binding.** The most tested.
 - **MOU** = statement of **intent**, **usually NOT legally binding.** **MOA** = more formal, sets responsibilities.
-- **MSA** = binding **master** contract (the umbrella). **SOW** = the **specific work** under it.
-- **NDA** = protects confidential information shared between parties.
+- **MSA** = the binding **master** contract (the umbrella). **SOW** = the **specific work** under it. **NDA** = protects shared secrets.
 
 ---
 

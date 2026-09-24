@@ -1,0 +1,14 @@
+flowchart TD
+    U["MOU<br/>a statement of intent<br/>usually NOT binding"]
+    M["MSA<br/>the master contract<br/>general terms, BINDING"]
+    N["NDA<br/>protects secrets<br/>shared between parties"]
+    M --> S1["SOW<br/>specific job 1"]
+    M --> S2["SOW<br/>specific job 2"]
+    M --> SL["SLA<br/>service levels:<br/>uptime, response times"]
+
+    style U fill:#26292e,stroke:#868E96,color:#fff
+    style M fill:#12243f,stroke:#5C7CFA,color:#fff
+    style N fill:#0f3038,stroke:#12B5A5,color:#fff
+    style S1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style S2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style SL fill:#3a2c12,stroke:#F08C00,color:#fff

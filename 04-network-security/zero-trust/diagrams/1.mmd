@@ -1,0 +1,19 @@
+flowchart TB
+    subgraph CM["CASTLE AND MOAT: trust the inside"]
+        direction LR
+        C1["Pass the front<br/>door ONCE"] --> C2["Trusted everywhere<br/>inside the network"] --> C3["One stolen password =<br/>the run of the place"]
+    end
+    subgraph ZT["ZERO TRUST: check every request"]
+        direction LR
+        Z1["EVERY request"] --> Z2["Checked: who,<br/>which device, for what"] --> Z3["Access to ONE app,<br/>checked again later"]
+    end
+    CM ~~~ ZT
+
+    style C1 fill:#26292e,stroke:#868E96,color:#fff
+    style C2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C3 fill:#3a1a20,stroke:#E03131,color:#fff
+    style Z1 fill:#26292e,stroke:#868E96,color:#fff
+    style Z2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style Z3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style CM fill:#161b22,stroke:#30363d,color:#e6edf3
+    style ZT fill:#161b22,stroke:#30363d,color:#e6edf3
