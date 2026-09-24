@@ -1,0 +1,14 @@
+flowchart TD
+    subgraph SOD["SEGREGATION OF DUTIES"]
+        S1["Different STEPS<br/>go to different people"] --> S2["A requests,<br/>B approves"]
+    end
+    subgraph DC["DUAL CONTROL"]
+        D1["The SAME single action<br/>needs two people at once"] --> D2["Two keys turned<br/>together on a vault"]
+    end
+
+    style SOD fill:#161b22,stroke:#5C7CFA,color:#fff
+    style DC fill:#161b22,stroke:#12B5A5,color:#fff
+    style S1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style D1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style D2 fill:#0f3038,stroke:#12B5A5,color:#fff
