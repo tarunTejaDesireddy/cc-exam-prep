@@ -1,0 +1,11 @@
+flowchart TD
+    D["Customer data: encrypted, only<br/>3 staff can access it, then<br/>sold to advertisers"] --> C["CONFIDENTIALITY asks:<br/>is it protected from people<br/>who shouldn't see it?"]
+    D --> P["PRIVACY asks:<br/>were we ALLOWED to<br/>collect, use or share it?"]
+    C --> C1["Yes: intact"]
+    P --> P1["No: violated"]
+
+    style D fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style P1 fill:#3a1a20,stroke:#E03131,color:#fff

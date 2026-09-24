@@ -1,0 +1,9 @@
+flowchart TD
+    S["DATA SUBJECT<br/>the person the<br/>data is about"] -->|"data about them"| O["DATA OWNER / CONTROLLER<br/>DECIDES: purpose,<br/>classification, access"]
+    O -->|"hands processing to"| P["DATA PROCESSOR<br/>acts on the<br/>controller's instructions"]
+    O -->|"hands protection to"| C["DATA CUSTODIAN<br/>IMPLEMENTS: storage,<br/>backups, permissions"]
+
+    style S fill:#26292e,stroke:#868E96,color:#fff
+    style O fill:#0f3038,stroke:#12B5A5,color:#fff
+    style P fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff

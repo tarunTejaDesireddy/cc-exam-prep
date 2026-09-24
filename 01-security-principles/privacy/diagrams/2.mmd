@@ -1,0 +1,11 @@
+flowchart LR
+    A["Postcode<br/>not PII alone"] --> X["Combined"]
+    B["Date of birth<br/>not PII alone"] --> X
+    C["Gender<br/>not PII alone"] --> X
+    X --> R["Identifies ONE<br/>specific person:<br/>now it IS PII"]
+
+    style A fill:#26292e,stroke:#868E96,color:#fff
+    style B fill:#26292e,stroke:#868E96,color:#fff
+    style C fill:#26292e,stroke:#868E96,color:#fff
+    style X fill:#3a2c12,stroke:#F08C00,color:#fff
+    style R fill:#3a1a20,stroke:#E03131,color:#fff
