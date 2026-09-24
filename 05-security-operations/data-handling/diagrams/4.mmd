@@ -1,0 +1,12 @@
+flowchart LR
+    Q(["What are you<br/>getting rid of?"])
+    Q -->|"a drive reused<br/>inside the company"| C["CLEARING<br/>overwrite it"]
+    Q -->|"sensitive media<br/>leaving for good"| D["DESTRUCTION<br/>shred or incinerate"]
+    Q -->|"an SSD"| S["Secure erase, crypto-shred<br/>or destroy: NEVER degauss"]
+    Q -->|"data in the cloud"| K["CRYPTO-SHREDDING<br/>destroy the key"]
+
+    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style D fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style S fill:#0f3038,stroke:#12B5A5,color:#fff
+    style K fill:#0f3038,stroke:#12B5A5,color:#fff

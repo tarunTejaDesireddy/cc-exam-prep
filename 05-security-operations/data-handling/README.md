@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="../assets/module-05-banner.svg" alt="05 · Security Operations" width="100%">
+<img src="../assets/module-05-banner.svg" alt="05 · Security Operations and Incident Response" width="100%">
 
-# 🗄️ Data handling
+# 🗄️ Data Handling
 
-### *The life of data, the three states it exists in, and how to destroy it properly*
+### *The life of data, the three states it lives in, and how to destroy it properly*
 
 [![Module](https://img.shields.io/badge/Module-05_Security_Operations-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
-📌 *Three states, and disposal methods with precise definitions. The state you forget is data in use — and it is the one encryption struggles with.*
+📌 *Know the three states (data in use is the hardest to protect), classify at creation, and use the exact disposal terms: delete isn't sanitising, degaussing does nothing to SSDs, and crypto-shredding is the cloud answer.*
 
 </div>
 
@@ -18,31 +18,16 @@
 
 ## 🧸 The big idea
 
-Grain has a life too: it's harvested, stored in the grain-hut, ground by the miller, carried to
-another village, put away for winter, and eventually used up or thrown out. Data has the same
-life. It is **created**, **stored**, **used**, **shared**, **archived** and finally
-**destroyed** — and each stage needs different protection.
+Think about cash in a bank:
 
-The idea the exam tests hardest is that data exists in **three states**, and each state needs a
-different control. Grain sealed in a jar inside a locked storehouse is easy to protect — just
-guard the storehouse. Grain being carried down the road can be protected too — hide it, guard it,
-disguise the cart. But grain already spread out on the miller's grinding stone, mid-grind, cannot
-be locked away at all — it has to be exposed to actually get ground. That's the state nobody
-thinks to protect properly.
+- Overnight in the **vault**, it's easy to protect: lock the vault. That's **data at rest**.
+- In an **armoured van** between branches, you protect the journey. That's **data in transit**.
+- In the **cashier's hands**, being counted, it can't be locked away at all: to count it, someone
+  has to handle it. That's **data in use**, and it's the hardest state to protect.
 
-| State | Means | Protected by |
-|---|---|---|
-| **At rest** | Stored — on a disk, in a database, on a backup tape | Encryption at rest, access control |
-| **In transit** | Moving across a network | TLS, VPN, encrypted protocols |
-| **In use** | Loaded in memory, being processed | **Hardest to protect** — access control, memory protection |
-
-> 🎯 **Data in use is the state candidates forget, and the one encryption cannot easily protect** —
-> because to process data, something has to decrypt it. If a question asks which state is hardest
-> to protect, the answer is in use.
-
-The second half of this topic is **destruction**. Burying a bad batch of grain in a shallow pit
-isn't the same as burning it to ash — someone could still dig the pit up. The exam's destruction
-terms have precisely that kind of distinction built in, and deleting a file is not one of them.
+Data also has a life. It's created, stored, used, shared, archived and finally destroyed, and the
+end matters as much as the start. Throwing a bank statement in the bin isn't the same as shredding
+it, and **deleting a file isn't the same as destroying the data**.
 
 ---
 
@@ -50,147 +35,120 @@ terms have precisely that kind of distinction built in, and deleting a file is n
 
 | Word | What it means on this exam |
 |---|---|
-| **Data at rest** | Stored data not currently being accessed or moved. |
+| **Data at rest** | Stored data: on a disk, in a database, on a backup. |
 | **Data in transit** | Data moving across a network. Also called **data in motion**. |
-| **Data in use** | Data loaded in memory and being actively processed. |
+| **Data in use** | Data loaded in memory and being processed. |
 | **Data lifecycle** | Create → store → use → share → archive → destroy. |
-| **Retention** | How long data is kept before disposal. |
-| **Retention policy** | The rule defining retention periods for each data type. |
-| **Sanitisation** | Removing data so it cannot be recovered. |
-| **Clearing** | Overwriting data so it cannot be recovered by ordinary means. |
-| **Purging** | Stronger removal, resistant to laboratory recovery — for example degaussing. |
+| **Retention policy** | The rule setting how long each type of data is kept. |
+| **Legal hold** | An order to stop destroying data that may be needed for a court case or investigation. |
+| **Sanitisation** | Removing data so it can't be recovered. |
+| **Clearing** | Overwriting data so ordinary tools can't recover it. |
+| **Purging** | Stronger removal that resists laboratory recovery, such as degaussing. |
 | **Destruction** | Physically destroying the media. The most thorough. |
-| **Degaussing** | Using a magnetic field to erase magnetic media. **Does not work on SSDs.** |
-| **Crypto-shredding** | Destroying the encryption key so encrypted data becomes unrecoverable. |
-| **Remanence** | Residual data remaining on media after an attempt to remove it. |
+| **Degaussing** | Erasing magnetic media with a strong magnetic field. **Does nothing to SSDs.** |
+| **Crypto-shredding** | Destroying the encryption key, so the encrypted data can never be read. |
+| **Remanence** | Data left behind on media after an attempt to remove it. |
+| **Masking** | Hiding part of a value, such as showing only the last four digits of a card. |
 
 ---
 
-## 🔄 The data lifecycle
+## 🔍 The explanation
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+### The data lifecycle
 
-> ⚠️ **Classification happens at creation.** Data should be labelled when it is made, because
-> every later protection decision depends on knowing what it is. Classifying afterwards means
-> everything created in the meantime was handled at the wrong level.
+<p align="center"><img src="diagrams/1.svg" alt="In service, data is created and labelled, stored and encrypted, and used under access control; moving on, it is shared with encryption in transit, archived and still labelled, and finally destroyed by sanitising it" width="580"></p>
 
-**Archived data is still classified data.** Moving it to cheaper storage does not reduce its
-sensitivity — a common real-world failure and a reasonable exam scenario.
+> ⚠️ **Classify data when it's created.** Every later decision (how to store it, who can see it,
+> how long to keep it) depends on knowing what it is. Classify later, and everything made in the
+> meantime was handled at the wrong level.
 
----
+**Archived data is still classified data.** Moving it to cheaper storage doesn't make it any less
+sensitive. That's a common real-world slip, and a fair exam scenario.
 
-## 🧊 The three states
+### The three states
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/2.svg" alt="Data at rest sits on a disk or in a database and is protected by encrypting it where it sits; data in transit crosses a network and is protected by TLS or a VPN; data in use is in memory being processed and is the hardest to protect" width="660"></p>
 
 | | Where it is | Threats | Controls |
 |---|---|---|---|
-| **At rest** | Disks, databases, backups, USB drives, phones | Theft of media, unauthorised file access | Full-disk and file encryption, access control, physical security |
-| **In transit** | Networks, the internet, between systems | Interception, on-path attacks, eavesdropping | TLS, VPN, IPSec, SFTP instead of FTP |
-| **In use** | RAM, CPU registers, caches | Memory scraping, malicious processes, side channels | Access control, memory protection, secure enclaves |
+| **At rest** | Disks, databases, backups, USB drives, phones | Stolen media, unauthorised file access | Disk and file encryption, access control, physical security |
+| **In transit** | Networks, the internet, links between systems | Interception, eavesdropping, on-path attacks | TLS, VPN, IPsec, SFTP instead of FTP |
+| **In use** | Memory (RAM), the processor | Memory scraping, malicious processes | Access control, memory protection, secure enclaves |
 
 > [!IMPORTANT]
-> **Encryption protects data at rest and in transit. It cannot easily protect data in use**,
-> because processing requires plaintext. This is why a running system with decrypted disks is
-> vulnerable in a way a powered-off laptop is not.
+> **Encryption protects data at rest and in transit. It can't easily protect data in use**, because
+> the computer needs the plain data to work on it. That's why a running system with its disks
+> unlocked is exposed in a way a switched-off laptop isn't.
 
----
+### ⏳ Retention
 
-## ⏳ Retention
-
-**Keep data only as long as it is needed**, then dispose of it properly.
-
-Retention periods come from three sources, and they conflict:
+**Keep data only as long as it's needed**, then dispose of it properly. Retention periods come from
+three places, and they pull in different directions:
 
 | Driver | Pushes towards |
 |---|---|
-| **Legal and regulatory requirements** | Keeping data for a defined minimum |
-| **Business need** | Keeping data while it is useful |
-| **Privacy principles** | **Deleting** data once the purpose is fulfilled |
+| **Law and regulation** | Keeping data for at least a set minimum |
+| **Business need** | Keeping data while it's useful |
+| **Privacy principles** | **Deleting** data once its purpose is fulfilled |
 
-> ⚠️ **Keeping data longer than necessary is a liability, not an asset.** Data you no longer need
-> can still be breached, still be subject to disclosure requests, and still attracts regulatory
-> obligations. "We keep everything forever" is a bad answer.
+> ⚠️ **Keeping data longer than necessary is a liability, not an asset.** Data you no longer need can
+> still be breached, still be requested in legal disclosure, and still carries obligations. "We keep
+> everything forever" is a bad answer.
 
-**A legal hold** suspends normal destruction when data is relevant to litigation or an
-investigation. It overrides the retention schedule — destroying data under legal hold is a
+A **legal hold** pauses normal destruction when data may be needed for a court case or an
+investigation. It overrides the retention schedule, and destroying data under a legal hold is a
 serious matter.
 
----
+### 🔥 Destruction: the exact terms
 
-## 🔥 Destruction — the precise terms
+**Deleting a file doesn't remove the data.** It removes the pointer to it and marks the space as free
+to reuse, like tearing the entry out of a book's index while the page stays in the book. The data
+stays until something overwrites it. That leftover is called **remanence**.
 
-Just knocking down the sign pointing to the grain-hut doesn't make the grain vanish — someone
-who knows where to dig will still find it. This is where the exam gets specific. **Deleting a
-file does not remove the data**; it removes the pointer to it and marks the space reusable. The
-data remains until overwritten, which is **remanence**.
+<p align="center"><img src="diagrams/3.svg" alt="From weakest to strongest: deleting removes only the pointer and the data is still there; clearing overwrites the data and the media can be reused; purging by degaussing or crypto-erase beats laboratory recovery; destruction shreds, burns or pulverises the media so it is gone" width="860"></p>
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+From left to right, each method is **more thorough, and leaves the media less reusable**.
 
-Left to right, **more thorough and less reusable.**
-
-| Method | Does | Media survives? |
+| Method | What it does | Does the media survive? |
 |---|---|---|
-| **Deleting** | Removes the pointer. **Not a sanitisation method** | Yes — and so does the data |
-| **Clearing** | Overwrites the data | ✅ Yes — media can be reused internally |
-| **Purging** | Degaussing or cryptographic erasure; resists laboratory recovery | Usually not for degaussing |
-| **Destruction** | Shredding, incineration, pulverising | ❌ No |
+| **Deleting** | Removes the pointer. **Not a sanitisation method** | Yes, and so does the data |
+| **Clearing** | Overwrites the data | ✅ Yes: it can be reused inside the organisation |
+| **Purging** | Degaussing or cryptographic erase; resists laboratory recovery | Usually not, for degaussing |
+| **Destruction** | Shredding, incinerating, pulverising | ❌ No |
 
 > [!CAUTION]
-> **Degaussing works only on magnetic media.** It erases hard disks and tapes. It does **nothing**
-> to solid-state drives, which store data in flash memory rather than magnetically. This is a
-> favourite exam item.
+> **Degaussing only works on magnetic media**, such as hard disks and tapes. It does **nothing** to
+> solid-state drives (SSDs), which store data in flash memory, not magnetically. This is a favourite
+> exam item.
 
-**SSDs are genuinely harder to sanitise**, because wear levelling spreads writes across cells, so
-overwriting a file does not reliably reach every copy of it. The reliable options are the drive's
-built-in secure erase, **crypto-shredding**, or physical destruction.
+**SSDs are harder to sanitise.** To avoid wearing out, an SSD spreads its writes across all its
+memory cells, so overwriting a file doesn't reliably reach every copy of it. The reliable options
+are the drive's built-in **secure erase**, **crypto-shredding**, or physical destruction.
 
-**Crypto-shredding** means encrypting data and then destroying the key. The ciphertext remains and
-is unrecoverable without the key. It is the practical answer for **cloud storage**, where you
-cannot physically destroy someone else's disks.
+**Crypto-shredding** means the data was encrypted, and you destroy the key. The scrambled data is
+left behind but can never be read. It's the practical answer for **cloud storage**, where you can't
+physically destroy someone else's disks.
 
-> 🎯 **Choose the method by sensitivity and by whether the media is being reused.** Reuse
-> internally → clearing. Leaving the organisation with sensitive data → destruction.
+<p align="center"><img src="diagrams/4.svg" alt="Choosing a disposal method: clear a drive that will be reused inside the company; destroy sensitive media that is leaving for good; for an SSD use secure erase, crypto-shredding or destruction and never degaussing; for data in the cloud use crypto-shredding by destroying the key" width="640"></p>
 
-### 🔬 How a drive's own "secure erase" and a CPU enclave actually work
+> 🎯 **Match the method to the sensitivity, and to whether the media is being reused.** Reused
+> internally → clearing. Sensitive data leaving the organisation → destruction.
 
-**Most modern SSDs are self-encrypting drives (SEDs) already, whether anyone configured
-encryption or not.** Every bit written to the flash is encrypted on the way in by a key the
-drive itself generates and never exposes. The drive's built-in **secure erase** command doesn't
-overwrite anything at all — it simply tells the drive's own controller to discard and regenerate
-that internal key. Every existing block instantly becomes unreadable ciphertext with no key
-left anywhere, which is why it's near-instant and reliable regardless of wear levelling: it's
-crypto-shredding, just performed *inside the drive itself* rather than at the application layer.
+### 🎭 Masking
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-**A trusted execution environment is the concrete answer to "data in use is the hardest state to
-protect."** Intel SGX and AMD SEV carve out a hardware-enforced region of memory — an **enclave**
-— where code runs on genuinely decrypted data, but the CPU encrypts everything the instant it
-leaves that region for ordinary RAM. Critically, this holds even against an attacker who has
-compromised the operating system or hypervisor itself: root access normally means "can read
-anything in memory," and an enclave is specifically designed to keep its contents opaque even
-to that level of compromise. This is what **confidential computing** in cloud platforms actually
-sells: running your workload on a provider's hardware while the provider's own privileged access
-still can't see your data being processed.
-
----
-
-## 🎭 Masking
-
-**Masking** hides part or all of a data value while keeping the data usable for a purpose that
-doesn't need the real value — showing `**** **** **** 1234` for a card number on a support
-screen, or substituting realistic fake values in a test/training database.
+**Masking** hides part or all of a value, while keeping the data usable for a job that doesn't need
+the real value. Examples: showing `**** **** **** 1234` for a card number on a support screen, or
+filling a test database with realistic fake values.
 
 | | Protects by | Reversible? | Typical use |
 |---|---|---|---|
-| **Masking** | Hiding/obscuring the real value from view | Sometimes (depends on implementation) | Support screens, non-production/test environments |
-| **Encryption** | Making the value unreadable without a key | Yes, with the key | Data at rest/in transit that must be fully recoverable |
-| **Hashing** | One-way transformation | No (by design) | Integrity checks, password storage |
+| **Masking** | Hiding the real value from view | Sometimes, depending on how it's done | Support screens, test environments |
+| **Encryption** | Making the value unreadable without a key | Yes, with the key | Data that must be fully recovered later |
+| **Hashing** | A one-way transformation | No, by design | Integrity checks, storing passwords |
 
-> 🎯 **Masking's purpose is different from encryption's.** Encryption protects data that must
-> later be fully recovered. Masking protects data that a viewer needs to *see enough of* to do
-> their job (confirm it's the right account) without seeing the *whole* real value.
+> 🎯 **Masking has a different purpose from encryption.** Encryption protects data you'll need back
+> in full later. Masking lets someone see *enough* of a value to do their job (confirm it's the
+> right account) without seeing all of it.
 
 ---
 
@@ -198,14 +156,14 @@ screen, or substituting realistic fake values in a test/training database.
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **At rest** | Stored. | **In transit**, moving. **In use**, in memory. Three distinct states. |
-| **In use** | In memory, being processed. **Hardest to protect.** | At rest — a running system has decrypted its data into memory. |
-| **Deleting** | Removes the pointer. Data remains. | **Clearing**, which overwrites it. Deleting is not sanitisation. |
-| **Clearing** | Overwrite; media reusable. | **Purging**, which resists laboratory recovery. |
+| **At rest** | Stored. | **In transit** (moving) and **in use** (in memory). Three different states. |
+| **In use** | In memory, being processed. **Hardest to protect.** | **At rest.** A running system has decrypted its data into memory. |
+| **Deleting** | Removes the pointer. The data stays. | **Clearing**, which overwrites it. Deleting isn't sanitisation. |
+| **Clearing** | Overwrite; the media can be reused. | **Purging**, which resists laboratory recovery. |
 | **Purging** | Degaussing, cryptographic erase. | **Destruction**, which physically destroys the media. |
-| **Degaussing** | Magnetic erasure. **Magnetic media only.** | A universal method — it does nothing to SSDs. |
-| **Crypto-shredding** | Destroy the key; ciphertext is useless. | Deleting the data, which leaves it recoverable. |
-| **Retention** | How long to keep it. | **Legal hold**, which suspends destruction for litigation. |
+| **Degaussing** | Magnetic erasure. **Magnetic media only.** | A method that works on everything. It does nothing to SSDs. |
+| **Crypto-shredding** | Destroy the key; the encrypted data is useless. | **Deleting**, which leaves the data recoverable. |
+| **Retention** | How long to keep data. | **Legal hold**, which pauses destruction for a court case or investigation. |
 
 ---
 
@@ -214,33 +172,33 @@ screen, or substituting realistic fake values in a test/training database.
 > [!WARNING]
 > **In the job:** encryption is the answer to protecting data, full stop.
 >
-> **On the exam:** encryption covers **at rest and in transit**. **Data in use** must be decrypted
-> to be processed, which is why it is described as the hardest state to protect.
+> **On the exam:** encryption covers **at rest and in transit**. **Data in use** has to be decrypted
+> to be processed, which is why it's the hardest state to protect.
 
 > [!WARNING]
-> **In the job:** more data is more capability, and deleting it feels like losing an asset.
+> **In the job:** more data means more capability, and deleting it feels like losing something.
 >
-> **On the exam:** **holding data beyond its retention period is a liability.** Data you no longer
-> need can still be breached and still attracts obligations.
+> **On the exam:** **keeping data past its retention period is a liability.** Data you no longer need
+> can still be breached and still carries obligations.
 
 > [!WARNING]
-> **In the job:** you would wipe a drive and reissue it without much thought.
+> **In the job:** you'd wipe a drive and hand it out again without much thought.
 >
-> **On the exam:** the method must match the sensitivity. **Degaussing does not work on SSDs**, and
-> a deleted file is not a sanitised file.
+> **On the exam:** the method has to match the sensitivity. **Degaussing does nothing to SSDs**, and a
+> deleted file is not a sanitised file.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **Rest · Transit · Use.** Stored, moving, being worked on. **Use is the hard one.**
+**Vault · van · cashier's hands = rest · transit · use.** The cashier's hands are the hard part.
 
-🧠 **Delete · Clear · Purge · Destroy** — increasingly thorough, decreasingly reusable.
-*Delete isn't sanitisation at all.*
+**Delete · clear · purge · destroy:** more thorough each step, less reusable. *Delete isn't
+sanitisation at all.*
 
-🧠 **Degaussing is magnetic.** No magnets in an SSD, no effect.
+**Degaussing is magnetic.** No magnets in an SSD, so no effect.
 
-🧠 **Crypto-shred = kill the key.** The answer for cloud storage.
+**Crypto-shred = kill the key.** The answer for the cloud.
 
 ---
 
@@ -258,18 +216,17 @@ Answer all five before expanding anything.
 <details>
 <summary><b>Answer</b></summary>
 
-**C — data in use, because it must be decrypted to be processed.** Encryption cannot protect data
-that a CPU is actively working on, which leaves memory scraping and malicious processes as live
-threats.
+**C — data in use, because it has to be decrypted to be processed.** Encryption can't protect data
+the processor is working on, which leaves memory scraping and malicious processes as live threats.
 
-- **A** is well addressed by encryption at rest — a stolen encrypted disk yields nothing.
-- **B** is well addressed by TLS and VPNs, and is close to a solved problem in practice.
-- **D** is wrong. The three states differ substantially in how well available controls cover them.
+- **A** is well covered by encryption at rest: a stolen encrypted disk gives away nothing.
+- **B** is well covered by TLS and VPNs, and is close to a solved problem in practice.
+- **D** is wrong. The three states differ a lot in how well the available controls cover them.
 
 </details>
 
-**Q2.** An organisation degausses a batch of retired solid-state drives before disposal. What is
-the problem?
+**Q2.** An organisation degausses a batch of retired solid-state drives before disposal. What is the
+problem?
 
 - **A.** Degaussing is too slow for bulk disposal
 - **B.** Degaussing has no effect on solid-state drives, so the data remains
@@ -279,14 +236,14 @@ the problem?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — degaussing has no effect on solid-state drives.** It erases magnetic media by disrupting the
-magnetic field. SSDs store data in flash memory cells, so a magnetic field does nothing at all.
+**B — degaussing has no effect on solid-state drives.** It erases magnetic media with a magnetic
+field. SSDs store data in flash memory cells, so the magnet does nothing at all.
 
-- **A** is an operational concern and irrelevant to whether the data is gone.
-- **C** is true of magnetic drives and beside the point; the concern here is that the data survives.
-- **D** is exactly the misconception the question exists to correct.
+- **A** is about speed, which doesn't matter if the data survives.
+- **C** is true of magnetic drives and beside the point here: the problem is that the data survives.
+- **D** is exactly the misunderstanding this question exists to correct.
 
-For SSDs the options are the drive's built-in secure erase, crypto-shredding, or physical
+For SSDs, the options are the drive's built-in secure erase, crypto-shredding, or physical
 destruction.
 
 </details>
@@ -301,13 +258,13 @@ destruction.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — clearing overwrites against ordinary recovery; purging resists laboratory recovery.**
-Clearing typically leaves the media reusable within the organisation; purging is stronger and
-often ends the media's usable life.
+**B — clearing overwrites against ordinary recovery; purging resists laboratory recovery.** Clearing
+usually leaves the media reusable inside the organisation; purging is stronger and often ends the
+media's useful life.
 
-- **A** reverses them and confuses clearing with destruction.
-- **C** invents a media-type split that does not exist.
-- **D** is wrong, and the gradation is what the question tests.
+- **A** swaps them round and confuses clearing with destruction.
+- **C** invents a split by media type that doesn't exist.
+- **D** is wrong, and the difference in strength is exactly what's being tested.
 
 </details>
 
@@ -322,15 +279,15 @@ unrecoverable after the retention period. Which approach is MOST practical?
 <details>
 <summary><b>Answer</b></summary>
 
-**C — crypto-shredding.** Destroy the keys and the remaining ciphertext is unrecoverable, which is
-the standard answer where you do not control the physical media.
+**C — crypto-shredding.** Destroy the keys and the remaining encrypted data can never be read. It's
+the standard answer when you don't control the physical media.
 
-- **A** is impossible. You cannot physically access a cloud provider's hardware, and it would
-  destroy other tenants' data.
-- **B** is impossible for the same reason, and degaussing would not apply to the underlying
-  storage in any case.
-- **D** removes your access to the data. It gives no assurance about copies in backups,
-  replication or snapshots, which is exactly the gap crypto-shredding closes.
+- **A** is impossible: you can't get at a cloud provider's hardware, and it would destroy other
+  customers' data too.
+- **B** is impossible for the same reason, and degaussing wouldn't work on most modern storage
+  anyway.
+- **D** removes *your* access to the data. It gives no assurance about copies in backups,
+  replicas or snapshots, which is exactly the gap crypto-shredding closes.
 
 </details>
 
@@ -344,13 +301,14 @@ the standard answer where you do not control the physical media.
 <details>
 <summary><b>Answer</b></summary>
 
-**A — at creation.** Every later handling decision — storage, encryption, access, sharing,
-retention, disposal — depends on knowing what the data is.
+**A — when it's created.** Every later decision (storage, encryption, access, sharing, retention,
+disposal) depends on knowing what the data is.
 
-- **B** leaves everything unlabelled until an external transfer, by which point it has already been
-  stored and handled without appropriate protection.
-- **C** is far too late. Data is most actively used long before it is archived.
-- **D** treats classification as a compliance response rather than the operational foundation it is.
+- **B** leaves everything unlabelled until it goes outside, by which time it has already been stored
+  and handled without the right protection.
+- **C** is far too late. Data is used most heavily long before it's archived.
+- **D** treats classification as paperwork for a regulator rather than the foundation everything else
+  rests on.
 
 </details>
 
@@ -361,38 +319,38 @@ retention, disposal — depends on knowing what the data is.
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**Protecting data in use is an active research area.** Several approaches exist and all involve
-trade-offs. **Trusted execution environments** — secure enclaves in the CPU — keep data encrypted
-in memory and decrypt only inside a protected region, though they have suffered side-channel
-attacks. **Homomorphic encryption** allows computation on ciphertext without decrypting, and
-remains far too slow for general use. **Confidential computing** is the commercial packaging of
-enclave technology in cloud platforms. None is mature enough to be the general answer, which is
-why "in use" is still the hard state.
+**Protecting data in use is still an active field.** **Trusted execution environments** carve out a
+hardware-protected region of memory, an **enclave** (Intel SGX, AMD SEV), where code works on real,
+decrypted data, but the processor encrypts everything the moment it leaves that region. This holds
+even against an attacker who controls the operating system or hypervisor. Cloud providers sell this
+as **confidential computing**: your workload runs on their hardware while even their own
+administrators can't see the data being processed. Enclaves have suffered side-channel attacks,
+though. **Homomorphic encryption** lets you compute directly on encrypted data, but it's still far
+too slow for general use. None of these is mature enough to be the general answer, which is why
+"in use" is still the hard state.
 
-**Why overwriting SSDs is unreliable.** Flash memory cells wear out after a limited number of
-write cycles, so drive controllers spread writes across the whole device — wear levelling. When
-you overwrite a file, the controller often writes to fresh cells and marks the old ones invalid
-rather than erasing them, so the original data physically remains until the garbage collector gets
-to it. The drive's own secure erase command instructs the controller to purge everything including
-those spare areas, which is why it is the reliable route where physical destruction is not
-available.
+**Why overwriting an SSD is unreliable, and how secure erase works.** Flash cells wear out after a
+limited number of writes, so the drive's controller spreads writes across the whole device (wear
+levelling). When you overwrite a file, the controller often writes to fresh cells and simply marks
+the old ones invalid, so the original data physically remains for a while. Most modern SSDs are
+also **self-encrypting**: everything written is encrypted with a key the drive keeps to itself. The
+built-in secure erase command doesn't overwrite anything. It tells the drive to throw away that key
+and make a new one, so every old block instantly becomes unreadable. It's crypto-shredding,
+performed inside the drive.
 
-**One overwrite pass is enough on modern drives.** The multi-pass overwrite patterns that became
-folklore were designed for the recording densities of much older magnetic media. Current guidance
-accepts a single overwrite as sufficient for clearing modern hard drives, because the theoretical
-laboratory recovery techniques the multi-pass schemes defended against do not work on today's
-densities. The exam does not test pass counts, but it explains why the older advice persists.
+**One overwrite pass is enough on modern hard drives.** The multi-pass patterns that became folklore
+were designed for much older, less dense magnetic media. Current guidance accepts a single overwrite
+for clearing modern hard drives. The exam doesn't test pass counts, but it explains why the old
+advice lingers.
 
-**Retention as a defensive strategy.** The most reliable way to survive a breach of a dataset is
-not to hold it. Organisations that aggressively delete data past its retention period reduce both
-breach impact and the cost of responding to regulatory access requests. This is data minimisation
-from the privacy topic, applied at the other end of the lifecycle — and it is the rare security
-measure that also saves money.
+**The best way to survive a breach of a dataset is not to hold it.** Organisations that delete data
+once its retention period ends reduce both the damage from a breach and the cost of answering
+regulators' access requests. It's one of the rare security measures that also saves money.
 
-**Backups are where retention policies go to die.** Deleting a record from a production database
-does not remove it from last month's backups, and honouring a deletion request across a backup
-estate is genuinely difficult. This is a recognised tension in data protection practice, usually
-handled by documenting that backups are restored-and-re-deleted rather than selectively edited.
+**Backups are where retention policies go to die.** Deleting a record from the live database
+doesn't remove it from last month's backups, and honouring a deletion request across every backup
+is genuinely hard. It's usually handled by documenting that any restored backup gets the deletion
+re-applied, rather than editing old backups one record at a time.
 
 </details>
 
@@ -402,17 +360,15 @@ handled by documenting that backups are restored-and-re-deleted rather than sele
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-- **Three states: AT REST (stored) · IN TRANSIT (moving) · IN USE (in memory).**
-- **Data IN USE is the hardest to protect** — it must be decrypted to be processed.
+- **Three states: AT REST (stored) · IN TRANSIT (moving) · IN USE (in memory).** In use is the **hardest** to protect: it must be decrypted to be processed.
 - **Encryption covers at rest and in transit, NOT in use.**
-- **Lifecycle: create → store → use → share → archive → destroy. Classify at CREATION.**
-- **Archived data is still classified data.**
+- **Lifecycle: create → store → use → share → archive → destroy. Classify at CREATION.** Archived data is still classified.
 - **Delete ≠ sanitise.** Deleting removes the pointer; the data remains (**remanence**).
-- **Clearing** = overwrite, media reusable. **Purging** = degauss/crypto-erase, resists lab recovery. **Destruction** = shred/incinerate.
-- **Masking hides a value for viewing; encryption protects a value for later recovery.**
-- **DEGAUSSING DOES NOT WORK ON SSDs** — magnetic media only.
+- **Clearing** = overwrite, media reusable. **Purging** = degauss / crypto-erase, resists lab recovery. **Destruction** = shred / incinerate.
+- **DEGAUSSING DOES NOTHING TO SSDs** (magnetic media only).
 - **Crypto-shredding = destroy the key.** The answer for cloud storage.
-- **Keeping data past its retention period is a LIABILITY.** **Legal hold** suspends destruction.
+- **Masking hides a value for viewing; encryption protects a value you'll need back.**
+- **Keeping data past its retention period is a LIABILITY.** A **legal hold** pauses destruction.
 
 ---
 

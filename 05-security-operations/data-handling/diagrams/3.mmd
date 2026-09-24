@@ -1,0 +1,9 @@
+flowchart LR
+    DL["DELETE<br/>only the pointer goes<br/>DATA STILL THERE"] --> CL["CLEARING<br/>overwrite it<br/>media can be reused"]
+    CL --> PU["PURGING<br/>degauss or crypto-erase<br/>beats lab recovery"]
+    PU --> DE["DESTRUCTION<br/>shred, burn, pulverise<br/>media is gone"]
+
+    style DL fill:#3a1a20,stroke:#E03131,color:#fff
+    style CL fill:#12243f,stroke:#5C7CFA,color:#fff
+    style PU fill:#0f3038,stroke:#12B5A5,color:#fff
+    style DE fill:#1d3a2a,stroke:#2F9E44,color:#fff

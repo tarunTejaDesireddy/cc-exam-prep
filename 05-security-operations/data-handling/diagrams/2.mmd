@@ -1,0 +1,10 @@
+flowchart TD
+    D(["Where is the data right now?"])
+    D --> R["AT REST<br/>on a disk, in a database<br/>encrypt it where it sits"]
+    D --> T["IN TRANSIT<br/>crossing a network<br/>TLS, VPN"]
+    D --> U["IN USE<br/>in memory, being processed<br/>HARDEST TO PROTECT"]
+
+    style D fill:#26292e,stroke:#868E96,color:#fff
+    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style T fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style U fill:#3a2c12,stroke:#F08C00,color:#fff

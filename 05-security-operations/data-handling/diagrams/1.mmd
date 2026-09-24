@@ -1,0 +1,19 @@
+flowchart TB
+    subgraph R1["1. IN SERVICE"]
+        direction LR
+        C["CREATE<br/>label it here"] --> S["STORE<br/>encrypt it"] --> U["USE<br/>control access"]
+    end
+    subgraph R2["2. MOVING ON"]
+        direction LR
+        SH["SHARE<br/>encrypt in transit"] --> A["ARCHIVE<br/>still labelled"] --> D["DESTROY<br/>sanitise it"]
+    end
+    R1 --> R2
+
+    style C fill:#3a2c12,stroke:#F08C00,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style U fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SH fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style D fill:#3a1a20,stroke:#E03131,color:#fff
+    style R1 fill:#161b22,stroke:#30363d,color:#e6edf3
+    style R2 fill:#161b22,stroke:#30363d,color:#e6edf3
