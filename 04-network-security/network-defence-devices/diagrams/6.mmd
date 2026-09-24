@@ -1,0 +1,19 @@
+flowchart TB
+    subgraph FW["FORWARD: in front of your users"]
+        direction LR
+        C["Your users"] --> FP["Forward proxy<br/>acts for the CLIENTS"] --> W["The internet"]
+    end
+    subgraph RV["REVERSE: in front of your servers"]
+        direction LR
+        U["Outside users"] --> RP["Reverse proxy<br/>acts for the SERVERS"] --> SV["Your servers"]
+    end
+    FW ~~~ RV
+
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style FP fill:#0f3038,stroke:#12B5A5,color:#fff
+    style W fill:#26292e,stroke:#868E96,color:#fff
+    style U fill:#26292e,stroke:#868E96,color:#fff
+    style RP fill:#0f3038,stroke:#12B5A5,color:#fff
+    style SV fill:#12243f,stroke:#5C7CFA,color:#fff
+    style FW fill:#161b22,stroke:#30363d,color:#e6edf3
+    style RV fill:#161b22,stroke:#30363d,color:#e6edf3

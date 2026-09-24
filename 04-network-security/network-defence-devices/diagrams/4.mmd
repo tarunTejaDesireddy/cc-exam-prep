@@ -1,0 +1,21 @@
+flowchart TB
+    subgraph ID["IDS: gets a COPY, can only ALERT"]
+        direction LR
+        T1["Traffic"] --> SW["Switch"] --> D1["Destination"]
+        SW -.->|"a copy"| IDS["IDS<br/>beside the path<br/>raises an ALERT"]
+    end
+    subgraph IP["IPS: IN the path, can BLOCK"]
+        direction LR
+        T2["Traffic"] --> IPS["IPS<br/>everything passes through<br/>can DROP a packet"] --> D2["Destination"]
+    end
+    ID ~~~ IP
+
+    style T1 fill:#26292e,stroke:#868E96,color:#fff
+    style SW fill:#26292e,stroke:#868E96,color:#fff
+    style D1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style IDS fill:#3a2c12,stroke:#F08C00,color:#fff
+    style T2 fill:#26292e,stroke:#868E96,color:#fff
+    style IPS fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style D2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style ID fill:#161b22,stroke:#30363d,color:#e6edf3
+    style IP fill:#161b22,stroke:#30363d,color:#e6edf3

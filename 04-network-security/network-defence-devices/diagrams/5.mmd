@@ -1,0 +1,12 @@
+flowchart TD
+    A(["The tool ALERTED"]) --> TP["TRUE POSITIVE<br/>a real attack, caught"]
+    A --> FP["FALSE POSITIVE<br/>normal traffic flagged<br/>COSTLY"]
+    Q(["The tool stayed QUIET"]) --> TN["TRUE NEGATIVE<br/>normal traffic, ignored"]
+    Q --> FN["FALSE NEGATIVE<br/>a real attack MISSED<br/>DANGEROUS"]
+
+    style A fill:#26292e,stroke:#868E96,color:#fff
+    style Q fill:#26292e,stroke:#868E96,color:#fff
+    style TP fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style FP fill:#3a2c12,stroke:#F08C00,color:#fff
+    style TN fill:#12243f,stroke:#5C7CFA,color:#fff
+    style FN fill:#3a1a20,stroke:#E03131,color:#fff

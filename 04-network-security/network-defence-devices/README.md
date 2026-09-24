@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="../assets/module-04-banner.svg" alt="04 · Network Security" width="100%">
+<img src="../assets/module-04-banner.svg" alt="04 · Networking and Cloud Security Concepts" width="100%">
 
-# 🔥 Network defence devices
+# 🛡️ Network Defence Devices
 
-### *Firewalls, IDS, IPS and proxies — what each does, and what each cannot do*
+### *Firewalls, IDS, IPS and proxies — and why where each one stands decides what it can do*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~14%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
 
-📌 *The highest-traffic distinction in Domain 4 is IDS versus IPS. Answer the textbook, not your deployment experience.*
+📌 *IDS alerts, IPS blocks. Know stateless vs stateful, signature vs anomaly, that a false negative is the dangerous error, and that forward proxies face clients while reverse proxies face servers.*
 
 </div>
 
@@ -18,33 +18,19 @@
 
 ## 🧸 The big idea
 
-The gate guard checks his list and decides who's actually allowed through — that's a
-**firewall.** A watchman up on the tower spots something suspicious and shouts a warning to the
-whole village — but he's up on a tower, off to one side, and physically cannot reach down and
-stop anyone himself. A different watchman stands directly *in* the gateway itself, so anyone
-suspicious has to physically push past him to get through at all — which means he actually can
-stop them. And a trusted go-between fetches things from outside the village on your behalf, so
-you never have to step outside or reveal yourself to strangers — that's a **proxy.**
+Think about how an office building is protected:
 
-That's the whole idea. Four devices, and each answers a different question.
+- A **receptionist with a visitor list** decides who may come in at all. That's a **firewall**.
+- A **CCTV camera** watches the doorway and raises the alarm when it sees trouble, but it can't
+  stop anyone. It only ever sees a picture. That's an **IDS**.
+- A **guard standing in the doorway** checks everyone who walks through and can physically stop
+  them. That's an **IPS**.
+- An **assistant who runs errands for you** deals with the shops on your behalf, so the shops never
+  deal with you directly. That's a **proxy**.
 
-| Device | Its job |
-|---|---|
-| **Firewall** | Decides what traffic is **allowed through** |
-| **IDS** | **Watches** and **tells you** about suspicious traffic |
-| **IPS** | Watches and **stops** suspicious traffic |
-| **Proxy** | Sits in the middle and **makes requests on your behalf** |
-
-The one the exam cares most about is the IDS/IPS pair, and the difference is a single letter
-doing a lot of work:
-
-> **IDS = Detection. It sees and alerts. It does not block.**
-> **IPS = Prevention. It sees and blocks.**
-
-That is the whole distinction, and it follows from where each sits — exactly like the tower
-watchman versus the gateway watchman above. An IDS receives a **copy** of traffic, so it is off
-to one side and cannot interfere. An IPS sits **in the traffic path**, so everything must pass
-through it — which is what gives it the power to drop a packet.
+**Where each one stands explains what it can do.** The camera gets only a copy of what happens, so
+it can alert but never block. The guard stands in the path, so everyone has to go past, and that is
+what makes stopping them possible.
 
 ---
 
@@ -52,153 +38,140 @@ through it — which is what gives it the power to drop a packet.
 
 | Word | What it means on this exam |
 |---|---|
-| **Firewall** | A device or software that permits or denies traffic against a ruleset. |
-| **Packet-filtering firewall** | Examines each packet's addresses and ports independently. **Stateless.** |
-| **Stateful firewall** | Tracks the state of connections and evaluates packets in that context. |
-| **Next-generation firewall (NGFW)** | Adds application awareness and deeper inspection. |
-| **UTM (Unified Threat Management)** | A single appliance bundling firewall, IPS, antivirus, content filtering and more, aimed at ease of management. |
-| **IDS** — Intrusion Detection System | Monitors traffic and **alerts**. Passive; out of band. |
-| **IPS** — Intrusion Prevention System | Monitors traffic and **blocks**. Active; in line. |
-| **NIDS / NIPS** | Network-based, monitoring network segments. |
-| **HIDS / HIPS** | Host-based, monitoring a single system. |
-| **Signature-based detection** | Matches against known patterns of attack. |
-| **Anomaly-based detection** | Flags deviation from a learned baseline of normal. |
-| **False positive** | Legitimate activity wrongly flagged as an attack. |
-| **False negative** | A real attack **missed**. The dangerous error. |
-| **Proxy** | An intermediary that makes requests on a client's behalf. |
-| **Reverse proxy** | An intermediary in front of **servers**, receiving requests on their behalf. |
-| **WAF** — Web Application Firewall | Filters HTTP traffic to protect web applications. Layer 7. |
+| **Firewall** | Allows or denies traffic according to a set of rules. |
+| **Stateless (packet-filtering) firewall** | Judges each packet on its own. |
+| **Stateful firewall** | Remembers connections and judges each packet as part of one. |
+| **NGFW** (next-generation firewall) | A firewall that also understands applications, users and content. |
+| **UTM** (Unified Threat Management) | One box that bundles firewall, IPS, antivirus, content filtering and more. |
+| **IDS** (Intrusion Detection System) | Watches traffic and **alerts**. It sits beside the path, so it is passive. |
+| **IPS** (Intrusion Prevention System) | Watches traffic and **blocks**. It sits in the path, so it is active. |
+| **NIDS / NIPS** | Network-based: watches a network segment. |
+| **HIDS / HIPS** | Host-based: watches one computer. |
+| **Signature-based detection** | Matches traffic against **known** attack patterns. |
+| **Anomaly-based detection** | Flags anything that strays from a learned **normal**. |
+| **False positive** | Normal activity wrongly flagged as an attack. |
+| **False negative** | A real attack that was **missed**. The dangerous error. |
+| **Proxy** | A go-between that makes requests on someone's behalf. |
+| **Reverse proxy** | A go-between in front of **servers**, taking requests for them. |
+| **WAF** (Web Application Firewall) | Filters web (HTTP) traffic to protect web applications. Layer 7. |
 
 ---
 
-## 🔥 Firewalls
+## 🔍 The explanation
 
-A firewall permits or denies traffic according to a ruleset. In the exam's basic model it
-operates at **layers 3 and 4**, filtering on IP addresses and port numbers.
+### 🔥 Firewalls
 
-| Type | Examines | Notes |
+A firewall allows or denies traffic according to its rules. In the exam's basic model it works at
+**layers 3 and 4**, filtering on IP addresses and port numbers.
+
+| Type | What it looks at | Notes |
 |---|---|---|
-| **Packet-filtering** | Each packet alone — source, destination, port | **Stateless.** Fast, simple, easily evaded |
-| **Stateful inspection** | Packets in the context of the connection they belong to | Knows an inbound packet is a reply to an outbound request |
-| **Proxy / application-level** | The full application-layer content | Slowest, most thorough |
-| **Next-generation (NGFW)** | Applications, users, content, plus traditional filtering | Combines several functions |
+| **Packet filter** | Each packet on its own: source, destination, port | **Stateless.** Fast and simple, but easy to fool |
+| **Stateful** | Each packet as part of its connection | Knows an incoming packet is the reply to a request from inside |
+| **Application level (proxy firewall)** | The full content of the request | Slowest and most thorough |
+| **Next generation (NGFW)** | Applications, users and content, plus everything above | Combines several functions |
 
-> 🎯 **Stateful versus stateless is a recurring question.** A **stateless** firewall judges each
-> packet in isolation. A **stateful** firewall remembers connections, so it can permit return
-> traffic for a session your host legitimately started.
+<p align="center"><img src="diagrams/1.svg" alt="From left to right: a packet filter judges each packet alone and is stateless; a stateful firewall judges each packet within its connection; an application-level firewall reads the full content of the request; a next-generation firewall looks at apps, users and content plus all of the above" width="780"></p>
 
-**NGFW versus UTM — both bundle extra functions, told apart by emphasis.** An NGFW's selling
-point is **depth**: deep application-layer inspection built around the firewall function
-itself. A UTM's selling point is **breadth and simplicity**: many separate security functions
-(firewall, IPS, antivirus, content filtering, sometimes VPN) combined into one box, aimed at
-smaller organisations that want one appliance rather than a rack of specialised ones.
+Left to right, each type **sees more, and takes more work** to run.
 
-> ⚠️ **UTM's convenience is also its risk.** Bundling every function into one appliance creates
-> a single point of failure — if it goes down or is misconfigured, every function it provided
-> goes with it.
+#### Stateless versus stateful
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+A **stateless** firewall has no memory. Each packet is judged alone. A **stateful** firewall keeps a
+table of the connections that inside machines have opened, so it can recognise the replies:
 
-Left to right, each firewall type **sees more and costs more** to inspect with.
+<p align="center"><img src="diagrams/2.svg" alt="An inside PC sends a request to a web server and the firewall writes the connection into its table; when a packet arrives from outside, if it belongs to a connection in the table it is the reply and is allowed automatically, and if nobody asked for it, it is dropped" width="420"></p>
 
-**Default deny** is the expected posture: block everything, then permit only what is explicitly
-required. If an option offers "deny by default and permit by exception", it is almost certainly
-correct.
+> 🎯 **Stateful versus stateless comes up again and again.** Stateless = each packet alone.
+> Stateful = remembers connections, so return traffic for a conversation that started inside is
+> let back in.
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+#### Default deny
 
-> ⚠️ **A firewall cannot inspect what it cannot read.** Encrypted traffic passing through a basic
-> firewall is opaque to it. This is why an attacker using HTTPS on port 443 for command and
-> control frequently passes straight through.
+<p align="center"><img src="diagrams/3.svg" alt="When traffic arrives, if it matches an explicit allow rule it is permitted; if not, it is denied, which is the default" width="640"></p>
 
-### 🔬 What "stateful" actually means, in a real table
+**Default deny** is the expected setting: block everything, then allow only what is explicitly
+needed. If an option says "deny by default, permit by exception", it is almost certainly right.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+#### NGFW versus UTM
 
-On Linux, this is a literal, inspectable table — **conntrack** (part of `netfilter`, which
-`iptables` and its successor `nftables` are built on) — holding one row per active connection
-with a state like `NEW`, `ESTABLISHED`, or `RELATED`. A rule as simple as "allow established
-connections" lets the firewall permit an entire category of return traffic without anyone
-writing a rule for every possible reply port, which is the real mechanism behind "a stateful
-firewall knows an inbound packet is a reply to an outbound request."
+Both add extra functions to a firewall. The difference is the goal:
 
-**A real WAF rule set works completely differently, because it's reading content a firewall
-never sees.** The **OWASP ModSecurity Core Rule Set (CRS)** is a genuinely deployed, open-source
-collection of pattern-matching rules that inspect the actual HTTP request body — form fields,
-headers, cookies — for signatures resembling SQL injection or XSS, exactly the injection-family
-attacks covered earlier. This is only possible because a WAF, as a layer 7 reverse proxy,
-terminates and reads the full HTTP conversation; a layer 3/4 firewall tracking conntrack entries
-never looks past the IP and port headers at all.
+- An **NGFW** is about **depth**: very detailed inspection of applications, built around the
+  firewall itself.
+- A **UTM** is about **breadth and simplicity**: many separate functions (firewall, IPS, antivirus,
+  content filtering, sometimes VPN) in one box, aimed at smaller organisations that want one
+  appliance instead of a rack of them.
 
----
+> ⚠️ **A UTM's convenience is also its risk.** With every function in one box, that box is a
+> single point of failure. If it goes down, every function goes with it.
 
-## 🚨 IDS versus IPS
+> ⚠️ **A firewall can't inspect what it can't read.** Encrypted traffic is opaque to a basic
+> firewall. That is why attackers who hide their command traffic inside HTTPS on port 443 often
+> pass straight through.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
+### 🚨 IDS versus IPS
+
+<p align="center"><img src="diagrams/4.svg" alt="An IDS sits beside the path and receives a copy of the traffic from a switch while the original carries on to its destination, so it can only raise an alert; an IPS sits in the path, everything passes through it, so it can drop a packet before it reaches the destination" width="720"></p>
 
 | | **IDS** | **IPS** |
 |---|---|---|
-| Position | **Out of band** — receives a copy | **In line** — all traffic passes through |
-| Action | **Detects and alerts** | **Detects and blocks** |
+| Where it sits | **Beside the path** (out of band): gets a copy | **In the path** (in line): everything passes through |
+| What it does | **Detects and alerts** | **Detects and blocks** |
 | Nature | **Passive** | **Active** |
-| Control function | **Detective** | **Preventive** |
-| If it fails | Traffic is unaffected | Can interrupt traffic |
-| Risk of a false positive | An unnecessary alert | **Legitimate traffic blocked** |
+| Type of control | **Detective** | **Preventive** |
+| If it breaks | Traffic carries on as normal | Traffic can stop |
+| Cost of a false positive | An unnecessary alert | **Legitimate traffic blocked** |
 
 > [!IMPORTANT]
-> **An IDS cannot block. An IPS can.** That is the answer to most questions on this pair. An IDS
-> that "blocks" is not an IDS.
+> **An IDS cannot block. An IPS can.** That answers most questions about this pair. An IDS that
+> "blocks" is not an IDS.
 
-> 🎯 **The false-positive consequence differs, and it is examined.** On an IDS a false positive
-> wastes an analyst's time. On an **IPS** it **blocks legitimate business traffic** — which is the
-> real reason organisations are cautious about enabling blocking.
+> 🎯 **A false positive costs something different on each.** On an IDS it wastes an analyst's time.
+> On an **IPS** it **blocks real business traffic**, and that is why organisations switch blocking
+> on carefully.
 
-### Network-based versus host-based
+#### Network-based or host-based
 
-| | Monitors | Sees | Blind to |
+| | Watches | Can see | Can't see |
 |---|---|---|---|
-| **NIDS / NIPS** | A network segment | Traffic across many hosts | Encrypted payloads; anything not crossing that segment |
-| **HIDS / HIPS** | One host | That host's files, processes, logs and local activity | Everything happening on other machines |
+| **NIDS / NIPS** | A network segment | Traffic between many machines | Inside encrypted traffic, or anything that never crosses that segment |
+| **HIDS / HIPS** | One computer | That computer's files, processes, logs and activity | Anything happening on other machines |
 
-### Detection methods
+#### Signature or anomaly
 
-| Method | How | Strength | Weakness |
+| Method | How it works | Strength | Weakness |
 |---|---|---|---|
-| **Signature-based** | Matches known attack patterns | Accurate on known attacks; few false positives | **Cannot detect anything new**, including zero-days |
-| **Anomaly-based** | Compares against a learned baseline | **Can detect unknown attacks** | **More false positives**; requires a clean baseline |
+| **Signature-based** | Matches known attack patterns | Accurate on known attacks, few false alarms | **Can't spot anything new**, including zero-days |
+| **Anomaly-based** | Compares activity with a learned normal | **Can spot attacks never seen before** | **More false alarms**, and needs a clean baseline |
 
-> 🎯 **Only anomaly-based detection can catch a zero-day**, because there is no signature for an
-> attack nobody has seen. Its price is a higher false-positive rate.
+> 🎯 **Only anomaly-based detection can catch a zero-day.** Nobody can write a signature for an
+> attack nobody has seen. The price is more false positives.
 
-> ⚠️ **A false negative is the dangerous error** — a real attack went unnoticed. A false positive
-> is merely expensive.
+#### The four outcomes
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/5.svg" alt="When the tool alerts, it is either a true positive, a real attack caught, or a false positive, normal traffic flagged, which is costly; when the tool stays quiet, it is either a true negative, normal traffic ignored, or a false negative, a real attack missed, which is dangerous" width="760"></p>
 
-**Amber costs you money. Red costs you the breach.**
+**A false positive costs time. A false negative costs you the breach.** The attack succeeded and
+nobody noticed, so the false negative is the more serious error.
 
----
+### 🔄 Proxies
 
-## 🔄 Proxies
+A proxy makes requests on someone's behalf, so the two sides never connect directly.
 
-A proxy makes requests on someone's behalf, so the two parties never connect directly.
-
-| Type | Sits in front of | Purpose |
+| Type | Sits in front of | Used for |
 |---|---|---|
-| **Forward proxy** | **Clients** | Content filtering, caching, anonymity, monitoring outbound use |
-| **Reverse proxy** | **Servers** | Load balancing, TLS termination, hiding server details, caching |
+| **Forward proxy** | **Clients** (your users) | Content filtering, caching, privacy, monitoring what users visit |
+| **Reverse proxy** | **Servers** | Load balancing, handling TLS, hiding server details, caching |
 
-> ⚠️ **Forward protects/serves the client; reverse protects/serves the server.** That is the whole
-> distinction, and it is a reliable question.
+<p align="center"><img src="diagrams/6.svg" alt="A forward proxy sits in front of your users and acts for the clients on their way out to the internet; a reverse proxy sits in front of your servers and acts for the servers when outside users come in" width="600"></p>
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram" width="500"></p>
+> ⚠️ **Forward serves the client; reverse serves the server.** That is the whole difference, and it
+> is a reliable question.
 
-Read it as a sentence: **a forward proxy stands in front of your users looking out, and a reverse
-proxy stands in front of your servers looking in.**
-
-**A WAF** is a specialised reverse proxy filtering HTTP traffic at **layer 7**, to defend web
-applications against injection, XSS and similar. A normal firewall cannot do this, because it
-does not inspect application content.
+A **WAF** is a special reverse proxy that filters web traffic at **layer 7**, protecting web
+applications from injection, XSS and similar attacks. An ordinary firewall can't do this, because
+it never looks at application content.
 
 ---
 
@@ -206,56 +179,53 @@ does not inspect application content.
 
 | | Does | Not to be confused with |
 |---|---|---|
-| **IDS** | Detects and **alerts**. Passive, out of band, detective. | **IPS**, which **blocks**. Active, in line, preventive. |
-| **Stateless firewall** | Judges each packet alone. | **Stateful**, which tracks connections and permits return traffic. |
-| **Firewall** | Permits or denies by ruleset, layers 3–4. | **IDS/IPS**, which inspect for attack *patterns* rather than enforcing an allow/deny policy. |
-| **Signature-based** | Known patterns. Misses new attacks. | **Anomaly-based**, which catches the unknown at the cost of false positives. |
-| **False positive** | Legitimate activity flagged. Costly. | **False negative**, a missed attack. **Dangerous.** |
-| **Forward proxy** | In front of clients. | **Reverse proxy**, in front of servers. |
-| **WAF** | Layer 7, protects web applications. | A network firewall at layers 3–4, which cannot see application content. |
-| **NIDS** | Watches a network segment. | **HIDS**, which watches one host. |
-| **UTM** | One appliance, many bundled functions, prioritises simplicity. | **NGFW**, which prioritises deep application-layer inspection around the firewall function itself. |
+| **IDS** | Detects and **alerts**. Passive, beside the path, detective. | **IPS** — **blocks**. Active, in the path, preventive. |
+| **Stateless firewall** | Judges each packet alone. | **Stateful** — remembers connections and lets replies back in. |
+| **Firewall** | Allows or denies by rules, layers 3–4. | **IDS/IPS** — look for attack *patterns* rather than enforce an allow/deny list. |
+| **Signature-based** | Known patterns. Misses new attacks. | **Anomaly-based** — catches the unknown, at the cost of more false positives. |
+| **False positive** | Normal activity flagged. Costly. | **False negative** — a missed attack. **Dangerous.** |
+| **Forward proxy** | In front of clients. | **Reverse proxy** — in front of servers. |
+| **WAF** | Layer 7, protects web applications. | A network firewall at layers 3–4, which can't see application content. |
+| **NIDS** | Watches a network segment. | **HIDS** — watches one computer. |
+| **UTM** | One box, many functions, built for simplicity. | **NGFW** — built for deep inspection around the firewall itself. |
 
 ---
 
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** most IPS deployments sit in detect-only mode for months, so the practical
-> difference from an IDS is a licence key.
+> **In the job:** many IPS devices run in alert-only mode for months, so in practice they behave
+> just like an IDS.
 >
-> **On the exam:** **IDS alerts, IPS blocks.** Answer the clean model every time. An option
-> pointing out that an IPS may be configured not to block is a distractor.
+> **On the exam:** **IDS alerts, IPS blocks.** Answer with the clean model every time. An option
+> pointing out that an IPS can be set not to block is a distractor.
 
 > [!WARNING]
-> **In the job:** modern firewalls do TLS inspection, application identification and threat
-> intelligence, so calling them layer 3/4 devices is out of date.
+> **In the job:** modern firewalls decrypt traffic, identify applications and use threat
+> intelligence, so calling them layer 3/4 devices sounds out of date.
 >
-> **On the exam:** a **firewall is layers 3 and 4** unless the question explicitly describes
-> next-generation or application-layer capability.
+> **On the exam:** a **firewall works at layers 3 and 4** unless the question clearly describes a
+> next-generation or application-layer firewall.
 
 > [!WARNING]
-> **In the job:** false positives are the problem that consumes the SOC, and false negatives are
-> invisible.
+> **In the job:** false positives are what wear a SOC down, and false negatives are invisible.
 >
 > **On the exam:** **a false negative is the more serious error**, because an attack succeeded
-> undetected. False positives are costly; false negatives are dangerous.
+> without anyone knowing. False positives are costly; false negatives are dangerous.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **The middle letter is the answer.**
-I**D**S = **D**etect. I**P**S = **P**revent.
+**The middle letter is the answer.** I**D**S = **D**etect. I**P**S = **P**revent.
 
-🧠 **IDS is out of band and gets a copy. IPS is in line and everything goes through it.** Position
-explains capability.
+**The camera gets a copy; the guard stands in the doorway.** Where it stands decides what it can do.
 
-🧠 **Signature knows the past. Anomaly notices the strange.** Only anomaly catches a zero-day.
+**Signature knows the past. Anomaly notices the strange.** Only anomaly catches a zero-day.
 
-🧠 **Forward faces clients, reverse faces servers.**
+**Forward faces clients, reverse faces servers.**
 
-🧠 **Negative is nastier.** A false negative means an attack got through.
+**Negative is nastier.** A false negative means the attack got through.
 
 ---
 
@@ -273,12 +243,12 @@ Answer all five before expanding anything.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — an IDS detects and alerts; an IPS detects and can block.** The IDS sits out of band with a
-copy of traffic, so it has no ability to interfere; the IPS sits in line, so it can drop packets.
+**B — an IDS detects and alerts; an IPS detects and can block.** The IDS sits beside the path with a
+copy of the traffic, so it can't interfere. The IPS sits in the path, so it can drop packets.
 
-- **A** invents a layer distinction. Both operate across layers depending on the product.
-- **C** is wrong: both come in host-based and network-based forms — HIDS/NIDS and HIPS/NIPS.
-- **D** is wrong: both can use either detection method, and many use both together.
+- **A** invents a layer difference. Both work across layers, depending on the product.
+- **C** is wrong: both come in host-based and network-based forms (HIDS/NIDS and HIPS/NIPS).
+- **D** is wrong: either one can use either detection method, and many use both.
 
 </details>
 
@@ -293,16 +263,14 @@ method is required?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — anomaly-based detection.** It compares activity against a baseline of normal, so it can flag
-something unusual even with no prior knowledge of that specific attack. The cost is a higher false
-positive rate.
+**B — anomaly-based detection.** It compares activity with a baseline of normal, so it can flag
+something unusual without knowing that specific attack. The price is more false positives.
 
-- **A** matches against known patterns, so by definition it cannot detect an attack for which no
-  signature exists. This is precisely why zero-days evade signature-based tools.
-- **C** is a firewall capability for tracking connection state, not a detection method for novel
-  attacks.
-- **D** is the most basic firewall function, examining addresses and ports without any concept of
-  attack detection.
+- **A** matches known patterns, so it can't detect an attack that has no signature yet. That is
+  exactly why zero-days slip past signature-based tools.
+- **C** is a firewall feature for tracking connections. It doesn't detect new attacks.
+- **D** is the most basic firewall function. It checks addresses and ports and has no idea what an
+  attack looks like.
 
 </details>
 
@@ -317,14 +285,14 @@ positive rate.
 <summary><b>Answer</b></summary>
 
 **C — a false negative, because a real attack goes undetected.** The attack succeeds and nobody
-knows, which is the worst possible outcome for a detection system.
+knows. That is the worst possible outcome for a detection tool.
 
-- **A** is a genuine operational cost and causes alert fatigue, which can indirectly lead to
-  missed detections. It is not itself the greater risk.
-- **B** describes a real business impact on an in-line IPS, and it is why organisations tune
-  carefully before enabling blocking. Still not as serious as an undetected compromise.
-- **D** is a false equivalence. One wastes resources; the other means you have been breached
-  without knowing.
+- **A** is a real cost, and alert fatigue can indirectly lead to missed attacks. On its own it is
+  still the smaller risk.
+- **B** is a real business impact on an IPS, and it is why blocking is tuned carefully. It is still
+  less serious than an unnoticed breach.
+- **D** treats them as equal, but they are not. One wastes effort; the other means you have been
+  breached without knowing.
 
 </details>
 
@@ -339,14 +307,13 @@ and terminating TLS connections. What is it?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — a reverse proxy.** It sits in front of **servers**, receiving requests on their behalf, and
-load balancing and TLS termination are its classic functions.
+**B — a reverse proxy.** It sits in front of **servers** and takes requests for them. Spreading the
+load and handling TLS are its classic jobs.
 
-- **A** sits in front of **clients**, making outbound requests for them — content filtering,
-  caching and monitoring of user browsing.
-- **C** monitors traffic and alerts. It does not receive and distribute requests.
-- **D** permits or denies packets by address and port. It does not terminate TLS or distribute
-  requests among servers.
+- **A** sits in front of **clients**, making outbound requests for them: filtering, caching and
+  monitoring users' browsing.
+- **C** watches traffic and alerts. It doesn't take requests or share them out.
+- **D** allows or denies packets by address and port. It doesn't handle TLS or balance load.
 
 </details>
 
@@ -360,14 +327,14 @@ load balancing and TLS termination are its classic functions.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — it tracks connections and evaluates packets in that context.** This lets it recognise that
-an inbound packet is a legitimate reply to a connection an internal host initiated, which a
-stateless filter cannot determine.
+**B — it tracks connections and judges packets in that context.** That lets it recognise an
+incoming packet as the reply to a connection an inside machine opened. A stateless filter can't
+tell.
 
-- **A** describes an application-level or next-generation firewall. Stateful inspection concerns
-  connection tracking, not content.
-- **C** is wrong — firewalls operate at layers 3 and 4 in the basic model.
-- **D** is wrong, and inverted: stateful firewalls filter on ports as well as tracking state.
+- **A** describes an application-level or next-generation firewall. Stateful inspection is about
+  tracking connections, not reading content.
+- **C** is wrong: in the basic model, firewalls work at layers 3 and 4.
+- **D** has it backwards: stateful firewalls filter on ports as well as tracking state.
 
 </details>
 
@@ -378,37 +345,43 @@ stateless filter cannot determine.
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**Why IPS blocking is used cautiously.** An in-line device that drops traffic is a device that can
-take your business offline through a bad signature update or a poorly tuned rule. The failure
-mode also has to be decided in advance: **fail-open** keeps traffic flowing when the device dies,
-preserving availability at the cost of losing protection; **fail-closed** blocks everything,
-preserving security at the cost of an outage. That choice is a business decision about which CIA
-property matters more for that segment — the triad in tension, made concrete.
+**Fail-open or fail-closed.** An in-line device that drops traffic can also take the business
+offline, through a bad signature update or a badly tuned rule. You have to decide in advance what
+happens when it dies. **Fail-open** lets traffic keep flowing, so you keep availability but lose
+protection. **Fail-closed** blocks everything, so you keep security but suffer an outage. That is a
+business decision about which matters more for that part of the network.
 
-**Encrypted traffic is the central problem.** The great majority of web traffic is now encrypted,
-which means a device inspecting only network headers sees very little. TLS inspection — where the
-device terminates the connection, inspects the plaintext and re-encrypts — restores visibility
-and introduces real problems: it breaks certificate pinning, creates a high-value decryption point
-holding everyone's plaintext, may be legally constrained for banking and health traffic, and costs
-significant processing. Many organisations inspect selectively for this reason.
+**Encryption is the central problem.** Most web traffic is now encrypted, so a device that reads
+only headers sees very little. **TLS inspection** (the device decrypts, inspects and re-encrypts)
+brings visibility back but creates new problems. It breaks apps that pin their certificates. It
+creates one very valuable point where everyone's plaintext can be read. It may be legally limited
+for banking and health traffic. And it costs a lot of processing power. That is why many
+organisations inspect only selected traffic.
 
-**The cost of alert volume.** A network IDS on a busy segment can generate enormous alert volumes,
-and the dominant failure is not that the tool missed the attack but that the alert was in a queue
-nobody reached. This is why detection engineering has shifted towards fewer, higher-fidelity
-detections, and why "we deployed an IDS" says almost nothing about whether attacks would be
-noticed. The tool is the cheap part; the analyst capacity is not.
+**What "stateful" looks like for real.** On Linux the connection table is a real, readable table
+called **conntrack**, part of the netfilter framework that `iptables` and `nftables` use. Each row is
+one connection, with a state such as `NEW`, `ESTABLISHED` or `RELATED`. One rule, "allow
+established connections", lets every reply back in without a rule for each reply port.
 
-**Where these functions went.** The distinct appliances of the classic model have largely merged.
-NGFW platforms include IPS. Endpoint detection and response has absorbed the HIDS role with far
-greater capability. Cloud-native environments use security groups, service meshes and provider
-services in place of physical devices. The CC model describes distinct boxes because the
-*functions* remain distinct and testable, even where one product performs several.
+**A WAF reads what a firewall never sees.** The open-source **OWASP Core Rule Set** is a real,
+widely deployed set of WAF rules that inspects form fields, headers and cookies for patterns that
+look like SQL injection or XSS. That only works because a WAF, as a layer 7 reverse proxy, reads
+the whole web request.
 
-**Defence in depth reasoning.** Each device has a defined blind spot: the network firewall cannot
-see inside encrypted sessions, the NIDS cannot see what never crosses its segment, the HIDS sees
-only one host, the WAF sees only HTTP. Knowing each device's blind spot is precisely how you
-decide what the next layer needs to cover — which is what defence in depth actually means in
-practice, as opposed to simply buying more products.
+**Alert volume is the real bottleneck.** A network IDS on a busy segment can raise huge numbers of
+alerts. The usual failure isn't that the tool missed an attack; it's that the alert sat in a queue
+nobody reached. That is why detection teams now aim for fewer, higher-quality alerts. The tool is
+the cheap part; analyst time is not.
+
+**Where the boxes went.** The separate appliances of the classic model have largely merged. NGFWs
+include IPS. Endpoint detection and response (EDR) has taken over the HIDS role, with far more
+capability. Cloud environments use security groups and provider services instead of physical
+boxes. The exam still describes separate boxes because the **functions** are still separate and
+testable, even when one product does several.
+
+**Every device has a blind spot.** The firewall can't see inside encrypted sessions. The NIDS can't
+see traffic that never crosses its segment. The HIDS sees only its own machine. The WAF sees only
+web traffic. Knowing each blind spot is how you decide what the next layer of defence must cover.
 
 </details>
 
@@ -418,18 +391,15 @@ practice, as opposed to simply buying more products.
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-- **UTM = one box, many bundled functions, simplicity.** **NGFW = deep inspection around the firewall itself.**
 - **I-D-S = Detect (alerts only). I-P-S = Prevent (blocks).** The middle letter is the answer.
-- **IDS = out of band, gets a copy, PASSIVE, DETECTIVE control.**
-- **IPS = IN LINE, all traffic passes through, ACTIVE, PREVENTIVE control.**
-- **IPS false positive = legitimate business traffic blocked.** That's why blocking is enabled cautiously.
-- **False NEGATIVE is the dangerous error** — a real attack missed.
-- **Signature-based** = known patterns, few false positives, **cannot catch zero-days**.
-- **Anomaly-based** = baseline deviation, **catches unknown attacks**, more false positives.
-- **NIDS** = a network segment. **HIDS** = one host.
-- **Firewall = layers 3+4** (IP + port) unless the question says NGFW/application-layer.
-- **Stateless** = each packet alone. **Stateful** = tracks connections, allows return traffic.
-- **Default deny** — block all, permit by exception.
+- **IDS = beside the path (out of band), gets a copy, PASSIVE, DETECTIVE. IPS = IN the path (in line), ACTIVE, PREVENTIVE.**
+- **IPS false positive = real business traffic blocked.** That's why blocking is switched on carefully.
+- **False NEGATIVE is the dangerous error:** a real attack missed.
+- **Signature** = known patterns, few false positives, **can't catch zero-days**. **Anomaly** = strays from normal, **catches the unknown**, more false positives.
+- **NIDS** = a network segment. **HIDS** = one computer.
+- **Firewall = layers 3+4** (IP + port) unless the question says NGFW / application layer. **Default deny:** block all, permit by exception.
+- **Stateless** = each packet alone. **Stateful** = remembers connections, lets replies back in.
+- **UTM = one box, many functions, simplicity. NGFW = deep inspection built around the firewall.**
 - **Forward proxy faces CLIENTS. Reverse proxy faces SERVERS.** WAF = layer 7, protects web apps.
 
 ---

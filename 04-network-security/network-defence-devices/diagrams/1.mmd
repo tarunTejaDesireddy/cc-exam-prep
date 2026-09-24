@@ -1,0 +1,9 @@
+flowchart LR
+    P["PACKET FILTER<br/>each packet alone<br/>STATELESS"] --> S["STATEFUL<br/>each packet within<br/>its connection"]
+    S --> A["APPLICATION LEVEL<br/>the full content<br/>of the request"]
+    A --> N["NEXT GENERATION<br/>apps, users, content<br/>plus all of the above"]
+
+    style P fill:#26292e,stroke:#868E96,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#0f3038,stroke:#12B5A5,color:#fff
+    style N fill:#1d3a2a,stroke:#2F9E44,color:#fff
