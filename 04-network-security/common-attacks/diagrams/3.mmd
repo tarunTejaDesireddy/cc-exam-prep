@@ -1,0 +1,21 @@
+flowchart TB
+    subgraph OP["ON-PATH: IN the line, ACTIVE"]
+        direction LR
+        A1["Alice"] --> M1["Attacker<br/>relays everything<br/>can read AND change"] --> B1["Bob"]
+    end
+    subgraph SN["SNIFFING: beside it, PASSIVE"]
+        direction LR
+        A2["Alice"] --> W2["the network"] --> B2["Bob"]
+        W2 -.->|"silent copy"| S2["Attacker<br/>only listens<br/>changes nothing"]
+    end
+
+    OP ~~~ SN
+    style A1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style M1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style A2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style W2 fill:#26292e,stroke:#868E96,color:#fff
+    style S2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style OP fill:#161b22,stroke:#30363d,color:#e6edf3
+    style SN fill:#161b22,stroke:#30363d,color:#e6edf3

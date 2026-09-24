@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="../assets/module-04-banner.svg" alt="04 · Network Security" width="100%">
+<img src="../assets/module-04-banner.svg" alt="04 · Networking and Cloud Security Concepts" width="100%">
 
-# 💥 Common attacks
+# 💥 Common Attacks
 
-### *Identifying an attack from its description — and telling the near-identical ones apart*
+### *Name the attack from its one tell-tale detail*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~14%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
 
-📌 *The attack catalogue. Most questions describe a scenario and ask you to name it, so the distinguishing detail of each one is what matters.*
+📌 *Sort any attack into one of four shapes, then name it from its tell-tale detail. Know the one defence that beats each: nonces beat replay, input validation beats injection, salting beats rainbow tables.*
 
 </div>
 
@@ -18,29 +18,19 @@
 
 ## 🧸 The big idea
 
-Four very different kinds of trouble can hit the village, and each leaves its own tell.
+Picture a restaurant. There are really only four ways to cause trouble there:
 
-A hundred fake messengers all crowd the village well at once, so real villagers can't get water
-at all — that's **overwhelming** it. A bandit hides along the trade road between two villages,
-quietly listening to (or altering) every message passing between them, with neither village
-realising anyone's there — that's **intercepting.** A trickster wears a stolen chief's cloak to
-be waved through the gate without question — that's **impersonating.** And someone slips a
-poisoned instruction into what looks like an ordinary grain order, so the store-keeper unknowingly
-carries out something harmful the moment he reads it — that's **injecting.**
+- **Fill every table** with people who never order, so real diners are turned away. That's
+  **overwhelming** it.
+- **Pose as a waiter** carrying orders between the table and the kitchen, reading every order and
+  changing some. That's **intercepting**.
+- **Walk in wearing a staff uniform**, so nobody asks who you are. That's **impersonating**.
+- **Add a line to an order slip**, such as "…and empty the till". A kitchen that does whatever the
+  slip says will do it. That's **injecting**.
 
-Attacks against networks fall into a small number of shapes, and each has **one detail that
-identifies it**. Learn the detail rather than the description, because the exam will paraphrase.
-
-Four broad shapes cover most of what you will see:
-
-| Shape | The attacker is… |
-|---|---|
-| **Overwhelm** | Sending more than the target can handle — DoS, DDoS |
-| **Intercept** | Getting into the middle of a conversation — on-path, eavesdropping |
-| **Impersonate** | Pretending to be something else — spoofing, replay |
-| **Inject** | Putting hostile input where data was expected — SQL injection, XSS |
-
-When a scenario appears, ask which shape it is first. That eliminates most options immediately.
+Network attacks come in the same four shapes. Each named attack has **one tell-tale detail**. The
+exam words its scenarios differently every time, so learn the detail rather than the wording.
+When a scenario appears, **name the shape first**. That alone rules out most of the options.
 
 ---
 
@@ -48,172 +38,140 @@ When a scenario appears, ask which shape it is first. That eliminates most optio
 
 | Word | What it means on this exam |
 |---|---|
-| **DoS** — Denial of Service | Making a resource unavailable to legitimate users. |
-| **DDoS** — Distributed DoS | The same, from **many** sources at once, usually a botnet. |
-| **On-path attack** | The attacker positions between two parties and relays their traffic. Formerly "man-in-the-middle". |
-| **Spoofing** | Falsifying an identifier — an IP address, a MAC address, an email sender. |
-| **Replay attack** | Capturing valid data and re-sending it later to repeat the effect. |
-| **Session hijacking** | Taking over an authenticated session, usually by stealing its token. |
-| **Eavesdropping / sniffing** | Passively capturing traffic in transit. |
-| **SQL injection** | Inserting database commands into an input field. |
-| **XSS** — Cross-Site Scripting | Injecting script into a web page that other users then run. |
-| **Privilege escalation** | Gaining rights beyond those granted. |
-| **Brute force** | Trying every possible credential until one works. |
-| **Dictionary attack** | Trying likely passwords from a prepared list. |
-| **Side-channel attack** | Deducing secrets from physical characteristics — timing, power draw, emissions. |
-| **Amplification** | Using a service that returns a large reply to a small request, to magnify a flood. |
+| **DoS** (Denial of Service) | Making a service unavailable to the people who should be able to use it. |
+| **DDoS** (Distributed DoS) | The same attack from **many** sources at once, usually a botnet. |
+| **On-path attack** | The attacker sits **between** two parties and relays their traffic. The older name is "man-in-the-middle". |
+| **Eavesdropping / sniffing** | **Passively** copying traffic as it travels. |
+| **Spoofing** | Faking an identifier, such as an IP address, a MAC address or an email sender. |
+| **Replay attack** | Capturing a valid message and **sending it again later** to repeat its effect. |
+| **Session hijacking** | Taking over a session that is **already logged in**, usually by stealing its token. |
+| **SQL injection** | Typing database commands into an input field. |
+| **XSS** (Cross-Site Scripting) | Planting a script in a web page that **other users'** browsers then run. |
+| **Brute force** | Trying **every** possible password. |
+| **Dictionary attack** | Trying likely passwords from a **prepared list**. |
+| **Password spraying** | Trying **one** common password against **many** accounts. |
+| **Credential stuffing** | Trying username and password pairs **leaked from another breach**. |
+| **Rainbow table** | A precomputed lookup that turns password hashes back into passwords. |
+| **Side-channel attack** | Working out a secret from physical clues, such as timing, power use or emissions. |
 
 ---
 
-## 🔍 The four shapes
+## 🔍 The explanation
 
-The well, the road, the gate, and the grain order — formalised.
+### Step one: name the shape
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/1.svg" alt="Ask what the attacker is doing: overwhelming, which covers DoS, DDoS and SYN floods and breaks availability; intercepting, which covers on-path attacks and sniffing and breaks confidentiality; impersonating, which covers spoofing, replay and hijacking and fools authentication; or injecting, which covers SQL injection and XSS and breaks integrity" width="780"></p>
 
----
+Every attack on this page sits in one of those four boxes. Find the box, then find the detail.
 
-## 🌊 Denial of service
+### 🌊 Overwhelm: denial of service
 
-**DoS** makes a resource unavailable. **DDoS** does it from many compromised machines at once.
+A **DoS** attack makes a service unavailable. A **DDoS** attack does the same thing from many
+machines at once, usually thousands of infected computers in a botnet.
 
-> ⚠️ **The distinguishing word is "distributed".** One source is DoS; many sources are DDoS. If a
-> stem mentions a botnet or thousands of IP addresses, it is DDoS.
+> ⚠️ **"Distributed" is the whole difference.** One source means DoS; many sources mean DDoS. If the
+> question mentions a botnet or thousands of IP addresses, the answer is DDoS.
 
 | Variant | How it works |
 |---|---|
-| **SYN flood** | Sends many SYN packets and never completes the handshake, filling the server's half-open connection table |
-| **Amplification / reflection** | Sends small spoofed requests to services that reply with far larger responses, aimed at the victim |
-| **Volumetric** | Simply saturates the available bandwidth |
+| **SYN flood** | Starts thousands of connections and never finishes any, until the server runs out of room |
+| **Amplification / reflection** | Sends small requests with the victim's address forged as the sender, to services that send back much bigger replies. The replies all land on the victim |
+| **Volumetric** | Simply fills all the available bandwidth |
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+The **SYN flood** abuses TCP's three-step handshake:
 
-The SYN flood in one picture: **start thousands of handshakes, finish none, and the server runs
-out of room for the people who would have finished theirs.**
+<p align="center"><img src="diagrams/2.svg" alt="The attacker sends SYN, the server replies SYN-ACK and keeps a half-open slot waiting, but the final ACK is never sent; repeated thousands of times, the table fills and real users are refused" width="520"></p>
 
-**DoS attacks target availability** — not data. Nothing is stolen or changed.
+The server keeps a slot open for every handshake it has started. The attacker starts thousands of
+handshakes and never finishes one, so there is no room left for real users.
 
-**Defences:** rate limiting, traffic filtering, DDoS protection services, over-provisioned
-capacity, blackholing.
+**A DoS attack hits availability only.** Nothing is stolen and nothing is changed.
 
----
+**Defences:** rate limiting, traffic filtering, DDoS protection services and spare capacity.
 
-## 👂 Interception
+### 👂 Intercept: on-path and sniffing
 
-### On-path attack
+<p align="center"><img src="diagrams/3.svg" alt="In an on-path attack the attacker sits in the line between Alice and Bob, relaying everything and able to read and change it, which is active; in sniffing the traffic flows normally from Alice to Bob while the attacker silently copies it and changes nothing, which is passive" width="700"></p>
 
-The attacker sits between two parties, relaying and possibly altering traffic while both sides
-believe they are talking directly to each other.
+- **On-path attack** (formerly called man-in-the-middle): the attacker sits **in** the line. Both
+  sides believe they are talking directly to each other, while the attacker relays every message
+  and **can change** any of them. That makes it **active**.
+  **Defence:** encryption in transit **plus certificate checks**, so the attacker cannot pass for
+  either end.
+- **Eavesdropping / sniffing**: the attacker only **copies** traffic and changes nothing. That
+  makes it **passive**, and very hard to detect.
+  **Defence:** encrypt data in transit, so a captured copy is unreadable.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+> 🎯 **Passive = changes nothing.** Sniffing is passive. An on-path attack is active, because the
+> attacker relays traffic and can alter it.
 
-**Defence:** strong encryption in transit, and certificate validation — which is what makes the
-attacker unable to impersonate either endpoint convincingly.
+### 🎭 Impersonate: spoofing, replay and hijacking
 
-### Eavesdropping / sniffing
-
-**Passive** capture of traffic. The attacker changes nothing and is therefore very hard to
-detect.
-
-> 🎯 **Passive means no modification.** Sniffing is passive; an on-path attack is active because
-> the attacker is relaying and can alter.
-
-**Defence:** encrypt data in transit. If traffic is encrypted, capturing it achieves little.
-
----
-
-## 🎭 Impersonation
-
-| Attack | The identifying detail |
+| Attack | The tell-tale detail |
 |---|---|
-| **IP spoofing** | Forging the **source IP address** of packets |
-| **MAC spoofing** | Forging a **hardware address**, often to bypass MAC filtering |
-| **ARP spoofing / poisoning** | Sending false ARP replies so traffic for the gateway comes to the attacker instead — how an on-path attack is often achieved on a LAN |
-| **DNS spoofing / cache poisoning** | Corrupting DNS so a name resolves to an attacker's address |
-| **Email spoofing** | Forging the sender address of a message |
-| **Replay attack** | Capturing valid traffic and **re-sending it later** |
-| **Session hijacking** | Stealing a session token to take over an **already authenticated** session |
+| **IP spoofing** | A forged **source IP address** on packets |
+| **MAC spoofing** | A forged **hardware address**, often to get past MAC filtering |
+| **ARP spoofing** | Fake ARP replies on a local network, so traffic meant for the gateway reaches the attacker instead. This is a common way to set up an on-path attack |
+| **DNS spoofing** | A corrupted DNS answer, so a name leads to the attacker's server |
+| **Email spoofing** | A forged **sender address** |
+| **Replay** | A valid message captured and **sent again later** |
+| **Session hijacking** | A stolen session token used to take over a session that is **already logged in** |
+
+**Replay** is the one the exam loves. Here is why encryption does not stop it:
+
+<p align="center"><img src="diagrams/4.svg" alt="A user sends an encrypted login message; the attacker records a copy without reading it and later sends the same copy again; if the server does not check that each message is new, it is accepted and the attacker is logged in; if it uses a nonce, timestamp or sequence number, the copy is rejected as already used" width="430"></p>
 
 > [!IMPORTANT]
-> **Replay attacks are defeated by making each transaction unique** — timestamps, sequence
-> numbers, nonces, or one-time tokens. Encryption alone does not stop a replay, because the
-> attacker re-sends the encrypted data without ever needing to read it. This is a favourite exam
-> point.
+> **Encryption does not stop a replay attack.** The attacker never needs to read the message. They
+> just send the same encrypted copy again. What stops it is making every message **unique**, with a
+> **timestamp, a sequence number, a nonce** (a number used once) or a one-time token.
 
-> ⚠️ **Session hijacking versus replay.** Hijacking takes over a *live* session using a stolen
-> token. Replay re-sends *captured data* to repeat an action. Both reuse something valid; one
-> takes over a conversation, the other repeats a message.
+> ⚠️ **Replay versus session hijacking.** Both reuse something valid. **Replay** repeats one captured
+> message. **Hijacking** takes over a whole session that is still running.
 
----
-
-## 💉 Injection
+### 💉 Inject: hostile input where data belongs
 
 | Attack | How it works | Defence |
 |---|---|---|
-| **SQL injection** | Database commands entered into an input field, executed by the back end | **Input validation** and parameterised queries |
-| **Cross-site scripting (XSS)** | Script injected into a page and executed in **other users'** browsers | Input validation and output encoding |
-| **Command injection** | Operating system commands passed through an application input | Input validation |
-| **Buffer overflow** | More data written than the allocated memory holds, overwriting adjacent memory | Bounds checking, safe languages, ASLR/DEP |
+| **SQL injection** | Database commands typed into an input field, then run by the application | **Input validation** and parameterised queries |
+| **Cross-site scripting (XSS)** | A script planted in a page, which then runs in **other users'** browsers | Input validation and output encoding |
+| **Command injection** | Operating system commands passed in through an application's input | Input validation |
+| **Buffer overflow** | More data written than the memory space holds, overwriting what sits next to it | Bounds checking and memory-safe languages |
 
-> 🎯 **Input validation is the defence for the whole injection family.** If a question describes
-> any injection attack and offers input validation, that is very likely the answer.
+SQL injection and XSS use the same trick against different victims:
 
-> ⚠️ **SQL injection versus XSS.** SQLi attacks the **database** behind the application. XSS
-> attacks **other users** of the application, by running script in their browsers. Same technique,
-> different victim.
+<p align="center"><img src="diagrams/5.svg" alt="In SQL injection the attacker types SQL into a form field, the app runs it against its database, and the victim is the database; in cross-site scripting the attacker plants a script in a page, other people open that page, and the victims are the other users" width="600"></p>
 
-### 🔬 What an XSS attack actually does, step by step
+> 🎯 **Input validation beats the whole injection family.** If a question describes any injection
+> attack and input validation is an option, it is very likely the answer.
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
+### 🔑 Password attacks
 
-This particular flow is **stored XSS** — the payload sits in the database and hits every future
-visitor, which is why it's considered the most dangerous of the three variants. **Reflected XSS**
-instead rides inside a single malicious link (the payload is in the URL itself, and the server
-echoes it straight back into the page), so it only fires when a victim is tricked into clicking
-that specific link. **DOM-based XSS** never even touches the server — vulnerable JavaScript
-already running in the page reads something attacker-controlled (like the URL fragment) and
-writes it unsafely back into the page.
-
-**The modern defence layered on top of output encoding is a browser-enforced HTTP header:
-Content-Security-Policy (CSP).** A page can declare `script-src 'self'`, telling the browser to
-simply refuse to execute *any* inline `<script>` tag or script from an untrusted origin — so
-even if an attacker's payload does make it into the page's HTML, the browser itself won't run
-it. This is defence in depth applied to one specific vulnerability class: output encoding stops
-the injection from landing, and CSP stops it from executing even when encoding fails somewhere.
-
----
-
-## 🔑 Password attacks
-
-| Attack | Means |
+| Attack | What it does |
 |---|---|
-| **Brute force** | Tries **every** possible combination. Guaranteed eventually; slow |
-| **Dictionary attack** | Tries a **prepared list** of likely passwords. Much faster, relies on poor choices |
-| **Credential stuffing** | Uses username/password pairs **breached elsewhere**, exploiting reuse |
-| **Password spraying** | Tries **one common password across many accounts**, to avoid lockout thresholds |
-| **Rainbow table** | Uses precomputed hash lookups to reverse hashes. **Defeated by salting** |
+| **Brute force** | Tries **every** combination. It always succeeds in the end, but it is slow |
+| **Dictionary** | Tries a **list** of likely passwords. Much faster, but it only works on weak choices |
+| **Password spraying** | Tries **one** common password against **many** accounts |
+| **Credential stuffing** | Tries username and password pairs **leaked from another site**, relying on people reusing passwords |
+| **Rainbow table** | Looks stolen password hashes up in a precomputed table. **Salting defeats it** |
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/6.svg" alt="Brute force and dictionary attacks aim many guesses at one account, so account lockout stops them; password spraying and credential stuffing spread across many accounts with only a few tries each, so lockout never trips" width="760"></p>
 
-The top two hammer one account and lockout stops them. The bottom two spread across many
-accounts, which is **exactly why they exist** — few enough attempts each that no threshold trips.
+The left-hand pair hammer one account, so lockout stops them. The right-hand pair make only a few
+attempts on each account. That is **exactly why they exist**: no single account ever reaches the
+lockout limit.
 
-> 🎯 **Account lockout defeats brute force** on a single account. **Password spraying exists
-> specifically to evade lockout**, by trying one password against many accounts rather than many
-> passwords against one.
+> ⚠️ **Salting defeats rainbow tables.** A salt is random data added to each password before it is
+> hashed. The same password then gives a different hash for every user, so a precomputed table
+> matches nothing.
 
-> ⚠️ **Rainbow tables are defeated by salting** — adding unique random data to each password before
-> hashing, so precomputed tables do not match. That is a reliable exam pairing.
+### ⚡ Side-channel attacks
 
----
+A side-channel attack works a secret out from **how a system physically behaves**, not by breaking
+its encryption. The clues include how long an operation takes, how much power it draws, and the
+sound or radio emissions it gives off.
 
-## ⚡ Side-channel attacks
-
-Deducing secret information from the **physical behaviour** of a system rather than by breaking
-its cryptography: how long an operation takes, how much power it draws, the sounds or
-electromagnetic emissions it produces.
-
-> 🎯 If a question describes deducing a key from **timing or power consumption**, the answer is
+> 🎯 If a question describes working out a key from **timing or power use**, the answer is
 > side-channel.
 
 ---
@@ -222,52 +180,51 @@ electromagnetic emissions it produces.
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **DoS** | One source. | **DDoS**, many sources. "Distributed" is the whole distinction. |
-| **On-path attack** | **Active** — relays and can alter traffic. | **Eavesdropping**, which is **passive** and modifies nothing. |
-| **Replay** | Re-sends captured data later. | **Session hijacking**, which takes over a live authenticated session. |
-| **SQL injection** | Attacks the **database**. | **XSS**, which attacks **other users** via their browsers. |
-| **Brute force** | Every combination. | **Dictionary attack**, a list of likely passwords. |
-| **Password spraying** | One password, many accounts — evades lockout. | **Credential stuffing**, which uses pairs breached elsewhere. |
-| **Privilege escalation** | An attacker gains rights never granted. | **Privilege creep**, rights legitimately accumulated over role changes. |
-| **ARP spoofing** | Layer 2, within a LAN, IP-to-MAC lies. | **DNS spoofing**, which corrupts name-to-IP resolution. |
+| **DoS** | One source. | **DDoS** — many sources. "Distributed" is the whole difference. |
+| **On-path attack** | **Active**: relays traffic and can alter it. | **Eavesdropping** — **passive**, changes nothing. |
+| **Replay** | Sends a captured message again later. | **Session hijacking** — takes over a live, logged-in session. |
+| **SQL injection** | Victim: the **database**. | **XSS** — victims: **other users**, through their browsers. |
+| **Brute force** | Every combination. | **Dictionary attack** — a list of likely passwords. |
+| **Password spraying** | One password, many accounts, to avoid lockout. | **Credential stuffing** — pairs leaked from another breach. |
+| **Privilege escalation** | An attacker gains rights that were never granted. | **Privilege creep** — rights that pile up legitimately as a person changes roles. |
+| **ARP spoofing** | Lies about IP-to-MAC mappings on a local network (layer 2). | **DNS spoofing** — lies about name-to-IP answers. |
 
 ---
 
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** encryption is the general answer to traffic-based attacks.
+> **In the job:** encryption is the usual answer to attacks on traffic.
 >
-> **On the exam:** **encryption does not stop a replay attack.** The attacker re-sends the
-> encrypted data without reading it. The answer is timestamps, sequence numbers or nonces.
+> **On the exam:** **encryption does not stop replay.** The attacker resends the encrypted copy
+> without reading it. The answer is timestamps, sequence numbers or nonces.
 
 > [!WARNING]
-> **In the job:** you would call almost any credential attack "brute force".
+> **In the job:** people call almost any password attack "brute force".
 >
-> **On the exam:** the four are distinct and the distinguishing detail is in the stem. *Every
-> combination* = brute force. *A list* = dictionary. *One password across many accounts* =
-> spraying. *Pairs from another breach* = credential stuffing.
+> **On the exam:** the four are separate, and the question gives you the detail. *Every
+> combination* = brute force. *A list* = dictionary. *One password, many accounts* = spraying.
+> *Pairs from another breach* = credential stuffing.
 
 > [!WARNING]
-> **In the job:** "man-in-the-middle" is the term everyone uses.
+> **In the job:** everyone says "man-in-the-middle".
 >
-> **On the exam:** expect **on-path attack**, the current terminology. Recognise both; if only
-> "man-in-the-middle" appears, it means the same thing.
+> **On the exam:** expect **on-path attack**, the current name. Both names mean the same attack.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **Four shapes: Overwhelm · Intercept · Impersonate · Inject.**
-And each maps to a CIA property — availability, confidentiality, authentication, integrity.
+**Four shapes: Overwhelm · Intercept · Impersonate · Inject.** Fill the tables, pose as the waiter,
+wear the uniform, write on the slip.
 
-🧠 **The extra D in DDoS is Distributed** — many sources.
+**The extra D in DDoS is Distributed.**
 
-🧠 **Sniffing is silent** (passive). **On-path relays** (active).
+**Sniffing is silent. On-path is in the path.**
 
-🧠 **Salt defeats rainbow tables. Nonces defeat replay. Input validation defeats injection.**
+**Salt beats rainbow tables. Nonces beat replay. Input validation beats injection.**
 
-🧠 **Spraying spreads wide** — one password, many accounts, to dodge lockout.
+**Spraying spreads wide:** one password, many accounts.
 
 ---
 
@@ -275,8 +232,8 @@ And each maps to a CIA property — availability, confidentiality, authenticatio
 
 Answer all five before expanding anything.
 
-**Q1.** An attacker captures an encrypted authentication message and re-transmits it later to
-gain access. What kind of attack is this, and what defends against it?
+**Q1.** An attacker captures an encrypted authentication message and re-transmits it later to gain
+access. What kind of attack is this, and what defends against it?
 
 - **A.** Eavesdropping; defended by stronger encryption
 - **B.** Replay attack; defended by timestamps, sequence numbers or nonces
@@ -286,15 +243,14 @@ gain access. What kind of attack is this, and what defends against it?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — a replay attack, defended by timestamps, sequence numbers or nonces.** The attacker never
-needs to decrypt anything; they simply repeat a valid message, so uniqueness per transaction is
-what breaks it.
+**B — a replay attack, beaten by timestamps, sequence numbers or nonces.** The attacker never
+decrypts anything. They repeat a valid message, so making each message unique is what stops it.
 
-- **A** describes passive capture only. Here the attacker actively re-sends, and stronger
-  encryption changes nothing — this is the key misconception the question targets.
-- **C** would involve relaying traffic between two parties in real time. The stem describes
-  capture and later re-transmission.
-- **D** would involve guessing credentials. The attacker already has a valid message and guesses
+- **A** is only passive copying, but this attacker actively resends. Stronger encryption would
+  change nothing. That misconception is exactly what the question is testing.
+- **C** would mean relaying traffic between two parties in real time. The question describes
+  capturing a message and sending it again later.
+- **D** would mean guessing passwords. This attacker already holds a valid message and guesses
   nothing.
 
 </details>
@@ -310,19 +266,18 @@ unavailable. What is this?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — a DDoS attack.** Many compromised sources acting together is the definition of
-*distributed*.
+**B — a DDoS attack.** Many compromised machines attacking together is what "distributed" means.
 
-- **A** would come from a single source. The stem specifies thousands of hosts.
-- **C** names a specific technique — exhausting the half-open connection table — which the stem
-  does not describe. It could be the method, but DDoS is what the scenario names.
-- **D** requires a third-party service returning oversized replies to spoofed requests, which is
-  not described here.
+- **A** comes from a single source, and the question says thousands of hosts.
+- **C** is one specific technique that fills the half-open connection table. The question doesn't
+  describe it. It could be the method used, but DDoS is what the question describes.
+- **D** needs third-party services sending oversized replies to forged requests. The question
+  describes nothing like that.
 
 </details>
 
-**Q3.** An attacker enters `' OR '1'='1` into a website's login field and gains access. What
-attack is this, and what is the PRIMARY defence?
+**Q3.** An attacker enters `' OR '1'='1` into a website's login field and gains access. What attack
+is this, and what is the PRIMARY defence?
 
 - **A.** Cross-site scripting; defended by output encoding
 - **B.** SQL injection; defended by input validation and parameterised queries
@@ -332,20 +287,18 @@ attack is this, and what is the PRIMARY defence?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — SQL injection, defended by input validation and parameterised queries.** The input is
-crafted database syntax intended to alter the query the application builds.
+**B — SQL injection, stopped by input validation and parameterised queries.** The input is database
+syntax designed to change the query the application builds.
 
-- **A** would inject script executed in **other users'** browsers. Here the target is the database
-  behind the application.
-- **C** would involve writing more data than a memory buffer holds. The payload is a logic
-  manipulation, not an overflow.
-- **D** would pass operating system commands rather than SQL syntax. The `OR '1'='1` construction
-  is unmistakably SQL.
+- **A** would plant script that runs in **other users'** browsers. Here the target is the database.
+- **C** would mean writing more data than a memory buffer holds. This input changes the query's
+  logic and overflows nothing.
+- **D** would pass operating system commands. `OR '1'='1` is unmistakably SQL.
 
 </details>
 
-**Q4.** An attacker tries the password `Summer2026!` against every account in an organisation.
-What is this called, and why is it used?
+**Q4.** An attacker tries the password `Summer2026!` against every account in an organisation. What
+is this called, and why is it used?
 
 - **A.** Brute force, because it tries many combinations
 - **B.** Dictionary attack, because it uses a common password
@@ -355,15 +308,15 @@ What is this called, and why is it used?
 <details>
 <summary><b>Answer</b></summary>
 
-**C — password spraying, used to avoid triggering account lockout.** Trying one password against
-many accounts keeps the failed-attempt count low on each individual account, which is the entire
-reason the technique exists.
+**C — password spraying, used to avoid account lockout.** One password tried once on each account
+keeps every account well under its failed-attempt limit. That is the whole reason the technique
+exists.
 
-- **A** would try many passwords against an account. Here there is a single password.
-- **B** would work through a list of likely passwords against a target. One password across many
-  accounts is the inversion of that, and that inversion has its own name.
-- **D** would use username and password *pairs* obtained from a breach elsewhere. This password is
-  guessed, not breached.
+- **A** would try many passwords against one account. Here there is only one password.
+- **B** would work through a list of passwords against one target. One password across many
+  accounts is the reverse, and it has its own name.
+- **D** would use username and password *pairs* leaked in another breach. This password is a
+  guess.
 
 </details>
 
@@ -377,13 +330,13 @@ reason the technique exists.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — network eavesdropping.** The attacker only captures traffic, sending nothing and modifying
-nothing, so there is no anomaly for a defender to observe.
+**B — network eavesdropping.** The attacker only copies traffic. They send nothing and change
+nothing, so defenders have nothing unusual to spot.
 
-- **A** is active: the attacker relays traffic between the parties and can alter it.
-- **C** is highly active and immediately visible — the service stops working.
-- **D** is active, since the attacker must send falsified ARP replies onto the network, which
-  monitoring can detect.
+- **A** is active: the attacker relays traffic between the two parties and can change it.
+- **C** is very active and obvious at once, because the service stops working.
+- **D** is active, because the attacker has to send fake ARP replies onto the network, which
+  monitoring can catch.
 
 </details>
 
@@ -394,38 +347,38 @@ nothing, so there is no anomaly for a defender to observe.
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**Why the terminology changed.** "Man-in-the-middle" has been steadily replaced by "on-path
-attack" and "adversary-in-the-middle" in standards and vendor documentation, for gender-neutral
-naming. Similar renaming has affected other terms across the field. Exams follow standards
-bodies, so expect the newer terms, but recognise the old ones — a great deal of existing material
-still uses them.
+**Why "man-in-the-middle" became "on-path".** Standards and vendor documents now use gender-neutral
+names such as "on-path attack" and "adversary-in-the-middle". Exams follow the standards, so expect
+the new names. You still need to recognise the old ones, because plenty of material uses them.
 
-**Amplification arithmetic.** The reason reflection attacks are so effective is the amplification
-factor: a small spoofed query to a misconfigured DNS or NTP server can generate a reply tens or
-hundreds of times larger, all directed at the spoofed source. An attacker with modest bandwidth
-can therefore generate an enormous flood. The defence is largely other people's problem — closing
-open resolvers, and network operators implementing source address validation so spoofed packets
-never leave their networks in the first place.
+**Why amplification is so effective.** A small forged query to a badly configured DNS or NTP server
+can produce a reply tens or hundreds of times bigger, all aimed at the victim. An attacker with
+little bandwidth can generate a huge flood. The fix is largely in other people's hands: closing
+open resolvers, and internet providers dropping packets with forged source addresses before they
+leave their networks.
 
-**SQL injection should be a solved problem.** Parameterised queries — where the query structure is
-fixed and user input can only ever be data, never syntax — eliminate the class entirely. It
-persists because of string-concatenated queries in legacy code, dynamic query building for
-flexible search, and ORM escape hatches used carelessly. Input validation helps, but it is a
-filter that can be evaded; parameterisation is structural, and that is why it is the stronger
-answer where both appear.
+**SQL injection is a solved problem that won't go away.** With parameterised queries the structure
+of the query is fixed, so user input can only ever be data, never commands. That removes the whole
+class of attack. It survives in old code that glues queries together from strings, and in careless
+dynamic query building. Input validation is a filter that can sometimes be dodged. Parameterisation
+removes the attack by design, so it is the stronger answer when both appear.
 
-**Salting in one paragraph.** Hashing a password produces a fixed output for a given input, so
-identical passwords produce identical hashes and a precomputed table maps hashes back to
-passwords. A salt is unique random data added to each password before hashing, so the same
-password produces a different hash for every user, and no precomputed table can cover the space.
-Modern practice goes further with deliberately slow, memory-hard algorithms — bcrypt, scrypt,
-Argon2 — so that even a targeted attack computes hashes too slowly to be practical.
+**XSS comes in three flavours.** **Stored XSS** saves the script in the site's database, where it
+hits every later visitor. That makes it the most dangerous. **Reflected XSS** hides the script in
+a crafted link, so it only fires for someone who clicks that link. **DOM-based XSS** never reaches
+the server: the page's own JavaScript copies attacker-controlled input into the page. Modern sites
+add a **Content-Security-Policy** header on top of output encoding. It tells the browser to refuse
+scripts that the page didn't approve, so even an injected script never runs.
 
-**Side channels are more practical than they sound.** Timing attacks against naive string
-comparison in authentication code are genuinely exploitable over a network, which is why
-constant-time comparison functions exist. Power analysis has extracted keys from smart cards.
-Spectre and Meltdown were side-channel attacks against CPU speculative execution that affected
-essentially every modern processor. The category sounds academic and is not.
+**Salting, and then slowing down.** Without a salt, the same password always gives the same hash,
+so one precomputed table cracks every copy of it. A unique salt per user makes every hash
+different. Modern systems also use deliberately slow hashing algorithms (bcrypt, scrypt, Argon2),
+so even a targeted guessing attack runs too slowly to be practical.
+
+**Side channels are practical, not academic.** Timing attacks against password checks that stop at
+the first wrong character really do work over a network. That is why constant-time comparison
+functions exist. Power analysis has pulled keys out of smart cards. Spectre and Meltdown were side-
+channel attacks on processor features, and they affected almost every modern CPU.
 
 </details>
 
@@ -436,17 +389,13 @@ essentially every modern processor. The category sounds academic and is not.
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
 - **Four shapes: Overwhelm (availability) · Intercept (confidentiality) · Impersonate (authentication) · Inject (integrity).**
-- **DDoS = many sources.** The extra D is Distributed.
-- **SYN flood** = incomplete handshakes fill the half-open connection table.
-- **Eavesdropping = PASSIVE** (hard to detect). **On-path = ACTIVE** (relays, can alter). Also called man-in-the-middle.
-- **Encryption does NOT stop replay.** Use **timestamps, sequence numbers, nonces**.
-- **Session hijacking** = takes over a live session with a stolen token. **Replay** = re-sends captured data.
-- **SQLi attacks the DATABASE. XSS attacks OTHER USERS' browsers.**
-- **Input validation defeats the whole injection family.**
-- **Brute force** = every combination · **dictionary** = a list · **spraying** = one password across many accounts (dodges lockout) · **credential stuffing** = pairs breached elsewhere.
-- **Salting defeats rainbow tables.**
-- **Side-channel** = deducing secrets from timing, power or emissions.
-- **Privilege escalation = attack. Privilege creep = admin failure.**
+- **DDoS = many sources.** The extra D is Distributed. **SYN flood** = unfinished handshakes fill the half-open table.
+- **Eavesdropping = PASSIVE** (hard to detect). **On-path = ACTIVE** (relays, can alter). Old name: man-in-the-middle.
+- **Encryption does NOT stop replay.** Timestamps, sequence numbers, nonces do. **Hijacking** = takes over a live session.
+- **SQLi hits the DATABASE. XSS hits OTHER USERS' browsers. Input validation beats the whole injection family.**
+- **Brute force** = every combination · **dictionary** = a list · **spraying** = one password, many accounts (dodges lockout) · **stuffing** = leaked pairs.
+- **Salting beats rainbow tables. Side-channel** = secrets from timing, power or emissions.
+- **Privilege escalation = an attack. Privilege creep = an admin failure.**
 
 ---
 

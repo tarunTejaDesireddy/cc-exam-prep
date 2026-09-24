@@ -1,0 +1,19 @@
+flowchart TB
+    subgraph SQ["SQL INJECTION"]
+        direction LR
+        S1["Attacker types SQL<br/>into a form field"] --> S2["The app runs it<br/>against its database"] --> S3["Victim:<br/>THE DATABASE"]
+    end
+    subgraph XS["CROSS-SITE SCRIPTING"]
+        direction LR
+        X1["Attacker plants<br/>a script in a page"] --> X2["Other people<br/>open that page"] --> X3["Victim:<br/>OTHER USERS"]
+    end
+
+    SQ ~~~ XS
+    style S1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style S2 fill:#26292e,stroke:#868E96,color:#fff
+    style S3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style X1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style X2 fill:#26292e,stroke:#868E96,color:#fff
+    style X3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style SQ fill:#161b22,stroke:#30363d,color:#e6edf3
+    style XS fill:#161b22,stroke:#30363d,color:#e6edf3

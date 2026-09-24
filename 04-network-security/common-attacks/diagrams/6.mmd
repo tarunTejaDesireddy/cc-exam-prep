@@ -1,0 +1,12 @@
+flowchart TD
+    B["BRUTE FORCE<br/>every combination<br/>against ONE account"] --> L["Account lockout<br/>STOPS these"]
+    D["DICTIONARY<br/>a list of likely passwords<br/>against ONE account"] --> L
+    S["SPRAYING<br/>ONE common password<br/>against MANY accounts"] --> E["A few tries per account:<br/>lockout never trips"]
+    C["CREDENTIAL STUFFING<br/>pairs leaked elsewhere<br/>exploits password REUSE"] --> E
+
+    style B fill:#3a1a20,stroke:#E03131,color:#fff
+    style D fill:#3a1a20,stroke:#E03131,color:#fff
+    style S fill:#3a1a20,stroke:#E03131,color:#fff
+    style C fill:#3a1a20,stroke:#E03131,color:#fff
+    style L fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style E fill:#3a2c12,stroke:#F08C00,color:#fff

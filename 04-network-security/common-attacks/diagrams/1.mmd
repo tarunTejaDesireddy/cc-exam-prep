@@ -1,0 +1,12 @@
+flowchart TD
+    A(["What is the attacker doing?"])
+    A --> O["OVERWHELM<br/>DoS, DDoS, SYN flood<br/>breaks AVAILABILITY"]
+    A --> I["INTERCEPT<br/>on-path, sniffing<br/>breaks CONFIDENTIALITY"]
+    A --> M["IMPERSONATE<br/>spoofing, replay, hijacking<br/>fools AUTHENTICATION"]
+    A --> J["INJECT<br/>SQL injection, XSS<br/>breaks INTEGRITY"]
+
+    style A fill:#3a2c12,stroke:#F08C00,color:#fff
+    style O fill:#3a1a20,stroke:#E03131,color:#fff
+    style I fill:#3a1a20,stroke:#E03131,color:#fff
+    style M fill:#3a1a20,stroke:#E03131,color:#fff
+    style J fill:#3a1a20,stroke:#E03131,color:#fff
