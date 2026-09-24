@@ -1,0 +1,13 @@
+flowchart TD
+    P["Privileged access"] --> S["SEPARATE account<br/>never the daily one"]
+    P --> J["JUST IN TIME<br/>granted, used, removed"]
+    P --> M["MFA<br/>always, no exceptions"]
+    P --> L["LOGGED and RECORDED<br/>where admins can't edit"]
+    P --> R["REVIEWED<br/>more often than<br/>ordinary access"]
+
+    style P fill:#0f3038,stroke:#12B5A5,color:#fff
+    style S fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style J fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style M fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style L fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff

@@ -1,0 +1,8 @@
+flowchart LR
+    E["EVERYDAY account<br/>email, web, documents"] -->|"a phishing email<br/>lands here"| E2["Attacker gets an<br/>account that can't<br/>do much"]
+    AD["SEPARATE ADMIN account<br/>used ONLY to administer,<br/>never for email or web"] --> AD2["Never exposed to<br/>phishing"]
+
+    style E fill:#12243f,stroke:#5C7CFA,color:#fff
+    style E2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style AD fill:#0f3038,stroke:#12B5A5,color:#fff
+    style AD2 fill:#1d3a2a,stroke:#2F9E44,color:#fff

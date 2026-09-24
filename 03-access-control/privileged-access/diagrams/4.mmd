@@ -1,0 +1,11 @@
+flowchart LR
+    RQ["Admin requests<br/>elevation + reason"] --> AP["Approver<br/>signs off"]
+    AP --> AC["Role active for<br/>a fixed window,<br/>e.g. 2 hours"]
+    AC --> LG["Every action<br/>logged or recorded"]
+    LG --> EX["Access EXPIRES<br/>automatically"]
+
+    style RQ fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AP fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AC fill:#3a2c12,stroke:#F08C00,color:#fff
+    style LG fill:#12243f,stroke:#5C7CFA,color:#fff
+    style EX fill:#1d3a2a,stroke:#2F9E44,color:#fff

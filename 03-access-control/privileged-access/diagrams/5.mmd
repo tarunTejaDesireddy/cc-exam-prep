@@ -1,0 +1,11 @@
+flowchart LR
+    F["Normal admin access<br/>FAILS: identity<br/>system down"] --> B["Break the glass:<br/>use the sealed<br/>emergency account"]
+    B --> AL["ALERT fires<br/>immediately"]
+    AL --> RV["Use documented<br/>and reviewed"]
+    RV --> CH["Credentials changed<br/>and re-sealed"]
+
+    style F fill:#3a1a20,stroke:#E03131,color:#fff
+    style B fill:#3a2c12,stroke:#F08C00,color:#fff
+    style AL fill:#3a2c12,stroke:#F08C00,color:#fff
+    style RV fill:#12243f,stroke:#5C7CFA,color:#fff
+    style CH fill:#1d3a2a,stroke:#2F9E44,color:#fff
