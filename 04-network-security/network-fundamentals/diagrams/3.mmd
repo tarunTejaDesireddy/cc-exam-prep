@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph NA["Network A"]
+        A1["PC"] --- SW1["SWITCH<br/>MAC, layer 2"]
+        A2["PC"] --- SW1
+    end
+    subgraph NB["Network B"]
+        B1["PC"] --- SW2["SWITCH<br/>MAC, layer 2"]
+        B2["PC"] --- SW2
+    end
+    SW1 --- R["ROUTER<br/>IP, layer 3<br/>BETWEEN networks"]
+    R --- SW2
+
+    style NA fill:#161b22,stroke:#5C7CFA,color:#fff
+    style NB fill:#161b22,stroke:#5C7CFA,color:#fff
+    style A1 fill:#26292e,stroke:#868E96,color:#fff
+    style A2 fill:#26292e,stroke:#868E96,color:#fff
+    style B1 fill:#26292e,stroke:#868E96,color:#fff
+    style B2 fill:#26292e,stroke:#868E96,color:#fff
+    style SW1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SW2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style R fill:#0f3038,stroke:#12B5A5,color:#fff

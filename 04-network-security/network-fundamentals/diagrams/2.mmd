@@ -1,0 +1,8 @@
+flowchart LR
+    H["HUB<br/>shouts every frame<br/>out of EVERY port"] --> HA["Everyone can see<br/>everyone's traffic:<br/>eavesdropping risk"]
+    S["SWITCH<br/>sends each frame only<br/>to the RIGHT port"] --> SA["Each device sees<br/>only its own traffic"]
+
+    style H fill:#3a1a20,stroke:#E03131,color:#fff
+    style HA fill:#3a1a20,stroke:#E03131,color:#fff
+    style S fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style SA fill:#1d3a2a,stroke:#2F9E44,color:#fff

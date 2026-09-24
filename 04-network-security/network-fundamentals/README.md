@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="../assets/module-04-banner.svg" alt="04 · Network Security" width="100%">
+<img src="../assets/module-04-banner.svg" alt="04 · Networking and Cloud Security Concepts" width="100%">
 
-# 🕸️ Network fundamentals
+# 🌐 Network Fundamentals
 
-### *What a network is made of, and what each box in the diagram actually does*
+### *How big a network is, and what sits in the middle of it*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
-📌 *Network types, topologies, and the device list. Mostly recall — and the hub-versus-switch distinction is a security question, not a performance one.*
+📌 *Order PAN → WAN, tell hub / switch / router apart (and why hubs are a security risk), and know star is common while mesh is resilient.*
 
 </div>
 
@@ -18,26 +18,16 @@
 
 ## 🧸 The big idea
 
-Villages send messages to each other. A network is exactly that: two or more places connected so
-they can exchange something. Everything else is detail about **how far apart they are** and
-**what sits in the middle**.
+A network is just places connected so they can exchange messages — like a postal system. Two
+questions organise this whole topic:
 
-Two questions organise the whole topic:
+1. **How big is it?** A note passed across a desk, internal mail in one building, a city's post,
+   international post. Those are **PAN, LAN, MAN, WAN** — just distance labels.
+2. **What's in the middle?** Switches, routers, access points, firewalls — each does one job.
 
-- **How big is it?** A whisper across one hut is tiny. Message-runners between huts in one
-  village cover more ground. A whole valley of villages is bigger still. Trade routes spanning
-  the entire known world are the biggest of all. A network inside one building is a LAN. One
-  spanning cities is a WAN. The names are just distance labels.
-- **What is in the middle?** Switches, routers, access points, firewalls. Each does one job,
-  and the exam wants you to name it.
-
-The security content hides inside the second question, and here's the concrete version: one
-village crier stands in the square and shouts every message so loudly that the *whole village*
-hears it, even messages meant for one specific hut. That's a **hub**. A trained runner, by
-contrast, delivers each message quietly and directly to the one hut it's addressed to — nobody
-else even knows what was said. That's a **switch.** A hub sends every frame to every port, so
-anyone plugged in can see everyone's traffic. A switch sends each frame only where it belongs.
-That is a confidentiality difference, and it is why hubs are obsolete.
+The security point hides in the second question. A **hub** is like a town crier who shouts every
+letter to the whole street — everyone hears everything. A **switch** is a mail sorter who hands each
+letter only to its addressee. That difference is **confidentiality** — and it's why hubs died out.
 
 ---
 
@@ -45,127 +35,67 @@ That is a confidentiality difference, and it is why hubs are obsolete.
 
 | Word | What it means on this exam |
 |---|---|
-| **LAN** — Local Area Network | A network in one limited area: a building, an office, a home. |
-| **WAN** — Wide Area Network | A network spanning a large geographic area. The internet is the largest WAN. |
-| **MAN** — Metropolitan Area Network | A network across a city or campus. Between LAN and WAN. |
-| **PAN** — Personal Area Network | A very short-range network around one person — Bluetooth, for example. |
-| **WLAN** — Wireless LAN | A LAN using wireless rather than cable. |
-| **Intranet** | An organisation's private internal network, using internet technologies. |
-| **Extranet** | A controlled extension of the intranet to specific outside parties — partners, suppliers. |
-| **Topology** | The arrangement of how devices are connected. |
+| **PAN / LAN / MAN / WAN** | Personal / Local / Metropolitan / Wide Area Network — smallest to largest. |
+| **WLAN** | A wireless LAN. |
+| **Intranet** | Private internal network — staff only. |
+| **Extranet** | A controlled slice extended to **named outsiders** — suppliers, partners. |
+| **Topology** | How devices are arranged and connected. |
 | **Node** | Any device on the network. |
-| **Packet** | A unit of data at the network layer. |
-| **Frame** | A unit of data at the data link layer. |
-| **MAC address** | A hardware address burned into a network interface. Used within a LAN. |
-| **Bandwidth** | The amount of data a link can carry. |
-| **Latency** | The delay before data reaches its destination. |
+| **MAC address** | Hardware address of a network interface. Used **within** a LAN. |
+| **Frame** | Unit of data at **layer 2**, addressed by MAC. |
+| **Packet** | Unit of data at **layer 3**, addressed by IP. |
+| **Bandwidth** | **How much** data a link can carry. |
+| **Latency** | **How long** data takes to arrive. |
 
 ---
 
-## 🔍 Network types by size
+## 🔍 The explanation
 
-Whisper distance, one hut, one village, the whole known world — the same ladder, formalised.
+### Networks by size
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/1.svg" alt="A PAN is around one person like a phone to earbuds, a LAN is one building or office, a MAN is a city or campus, and a WAN spans countries including the internet" width="760"></p>
 
-**Smallest to largest: PAN → LAN → MAN → WAN.** That is the whole classification.
+**Intranet vs extranet is about *who*, not size:** intranet = staff only · extranet = controlled
+access for named outsiders · internet = public.
 
-**Intranet and extranet** are about *who may reach it*, not size:
-
-- **Intranet** — internal only. Staff.
-- **Extranet** — a controlled slice extended to named outsiders. Suppliers, partners, customers.
-- **Internet** — public.
-
----
-
-## 🔧 The devices
-
-The list the exam expects, and what each one does.
+### The devices
 
 | Device | What it does | Layer |
 |---|---|---|
-| **Hub** | Repeats every incoming frame to **every** port. Obsolete. | 1 — Physical |
-| **Repeater** | Regenerates a signal to extend cable distance. | 1 — Physical |
-| **Switch** | Forwards frames only to the port where the destination MAC lives. | 2 — Data Link |
-| **Bridge** | Connects two network segments. An early, simpler switch. | 2 — Data Link |
-| **Router** | Moves packets **between** different networks, using IP addresses. | 3 — Network |
-| **Firewall** | Permits or blocks traffic against a ruleset. | 3–4 (basic model) |
-| **Access point** | Provides wireless connection into a wired network. | 1–2 |
-| **Modem** | Converts between digital and the carrier's signal format. | 1 |
-| **Gateway** | Connects networks using different protocols; translates between them. | varies |
-| **Endpoint** | Any user device — laptop, phone, workstation. | — |
+| **Hub** | Repeats every frame to **every** port. Obsolete. | 1 |
+| **Repeater** | Regenerates a signal to go further. | 1 |
+| **Switch** | Sends each frame only to the port where the destination MAC is. | 2 |
+| **Bridge** | Joins two segments — an early, simple switch. | 2 |
+| **Router** | Moves packets **between** networks using IP addresses. | 3 |
+| **Firewall** | Permits or blocks traffic against rules. | 3–4 |
+| **Access point** | Connects wireless devices into a wired network. | 1–2 |
+| **Modem** | Converts between digital and the carrier's signal. | 1 |
+| **Gateway** | Connects networks using different protocols, translating between them. | varies |
 
-### 🔌 Hub versus switch — the security point
+### Hub vs switch — the security point
 
-A **hub** is a repeater with several ports. A frame arriving on one port is sent out of **every**
-other port. Every device on the hub receives every frame, and a device in promiscuous mode can
-read all of it.
+<p align="center"><img src="diagrams/2.svg" alt="A hub shouts every frame out of every port so everyone can see everyone's traffic, an eavesdropping risk; a switch sends each frame only to the right port so each device sees only its own traffic" width="700"></p>
 
-A **switch** learns which MAC address sits on which port and forwards each frame **only to that
-port**.
+> 🎯 **"Why did switches replace hubs, from a security view?"** → a hub broadcasts all traffic to all
+> ports, allowing **eavesdropping**. (Hubs are also slower — but that's performance, not security.)
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+### Switch vs router
 
-> 🎯 **This is a confidentiality question in disguise.** If a question asks why hubs were replaced
-> by switches for security reasons, the answer is that a hub broadcasts all traffic to all
-> connected devices, allowing eavesdropping.
+<p align="center"><img src="diagrams/3.svg" alt="Inside network A and network B, PCs connect to switches that work by MAC address at layer 2; a router working by IP address at layer 3 connects the two networks" width="760"></p>
 
-### 🔀 Switch versus router
+> 🧠 **Switches work *inside* a network (MAC, layer 2). Routers work *between* networks (IP, layer 3).**
 
-- A **switch** connects devices **within** one network, using **MAC** addresses, at layer 2.
-- A **router** connects **different** networks to each other, using **IP** addresses, at layer 3.
+### Topologies
 
-> 🧠 *Switches work inside; routers work between.*
+<p align="center"><img src="diagrams/4.svg" alt="In a bus everyone shares one cable so one break takes the whole network down; in a star everyone plugs into a centre, the most common today, but the centre is a single point of failure; in a mesh there are many paths between nodes, most resilient and most expensive" width="820"></p>
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
-
-The switches live **inside** the boxes. The router is the only thing spanning **between** them.
-
----
-
-## 🗺️ Topologies
-
-How devices are physically or logically arranged.
-
-| Topology | Shape | Key property |
+| Topology | Shape | Key fact |
 |---|---|---|
-| **Bus** | All devices on one shared cable | Cheap; a break in the cable kills the whole network |
-| **Star** | Every device connects to a central point | **The most common today.** One device failing affects only itself; the central device is a single point of failure |
-| **Ring** | Each device connects to two neighbours, forming a loop | A break can bring down the ring unless it is dual-ring |
-| **Mesh** | Devices interconnect with multiple paths | Most resilient and most expensive. **Full mesh** connects every node to every other |
-| **Tree / hierarchical** | Stars connected into a hierarchy | Scales well; used in large networks |
-
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-Count the paths between any two nodes: **bus has one, star has one through an amber single point
-of failure, mesh has several.** That count is the resilience.
-
-> 🎯 Two facts carry most topology questions: **star is the most common**, and **mesh is the most
-> resilient** because of its redundant paths.
-
----
-
-## 🔬 How a switch actually forwards frames, and how that gets attacked
-
-A switch's "learn and forward only to the right port" behaviour lives in one specific piece of
-memory, and that memory has a limit.
-
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
-
-Every switch keeps a **CAM table** (Content Addressable Memory) — a real, size-limited table
-mapping each learned MAC address to the port it was seen on. This is the entire mechanism behind
-"forward only to the right port." A **MAC flooding attack** exploits the table's fixed size
-directly: the attacker sends huge numbers of frames from fake, made-up source MAC addresses
-until the table is completely full, and once it can't learn any more entries, the switch's only
-options are to drop traffic or flood every frame out every port — which is exactly the hub
-behaviour the earlier diagram calls a security failure, achieved by attacking the switch itself.
-
-**The real defenses are specific, named switch features, not "buy a better switch."** **Port
-security** caps how many distinct MAC addresses a single port is allowed to learn, so flooding
-from one attacker port hits a wall almost immediately. **DHCP snooping** tracks which port
-legitimately handed out which IP lease, and **Dynamic ARP Inspection** uses that same trusted
-record to reject forged ARP replies on sight — directly countering the ARP spoofing attack
-mentioned above, where an attacker lies about which MAC address owns the gateway's IP.
+| **Bus** | One shared cable | One break kills everything |
+| **Star** | Everything to a central point | **Most common**; centre = single point of failure |
+| **Ring** | Each device to two neighbours, a loop | One break can stop it (unless dual-ring) |
+| **Mesh** | Multiple interconnecting paths | **Most resilient**, most expensive |
+| **Tree** | Stars linked in a hierarchy | Scales well |
 
 ---
 
@@ -173,49 +103,40 @@ mentioned above, where an attacker lies about which MAC address owns the gateway
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **Hub** | Floods every frame to every port. Layer 1. | **Switch**, which forwards only to the destination port. The difference is a security one. |
-| **Switch** | Connects devices **within** a network using MAC addresses. Layer 2. | **Router**, which connects **between** networks using IP addresses. Layer 3. |
-| **LAN** | One limited area. | **WAN**, spanning a wide geographic area. Distance is the only distinction. |
-| **Intranet** | Internal, staff only. | **Extranet**, which extends controlled access to named external parties. |
-| **Bandwidth** | How much data a link can carry. | **Latency**, how long data takes to get there. A high-bandwidth link can still be slow. |
-| **Frame** | The unit at layer 2, addressed by MAC. | **Packet**, the unit at layer 3, addressed by IP. |
-| **Star topology** | Most common. | **Mesh topology**, most resilient. Different superlatives. |
+| **Hub** | Floods every frame everywhere (layer 1). | **Switch** — forwards only to the right port. |
+| **Switch** | **Within** a network, MAC, layer 2. | **Router** — **between** networks, IP, layer 3. |
+| **LAN** | One limited area. | **WAN** — wide geographic area. |
+| **Intranet** | Staff only. | **Extranet** — named outsiders get controlled access. |
+| **Bandwidth** | How **much**. | **Latency** — how **long**. |
+| **Frame** | Layer 2, MAC. | **Packet** — layer 3, IP. |
+| **Star** | Most **common**. | **Mesh** — most **resilient**. |
 
 ---
 
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** "switch" and "router" blur together — most access switches do layer 3, and the
-> distinction is a licensing question.
+> **In the job:** switches and routers blur — plenty of switches route too.
 >
-> **On the exam:** they are strictly separate. **Switch = layer 2 = MAC = within a network.
-> Router = layer 3 = IP = between networks.** Answer the clean model.
+> **On the exam:** strictly separate. **Switch = layer 2 = MAC = within. Router = layer 3 = IP =
+> between.**
 
 > [!WARNING]
-> **In the job:** hubs are a museum piece not worth thinking about.
+> **In the job:** hubs are museum pieces.
 >
-> **On the exam:** the hub is examined precisely *because* of why it died — it broadcasts all
-> traffic to all ports, which is an eavesdropping exposure. Know the security reason, not just
-> that it is obsolete.
-
-> [!WARNING]
-> **In the job:** topology is a physical cabling detail nobody discusses.
->
-> **On the exam:** the names and their properties are tested directly. Star is most common; mesh
-> is most resilient; bus fails entirely if the shared cable breaks.
+> **On the exam:** they're examined *because* of why they died — **eavesdropping**.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **PAN · LAN · MAN · WAN** — smallest to largest, and they almost rhyme.
+**PAN · LAN · MAN · WAN** — smallest to largest.
 
-🧠 **Switches work inside, routers work between.** MAC inside, IP between.
+**Switches work inside; routers work between.**
 
-🧠 **Hub = Hears everything.** Every port gets every frame.
+**Hub = Hears everything.**
 
-🧠 **Star is common, mesh is resilient.** Two superlatives, two different topologies.
+**Star is common; mesh is resilient.**
 
 ---
 
@@ -234,14 +155,11 @@ switch?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — hubs transmit all traffic to all ports, allowing eavesdropping.** Any device connected to a
-hub can capture every other device's traffic, which is a confidentiality exposure.
+**B.**
 
-- **A** is true and is a real disadvantage, but it is a *performance* problem. The question asks
-  specifically from a security perspective.
-- **C** is a manageability limitation, not a security one, and unmanaged switches share it.
-- **D** is irrelevant — neither hubs nor switches provide wireless connectivity; an access point
-  does.
+- **A** is true — but it's performance, and the question says *security*.
+- **C** is manageability, not security.
+- **D** — neither does wireless; an access point does.
 
 </details>
 
@@ -255,16 +173,15 @@ hub can capture every other device's traffic, which is a confidentiality exposur
 <details>
 <summary><b>Answer</b></summary>
 
-**C — a router.** Routers operate at layer 3 and move packets between separate networks using IP
-addressing.
+**C — router.**
 
-- **A** operates within a single network at layer 2, forwarding frames by MAC address.
-- **B** repeats signals within one segment at layer 1 and makes no forwarding decisions at all.
-- **D** regenerates a signal to extend distance. It does not route anything.
+- **A** works within one network by MAC.
+- **B** just repeats signals.
+- **D** extends distance; routes nothing.
 
 </details>
 
-**Q3.** An organisation gives selected suppliers controlled access to a portion of its internal
+**Q3.** An organisation gives selected suppliers controlled access to part of its internal
 systems. What is this called?
 
 - **A.** An intranet
@@ -275,19 +192,15 @@ systems. What is this called?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — an extranet.** It is a controlled extension of internal resources to specific named external
-parties.
+**B — an extranet.**
 
-- **A** is internal only, restricted to the organisation's own staff. Extending it to suppliers is
-  precisely what makes this something else.
-- **C** describes geographic scale, not who is permitted access. An extranet may or may not span a
-  wide area.
-- **D** names a *technology* that might be used to provide the connection securely. The question
-  asks what the arrangement is called, not how it is implemented.
+- **A** is staff only.
+- **C** describes size, not who may access.
+- **D** is a technology that might *carry* the connection.
 
 </details>
 
-**Q4.** Which topology provides the HIGHEST resilience through redundant paths?
+**Q4.** Which topology gives the HIGHEST resilience through redundant paths?
 
 - **A.** Bus
 - **B.** Star
@@ -297,18 +210,15 @@ parties.
 <details>
 <summary><b>Answer</b></summary>
 
-**D — mesh.** Multiple interconnections mean traffic can take an alternative path when a link
-fails, which is what makes it the most resilient and also the most expensive.
+**D — mesh.**
 
-- **A** is the least resilient of all: one break in the shared cable takes down the whole network.
-- **B** is the most *common*, which is the superlative most often confused with this one. A star
-  still has a single point of failure at the centre.
-- **C** offers some resilience in dual-ring configurations, but a single ring breaks with one
-  failure and it does not match mesh.
+- **A** is the *least* resilient.
+- **B** is the most *common* — the superlative people confuse.
+- **C** breaks with one failure unless dual-ring.
 
 </details>
 
-**Q5.** A network interface is identified within a LAN by which type of address?
+**Q5.** Within a LAN, a network interface is identified by which type of address?
 
 - **A.** IP address
 - **B.** MAC address
@@ -318,13 +228,11 @@ fails, which is what makes it the most resilient and also the most expensive.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — MAC address.** The MAC address is the hardware address used for layer 2 forwarding within a
-local network, and it is what a switch builds its forwarding table from.
+**B — MAC address.** It's what a switch forwards on.
 
-- **A** identifies a host at layer 3 and is what routers use to move traffic **between** networks.
-- **C** identifies a service or application on a host at layer 4, not the interface itself.
-- **D** defines which portion of an IP address is the network portion. It is not an identifier for
-  an interface.
+- **A** is layer 3 — used *between* networks.
+- **C** identifies a service on a host.
+- **D** marks the network part of an IP address.
 
 </details>
 
@@ -335,30 +243,18 @@ local network, and it is what a switch builds its forwarding table from.
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**Switches are not a security boundary.** The clean story — a switch only sends frames where they
-belong — has well-known limits. **MAC flooding** fills the switch's address table until it fails
-open and begins flooding like a hub, which is exactly what makes the attack worth doing. **ARP
-spoofing** convinces hosts to send traffic to the attacker's MAC instead of the gateway's,
-defeating the switch's correct forwarding by lying about who is where. Port security, dynamic
-ARP inspection and DHCP snooping exist to close these. CC treats the switch as simply better than
-a hub; the fuller picture is that it raises the cost of eavesdropping rather than eliminating it.
+**Switches aren't a security boundary.** A switch keeps a size-limited **CAM table** (MAC → port).
+**MAC flooding** fills it with fake addresses until the switch fails open and floods like a hub.
+**ARP spoofing** lies about which MAC owns the gateway's IP. Defences: **port security** (cap MACs
+per port), **DHCP snooping**, **Dynamic ARP Inspection**.
 
-**Physical versus logical topology.** These frequently differ, and the distinction confuses people
-looking at cabling. Classic Token Ring was wired as a physical star into a central unit while
-operating as a logical ring. Modern Ethernet is physically a star into a switch, and logically
-behaves like a point-to-point link per port rather than the shared bus that early Ethernet
-actually was — which is why collisions and CSMA/CD are historical concepts on a switched network.
+**Physical vs logical topology differ.** Modern Ethernet is physically a star into a switch but
+behaves like a private link per port — which is why "collisions" are history on switched networks.
 
-**Where "gateway" gets vague.** The term is used for at least three different things: the default
-gateway (a router's address on your subnet), a protocol gateway that translates between
-incompatible protocols, and application gateways such as email or API gateways. CC uses it loosely
-for a device connecting dissimilar networks. If it appears as an option opposite "router" in a
-question about connecting two IP networks, router is the more precise answer.
+**"Gateway" is vague** — default gateway, protocol translator, email/API gateway. For connecting
+two IP networks, "router" is the more precise answer.
 
-**Full mesh does not scale.** Connecting every node to every other requires n(n−1)/2 links, so ten
-nodes need 45 connections and fifty nodes need 1,225. This is why full mesh appears in small
-critical cores and almost nowhere else, and why partial mesh — redundant paths between important
-nodes only — is what real resilient networks look like.
+**Full mesh doesn't scale:** n(n−1)/2 links — 50 nodes need 1,225. Real networks use partial mesh.
 
 </details>
 
@@ -368,15 +264,11 @@ nodes only — is what real resilient networks look like.
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-- **PAN → LAN → MAN → WAN**, smallest to largest.
-- **Intranet** = internal. **Extranet** = controlled access for named outsiders. **Internet** = public.
-- **Hub** = layer 1, floods every frame to every port → **eavesdropping risk**. That's why switches replaced them.
-- **Switch** = layer 2, **MAC**, forwards **within** a network.
-- **Router** = layer 3, **IP**, forwards **between** networks.
-- *Switches work inside, routers work between.*
-- **Star = most common. Mesh = most resilient** (redundant paths). **Bus = one cable break kills it.**
-- **Frame** = layer 2 unit (MAC). **Packet** = layer 3 unit (IP).
-- **Bandwidth** = how much. **Latency** = how long.
+- **PAN → LAN → MAN → WAN.** Intranet = staff; extranet = named outsiders; internet = public.
+- **Hub floods every port → eavesdropping** (why switches replaced them).
+- **Switch = layer 2, MAC, within. Router = layer 3, IP, between.**
+- **Star = most common. Mesh = most resilient. Bus = one break kills it.**
+- **Frame = layer 2 (MAC); packet = layer 3 (IP). Bandwidth = how much; latency = how long.**
 
 ---
 
