@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph CF["TO KEEP IT SECRET"]
+        direction LR
+        A1["Encrypt with the<br/>RECIPIENT'S PUBLIC key"] --> A2["Only their PRIVATE key<br/>can decrypt it"]
+    end
+    subgraph SG["TO PROVE IT CAME FROM YOU"]
+        direction LR
+        B1["Sign with YOUR OWN<br/>PRIVATE key"] --> B2["Anyone checks it with<br/>your PUBLIC key"]
+    end
+    CF ~~~ SG
+
+    style A1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style A2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style B1 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style B2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style CF fill:#161b22,stroke:#30363d,color:#e6edf3
+    style SG fill:#161b22,stroke:#30363d,color:#e6edf3

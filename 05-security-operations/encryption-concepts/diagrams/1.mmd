@@ -1,0 +1,19 @@
+flowchart TB
+    subgraph SY["SYMMETRIC: one shared key"]
+        direction LR
+        P1["Plaintext"] -->|"lock with<br/>the shared key"| C1["Ciphertext"] -->|"unlock with<br/>the SAME key"| Q1["Plaintext"]
+    end
+    subgraph AS["ASYMMETRIC: a pair of keys"]
+        direction LR
+        P2["Plaintext"] -->|"lock with<br/>Bob's PUBLIC key"| C2["Ciphertext"] -->|"unlock with<br/>Bob's PRIVATE key"| Q2["Plaintext"]
+    end
+    SY ~~~ AS
+
+    style P1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C1 fill:#26292e,stroke:#868E96,color:#fff
+    style Q1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C2 fill:#26292e,stroke:#868E96,color:#fff
+    style Q2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SY fill:#161b22,stroke:#30363d,color:#e6edf3
+    style AS fill:#161b22,stroke:#30363d,color:#e6edf3

@@ -1,0 +1,7 @@
+flowchart LR
+    W["The website proves<br/>who it is to a CA"] --> CA["The CA issues a certificate:<br/>this public key belongs<br/>to example.com"]
+    CA --> B["Your browser trusts<br/>the CA, so it trusts<br/>the site's key"]
+
+    style W fill:#12243f,stroke:#5C7CFA,color:#fff
+    style CA fill:#3a2c12,stroke:#F08C00,color:#fff
+    style B fill:#1d3a2a,stroke:#2F9E44,color:#fff

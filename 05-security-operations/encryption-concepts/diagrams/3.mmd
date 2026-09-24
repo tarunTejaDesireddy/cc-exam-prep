@@ -1,0 +1,7 @@
+flowchart LR
+    S["1. ASYMMETRIC<br/>slow, but solves<br/>key delivery"] --> K["2. Safely share a<br/>SYMMETRIC<br/>session key"]
+    K --> B["3. SYMMETRIC<br/>fast: encrypts all<br/>the actual traffic"]
+
+    style S fill:#3a2c12,stroke:#F08C00,color:#fff
+    style K fill:#26292e,stroke:#868E96,color:#fff
+    style B fill:#1d3a2a,stroke:#2F9E44,color:#fff
