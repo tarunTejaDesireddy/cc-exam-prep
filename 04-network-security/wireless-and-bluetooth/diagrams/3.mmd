@@ -1,0 +1,21 @@
+flowchart TB
+    subgraph PE["PERSONAL: one key for everyone"]
+        direction LR
+        P1["Every device uses<br/>ONE shared passphrase"] --> P2["Access point<br/>checks it"]
+        P2 --> P3["Remove one person:<br/>change it for EVERYONE"]
+    end
+    subgraph EN["ENTERPRISE: a key for each person"]
+        direction LR
+        N1["Each person has<br/>their OWN login"] --> N2["RADIUS server<br/>checks it, via 802.1X"]
+        N2 --> N3["Remove one person:<br/>disable ONE account"]
+    end
+    PE ~~~ EN
+
+    style P1 fill:#26292e,stroke:#868E96,color:#fff
+    style P2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style N1 fill:#26292e,stroke:#868E96,color:#fff
+    style N2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style N3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style PE fill:#161b22,stroke:#30363d,color:#e6edf3
+    style EN fill:#161b22,stroke:#30363d,color:#e6edf3

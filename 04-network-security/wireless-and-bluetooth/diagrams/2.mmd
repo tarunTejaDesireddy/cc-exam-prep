@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph RG["ROGUE AP: added from INSIDE"]
+        direction LR
+        R1["An employee plugs in<br/>their own access point"] --> R2["An unwatched way<br/>into the network"]
+    end
+    subgraph ET["EVIL TWIN: faked from OUTSIDE"]
+        direction LR
+        E1["An attacker copies the<br/>real network's name"] --> E2["Victims connect<br/>to the attacker"]
+    end
+    RG ~~~ ET
+
+    style R1 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style R2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style E1 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style E2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style RG fill:#161b22,stroke:#30363d,color:#e6edf3
+    style ET fill:#161b22,stroke:#30363d,color:#e6edf3
