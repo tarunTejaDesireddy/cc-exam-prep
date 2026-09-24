@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph TR["ZONES: walls only between zones"]
+        direction LR
+        W1["Web server<br/>taken by attacker"] --> DB1["Database<br/>same zone: reachable"]
+    end
+    subgraph MI["MICRO: walls around each workload"]
+        direction LR
+        W2["Web server<br/>taken by attacker"] --x DB2["Database<br/>own policy: blocked"]
+    end
+    TR ~~~ MI
+
+    style W1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style DB1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style W2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style DB2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style TR fill:#161b22,stroke:#30363d,color:#e6edf3
+    style MI fill:#161b22,stroke:#30363d,color:#e6edf3

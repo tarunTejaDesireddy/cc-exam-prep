@@ -1,0 +1,11 @@
+flowchart TD
+    I["INTERNET<br/>untrusted"] -->|"allowed in"| F1["Outer firewall"]
+    F1 --> D["DMZ<br/>web, mail relay, public DNS<br/>semi-trusted"]
+    D --> F2["Inner firewall"]
+    F2 --x|"the DMZ may NOT freely<br/>connect inward"| N["INTERNAL NETWORK<br/>trusted"]
+
+    style I fill:#3a1a20,stroke:#E03131,color:#fff
+    style F1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style D fill:#3a2c12,stroke:#F08C00,color:#fff
+    style F2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style N fill:#12243f,stroke:#5C7CFA,color:#fff

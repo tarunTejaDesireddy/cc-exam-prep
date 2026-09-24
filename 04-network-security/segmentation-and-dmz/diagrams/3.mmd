@@ -1,0 +1,9 @@
+flowchart LR
+    V["VLAN<br/>logical, set in the switch<br/>VLAN hopping exists"] --> F["FIREWALLED SEGMENT<br/>separate and filtered<br/>rules can be wrong"]
+    F --> P["PHYSICAL SEPARATION<br/>different equipment"]
+    P --> A["AIR GAP<br/>no connection at all<br/>the strongest"]
+
+    style V fill:#26292e,stroke:#868E96,color:#fff
+    style F fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P fill:#0f3038,stroke:#12B5A5,color:#fff
+    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
