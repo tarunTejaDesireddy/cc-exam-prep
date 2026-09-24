@@ -1,0 +1,11 @@
+flowchart TD
+    F["A fire"] --> DOWN["Order processing<br/>is DOWN"]
+    FL["A flood"] --> DOWN
+    DK["A failed disk"] --> DOWN
+    DOWN --> BIA["The BIA only asks:<br/>what does it COST us<br/>and how fast must<br/>it come back?"]
+
+    style F fill:#26292e,stroke:#868E96,color:#fff
+    style FL fill:#26292e,stroke:#868E96,color:#fff
+    style DK fill:#26292e,stroke:#868E96,color:#fff
+    style DOWN fill:#3a1a20,stroke:#E03131,color:#fff
+    style BIA fill:#0f3038,stroke:#12B5A5,color:#fff

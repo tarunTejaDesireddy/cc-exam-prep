@@ -1,284 +1,286 @@
 <div align="center">
 
-<img src="assets/business-impact-analysis-banner.svg" alt="Business Impact Analysis — what would hurt, and how fast must we recover" width="100%">
+<img src="../assets/module-02-banner.svg" alt="02 · Security Governance" width="100%">
 
-# 💥 Business Impact Analysis (BIA) — Caveman Style
+# 📊 Business Impact Analysis
 
-[![Module](https://img.shields.io/badge/Module-02_Security_Governance-0d2b33?style=for-the-badge&labelColor=07171c)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain_2-17.3%25-12B5A5?style=for-the-badge&labelColor=0f3038)](../README.md)
+### *Before you plan for a disruption, find out what it would actually cost you*
 
-[![RTO](https://img.shields.io/badge/⏱️-RTO-F08C00?style=flat-square&labelColor=3a2c12)](#️-rto-vs-rpo)
-[![RPO](https://img.shields.io/badge/💾-RPO-2F9E44?style=flat-square&labelColor=1d3a2a)](#️-rto-vs-rpo)
-[![BIA vs Plans](https://img.shields.io/badge/🛠️-BIA_vs_DRP_vs_BCP-5C7CFA?style=flat-square&labelColor=12243f)](#-bia-vs-disaster-recovery-plan)
+[![Module](https://img.shields.io/badge/Module-02_Security_Governance-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-2%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
+[![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
+
+📌 *The BIA comes FIRST, it's cause-agnostic (unlike a risk assessment), and it produces the RTO and RPO targets.*
 
 </div>
 
 ---
 
-BIA stands for:
+## 🧸 The big idea
 
-> **Business Impact Analysis**
+Before buying a generator for power cuts at home, you'd list what actually matters and how long you
+could live without each:
 
-The key exam question is:
+- **Fridge** — food spoils in about 4 hours. Critical.
+- **Phone charging** — you can manage for a day.
+- **TV** — you'd survive weeks.
 
-> "What does a BIA produce, and why does it happen before recovery/continuity plans?"
+Only **after** that ranking do you decide what generator to buy. And notice: it doesn't matter
+**why** the power went off — storm, fault or blown fuse — the fridge is off either way.
 
-## 🧠 What is a BIA?
-
-Imagine Grog's tribe has several important activities:
-
-- 🥩 Getting food
-- 💧 Getting water
-- 🏥 Taking care of injured tribe members
-- 🔥 Keeping fire
-- 🏠 Protecting the cave
-
-One day, the tribe asks:
-
-> "If something stops working, what would hurt us the most?"
-
-That's what a Business Impact Analysis helps determine.
-
-### Simple definition
-
-> **A BIA identifies critical business functions and analyzes the impacts of their disruption
-> over time.**
-
-## 🪨 Caveman Example
-
-Imagine Grog's tribe loses access to its cave. 🏠❌
-
-What happens?
-
-**After 1 hour** — 😐 Annoying, but everyone can survive.
-
-**After 1 day** — 😟 Problems become serious.
-
-**After 3 days** — 😨 Food may be gone.
-
-**After 1 week** — 💀 The tribe could be in serious danger.
-
-The BIA helps determine how quickly the disruption becomes unacceptable and which activities are
-most important to recover.
-
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+That's a **business impact analysis (BIA)**: identify the organisation's critical functions, work
+out what it costs when each stops, and set how fast each must come back. **Ranking first, planning
+second — never the other way round.**
 
 ---
 
-## 📦 What does a BIA produce?
+## 📖 Words you will keep seeing
 
-This is the part you should memorize for the exam.
-
-A BIA typically produces information about:
-
-### 1 · ⭐ Critical business functions
-
-It identifies:
-
-> **Which business processes are most important?**
-
-Example:
-
-- Payment processing ⭐⭐⭐
-- Customer support ⭐⭐
-- Marketing ⭐
-
-### 2 · 💥 Business impact
-
-It determines what happens if each function is unavailable.
-
-Possible impacts:
-
-- 💰 Financial loss
-- ⚖️ Legal/regulatory consequences
-- 👥 Customer impact
-- ⭐ Reputation damage
-- 🏢 Operational disruption
-
-### 3 · ⏱️ Recovery priorities
-
-It helps determine:
-
-> **What needs to be restored first?**
-
-For example:
-
-1. 🥇 Payment system
-2. 🥈 Customer database
-3. 🥉 Email system
-
-### 4 · ⏳ RTO — Recovery Time Objective
-
-A BIA commonly helps establish the RTO.
-
-> **RTO = How quickly must the system/process be restored after disruption?**
-
-Example: "The payment system must be restored within 2 hours." That's an RTO.
-
-**Caveman version:** "How long can we survive without it?"
-
-### 5 · 📦 RPO — Recovery Point Objective
-
-A BIA can also help establish the RPO.
-
-> **RPO = How much data loss can the organization tolerate, measured in time?**
-
-Example: RPO = 1 hour. That means the organization aims to recover data to a point no more than
-about 1 hour before the disruption, depending on the recovery design.
-
-**Caveman version:** "How much of our recent food/data can we afford to lose?"
+| Word | What it means on this exam |
+|---|---|
+| **BIA** | Business Impact Analysis — identifies critical functions and the **impact** of losing them. |
+| **Critical business function** | A function the organisation can't operate without for long. |
+| **Criticality** | How essential a function is. Drives **availability** decisions. |
+| **Impact** | The harm from a disruption — financial, operational, reputational, legal, safety. |
+| **RTO / RPO** | Recovery time and recovery point targets — **produced by** the BIA. |
+| **MTD** | Maximum Tolerable Downtime — the limit before unacceptable harm. |
+| **Dependency** | Something a function relies on — a system, supplier, person or facility. |
+| **Single point of failure** | A dependency with no alternative; losing it stops the function. |
 
 ---
 
-## ⏱️ RTO vs RPO
+## 🔍 The explanation
 
-This is very commonly tested.
+### Where the BIA sits
 
-**RTO** — How FAST do we need to recover? Think: 🏃 TIME TO RECOVER
+<p align="center"><img src="diagrams/1.svg" alt="First the BIA finds what matters and what an outage costs, then a strategy decides how to meet the targets, then the continuity and disaster recovery plans are written, then they are tested, with lessons feeding back into the BIA" width="760"></p>
 
-**RPO** — How much DATA can we lose? Think: 💾 DATA LOSS
+> 🎯 **"What comes FIRST in business continuity planning?"** → the **BIA**. You can't plan recovery
+> for functions you haven't identified and ranked.
 
-### 🎯 Example
+### What the BIA does
 
-Suppose a company's database has:
+<p align="center"><img src="diagrams/2.svg" alt="The BIA identifies business functions, assesses the impact of losing each over time, prioritises them by criticality, maps their dependencies, and sets RTO and RPO targets for each" width="880"></p>
 
-> RTO = 4 hours, and RPO = 30 minutes
+### Impact grows over time
 
-That means:
+The harm from an outage isn't constant — which is what makes prioritising possible:
 
-**RTO** — The database should be restored within approximately: ⏱️ 4 hours
+<p align="center"><img src="diagrams/3.svg" alt="For order processing, one hour down means orders queue, four hours means customers notice and some leave, one day means real revenue loss and reputation damage, one week means penalties and customers lost for good" width="820"></p>
 
-**RPO** — The organization can tolerate losing approximately: 💾 30 minutes of data
+Impact is measured across several dimensions:
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+| Dimension | Examples |
+|---|---|
+| **Financial** | Lost revenue, penalties, recovery costs |
+| **Operational** | Can't deliver, growing backlog |
+| **Reputational** | Customer confidence, press coverage |
+| **Legal / regulatory** | Breached obligations, fines |
+| **Safety** | Where systems affect physical safety |
 
----
+> ⚠️ **The BIA is a business exercise.** Function owners know what their process costs when it
+> stops. IT maps the systems each function depends on — it can't supply the business impact alone.
 
-## 🧠 Why does BIA come BEFORE the plans?
+### Dependencies are where the surprises live
 
-This is the most important concept.
+A function depends on far more than its main application — upstream systems, suppliers, specific
+people, facilities, connectivity. **Dependency mapping finds single points of failure nobody knew
+about**: one spreadsheet, one supplier, one person with undocumented knowledge.
 
-Imagine Grog says:
+### BIA vs risk assessment
 
-> "Let's build a recovery plan!"
+Both produce prioritised lists — the exam loves separating them. The key difference: **the BIA
+doesn't care what caused the outage.**
 
-But he doesn't know:
+<p align="center"><img src="diagrams/4.svg" alt="Whether caused by a fire, a flood or a failed disk, order processing is down, and the BIA only asks what that costs and how fast it must come back" width="520"></p>
 
-- Which systems are important
-- Which systems need to recover first
-- How quickly they need to recover
-- How much data loss is acceptable
-- What the consequences of downtime are
-
-That's like building a rescue plan without knowing what you're rescuing. 🪨🤦
-
-### 🏗️ BIA → Plans
-
-The BIA gives you the requirements.
-
-Then you use those requirements to create the plans.
-
-Think:
-
-> **BIA = "WHAT do we need?"**
-> ↓
-> **Continuity/Recovery Plans = "HOW will we do it?"**
-
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+| | **Risk assessment** | **BIA** |
+|---|---|---|
+| Asks | What **could happen**, and how likely? | What if this function **stops**? |
+| Focus | **Threats** and **likelihood** | **Impact** and **duration** |
+| Cares about the cause? | **Yes** | **No** — cause-agnostic |
+| Produces | Prioritised risks and treatments | Critical functions, RTO, RPO, dependencies |
 
 ---
 
-## 🏢 Real-World Example
+## ⚖️ Told apart
 
-Imagine an online store.
-
-The BIA determines:
-
-- 🛒 Order processing is critical.
-- 💰 Every hour of downtime costs approximately $100,000.
-- ⏱️ RTO = 2 hours.
-- 💾 RPO = 15 minutes.
-
-Now the organization can design a recovery strategy.
-
-For example:
-
-- Backup systems
-- Redundant servers
-- Replicated databases
-- Disaster recovery site
-- Recovery procedures
-
-Without the BIA, they wouldn't know what recovery capabilities they actually need.
+| | Means | Not to be confused with |
+|---|---|---|
+| **BIA** | Impact of losing functions. Cause-agnostic. | **Risk assessment** — threats and likelihood. |
+| **BIA** | Comes **first**. | The **continuity plan**, built from the BIA's findings. |
+| **Criticality** | How essential → drives **availability**. | **Sensitivity** — how damaging disclosure is → drives confidentiality. |
+| **Impact** | The harm from disruption. | **Likelihood** — which the BIA doesn't assess. |
+| **RTO / RPO** | **Outputs** of the BIA. | Inputs to it. |
+| **Dependency** | Something a function relies on. | **Single point of failure** — a dependency with no alternative. |
 
 ---
 
-## 🛡️ BIA vs Disaster Recovery Plan
+## ⚠️ Where your instinct is wrong
 
-Don't confuse these.
+> [!WARNING]
+> **In the job:** IT sets recovery priorities, because IT knows which systems matter.
+>
+> **On the exam:** the BIA is a **business** exercise. Function owners state the impact; IT maps
+> dependencies.
 
-**💥 BIA** — Analyzes the business impact of disruption. It tells us: "This process is critical."
-"It can tolerate only 2 hours of downtime." "We can tolerate only 15 minutes of data loss."
+> [!WARNING]
+> **In the job:** you'd start continuity work by designing the recovery architecture.
+>
+> **On the exam:** **the BIA comes first.** Designing recovery before knowing what must recover,
+> and how fast, protects the wrong things.
 
-**🛠️ Disaster Recovery Plan** — Explains how to restore IT systems after a disruption. It says
-things like: "Fail over to the backup server." "Restore the database." "Verify the application."
-
-## 🔄 BIA vs Business Continuity Plan
-
-**BIA** — Analyze the impact and establish priorities/requirements.
-
-**Business Continuity Plan (BCP)** — Explain how the organization will continue critical
-operations during a disruption.
-
-**Disaster Recovery Plan (DRP)** — Explain how systems/infrastructure will be recovered.
-
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-### 🪨 Caveman Flow
-
-Remember this sequence:
-
-> 💥 **BIA** — What happens if something stops?
-> ↓
-> ⭐ **Identify critical functions** — What's most important?
-> ↓
-> ⏱️ **Determine recovery requirements** — How quickly must it return?
-> ↓
-> 💾 **Determine data-loss requirements** — How much data can we lose?
-> ↓
-> 🛠️ **Create continuity/recovery strategies and plans** — How will we recover?
+> [!WARNING]
+> **In the job:** you plan for what's most likely to go wrong.
+>
+> **On the exam:** the BIA is **cause-agnostic**. Likelihood is the risk assessment's job.
 
 ---
 
-## 🎯 Exam-Ready Answer
+## 🧠 How to remember it
 
-If the exam asks:
+**BIA first, plans second.**
 
-> "What does a BIA produce?"
+**Risk assessment: "what could happen?" BIA: "what if it stops?"**
 
-Say:
+**The BIA doesn't care why it broke** — fire, flood or failed disk, it's down either way.
 
-> **A BIA identifies critical business functions and the impacts of their disruption, establishes
-> recovery priorities, and helps define requirements such as RTO and RPO.**
+**The BIA produces RTO and RPO.**
 
-If it asks:
+---
 
-> "Why does BIA come before the plans?"
+## ✅ Check you actually got it
 
-Say:
+Answer all five before expanding anything.
 
-> **Because the BIA determines what is critical, how severe disruption would be, and the required
-> recovery time and data-loss limits. Those requirements are needed to design appropriate business
-> continuity and disaster recovery strategies and plans.**
+**Q1.** What is the FIRST step in developing a business continuity programme?
 
-### 🧠 One-line memory
+- **A.** Selecting an alternate recovery site
+- **B.** Conducting a business impact analysis
+- **C.** Writing the disaster recovery plan
+- **D.** Purchasing backup infrastructure
 
-💥 **BIA** = "What would hurt, what's most important, and how quickly must we recover?"
+<details>
+<summary><b>Answer</b></summary>
 
-🛠️ **Plans** = "Now that we know what we need, HOW are we going to recover?"
+**B — the BIA.** It sets the priorities and targets everything else is built to meet.
+
+- **A** — choosing a site without knowing the RTO is guessing.
+- **C** — can't be written sensibly without knowing what must recover, and how fast.
+- **D** — spending before knowing what needs protecting.
+
+</details>
+
+**Q2.** What distinguishes a BIA from a risk assessment?
+
+- **A.** A BIA identifies threats; a risk assessment identifies impacts
+- **B.** A BIA focuses on the impact of disruption regardless of cause; a risk assessment focuses on threats and their likelihood
+- **C.** They are the same process under different names
+- **D.** A BIA is technical; a risk assessment is financial
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.** The BIA is cause-agnostic.
+
+- **A** reverses them.
+- **C** loses a distinction the exam tests directly.
+- **D** invents a split — the BIA is a *business* exercise.
+
+</details>
+
+**Q3.** Which outputs does a BIA produce?
+
+- **A.** A list of threats ranked by likelihood
+- **B.** Critical business functions, impact over time, RTO and RPO targets, and dependencies
+- **C.** A completed disaster recovery plan
+- **D.** An inventory of all hardware assets
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.**
+
+- **A** is a **risk assessment** output.
+- **C** is written afterwards, from the BIA.
+- **D** is an asset inventory — a different exercise.
+
+</details>
+
+**Q4.** Who should provide the impact information during a BIA?
+
+- **A.** The IT department, since it understands the systems
+- **B.** Business function owners, who understand what their processes cost when they stop
+- **C.** External auditors, for independence
+- **D.** The information security team
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.** Only the people running a process know what its loss costs the business.
+
+- **A** — IT's contribution is dependency mapping.
+- **C** — auditors check the process; supplying input would compromise independence.
+- **D** facilitates, but doesn't supply business impact figures.
+
+</details>
+
+**Q5.** A BIA finds order processing can tolerate at most four hours of downtime. What does this
+figure primarily inform?
+
+- **A.** The data classification level of order records
+- **B.** The recovery time objective and the recovery strategy chosen to meet it
+- **C.** The password policy for the order system
+- **D.** The likelihood of an outage occurring
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.** Four hours drives an RTO inside that window — and so whether a warm or hot site is needed.
+
+- **A** is about disclosure (confidentiality), not downtime.
+- **C** is access control.
+- **D** is likelihood — the BIA doesn't assess it.
+
+</details>
+
+---
+
+## 🎓 The grown-up version
+
+<details>
+<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
+
+**Everyone says their function is critical.** Every department asks for a one-hour RTO. Good
+practice shows the cost of each recovery tier and forces a ranking — criticality only means
+something if some functions are *less* critical.
+
+**Dependency mapping is where the value is.** Interviews find the dependencies people remember. A
+CMDB holds the documented ones (and drifts). Distributed tracing (Datadog, AWS X-Ray, Jaeger)
+observes the real call graph at runtime — and finds the tax API a departed developer wired in six
+months ago.
+
+**Concentration risk.** Many "independent" services turn out to share one cloud region or CDN.
+A dependency map that stops at "our cloud provider" misses that.
+
+**The BIA has a shelf life** — refresh it periodically and after mergers, major system changes or
+restructures.
+
+</details>
+
+---
+
+## 📝 Cram lines
+
+Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
+
+- **The BIA comes FIRST** — before continuity and recovery plans.
+- **BIA = "what if it STOPS?"** — **cause-agnostic**. Risk assessment = threats and **likelihood**.
+- **BIA outputs:** critical functions · impact over time · **RTO and RPO** · dependencies.
+- **Impact grows with duration.** The BIA is a **business** exercise — function owners supply impact.
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← Back to 02 · Security Governance</a></sub>
+<sub><a href="../README.md">← back to 02 · Security Governance</a> &nbsp;·&nbsp; <a href="../rto-rpo-mtd/">next: RTO, RPO and MTD →</a></sub>
 </div>
