@@ -1,0 +1,15 @@
+flowchart TD
+    D["Your information"] --> C["CONFIDENTIALITY<br/>Who can SEE it?"]
+    D --> I["INTEGRITY<br/>Who can CHANGE it?"]
+    D --> A["AVAILABILITY<br/>Can I REACH it<br/>when I need it?"]
+    C -->|"broken by"| C2["Disclosure<br/>someone saw it"]
+    I -->|"broken by"| I2["Alteration<br/>it was changed"]
+    A -->|"broken by"| A2["Destruction<br/>it cannot be reached"]
+
+    style D fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style I fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style A fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style I2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style A2 fill:#3a1a20,stroke:#E03131,color:#fff

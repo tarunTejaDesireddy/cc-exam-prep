@@ -15,7 +15,8 @@ broken=0
 checked=0
 
 while IFS= read -r file; do
-  case "$file" in ./.github/_templates/*) continue ;; esac
+  # _templates and CLAUDE.md hold example snippets, not real links
+  case "$file" in ./.github/_templates/*|./CLAUDE.md) continue ;; esac
   dir=$(dirname "$file")
 
   # Pull the target out of every ](...), src="..." and href="..." occurrence

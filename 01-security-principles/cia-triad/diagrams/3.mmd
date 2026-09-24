@@ -1,0 +1,11 @@
+flowchart LR
+    R["Ransomware attack"] --> E["Act 1: files encrypted<br/>data still there,<br/>nobody can use it"]
+    R --> L["Act 2: stolen copy<br/>published online"]
+    E --> A["AVAILABILITY"]
+    L --> C["CONFIDENTIALITY"]
+
+    style R fill:#3a1a20,stroke:#E03131,color:#fff
+    style E fill:#26292e,stroke:#868E96,color:#fff
+    style L fill:#26292e,stroke:#868E96,color:#fff
+    style A fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff

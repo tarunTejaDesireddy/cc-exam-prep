@@ -1,0 +1,10 @@
+flowchart TD
+    Q["Read the scenario.<br/>What actually went wrong?"]
+    Q -->|"someone saw it<br/>who should not have"| C["CONFIDENTIALITY"]
+    Q -->|"it was changed,<br/>corrupted or is wrong"| I["INTEGRITY"]
+    Q -->|"an allowed user<br/>cannot get to it"| A["AVAILABILITY"]
+
+    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style I fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style A fill:#3a2c12,stroke:#F08C00,color:#fff

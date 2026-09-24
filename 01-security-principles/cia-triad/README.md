@@ -1,350 +1,287 @@
 <div align="center">
 
-<img src="assets/cia-banner.svg" alt="The CIA Triad — the three big rules of the secret cave" width="100%">
+<img src="../assets/module-01-banner.svg" alt="01 · Security Principles" width="100%">
 
-# 🪨 CIA Triad — Caveman Edition
+# 🔺 The CIA Triad
 
-[![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=for-the-badge&labelColor=07171c)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain_1-24%25-12B5A5?style=for-the-badge&labelColor=0f3038)](../README.md)
+### *The three things security protects — and the one question that tells them apart*
 
-[![Confidentiality](https://img.shields.io/badge/C-Confidentiality-5C7CFA?style=flat-square&labelColor=12243f)](#1--c--confidentiality)
-[![Integrity](https://img.shields.io/badge/I-Integrity-2F9E44?style=flat-square&labelColor=1d3a2a)](#2--i--integrity)
-[![Availability](https://img.shields.io/badge/A-Availability-F08C00?style=flat-square&labelColor=3a2c12)](#3--a--availability)
+[![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
+[![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
+
+📌 *Name the three properties, and from any scenario pick the one that was PRIMARILY broken.*
 
 </div>
 
 ---
 
-Imagine you are **Grog**, a caveman. You live in a cave with your tribe.
+## 🧸 The big idea
 
-Inside your cave you have:
+Think about your phone. Three different things can go wrong with the photos on it:
 
-- 🥩 Food
-- 🔥 Fire
-- 🪨 Valuable rocks
-- 🗺️ A map showing where the tribe hunts
-- 🧑‍🤝‍🧑 Information about your tribe
+- A stranger **sees** them → that is a **confidentiality** problem.
+- Someone **edits** them without asking → that is an **integrity** problem.
+- The phone dies and **you can't get to them** → that is an **availability** problem.
 
-You want to protect all of this.
-
-Cybersecurity says there are **three big things** you must protect:
-
-> **C — Confidentiality**
-> **I — Integrity**
-> **A — Availability**
-
-Together, these are called the **CIA Triad**.
-
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+That is the whole triad. Every security control exists to protect one or more of these three.
+Every attack breaks one or more of them. On the exam, your job is almost always the same: **read
+the scenario and name which one went wrong.**
 
 ---
 
-## 1 · 🔒 C = Confidentiality
+## 📖 Words you will keep seeing
 
-### Caveman version
-
-Grog has a secret cave.
-
-Inside the cave is a map showing where the tribe stores its food.
-
-Grog doesn't want another tribe to see the map.
-
-So Grog puts a big stone in front of the cave and gives the secret location only to his tribe.
-
-That's **Confidentiality**.
-
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
-
-### 💻 Computer version
-
-Confidentiality means:
-
-> **Only authorized people should be able to access information.**
-
-For example, imagine a hospital has information about patients.
-
-A patient's medical record should be visible to:
-
-- 👨‍⚕️ Authorized doctors
-- 👩‍⚕️ Authorized nurses
-- 🏥 Appropriate hospital staff
-
-But it shouldn't be visible to:
-
-- ❌ Random people
-- ❌ Hackers
-- ❌ Unauthorized employees
-
-### How do we achieve confidentiality?
-
-We use things like:
-
-- 🔑 Passwords
-- 🔐 Encryption
-- 👤 User accounts
-- 🪪 Authentication
-- 🛂 Access controls
-- 🔒 Permissions
-
-> [!NOTE]
-> **Example:** Suppose your password is `Grog123`. A hacker gets your password and opens your
-> account. Your information is no longer confidential.
->
-> **Confidentiality = "Who is allowed to see this?"**
+| Word | What it means on this exam |
+|---|---|
+| **Confidentiality** | Information is disclosed only to people, processes and devices that are **authorised** to see it. |
+| **Integrity** | Information is **accurate and complete**, and is changed only in authorised ways — and any unauthorised change can be **detected**. |
+| **Availability** | Authorised users get **timely and reliable** access to information and systems when they need it. |
+| **Sensitivity** | How much harm **disclosure** would cause. High sensitivity → protect confidentiality. |
+| **Criticality** | How much the organisation **depends** on the information. High criticality → protect availability. |
+| **DAD** | Disclosure, Alteration, Destruction — the three *failures*, one for each letter of CIA. |
 
 ---
 
-## 2 · ✏️ I = Integrity
+## 🔍 The explanation
 
-Now Grog has another problem.
+### One question per letter
 
-He has a **map** showing where the tribe's food is stored.
+<p align="center"><img src="diagrams/1.svg" alt="Your information needs confidentiality (who can see it), integrity (who can change it) and availability (can I reach it); they are broken by disclosure, alteration and destruction respectively" width="620"></p>
 
-The map says:
+| | Ask | Protected by (examples) |
+|---|---|---|
+| 🔒 **Confidentiality** | *Who can **see** it?* | Encryption, access control, authentication, data classification |
+| ✏️ **Integrity** | *Who can **change** it — and would I notice?* | Hashing, digital signatures, change control, audit logs, file-integrity monitoring |
+| 🟢 **Availability** | *Can I **reach** it when I need it?* | Backups, redundancy, failover, UPS/generators, DDoS protection |
 
-> 🥩 Food is in Cave A.
+### How to answer a CIA scenario question
 
-While Grog is sleeping, another caveman changes the map:
+Ignore everything interesting in the story and ask **what actually happened to the
+information**:
 
-> 🥩 Food is in Cave B.
+<p align="center"><img src="diagrams/2.svg" alt="If someone saw it who should not have, the answer is confidentiality; if it was changed, corrupted or is wrong, integrity; if an allowed user cannot get to it, availability" width="620"></p>
 
-Grog believes the fake map and goes to Cave B.
+Two details the exam leans on:
 
-There is no food there.
+- **Intent doesn't matter.** An email sent to the wrong person by accident is still a
+  confidentiality failure. A disk that silently corrupts records is still an integrity failure. CIA
+  describes what happened *to the data*, not whether an attacker was involved.
+- **"Timely" is part of availability.** If legitimate users are locked out or the system is too
+  slow to use, availability has failed even though nothing was lost.
 
-😡 Grog gets very angry.
+### The ransomware trap
 
-This is an **integrity problem**.
+This is the single most-missed CIA question. Split the attack into its two acts:
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/3.svg" alt="Ransomware act one, encrypting files so nobody can use them, is an availability failure; act two, publishing a stolen copy, is a confidentiality failure" width="620"></p>
 
-### 💻 Computer version
+Encrypted files still exist and their content is not altered — they are simply **unusable**. So
+unless the question says data was stolen or leaked, ransomware = **availability**.
 
-Integrity means:
+### The three pull against each other
 
-> **Information should remain accurate, complete, and trustworthy.**
+You cannot max out all three at once. Tighten one and you usually loosen another:
 
-In other words: **nobody should be able to change your data without authorization.**
+<p align="center"><img src="diagrams/4.svg" alt="The business decides the balance: turning up confidentiality costs availability, and turning up availability costs confidentiality" width="560"></p>
 
-### Example: Bank account
-
-Imagine your bank account says:
-
-> 💰 Balance = $10,000
-
-A hacker changes it to:
-
-> 💰 Balance = $100
-
-That's an **integrity violation**. The information was changed incorrectly.
-
-### Another example
-
-Imagine a school database says:
-
-> Student: John
-> Grade: A
-
-Someone illegally changes it to:
-
-> Student: John
-> Grade: F
-
-The information is no longer trustworthy.
-
-### How do we protect integrity?
-
-We can use:
-
-- 🔐 Access controls
-- 🧾 Hashes
-- ✍️ Digital signatures
-- 💾 Backups
-- 📝 Audit logs
-- 🔍 File integrity monitoring
-
-> [!TIP]
-> **Integrity = "Is the information still correct and unchanged?"**
+The balance is a **business decision** — security advises, management decides.
 
 ---
 
-## 3 · 🟢 A = Availability
+## ⚖️ Told apart
 
-Now imagine Grog has lots of food in his cave.
+This table is the reason to read the page. Every row is a distractor pattern.
 
-The food is safe. Nobody stole it. Nobody changed it.
+| Scenario | Property broken | Why not the others |
+|---|---|---|
+| An unauthorised user **reads** a payroll file | **Confidentiality** | Nothing changed; nobody lost access. |
+| An unauthorised user **edits** a payroll figure | **Integrity** | The harm is the unauthorised change. |
+| An unauthorised user **deletes** the payroll file | **Availability** | Authorised users can no longer reach it — pick the *primary* impact. |
+| Ransomware **encrypts** production data | **Availability** | Data still exists, content unchanged, but unusable. |
+| Ransomware gang **publishes** the stolen data | **Confidentiality** | Now it is disclosure — a separate failure. |
+| A DDoS attack floods a web server | **Availability** | Nothing seen or changed; access denied. |
+| A laptop with unencrypted data is stolen | **Confidentiality** | Potential disclosure. |
+| A failing disk corrupts records | **Integrity** | No attacker needed — accuracy lost. |
+| An email goes to the wrong recipient | **Confidentiality** | Accidental disclosure is still disclosure. |
+| Staff are locked out by an aggressive password policy | **Availability** | Authorised users can't get timely access. |
 
-So: Confidentiality ✅ · Integrity ✅
+| Also not to be confused with | Why |
+|---|---|
+| **Non-repudiation** | Proves *who did something* and stops them denying it. It is **not** one of the three. If it appears as an option on a "which CIA property" question, it's the distractor. |
+| **Privacy** | Confidentiality protects the data. Privacy governs **what you are permitted to do** with personal data. |
 
-But there's one problem.
+---
 
-A giant boulder falls in front of the cave. 🪨💥
-
-Grog can't get inside.
-
-His food exists. It's correct. But **he can't access it when he needs it**.
-
-That's an **availability problem**.
-
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-### 💻 Computer version
-
-Availability means:
-
-> **Authorized users should be able to access information and systems when they need them.**
-
-For example, imagine your bank's website normally works 24/7. You need to transfer money. But
-hackers launch a **DDoS attack**, overwhelming the website. You can't access your bank. Your
-information wasn't necessarily stolen or changed. But the service isn't available. That's an
-availability failure.
-
-### How do we protect availability?
-
-We can use:
-
-- 💾 Backups
-- 🖥️ Redundant servers
-- 🌐 Multiple network connections
-- ⚡ Uninterruptible power supplies
-- 🛡️ DDoS protection
-- 🔧 System maintenance
-- ♻️ Disaster recovery
+## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **Availability = "Can I access it when I need it?"**
+> **In the job:** ransomware is obviously a breach too — modern gangs steal data before they
+> encrypt it.
+>
+> **On the exam:** unless the question explicitly says data was stolen or leaked, encryption for
+> ransom is **availability**. Answer the scenario you were given, not the one you have worked.
+
+> [!WARNING]
+> **In the job:** you'd argue a deleted file hits both integrity and availability.
+>
+> **On the exam:** pick the **primary** impact. Deleted or unreachable = availability. Content
+> changed = integrity. Don't reason your way into the more interesting answer.
 
 ---
 
-## 💥 Each rule breaks a different way
+## 🧠 How to remember it
 
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
+**See · Change · Reach**
 
----
+- **C**onfidentiality — who can **see** it
+- **I**ntegrity — who can **change** it
+- **A**vailability — can I **reach** it
 
-## 🦴 Put all three together
+For any scenario, ask which verb went wrong.
 
-Imagine Grog has a **secret food database**.
-
-| CIA Principle | Caveman problem | Cybersecurity meaning |
-| --- | --- | --- |
-| 🔒 Confidentiality | Other tribes see Grog's food map | Prevent unauthorized access |
-| ✏️ Integrity | Someone changes the food map | Prevent unauthorized/incorrect changes |
-| 🟢 Availability | Boulder blocks the food cave | Make information accessible when needed |
-
-The easiest way to remember:
-
-### 🔒 Confidentiality
-
-**"Don't let the wrong person SEE it."**
-
-### ✏️ Integrity
-
-**"Don't let the wrong person CHANGE it."**
-
-### 🟢 Availability
-
-**"Make sure I can USE it when I need it."**
+**CIA ↔ DAD** — **D**isclosure breaks **C**, **A**lteration breaks **I**, **D**estruction breaks
+**A**. Same order both ways.
 
 ---
 
-## 🏦 Real-world example: Your bank account
+## ✅ Check you actually got it
 
-Let's say you have **$5,000** in your bank account.
+Answer all five before expanding anything.
 
-### 🔒 Confidentiality
+**Q1.** A ransomware attack encrypts all files on a production file server. The attacker makes
+no copy of the data. Which element of the CIA triad is PRIMARILY affected?
 
-A stranger shouldn't be able to see your:
+- **A.** Confidentiality
+- **B.** Integrity
+- **C.** Availability
+- **D.** Non-repudiation
 
-- Account number
-- Transactions
-- Balance
-- Personal information
+<details>
+<summary><b>Answer</b></summary>
 
-If a hacker steals your banking credentials and views your account:
+**C — Availability.** The data still exists and its substance is unchanged, but authorised
+users cannot access it.
 
-❌ **Confidentiality is broken.**
+- **A** needs disclosure — the question says no copy was taken.
+- **B** is the tempting one because the files visibly changed on disk, but the information
+  inside them is the same. What was taken away is access.
+- **D** is not part of the triad at all.
+
+</details>
+
+**Q2.** An employee emails a spreadsheet of customer records to the wrong external recipient.
+Which principle has been violated?
+
+- **A.** Integrity, because the data left the organisation's control
+- **B.** Confidentiality, because the data was disclosed to an unauthorised party
+- **C.** Availability, because the organisation no longer controls the copy
+- **D.** No principle was violated, because the disclosure was accidental
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — Confidentiality.** Someone not authorised to see the data received it.
+
+- **A** — nothing was modified. Leaving your control is not the same as being altered.
+- **C** — the organisation still has its own copy and can still use it.
+- **D** — **intent is irrelevant.** Accidental disclosure is still disclosure.
+
+</details>
+
+**Q3.** A hospital locks accounts after three failed logins, with a 24-hour reset delay.
+Clinical staff are repeatedly locked out during shifts. What has happened?
+
+- **A.** Confidentiality has been strengthened with no drawback
+- **B.** Integrity has been compromised by the lockout mechanism
+- **C.** A confidentiality control has created an availability problem
+- **D.** Non-repudiation has been weakened
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C.** Authorised staff can't get timely access — the triad in tension.
+
+- **A** — the stem describes a clear drawback. "No drawback" is an absolute worth distrusting.
+- **B** — no information was changed.
+- **D** — attribution of actions is not what the scenario describes.
+
+</details>
+
+**Q4.** Which control PRIMARILY supports integrity?
+
+- **A.** Full-disk encryption on laptops
+- **B.** Hashing files and comparing the values over time
+- **C.** Clustering application servers across two data centres
+- **D.** Requiring multi-factor authentication for remote access
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — hashing.** It makes unauthorised change **detectable**, which is half the definition of
+integrity.
+
+- **A** protects a lost laptop's data from being read — confidentiality.
+- **C** keeps the service running if a site fails — availability.
+- **D** keeps unauthorised people out — mainly confidentiality.
+
+</details>
+
+**Q5.** A failing storage array silently corrupts several thousand customer records. No
+attacker was involved. Which principle is affected?
+
+- **A.** None — CIA applies only to deliberate attacks
+- **B.** Availability, because the records can no longer be trusted
+- **C.** Integrity, because the accuracy and completeness of the data has been lost
+- **D.** Confidentiality, because corrupted records may expose other data
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C — Integrity.** Accidental corruption breaks integrity exactly as malicious editing does.
+
+- **A** is the misconception being tested — CIA describes properties of information, not types
+  of attack.
+- **B** — the records are still reachable; they are reachable *and wrong*.
+- **D** invents a disclosure the scenario doesn't describe.
+
+</details>
 
 ---
 
-### ✏️ Integrity
+## 🎓 The grown-up version
 
-You have:
+<details>
+<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-> Balance = $5,000
+**The Parkerian hexad.** Some writers say CIA is incomplete and add three more properties:
+possession/control, authenticity and utility. A stolen but strongly encrypted backup tape is the
+classic example — confidentiality arguably holds, but you have still lost *control* of it. The
+hexad is **not** on the CC syllabus; offering it as an answer would be wrong.
 
-A hacker changes your balance to:
+**Integrity means something narrower to database people** — referential integrity, ACID
+transactions. On this exam, "integrity" is the security property unless the question is clearly
+about database constraints.
 
-> Balance = $50
+**Availability is the property operations teams measure** — uptime, SLAs, error budgets. Recovery
+targets such as RTO, RPO and MTD are all availability metrics under different names.
 
-The data has been changed incorrectly.
-
-❌ **Integrity is broken.**
-
----
-
-### 🟢 Availability
-
-You need to transfer money. You open your banking app. But the bank's servers are down. You can't
-access your account.
-
-❌ **Availability is broken.**
+</details>
 
 ---
 
-## 🧠 One scenario can attack different parts
+## 📝 Cram lines
 
-This is important for cybersecurity exams.
+Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-Imagine a hacker gets into your company's computer system.
-
-They:
-
-1. Steal customer information.
-2. Change customer records.
-3. Shut down the company's website.
-
-You've potentially lost **all three**:
-
-- **Steal information → Confidentiality**
-- **Change information → Integrity**
-- **Shut down service → Availability**
-
-<p align="center"><img src="diagrams/6.svg" alt="diagram" width="500"></p>
-
----
-
-## 🎯 Easy exam definition
-
-If you're studying cybersecurity, remember this:
-
-> **Confidentiality:** Protect information from unauthorized access.
-
-> **Integrity:** Protect information from unauthorized modification.
-
-> **Availability:** Ensure authorized users can access information and systems when required.
-
----
-
-## 🪨 The ultimate caveman memory trick
-
-Imagine Grog's cave:
-
-- **🔒 C — "WHO CAN SEE MY STUFF?"**
-- **✏️ I — "DID SOMEONE CHANGE MY STUFF?"**
-- **🟢 A — "CAN I GET MY STUFF WHEN I NEED IT?"**
-
-That's the entire **CIA Triad**.
-
-### One sentence to memorize:
-
-> 🛡️ **CIA means: Keep information SECRET, CORRECT, and AVAILABLE.**
-
-If you're learning cybersecurity, the next useful step is understanding **authentication,
-authorization, encryption, hashing, and how each one helps the CIA Triad**.
+- **See · Change · Reach** — Confidentiality, Integrity, Availability. **DAD** mirrors it.
+- **Ransomware encryption = AVAILABILITY.** A ransomware *leak* = confidentiality.
+- **Accidental disclosure is still a confidentiality failure.** Intent is irrelevant.
+- **Integrity covers accidental corruption** and means change is *detectable*.
+- **Non-repudiation is NOT part of the triad.**
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← Back to 01 · Security Principles</a></sub>
+<sub><a href="../README.md">← back to 01 · Security Principles</a> &nbsp;·&nbsp; <a href="../authentication/">next: Authentication →</a></sub>
 </div>

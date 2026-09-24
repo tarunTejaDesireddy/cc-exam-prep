@@ -1,0 +1,12 @@
+flowchart TD
+    B["The BUSINESS decides<br/>where the balance sits"]
+    B --> C["Turn up CONFIDENTIALITY<br/>encryption, strict lockouts"]
+    B --> A2["Turn up AVAILABILITY<br/>extra copies, wider access"]
+    C -->|"costs"| A["Less AVAILABILITY<br/>lost keys, locked-out staff"]
+    A2 -->|"costs"| C2["Less CONFIDENTIALITY<br/>more places to leak from"]
+
+    style B fill:#0f3038,stroke:#12B5A5,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style A fill:#3a1a20,stroke:#E03131,color:#fff
+    style C2 fill:#3a1a20,stroke:#E03131,color:#fff
