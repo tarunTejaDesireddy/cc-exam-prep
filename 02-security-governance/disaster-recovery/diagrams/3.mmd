@@ -1,0 +1,11 @@
+flowchart LR
+    R["READ-THROUGH<br/>review the plan<br/>on paper"] --> W["WALKTHROUGH<br/>team TALKS<br/>through it"]
+    W --> S["SIMULATION<br/>ACT it out,<br/>production untouched"]
+    S --> P["PARALLEL<br/>recovery comes up,<br/>production KEEPS RUNNING"]
+    P --> F["FULL INTERRUPTION<br/>production switched OFF,<br/>run from recovery"]
+
+    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style W fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style S fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P fill:#3a2c12,stroke:#F08C00,color:#fff
+    style F fill:#3a1a20,stroke:#E03131,color:#fff

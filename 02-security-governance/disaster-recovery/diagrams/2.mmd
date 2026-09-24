@@ -1,0 +1,22 @@
+flowchart TD
+    subgraph INC["INCREMENTAL: since LAST BACKUP"]
+        I0["Sun: FULL"] --> I1["Mon: Mon's changes"] --> I2["Tue: Tue's changes"] --> I3["Wed: Wed's changes"]
+        I3 --> IR["Restore Wed = Full +<br/>Mon + Tue + Wed<br/>ALL of them"]
+    end
+    subgraph DIF["DIFFERENTIAL: since LAST FULL"]
+        D0["Sun: FULL"] --> D1["Mon: Mon's changes"] --> D2["Tue: Mon + Tue changes"] --> D3["Wed: Mon + Tue + Wed"]
+        D3 --> DR["Restore Wed = Full +<br/>Wed's differential<br/>ONLY the latest"]
+    end
+
+    style INC fill:#161b22,stroke:#5C7CFA,color:#fff
+    style DIF fill:#161b22,stroke:#12B5A5,color:#fff
+    style I0 fill:#26292e,stroke:#868E96,color:#fff
+    style I1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style I2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style I3 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style IR fill:#3a2c12,stroke:#F08C00,color:#fff
+    style D0 fill:#26292e,stroke:#868E96,color:#fff
+    style D1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style D2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style D3 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style DR fill:#1d3a2a,stroke:#2F9E44,color:#fff
