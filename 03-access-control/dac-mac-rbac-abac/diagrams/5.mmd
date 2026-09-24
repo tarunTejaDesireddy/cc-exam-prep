@@ -1,0 +1,11 @@
+flowchart LR
+    Q["What decides the access?"] --> RO["The person's JOB<br/>'she's a Payroll Admin'"]
+    Q --> RU["A SYSTEM-WIDE RULE<br/>applied to everyone<br/>'allow port 443 from anywhere'"]
+    RO --> RO2["ROLE-based: RBAC"]
+    RU --> RU2["RULE-based"]
+
+    style Q fill:#26292e,stroke:#868E96,color:#fff
+    style RO fill:#12243f,stroke:#5C7CFA,color:#fff
+    style RU fill:#12243f,stroke:#5C7CFA,color:#fff
+    style RO2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style RU2 fill:#3a2c12,stroke:#F08C00,color:#fff

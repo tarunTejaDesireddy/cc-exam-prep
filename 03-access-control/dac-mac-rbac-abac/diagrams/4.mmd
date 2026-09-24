@@ -1,0 +1,13 @@
+flowchart LR
+    S["SUBJECT attributes<br/>department, clearance"] --> E["POLICY ENGINE<br/>checks ALL of them<br/>at request time"]
+    O["OBJECT attributes<br/>sensitivity, owner"] --> E
+    A["ACTION<br/>read, write, delete"] --> E
+    V["ENVIRONMENT<br/>time, location, device"] --> E
+    E --> R["Permit or deny"]
+
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style O fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style V fill:#12243f,stroke:#5C7CFA,color:#fff
+    style E fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff

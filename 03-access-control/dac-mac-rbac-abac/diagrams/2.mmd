@@ -1,0 +1,9 @@
+flowchart LR
+    S["User<br/>CLEARANCE: Secret"] --> C(["System compares<br/>clearance to label"])
+    C -->|"label: Confidential<br/>clearance is enough"| Y["ACCESS"]
+    C -->|"label: Top Secret<br/>clearance too low"| N["DENIED<br/>the owner CANNOT<br/>override this"]
+
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C fill:#3a2c12,stroke:#F08C00,color:#fff
+    style Y fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style N fill:#3a1a20,stroke:#E03131,color:#fff
