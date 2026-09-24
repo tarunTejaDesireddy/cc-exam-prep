@@ -12,7 +12,19 @@
     "edgeLabelBackground": "#0d1117",
     "clusterBkg": "#161b22",
     "clusterBorder": "#30363d",
-    "titleColor": "#e6edf3"
+    "titleColor": "#e6edf3",
+    "noteBkgColor": "#3a2c12",
+    "noteTextColor": "#ffffff",
+    "noteBorderColor": "#F08C00",
+    "actorBkg": "#12243f",
+    "actorTextColor": "#ffffff",
+    "actorBorder": "#5C7CFA",
+    "actorLineColor": "#5C7CFA",
+    "signalColor": "#e6edf3",
+    "signalTextColor": "#e6edf3",
+    "labelBoxBkgColor": "#12243f",
+    "labelTextColor": "#ffffff",
+    "sequenceNumberColor": "#ffffff"
   },
   "flowchart": {
     "htmlLabels": false,
@@ -23,6 +35,10 @@
     "diagramPadding": 20,
     "wrappingWidth": 260
   },
-  "sequence": { "useMaxWidth": true },
-  "mindmap": { "padding": 16 }
+  "sequence": {
+    "useMaxWidth": true
+  },
+  "mindmap": {
+    "padding": 16
+  }
 }

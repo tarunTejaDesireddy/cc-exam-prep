@@ -1,0 +1,7 @@
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: 1. SYN (can we talk?)
+    S->>C: 2. SYN-ACK (yes, can we?)
+    C->>S: 3. ACK (yes)
+    Note over C,S: Connection open

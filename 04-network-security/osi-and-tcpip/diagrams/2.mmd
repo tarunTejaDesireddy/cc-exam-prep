@@ -1,0 +1,14 @@
+flowchart LR
+    T4["TCP/IP: Application"] --- O7["OSI 7 Application<br/>OSI 6 Presentation<br/>OSI 5 Session"]
+    T3["TCP/IP: Transport"] --- O4["OSI 4 Transport"]
+    T2["TCP/IP: INTERNET"] --- O3["OSI 3 NETWORK"]
+    T1["TCP/IP: Network Access"] --- O2["OSI 2 Data Link<br/>OSI 1 Physical"]
+
+    style T4 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style T3 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style T2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style T1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style O7 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style O4 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style O3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style O2 fill:#12243f,stroke:#5C7CFA,color:#fff

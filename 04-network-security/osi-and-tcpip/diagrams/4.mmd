@@ -1,0 +1,11 @@
+flowchart LR
+    D["DATA<br/>from the app"] -->|"+ TCP header<br/>adds ports"| S["SEGMENT<br/>layer 4"]
+    S -->|"+ IP header<br/>adds IP addresses"| P["PACKET<br/>layer 3"]
+    P -->|"+ Ethernet header<br/>adds MAC addresses"| F["FRAME<br/>layer 2"]
+    F --> B["BITS<br/>on the wire,<br/>layer 1"]
+
+    style D fill:#26292e,stroke:#868E96,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P fill:#0f3038,stroke:#12B5A5,color:#fff
+    style F fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style B fill:#3a2c12,stroke:#F08C00,color:#fff

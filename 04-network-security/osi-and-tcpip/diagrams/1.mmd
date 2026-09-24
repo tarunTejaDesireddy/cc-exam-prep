@@ -1,0 +1,9 @@
+flowchart LR
+    L4["LAYER 4 TRANSPORT<br/>address: PORT<br/>unit: segment<br/>TCP, UDP"] --> L3["LAYER 3 NETWORK<br/>address: IP<br/>unit: packet<br/>device: ROUTER"]
+    L3 --> L2["LAYER 2 DATA LINK<br/>address: MAC<br/>unit: frame<br/>device: SWITCH"]
+    L2 --> L1["LAYER 1 PHYSICAL<br/>no address<br/>unit: bits<br/>device: HUB"]
+
+    style L4 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style L3 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style L2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style L1 fill:#3a2c12,stroke:#F08C00,color:#fff
