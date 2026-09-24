@@ -1,0 +1,11 @@
+flowchart TD
+    M["MTD = 8 hours<br/>the business's hard limit"] --> A["Plan A: RTO 4h + WRT 2h<br/>= 6 hours"]
+    M --> B["Plan B: RTO 10h<br/>already over the limit"]
+    A --> A2["Fits inside MTD:<br/>plan WORKS"]
+    B --> B2["Exceeds MTD:<br/>plan FAILS"]
+
+    style M fill:#0f3038,stroke:#12B5A5,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style B2 fill:#3a1a20,stroke:#E03131,color:#fff
