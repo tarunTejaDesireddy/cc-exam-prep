@@ -1,0 +1,11 @@
+flowchart TD
+    Q["How bad is this risk?"] --> QL["QUALITATIVE<br/>uses WORDS:<br/>high, medium, low"]
+    Q --> QN["QUANTITATIVE<br/>uses NUMBERS:<br/>usually money"]
+    QL --> QL1["Fast, cheap, no data needed,<br/>handles reputation<br/>but SUBJECTIVE"]
+    QN --> QN1["Objective, comparable,<br/>justifies budgets<br/>but SLOW and DATA-HUNGRY"]
+
+    style Q fill:#26292e,stroke:#868E96,color:#fff
+    style QL fill:#12243f,stroke:#5C7CFA,color:#fff
+    style QN fill:#0f3038,stroke:#12B5A5,color:#fff
+    style QL1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style QN1 fill:#0f3038,stroke:#12B5A5,color:#fff

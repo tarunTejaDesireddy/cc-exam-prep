@@ -1,0 +1,11 @@
+flowchart LR
+    AV["ASSET VALUE<br/>AV = $50,000"] --> SLE["SLE = AV x EF<br/>$30,000<br/>lost in ONE event"]
+    EF["EXPOSURE FACTOR<br/>EF = 60% lost<br/>per event = 0.6"] --> SLE
+    SLE --> ALE["ALE = SLE x ARO<br/>$3,000<br/>lost PER YEAR"]
+    ARO["ANNUAL RATE<br/>once every 10 years<br/>ARO = 0.1"] --> ALE
+
+    style AV fill:#12243f,stroke:#5C7CFA,color:#fff
+    style EF fill:#12243f,stroke:#5C7CFA,color:#fff
+    style ARO fill:#12243f,stroke:#5C7CFA,color:#fff
+    style SLE fill:#3a2c12,stroke:#F08C00,color:#fff
+    style ALE fill:#0f3038,stroke:#12B5A5,color:#fff
