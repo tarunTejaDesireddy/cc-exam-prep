@@ -1,0 +1,13 @@
+flowchart LR
+    U["Unique ID<br/>per person"] --> AU["Authentication"]
+    AU --> AZ["Authorisation"]
+    AZ --> AC["Accounting<br/>logs record WHO"]
+    AC --> ACC["ACCOUNTABILITY"]
+    SH["Shared 'admin'<br/>account"] -.->|"logs now say<br/>'admin', not a name"| AC
+
+    style U fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AU fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AZ fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AC fill:#3a2c12,stroke:#F08C00,color:#fff
+    style ACC fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style SH fill:#3a1a20,stroke:#E03131,color:#fff

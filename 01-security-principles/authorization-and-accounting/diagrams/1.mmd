@@ -1,0 +1,11 @@
+flowchart LR
+    S["User"] --> A1["1. AUTHENTICATION<br/>Who are you?"]
+    A1 --> A2["2. AUTHORISATION<br/>What may you do?"]
+    A2 --> A3["3. ACCOUNTING<br/>What did you do?"]
+    A3 --> R["ACCOUNTABILITY<br/>the action traces<br/>back to one person"]
+
+    style S fill:#26292e,stroke:#868E96,color:#fff
+    style A1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style A3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style R fill:#0f3038,stroke:#12B5A5,color:#fff

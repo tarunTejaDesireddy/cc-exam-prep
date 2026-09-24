@@ -1,0 +1,18 @@
+flowchart TD
+    subgraph CR["PRIVILEGE CREEP: an admin failure"]
+        C1["Works in finance<br/>granted finance rights"] --> C2["Moves to marketing<br/>granted marketing rights"]
+        C2 --> C3["Finance rights never<br/>removed: holds both"]
+    end
+    subgraph ES["PRIVILEGE ESCALATION: an attack"]
+        E1["Attacker has a<br/>normal account"] --> E2["Exploits a flaw"]
+        E2 --> E3["Gains admin rights<br/>nobody ever granted"]
+    end
+
+    style CR fill:#161b22,stroke:#F08C00,color:#fff
+    style ES fill:#161b22,stroke:#E03131,color:#fff
+    style C1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style E1 fill:#26292e,stroke:#868E96,color:#fff
+    style E2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style E3 fill:#3a1a20,stroke:#E03131,color:#fff
