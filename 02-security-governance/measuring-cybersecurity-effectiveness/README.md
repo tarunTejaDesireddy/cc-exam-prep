@@ -2,15 +2,15 @@
 
 <img src="../assets/module-02-banner.svg" alt="02 · Security Governance" width="100%">
 
-# 📊 Measuring cybersecurity effectiveness
+# 📈 Measuring Cybersecurity Effectiveness
 
-### *How an organisation knows its security programme is actually working*
+### *KRIs warn, KPIs grade — and the audience decides the format*
 
 [![Module](https://img.shields.io/badge/Module-02_Security_Governance-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-2%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~8%20min-57606A?style=flat-square)](#)
 
-📌 *Key metrics, key risk indicators, dashboards, scorecards and reports — the vocabulary of proving a security programme is doing its job.*
+📌 *Tell a KRI from a KPI, and match dashboard / scorecard / report to the right audience.*
 
 </div>
 
@@ -18,22 +18,17 @@
 
 ## 🧸 The big idea
 
-The tribe built a fence over the gap and posted a guard. But how do they actually know it's
-working, rather than just hoping?
+Your car shows two very different kinds of number:
 
-Two very different numbers matter. *"The guard has fallen asleep at his post three nights this
-week, and it's getting worse."* That number is climbing **before** any wolf has actually gotten
-in — it's a warning of trouble building. *"Of the twelve nights he was on duty, he successfully
-spotted and scared off every approaching wolf."* That number grades how well the guard is
-actually doing his job against what's expected of him.
+- The **fuel warning light** comes on **before** you run out — it warns that trouble is building.
+  That's like a **KRI** (Key **Risk** Indicator).
+- Your **lap time against a target** tells you how well you're driving right now. That's like a
+  **KPI** (Key **Performance** Indicator).
 
-A security programme that cannot show whether it is working is a programme running on faith.
-**Measuring effectiveness** means picking numbers that actually track security posture, then
-presenting them to the right audience in the right format — a technical dashboard for
-practitioners, a scorecard or report for leadership.
-
-The exam tests this as governance content because *deciding what to measure and how to report
-it* is a leadership and accountability activity, not a purely technical one.
+A security programme that can't show whether it's working is running on faith. **Measuring
+effectiveness** means choosing numbers that really track security, then presenting them in the
+format each audience needs. It's governance content because *deciding what to measure and who sees
+it* is a leadership decision.
 
 ---
 
@@ -41,64 +36,36 @@ it* is a leadership and accountability activity, not a purely technical one.
 
 | Word | What it means on this exam |
 |---|---|
-| **Key metric** | Any measured value tracked over time to gauge performance — e.g. mean time to detect, patch compliance rate. |
-| **KRI (Key Risk Indicator)** | A metric that signals *rising exposure to risk* before it becomes a loss — e.g. a growing count of overdue critical patches. |
-| **KPI (Key Performance Indicator)** | A metric that shows how well a process or control is performing against a target — e.g. percentage of phishing tests passed. |
-| **Dashboard** | A real-time or near-real-time visual display of operational metrics, aimed at practitioners. |
-| **Scorecard** | A structured, often periodic summary that grades performance against targets, aimed at management. |
-| **Report** | A formal, often narrative document summarising performance, incidents or compliance status over a period, for stakeholders or regulators. |
+| **Metric** | Any value measured over time — e.g. mean time to detect, patch compliance rate. |
+| **KRI** — Key Risk Indicator | Signals **rising exposure** to risk **before** it becomes a loss. |
+| **KPI** — Key Performance Indicator | Shows how well a process or control performs **against a target**. |
+| **Dashboard** | Live, visual view of operational metrics — for **practitioners**. |
+| **Scorecard** | Periodic summary grading performance against targets — for **management**. |
+| **Report** | Formal, often narrative document covering a period — for **executives, boards, regulators**. |
 
 ---
 
-## 🔍 KRI versus KPI, and who reads what
+## 🔍 The explanation
 
-The sleeping-guard count from the big idea is a **KRI** — it looks forward and warns. A rising
-KRI (unpatched critical vulnerabilities, overdue access reviews) means risk is building even
-though nothing bad has happened yet.
+### KRI warns, KPI grades
 
-The wolves-successfully-spotted count is a **KPI** — it looks at performance against a target
-and grades. A KPI (percentage of systems patched within SLA, phishing simulation click rate)
-tells you how well a control or process is actually operating.
+<p align="center"><img src="diagrams/1.svg" alt="A KRI, like a fuel warning light such as overdue critical patches climbing every month, warns that risk is building before anything bad happens; a KPI, like a lap time such as 95 percent patched within SLA against a 98 percent target, grades how well a process performs against its target" width="760"></p>
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+| KRI examples (warn) | KPI examples (grade) |
+|---|---|
+| Growing count of overdue critical patches | % of systems patched within SLA |
+| Rising rate of *failed* phishing simulations | % of staff completing training on time |
+| More accounts with no access review | Mean time to detect / respond |
 
-**Audience decides format.** The guard himself checks fresh wolf tracks by the fence every
-single night — that running, live view is a **dashboard.** Once a month, the hunt-leader gets a
-one-page summary grading how well the fence held up — that's a **scorecard** for the people
-overseeing the guards. Once a season, the chief receives a full, formal account of every wolf
-incident to present to the council of elders — that's a **report.** Same underlying facts, three
-different audiences, three different shapes.
+### Same data, three formats — the audience decides
 
-The same underlying data becomes a **dashboard** for a SOC analyst watching it live, a
-**scorecard** summarising the month for a steering committee, or a **report** documenting the
-quarter for a board or a regulator.
+<p align="center"><img src="diagrams/2.svg" alt="The same security data becomes a live technical dashboard for SOC analysts, a monthly scorecard graded against targets for management, and a quarterly formal narrative report for the board and regulators" width="640"></p>
 
 | Format | Audience | Cadence |
 |---|---|---|
-| **Dashboard** | Practitioners, operations teams | Real-time / continuous |
-| **Scorecard** | Management, steering committees | Periodic (monthly/quarterly) |
-| **Report** | Executives, board, regulators | Periodic, often formal and narrative |
-
----
-
-## 🔬 Where these numbers actually come from
-
-Nobody manually stopwatches an incident. Real metrics get computed automatically from
-timestamps that already exist in other systems.
-
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
-
-**MTTD (Mean Time to Detect)** and **MTTR (Mean Time to Respond/Remediate)** are two of the
-most-quoted security KPIs, and both are just subtraction between timestamps that already exist:
-when the SIEM's alert fired, when a human actually opened a ticket for it, and when that ticket
-closed. A dashboarding tool (Grafana, Power BI, or the SIEM's own reporting module) queries the
-ticketing system's API on a schedule and recalculates the averages automatically — nobody is
-manually timing incidents with a stopwatch. This is also exactly how **patch-SLA compliance
-percentage** gets computed: the vulnerability scanner already knows when a CVE was found and
-when it was last seen as unpatched, so "percentage patched within 30 days" is a scheduled query,
-not a spreadsheet someone updates by hand. The reason this matters for governance is that a
-metric nobody can independently query and verify is just a claim — a real KRI/KPI programme can
-point at the exact source system and timestamp behind every number on the scorecard.
+| **Dashboard** | Practitioners, operations | Real-time / continuous |
+| **Scorecard** | Management, steering committees | Monthly / quarterly |
+| **Report** | Executives, board, regulators | Periodic, formal, narrative |
 
 ---
 
@@ -106,29 +73,28 @@ point at the exact source system and timestamp behind every number on the scorec
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **KRI** | A forward-looking warning that risk exposure is rising. | **KPI**, which grades current performance against a target rather than warning of future exposure. |
-| **Dashboard** | Continuous, operational, technical audience. | **Scorecard**, which is periodic and aimed at management, not real-time operations. |
-| **Metric** | Any tracked measured value. | **KRI/KPI**, which are specific *categories* of metric chosen because they signal risk or performance, not just any number that happens to be tracked. |
+| **KRI** | Forward-looking warning of rising exposure. | **KPI** — grades current performance against a target. |
+| **Dashboard** | Continuous, technical audience. | **Scorecard** — periodic, for management. |
+| **Metric** | Any tracked value. | **KRI / KPI** — metrics *chosen* because they signal risk or performance. |
 
 ---
 
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** you probably think of "the dashboard" as the one true source of truth, and
-> everything else as a derivative summary of it.
+> **In the job:** the dashboard is the source of truth and everything else is a summary of it.
 >
-> **On the exam:** dashboards, scorecards and reports are treated as **distinct, intentional
-> choices matched to audience**, not a hierarchy of accuracy. A question describing a board
-> needing periodic, digestible, non-technical output wants "scorecard" or "report" — not
-> "give them dashboard access."
+> **On the exam:** dashboards, scorecards and reports are **deliberate choices matched to
+> audience**. A board needing periodic, digestible output wants a **scorecard or report** — not
+> "give them dashboard access".
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **"KRI warns, KPI grades."** One looks forward at rising risk; the other looks at how well
-something is already performing.
+**"KRI warns, KPI grades."**
+
+**Analysts get dashboards. Managers get scorecards. Boards get reports.**
 
 ---
 
@@ -136,8 +102,7 @@ something is already performing.
 
 Answer all five before expanding anything.
 
-**Q1.** A rising count of overdue critical patches, tracked over several months, is an example
-of which of the following?
+**Q1.** A rising count of overdue critical patches, tracked over several months, is an example of:
 
 - **A.** A key performance indicator (KPI)
 - **B.** A key risk indicator (KRI)
@@ -147,16 +112,15 @@ of which of the following?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — a KRI.** It signals growing exposure to risk before any loss has occurred.
+**B — a KRI.** It warns of growing exposure before any loss.
 
-- **A** would instead measure how well the patching *process* is performing against a target,
-  such as percentage patched within SLA.
-- **C** is a periodic formal document, not a single tracked metric.
-- **D** describes a policy or standard, not a measurement.
+- **A** would grade the patching *process* against a target (e.g. % patched within SLA).
+- **C** is a formal periodic document.
+- **D** is a policy or standard.
 
 </details>
 
-**Q2.** Which of the following BEST describes a KPI?
+**Q2.** Which BEST describes a KPI?
 
 - **A.** A metric warning that risk exposure is increasing
 - **B.** A metric that grades how well a process or control is performing against a target
@@ -166,17 +130,16 @@ of which of the following?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — grading performance against a target.** That is precisely what distinguishes a KPI from
-a KRI.
+**B.**
 
-- **A** describes a KRI, not a KPI.
-- **C** describes an audit output, a different governance activity.
-- **D** is raw data that could feed a metric, not the metric itself.
+- **A** describes a KRI.
+- **C** is an audit output.
+- **D** is raw data, not a metric.
 
 </details>
 
-**Q3.** A board of directors needs a periodic, non-technical summary of the security
-programme's status. What is the MOST appropriate format?
+**Q3.** A board needs a periodic, non-technical summary of the security programme. What is the
+MOST appropriate format?
 
 - **A.** Direct access to the SOC's live dashboard
 - **B.** A scorecard or report tailored to executive audiences
@@ -186,39 +149,34 @@ programme's status. What is the MOST appropriate format?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — a scorecard or report.** These are the formats matched to a periodic, non-technical,
-leadership audience.
+**B.**
 
-- **A** gives a technical, continuous view to an audience that needs a periodic, digestible
-  summary instead.
-- **C** is unfiltered operational data, not a governance communication.
-- **D** ignores that boards are explicitly an intended audience for security reporting.
+- **A** — a live technical view for an audience that needs a periodic digest.
+- **C** — raw data, not a governance communication.
+- **D** — boards are explicitly an audience.
 
 </details>
 
 **Q4.** What is the PRIMARY purpose of measuring cybersecurity effectiveness?
 
 - **A.** To satisfy an audit requirement only
-- **B.** To demonstrate, with evidence, whether the security programme is actually achieving
-  its goals
+- **B.** To demonstrate, with evidence, whether the security programme is actually achieving its goals
 - **C.** To generate content for marketing materials
 - **D.** To replace the need for governance documents
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — to demonstrate, with evidence, whether the programme works.** Metrics, KRIs, KPIs,
-dashboards, scorecards and reports all serve this single purpose.
+**B.**
 
-- **A** is too narrow — audits are one consumer of this data, not the only reason to measure.
-- **C** is not a security governance purpose.
-- **D** confuses measurement with the documents (policy, standard, procedure) that measurement
-  reports against.
+- **A** — audits are one consumer, not the only reason.
+- **C** — not a governance purpose.
+- **D** — measurement reports *against* the documents; it doesn't replace them.
 
 </details>
 
-**Q5.** An organisation tracks "percentage of employees completing phishing awareness training
-on time." This is an example of which of the following?
+**Q5.** An organisation tracks "percentage of employees completing phishing awareness training on
+time." This is:
 
 - **A.** A KRI
 - **B.** A KPI
@@ -228,13 +186,10 @@ on time." This is an example of which of the following?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — a KPI.** It measures how well a process (training completion) is performing against a
-target, not a forward-looking warning of rising risk.
+**B — a KPI.** It grades a process against a target.
 
-- **A** would instead be something like a rising rate of *failed* phishing simulations,
-  signalling growing exposure.
-- **C** and **D** both belong to the redundancy sub-area of this domain, unrelated to
-  measuring programme effectiveness.
+- **A** would be something like a rising rate of *failed* simulations.
+- **C** and **D** belong to continuity planning, not programme measurement.
 
 </details>
 
@@ -245,16 +200,16 @@ target, not a forward-looking warning of rising risk.
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**Vanity metrics versus decision-useful metrics.** A mature programme resists tracking numbers
-just because they are easy to collect (total alerts generated) in favour of numbers that
-actually change a decision (mean time to detect, percentage of critical assets covered by
-monitoring). CC does not test this distinction by name, but it is the practical skill behind
-"measuring effectiveness" as a discipline.
+**Where the numbers come from.** Nobody stopwatches incidents. **MTTD** = ticket opened − alert
+fired; **MTTR** = ticket resolved − ticket opened — timestamps that already exist in the SIEM and
+ticketing system, pulled on a schedule into Grafana or Power BI. Patch-SLA % is a scheduled query
+against the vulnerability scanner. A number nobody can trace to a source system is just a claim.
 
-**Metrics drift.** A KPI that was meaningful when set can stop reflecting reality as the
-environment changes — a patch-SLA target set for an on-premises estate may not fit a
-cloud-native one. Effective measurement programmes periodically revisit which metrics still
-matter, not just how well the organisation is hitting them.
+**Vanity vs decision-useful metrics.** "Total alerts generated" is easy and useless. "Mean time to
+detect" and "% of critical assets monitored" change decisions.
+
+**Metrics drift.** A target set for an on-premises estate may not fit a cloud-native one — revisit
+*which* metrics still matter, not just how well you hit them.
 
 </details>
 
@@ -264,13 +219,12 @@ matter, not just how well the organisation is hitting them.
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-- **KRI warns of rising risk. KPI grades current performance against a target.**
-- **Dashboard = continuous, technical audience. Scorecard/report = periodic, leadership audience.**
-- Effectiveness measurement exists to show, with evidence, that the programme is working.
+- **KRI warns of rising risk. KPI grades performance against a target.**
+- **Dashboard = continuous, practitioners. Scorecard = periodic, management. Report = formal, board/regulators.**
+- **Measurement exists to prove, with evidence, the programme is working.**
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 02 · Security Governance</a> &nbsp;·&nbsp; <a href="../../03-access-control/README.md">next domain: 03 · IAM Concepts →</a></sub>
+<sub><a href="../README.md">← back to 02 · Security Governance</a></sub>
 </div>
-</content>
