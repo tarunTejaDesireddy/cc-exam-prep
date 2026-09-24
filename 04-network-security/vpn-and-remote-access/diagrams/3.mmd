@@ -1,0 +1,20 @@
+flowchart TB
+    subgraph SP["SPLIT TUNNEL: faster, less seen"]
+        direction LR
+        L1["Laptop"] -->|"company traffic"| G1["Company gateway"]
+        L1 -->|"web browsing<br/>SKIPS inspection"| W1["Internet"]
+    end
+    subgraph FU["FULL TUNNEL: all traffic inspected"]
+        direction LR
+        L2["Laptop"] -->|"ALL traffic"| G2["Company gateway<br/>inspects everything"] --> W2["Internet"]
+    end
+    SP ~~~ FU
+
+    style L1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style G1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style W1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style L2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style G2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style W2 fill:#26292e,stroke:#868E96,color:#fff
+    style SP fill:#161b22,stroke:#30363d,color:#e6edf3
+    style FU fill:#161b22,stroke:#30363d,color:#e6edf3
