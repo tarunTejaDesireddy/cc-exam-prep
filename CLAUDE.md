@@ -82,6 +82,10 @@ Every topic page uses these sections, in this order. Skip any that has nothing t
 | 🎓 | **The grown-up version** | Collapsed `<details>`. Extra depth, never needed for the pass |
 | 📝 | **Cram lines** | 2–5 lines destined for `EXAM-DAY.md` |
 
+Every topic page uses the **module banner** (`../assets/module-NN-banner.svg`) — no per-topic
+banner files. The 🧸 big idea is **one short everyday comparison** (a paragraph or two), not a
+running story: the page must be learnable in one read and scannable on a second.
+
 Module `README.md` files use numbered sections in the `master-the-azure` manner:
 `## 👋 01 · Read this first`, `## 📂 02 · The N topics`, `## 🎯 03 · What this domain is worth`.
 
@@ -96,6 +100,28 @@ Generated, never hand-written:
 ```bash
 ./.github/assets/make-banner.sh "03 · Access Control Concepts" "Who gets in, to what" "22% of the exam" 03-access-control/assets/module-03-banner.svg
 ```
+
+### Diagrams are source + rendered SVG, never inline Mermaid
+
+Each diagram lives beside its page as **`diagrams/N.mmd`** (the source) and **`diagrams/N.svg`**
+(what the page embeds). Pages never contain inline mermaid code blocks — GitHub draws inline
+Mermaid with the reader's own fonts, measures in one and draws in another, and clips labels.
+
+```bash
+./.github/ci/render-diagrams.sh 01-security-principles/cia-triad   # one page
+./.github/ci/render-diagrams.sh                                    # whole repo
+```
+
+The renderer uses `.github/ci/mermaid.json`: a fixed sans-serif font, SVG text labels
+(`htmlLabels: false`) and a solid `#0d1117` background, so a diagram looks identical in GitHub
+light mode, dark mode, on mobile and in `docs/index.html`. Embed with:
+
+```html
+<p align="center"><img src="diagrams/1.svg" alt="the diagram, read as one sentence" width="600"></p>
+```
+
+The `alt` text is the diagram read as a sentence — never just "diagram". **No emoji inside
+diagram labels**: their width differs per platform and is the other main cause of clipping.
 
 ### Mermaid palette
 
@@ -148,11 +174,12 @@ Two places, updated in the same commit that lands a topic:
 
 ## 7 · CI scripts
 
-Run all three before considering any change finished.
+Run them all before considering any change finished.
 
 | Script | Checks |
 |---|---|
-| `./.github/ci/check-diagrams.sh` | No HTML tags in mermaid labels, no over-long label lines, every node and subgraph explicitly styled |
+| `./.github/ci/render-diagrams.sh` | Renders every `diagrams/N.mmd` to `N.svg`, removes orphan SVGs |
+| `./.github/ci/check-diagrams.sh` | No HTML tags in mermaid labels, no over-long label lines, every node and subgraph explicitly styled — in `.mmd` sources and any legacy inline blocks |
 | `./.github/ci/check-links.sh` | Every relative markdown link, `src` and `href` resolves to a real file |
 | `./.github/ci/make-flashcards.sh` | Regenerates `06-term-bank/flashcards.csv` from the domain term tables |
 | `./.github/ci/make-docs-index.sh` | Regenerates `docs/index.html` from the repo's pages |
