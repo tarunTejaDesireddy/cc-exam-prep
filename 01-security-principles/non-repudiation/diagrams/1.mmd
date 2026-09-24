@@ -1,0 +1,11 @@
+flowchart TD
+    A["1. Unique identity<br/>one person, one account"] --> N["NON-REPUDIATION"]
+    B["2. Something only they<br/>could produce:<br/>their private key"] --> N
+    C["3. Tamper-evident record<br/>cannot be quietly edited"] --> N
+    N --> R["'That wasn't me'<br/>no longer works"]
+
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff
+    style N fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff

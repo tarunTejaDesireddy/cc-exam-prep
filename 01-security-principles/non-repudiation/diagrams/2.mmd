@@ -1,0 +1,11 @@
+flowchart LR
+    M["Message"] --> S["Signed with the<br/>SENDER'S PRIVATE key<br/>only the sender has it"]
+    S --> V["Anyone verifies with<br/>the SENDER'S PUBLIC key"]
+    V --> P1["Proves WHO sent it<br/>non-repudiation"]
+    V --> P2["Proves it was NOT changed<br/>integrity"]
+
+    style M fill:#26292e,stroke:#868E96,color:#fff
+    style S fill:#0f3038,stroke:#12B5A5,color:#fff
+    style V fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style P2 fill:#1d3a2a,stroke:#2F9E44,color:#fff

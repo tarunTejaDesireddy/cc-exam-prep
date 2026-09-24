@@ -1,0 +1,14 @@
+flowchart TD
+    subgraph SG["SIGNING: to prove who sent it"]
+        S1["Sender's PRIVATE key<br/>signs"] --> S2["Sender's PUBLIC key<br/>verifies"]
+    end
+    subgraph EN["ENCRYPTING: to keep it secret"]
+        E1["Recipient's PUBLIC key<br/>encrypts"] --> E2["Recipient's PRIVATE key<br/>decrypts"]
+    end
+
+    style SG fill:#161b22,stroke:#12B5A5,color:#fff
+    style EN fill:#161b22,stroke:#5C7CFA,color:#fff
+    style S1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style S2 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style E1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style E2 fill:#12243f,stroke:#5C7CFA,color:#fff
