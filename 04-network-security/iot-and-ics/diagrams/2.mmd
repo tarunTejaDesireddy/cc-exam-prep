@@ -1,0 +1,9 @@
+flowchart TD
+    V["A flaw is found in<br/>an industrial controller"] --> Q(["Can it be patched<br/>safely right now?"])
+    Q -->|"yes"| P["Patch it in a planned<br/>maintenance window"]
+    Q -->|"no: live process, or<br/>no vendor fix"| C["Compensating controls:<br/>segment it, watch it,<br/>restrict who can reach it"]
+
+    style V fill:#3a1a20,stroke:#E03131,color:#fff
+    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style C fill:#0f3038,stroke:#12B5A5,color:#fff

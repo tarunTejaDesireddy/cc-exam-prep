@@ -1,0 +1,11 @@
+flowchart TD
+    S["Scan the internet for<br/>devices with Telnet open"] --> T["Try about 60 factory<br/>default passwords"]
+    T -->|"one works"| I["Malware installed<br/>on the device"]
+    I --> B["The device joins<br/>the botnet"]
+    B --> D["Thousands of devices<br/>flood one target"]
+
+    style S fill:#26292e,stroke:#868E96,color:#fff
+    style T fill:#3a2c12,stroke:#F08C00,color:#fff
+    style I fill:#3a1a20,stroke:#E03131,color:#fff
+    style B fill:#3a1a20,stroke:#E03131,color:#fff
+    style D fill:#3a1a20,stroke:#E03131,color:#fff

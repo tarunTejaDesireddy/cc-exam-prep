@@ -1,0 +1,19 @@
+flowchart TB
+    subgraph IT["OFFICE IT: secrets first"]
+        direction LR
+        I1["1. CONFIDENTIALITY<br/>keep the data secret"] --> I2["2. INTEGRITY"] --> I3["3. AVAILABILITY"]
+    end
+    subgraph OT["ICS / OT: keep it running safely"]
+        direction LR
+        O1["1. AVAILABILITY<br/>keep the process going"] --> O2["2. INTEGRITY<br/>commands must be right"] --> O3["3. CONFIDENTIALITY"]
+    end
+    IT ~~~ OT
+
+    style I1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style I2 fill:#26292e,stroke:#868E96,color:#fff
+    style I3 fill:#26292e,stroke:#868E96,color:#fff
+    style O1 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style O2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style O3 fill:#26292e,stroke:#868E96,color:#fff
+    style IT fill:#161b22,stroke:#30363d,color:#e6edf3
+    style OT fill:#161b22,stroke:#30363d,color:#e6edf3

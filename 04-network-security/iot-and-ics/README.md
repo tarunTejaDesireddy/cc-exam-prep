@@ -2,15 +2,15 @@
 
 <img src="../assets/module-04-banner.svg" alt="04 · Networking and Cloud Security Concepts" width="100%">
 
-# 🏭 Embedded systems, ICS and IoT
+# 🏭 Embedded Systems, ICS and IoT
 
-### *When the "computer" is a thermostat, a PLC, or a doorbell*
+### *When the "computer" is a thermostat, a factory controller or a doorbell*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~10%20min-57606A?style=flat-square)](#)
 
-📌 *Why embedded devices, industrial control systems, and consumer IoT get their own line on the live outline — they break the usual security assumptions, including the CIA priority order itself.*
+📌 *These devices break the usual patch-and-reboot rules, and in ICS the CIA order flips: availability and integrity come first. When you can't patch, segment. Always change default passwords.*
 
 </div>
 
@@ -18,21 +18,16 @@
 
 ## 🧸 The big idea
 
-A scribe's writing tablet can be wiped clean and rewritten any time, with no consequence beyond
-the ink. The village's water-wheel, controlling the gates that flood or drain the fields, is a
-completely different kind of tool: it was built once for exactly one physical job, it can't be
-"paused for an update" without stopping the mill and losing a day's grinding, and if you get its
-mechanism wrong, the gate can swing wildly and actually hurt whoever's standing near it.
+Your laptop updates itself overnight and restarts. If an update goes wrong, you lose some work.
 
-That's the whole idea. Most security guidance assumes a device that can run modern software,
-receive patches regularly, and be rebooted without real-world consequences. **Embedded systems,
-ICS and IoT devices routinely violate every one of those assumptions.** A programmable logic
-controller (PLC) on a factory floor may run for a decade without a reboot, cannot always be
-patched without a scheduled outage, and controlling it incorrectly can cause physical harm — not
-just a data breach.
+A city's **traffic lights** are computers too, but they're a different kind of computer. You can't
+restart them at rush hour. They may run the same software for fifteen years. And if they go wrong
+and show green in both directions, **people get hurt**.
 
-This is why the exam names them separately from "network security" in general: **the same
-threats apply, but the usual fixes often do not.**
+Most security advice quietly assumes the laptop: modern software, regular patches, a harmless
+reboot. **Embedded systems, industrial control systems (ICS) and IoT devices break every one of
+those assumptions.** The threats are the same as anywhere else, but the usual fixes often aren't
+available.
 
 ---
 
@@ -40,85 +35,78 @@ threats apply, but the usual fixes often do not.**
 
 | Word | What it means on this exam |
 |---|---|
-| **Embedded system** | A computer built into a larger device for a dedicated purpose (a router, a medical pump, a car's engine controller) rather than general-purpose computing. |
-| **ICS (Industrial Control System)** | Systems that monitor and control physical industrial processes — power grids, water treatment, manufacturing lines. |
-| **SCADA** | A common type of ICS, coordinating control across geographically distributed sites. |
-| **PLC (Programmable Logic Controller)** | A ruggedised industrial computer running control logic for machinery. |
-| **IoT (Internet of Things)** | Everyday consumer or commercial devices with network connectivity added — cameras, thermostats, smart locks. |
-| **Air gap** | Physically isolating a network from other networks, including the internet, so there is no direct connection to attack. |
-| **OT (Operational Technology)** | The broader category ICS/SCADA sits under — hardware and software that monitors or controls physical devices and processes, as distinct from **IT**, which handles data. |
-| **IT/OT convergence** | The trend of connecting previously isolated OT networks to corporate IT networks (for remote monitoring, data collection), which is exactly what erodes the old assumption that ICS was "safe because it wasn't networked." |
-| **Default credentials** | Factory-set usernames/passwords, often published in a vendor manual or well-known online — a leading cause of IoT compromise when never changed. |
+| **Embedded system** | A computer built into a bigger device for one job, such as a router, a medical pump or a car's engine controller. |
+| **ICS** (Industrial Control System) | Systems that monitor and control physical processes: power grids, water treatment, production lines. |
+| **SCADA** | A common type of ICS that controls equipment spread across many distant sites. |
+| **PLC** (Programmable Logic Controller) | A tough industrial computer that runs the control logic for machinery. |
+| **IoT** (Internet of Things) | Everyday devices with network connections added: cameras, thermostats, smart locks. |
+| **OT** (Operational Technology) | Technology that controls physical things. ICS is part of OT. **IT**, by contrast, handles data. |
+| **IT/OT convergence** | Connecting once-isolated OT networks to the company's IT network, for remote monitoring and data. |
+| **Air gap** | Complete physical isolation: no network connection to anything else. |
+| **Default credentials** | The factory-set username and password, often printed in the manual or listed online. |
+| **Botnet** | A large group of hijacked devices controlled together by an attacker. |
 
 ---
 
-## 🔄 Why the CIA priority order often flips in ICS
+## 🔍 The explanation
 
-The scribe cares most about keeping what he's written secret. But for the water-wheel gate, what
-matters most is that it keeps turning reliably and does exactly what it's told, correctly — a
-leaked secret about how the gate mechanism works matters far less than the gate suddenly jamming
-or swinging the wrong way. Standard IT security tends to prioritise **confidentiality** first —
-protecting data from disclosure. **In ICS/OT environments, the priority commonly flips to
-availability and integrity first**, because the "data" being protected is a live physical
-process.
+### Why these devices need different handling
 
-| Priority | Typical IT reasoning | Typical ICS/OT reasoning |
-|---|---|---|
-| **Availability** | Important, but a brief outage is usually recoverable | **Often the top priority** — a stopped process can mean a halted production line or an unsafe plant state |
-| **Integrity** | Important | **Critical** — a controller executing incorrect commands can cause physical damage or injury |
-| **Confidentiality** | Usually the first concern | Still matters, but a leaked sensor reading is rarely as damaging as a manipulated control command |
-
-> 🎯 **If a question asks what an ICS operator prioritises first, "keeping the process running
-> safely" (availability + integrity) usually beats "keeping the data secret" (confidentiality)**
-> — the reverse of the default IT instinct.
-
----
-
-## 🔍 Why these need different handling
-
-| Assumption in normal IT | What breaks in ICS/embedded/IoT |
+| Normal IT assumption | What breaks in ICS, embedded and IoT |
 |---|---|
-| Patch regularly | Patching may require a scheduled outage of a live physical process, or the vendor may no longer support the device |
-| Reboot to remediate | A reboot can halt a physical process — sometimes unsafely |
-| Long device lifespan is unusual | ICS/embedded hardware routinely runs **10–20+ years** — far past normal IT refresh cycles |
-| A compromise is a data problem | ICS compromise can cause **physical, safety-relevant consequences**, not just data loss |
-| Devices run modern, updatable software | Many IoT/embedded devices ship with minimal, outdated, or unpatchable firmware |
+| Patch regularly | Patching may mean stopping a live physical process, or the vendor may no longer exist |
+| Reboot to fix things | A reboot can halt a physical process, sometimes unsafely |
+| Devices are replaced every few years | ICS and embedded hardware often runs for **10–20+ years** |
+| A breach is a data problem | An ICS breach can cause **physical harm and safety incidents** |
+| Devices run modern, updatable software | Many IoT and embedded devices ship with minimal, outdated firmware that can't be updated |
 
-**Common mitigations, at CC depth:**
+### In ICS, the CIA order flips
 
-- **Segmentation / air-gapping** ICS and IoT networks away from general corporate IT, so a
-  compromise on one side does not directly reach the other.
-- **Compensating controls** where patching isn't possible — network-level filtering,
-  monitoring, and strict access control around the device rather than fixing the device
-  itself.
-- **Vendor support lifecycle awareness** — knowing when a device reaches end-of-life and can no
-  longer receive security updates at all (see asset lifecycle and EOL, Domain 5).
-- **Changing default credentials** on every deployed device — the single cheapest, highest-value
-  IoT control, and the one most often skipped at scale.
+<p align="center"><img src="diagrams/1.svg" alt="In office IT the usual priority is confidentiality first to keep data secret, then integrity, then availability; in ICS and OT it flips to availability first to keep the process going, then integrity because commands must be right, then confidentiality" width="660"></p>
 
----
+Office IT usually worries first about **confidentiality**: keeping data from leaking. In an
+industrial plant, the thing being protected is a **live physical process**, so priorities change:
 
-## 🔬 Mirai and Modbus: the two textbook mechanisms, concretely
+| Priority | Typical office IT | Typical ICS / OT |
+|---|---|---|
+| **Availability** | Important, but a short outage is usually recoverable | **Often first**: a stopped process can halt production or leave a plant unsafe |
+| **Integrity** | Important | **Critical**: a controller obeying a wrong command can damage equipment or injure people |
+| **Confidentiality** | Usually the first concern | Still matters, but a leaked sensor reading does less harm than a tampered command |
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+> 🎯 **If a question asks what an ICS operator protects first, "keep the process running safely"
+> (availability and integrity) beats "keep the data secret" (confidentiality).** That's the reverse
+> of the usual IT instinct.
 
-**Mirai needed no exploit, no vulnerability research, nothing clever at all** — it simply
-scanned the whole internet for devices with Telnet open and tried a hard-coded list of around
-sixty factory default username/password pairs (`admin`/`admin`, `root`/`12345`, and similar).
-Every device where nobody had ever changed the default password joined the botnet automatically.
-This is the single most concrete illustration in the entire syllabus of why "change default
-credentials" is called the cheapest, highest-value IoT control: it is *the entire attack*,
-start to finish, for one of the largest botnets ever recorded.
+### When you can't patch
 
-**Modbus shows what "no built-in authentication" actually means at the command level.** A
-Modbus message is just a **function code** plus an address plus a value — function code `05`
-means "write a single coil" (flip a physical relay on or off), function code `06` means "write a
-single register" (set a numeric value like a target temperature or pressure). There is no
-username, no password, no signature — **any device that can route a packet to the PLC can send
-that command, and the PLC will execute it**, because the protocol was designed decades ago for a
-network nobody expected an attacker to ever reach. This is exactly why segmentation is the
-answer instead of "add authentication to Modbus": you can't patch a 1979 protocol, so the
-network itself has to be the thing that decides who's allowed to send it a command at all.
+<p align="center"><img src="diagrams/2.svg" alt="When a flaw is found in an industrial controller, if it can be patched safely right now, patch it in a planned maintenance window; if not, because the process is live or there is no vendor fix, apply compensating controls: segment it, watch it, and restrict who can reach it" width="440"></p>
+
+**Controls that fit these devices:**
+
+- **Segmentation or an air gap**: keep ICS and IoT networks apart from the office network, so a
+  compromise on one side can't reach the other directly.
+- **Compensating controls** when patching isn't possible: filter the network around the device,
+  monitor it, and tightly restrict who can reach it.
+- **Knowing the support lifecycle**: track when a device reaches end of life and will never get
+  another security update.
+- **Changing default credentials** on every device. It's the cheapest, most valuable IoT control,
+  and the one most often skipped.
+
+> [!IMPORTANT]
+> **For ICS, "apply the patch immediately" is often the wrong answer.** Patching can be unsafe for
+> a live process, or impossible without vendor support. The textbook answer is **segmentation,
+> monitoring or another compensating control** until a safe maintenance window.
+
+### Why default passwords matter so much
+
+The **Mirai** botnet is the clearest example in the whole syllabus. It needed no clever exploit at
+all:
+
+<p align="center"><img src="diagrams/3.svg" alt="The Mirai botnet scanned the internet for devices with Telnet open, tried about 60 factory default passwords, and when one worked installed malware so the device joined the botnet; thousands of devices then flooded one target" width="240"></p>
+
+Every camera and router whose owner never changed the factory password joined the botnet
+automatically. Changing that password wasn't one defence among many. It would have stopped the
+**entire attack**.
 
 ---
 
@@ -126,28 +114,45 @@ network itself has to be the thing that decides who's allowed to send it a comma
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **ICS / SCADA** | Systems controlling physical industrial processes. | **IoT**, which is typically consumer or commercial connected devices, not industrial process control. |
-| **Air gap** | Physical isolation — no network path exists at all. | **Segmentation**, which restricts traffic between connected network zones but does not eliminate the connection entirely. |
-| **Embedded system** | A dedicated-purpose computer built into a larger device. | A general-purpose **endpoint** (laptop, server), which runs varied software and is patched on a normal IT cadence. |
-| **ICS priority order (often A-I-C)** | Availability and integrity of the physical process typically come first. | Standard **IT priority order (often C-I-A)**, where confidentiality is usually the leading concern. |
+| **ICS / SCADA** | Controls **physical industrial processes**. | **IoT** — everyday consumer and commercial connected devices. |
+| **Air gap** | No network path at all. | **Segmentation** — restricts traffic between zones that are still connected. |
+| **Embedded system** | A single-purpose computer inside a bigger device. | A general **endpoint** (laptop, server), which runs many programs and is patched on a normal schedule. |
+| **ICS priority (often A-I-C)** | Availability and integrity of the process come first. | **Office IT priority (often C-I-A)** — confidentiality usually leads. |
+| **OT** | Technology controlling physical things. | **IT** — technology handling data. |
 
 ---
 
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** "just patch it" is the default response to a known vulnerability.
+> **In the job:** "just patch it" is the default answer to a known flaw.
 >
-> **On the exam:** for ICS and embedded systems, the textbook-correct answer is often
-> **segmentation, monitoring, or a compensating control** — not "apply the patch immediately" —
-> because immediate patching can be operationally unsafe or simply unsupported by the vendor.
+> **On the exam:** for ICS and embedded systems, the correct answer is often **segmentation,
+> monitoring or a compensating control**, because immediate patching can be unsafe or unsupported.
+
+> [!WARNING]
+> **In the job:** security means protecting data, so confidentiality comes first.
+>
+> **On the exam:** in ICS, **availability and integrity of the physical process** usually come
+> before confidentiality.
+
+> [!WARNING]
+> **In the job:** "the factory network isn't on the internet, so it's safe."
+>
+> **On the exam:** IT/OT convergence has connected many of those networks, often without anyone
+> noticing. Isolation has to be checked, never assumed.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **"Old, unpatchable, and dangerous to touch."** The three-word summary of why ICS/embedded
-devices get different treatment than a normal laptop or server.
+**Old, unpatchable, and dangerous to touch.** Why these devices get different treatment.
+
+**Office: C-I-A. Factory floor: A-I-C.**
+
+**Can't patch? Wall it off and watch it.**
+
+**Mirai needed only the password from the manual.** Change the defaults.
 
 ---
 
@@ -155,32 +160,30 @@ devices get different treatment than a normal laptop or server.
 
 Answer all five before expanding anything.
 
-**Q1.** A known vulnerability is found in the firmware of a PLC controlling a manufacturing
-line that cannot be taken offline. What is the MOST appropriate immediate response?
+**Q1.** A known vulnerability is found in the firmware of a PLC controlling a manufacturing line
+that cannot be taken offline. What is the MOST appropriate immediate response?
 
 - **A.** Apply the patch immediately regardless of the production schedule
-- **B.** Apply network segmentation and monitoring as compensating controls until a safe
-  patch window exists
+- **B.** Apply network segmentation and monitoring as compensating controls until a safe patch window exists
 - **C.** Ignore the vulnerability since ICS devices are not real security concerns
 - **D.** Replace the PLC immediately
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — segmentation and monitoring as compensating controls.** This addresses risk without
-forcing an unsafe, unscheduled interruption to a live physical process.
+**B — segmentation and monitoring as compensating controls.** They reduce the risk without forcing
+an unsafe, unplanned stop of a live physical process.
 
-- **A** risks an unsafe or costly unplanned outage of a physical process.
-- **C** dismisses a real risk category the exam specifically tests.
-- **D** is disproportionate and impractical as an "immediate" response, and ignores that
-  interim controls exist.
+- **A** risks an unsafe or costly unplanned outage of the process.
+- **C** dismisses a real category of risk that the exam specifically tests.
+- **D** is out of proportion and impractical as an *immediate* response, and ignores that interim
+  controls exist.
 
 </details>
 
 **Q2.** Which of the following BEST distinguishes ICS/SCADA systems from typical IoT devices?
 
-- **A.** ICS/SCADA control physical industrial processes; IoT is typically consumer or
-  commercial connected devices
+- **A.** ICS/SCADA control physical industrial processes; IoT is typically consumer or commercial connected devices
 - **B.** IoT devices are always more secure than ICS
 - **C.** ICS systems never connect to any network
 - **D.** There is no meaningful distinction between the two categories
@@ -188,78 +191,17 @@ forcing an unsafe, unscheduled interruption to a live physical process.
 <details>
 <summary><b>Answer</b></summary>
 
-**A — ICS/SCADA control physical industrial processes; IoT is broader consumer/commercial
-connectivity.** This is the core distinction the exam draws.
+**A.** ICS and SCADA control physical industrial processes; IoT covers everyday connected devices.
+That's the core distinction the exam draws.
 
 - **B** is an unsupported generalisation in either direction.
-- **C** is wrong — many ICS environments are networked, which is exactly why segmentation and
-  air-gapping matter as controls.
-- **D** ignores a distinction the outline specifically separates.
+- **C** is wrong: many ICS environments are networked, which is exactly why segmentation and air
+  gaps matter.
+- **D** ignores a distinction the exam outline draws on purpose.
 
 </details>
 
-**Q3.** Why is "reboot to remediate" often not a safe default for ICS environments?
-
-- **A.** Because ICS devices reboot faster than normal computers
-- **B.** Because a reboot can halt a live physical process, sometimes unsafely
-- **C.** Because ICS devices cannot be rebooted under any circumstances
-- **D.** Because rebooting always destroys forensic evidence
-
-<details>
-<summary><b>Answer</b></summary>
-
-**B — a reboot can unsafely halt a live physical process.** This is the operational reason ICS
-remediation differs from typical IT remediation.
-
-- **A** is not a security consideration.
-- **C** overstates the case — some ICS devices can be rebooted, but only within a scheduled,
-  safe maintenance window.
-- **D** describes a forensic concern unrelated to why ICS reboots are handled cautiously.
-
-</details>
-
-**Q4.** An organisation isolates its ICS network with no physical network connection to any
-other network, including the internet. What is this control called?
-
-- **A.** Segmentation
-- **B.** Air gap
-- **C.** Zero Trust
-- **D.** Micro-segmentation
-
-<details>
-<summary><b>Answer</b></summary>
-
-**B — air gap.** Complete physical isolation, with no network path at all.
-
-- **A** and **D** both describe restricting traffic between *connected* zones, not eliminating
-  the connection entirely.
-- **C** is an access philosophy ("never trust, always verify") applied to connected systems,
-  not a description of physical isolation.
-
-</details>
-
-**Q5.** What is the PRIMARY reason embedded, ICS, and IoT devices are treated as a distinct
-security category from standard IT endpoints?
-
-- **A.** They are always more expensive
-- **B.** They routinely violate normal assumptions about patching, rebooting and lifespan, and
-  compromise can have physical consequences
-- **C.** They are never connected to a network
-- **D.** They are outside the scope of any security framework
-
-<details>
-<summary><b>Answer</b></summary>
-
-**B — they break normal IT assumptions and compromise can be physically consequential.** This
-is exactly why the live outline names them separately.
-
-- **A** is not a security consideration.
-- **C** is factually wrong for most IoT and many ICS deployments.
-- **D** is wrong — they are explicitly in scope on this exam's own outline.
-
-</details>
-
-**Q6.** In a typical industrial control system, which of the following is MOST likely to be
+**Q3.** In a typical industrial control system, which of the following is MOST likely to be
 prioritised ahead of confidentiality?
 
 - **A.** Non-repudiation
@@ -270,13 +212,54 @@ prioritised ahead of confidentiality?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — availability and integrity of the physical process.** ICS environments commonly flip the
-usual IT priority order, because the asset being protected is a live physical process rather
-than data at rest.
+**B — availability and integrity of the physical process.** ICS environments often flip the usual IT
+order, because what's being protected is a live physical process rather than stored data.
 
-- **A** and **D** are real security concerns but not the priority the exam tests as flipped in
-  ICS contexts.
-- **C** is a privacy concept, unrelated to the ICS availability/integrity priority.
+- **A** and **D** are real security concerns, but they aren't the priorities that flip in ICS.
+- **C** is a privacy idea, unrelated to keeping a physical process running correctly.
+
+</details>
+
+**Q4.** An organisation isolates its ICS network with no physical network connection to any other
+network, including the internet. What is this control called?
+
+- **A.** Segmentation
+- **B.** Air gap
+- **C.** Zero trust
+- **D.** Micro-segmentation
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — an air gap.** Complete physical isolation, with no network path at all.
+
+- **A** and **D** both restrict traffic between zones that are still *connected*. They don't remove
+  the connection.
+- **C** is an approach to access ("never trust, always verify") for connected systems, not physical
+  isolation.
+
+</details>
+
+**Q5.** A botnet spreads by logging into internet-connected cameras using their factory-set
+passwords. Which control MOST directly prevents a camera from being recruited?
+
+- **A.** Changing the default credentials on every camera
+- **B.** Upgrading the office Wi-Fi to WPA3
+- **C.** Installing antivirus software on each camera
+- **D.** Encrypting the cameras' stored footage
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A — changing the default credentials.** The attack is simply logging in with the factory password.
+Take that away and the attack has nothing left.
+
+- **B** protects the office's radio link. The attacker reaches the cameras over the internet and
+  logs in; Wi-Fi encryption doesn't touch that.
+- **C** usually isn't possible on small IoT devices, and it wouldn't stop someone logging in with a
+  valid password anyway.
+- **D** protects stored footage (data at rest). It does nothing to stop someone logging in and
+  taking over the device.
 
 </details>
 
@@ -287,25 +270,29 @@ than data at rest.
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**Purdue Model.** Industrial environments commonly reference a layered reference architecture
-(often called the Purdue Model) separating the physical process, control systems, and
-enterprise IT into distinct levels with controlled gateways between them. CC does not require
-naming this model, but the underlying idea — the enterprise network and the process-control
-network should not be flatly connected — is exactly the segmentation principle tested here.
+**The Purdue Model.** Industrial sites often follow a layered reference design, usually called the
+Purdue Model, that separates the physical process, the control systems and the business IT network
+into distinct levels with controlled gateways between them. The CC exam doesn't require the name,
+but the idea behind it is exactly the point here: the business network and the process-control
+network must not be flatly connected.
 
-**Why IoT firmware quality varies so widely.** Consumer IoT is frequently built by hardware
-manufacturers without dedicated security engineering, competing primarily on price and features
-rather than patchability — which is why unpatched, internet-facing IoT devices are a
-recurring source of large-scale botnets in the wild. The historical Mirai botnet is the
-textbook example: it spread almost entirely by trying a short list of factory-default
-credentials against internet-exposed devices, needing no software vulnerability at all.
+**Why IoT firmware quality varies so much.** Consumer IoT is often built by hardware makers with no
+dedicated security engineers, competing on price and features rather than on updates. That's why
+unpatched, internet-facing IoT devices keep turning up as the raw material for huge botnets.
 
-**Legacy ICS protocols were never designed with an attacker in mind.** Protocols such as
-Modbus, common in older industrial equipment, were built assuming a physically isolated,
-trusted network, and so carry no built-in authentication or encryption — any device that can
-reach one on the network can issue commands to it. This is precisely why IT/OT convergence is
-risky: connecting that trusting old protocol to a broader, less-trusted network exposes an
-assumption the protocol's designers never expected to be tested.
+**Old industrial protocols trust everyone.** **Modbus**, common on older equipment, was designed for
+a physically isolated network that nobody expected an attacker to reach. A Modbus message is just a
+function code, an address and a value: code `05` means "switch this relay on or off", code `06`
+means "set this number", such as a target temperature or pressure. There's no username, password or
+signature. Any device that can send a packet to the controller can give it orders, and it will obey.
+You can't retrofit authentication onto a protocol from 1979, so the **network** has to decide who is
+allowed to talk to the controller at all. That is why segmentation is the answer, and why IT/OT
+convergence is risky: it exposes a trusting old protocol to a network its designers never imagined.
+
+**Air gaps are rarer than people think.** Many "isolated" plants turn out to have a forgotten
+remote-support link, a vendor's modem, or a laptop that moves between networks. Stuxnet crossed a
+real air gap on removable media. Treat isolation as something to verify regularly, not a fact you
+wrote down once.
 
 </details>
 
@@ -315,16 +302,15 @@ assumption the protocol's designers never expected to be tested.
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-- **ICS/SCADA control physical processes. IoT is broader consumer/commercial connectivity.**
-- ICS/embedded devices break normal assumptions: **long lifespan, hard to patch, reboot can be unsafe.**
-- Compromise can be **physical, safety-relevant** — not just a data problem.
-- **Segmentation / air-gapping** is the go-to control when patching isn't practical.
-- **ICS often flips CIA to A-I-C** — availability and integrity of the process before confidentiality.
-- **Change default credentials.** The cheapest, highest-value IoT control — and the most skipped.
+- **ICS/SCADA control physical processes. IoT = everyday connected devices.**
+- **These devices break normal assumptions: long lifespan, hard to patch, reboots can be unsafe.** A breach can be **physical and safety-related**, not just a data problem.
+- **ICS often flips CIA to A-I-C:** availability and integrity of the process before confidentiality.
+- **Can't patch? Segmentation, monitoring and other compensating controls** until a safe maintenance window.
+- **Air gap = no connection at all. Segmentation = still connected, but restricted.**
+- **Change default credentials:** the cheapest, most valuable IoT control, and the most skipped (Mirai).
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← back to 04 · Networking and Cloud Security Concepts</a> &nbsp;·&nbsp; <a href="../../03-access-control/README.md">next domain: 03 · IAM Concepts →</a></sub>
+<sub><a href="../README.md">← back to 04 · Networking and Cloud Security Concepts</a></sub>
 </div>
-</content>
