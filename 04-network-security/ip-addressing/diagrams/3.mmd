@@ -1,0 +1,7 @@
+flowchart LR
+    D["DHCP<br/>GIVES you an address<br/>when you join"] --> N["DNS<br/>FINDS an address<br/>from a name"]
+    N --> T["NAT<br/>SWAPS private for<br/>public on the way out"]
+
+    style D fill:#12243f,stroke:#5C7CFA,color:#fff
+    style N fill:#0f3038,stroke:#12B5A5,color:#fff
+    style T fill:#3a2c12,stroke:#F08C00,color:#fff

@@ -1,0 +1,17 @@
+flowchart TD
+    A["An IP address"] --> Q1(["Starts with 127?"])
+    Q1 -->|"yes"| L["LOOPBACK<br/>this device itself"]
+    Q1 -->|"no"| Q2(["Starts with 169.254?"])
+    Q2 -->|"yes"| P["APIPA<br/>DHCP has FAILED"]
+    Q2 -->|"no"| Q3(["10.x, 172.16-31.x<br/>or 192.168.x?"])
+    Q3 -->|"yes"| R["PRIVATE<br/>not internet-routable"]
+    Q3 -->|"no"| U["PUBLIC<br/>routable on the internet"]
+
+    style A fill:#26292e,stroke:#868E96,color:#fff
+    style Q1 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style Q2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style Q3 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style L fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P fill:#3a1a20,stroke:#E03131,color:#fff
+    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style U fill:#0f3038,stroke:#12B5A5,color:#fff

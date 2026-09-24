@@ -1,0 +1,9 @@
+flowchart LR
+    P["PRIVATE ranges<br/>never routed on<br/>the internet"] --> A["10.0.0.0 to<br/>10.255.255.255<br/>(/8)"]
+    P --> B["172.16.0.0 to<br/>172.31.255.255<br/>(/12) ONLY 16-31"]
+    P --> C["192.168.0.0 to<br/>192.168.255.255<br/>(/16)"]
+
+    style P fill:#0f3038,stroke:#12B5A5,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C fill:#12243f,stroke:#5C7CFA,color:#fff

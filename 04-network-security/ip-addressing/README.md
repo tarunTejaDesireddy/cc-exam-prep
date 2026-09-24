@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="../assets/module-04-banner.svg" alt="04 · Network Security" width="100%">
+<img src="../assets/module-04-banner.svg" alt="04 · Networking and Cloud Security Concepts" width="100%">
 
-# 🔢 IP addressing
+# 🔢 IP Addressing
 
-### *Public and private, IPv4 and IPv6, and the three services that make addressing usable*
+### *Public vs private addresses, and the three services that hand out, find and swap them*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
-📌 *Recognise a private address range on sight, and say what NAT, DHCP and DNS each do. That is most of the marks here.*
+📌 *Recognise the private ranges on sight (watch 172.16–31), know 169.254 means DHCP failed, and say what DHCP, DNS and NAT each do.*
 
 </div>
 
@@ -18,38 +18,17 @@
 
 ## 🧸 The big idea
 
-Every hut inside the village has a nickname — "third hut by the stream" — that only means
-something to people already inside the village. Nobody in another valley has ever heard of it,
-and it would mean nothing to them anyway, since a hundred other villages each have their own
-"third hut by the stream."
+In an apartment building, **"Flat 3B"** only means something inside the building — a hundred other
+buildings have a Flat 3B. The building's **street address** is what the outside world uses.
 
-The village as a whole, though, has exactly one name known to the outside world, and that's what
-gets used on anything travelling to another valley.
+- Flat numbers = **private** addresses (reused everywhere, meaningless outside).
+- The street address = the **public** address.
 
-That's the whole idea. Every device on a network needs an address so traffic can find it. That
-is an **IP address**, and it lives at layer 3.
+Three helpers keep it working:
 
-Two things the exam cares about:
-
-**Public versus private.** The internal hut nicknames are the **private** addresses. Some
-address ranges are reserved for use inside private networks. They are not routable on the
-internet — no router on the public internet will forward them. Any organisation can use them
-internally, which is why the same `192.168.1.1` exists in millions of homes simultaneously.
-Recognising these ranges on sight is worth guaranteed marks.
-
-**Three supporting services**, each doing one job, each commonly confused with the others: when a
-new family moves into the village, the elder assigns them a hut nickname automatically rather
-than making them invent one — that's **DHCP**. The village directory-keeper remembers that
-"Grog's hut" actually means "third hut by the stream," so nobody has to memorise numbers — that's
-**DNS**. And the gate-keeper relabels every outgoing message with the village's one shared
-outside-facing name before it leaves for another valley, so outsiders never see the internal
-nicknames at all — that's **NAT**.
-
-- **DHCP** hands out addresses automatically.
-- **DNS** translates names into addresses.
-- **NAT** translates private addresses into a public one on the way out.
-
-If you can state those three in one line each, you have the core of this topic.
+- The concierge who **gives** new tenants a flat number → **DHCP**.
+- The lobby directory that **finds** "Sara Ali → Flat 3B" → **DNS**.
+- The mailroom that stamps the **street address** on all outgoing post → **NAT**.
 
 ---
 
@@ -57,151 +36,78 @@ If you can state those three in one line each, you have the core of this topic.
 
 | Word | What it means on this exam |
 |---|---|
-| **IP address** | The layer 3 address identifying a host on a network. |
-| **IPv4** | 32-bit addressing, written as four decimal numbers: `192.0.2.15`. |
-| **IPv6** | 128-bit addressing, written as hexadecimal groups: `2001:db8::1`. |
-| **Public address** | Globally routable on the internet. Must be unique worldwide. |
-| **Private address** | Reserved for internal use. Not routable on the internet. |
-| **Subnet** | A subdivision of a network. |
-| **Subnet mask** | Defines which part of an address is the network and which is the host. |
-| **Default gateway** | The router a device sends traffic to when the destination is outside its own network. |
-| **NAT** — Network Address Translation | Translating private addresses to a public one, and back. |
-| **DHCP** — Dynamic Host Configuration Protocol | Automatically assigns IP configuration to devices. |
-| **DNS** — Domain Name System | Resolves names such as `example.com` to IP addresses. |
-| **Loopback** | The address a device uses to refer to itself — `127.0.0.1`, or `::1` in IPv6. |
-| **Static address** | Manually configured and fixed. |
-| **Dynamic address** | Assigned automatically by DHCP and subject to change. |
+| **IP address** | The layer 3 address of a host. |
+| **IPv4** | **32-bit**, four decimal numbers: `192.0.2.15`. |
+| **IPv6** | **128-bit**, hex groups with colons: `2001:db8::1`. |
+| **Public address** | Globally unique and routable on the internet. |
+| **Private address** | Reserved for internal use; **not** routable on the internet. |
+| **Subnet mask** | Marks which part of an address is the network and which is the host. |
+| **Default gateway** | The router a device sends traffic to when the destination is outside its network. |
+| **DHCP** | Automatically **assigns** IP settings to devices. |
+| **DNS** | **Resolves names** like `example.com` to IP addresses. |
+| **NAT** | **Translates** private addresses to a public one on the way out, and back. |
+| **Loopback** | `127.0.0.1` (or `::1`) — the device talking to itself. |
+| **APIPA** | `169.254.x.x` — self-assigned when DHCP fails. |
 
 ---
 
-## 🔍 IPv4 and IPv6
+## 🔍 The explanation
+
+### IPv4 vs IPv6
 
 | | **IPv4** | **IPv6** |
 |---|---|---|
 | Size | **32 bits** | **128 bits** |
-| Format | Four decimal octets: `192.0.2.15` | Eight hex groups: `2001:db8::8a2e:370:7334` |
-| Separator | Dots | Colons |
-| Address space | ~4.3 billion | Effectively inexhaustible |
-| NAT | Widely needed | Not needed — enough addresses for everything |
-| IPSec | Optional | Designed in as part of the protocol |
+| Written as | `192.0.2.15` | `2001:db8::8a2e:370:7334` |
+| Space | ~4.3 billion | Effectively unlimited |
+| NAT | Widely needed | Not needed |
+| IPsec | Optional add-on | Built into the design |
 
-**IPv6 exists because IPv4 ran out of addresses.** That is the reason to remember; the exam asks
-for it directly.
+**IPv6 exists because IPv4 ran out of addresses.**
 
-> 🎯 **The two numbers to know: IPv4 is 32-bit, IPv6 is 128-bit.** Almost every IPv6 question
-> starts there.
+### The private ranges — memorise these
 
----
-
-## 🏠 Private address ranges — memorise these
-
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
-
-| Range | CIDR | Typical use |
-|---|---|---|
-| `10.0.0.0` – `10.255.255.255` | `/8` | Large enterprise networks |
-| `172.16.0.0` – `172.31.255.255` | `/12` | Medium networks |
-| `192.168.0.0` – `192.168.255.255` | `/16` | Home and small office |
+<p align="center"><img src="diagrams/1.svg" alt="The private ranges never routed on the internet are 10.0.0.0 to 10.255.255.255, 172.16.0.0 to 172.31.255.255 only, and 192.168.0.0 to 192.168.255.255" width="720"></p>
 
 > [!CAUTION]
-> **The `172` range is the one people get wrong.** It is `172.16` to `172.31` — **not** all of
-> `172`. So `172.15.0.1` and `172.32.0.1` are **public** addresses, while `172.20.0.1` is private.
-> Exam questions deliberately offer an address just outside the range.
+> **The 172 range is where marks are lost.** Only **172.16 to 172.31** is private. `172.15.x.x` and
+> `172.32.x.x` are **public**. Exam options are chosen to sit just outside the range.
 
-**Other reserved addresses worth recognising:**
+### Classify any address in three questions
 
-| Address | Meaning |
+<p align="center"><img src="diagrams/2.svg" alt="If an address starts with 127 it is loopback, this device itself; if it starts with 169.254 it is APIPA meaning DHCP failed; if it is in 10, 172.16 to 31 or 192.168 it is private and not internet-routable; otherwise it is public" width="520"></p>
+
+| Special address | Meaning |
 |---|---|
-| `127.0.0.1` | **Loopback** — this device itself. The whole `127.0.0.0/8` range is loopback. |
-| `169.254.x.x` | **APIPA** — self-assigned when DHCP fails. Seeing one means DHCP is not working. |
-| `0.0.0.0` | Unspecified, or "all addresses" in a listening context. |
-| `255.255.255.255` | Broadcast to the local network. |
+| `127.0.0.1` | Loopback — this device itself |
+| `169.254.x.x` | APIPA — **DHCP failed**; the device gave itself an address |
+| `255.255.255.255` | Broadcast to the local network |
+| `0.0.0.0` | Unspecified / "all addresses" |
 
-> 🎯 **An address starting `169.254` is a diagnostic signal.** The device tried to get an address
-> from DHCP, failed, and assigned itself one. If a question describes a client with a `169.254`
-> address unable to reach the network, the answer concerns DHCP failure.
+### The three services
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/3.svg" alt="DHCP gives you an address when you join, DNS finds an address from a name, and NAT swaps private for public on the way out" width="760"></p>
 
-Run any address in a question down this tree. **Watch the third question — `172.15` and `172.32`
-come out the bottom as public.**
+**📋 DHCP** — gives a device its IP address, subnet mask, default gateway and DNS server when it
+joins. *Risk:* a **rogue DHCP server** hands out an attacker's gateway or DNS server (defence: DHCP
+snooping on switches).
 
----
+**🔤 DNS** — turns `example.com` into an IP address. *Risks:* **DNS spoofing / cache poisoning**
+(a name secretly resolves to the attacker's site) and **DNS tunnelling** (data smuggled out inside
+DNS queries). **DNSSEC** signs answers so they can be verified.
 
-## 🔧 The three services
+> ⚠️ **DNSSEC gives authenticity and integrity — NOT confidentiality.** It proves an answer is
+> genuine; it doesn't encrypt the query.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+**🔀 NAT** — many private hosts leave through one public address:
 
-### 📋 DHCP — hands out addresses
+<p align="center"><img src="diagrams/4.svg" alt="Three PCs with private addresses 192.168.1.10, .11 and .12 go through a NAT device that rewrites the source and remembers who was who, and all leave as one public address 203.0.113.5" width="700"></p>
 
-Automatically assigns a device its IP address, subnet mask, default gateway and DNS servers
-when it joins a network. Without it, every device would need manual configuration.
-
-**Security relevance:** a **rogue DHCP server** can hand clients a malicious default gateway or
-DNS server, putting an attacker in the traffic path. DHCP snooping on switches defends against
-this.
-
-### 🔤 DNS — turns names into addresses
-
-Resolves `example.com` into an IP address. It is what makes the internet usable by humans.
-
-**Security relevance:** DNS is a high-value target.
-
-- **DNS spoofing / cache poisoning** — corrupting a resolver's records so a name resolves to an
-  attacker's address, silently sending users to a malicious site.
-- **DNS tunnelling** — smuggling data out inside DNS queries, because DNS is rarely blocked.
-- **DNSSEC** adds cryptographic signatures so responses can be verified as authentic.
-
-> ⚠️ **DNSSEC provides authenticity and integrity, not confidentiality.** It proves a DNS answer
-> is genuine and unmodified; it does not encrypt the query. This distinction is examined.
-
-### 🔀 NAT — swaps private for public
-
-Translates internal private addresses into a public address as traffic leaves, and reverses the
-translation on the way back. Many internal hosts can share one public address.
-
-**Two benefits, and the exam wants both:**
-
-1. **Address conservation** — the reason it was invented. One public address serves many hosts.
-2. **A degree of obscurity** — internal addressing is hidden, and unsolicited inbound connections
-   have nowhere to go by default.
-
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-Read it as a sentence: **many private hosts leave through one public address, and the NAT device
-remembers who was who so replies get home.** That is address conservation — the purpose. The fact
-that outsiders cannot see the private addresses is a side effect, not a control.
+Its **purpose is address conservation**. Hiding internal addresses is a **side effect**.
 
 > [!IMPORTANT]
-> **NAT is not a security control, and it is not a firewall.** It provides incidental obscurity
-> as a side effect of address translation. It does not inspect traffic, enforce a policy, or stop
-> anything a user initiates. If an option says NAT secures a network or replaces a firewall, it
-> is wrong.
-
----
-
-## 🔬 How a DNS lookup actually travels, and how poisoning it works
-
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
-
-A single DNS query is actually a **chain of referrals**: your resolver asks a root server which
-doesn't know the answer but knows who does — the `.com` TLD server — which in turn points to the
-specific authoritative server that actually holds `example.com`'s real IP. The answer then gets
-**cached** by your resolver for a defined time (its TTL) so the whole chain isn't repeated for
-every request.
-
-**Cache poisoning exploits exactly that caching step.** Each DNS query carries a 16-bit random
-**transaction ID**, and a resolver accepts the *first* reply that matches it — it has no way to
-know a reply is fake versus genuine beyond that number matching. In the classic Kaminsky-style
-attack, an attacker floods the resolver with hundreds of forged replies guessing different
-transaction IDs, racing to land a match before the real authoritative server's genuine reply
-arrives. Win that race once, and the resolver caches the attacker's fake IP address for every
-subsequent user of that resolver until the TTL expires — silently redirecting an entire
-organisation or ISP's traffic. **DNSSEC** closes this specific hole by having each authoritative
-answer carry a cryptographic signature (an `RRSIG` record, verified against a published
-`DNSKEY`) that a forged reply simply cannot produce without the private key — which is precisely
-why DNSSEC is described as providing authenticity rather than confidentiality: it doesn't hide
-the query, it makes the answer unforgeable.
+> **NAT is not a security control and not a firewall.** It translates; it doesn't inspect, filter
+> or enforce a policy.
 
 ---
 
@@ -209,53 +115,40 @@ the query, it makes the answer unforgeable.
 
 | | Does | Not to be confused with |
 |---|---|---|
-| **DHCP** | **Assigns** an IP address automatically. | **DNS**, which **resolves names** to addresses. DHCP gives you an address; DNS finds someone else's. |
-| **DNS** | Name → IP address. | **ARP**, which resolves IP → MAC within a local network. Different pair, different layer. |
-| **NAT** | Translates private ↔ public addresses. | **A firewall**, which inspects and filters against a ruleset. NAT translates; it does not decide. |
-| **Private address** | Reserved, not internet-routable. | **Public address**, globally unique and routable. |
-| **Static** | Manually set and fixed. | **Dynamic**, assigned by DHCP and liable to change. |
-| **`127.0.0.1`** | Loopback — this device. | A private address. Loopback is its own reserved category and never leaves the host. |
-| **`169.254.x.x`** | APIPA — DHCP failed. | A normal private range. It is a fault symptom. |
-| **DNSSEC** | Authenticity and integrity of DNS answers. | **Encryption.** DNSSEC signs; it does not conceal. |
+| **DHCP** | **Assigns** your address. | **DNS** — **finds** someone else's address from a name. |
+| **DNS** | Name → IP. | **ARP** — IP → MAC, inside the local network. |
+| **NAT** | Translates private ↔ public. | **A firewall** — inspects and filters by rules. |
+| **Private** | Reserved, not routable. | **Public** — globally unique, routable. |
+| **Static** | Manually set, fixed. | **Dynamic** — from DHCP, may change. |
+| **`169.254.x.x`** | DHCP failed. | A normal private range. |
+| **DNSSEC** | Signs DNS answers. | **Encryption** — it doesn't hide anything. |
 
 ---
 
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** NAT does meaningfully reduce exposure — an unsolicited inbound packet has
-> nowhere to go, and that is real.
+> **In the job:** NAT really does reduce exposure — unsolicited inbound traffic has nowhere to go.
 >
-> **On the exam:** **NAT is not a security control.** The expected answer is address conservation
-> as the purpose, with obscurity as a side effect. Never select an option describing NAT as a
-> substitute for a firewall.
+> **On the exam:** **NAT is not a security control.** Purpose = address conservation; obscurity =
+> side effect. Never pick "NAT replaces a firewall".
 
 > [!WARNING]
-> **In the job:** `172.` addresses read as private at a glance.
+> **In the job:** any `172.` address reads as private.
 >
-> **On the exam:** only `172.16` through `172.31` are private. `172.15.x.x` and `172.32.x.x` are
-> **public**, and questions are written specifically to catch this.
-
-> [!WARNING]
-> **In the job:** IPv6 is something you disable to avoid surprises.
->
-> **On the exam:** what matters is 128-bit addressing, that it solves IPv4 exhaustion, and that
-> IPSec is built into the protocol rather than bolted on.
+> **On the exam:** only **172.16–172.31**.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **The three private ranges: 10 · 172.16–31 · 192.168.**
-*"Ten, seventeen-two-sixteen-to-thirty-one, one-ninety-two-one-sixty-eight."* Say it until the
-`172` boundaries are automatic.
+**Private: 10 · 172.16–31 · 192.168.**
 
-🧠 **The three services in one line each:**
-**DHCP gives** you an address · **DNS finds** an address · **NAT swaps** an address.
+**DHCP gives · DNS finds · NAT swaps.**
 
-🧠 **32 and 128.** IPv4 and IPv6 bit lengths.
+**IPv4 = 32 bits · IPv6 = 128 bits.**
 
-🧠 **169.254 means DHCP died.**
+**169.254 means DHCP died.**
 
 ---
 
@@ -273,20 +166,16 @@ Answer all five before expanding anything.
 <details>
 <summary><b>Answer</b></summary>
 
-**C — `172.35.5.1`.** The private `172` range runs from `172.16` to `172.31` only. `172.35` falls
-outside it, so the address is public and internet-routable.
+**C.** 35 is outside 16–31.
 
-- **A** is inside `10.0.0.0/8`, private.
-- **B** is inside `172.16.0.0/12` because 20 is between 16 and 31 — private.
-- **D** is inside `192.168.0.0/16`, private.
-
-The whole question is the `172` boundary, which is exactly why it is worth memorising the numbers
-16 and 31 rather than "the 172 range".
+- **A** is in 10.x — private.
+- **B** — 20 is inside 16–31 — private.
+- **D** is in 192.168.x — private.
 
 </details>
 
-**Q2.** A workstation cannot reach network resources and has been assigned the address
-`169.254.12.88`. What is the MOST likely cause?
+**Q2.** A workstation can't reach network resources and has the address `169.254.12.88`. What is
+the MOST likely cause?
 
 - **A.** The workstation has been assigned a public address in error
 - **B.** The DHCP server is unavailable, so the workstation self-assigned an APIPA address
@@ -296,14 +185,11 @@ The whole question is the `172` boundary, which is exactly why it is worth memor
 <details>
 <summary><b>Answer</b></summary>
 
-**B — the DHCP server is unavailable.** The `169.254.x.x` range is APIPA, which a host assigns to
-itself only when it cannot obtain an address from DHCP. The address is the diagnostic.
+**B.** The address itself is the diagnosis.
 
-- **A** is wrong: `169.254` is a reserved self-assignment range, not a public one.
-- **C** would prevent name resolution while the host still held a valid DHCP address and could
-  reach resources by IP. The symptom here is the address itself.
-- **D** would break traffic leaving the local network, but the host would still hold a normal
-  DHCP-assigned address rather than an APIPA one.
+- **A** — 169.254 is a reserved self-assignment range.
+- **C** — the host would still have a normal DHCP address.
+- **D** — same: it would still hold a normal address.
 
 </details>
 
@@ -317,18 +203,15 @@ itself only when it cannot obtain an address from DHCP. The address is the diagn
 <details>
 <summary><b>Answer</b></summary>
 
-**B — to conserve public IP addresses.** NAT was created to address IPv4 exhaustion by letting
-many internal hosts share a small number of public addresses.
+**B.**
 
-- **A** is wrong — NAT performs no encryption whatsoever. It rewrites address fields.
-- **C** describes a firewall. NAT does provide incidental obscurity, which makes this the most
-  tempting distractor, but translating is not filtering and NAT enforces no policy.
-- **D** describes DNS.
+- **A** — NAT encrypts nothing.
+- **C** — that's a firewall; the most tempting distractor.
+- **D** — that's DNS.
 
 </details>
 
-**Q4.** Which service automatically provides a client with its IP address, subnet mask, default
-gateway and DNS server?
+**Q4.** Which service gives a client its IP address, subnet mask, default gateway and DNS server?
 
 - **A.** DNS
 - **B.** NAT
@@ -338,13 +221,11 @@ gateway and DNS server?
 <details>
 <summary><b>Answer</b></summary>
 
-**C — DHCP.** It supplies the whole IP configuration bundle when a device joins a network.
+**C — DHCP.**
 
-- **A** resolves names to addresses. DHCP tells the client *which* DNS server to ask — the two are
-  adjacent, which is why they get swapped.
-- **B** translates private addresses to public ones at the network edge. It assigns nothing to
-  clients.
-- **D** resolves an IP address to a MAC address within the local network.
+- **A** resolves names (DHCP tells the client *which* DNS server to use — why they get swapped).
+- **B** works at the edge; assigns nothing.
+- **D** resolves IP → MAC.
 
 </details>
 
@@ -358,15 +239,11 @@ gateway and DNS server?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — 128-bit addresses, developed to address IPv4 exhaustion.** That is the core fact, and the
-address space is effectively inexhaustible.
+**B.**
 
-- **A** gets both details wrong: IPv6 is 128-bit and written in hexadecimal groups separated by
-  colons.
-- **C** inverts the position. IPv6's whole point is that there are enough addresses to give every
-  device a globally unique one, so NAT is unnecessary.
-- **D** is wrong in the opposite direction — IPSec support is built into IPv6 rather than being an
-  optional addition as in IPv4.
+- **A** — 128-bit, hexadecimal.
+- **C** — the point of IPv6 is that NAT isn't needed.
+- **D** — IPsec is built in.
 
 </details>
 
@@ -377,34 +254,20 @@ address space is effectively inexhaustible.
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**NAT's security reputation is genuinely contested.** The exam's line — NAT is not a security
-control — is the correct answer and slightly overstated as a claim about reality. A host behind
-NAT with no port forwarding cannot receive unsolicited inbound connections, because the
-translation table has no entry to map them to. That is a real reduction in attack surface, and it
-is why home networks are less exposed than they would otherwise be. The reason it does not count
-as a security control is that it is a side effect rather than a policy: it cannot be configured,
-audited or reasoned about as a rule set, it does nothing about outbound connections or anything a
-user initiates, and relying on it produces a flat internal network where one compromised host
-reaches everything. Defence in depth, not NAT.
+**How DNS lookups travel.** Your resolver asks a **root** server ("ask .com"), then the **.com TLD**
+server ("ask this one"), then the **authoritative** server (the real IP) — and **caches** the answer
+for its TTL. **Cache poisoning** races forged replies guessing the 16-bit transaction ID; win once and
+everyone using that resolver is misdirected until the TTL expires. **DNSSEC** signs answers (RRSIG,
+checked against DNSKEY) so forgeries fail.
 
-**The IPv6 privacy wrinkle.** Early IPv6 autoconfiguration derived the host portion of the address
-from the interface's MAC address, which meant a device carried a globally unique, trackable
-identifier across every network it joined. Privacy extensions were introduced to generate
-temporary randomised addresses instead, and are now the default on major operating systems. It is
-a neat illustration of a design decision that was technically elegant and a privacy problem.
+**NAT's security reputation is contested.** No port-forward = no unsolicited inbound, which is real.
+But it's a side effect, not an auditable policy, and it does nothing about outbound or user-initiated
+traffic.
 
-**Why DNS is such an attractive target.** It is the first step of almost every connection, it is
-traditionally unauthenticated and unencrypted, and it is rarely blocked at the perimeter because
-blocking it breaks everything. That combination makes it useful for redirection, for command and
-control, and for exfiltration via tunnelling. DNSSEC addresses authenticity; DNS over HTTPS and
-DNS over TLS address confidentiality, and they are a mixed blessing for defenders because they
-also hide DNS queries from the organisation's own monitoring.
+**IPv6 privacy.** Early IPv6 built addresses from the MAC — a trackable ID everywhere you went.
+Privacy extensions now use random temporary addresses.
 
-**CIDR in one paragraph.** The `/24` notation says how many leading bits are the network portion.
-A `/24` leaves 8 bits for hosts, giving 256 addresses of which 254 are usable — one is the network
-address and one the broadcast. Smaller numbers mean bigger networks: `/8` is enormous, `/30` gives
-just two usable addresses for a point-to-point link. CC does not require subnetting arithmetic,
-but recognising that `/8` is larger than `/24` occasionally helps.
+**CIDR:** `/24` = 24 network bits, 256 addresses (254 usable). Smaller number = bigger network.
 
 </details>
 
@@ -414,14 +277,11 @@ but recognising that `/8` is larger than `/24` occasionally helps.
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-- **Private ranges: `10.0.0.0/8` · `172.16–172.31` · `192.168.0.0/16`.**
-- **The 172 range is 16 to 31 ONLY.** `172.15` and `172.32` are **public**. Classic trap.
-- **`127.0.0.1`** = loopback (this device). **`169.254.x.x`** = APIPA = **DHCP failed**.
-- **IPv4 = 32-bit, dotted decimal. IPv6 = 128-bit, hex with colons.** IPv6 exists because IPv4 ran out. IPSec is built into IPv6.
-- **DHCP gives you an address. DNS finds an address. NAT swaps an address.**
-- **NAT's purpose = address conservation.** Obscurity is a side effect. **NAT is NOT a security control and NOT a firewall.**
-- **DNSSEC = authenticity + integrity, NOT confidentiality.** It signs; it doesn't encrypt.
-- **DNS** = name → IP. **ARP** = IP → MAC.
+- **Private: 10.0.0.0/8 · 172.16–172.31 (/12) · 192.168.0.0/16.** 172.15 and 172.32 are PUBLIC.
+- **127.x = loopback. 169.254.x = APIPA → DHCP failed.**
+- **DHCP gives · DNS finds · NAT swaps.**
+- **NAT's purpose = address conservation. NOT a security control, NOT a firewall.**
+- **IPv4 32-bit · IPv6 128-bit** (IPsec built in). **DNSSEC = authenticity, not confidentiality.**
 
 ---
 

@@ -1,0 +1,11 @@
+flowchart LR
+    A["PC 192.168.1.10"] --> N["NAT device<br/>rewrites the source<br/>and remembers who<br/>was who"]
+    B["PC 192.168.1.11"] --> N
+    C["PC 192.168.1.12"] --> N
+    N -->|"all leave as"| P["ONE public address<br/>203.0.113.5"]
+
+    style A fill:#26292e,stroke:#868E96,color:#fff
+    style B fill:#26292e,stroke:#868E96,color:#fff
+    style C fill:#26292e,stroke:#868E96,color:#fff
+    style N fill:#3a2c12,stroke:#F08C00,color:#fff
+    style P fill:#0f3038,stroke:#12B5A5,color:#fff
