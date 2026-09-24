@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="../assets/module-04-banner.svg" alt="04 · Network Security" width="100%">
+<img src="../assets/module-04-banner.svg" alt="04 · Networking and Cloud Security Concepts" width="100%">
 
-# ☠️ Network threats
+# 🦠 Network Threats
 
-### *Who attacks networks, why, and the malware categories ISC2 names*
+### *Who attacks, what malware does, and how people get tricked*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
 
-📌 *Threat actor types, the insider problem, and the malware taxonomy — where virus, worm and Trojan are separated by how they spread, not by what they do.*
+📌 *Rank threat actors, sort malware by HOW IT SPREADS (virus / worm / Trojan), know zero-day ≠ unpatched, and tell the social-engineering attacks apart.*
 
 </div>
 
@@ -18,28 +18,19 @@
 
 ## 🧸 The big idea
 
-Along the trade road, danger comes from very different kinds of people, and from very different
-kinds of tricks.
+Three ways a problem can get into a house:
 
-A rowdy youth copying a raid he saw someone else pull off is not the same problem as a rival
-kingdom's trained spy network, patiently embedded for years without being noticed — and the
-defences that stop one are useless against the other. Before the attacks themselves come the
-**actors** and the **tools**, and actors are sorted by **motivation and capability**.
+- A **note hidden inside a book** only travels when someone lends the book on — **a person has to
+  carry it**. That's a **virus**.
+- A **fire** jumps from house to house on its own — **nobody helps it**. That's a **worm**.
+- A **"free gift"** you happily carry inside, which turns out to be something nasty. That's a
+  **Trojan**.
 
-The tricks themselves are sorted differently — by **how they spread and hide**, not by what harm
-they eventually cause — and this is the part candidates get wrong. A cursed trinket, a plague,
-and a gift horse can all end the same way, with the village overrun. What separates them:
+All three can end with the house ruined. What separates them is **how they get in and spread** —
+not the damage they do. **Malware categories are about propagation, not payload.** Fix that and most
+malware questions answer themselves.
 
-- A **cursed trinket** only spreads its curse when a person picks it up and carries it somewhere
-  new themselves. That's a **virus** — it needs a human to run it.
-- A **plague** spreads hut to hut on its own, through the air, with no person doing anything to
-  help it along. That's a **worm** — it spreads by itself across a network.
-- A **gift horse** left at the gate looks helpful, so the village willingly brings it inside —
-  only for what's hidden inside it to come out once it's already past the walls. That's a
-  **Trojan** — it pretends to be something useful so the human installs it willingly.
-
-**The categories are about propagation, not payload.** Fix that and most malware questions
-resolve themselves.
+Before the tricks come the **people behind them**, sorted by **motivation and capability**.
 
 ---
 
@@ -47,159 +38,101 @@ resolve themselves.
 
 | Word | What it means on this exam |
 |---|---|
-| **Threat actor** | The entity carrying out a threat. |
-| **Insider threat** | A threat originating from someone with legitimate access. |
-| **APT** — Advanced Persistent Threat | A well-resourced actor maintaining long-term covert access, usually state-linked. |
-| **Script kiddie** | An unskilled attacker using tools written by others. |
-| **Hacktivist** | An attacker motivated by a political or social cause. |
-| **Malware** | Any software written to cause harm. The umbrella term. |
-| **Virus** | Malware that attaches to a file and requires **user action** to spread. |
-| **Worm** | Malware that spreads **by itself** over a network. |
-| **Trojan** | Malware disguised as legitimate software. |
-| **Ransomware** | Malware that encrypts data and demands payment. |
-| **Spyware** | Malware that covertly gathers information. |
-| **Rootkit** | Malware that hides itself and others, usually at a deep system level. |
-| **Logic bomb** | Malicious code that triggers when a condition is met. |
-| **Backdoor** | A concealed route into a system, bypassing normal authentication. |
-| **Botnet** | A network of compromised machines under one attacker's control. |
-| **Zero-day** | A vulnerability with no patch available, unknown to the vendor. |
-| **Social engineering** | Manipulating people rather than technology. |
+| **Threat actor** | Who carries out the threat. |
+| **Insider threat** | A threat from someone with **legitimate access**. |
+| **APT** | Advanced Persistent Threat — well-resourced, long-term covert access, usually state-linked. |
+| **Malware** | Any software written to cause harm (umbrella term). |
+| **Virus** | Attaches to a file; **needs a user to run it** to spread. |
+| **Worm** | **Spreads by itself** over a network. |
+| **Trojan** | Disguised as legitimate software; the user installs it. |
+| **Rootkit** | **Hides** itself and other malware, often deep in the system. |
+| **Backdoor** | A hidden way in that **bypasses** authentication. |
+| **Logic bomb** | Dormant code that fires when a **condition** is met. |
+| **Botnet** | Many compromised machines controlled together. |
+| **Zero-day** | A flaw with **no patch**, unknown to the vendor. |
+| **Social engineering** | Manipulating **people** rather than technology. |
 
 ---
 
-## 👤 Threat actors
+## 🔍 The explanation
 
-The road's various troublemakers, ranked.
+### Threat actors
+
+<p align="center"><img src="diagrams/1.svg" alt="Threat actors ranked by capability: script kiddie using others' tools with low skill, hacktivist driven by a cause, organised crime driven by money and professional, nation state or APT patient, funded and highest; the insider sits apart with varying skill but already inside" width="880"></p>
 
 | Actor | Motivation | Capability |
 |---|---|---|
-| **Script kiddie** | Curiosity, notoriety, boredom | **Low** — uses others' tools without understanding them |
-| **Hacktivist** | Political or social cause | Low to moderate; often defacement and DDoS |
-| **Organised crime** | **Money** | High, well funded, professional — ransomware and fraud |
-| **Insider** | Grievance, money, or pure accident | **Varies — but already has access** |
-| **Nation state / APT** | Espionage, disruption, strategic advantage | **Highest** — patient, funded, persistent |
-| **Competitor** | Commercial advantage | Varies |
+| **Script kiddie** | Curiosity, notoriety | **Low** |
+| **Hacktivist** | A political or social cause | Low–medium; defacement, DDoS |
+| **Organised crime** | **Money** | High — ransomware, fraud |
+| **Nation state / APT** | Espionage, disruption | **Highest** — patient, funded, persistent |
+| **Insider** | Grievance, money, or accident | Varies — **but already has access** |
 
-> 🎯 **Ranked by capability, nation-state actors are the top and script kiddies the bottom.** If a
-> question describes long-term stealthy access with substantial resources, it wants **APT**.
+> 🎯 "Long-term, stealthy, well-resourced access" in a stem → **APT**.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
-
-The insider sits outside the ladder deliberately: their capability varies enormously, and it
-hardly matters, because they start past every perimeter control you own.
-
-### 🕵️ The insider threat
-
-The category the exam treats most seriously, because insiders bypass the perimeter entirely.
-They are already authenticated and already authorised.
+**The insider** is treated most seriously because they bypass the perimeter entirely:
 
 | Type | Means |
 |---|---|
-| **Malicious insider** | Deliberately causes harm — theft, sabotage, sale of data |
-| **Negligent insider** | Careless: falls for phishing, misconfigures, emails the wrong person |
-| **Compromised insider** | A legitimate user whose account an attacker controls |
+| **Malicious** | Deliberate theft or sabotage |
+| **Negligent** | Careless — falls for phishing, emails the wrong person |
+| **Compromised** | A real user whose account an attacker controls |
 
-> ⚠️ **Most insider incidents are accidental rather than malicious.** If a question asks for the
-> most common form of insider threat, negligence is the expected answer.
+> ⚠️ **Most insider incidents are NEGLIGENT, not malicious.**
 
-**Controls the exam expects against insiders:** least privilege, segregation of duties, access
-reviews, monitoring and logging, background checks, mandatory holidays and job rotation, and a
-proper leaver process.
+Insider controls: least privilege, segregation of duties, access reviews, monitoring, background
+checks, mandatory vacation and job rotation, a proper leaver process.
 
----
+### Virus, worm or Trojan? — two questions
 
-## 🦠 The malware taxonomy
-
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
-
-### The three that get confused
+<p align="center"><img src="diagrams/2.svg" alt="If no human had to do anything and it spread itself across the network, it is a worm; if a human ran a file they already wanted, it is a virus hiding inside that file; if they were tricked into installing fake software, it is a Trojan" width="560"></p>
 
 | | Spreads how | Needs a human? | Attaches to a file? |
 |---|---|:--:|:--:|
-| **Virus** | Attaches to files; travels when the file travels | ✅ **Yes** | ✅ Yes |
-| **Worm** | **Self-propagates** across networks | ❌ **No** | ❌ No — standalone |
-| **Trojan** | Disguised as legitimate software | ✅ Yes — installs it | ❌ No |
-
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
-
-Two questions separate all three. Run any scenario through them.
+| **Virus** | Travels with an infected file | ✅ | ✅ |
+| **Worm** | **By itself** across the network | ❌ | ❌ standalone |
+| **Trojan** | Disguised as something useful | ✅ they install it | ❌ |
 
 > [!IMPORTANT]
-> **Worm = self-spreading, no user action.** This is the single most tested malware distinction.
-> If a question describes malware spreading across a network without anyone doing anything, it is
-> a worm. If a user had to open something, it is a virus or a Trojan.
+> **Worm = spreads with NO user action.** Hundreds of machines infected in minutes, nobody clicking
+> anything → worm.
 
-### The rest
+### The rest of the malware family
 
 | Malware | Does |
 |---|---|
-| **Ransomware** | Encrypts data and demands payment. Recall: this is an **availability** attack. |
-| **Spyware** | Covertly collects information — keystrokes, browsing, credentials |
-| **Adware** | Displays unwanted advertising; often bundled with other software |
-| **Rootkit** | Conceals itself and other malware, often below the operating system. Very hard to detect and usually requires rebuilding the host |
-| **Logic bomb** | Dormant code triggered by a condition — a date, or a name disappearing from payroll |
-| **Backdoor** | A hidden access route bypassing authentication |
-| **Keylogger** | Records keystrokes. Can be software or a physical device |
-| **Botnet** | Many compromised hosts controlled together, typically used for DDoS or spam |
-| **Fileless malware** | Runs in memory using legitimate system tools, leaving little on disk |
+| **Ransomware** | Encrypts data, demands payment — an **availability** attack |
+| **Spyware** / **keylogger** | Secretly collects information / records keystrokes |
+| **Adware** | Unwanted adverts, often bundled |
+| **Rootkit** | **Hides** — often below the OS; usually means rebuilding the machine |
+| **Backdoor** | **Opens** a hidden way in |
+| **Logic bomb** | Fires on a **condition** — e.g. "if my account is disabled, delete the database" |
+| **Botnet** | Many compromised hosts used together (DDoS, spam) |
+| **Fileless** | Runs in memory using legitimate system tools |
 
-> 🎯 **A logic bomb is defined by its trigger.** A disgruntled administrator leaving code that
-> deletes records if their account is disabled is the textbook example.
+### Zero-day is not "unpatched"
 
----
+<p align="center"><img src="diagrams/4.svg" alt="If the vendor doesn't know about a flaw and no patch exists, it is a zero-day; if a patch exists but you haven't applied it, it is simply unpatched, an operational failure" width="720"></p>
 
-## 🎣 Social engineering
-
-Attacking the person rather than the technology. It appears in Domain 4 and again in Domain 5.
+### Social engineering — attacking the person
 
 | Attack | Means |
 |---|---|
-| **Phishing** | Fraudulent email sent broadly, seeking credentials or action |
-| **Spear phishing** | Phishing **targeted** at a specific individual or organisation |
-| **Whaling** | Spear phishing aimed at **senior executives** |
-| **Vishing** | Phishing by **voice** — a phone call |
-| **Smishing** | Phishing by **SMS** |
-| **Pretexting** | Inventing a scenario to establish false legitimacy |
-| **Baiting** | Leaving infected media where someone will pick it up and use it |
-| **Tailgating** | Following an authorised person through a controlled door |
-| **Piggybacking** | Same, but with the authorised person's **consent** |
-| **Shoulder surfing** | Watching someone enter credentials |
-| **Dumpster diving** | Retrieving useful information from discarded material |
+| **Phishing** | Fraudulent email, sent broadly |
+| **Spear phishing** | Targeted at a **specific** person or organisation |
+| **Whaling** | Spear phishing aimed at a **senior executive** |
+| **Vishing** / **Smishing** | By **voice** call / by **SMS** |
+| **Pretexting** | An invented story to seem legitimate |
+| **Baiting** | Infected USB left for someone to find and plug in |
+| **Shoulder surfing** | Watching someone type their password |
+| **Dumpster diving** | Searching discarded material |
 
-> ⚠️ **Tailgating versus piggybacking** is a tested pair. Both are following someone through a
-> door. **Piggybacking has consent** — the person held the door. **Tailgating does not** — they
-> did not know.
+<p align="center"><img src="diagrams/3.svg" alt="Phishing is broad by email, spear phishing targets one named person, whaling targets a senior executive; vishing uses phone calls and smishing uses SMS text" width="700"></p>
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/5.svg" alt="When someone gets through a secure door behind an authorised person, it is piggybacking if that person knew and held the door, and tailgating if they did not know" width="700"></p>
 
-Going down the middle, the target narrows: **anyone → one person → one important person.** The
-two branches change the *channel*, not the targeting.
-
-> 🎯 **The defence against social engineering is security awareness training**, because the
-> vulnerability is human, not technical. This is a reliable answer pattern.
-
----
-
-## 🔬 How detection actually catches (or misses) this
-
-The grown-up section mentions fileless, living-off-the-land techniques. Here's concretely why
-they slip past one kind of defence and not another.
-
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
-
-**Traditional signature-based antivirus hashes a file and checks that hash against a database of
-known-bad hashes.** This is exactly why it's blind to fileless, living-off-the-land attacks:
-there's no new file to hash at all when the "malware" is just PowerShell — a program already
-signed and trusted by Microsoft — being told to download and run something in memory.
-
-**Behavioural EDR (Endpoint Detection and Response) instead watches the *chain of actions*
-regardless of what's a "file."** A rule flags something like "a Word document spawned
-PowerShell, which then made an outbound network connection and executed base64-encoded
-commands" — a sequence that's suspicious *in itself*, independent of any signature ever existing
-for it. Vendors describe these chains using the shared vocabulary of **MITRE ATT&CK technique
-IDs** (e.g. `T1059.001` for malicious PowerShell), which is the real, industry-standard naming
-system behind terms like "living off the land" — it's a specific, catalogued, numbered technique
-that defenders across the industry track and share detection rules for.
+> 🎯 **The defence against social engineering is security awareness training** — the vulnerability
+> is human.
 
 ---
 
@@ -207,59 +140,46 @@ that defenders across the industry track and share detection rules for.
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **Virus** | Attaches to a file; a **user must run it**. | **Worm**, which spreads on its own with no user action. |
-| **Worm** | Self-propagating, standalone. | **Virus**, which needs a host file and a human. |
-| **Trojan** | Disguised as legitimate software; the user installs it. | **Virus**, which hides in a file the user already wanted. |
-| **Rootkit** | **Hides** the presence of malware. | **Backdoor**, which provides **access**. They often appear together, doing different jobs. |
-| **Logic bomb** | Triggered by a **condition**. | **Time bomb**, a logic bomb whose condition is a date — a subset, not a separate category. |
-| **Spear phishing** | Targeted at a specific person. | **Whaling**, targeted at a **senior executive**, and plain **phishing**, which is broad. |
-| **Tailgating** | Following through a door **without consent**. | **Piggybacking**, where the authorised person knowingly lets you in. |
-| **Zero-day** | No patch exists; the vendor does not know. | An **unpatched** vulnerability, where a patch exists but has not been applied. |
-
-> [!CAUTION]
-> **Zero-day does not mean "unpatched".** It means no patch exists to apply. A server missing six
-> months of updates is not facing a zero-day; it is simply unpatched. Questions exploit this.
+| **Virus** | Needs a file **and** a user. | **Worm** — spreads by itself. |
+| **Trojan** | Disguised software the user installs. | **Virus** — hides in a file the user already wanted. |
+| **Rootkit** | **Hides**. | **Backdoor** — **opens** a way in. Often found together. |
+| **Logic bomb** | Fires on a condition. | **Time bomb** — a logic bomb triggered by a date. |
+| **Spear phishing** | One specific target. | **Whaling** (executive) / **phishing** (broad). |
+| **Piggybacking** | Authorised person **consents**. | **Tailgating** — they didn't know. |
+| **Zero-day** | **No patch exists.** | **Unpatched** — a patch exists, not applied. |
 
 ---
 
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** the categories blur — modern malware is modular, and a single sample is a
-> dropper, a worm and ransomware depending on the stage.
+> **In the job:** modern malware is modular — dropper, worm and ransomware in one.
 >
-> **On the exam:** the taxonomy is clean and defined by **propagation method**. Answer on how it
-> spreads: self-propagating is a worm, needs a user to run a file is a virus, disguised as
-> something desirable is a Trojan.
+> **On the exam:** the taxonomy is clean and defined by **propagation**. Answer on how it spreads.
 
 > [!WARNING]
-> **In the job:** insider threat means the malicious insider — the person exfiltrating data on
-> their way out.
+> **In the job:** "insider threat" means the person stealing data on the way out.
 >
-> **On the exam:** **most insider incidents are negligent**, not malicious. Careless staff cause
-> more incidents than disloyal ones, and awareness training is the expected control.
+> **On the exam:** **most insider incidents are negligent.** Awareness training is the expected
+> control.
 
 > [!WARNING]
-> **In the job:** "APT" is used loosely for any competent intrusion.
+> **In the job:** "APT" gets used for any competent intrusion.
 >
-> **On the exam:** APT means a **well-resourced, persistent, usually state-linked** actor
-> maintaining long-term covert access. Look for "sustained", "stealthy" and "sophisticated" in the
-> stem.
+> **On the exam:** APT = **well-resourced, persistent, usually state-linked**, long-term covert
+> access.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **The three, by how they travel:**
-**Virus** needs a ride (a file) and a driver (a user).
-**Worm** walks by itself.
-**Trojan** is invited in.
+**Virus needs a ride (a file) and a driver (a user). Worm walks by itself. Trojan is invited in.**
 
-🧠 **Rootkit Hides, Backdoor Opens.**
+**Rootkit Hides, Backdoor Opens.**
 
-🧠 **Zero-day = zero patches exist.** Not "we haven't patched it".
+**Zero-day = zero patches exist.**
 
-🧠 **Piggybacking has Permission.** Both start with P. Tailgating does not.
+**Piggybacking has Permission.**
 
 ---
 
@@ -267,8 +187,8 @@ that defenders across the industry track and share detection rules for.
 
 Answer all five before expanding anything.
 
-**Q1.** Malware spreads across an organisation's network within minutes, infecting hundreds of
-systems without any user interaction. What type of malware is this MOST likely to be?
+**Q1.** Malware spreads across the network within minutes, infecting hundreds of systems without any
+user interaction. What is it MOST likely to be?
 
 - **A.** Virus
 - **B.** Worm
@@ -278,20 +198,16 @@ systems without any user interaction. What type of malware is this MOST likely t
 <details>
 <summary><b>Answer</b></summary>
 
-**B — a worm.** Self-propagation across a network with no user action is the defining
-characteristic, and it explains the speed described.
+**B — worm.** Self-spreading, no user action — explains the speed.
 
-- **A** requires a user to open or run an infected file. That would not produce hundreds of
-  infections in minutes with nobody doing anything.
-- **C** relies on the user being deceived into installing it, so it also requires human action at
-  each host.
-- **D** describes what malware *does* — covert information gathering — rather than how it spreads.
-  Spyware could be delivered by any of the three mechanisms.
+- **A** needs a user to run an infected file.
+- **C** needs a user tricked into installing it.
+- **D** describes what malware *does*, not how it spreads.
 
 </details>
 
-**Q2.** A departing administrator leaves code that will delete database records if their user
-account is ever disabled. What is this?
+**Q2.** A departing administrator leaves code that deletes database records if their account is ever
+disabled. What is this?
 
 - **A.** A rootkit
 - **B.** A backdoor
@@ -301,12 +217,9 @@ account is ever disabled. What is this?
 <details>
 <summary><b>Answer</b></summary>
 
-**C — a logic bomb.** It is dormant code awaiting a trigger condition, and the account being
-disabled is that condition. This is the textbook example.
+**C — logic bomb.** Dormant code, fired by a condition.
 
-- **A** conceals the presence of malware. Nothing here is described as hiding anything.
-- **B** provides covert access for later use. This code destroys data rather than granting entry.
-- **D** would spread itself across the network, which this does not do.
+- **A** hides things. **B** gives access. **D** spreads itself.
 
 </details>
 
@@ -320,20 +233,15 @@ disabled is that condition. This is the textbook example.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — most insider incidents result from negligence.** Falling for phishing, misconfiguring a
-system, emailing data to the wrong recipient — carelessness causes more incidents than
-deliberate harm.
+**B.**
 
-- **A** overstates the malicious category and is the common misconception this question targets.
-- **C** is wrong by definition: an insider is already inside, so a perimeter control is
-  irrelevant. Note the absolute "eliminated" as well.
-- **D** is too narrow. Any user with legitimate access can be an insider threat; privilege
-  increases the potential impact, not the eligibility.
+- **A** is the misconception being tested.
+- **C** — insiders are already inside; and "eliminated" is an absolute.
+- **D** — any user with access can be one; privilege raises impact, not eligibility.
 
 </details>
 
-**Q4.** An attacker exploits a flaw for which the vendor has not yet released a patch and of
-which they were unaware. What is this called?
+**Q4.** An attacker exploits a flaw the vendor didn't know about and has no patch for. What is this?
 
 - **A.** An unpatched vulnerability
 - **B.** A zero-day vulnerability
@@ -343,18 +251,16 @@ which they were unaware. What is this called?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — a zero-day vulnerability.** No patch exists and the vendor does not know about the flaw,
-which is precisely what the term means.
+**B — zero-day.**
 
-- **A** is the important distractor. An unpatched vulnerability is one where a fix **exists** but
-  has not been applied — an operational failure. A zero-day gives defenders nothing to apply.
-- **C** is malicious code awaiting a trigger, not a flaw in software.
-- **D** is a concealed access route, not an unknown vulnerability.
+- **A** — a fix exists but wasn't applied. The key distractor.
+- **C** — malicious code with a trigger.
+- **D** — a concealed way in.
 
 </details>
 
-**Q5.** An employee holds a secure door open for someone they believe to be a colleague, who is
-in fact unauthorised. What is this?
+**Q5.** An employee holds a secure door open for someone they think is a colleague, who is actually
+unauthorised. What is this?
 
 - **A.** Tailgating
 - **B.** Piggybacking
@@ -364,17 +270,11 @@ in fact unauthorised. What is this?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — piggybacking.** The authorised person knowingly allowed the other individual through. The
-consent is what distinguishes it, even though that consent was obtained by deception.
+**B — piggybacking.** The authorised person consented (even if fooled).
 
-- **A** is the same physical outcome **without** the authorised person's knowledge — slipping
-  through behind them unnoticed. The stem explicitly describes the door being held open.
-- **C** would describe an invented backstory used to establish false legitimacy. That may well have
-  preceded this, but the act described is the entry itself.
-- **D** involves leaving infected media for someone to find and use.
-
-Some material uses these two terms interchangeably. Where a question distinguishes them,
-**consent means piggybacking.**
+- **A** — same result *without* their knowledge.
+- **C** — the invented story that might come before it.
+- **D** — leaving infected media around.
 
 </details>
 
@@ -385,38 +285,21 @@ Some material uses these two terms interchangeably. Where a question distinguish
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**The taxonomy predates modern malware.** Virus, worm and Trojan were meaningful distinctions when
-a sample did one thing. Contemporary intrusions use modular toolkits: an initial access broker
-sells a foothold obtained by phishing, a loader pulls down modules on demand, one module moves
-laterally using stolen credentials rather than an exploit, and ransomware deploys only at the end
-after exfiltration. Asking "is this a worm or a Trojan" of such an operation has no clean answer.
-The categories persist in teaching because they describe propagation mechanisms that still exist,
-and in exams because they are testable.
+**Real intrusions are modular:** an access broker sells a phished foothold, a loader pulls modules,
+lateral movement uses stolen credentials, ransomware deploys last after data theft. "Worm or
+Trojan?" has no clean answer there — the categories survive because they're testable.
 
-**Living off the land.** Modern operations increasingly avoid malware entirely, using tools already
-present on the system — PowerShell, WMI, PsExec, certutil — because they generate no malicious
-file for antivirus to find and blend into normal administrative traffic. This is why endpoint
-detection moved from signature matching towards behavioural analysis, and why "fileless" is a
-category at all. CC touches this only lightly.
+**Living off the land.** Attackers use tools already on the box (PowerShell, WMI, PsExec) — no
+malicious file for signature antivirus to hash. **EDR** instead watches action chains ("Word
+spawned PowerShell, which connected out") described with **MITRE ATT&CK** IDs such as `T1059.001`.
 
-**Why rootkits are so serious.** A rootkit operating below the operating system — in the kernel, a
-bootloader, or firmware — can lie to every tool running above it, including the antivirus asking
-whether it is there. Once a rootkit is suspected, the only trustworthy response is to rebuild the
-host from known-good media, because you cannot use a compromised system to verify whether it is
-compromised. Secure Boot and measured boot exist to make this class of attack harder.
+**Rootkits lie to everything above them** — once suspected, rebuild from known-good media. Secure
+Boot and measured boot make them harder.
 
-**The insider problem is structurally hard.** Every other threat can be addressed by keeping
-someone out. Insiders are already in, and their harmful actions look a great deal like their
-legitimate ones — a database administrator querying the database is doing their job until the
-volume or timing looks wrong. This is why insider controls are heavily procedural rather than
-technical: segregation of duties, mandatory holidays that force someone else into the role, job
-rotation, and dual control for the most sensitive operations. These exist because no purely
-technical control distinguishes a valid action from a valid action with bad intent.
+**Insider controls are mostly procedural** (SoD, vacations, dual control) because nothing purely
+technical tells a valid action from a valid action with bad intent.
 
-**Attribution is genuinely difficult.** Public naming of nation-state actors rests on infrastructure
-overlap, tooling similarities, working-hours analysis and language artefacts — all of which can be
-deliberately faked. Confident attribution from technical evidence alone is rare, which is worth
-remembering whenever a report names a culprit with certainty.
+**Attribution is hard** — infrastructure, tooling and language artefacts can all be faked.
 
 </details>
 
@@ -426,15 +309,11 @@ remembering whenever a report names a culprit with certainty.
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-- **Malware categories are about HOW IT SPREADS, not what it does.**
-- **Virus** = attaches to a file, **needs a user to run it**. **Worm** = **self-spreading, no user action**. **Trojan** = disguised as legitimate, user installs it.
-- **Rootkit HIDES. Backdoor OPENS.**
-- **Logic bomb** = triggered by a **condition** (date, account disabled).
-- **Zero-day = NO PATCH EXISTS.** Not the same as "unpatched", where a fix exists but wasn't applied.
-- **Most insider incidents are NEGLIGENT**, not malicious.
-- **APT** = well-resourced, persistent, long-term covert access, usually state-linked.
-- **Phishing** broad · **spear phishing** targeted · **whaling** = executives · **vishing** = voice · **smishing** = SMS.
-- **Piggybacking has Permission. Tailgating doesn't.**
+- **Malware is classified by HOW IT SPREADS.** Virus = file + user · **Worm = by itself** · Trojan = disguised, user installs.
+- **Rootkit HIDES, backdoor OPENS. Logic bomb = triggered by a condition.**
+- **Zero-day = NO patch exists** (≠ unpatched).
+- **Most insider incidents are NEGLIGENT.** APT = persistent, well-resourced, usually state-linked.
+- **Phishing → spear → whaling (execs); vishing = voice; smishing = SMS. Piggybacking has Permission.**
 - **Defence against social engineering = awareness training.**
 
 ---

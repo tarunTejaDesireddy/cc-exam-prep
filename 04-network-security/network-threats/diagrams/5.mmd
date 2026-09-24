@@ -1,0 +1,11 @@
+flowchart LR
+    D["Someone gets through<br/>a secure door behind<br/>an authorised person"] --> Y["The person KNEW<br/>and held the door"]
+    D --> N["The person did<br/>NOT know"]
+    Y --> Y2["PIGGYBACKING<br/>has Permission"]
+    N --> N2["TAILGATING"]
+
+    style D fill:#26292e,stroke:#868E96,color:#fff
+    style Y fill:#12243f,stroke:#5C7CFA,color:#fff
+    style N fill:#12243f,stroke:#5C7CFA,color:#fff
+    style Y2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style N2 fill:#3a1a20,stroke:#E03131,color:#fff

@@ -1,0 +1,12 @@
+flowchart TD
+    Q(["Did a human have to<br/>do something?"])
+    Q -->|"NO: it spread itself"| W["WORM<br/>self-spreading<br/>across the network"]
+    Q -->|"yes"| Q2(["What did they run?"])
+    Q2 -->|"a file they<br/>already wanted"| V["VIRUS<br/>hides inside that file"]
+    Q2 -->|"fake software they<br/>were tricked into"| T["TROJAN<br/>pretends to be useful"]
+
+    style Q fill:#3a2c12,stroke:#F08C00,color:#fff
+    style Q2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style W fill:#3a1a20,stroke:#E03131,color:#fff
+    style V fill:#12243f,stroke:#5C7CFA,color:#fff
+    style T fill:#12243f,stroke:#5C7CFA,color:#fff

@@ -1,0 +1,11 @@
+flowchart LR
+    F["A security flaw<br/>in some software"] --> Z["The vendor doesn't know,<br/>NO patch exists"]
+    F --> U["A patch EXISTS,<br/>you haven't applied it"]
+    Z --> Z2["ZERO-DAY"]
+    U --> U2["UNPATCHED<br/>an operational failure"]
+
+    style F fill:#26292e,stroke:#868E96,color:#fff
+    style Z fill:#12243f,stroke:#5C7CFA,color:#fff
+    style U fill:#12243f,stroke:#5C7CFA,color:#fff
+    style Z2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style U2 fill:#3a2c12,stroke:#F08C00,color:#fff
