@@ -1,0 +1,11 @@
+flowchart LR
+    IP["IP ADDRESS<br/>203.0.113.5<br/>finds the MACHINE"] --> SRV["One server"]
+    SRV --> P443["PORT 443<br/>web server"]
+    SRV --> P25["PORT 25<br/>mail server"]
+    SRV --> P22["PORT 22<br/>SSH"]
+
+    style IP fill:#0f3038,stroke:#12B5A5,color:#fff
+    style SRV fill:#26292e,stroke:#868E96,color:#fff
+    style P443 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P25 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style P22 fill:#12243f,stroke:#5C7CFA,color:#fff

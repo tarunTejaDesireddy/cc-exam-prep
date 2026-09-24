@@ -1,0 +1,14 @@
+flowchart LR
+    T["Telnet 23<br/>cleartext"] -->|"replace with"| S["SSH 22"]
+    F["FTP 21<br/>cleartext"] -->|"replace with"| SF["SFTP 22"]
+    H["HTTP 80<br/>cleartext"] -->|"replace with"| HS["HTTPS 443"]
+    L["LDAP 389<br/>cleartext"] -->|"replace with"| LS["LDAPS 636"]
+
+    style T fill:#3a1a20,stroke:#E03131,color:#fff
+    style F fill:#3a1a20,stroke:#E03131,color:#fff
+    style H fill:#3a1a20,stroke:#E03131,color:#fff
+    style L fill:#3a1a20,stroke:#E03131,color:#fff
+    style S fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style SF fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style HS fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style LS fill:#1d3a2a,stroke:#2F9E44,color:#fff

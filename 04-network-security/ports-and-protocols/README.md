@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="../assets/module-04-banner.svg" alt="04 · Network Security" width="100%">
+<img src="../assets/module-04-banner.svg" alt="04 · Networking and Cloud Security Concepts" width="100%">
 
-# 🚪 Ports and protocols
+# 🚪 Ports and Protocols
 
-### *The numbers you have to know on sight — and the insecure/secure pairs*
+### *The IP address finds the machine — the port finds the program*
 
 [![Module](https://img.shields.io/badge/Module-04_Network_Security-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-4%20·%2021.3%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
-📌 *Pure memorisation, and therefore free marks. Learn the table until recall is instant, then learn which protocols have a secure replacement.*
+📌 *Memorise the port table, know 0–1023 is well-known, pair every cleartext protocol with its secure replacement, and SMTP sends while POP/IMAP receive.*
 
 </div>
 
@@ -18,26 +18,20 @@
 
 ## 🧸 The big idea
 
-The village's one main hall handles grain requests, healing requests, and outgoing messages, all
-at the same address — "the main hall." But the hall has a different window for each: the grain
-window, the healer's door, the message slot. Knowing the hall's address gets you to the right
-**building**. Knowing which window gets you to the right **person inside** it.
+An office building has **one street address**, but inside there are many **room numbers** — reception,
+accounts, IT. The street address gets you to the right **building**; the room number gets you to the
+right **person inside**.
 
-That's the whole idea. An IP address gets traffic to the right **machine**. A **port number**
+Networking is the same: the **IP address** gets traffic to the right **machine**; the **port number**
 gets it to the right **program** on that machine.
 
-One server can run a website, a mail service and a file transfer service simultaneously. All
-three share one IP address. The port number is how the machine knows which program an arriving
-packet belongs to: port 443 goes to the web server, port 25 to the mail server.
+<p align="center"><img src="diagrams/1.svg" alt="The IP address 203.0.113.5 finds the machine; on that one server, port 443 leads to the web server, port 25 to the mail server and port 22 to SSH" width="620"></p>
 
-Ports live at **layer 4**, the transport layer, alongside TCP and UDP.
+Ports live at **layer 4**, alongside TCP and UDP.
 
-Here's the second layer worth noticing: shouting your grain request through an open window means
-anyone standing nearby hears exactly what you asked for and what you got back. Passing a sealed,
-coded note through a private slot instead means nobody outside can read it even if they see it
-change hands. **Most of the classic protocols were designed without encryption and have a secure
-replacement.** FTP has SFTP. HTTP has HTTPS. Telnet has SSH. Knowing those pairs answers a whole
-class of question — "which protocol should replace this one?"
+The second big idea: most classic protocols send everything in **cleartext** — like shouting through a
+window. Each has a **secure replacement**, and "which protocol should replace this one?" is a whole
+question type.
 
 ---
 
@@ -45,41 +39,39 @@ class of question — "which protocol should replace this one?"
 
 | Word | What it means on this exam |
 |---|---|
-| **Port** | A 16-bit number identifying a specific service or application on a host. Layer 4. |
-| **Well-known ports** | **0–1023.** Reserved for standard services. |
-| **Registered ports** | **1024–49151.** Assigned to specific applications on request. |
-| **Dynamic / ephemeral ports** | **49152–65535.** Temporary, used by clients for outbound connections. |
-| **Socket** | An IP address and port together — `192.0.2.10:443`. |
-| **Protocol** | An agreed set of rules for communication. |
-| **Cleartext protocol** | One transmitting data unencrypted, readable by anyone in the path. |
+| **Port** | A 16-bit number identifying a service/program on a host. Layer 4. |
+| **Well-known ports** | **0–1023** — standard services. |
+| **Registered ports** | 1024–49151 — assigned to specific applications. |
+| **Dynamic / ephemeral** | 49152–65535 — temporary, used by clients. |
+| **Socket** | IP + port together, e.g. `192.0.2.10:443`. |
+| **Cleartext protocol** | Sends data unencrypted — readable by anyone in the path. |
 
 ---
 
-## 🔢 The port ranges
+## 🔍 The explanation
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+### The port ranges
 
-> 🎯 **0–1023 is well-known.** That boundary is asked directly. The other two ranges are worth
-> recognising but are tested far less often.
+<p align="center"><img src="diagrams/2.svg" alt="Ports 0 to 1023 are well-known standard services, 1024 to 49151 are registered to specific applications, and 49152 to 65535 are dynamic temporary client-side ports" width="760"></p>
 
----
+> 🎯 **0–1023 = well-known.** That boundary is asked directly.
 
-## 📋 The ports to memorise
+### The ports to memorise
 
-Learn this table cold. It is the highest ratio of marks to effort anywhere on the exam.
+The best marks-per-minute on the whole exam. Learn it cold:
 
 | Port | Protocol | What it does | TCP/UDP | Secure? |
 |:--:|---|---|:--:|:--:|
-| **20, 21** | **FTP** | File transfer | TCP | ❌ cleartext |
-| **22** | **SSH / SFTP / SCP** | Secure remote shell and file transfer | TCP | ✅ |
-| **23** | **Telnet** | Remote terminal | TCP | ❌ **cleartext — never use** |
-| **25** | **SMTP** | Sending email | TCP | ❌ |
+| **20, 21** | **FTP** | File transfer | TCP | ❌ |
+| **22** | **SSH / SFTP / SCP** | Secure shell and file transfer | TCP | ✅ |
+| **23** | **Telnet** | Remote terminal | TCP | ❌ **never use** |
+| **25** | **SMTP** | **Sending** email | TCP | ❌ |
 | **53** | **DNS** | Name resolution | **UDP** (and TCP) | ❌ |
-| **67, 68** | **DHCP** | Automatic IP configuration | UDP | ❌ |
+| **67, 68** | **DHCP** | Automatic IP settings | UDP | ❌ |
 | **69** | **TFTP** | Trivial file transfer | UDP | ❌ |
-| **80** | **HTTP** | Web | TCP | ❌ cleartext |
-| **110** | **POP3** | Retrieving email (downloads) | TCP | ❌ |
-| **143** | **IMAP** | Retrieving email (stays on server) | TCP | ❌ |
+| **80** | **HTTP** | Web | TCP | ❌ |
+| **110** | **POP3** | Retrieve email (download) | TCP | ❌ |
+| **143** | **IMAP** | Retrieve email (stays on server) | TCP | ❌ |
 | **161, 162** | **SNMP** | Network device management | UDP | ❌ (v1/v2) |
 | **389** | **LDAP** | Directory services | TCP | ❌ |
 | **443** | **HTTPS** | Web over TLS | TCP | ✅ |
@@ -87,25 +79,9 @@ Learn this table cold. It is the highest ratio of marks to effort anywhere on th
 | **636** | **LDAPS** | LDAP over TLS | TCP | ✅ |
 | **3389** | **RDP** | Windows remote desktop | TCP | — |
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+### Insecure → secure
 
-Read it as a sentence: **the IP address finds the machine, and the port number finds the program
-on it.** One address, many doors.
-
-### The essential dozen
-
-If time is short, these are the ones that appear most:
-
-**21 FTP · 22 SSH · 23 Telnet · 25 SMTP · 53 DNS · 80 HTTP · 110 POP3 · 143 IMAP · 389 LDAP ·
-443 HTTPS · 445 SMB · 3389 RDP**
-
----
-
-## 🔒 The insecure / secure pairs
-
-A recurring question type: *"which protocol should replace X?"*
-
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+<p align="center"><img src="diagrams/3.svg" alt="Replace cleartext Telnet 23 with SSH 22, FTP 21 with SFTP 22, HTTP 80 with HTTPS 443, and LDAP 389 with LDAPS 636" width="620"></p>
 
 | Insecure | Port | Replace with | Port |
 |---|:--:|---|:--:|
@@ -114,39 +90,20 @@ A recurring question type: *"which protocol should replace X?"*
 | HTTP | 80 | **HTTPS** | 443 |
 | LDAP | 389 | **LDAPS** | 636 |
 | SNMPv1/v2 | 161 | **SNMPv3** | 161 |
-| POP3 | 110 | POP3S | 995 |
-| IMAP | 143 | IMAPS | 993 |
+| POP3 / IMAP | 110 / 143 | POP3S / IMAPS | 995 / 993 |
 
 > [!IMPORTANT]
-> **Telnet is the exam's favourite example of a protocol that should never be used.** It
-> transmits credentials in cleartext. If a question describes an administrator connecting to a
-> device over Telnet, the problem is cleartext credentials and the answer is SSH.
+> **Telnet is the exam's favourite "never use this".** It sends credentials in **cleartext**. Admin
+> connecting over Telnet → the problem is cleartext credentials → the answer is **SSH**.
 
-> ⚠️ **SFTP and FTPS are different things.** **SFTP** is file transfer over SSH, on port 22.
-> **FTPS** is FTP with TLS added, on ports 989/990. If both appear, SFTP over SSH is the more
-> commonly expected answer.
+> ⚠️ **SFTP ≠ FTPS.** **SFTP** = file transfer over **SSH**, port 22. **FTPS** = FTP with TLS added,
+> ports 989/990.
 
----
+### Email: one protocol out, two back
 
-## 🔬 How you actually check what's listening
+<p align="center"><img src="diagrams/4.svg" alt="You send email to the mail server with SMTP on port 25; you receive it with POP3 on port 110, which downloads and then removes it, or IMAP on port 143, which keeps it on the server" width="660"></p>
 
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-**`nmap` finds open ports by exploiting the three-way handshake itself.** A default SYN scan
-sends a bare SYN to each port and reads the reply: a **SYN-ACK** means something is genuinely
-listening (**open**) — and nmap simply never completes the handshake, so no application ever
-even sees a connection. An immediate **RST** (reset) means nothing is listening there
-(**closed**). And **silence, or an ICMP "unreachable" message**, usually means a firewall is
-dropping the packet outright rather than the port being empty (**filtered**) — a distinction
-that matters because "filtered" tells you a control exists, while "closed" tells you it doesn't
-need one.
-
-**Checking your *own* machine uses a completely different, non-probing method.** `netstat -tulnp`
-(or the newer `ss -tulnp` on Linux) asks the operating system directly which processes have
-which ports open right now — no packets sent anywhere, just reading the kernel's own table of
-active sockets. This is the tool behind "what's actually running on this server" audits, and
-it's how an administrator would confirm, for example, that Telnet on port 23 truly is disabled
-rather than just believing a configuration file that says so.
+> 🎯 Can't **send** → SMTP. Can't **receive** → POP3 or IMAP.
 
 ---
 
@@ -154,61 +111,45 @@ rather than just believing a configuration file that says so.
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **Port 22** | SSH — and SFTP and SCP, which run over SSH. | **Port 23**, Telnet, which is the insecure one. Adjacent numbers, opposite security properties. |
-| **Port 80** | HTTP, cleartext. | **Port 443**, HTTPS, encrypted with TLS. |
-| **POP3 (110)** | Downloads mail to the client, typically removing it from the server. | **IMAP (143)**, which leaves mail on the server and syncs across devices. |
-| **SMTP (25)** | **Sends** mail. | **POP3 and IMAP**, which **retrieve** it. SMTP out, POP/IMAP in. |
-| **SFTP** | File transfer over **SSH**, port 22. | **FTPS**, which is FTP with TLS, ports 989/990. |
-| **Port** | Identifies the application on a host. Layer 4. | **IP address**, which identifies the host. Layer 3. |
-| **DNS on 53** | Uses **UDP** for normal queries. | TCP, which DNS uses for zone transfers and large responses. UDP is the expected answer. |
-
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
-
-**One arrow out, two arrows back.** If a question says mail cannot be *sent*, it is SMTP; if it
-cannot be *received*, it is POP3 or IMAP.
-
-> 🎯 **SMTP sends, POP and IMAP receive.** A question about a user unable to *send* mail points at
-> SMTP; unable to *receive* points at POP3 or IMAP.
+| **Port 22** | SSH (and SFTP, SCP). | **Port 23** — Telnet, the insecure one. One apart. |
+| **Port 80** | HTTP, cleartext. | **Port 443** — HTTPS, encrypted. |
+| **POP3 (110)** | Downloads, usually removes from server. | **IMAP (143)** — keeps mail on the server, syncs devices. |
+| **SMTP (25)** | **Sends**. | **POP3/IMAP** — **receive**. |
+| **SFTP** | Over SSH, port 22. | **FTPS** — FTP + TLS, 989/990. |
+| **Port** | The program (layer 4). | **IP address** — the machine (layer 3). |
+| **DNS on 53** | **UDP** for normal queries. | TCP — only zone transfers / big answers. |
 
 ---
 
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** services run on whatever port you configure, and assuming 443 means HTTPS is
-> exactly how people miss things.
+> **In the job:** services run on whatever port you configure.
 >
-> **On the exam:** the standard assignment is the answer. Port 443 is HTTPS, port 22 is SSH. Do
-> not reason about non-standard configurations unless the question describes one.
+> **On the exam:** the **standard assignment** is the answer — 443 is HTTPS, 22 is SSH.
 
 > [!WARNING]
-> **In the job:** nobody memorises port numbers — you look them up.
+> **In the job:** nobody memorises ports; you look them up.
 >
-> **On the exam:** you cannot look them up, and these are among the easiest marks available.
-> The table above is worth genuine rote learning.
+> **On the exam:** you can't look them up — and they're among the easiest marks available.
 
 > [!WARNING]
-> **In the job:** DNS over TCP is common, and the UDP/TCP distinction is a detail.
+> **In the job:** DNS over TCP is common.
 >
-> **On the exam:** **DNS is UDP port 53.** TCP is the exception for zone transfers and oversized
-> responses. Answer UDP.
+> **On the exam:** **DNS = UDP 53.**
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **The security pairs are adjacent or memorable:**
-**22 secure, 23 insecure** — SSH and Telnet, one apart.
-**80 open, 443 closed** — HTTP and HTTPS.
+**22 secure, 23 insecure** — one apart.
 
-🧠 **Mail, in order of number, in order of use:**
-**25 SMTP** (send) → **110 POP3** (fetch and remove) → **143 IMAP** (fetch and keep).
+**80 open, 443 locked.**
 
-🧠 **LDAP 389 → LDAPS 636.** Both directory, one encrypted.
+**Mail in number order = use order:** 25 SMTP (send) → 110 POP3 (fetch & remove) → 143 IMAP
+(fetch & keep).
 
-🧠 **Under 1024 is well-known.** One-oh-two-three is the ceiling.
-
-🧠 **53 is DNS, and DNS is UDP.** Five-three, name-to-address.
+**Under 1024 is well-known.**
 
 ---
 
@@ -216,8 +157,8 @@ cannot be *received*, it is POP3 or IMAP.
 
 Answer all five before expanding anything.
 
-**Q1.** An administrator manages network switches using Telnet. What is the PRIMARY security
-concern, and what should be used instead?
+**Q1.** An administrator manages switches over Telnet. What is the PRIMARY security concern, and
+what should replace it?
 
 - **A.** Telnet is slow; SNMP should be used instead
 - **B.** Telnet transmits credentials in cleartext; SSH on port 22 should be used
@@ -227,15 +168,11 @@ concern, and what should be used instead?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — Telnet transmits credentials in cleartext; SSH should replace it.** Anyone able to capture
-traffic between administrator and switch can read the username and password directly.
+**B.** Anyone capturing the traffic reads the password.
 
-- **A** describes a performance concern rather than a security one, and SNMP is a management
-  protocol, not a remote terminal replacement.
-- **C** is wrong on the facts — Telnet uses TCP — and FTP is a file transfer protocol that is also
-  cleartext, so it would fix nothing.
-- **D** raises a deployment inconvenience, and RDP is a graphical desktop protocol rather than a
-  terminal replacement for network devices.
+- **A** is performance, and SNMP isn't a terminal.
+- **C** — Telnet is TCP; FTP is also cleartext.
+- **D** — RDP is a graphical desktop, not a device terminal.
 
 </details>
 
@@ -249,12 +186,9 @@ traffic between administrator and switch can read the username and password dire
 <details>
 <summary><b>Answer</b></summary>
 
-**C — 443.** HTTPS is HTTP over TLS, on TCP port 443.
+**C — 443.**
 
-- **A** is plain HTTP, unencrypted.
-- **B** is IMAP, for retrieving email.
-- **D** is a common alternative HTTP port used by proxies and application servers, but it is not
-  the standard HTTPS assignment.
+- **A** is plain HTTP. **B** is IMAP. **D** is a common alternative HTTP port, not HTTPS.
 
 </details>
 
@@ -268,19 +202,14 @@ traffic between administrator and switch can read the username and password dire
 <details>
 <summary><b>Answer</b></summary>
 
-**C — SMTP on port 25.** SMTP is the sending protocol; the stem describes sending failing while
-receiving works.
+**C — SMTP.** Sending is broken; receiving works.
 
-- **A** and **B** are both *retrieval* protocols. Since the user can receive mail, these are
-  evidently working.
-- **D** could break mail entirely if name resolution failed, but it would generally affect both
-  directions rather than sending alone.
-
-The memory hook does the work here: **SMTP sends, POP and IMAP receive.**
+- **A** and **B** receive — and receiving works.
+- **D** would usually break both directions.
 
 </details>
 
-**Q4.** Which range is designated as the well-known ports?
+**Q4.** Which range is the well-known ports?
 
 - **A.** 0–1023
 - **B.** 1024–49151
@@ -290,11 +219,9 @@ The memory hook does the work here: **SMTP sends, POP and IMAP receive.**
 <details>
 <summary><b>Answer</b></summary>
 
-**A — 0–1023.** These are reserved for standard services such as HTTP, SSH and DNS.
+**A.**
 
-- **B** is the registered range, assigned to specific applications on request.
-- **C** is the dynamic or ephemeral range, used temporarily by clients for outbound connections.
-- **D** is the entire 16-bit port space, not a designated range within it.
+- **B** is registered. **C** is dynamic. **D** is the whole port space.
 
 </details>
 
@@ -308,15 +235,10 @@ The memory hook does the work here: **SMTP sends, POP and IMAP receive.**
 <details>
 <summary><b>Answer</b></summary>
 
-**D — LDAP is port 389**, not 636. Port **636** is **LDAPS**, the TLS-protected version. The stem
-is inverted, so you are hunting the one wrong pairing among three correct ones.
+**D.** LDAP is **389**; **636** is LDAPS. Watch the inverted stem — you're hunting the one *wrong*
+pairing.
 
-- **A** is correct: SSH, and SFTP and SCP which run over it, use port 22.
-- **B** is correct: DNS uses port 53, primarily over UDP.
-- **C** is correct: RDP uses TCP port 3389.
-
-Note the inverted stem — three statements are true and one is false, which is the highest-error
-question type on any exam.
+- **A**, **B** and **C** are all correct.
 
 </details>
 
@@ -327,37 +249,22 @@ question type on any exam.
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**Why the insecure protocols still exist.** FTP, Telnet and SNMPv1 date from an era when networks
-were small, trusted and academic, and encryption was computationally expensive. They survive
-because of embedded devices, industrial equipment and legacy systems whose vendors are long gone.
-This is a large part of why network segmentation matters so much in operational technology
-environments — the protocols cannot be fixed, so the network around them has to compensate. That
-is a compensating control in the exact sense of the term.
+**Why insecure protocols survive:** embedded devices and industrial kit whose vendors are long gone.
+The network around them has to compensate — segmentation as a compensating control.
 
-**Port numbers are a convention, not an enforcement.** Nothing stops an administrator running SSH
-on port 443, and attackers routinely place command-and-control traffic on 443 precisely because it
-is almost never blocked outbound. This is why port-based firewall rules alone are weak, and why
-application-aware inspection exists — it identifies the protocol by its behaviour rather than
-trusting the port number. The exam works in the convention-based model.
+**Ports are a convention, not enforcement.** Attackers put command-and-control on 443 because it's
+never blocked outbound — which is why app-aware firewalls identify protocols by behaviour, not
+port number.
 
-**Changing a port is not security.** Moving SSH from 22 to 2222 reduces log noise from
-opportunistic scanners and is sometimes worth doing for that reason alone. It does not defend
-against anyone who scans the full range, which takes seconds. It is obscurity, not a control, and
-in an exam context an option offering "change the default port" as a security solution is a
-distractor.
+**Moving SSH to port 2222 is obscurity, not security** — it cuts log noise, but a full scan finds it
+in seconds.
 
-**SMTP's authentication history.** Original SMTP had no authentication at all, which is why open
-relays were once ubiquitous and why email spoofing remains trivially easy at the protocol level.
-The whole apparatus of SPF, DKIM and DMARC exists to retrofit sender verification onto a protocol
-that never had it. Modern mail submission uses port 587 with authentication, while port 25 is
-increasingly reserved for server-to-server relay — a distinction worth knowing operationally,
-though CC works with port 25 as "SMTP".
+**How scanners see ports:** nmap sends a SYN — **SYN-ACK** = open, **RST** = closed, silence or ICMP
+unreachable = **filtered** (a firewall). On your own box, `ss -tulnp` / `netstat` reads the kernel's
+socket table directly.
 
-**Ephemeral ports and firewall state.** When your browser connects to a web server on port 443, it
-uses a random high port as the *source*. Return traffic arrives at that ephemeral port, and a
-stateful firewall permits it because it remembers the outbound connection. That state table is
-what makes modern firewalls usable, and exhausting it is what some denial-of-service attacks
-target.
+**SMTP never had authentication**, hence spoofing and the retrofit of SPF, DKIM and DMARC. Modern
+mail submission uses port 587 with authentication; 25 is mostly server-to-server.
 
 </details>
 
@@ -367,15 +274,11 @@ target.
 
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-- **20/21 FTP · 22 SSH/SFTP · 23 Telnet · 25 SMTP · 53 DNS · 67/68 DHCP · 69 TFTP · 80 HTTP**
+- **20/21 FTP · 22 SSH/SFTP · 23 Telnet · 25 SMTP · 53 DNS (UDP) · 67/68 DHCP · 69 TFTP · 80 HTTP**
 - **110 POP3 · 143 IMAP · 161/162 SNMP · 389 LDAP · 443 HTTPS · 445 SMB · 636 LDAPS · 3389 RDP**
-- **Well-known ports = 0–1023.** Registered 1024–49151. Dynamic 49152–65535.
-- **Replace: Telnet(23)→SSH(22) · FTP(21)→SFTP(22) · HTTP(80)→HTTPS(443) · LDAP(389)→LDAPS(636)**
-- **Telnet = cleartext credentials.** The exam's favourite "never use this".
-- **SMTP sends (25). POP3 (110) and IMAP (143) receive.** POP3 downloads and removes; IMAP leaves it on the server.
-- **DNS is UDP 53.**
-- **SFTP = over SSH, port 22. FTPS = FTP with TLS, 989/990.** Different things.
-- **Ports are layer 4.** IP address = the machine; port = the program.
+- **Well-known = 0–1023.**
+- **Telnet→SSH · FTP→SFTP · HTTP→HTTPS · LDAP→LDAPS.** Telnet = cleartext credentials.
+- **SMTP sends; POP3/IMAP receive.** SFTP (SSH, 22) ≠ FTPS (TLS, 989/990).
 
 ---
 

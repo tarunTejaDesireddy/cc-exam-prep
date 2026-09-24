@@ -1,0 +1,7 @@
+flowchart LR
+    W["0 to 1023<br/>WELL-KNOWN<br/>standard services"] --> R["1024 to 49151<br/>REGISTERED<br/>specific applications"]
+    R --> D["49152 to 65535<br/>DYNAMIC<br/>temporary, client side"]
+
+    style W fill:#0f3038,stroke:#12B5A5,color:#fff
+    style R fill:#12243f,stroke:#5C7CFA,color:#fff
+    style D fill:#26292e,stroke:#868E96,color:#fff

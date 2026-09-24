@@ -1,0 +1,8 @@
+flowchart LR
+    U["You"] -->|"SENDING: SMTP 25"| S["Mail server"]
+    S -->|"RECEIVING: POP3 110<br/>downloads, then removes"| U2["You"]
+    S -->|"RECEIVING: IMAP 143<br/>keeps it on the server"| U2
+
+    style U fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S fill:#0f3038,stroke:#12B5A5,color:#fff
+    style U2 fill:#12243f,stroke:#5C7CFA,color:#fff
