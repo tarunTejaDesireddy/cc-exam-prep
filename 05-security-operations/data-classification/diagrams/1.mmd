@@ -1,0 +1,10 @@
+flowchart TD
+    O["DATA OWNER<br/>a BUSINESS role<br/>CLASSIFIES the data<br/>approves who gets access<br/>ACCOUNTABLE"]
+    C["DATA CUSTODIAN<br/>usually IT<br/>IMPLEMENTS protection:<br/>storage, backups, permissions<br/>RESPONSIBLE"]
+    U["DATA USER<br/>everyone with access<br/>FOLLOWS the handling rules"]
+    O -->|"hands over the<br/>day-to-day protection"| C
+    C -->|"gives access to"| U
+
+    style O fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C fill:#0f3038,stroke:#12B5A5,color:#fff
+    style U fill:#12243f,stroke:#5C7CFA,color:#fff

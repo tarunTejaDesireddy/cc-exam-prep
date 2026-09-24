@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="../assets/module-05-banner.svg" alt="05 · Security Operations" width="100%">
+<img src="../assets/module-05-banner.svg" alt="05 · Security Operations and Incident Response" width="100%">
 
-# 🏷️ Data classification
+# 🏷️ Data Classification
 
-### *Labelling data by sensitivity — and who is allowed to decide*
+### *Who decides how sensitive data is, and what the label obliges everyone to do*
 
 [![Module](https://img.shields.io/badge/Module-05_Security_Operations-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-5%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
-📌 *The roles question — owner, custodian, user — is asked more than anything else here. Owner decides; custodian implements.*
+📌 *The owner classifies, the custodian implements, the user follows. Classification is set by impact, fewer levels work better, and aggregation can push a dataset higher than any of its parts.*
 
 </div>
 
@@ -18,28 +18,25 @@
 
 ## 🧸 The big idea
 
-Not all grain is equal. Some pots hold everyday grain anyone in the village can scoop from
-freely. One special pot holds next year's entire seed stock — lose it, and there's no crop next
-season. That pot gets marked: *sacred seed grain, chief's authorisation only.* You cannot protect
-everything equally. Some data would be catastrophic if disclosed; some is already on your public
-website. **Classification sorts data by sensitivity so that protection can be proportionate.**
+Imagine an office that stamps every folder with a colour:
 
-That mark on the pot isn't just a description — it's an instruction. Seeing "sacred seed grain"
-tells you exactly how carefully it must be sealed, who's even allowed near it, and what happens
-if any goes missing. Once data carries a label, the label **obliges** specific handling: how it
-is stored, who may see it, whether it may leave the organisation, how it is transmitted, and how
-it must be destroyed.
+- **Green**: anyone can read it.
+- **Amber**: staff only.
+- **Red**: named people only, kept locked, and shredded when finished.
 
-The part the exam tests hardest is **who decides**. The chief decides what counts as sacred and
-who may touch it. The grain-keeper builds the sealed jar, stores it properly, and enforces who
-actually gets access — but even though he knows the storage system better than anyone, he never
-gets to decide what's sacred on his own. Every villager who's granted access just follows what
-the label already says.
+The stamp isn't just a description. It's an **instruction**: anyone who sees red knows exactly how
+to store it, who may see it, and how to get rid of it. That's **data classification**: sorting data
+by how much harm it would do if it leaked, so the protection matches the risk. You can't protect
+everything equally.
+
+The exam's favourite question is **who picks the colour**. Think of a house: the **owner** decides
+who gets a key, the **locksmith** fits the locks, and **guests** follow the house rules. The
+locksmith knows locks better than anyone, but never decides who gets in.
 
 > **The data owner classifies. The custodian implements. The user follows the rules.**
 
-An IT administrator who runs the database, takes the backups and sets the permissions is the
-**custodian** — never the owner, however much they know about the system.
+The IT administrator who runs the database, takes the backups and sets the permissions is the
+**custodian**, never the owner, however well they know the system.
 
 ---
 
@@ -47,118 +44,87 @@ An IT administrator who runs the database, takes the backups and sets the permis
 
 | Word | What it means on this exam |
 |---|---|
-| **Data classification** | Categorising data by sensitivity so protection is proportionate. |
-| **Data owner** | The **business** role accountable for a data set — classifies it and approves access. |
-| **Data custodian** | Implements the protection day to day — storage, backups, access enforcement. Usually IT. |
-| **Data steward** | Responsible for data quality and meaning within a business area. |
-| **Data user** | Anyone who accesses the data and must follow its handling rules. |
-| **Data processor** | A party processing data on the owner's or controller's behalf. |
+| **Data classification** | Sorting data by sensitivity, so protection matches the risk. |
+| **Data owner** | The **business** role accountable for a dataset. Classifies it and approves access. |
+| **Data custodian** | Carries out the protection day to day: storage, backups, permissions. Usually IT. |
+| **Data steward** | Looks after the data's quality and meaning within a business area. |
+| **Data user** | Anyone who uses the data, and must follow its handling rules. |
+| **Data processor** | An outside party that processes data on the owner's behalf, such as a cloud provider. |
 | **Labelling** | Marking data with its classification. |
-| **Handling requirements** | The rules a classification imposes — storage, transmission, disposal. |
-| **Aggregation** | Combining low-sensitivity items into something more sensitive. |
-| **Reclassification** | Changing a label as sensitivity changes over time. |
-| **Declassification** | Lowering a classification when data is no longer sensitive. |
+| **Handling requirements** | The rules a classification brings: how to store, send and dispose of the data. |
+| **Aggregation** | Harmless items combined into something more sensitive. |
+| **Declassification** | Lowering a label once the data is no longer sensitive. |
 
 ---
 
-## 👥 Who does what
+## 🔍 The explanation
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+### Who does what
+
+<p align="center"><img src="diagrams/1.svg" alt="The data owner is a business role that classifies the data, approves who gets access and is accountable; the owner hands the day-to-day protection to the data custodian, usually IT, who implements storage, backups and permissions and is responsible; the custodian gives access to data users, who follow the handling rules" width="280"></p>
 
 | Role | Decides? | Typical person |
 |---|---|---|
-| **Data owner** | ✅ **Yes** — classification and access | A business manager: head of HR owns personnel data |
-| **Data custodian** | ❌ No — implements what the owner decided | A system or database administrator |
-| **Data steward** | Manages quality and meaning, not sensitivity | A business analyst or subject expert |
-| **Data user** | ❌ No — follows the rules | Anyone with access |
+| **Data owner** | ✅ **Yes**: the classification and who gets access | A business manager, such as the head of HR for personnel data |
+| **Data custodian** | ❌ No: carries out what the owner decided | A system or database administrator |
+| **Data steward** | Looks after quality and meaning, not sensitivity | A business analyst or subject expert |
+| **Data user** | ❌ No: follows the rules | Anyone with access |
 
 > [!IMPORTANT]
-> **Owner decides, custodian implements.** This single sentence answers most role questions in
-> this topic and in Domain 1's privacy material. The administrator who manages the system does
-> **not** classify its data.
+> **Owner decides, custodian implements.** That one sentence answers most role questions. The
+> administrator who manages the system does **not** classify its data.
 
-> ⚠️ **Accountability sits with the owner and cannot be delegated.** The custodian is *responsible*
-> for carrying out the protection; the owner remains *accountable* for whether it was right.
+> ⚠️ **Accountability stays with the owner and can't be handed off.** The custodian is
+> *responsible* for doing the protection; the owner stays *accountable* for whether it was right.
 
----
+### Classification schemes
 
-## 🏷️ Classification schemes
+There's no single universal scheme. The exam expects you to recognise the two common families:
 
-There is no single universal scheme. The exam expects you to recognise both common families.
+<p align="center"><img src="diagrams/2.svg" alt="A typical commercial scheme runs from public to internal to confidential to restricted; the government and military scheme runs from unclassified to confidential to secret to top secret" width="740"></p>
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+**Classification is driven by impact:** how much harm would it cause if this data were disclosed,
+changed or lost? That question, not the file format or the amount of data, sets the label.
 
-**Classification is driven by impact:** how much harm would result if this data were disclosed,
-altered or lost? That question — not the data's format or volume — decides the label.
+> 🎯 **Fewer levels work better.** Nobody applies an eight-level scheme correctly. Three or four
+> levels is the practical range, and keeping it simple is a legitimate goal.
 
-> 🎯 **Fewer levels work better.** A scheme with eight classifications is one nobody applies
-> correctly. Three or four is the practical range, and simplicity is a legitimate design goal.
+### What a label obliges
 
----
-
-## 📋 What a label obliges
-
-A classification is only useful if it carries **handling requirements**. An illustrative scheme:
+A label is only useful if it comes with **handling requirements**. An example scheme:
 
 | | **Public** | **Internal** | **Confidential** | **Restricted** |
 |---|---|---|---|---|
 | Who may see it | Anyone | All staff | Named groups | Named individuals |
-| Storage | No restriction | Corporate systems | **Encrypted** | **Encrypted**, restricted location |
-| Email | Freely | Internal only | Encrypted only | Generally prohibited |
-| Removable media | Yes | With approval | Encrypted only | Prohibited |
-| Disposal | Ordinary | Ordinary | **Shredding / secure wipe** | **Certified destruction** |
+| Storage | No restriction | Company systems | **Encrypted** | **Encrypted**, in a restricted location |
+| Email | Freely | Internal only | Encrypted only | Usually not allowed |
+| USB drives | Yes | With approval | Encrypted only | Not allowed |
+| Disposal | Ordinary | Ordinary | **Shredding or secure wipe** | **Certified destruction** |
 
-> ⚠️ **The label sets the floor, not the ceiling.** Data labelled Confidential must receive at
-> least Confidential handling. Nothing stops stronger protection.
+> ⚠️ **The label sets the minimum, not the maximum.** Confidential data must get at least
+> Confidential handling. Nothing stops you protecting it more.
 
----
+### ➕ Aggregation
 
-## ➕ Aggregation
+**Harmless items put together can become sensitive.** A name isn't sensitive. Neither is a postcode,
+or a salary band. Together, they identify a person and reveal their pay:
 
-**Combining low-sensitivity items can produce something more sensitive than any of them.**
+<p align="center"><img src="diagrams/3.svg" alt="A name, a postcode and a salary band are each classified internal, but put together in one report they identify a person and their pay, so the report is now confidential" width="580"></p>
 
-A name is not sensitive. A postcode is not sensitive. A job title is not sensitive. Together they
-identify an individual, and combined with a salary figure they become a serious disclosure.
+> 🎯 **A dataset takes the classification of its most sensitive item, or higher if combining items
+> raises it.** That's why reports and exports are so often mishandled: each field looked harmless
+> on its own.
 
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+### 🔄 Reclassification
 
-> 🎯 **A dataset takes the classification of its most sensitive element, or higher if aggregation
-> raises it.** This is why reports and exports are so often mishandled — each field looked
-> harmless on its own.
+Sensitivity changes over time, and labels should follow:
 
----
+- **Declassification**: a merger announcement is highly confidential before it's announced, and
+  public afterwards.
+- **Upgrading**: data can become more sensitive as it builds up or as circumstances change.
 
-## 🔄 Reclassification
-
-Sensitivity changes over time, and labels should follow.
-
-- **Declassification** — a merger announcement is highly confidential before release and public
-  afterwards.
-- **Increasing classification** — data becomes more sensitive as it accumulates or as
-  circumstances change.
-
-Both are the **data owner's** decision, and both should be reviewed periodically rather than
-left to drift.
-
----
-
-## 🔬 How a label actually gets attached and enforced
-
-The grown-up section mentions automated classification tools inspecting content for patterns.
-Here's the real pipeline, as it runs in something like Microsoft Purview Information Protection.
-
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-A content scanner reads a document for recognisable patterns — a 16-digit sequence matching a
-card-number checksum, a national ID format, keywords like "confidential" already in the
-document. Where confidence is high, it suggests or auto-applies a **sensitivity label**, which
-isn't just a tag in a database somewhere — it's embedded directly into the file's own metadata,
-so the label physically travels with the file even when it's emailed, copied to USB, or uploaded
-elsewhere. This is what makes the label *enforceable* rather than just descriptive: a **DLP
-(Data Loss Prevention)** policy sitting at an email gateway or USB port reads that embedded
-label and can automatically block, warn, or force encryption based on it — without needing to
-re-scan the content itself each time, since the classification decision was already made and
-attached once.
+Both are the **data owner's** decision, and labels should be reviewed regularly rather than left to
+drift.
 
 ---
 
@@ -166,12 +132,12 @@ attached once.
 
 | | Means | Not to be confused with |
 |---|---|---|
-| **Data owner** | **Business** role. **Classifies** and approves access. **Accountable.** | **Data custodian**, who implements protection. IT is the custodian. |
-| **Data custodian** | Implements storage, backups, permissions. **Responsible.** | **Data owner.** Managing the system confers no authority to classify it. |
+| **Data owner** | A **business** role. **Classifies** and approves access. **Accountable.** | **Data custodian**, who carries out the protection. IT is the custodian. |
+| **Data custodian** | Handles storage, backups, permissions. **Responsible.** | **Data owner.** Running the system gives no authority to classify it. |
 | **Data steward** | Data quality and meaning. | **Data owner**, who decides sensitivity. |
-| **Classification** | The label, based on **impact of disclosure**. | **Categorisation** by format, department or volume. |
-| **Labelling** | Marking data with its classification. | **Classification**, the decision itself. Labelling records it. |
-| **Aggregation** | Combined items become more sensitive. | Each item's individual classification. The whole can exceed the parts. |
+| **Classification** | The level, set by the **impact of disclosure**. | Sorting by format, department or size. |
+| **Labelling** | Marking data with its classification. | **Classification**, the decision itself. The label records it. |
+| **Aggregation** | Combined items become more sensitive. | Each item's own classification. The whole can outrank the parts. |
 | **Declassification** | Lowering a label as sensitivity falls. | Deleting the data. |
 
 ---
@@ -179,36 +145,36 @@ attached once.
 ## ⚠️ Where your instinct is wrong
 
 > [!WARNING]
-> **In the job:** the team that runs the system decides how its data is protected, because they
+> **In the job:** the team that runs a system decides how its data is protected, because they
 > understand it best.
 >
-> **On the exam:** **the business data owner classifies.** IT is the custodian and implements the
-> decision. Options placing an administrator in the deciding seat are distractors.
+> **On the exam:** **the business data owner classifies.** IT is the custodian and carries the
+> decision out. Options that put an administrator in the deciding seat are distractors.
 
 > [!WARNING]
-> **In the job:** more classification levels give finer control.
+> **In the job:** more classification levels feel like finer control.
 >
-> **On the exam:** **fewer levels are better**, because a scheme people cannot apply correctly is
-> worse than a simple one they can. Three or four levels is the practical answer.
+> **On the exam:** **fewer levels are better.** A scheme people can't apply correctly is worse than
+> a simple one they can. Three or four levels is the practical answer.
 
 > [!WARNING]
-> **In the job:** you assess a field's sensitivity on its own merits.
+> **In the job:** you judge each field's sensitivity on its own.
 >
-> **On the exam:** **aggregation** matters. Harmless fields combined can require a higher
-> classification than any of them individually.
+> **On the exam:** **aggregation** matters. Harmless fields combined can need a higher
+> classification than any of them alone.
 
 ---
 
 ## 🧠 How to remember it
 
-🧠 **Owner decides. Custodian implements. User obeys.**
+**Owner decides. Custodian implements. User obeys.** The owner picks the colour; the locksmith fits
+the locks.
 
-🧠 **Classification is about IMPACT** — how much harm if this got out?
+**Classification is about IMPACT:** how much harm if this got out?
 
-🧠 **The whole can be worth more than the parts.** That is aggregation.
+**The whole can be worth more than the parts.** That's aggregation.
 
-🧠 **Owner is Accountable, Custodian is Responsible.** A before C, accountability before
-responsibility.
+**Owner is Accountable, Custodian is Responsible.** A before C.
 
 ---
 
@@ -226,14 +192,14 @@ Answer all five before expanding anything.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — the data owner.** Classification is a business decision about the impact of disclosure, and
-it belongs to the business role accountable for the data.
+**B — the data owner.** Classification is a business decision about the harm disclosure would cause,
+so it belongs to the business role accountable for the data.
 
-- **A** is the **custodian**. They implement the protection the owner's classification requires,
-  and managing a system confers no authority to classify what is in it. This is the single most
-  common wrong answer in the topic.
-- **C** advises on the scheme and the controls, and does not own the business impact judgement.
-- **D** follow the handling rules the classification imposes. They have no say in setting it.
+- **A** is the **custodian**. They carry out the protection the classification requires, but
+  running a system gives no authority to classify what's in it. This is the most common wrong
+  answer in the topic.
+- **C** advises on the scheme and the controls, but doesn't own the business judgement of impact.
+- **D** follow the handling rules the classification sets. They have no say in setting it.
 
 </details>
 
@@ -248,19 +214,19 @@ personnel records. Which role are they performing?
 <details>
 <summary><b>Answer</b></summary>
 
-**C — data custodian.** Implementing protection day to day — storage, encryption, backups, access
-enforcement — is exactly the custodian's role.
+**C — data custodian.** Carrying out the protection day to day (storage, encryption, backups, access)
+is exactly the custodian's job.
 
 - **A** would be the head of HR, who is accountable for personnel data and decides its
   classification.
-- **B** concerns data quality and meaning within a business area, not technical protection.
-- **D** is a party processing personal data on the controller's behalf, typically an external
-  organisation such as a cloud provider.
+- **B** looks after data quality and meaning within a business area, not technical protection.
+- **D** is a party processing personal data on the owner's behalf, usually an outside organisation
+  such as a cloud provider.
 
 </details>
 
-**Q3.** A report combines employee names, postcodes and salary bands. Each field alone is
-classified Internal. How should the report be classified?
+**Q3.** A report combines employee names, postcodes and salary bands. Each field alone is classified
+Internal. How should the report be classified?
 
 - **A.** Internal, since all component fields are Internal
 - **B.** Public, since none of the fields is individually sensitive
@@ -270,14 +236,13 @@ classified Internal. How should the report be classified?
 <details>
 <summary><b>Answer</b></summary>
 
-**C — higher than Internal, because aggregation increases sensitivity.** Combined, the fields
-identify individuals and reveal their pay, which is considerably more damaging than any field on
-its own.
+**C — higher than Internal, because aggregation increases sensitivity.** Together, the fields
+identify people and reveal their pay, which does far more damage than any field alone.
 
-- **A** applies the component classification mechanically and misses the whole point of aggregation.
-- **B** moves in the wrong direction entirely.
-- **D** is wrong and is a genuine real-world failure — derived reports and exports frequently
-  escape classification precisely because they are new artefacts nobody labelled.
+- **A** copies the fields' classification mechanically and misses the whole point of aggregation.
+- **B** goes in completely the wrong direction.
+- **D** is wrong, and it's a real-world failure: reports and exports often escape classification
+  precisely because they're new files nobody labelled.
 
 </details>
 
@@ -291,14 +256,14 @@ its own.
 <details>
 <summary><b>Answer</b></summary>
 
-**B — the potential impact of its disclosure, alteration or loss.** Classification exists to make
-protection proportionate to harm, so harm is what sets the level.
+**B — the potential impact of its disclosure, alteration or loss.** Classification exists to match
+protection to harm, so harm sets the level.
 
 - **A** is irrelevant. One highly sensitive record outranks a million public ones.
-- **C** may correlate loosely with sensitivity and does not determine it — finance produces both
+- **C** may loosely go along with sensitivity, but doesn't decide it: finance produces both
   published accounts and confidential forecasts.
-- **D** is irrelevant. The same information is equally sensitive in a spreadsheet, a database or
-  on paper.
+- **D** is irrelevant. The same information is just as sensitive in a spreadsheet, a database or on
+  paper.
 
 </details>
 
@@ -313,13 +278,13 @@ concern?
 <details>
 <summary><b>Answer</b></summary>
 
-**B — users will be unable to apply the scheme correctly.** A classification scheme depends
-entirely on people choosing the right label as they create data. Eight levels with overlapping
-definitions produces inconsistent labelling, which makes every downstream control unreliable.
+**B — people won't be able to apply it correctly.** A classification scheme depends on people
+choosing the right label as they create data. Eight overlapping levels produce inconsistent labels,
+which makes every control that relies on them unreliable.
 
-- **A** inverts the concern — eight levels is too granular, not too coarse.
-- **C** invents a technical requirement that does not follow from the number of levels.
-- **D** invents a regulatory limit. Organisations choose their own schemes.
+- **A** has it backwards: eight levels is too fine, not too coarse.
+- **C** invents a technical requirement that has nothing to do with the number of levels.
+- **D** invents a legal limit. Organisations choose their own schemes.
 
 </details>
 
@@ -330,38 +295,37 @@ definitions produces inconsistent labelling, which makes every downstream contro
 <details>
 <summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**Classification programmes usually fail at labelling, not at design.** Writing a four-level
-scheme with clear handling rules takes a few weeks. Getting tens of thousands of existing
-documents labelled, and every new one labelled correctly as it is created, is the part that
-defeats organisations. Automated classification tools help by inspecting content for patterns —
-card numbers, national identifiers, known document templates — and they produce false positives
-and miss context. The pragmatic approach is to label the highest-value repositories properly and
-accept that the long tail will be imperfect.
+**Classification usually fails at labelling, not at design.** Writing a four-level scheme with clear
+rules takes a few weeks. Getting tens of thousands of existing documents labelled, and every new one
+labelled correctly, is what defeats organisations. Tools such as Microsoft Purview help: a scanner
+reads each document for patterns (card numbers that pass the checksum, national ID formats, words
+like "confidential") and suggests or applies a **sensitivity label**. The label is written into the
+file's own metadata, so it travels with the file when it's emailed, copied to USB or uploaded. A
+**data loss prevention (DLP)** policy at the email gateway or USB port then reads the label and can
+block the file, warn the user, or force encryption, without re-scanning the content. Scanners still
+produce false alarms and miss context, so the practical approach is to label the most valuable
+stores properly and accept that the long tail will be imperfect.
 
-**Over-classification is its own failure.** When people are unsure, they label upward, because
-nobody is ever criticised for treating data as more sensitive than it was. The result is that
-most documents end up Confidential, the label stops carrying information, handling requirements
-become impractical, and everyone develops workarounds. A scheme where 90% of data is Confidential
-is functionally a scheme with no classification at all.
+**Over-classification is its own failure.** When unsure, people label upwards, because nobody gets
+criticised for over-protecting. Soon most documents are Confidential, the label stops meaning
+anything, the handling rules become impractical, and everyone finds workarounds. A scheme where 90%
+of data is Confidential is really no scheme at all.
 
-**Ownership is often genuinely unclear.** The exam's clean model assumes every data set has an
-identifiable business owner. In reality, customer data is touched by sales, service, marketing
-and finance, and none of them considers themselves the owner. Establishing ownership is usually
-the hardest part of a data governance programme, and it is a prerequisite for everything else —
-classification, access approval, retention decisions and breach response all need a named person
-to decide.
+**Ownership is often genuinely unclear.** The exam's clean model assumes every dataset has an obvious
+business owner. In reality, customer data is touched by sales, service, marketing and finance, and
+none of them thinks they own it. Settling ownership is usually the hardest part of data governance,
+and everything else (classification, access approval, retention, breach response) needs a named
+person to decide.
 
-**Aggregation has a formal name in the security literature.** The **inference problem** describes
-deducing sensitive information from data you are permitted to see, and the **aggregation problem**
-describes sensitivity arising from combination. Both are why database security cannot be handled
-purely at the record level, and why anonymised datasets can be re-identified by cross-referencing
-outside sources — the same issue that appears in the privacy topic.
+**Aggregation has formal names.** The **aggregation problem** is sensitivity arising from combining
+data. The **inference problem** is working out something sensitive from data you're allowed to see.
+Both are why database security can't be done one record at a time, and why "anonymised" datasets can
+be re-identified by cross-checking them against outside sources.
 
-**Government and commercial schemes are not equivalent.** Government classification carries legal
-force, with criminal penalties for mishandling, and clearance processes involving formal vetting.
-Commercial classification is a policy matter enforced through employment terms. The labels look
-similar and the consequences are entirely different, which is worth knowing if you ever move
-between the two worlds.
+**Government and commercial schemes aren't equivalent.** Government classification carries legal
+force, with criminal penalties for mishandling and formal vetting for clearance. Commercial
+classification is a company policy enforced through employment terms. The labels look alike; the
+consequences are completely different.
 
 </details>
 
@@ -372,15 +336,13 @@ between the two worlds.
 Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
 - **OWNER decides (classifies, approves access). CUSTODIAN implements (storage, backups, permissions). USER follows the rules.**
-- **The data owner is a BUSINESS role.** IT is the **custodian** — never the owner.
-- **Owner is ACCOUNTABLE (cannot delegate). Custodian is RESPONSIBLE.**
-- **Data steward** = data quality and meaning, not sensitivity.
-- **Classification is set by the IMPACT of disclosure/alteration/loss** — not volume, format or department.
+- **The data owner is a BUSINESS role.** IT is the **custodian**, never the owner.
+- **Owner = ACCOUNTABLE (can't be handed off). Custodian = RESPONSIBLE.** Steward = data quality and meaning.
+- **Classification is set by IMPACT** of disclosure, alteration or loss, not by volume, format or department.
 - **Commercial: Public → Internal → Confidential → Restricted. Government: Unclassified → Confidential → Secret → Top Secret.**
-- **Fewer levels are better.** Three or four; a scheme nobody applies correctly is useless.
-- **AGGREGATION:** low-sensitivity fields combined can need a HIGHER classification.
-- **A dataset takes the level of its most sensitive element** (or higher).
-- **The label sets the floor, not the ceiling** — stronger protection is always fine.
+- **Fewer levels are better:** three or four.
+- **AGGREGATION:** harmless fields combined can need a HIGHER level. A dataset takes its most sensitive item's level, or higher.
+- **The label sets the minimum, not the maximum.**
 
 ---
 
