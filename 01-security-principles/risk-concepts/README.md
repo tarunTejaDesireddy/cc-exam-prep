@@ -1,464 +1,319 @@
 <div align="center">
 
-<img src="assets/risk-concepts-banner.svg" alt="Risk Concepts — what bad thing could happen, how likely, how bad" width="100%">
+<img src="../assets/module-01-banner.svg" alt="01 · Security Principles" width="100%">
 
-# ⚠️ Risk Concepts — Caveman Style
+# ⚠️ Risk Concepts
 
-[![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=for-the-badge&labelColor=07171c)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain_1-24%25-12B5A5?style=for-the-badge&labelColor=0f3038)](../README.md)
+### *Asset, threat, vulnerability, risk — four words the exam never lets you mix up*
 
-[![Risk Chain](https://img.shields.io/badge/🥩-Asset_to_Risk-5C7CFA?style=flat-square&labelColor=12243f)](#-5-risk)
-[![Calculation](https://img.shields.io/badge/🧮-Likelihood_×_Impact-F08C00?style=flat-square&labelColor=3a2c12)](#-8-risk-calculation)
-[![Responses](https://img.shields.io/badge/🛡️-Risk_Responses-2F9E44?style=flat-square&labelColor=1d3a2a)](#-put-everything-together)
+[![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
+[![Read](https://img.shields.io/badge/Read-~13%20min-57606A?style=flat-square)](#)
+
+📌 *Put any phrase from a scenario into the right slot, know residual risk is never zero, and know only senior management accepts risk.*
 
 </div>
 
 ---
 
-Let's continue with **Grog**. 🪨
+## 🧸 The big idea
 
-In cybersecurity, **risk** is basically about:
+Your **house** is worth protecting — that's the **asset**.
 
-> **"What bad thing could happen, how likely is it, and how bad would it be?"**
+**Burglary** could happen and would hurt you — that's the **threat**. The **burglar** is the
+**threat actor** who would do it.
 
-Imagine Grog's tribe has a cave full of food. 🥩
+You left a **window open** — that's the **vulnerability**, the weakness the burglar could use.
 
-There are many things that could go wrong.
+**Risk** is *how likely* a burglar finds that window, combined with *how bad* it would be if they
+did.
 
----
+Now **lock the window**. The burglar still exists and is exactly as much of a threat — but now
+they can't get in. **The risk dropped without the threat changing at all.** That's what a
+**control** does.
 
-## 🪨 1. Asset
+> **A threat exploits a vulnerability to harm an asset. Risk is how likely that is, combined with
+> how bad it would be.**
 
-An **asset** is something valuable that you want to protect.
-
-For Grog:
-
-- 🥩 Food
-- 🔥 Fire
-- 🪓 Weapons/tools
-- 🗺️ Hunting map
-- 👨‍👩‍👧 Tribe members
-- 🪨 Valuable stones
-
-In cybersecurity, assets can include:
-
-- 💻 Computers
-- 🗄️ Databases
-- 📄 Important files
-- 💰 Money
-- 👤 Customer information
-- 🌐 Websites
-- 🧑‍💼 Business reputation
-
-### Easy definition
-
-> **Asset = Something valuable that needs protection.**
+Every question on this topic is testing whether you can put a phrase from a scenario into the
+right one of those slots.
 
 ---
 
-## 👹 2. Threat
+## 📖 Words you will keep seeing
 
-A **threat** is something that could potentially cause harm.
-
-Grog's threats might be:
-
-- 👹 Enemy tribe
-- 🐻 Bear
-- 🌊 Flood
-- 🔥 Fire
-
-Cybersecurity threats include:
-
-- 🦹 Hackers
-- 🦠 Malware
-- 🎣 Phishing
-- 🔥 Ransomware
-- 🌪️ Natural disasters
-- 👨‍💻 Malicious insiders
-
-### Easy definition
-
-> **Threat = Something that can potentially cause harm.**
+| Word | What it means on this exam |
+|---|---|
+| **Asset** | Anything of value worth protecting — data, systems, facilities, **people**, reputation. |
+| **Threat** | Any circumstance or event with the **potential** to cause harm. |
+| **Threat actor** | The entity that carries out a threat — a person, group or organisation. |
+| **Threat vector** | The **route** a threat takes to reach the asset (e.g. a phishing email). |
+| **Vulnerability** | A **weakness** a threat could exploit. |
+| **Exploit** | The act or tool that takes advantage of a vulnerability. |
+| **Risk** | The **likelihood** that a threat exploits a vulnerability, combined with the **impact**. |
+| **Inherent risk** | Risk **before** any controls. |
+| **Residual risk** | Risk left **after** controls. Never zero. |
+| **Risk tolerance** | How much risk the organisation will accept. Set by **senior management**. |
+| **Control** | A safeguard that reduces risk. |
 
 ---
 
-## 🚪 3. Vulnerability
+## 🔍 The explanation
 
-A **vulnerability** is a weakness that a threat can take advantage of.
+### How the pieces fit
 
-Imagine Grog's cave has a **huge hole in the wall**. 🕳️
+<p align="center"><img src="diagrams/1.svg" alt="A threat actor such as a burglar carries out a threat such as a break-in, which exploits a vulnerability such as an open window to harm an asset such as your house; a control such as locking the window closes the vulnerability" width="760"></p>
 
-An enemy tribe sees the hole and thinks:
+- **Assets** are broader than people expect: data, hardware, software, facilities, **people**,
+  reputation. You don't spend more protecting something than it's worth — so assets get valued
+  first.
+- **Threats** aren't only attackers:
 
-> "Easy way inside!"
+| Source | Examples |
+|---|---|
+| Human, deliberate | Attackers, malicious insiders, hacktivists |
+| Human, accidental | Mistakes, misconfiguration, accidental deletion |
+| Environmental / natural | Fire, flood, earthquake, power or hardware failure |
 
-The hole is the **vulnerability**.
+- **Vulnerabilities** aren't only software bugs: technical (unpatched, default passwords),
+  physical (unlocked door), administrative (no policy, no leaver process), human (untrained
+  staff).
+- **You need both a threat and a vulnerability** for meaningful risk. A flaw in software you
+  don't run is not your risk.
 
-In computers, vulnerabilities could include:
+### Threat or vulnerability? — the one test
 
-- Weak passwords
-- Unpatched software
-- Misconfigured servers
-- Poor access controls
-- Vulnerable applications
+This pair gets swapped in distractors constantly. One question settles it:
 
-### Easy definition
+<p align="center"><img src="diagrams/2.svg" alt="If the phrase describes something that happens, an event such as a flood or theft, it is a threat; if it describes a state you are in, a condition such as an unpatched server or a data centre on a floodplain, it is a vulnerability" width="620"></p>
 
-> **Vulnerability = A weakness that can be exploited.**
+"A flood" is a **threat**. "The data centre is on a floodplain" is a **vulnerability**.
 
----
+### Risk = likelihood × impact
 
-## 💥 4. Exploit
+You won't calculate it on CC, but the relationship explains every priority decision:
 
-An **exploit** is a method or technique used to take advantage of a vulnerability.
+| Likelihood | Impact | Risk |
+|---|---|---|
+| High | High | **Critical** — act first |
+| High | Low | Moderate — frequent nuisance |
+| Low | High | Moderate — rare but severe |
+| Low | Low | Low — often accepted |
 
-Grog's enemy sees the hole in the cave.
+**Reduce either factor and you reduce the risk.** The exam likes asking which one a control
+works on:
 
-They climb through it.
+<p align="center"><img src="diagrams/3.svg" alt="Risk equals likelihood times impact; firewalls, patching, MFA and training lower likelihood, while backups, insurance, redundancy and a DR plan lower impact" width="640"></p>
 
-🧗 → 🕳️ → 🏕️
+Backups don't make ransomware **less likely** — they make it **hurt less**.
 
-The enemy is **exploiting the vulnerability**.
+### Inherent → residual → a decision
 
-In cybersecurity:
+<p align="center"><img src="diagrams/4.svg" alt="Inherent risk before controls becomes residual risk after controls; if residual risk is within tolerance senior management accepts it, otherwise more controls or a different treatment are applied" width="760"></p>
 
-> A hacker finds a software vulnerability and uses a technique/code to take advantage of it.
+- **Residual risk is never zero.** Any option claiming a control "eliminates all risk" is wrong.
+- **Risk tolerance is a business decision** — set and accepted by **senior management**, never
+  by the analyst or the IT manager.
 
-That's an **exploit**.
+### Risk management is a cycle, not a project
 
-### Remember
+<p align="center"><img src="diagrams/5.svg" alt="Identify the risks, assess likelihood and impact, treat by accepting, avoiding, mitigating or transferring, monitor and report, and then start again as things change" width="760"></p>
 
-**Vulnerability = weakness**
-
-**Exploit = way of using the weakness**
-
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
-
----
-
-## ⚠️ 5. Risk
-
-Now put everything together.
-
-Grog has:
-
-🥩 **Asset:** Food
-
-👹 **Threat:** Enemy tribe
-
-🕳️ **Vulnerability:** Hole in the cave
-
-The enemy could enter through the hole and steal the food.
-
-That's a **risk**.
-
-### Easy definition
-
-> **Risk = The possibility that a threat will exploit a vulnerability and cause harm to an asset.**
-
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+New assets appear, threats evolve, controls decay — so monitoring feeds straight back into
+identifying. A question describing risk management as a one-time exercise is describing it wrong.
 
 ---
 
-## 💥 6. Impact
+## ⚖️ Told apart
 
-**Impact** means:
+The table the whole page exists for.
 
-> **"How bad will it be if something goes wrong?"**
+| Phrase in a scenario | It is a… | Why |
+|---|---|---|
+| "The customer database" | **Asset** | Something of value. |
+| "Ransomware" / "Theft" | **Threat** | A potential event. |
+| "An organised criminal group" | **Threat actor** | Who would do it. |
+| "A phishing email" | **Threat vector** | The route. |
+| "Staff have never had security training" | **Vulnerability** | A weakness (condition). |
+| "Servers are missing six months of patches" | **Vulnerability** | A weakness. |
+| "The door is left unlocked" | **Vulnerability** | A condition, not the event. |
+| "A 30% chance of a breach costing $200,000" | **Risk** | Likelihood + impact. |
+| "Flooding in the region" | **Threat** | Threats need not be human. |
 
-Suppose the enemy steals one piece of meat.
-
-😐 Small impact.
-
-But suppose they steal **all of Grog's food**.
-
-😱 Huge impact.
-
-In cybersecurity:
-
-### Low impact
-
-A small amount of information is lost.
-
-### High impact
-
-A company loses:
-
-- 💰 Millions of dollars
-- 👤 Customer information
-- 🏢 Business operations
-- ⭐ Reputation
+| | Means | Not to be confused with |
+|---|---|---|
+| **Vulnerability** | The weakness. | **Exploit** — the act or tool that uses it. |
+| **Threat** | The event. | **Threat actor** (who) and **threat vector** (route). |
+| **Inherent risk** | Before controls. | **Residual risk** — after controls, never zero. |
+| **Likelihood** | How probable. | **Impact** — how bad. High impact alone ≠ high risk. |
 
 ---
 
-## 🎯 7. Likelihood
+## ⚠️ Where your instinct is wrong
 
-Likelihood asks:
+> [!WARNING]
+> **In the job:** a critical CVE is "a risk" and you'd say so in a meeting.
+>
+> **On the exam:** an unpatched CVE is a **vulnerability**. It becomes a risk only with a threat
+> that would exploit it and an impact if it did.
 
-> **"How likely is this bad thing to happen?"**
-
-Suppose Grog has a tiny hole in the cave.
-
-There is an enemy tribe nearby every day.
-
-The chance of an attack is high.
-
-So:
-
-**High likelihood + high impact = High risk**
+> [!WARNING]
+> **In the job:** you decide what's worth fixing and what you'll live with.
+>
+> **On the exam:** **you never accept risk.** Senior management does. An option where an analyst
+> or administrator accepts risk is a distractor, every time.
 
 ---
 
-## 🧮 8. Risk calculation
+## 🧠 How to remember it
 
-A simple way to think about risk is:
+**The one sentence:** a threat exploits a vulnerability to harm an asset; risk is how likely × how
+bad.
 
-> **Risk = Likelihood × Impact**
+**Threats happen. Vulnerabilities are states you're in.**
 
-For example:
-
-**Likelihood = 5**
-
-**Impact = 10**
-
-So:
-
-**Risk = 5 × 10 = 50**
-
-The exact mathematical formulas used in real organizations can be more sophisticated, but this is a
-useful basic model.
-
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+**No threat, or no vulnerability → little risk.** You need both halves.
 
 ---
 
-## 🛡️ 9. Security Control
+## ✅ Check you actually got it
 
-A **security control** is something we use to reduce risk.
+Answer all five before expanding anything.
 
-Grog sees the hole in his cave.
+**Q1.** A company's web server is missing a critical security patch. How should this be
+classified?
 
-He puts a giant stone over it.
+- **A.** A threat
+- **B.** A vulnerability
+- **C.** A risk
+- **D.** An exploit
 
-🪨 + 🕳️ = 🚫
+<details>
+<summary><b>Answer</b></summary>
 
-That's a security control.
+**B — a vulnerability.** A missing patch is a condition the organisation is in.
 
-In cybersecurity, controls include:
+- **A** — a threat is the potential *event*.
+- **C** is how people talk at work, but risk needs likelihood and impact combined.
+- **D** is the code that *uses* the weakness.
 
-- 🔥 Firewalls
-- 🔐 Encryption
-- 🔑 Strong passwords
-- 👤 Access controls
-- 🛡️ Antivirus/endpoint protection
-- 💾 Backups
-- 🔄 Security patches
-- 🎓 Security training
+</details>
 
----
+**Q2.** Which of the following is a threat rather than a vulnerability?
 
-## 🛠️ 10. Risk Mitigation
+- **A.** Employees have not received security awareness training
+- **B.** The data centre is located on a floodplain
+- **C.** A hurricane
+- **D.** Administrative accounts use default passwords
 
-**Mitigation** means taking action to **reduce risk**.
+<details>
+<summary><b>Answer</b></summary>
 
-Grog doesn't want enemies entering his cave.
+**C — a hurricane.** A potential event — and proof that threats needn't be human or malicious.
 
-So he:
+- **A** is a condition → vulnerability.
+- **B** is the tempting one: the *location* is a condition (vulnerability); the flood would be the
+  threat.
+- **D** is a technical weakness → vulnerability.
 
-1. Finds the hole 🕳️
-2. Repairs it 🪨
-3. Adds a guard 🛡️
-4. Builds another exit 🚪
+</details>
 
-The risk is reduced.
+**Q3.** After implementing controls, an organisation finds that some risk remains. What is this
+called?
 
-That's **risk mitigation**.
+- **A.** Inherent risk
+- **B.** Residual risk
+- **C.** Accepted risk
+- **D.** Total risk
 
-> **Mitigation = Reduce the likelihood and/or impact of a risk.**
+<details>
+<summary><b>Answer</b></summary>
 
----
+**B — residual risk.**
 
-## 🤷 11. Risk Acceptance
+- **A** is the risk *before* controls.
+- **C** is a decision that may be taken *about* residual risk — not its name.
+- **D** isn't a standard term here.
 
-Sometimes eliminating a risk isn't worth the cost.
+</details>
 
-Imagine Grog has a tiny crack in his cave.
+**Q4.** A backup system is implemented to protect against ransomware. Which component of risk
+does it PRIMARILY reduce?
 
-Fixing it would require:
+- **A.** Likelihood, because attackers are deterred by good backups
+- **B.** Impact, because the organisation can recover without paying
+- **C.** Both equally
+- **D.** Neither — backups are a recovery measure, not a risk control
 
-> 100 pieces of meat.
+<details>
+<summary><b>Answer</b></summary>
 
-But the chance of the crack causing a problem is extremely low.
+**B — impact.** Backups don't make the attack less likely; they make it hurt less.
 
-Grog says:
+- **A** — attackers don't know your backup posture.
+- **C** — there's no real likelihood reduction.
+- **D** — recovery measures *are* risk controls; they work on impact.
 
-> "Meh. I'll accept the risk."
+</details>
 
-That's **risk acceptance**.
+**Q5.** A risk exceeds the organisation's risk tolerance. Who decides whether to accept it
+anyway?
 
-### Cybersecurity example
+- **A.** The security analyst who identified it
+- **B.** The IT manager responsible for the affected system
+- **C.** Senior management
+- **D.** The external auditor
 
-A company might identify a low-level risk and decide:
+<details>
+<summary><b>Answer</b></summary>
 
-> "The cost of fixing this is greater than the potential damage."
+**C — senior management.** They're accountable for the business.
 
-So they knowingly accept the risk.
+- **A** — identifying a risk gives no authority to accept it.
+- **B** — running a system isn't owning its business risk.
+- **D** — an auditor accepting risk would destroy their independence.
 
----
-
-## 🚫 12. Risk Avoidance
-
-Avoidance means:
-
-> **Don't do the risky thing.**
-
-Grog discovers that a particular hunting area is extremely dangerous because of a giant bear. 🐻
-
-Instead of trying to protect himself from the bear, he says:
-
-> "We're not hunting there anymore."
-
-He avoids the activity.
-
-Cybersecurity example:
-
-A company decides not to offer a particularly risky online service.
-
-**No activity → No associated risk from that activity.**
-
----
-
-## 🤝 13. Risk Transfer
-
-Sometimes Grog says:
-
-> "I don't want to handle all this risk myself."
-
-So he makes an agreement with another tribe:
-
-> "If something happens, you help us recover."
-
-That's similar to **risk transfer**.
-
-In business, a common example is **insurance**.
-
-The organization still has the underlying risk, but some of the financial consequences may be
-transferred to another party.
+</details>
 
 ---
 
-## 🛡️ 14. Risk Deterrence
+## 🎓 The grown-up version
 
-**Deterrence** tries to make someone think:
+<details>
+<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-> "If I attack, bad things will happen to me."
+**How real teams track vulnerabilities.** Each public flaw gets a **CVE** ID and a **CVSS** 0–10
+severity score; scanners (Nessus, Qualys, OpenVAS) find which CVEs you actually run. CVSS alone
+prioritises badly — **EPSS** estimates the real chance a CVE gets exploited in the next 30 days.
+Mature teams patch by severity × exploitation odds × asset value.
 
-Grog puts a huge sign outside his cave:
+**"Likelihood × impact" flattens very different risks.** A 1-in-1000 chance of a $10M loss and a
+near-certain $10k yearly loss can score the same, yet only one could end the business. Mature
+programmes watch the rare, catastrophic tail.
 
-> ⚠️ **GUARDS ARE WATCHING**
+**Appetite vs tolerance.** *Appetite* is the broad, strategic amount of risk an organisation will
+pursue; *tolerance* is the acceptable variation around a specific objective. CC mostly uses
+tolerance.
 
-Even if the guards aren't currently fighting anyone, the warning might discourage attackers.
+**Secondary risk.** Treating one risk often creates another — outsourcing adds third-party risk;
+encrypting everything adds key-management risk.
 
-Cybersecurity examples:
-
-- Warning banners
-- Security cameras
-- Visible security controls
-- Legal consequences
-- Account lockout policies
-
----
-
-## 🔍 15. Risk Detection
-
-Detection means:
-
-> **"Find out when something bad is happening."**
-
-Grog puts a guard outside his cave.
-
-The guard sees an enemy approaching:
-
-> 👀 "ENEMY TRIBE!"
-
-That's detection.
-
-Cybersecurity examples:
-
-- 🚨 Intrusion detection systems
-- 📋 Security logs
-- 👀 Monitoring
-- 🔔 Alerts
-- 🛡️ Security operations centers
+</details>
 
 ---
 
-## 🧠 Put everything together
+## 📝 Cram lines
 
-Here's the most important chain:
+Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-> **Asset → Threat → Vulnerability → Exploit → Risk → Impact**
-
-Example:
-
-🥩 **Asset:** Grog's food
-
-👹 **Threat:** Enemy tribe
-
-🕳️ **Vulnerability:** Hole in cave
-
-🧗 **Exploit:** Enemy enters through hole
-
-⚠️ **Risk:** Food may be stolen
-
-💥 **Impact:** Tribe has no food
-
-🛡️ **Control:** Block the hole
-
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-Once you have a risk, there are several ways to respond to it:
-
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
-
----
-
-## 🎯 Exam Cheat Sheet
-
-| Concept | Caveman meaning | Simple meaning |
-| --- | --- | --- |
-| 🥩 **Asset** | Food | Something valuable |
-| 👹 **Threat** | Enemy tribe | Potential source of harm |
-| 🕳️ **Vulnerability** | Hole in cave | Weakness |
-| 🧗 **Exploit** | Climbing through hole | Using a weakness |
-| ⚠️ **Risk** | Food might be stolen | Possibility of loss/harm |
-| 💥 **Impact** | Tribe goes hungry | Damage caused |
-| 🎯 **Likelihood** | How likely enemy attacks | Probability/chance |
-| 🛡️ **Control** | Block the hole | Protection |
-| 🔧 **Mitigation** | Repair the cave | Reduce risk |
-| 🤷 **Acceptance** | "We'll live with it" | Knowingly accept risk |
-| 🚫 **Avoidance** | Don't go near bear | Eliminate activity/risk |
-| 🤝 **Transfer** | Another tribe takes some burden | Shift consequences to another party |
-| 👀 **Detection** | Guard spots enemy | Discover problems |
-
-## 🪨 The ultimate caveman memory trick
-
-Remember this story:
-
-> **Grog has FOOD (asset).**
-> **Enemy tribe is the THREAT.**
-> **There's a HOLE (vulnerability).**
-> **Enemy uses the hole (exploit).**
-> **Food might be stolen (risk).**
-> **Grog could lose all his food (impact).**
-> **Grog blocks the hole (control/mitigation).**
-
-### 🎯 One sentence to memorize
-
-> **Risk happens when a threat can exploit a vulnerability and cause harm to an asset.**
+- **Threat exploits vulnerability to harm asset. Risk = likelihood × impact.**
+- **Threats HAPPEN (events). Vulnerabilities are STATES (conditions).** Floodplain = vulnerability; flood = threat.
+- **Unpatched CVE = vulnerability**, not risk.
+- **Backups reduce IMPACT, not likelihood.**
+- **Residual risk is never zero. Only senior management accepts risk.**
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← Back to 01 · Security Principles</a></sub>
+<sub><a href="../README.md">← back to 01 · Security Principles</a> &nbsp;·&nbsp; <a href="../risk-assessment/">next: Risk assessment →</a></sub>
 </div>

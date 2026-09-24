@@ -1,0 +1,12 @@
+flowchart LR
+    R["RISK =<br/>LIKELIHOOD x IMPACT"]
+    R --> L["Lower the LIKELIHOOD<br/>it happens less often"]
+    R --> I["Lower the IMPACT<br/>it hurts less when it does"]
+    L --> L1["firewall, patching,<br/>MFA, training"]
+    I --> I1["backups, insurance,<br/>redundancy, DR plan"]
+
+    style R fill:#0f3038,stroke:#12B5A5,color:#fff
+    style L fill:#12243f,stroke:#5C7CFA,color:#fff
+    style I fill:#12243f,stroke:#5C7CFA,color:#fff
+    style L1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style I1 fill:#1d3a2a,stroke:#2F9E44,color:#fff

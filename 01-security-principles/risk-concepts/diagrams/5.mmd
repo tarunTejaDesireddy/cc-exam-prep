@@ -1,0 +1,10 @@
+flowchart LR
+    ID["1. IDENTIFY<br/>find the risks"] --> AS["2. ASSESS<br/>likelihood and impact"]
+    AS --> TR["3. TREAT<br/>accept, avoid,<br/>mitigate, transfer"]
+    TR --> MO["4. MONITOR<br/>and report"]
+    MO -->|"things change:<br/>start again"| ID
+
+    style ID fill:#3a2c12,stroke:#F08C00,color:#fff
+    style AS fill:#3a2c12,stroke:#F08C00,color:#fff
+    style TR fill:#3a2c12,stroke:#F08C00,color:#fff
+    style MO fill:#3a2c12,stroke:#F08C00,color:#fff
