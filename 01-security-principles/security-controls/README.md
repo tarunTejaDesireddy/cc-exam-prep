@@ -1,357 +1,320 @@
 <div align="center">
 
-<img src="assets/security-controls-banner.svg" alt="Security Controls — what type, and what function" width="100%">
+<img src="../assets/module-01-banner.svg" alt="01 · Security Principles" width="100%">
 
-# 🛡️ Security Controls — Caveman Style
+# 🛡️ Security Controls
 
-[![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=for-the-badge&labelColor=07171c)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain_1-24%25-12B5A5?style=for-the-badge&labelColor=0f3038)](../README.md)
+### *Every control gets two labels: what it IS, and what it DOES*
 
-[![Type](https://img.shields.io/badge/Axis_1-Control_Type-5C7CFA?style=flat-square&labelColor=12243f)](#-axis-1-control-type)
-[![Function](https://img.shields.io/badge/Axis_2-Control_Function-F08C00?style=flat-square&labelColor=3a2c12)](#%EF%B8%8F-axis-2-control-function)
-[![Cheat Sheet](https://img.shields.io/badge/📊-Two_Axis_Cheat_Sheet-2F9E44?style=flat-square&labelColor=1d3a2a)](#-the-two-axis-cheat-sheet)
+[![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
+[![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
+
+📌 *Classify any control by type AND function — and never answer a type question with a function, or vice versa.*
 
 </div>
 
 ---
 
-This is a **very important exam topic** because a security control can be classified in **two
-different ways at the same time**.
+## 🧸 The big idea
 
-Think of it as asking **two separate questions** about the same control:
+Think about protecting your home. A "Beware of the dog" sign, a locked door, a doorbell camera,
+and a glazier fixing the broken window afterwards all protect the same house — but they do
+**completely different jobs**.
 
-> **Axis 1: What TYPE of control is it?**
-> **Axis 2: What FUNCTION does it perform?**
+A **control** is anything that reduces risk. The exam labels every control on **two separate
+axes**:
 
-A single control can therefore have **one type + one function**.
+- **Type** — *what kind of thing is it?* Technical, administrative or physical.
+- **Function** — *what does it do about the risk?* Deterrent, preventive, detective, corrective,
+  directive or compensating.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
+A CCTV camera is **physical** (type) and **detective** (function). A security policy is
+**administrative** and **directive**. Encryption is **technical** and **preventive**.
 
----
+<p align="center"><img src="diagrams/1.svg" alt="Every control has two labels: a type (technical, administrative or physical) and a function (deterrent, preventive, detective, corrective, directive or compensating)" width="720"></p>
 
-## 🪨 Axis 1: Control TYPE
-
-The first axis asks:
-
-> **"What is the nature of the control?"**
-
-There are usually **three types**:
-
-### 1 · 🧑‍💼 Managerial
-
-Managerial controls come from **management decisions, policies, procedures, and risk
-management**.
-
-Think:
-
-> 👑 "The tribe leader makes the rules."
-
-Examples:
-
-- Security policies
-- Risk assessments
-- Security awareness programs
-- Security procedures
-- Background checks
-- Security governance
-
-**Caveman example:** Grog's chief says: "Nobody enters the food cave without permission." That's a
-**managerial control** because leadership established the rule.
-
-### 2 · 💻 Technical
-
-Technical controls use **technology** to protect systems or information.
-
-Think:
-
-> 🤖 "The computer protects the cave."
-
-Examples:
-
-- 🔥 Firewall
-- 🔐 Encryption
-- 🔑 Password systems
-- 👤 Access-control systems
-- 🛡️ Antivirus/endpoint protection
-- 🚨 Intrusion detection systems
-- MFA
-
-**Caveman example:** Instead of a guard checking people manually, Grog installs a **magical stone
-scanner** that automatically blocks unauthorized cavemen. That's **technical**.
-
-### 3 · 🚪 Physical
-
-Physical controls protect through **physical means**.
-
-Think:
-
-> 🧱 "Something physically stops you."
-
-Examples:
-
-- 🔒 Locks
-- 🚪 Doors
-- 🧱 Fences
-- 📹 Security cameras
-- 👮 Security guards
-- 💡 Lighting
-- 🔑 Physical access cards
-- Mantraps
-
-**Caveman example:** Grog puts a giant rock in front of the cave entrance. 🪨🚪 That's **physical**.
-
-> [!TIP]
-> **Axis 1 memory trick:**
-> 👑 **Managerial = RULES**
-> 💻 **Technical = TECHNOLOGY**
-> 🚪 **Physical = THINGS**
+> 🎯 "Which **type** of control…" → technical / administrative / physical. "Which is a
+> **detective** control…" → it's asking about function. Mixing the axes is the standard trap.
 
 ---
 
-## ⚙️ Axis 2: Control FUNCTION
+## 📖 Words you will keep seeing
 
-Now forget about _what the control is made of_.
-
-Instead ask:
-
-> **"What is this control trying to DO?"**
-
-The major functions are:
-
-1. 🛑 **Preventive**
-2. 👀 **Detective**
-3. 🔧 **Corrective**
-4. 🚧 **Deterrent**
-5. 🔄 **Compensating**
-6. 💾 **Recovery**
-
-### 1 · 🛑 Preventive
-
-**Purpose:** Stop something bad before it happens.
-
-Grog builds a wall around his cave. 🧱 The enemy can't get in. That's **preventive**.
-
-Cybersecurity examples: Firewall blocking malicious traffic · Access controls · Strong passwords ·
-MFA · Encryption · Security policies
-
-**Memory:** Preventive = STOP IT BEFORE
-
-### 2 · 👀 Detective
-
-**Purpose:** Find out that something bad is happening or has happened.
-
-Grog puts a guard outside the cave. 👀 The guard sees an enemy approaching. That's **detective**.
-
-Cybersecurity examples: Intrusion detection system · Security logs · SIEM monitoring · Security
-cameras · File-integrity monitoring · Alerts
-
-**Memory:** Detective = FIND IT
-
-### 3 · 🔧 Corrective
-
-**Purpose:** Fix the problem after something has gone wrong.
-
-The enemy breaks the cave door. Grog repairs it. 🔨🪨 That's **corrective**.
-
-Cybersecurity examples: Removing malware · Patching a compromised system · Resetting compromised
-credentials · Fixing a configuration problem
-
-**Memory:** Corrective = FIX IT
-
-### 4 · 🚧 Deterrent
-
-**Purpose:** Discourage someone from doing something bad.
-
-Grog puts a giant sign outside the cave: ⚠️ "GUARDS ARE WATCHING". An enemy sees it and thinks:
-"Hmm... maybe I'll attack another cave." That's **deterrent**.
-
-Cybersecurity examples: Warning banners · Visible security cameras · Security guards · Legal
-notices · "Unauthorized access prohibited" messages
-
-**Memory:** Deterrent = SCARE THEM AWAY
-
-### 5 · 🔄 Compensating
-
-**Purpose:** Provide an alternative control when the preferred control isn't possible.
-
-Imagine Grog normally protects his cave with a giant stone door. But the stone door is broken. So
-he puts two guards at the entrance instead. 👮👮 The guards provide an **alternative protection**.
-That's **compensating**.
-
-Cybersecurity example: Suppose an old system can't support modern MFA. The organization might use
-additional controls such as stronger network restrictions, extra monitoring, restricted access, or
-additional authentication controls. The exact control depends on the situation.
-
-**Memory:** Compensating = SUBSTITUTE
-
-### 6 · 💾 Recovery
-
-**Purpose:** Restore normal operations after an incident.
-
-A flood destroys Grog's food storage. 🌊💥 Luckily, Grog has food stored in another cave. He uses
-the backup food to recover. That's **recovery**.
-
-Cybersecurity examples: Backups · Disaster recovery · System restoration · Backup sites · Recovery
-procedures
-
-**Memory:** Recovery = GET BACK TO NORMAL
+| Word | What it means on this exam |
+|---|---|
+| **Control** | A safeguard or countermeasure that reduces risk. |
+| **Technical** | Implemented in hardware, software or firmware. Also called **logical**. |
+| **Administrative** | Implemented through policy, procedure and people. Also called **managerial**. |
+| **Physical** | Tangible protection of facilities, equipment and people. |
+| **Deterrent** | Discourages the attempt. |
+| **Preventive** | Stops it happening. |
+| **Detective** | Identifies that it happened (or is happening). |
+| **Corrective** | Repairs and restores afterwards. |
+| **Directive** | Instructs or mandates required behaviour. |
+| **Compensating** | An **alternative** used when the primary control isn't feasible. |
+| **Defence in depth** | Layering independent controls so no single failure is fatal. |
 
 ---
 
-## 🧠 The Big Exam Trick
+## 🔍 The explanation
 
-Here's where students often make mistakes.
+### Axis one — type
 
-**Type and function are NOT the same thing.**
+| Type | What it is | Examples |
+|---|---|---|
+| **Technical** (logical) | Technology | Firewall, encryption, antivirus, IDS/IPS, ACLs, MFA, audit logging |
+| **Administrative** (managerial) | People and process | Policies, procedures, awareness training, background checks, access reviews, IR plans |
+| **Physical** | Tangible things | Locks, fences, guards, badges, mantraps, CCTV, bollards, fire suppression |
 
-For example:
+The rule and its enforcement are **different types**:
 
-> 🔥 Firewall
+<p align="center"><img src="diagrams/4.svg" alt="The password policy document is an administrative control, a written rule; the system setting that rejects short passwords is a technical control, technology enforcing it" width="620"></p>
 
-You might say:
+> ⚠️ **Security awareness training is administrative** — even though it's about technology. It's
+> delivered through process and changes behaviour.
 
-**Type:** Technical
-**Function:** Preventive
+### Axis two — function
 
-Both answers can be correct.
+The main four read like a timeline:
 
----
+<p align="center"><img src="diagrams/2.svg" alt="Deterrent works before, making them decide not to try; preventive works before, making the attempt fail; detective works during or after, noticing it happened; corrective works after, repairing and restoring" width="760"></p>
 
-## 🎯 Example 1: Firewall
+The home version:
 
-A firewall blocks unauthorized network traffic.
+<p align="center"><img src="diagrams/3.svg" alt="Protecting your home: a beware of the dog sign is deterrent, a locked door is preventive, a recording doorbell camera is detective, and fixing the broken window is corrective" width="620"></p>
 
-**Type?** 💻 **Technical** — Because it uses technology.
+Plus two that sit outside the timeline:
 
-**Function?** 🛑 **Preventive** — Because it blocks the traffic before it reaches the protected
-system.
+- **Directive** — *tells people what to do.* Policies, procedures, "staff only" signs.
+- **Compensating** — *the stand-in.* The right control isn't possible, so you use another that
+  gives comparable protection. Classic case: a legacy system **can't be patched**, so you
+  **segment it and monitor it** instead.
 
-**Answer:** **Technical + Preventive**
+### The two that cause trouble
 
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+- **Deterrent vs preventive.** A deterrent works on the **mind** — they decide not to try. A
+  preventive works on the **situation** — the attempt fails whatever they decide. A "CCTV in
+  operation" sign deters; a locked door prevents.
+- **A visible camera is both** deterrent and detective. Question stresses *conspicuous /
+  signposted* → **deterrent**. Stresses *reviewing footage* → **detective**.
 
-## 🎯 Example 2: Security Camera
-
-A security camera records activity around a building.
-
-**Type?** 🚪 **Physical** — It is part of physical security.
-
-**Function?** 👀 **Detective** — It helps detect/identify activity.
-
-**Answer:** **Physical + Detective**
-
-## 🎯 Example 3: Security Policy
-
-A company creates a policy requiring employees to use MFA.
-
-**Type?** 🧑‍💼 **Managerial** — It's a management/governance control.
-
-**Function?** 🛑 **Preventive** — Its purpose is to reduce unauthorized access before it occurs.
-
-**Answer:** **Managerial + Preventive**
-
-## 🎯 Example 4: Backup
-
-A company keeps backups so it can restore data after ransomware.
-
-**Type?** 💻 **Technical** _(if referring to the technical backup system)_
-
-**Function?** 💾 **Recovery** — It helps restore operations after an incident.
-
-**Answer:** **Technical + Recovery**
-
-But be careful: if the question is specifically about a **backup policy/procedure**, its type
-could be **managerial**. The wording matters.
-
-## 🎯 Example 5: Security Guard
-
-A security guard stands at the entrance.
-
-**Type?** 🚪 **Physical**
-
-**Function?** It depends on the scenario.
-
-If the guard is there mainly to **discourage attackers**: 🚧 **Deterrent**
-
-If the guard **spots unauthorized people**: 👀 **Detective**
-
-If the guard **physically stops someone from entering**: 🛑 **Preventive**
-
-This is why you should focus on **what the control actually does in the scenario**, not just
-memorize a fixed label.
-
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
-
----
-
-## 📊 The Two-Axis Cheat Sheet
+### Both axes together
 
 | Control | Type | Function |
-| --- | --- | --- |
-| 🔥 Firewall blocking traffic | Technical | Preventive |
-| 👀 IDS | Technical | Detective |
-| 📹 Security camera | Physical | Detective |
-| 🚪 Locked door | Physical | Preventive |
-| 👮 Guard discouraging attackers | Physical | Deterrent |
-| 📜 Security policy | Managerial | Preventive |
-| 🎓 Security awareness training | Managerial | Preventive |
-| 🦠 Malware removal | Technical | Corrective |
-| 💾 Backup used after disaster | Technical | Recovery |
-| 🔄 Alternative security mechanism | Varies | Compensating |
+|---|---|---|
+| Firewall | Technical | Preventive |
+| Audit log / IDS | Technical | Detective |
+| Backup and restore | Technical | **Corrective** |
+| Antivirus quarantining a file | Technical | Corrective |
+| Security policy | Administrative | Directive |
+| Awareness training | Administrative | Preventive |
+| Background check | Administrative | Preventive |
+| Access review | Administrative | Detective |
+| Incident response plan | Administrative | Corrective |
+| Sanctions policy | Administrative | Deterrent |
+| Door lock / bollards | Physical | Preventive |
+| CCTV camera | Physical | Detective (deterrent if visible) |
+| Warning sign | Physical | Deterrent |
+| Fire suppression | Physical | Corrective |
+
+> [!IMPORTANT]
+> **Backups are corrective, not preventive.** They don't stop the loss — they repair it. One of the
+> most-missed classifications on the whole exam.
+
+### Defence in depth
+
+Never rely on one control. Layer independent ones — and mix the **types**, because controls of the
+same kind tend to fail for the same reasons:
+
+<p align="center"><img src="diagrams/5.svg" alt="An attacker must get through physical controls like a fence and badge, administrative controls like policy and vetting, and technical controls like a firewall, MFA and encryption before reaching the asset" width="760"></p>
 
 ---
 
-## 🧠 How to Answer Exam Questions
+## ⚖️ Told apart
 
-When they give you a scenario, **do NOT immediately pick one label**.
-
-Ask yourself **two questions**:
-
-**Question 1️⃣** — "What TYPE is this?" Is it: 👑 Managerial? 💻 Technical? 🚪 Physical?
-
-**Question 2️⃣** — "What FUNCTION does it perform?" Is it: 🛑 Preventive? 👀 Detective? 🔧
-Corrective? 🚧 Deterrent? 🔄 Compensating? 💾 Recovery?
-
-Then give **both**.
+| | Means | Not to be confused with |
+|---|---|---|
+| **Technical** | Hardware or software. | **Administrative** — people and process. Policy document vs the setting enforcing it. |
+| **Preventive** | Stops the event. | **Deterrent** — discourages the attempt. Situation vs mind. |
+| **Detective** | Finds out it happened. | **Preventive** — logging detects; a firewall prevents. |
+| **Corrective** | Restores afterwards. | **Preventive** — backups are corrective. |
+| **Compensating** | A **substitute** for an infeasible control. | An *additional* layer for depth. |
+| **Directive** | Instructs behaviour. | **Preventive** — "don't share passwords" directs; blocking shared sessions prevents. |
 
 ---
 
-## 🪨 Ultimate Caveman Trick
+## ⚠️ Where your instinct is wrong
 
-Imagine Grog's cave.
+> [!WARNING]
+> **In the job:** backups save you from ransomware, so they feel protective.
+>
+> **On the exam:** backups are **corrective**. They restore after the loss.
 
-**First ask:** "WHO/WHAT is doing the protecting?"
+> [!WARNING]
+> **In the job:** awareness training is a compliance tick-box.
+>
+> **On the exam:** it's an **administrative, preventive** control — and often the answer to "BEST
+> way to reduce phishing susceptibility".
 
-- 👑 **Rules/management** → Managerial
-- 💻 **Computer/technology** → Technical
-- 🚪 **Physical object/person** → Physical
+> [!WARNING]
+> **In the job:** a camera is a camera.
+>
+> **On the exam:** read the emphasis — visible → **deterrent**; footage reviewed → **detective**.
 
-**Then ask:** "WHAT is it doing?"
+---
 
-- 🛑 **Stop** → Preventive
-- 👀 **Find** → Detective
-- 🔧 **Fix** → Corrective
-- 🚧 **Scare away** → Deterrent
-- 🔄 **Alternative** → Compensating
-- 💾 **Restore** → Recovery
+## 🧠 How to remember it
 
-### 🎯 Exam formula
+**Two questions: "What is it?" (type) and "What does it do?" (function).**
 
-> **Security Control = TYPE + FUNCTION**
+**TAP** for types: **T**echnical · **A**dministrative · **P**hysical.
 
-For example:
+**The function timeline:** *discourage → stop → notice → fix.*
 
-> 🔥 **Firewall = Technical + Preventive**
+**Backups fix, they don't stop.**
 
-> 📹 **Security camera = Physical + Detective**
+---
 
-> 📜 **Security policy = Managerial + Preventive**
+## ✅ Check you actually got it
 
-If you remember **"What is it?" + "What does it do?"**, you'll be able to classify most exam
-scenarios.
+Answer all five before expanding anything.
+
+**Q1.** An organisation performs nightly backups of its file servers. How is this control
+classified by function?
+
+- **A.** Preventive
+- **B.** Detective
+- **C.** Corrective
+- **D.** Deterrent
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C — corrective.** Backups restore after loss; they don't stop it.
+
+- **A** — the most common wrong answer. Holding a copy doesn't stop the deletion or ransomware.
+- **B** — something else detects the incident; backups are what you reach for after.
+- **D** — attackers aren't discouraged by backups they don't know about.
+
+</details>
+
+**Q2.** A company publishes a policy requiring staff to lock their workstations when leaving
+their desk. How is this control classified by **type**?
+
+- **A.** Technical
+- **B.** Administrative
+- **C.** Physical
+- **D.** Compensating
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — administrative.** It's a documented rule implemented through behaviour.
+
+- **A** would be the auto-lock *setting* enforcing it.
+- **C** would be something tangible, like a door lock.
+- **D** is a *function*, not a type — the classic axis mix-up.
+
+</details>
+
+**Q3.** A legacy application can't be patched because the vendor no longer supports it. The
+organisation isolates it on a dedicated segment with enhanced monitoring. What kind of control
+is the segmentation?
+
+- **A.** Preventive
+- **B.** Compensating
+- **C.** Corrective
+- **D.** Directive
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — compensating.** Patching isn't feasible, so an alternative gives comparable protection.
+
+- **A** is defensible alone, but the stem frames it as a **substitute** — the signal for
+  compensating.
+- **C** — nothing is being restored.
+- **D** — no behaviour is mandated.
+
+</details>
+
+**Q4.** Which classifies a visible CCTV camera with prominent warning signage?
+
+- **A.** Technical type, preventive function
+- **B.** Physical type, corrective function
+- **C.** Physical type, deterrent and detective function
+- **D.** Administrative type, directive function
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C.** A tangible device (physical); conspicuous so it deters; recording so it detects.
+
+- **A** — wrong type, and a camera doesn't block anything.
+- **B** — right type, wrong function.
+- **D** — wrong on both axes.
+
+</details>
+
+**Q5.** Which is an administrative control with a **preventive** function?
+
+- **A.** An intrusion detection system
+- **B.** Pre-employment background screening
+- **C.** A fire suppression system
+- **D.** A quarterly review of user access rights
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.** A human process that stops an unsuitable person getting a position of trust.
+
+- **A** — technical, detective.
+- **C** — physical, corrective.
+- **D** — administrative, but **detective**: it finds bad access that already exists.
+
+</details>
+
+---
+
+## 🎓 The grown-up version
+
+<details>
+<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
+
+**The taxonomy is a teaching device.** A security guard prevents, deters, detects and responds.
+Exam stems resolve this by stressing one aspect — so read what the question emphasises. The real
+value is gap analysis: "do we have anything *detective* here, or only preventive?"
+
+**NIST words it differently** — technical, operational and management — where CC uses technical,
+physical and administrative.
+
+**Compensating controls are formal under PCI DSS**: documented justification, must meet the intent
+and rigour of the original requirement, validated by an assessor. Not just "we did something
+else".
+
+**Defence in depth inside the technical layer:** perimeter firewall → WAF → IDS/IPS → internal
+segmentation → EDR → encryption at rest. Each layer fails *differently* from its neighbours.
+
+**Existing isn't operating.** A camera not recording or a log nobody reviews is a control on paper
+only.
+
+</details>
+
+---
+
+## 📝 Cram lines
+
+Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
+
+- **Two axes:** TYPE (technical / administrative / physical) and FUNCTION (deterrent / preventive / detective / corrective / directive / compensating).
+- **Backups = CORRECTIVE.** Awareness training = **administrative, preventive**.
+- **Policy document = administrative; the setting enforcing it = technical.**
+- **Visible camera = deterrent; reviewing footage = detective.**
+- **Compensating = substitute** when the right control (e.g. patching) isn't possible.
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← Back to 01 · Security Principles</a></sub>
+<sub><a href="../README.md">← back to 01 · Security Principles</a> &nbsp;·&nbsp; <a href="../governance-documents/">next: Governance documents →</a></sub>
 </div>

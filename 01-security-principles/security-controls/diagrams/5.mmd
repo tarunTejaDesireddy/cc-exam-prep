@@ -1,0 +1,11 @@
+flowchart LR
+    A["Attacker"] --> L1["PHYSICAL<br/>fence, badge, lock"]
+    L1 --> L2["ADMINISTRATIVE<br/>policy, vetting,<br/>training"]
+    L2 --> L3["TECHNICAL<br/>firewall, MFA,<br/>encryption"]
+    L3 --> D["The asset"]
+
+    style A fill:#3a1a20,stroke:#E03131,color:#fff
+    style L1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style L2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style L3 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style D fill:#0f3038,stroke:#12B5A5,color:#fff
