@@ -1,320 +1,243 @@
 <div align="center">
 
-<img src="assets/grc-fundamentals-banner.svg" alt="GRC Fundamentals — governance, risk, and compliance as one program" width="100%">
+<img src="../assets/module-02-banner.svg" alt="02 · Security Governance" width="100%">
 
-# 🏛️ GRC Fundamentals — Caveman Style
+# 🏛️ GRC Fundamentals
 
-[![Module](https://img.shields.io/badge/Module-02_Security_Governance-0d2b33?style=for-the-badge&labelColor=07171c)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain_2-17.3%25-12B5A5?style=for-the-badge&labelColor=0f3038)](../README.md)
+### *Governance sets it, risk management protects it, compliance proves it*
 
-[![Governance](https://img.shields.io/badge/🏛️-Governance-5C7CFA?style=flat-square&labelColor=12243f)](#-1-governance--what-are-our-rules)
-[![Risk](https://img.shields.io/badge/⚠️-Risk-E03131?style=flat-square&labelColor=3a1a20)](#-2-risk--what-could-go-wrong)
-[![Compliance](https://img.shields.io/badge/⚖️-Compliance-2F9E44?style=flat-square&labelColor=1d3a2a)](#-3-compliance--are-we-following-the-rules)
+[![Module](https://img.shields.io/badge/Module-02_Security_Governance-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-2%20·%2017.3%25-5C7CFA?style=flat-square)](../README.md)
+[![Read](https://img.shields.io/badge/Read-~8%20min-57606A?style=flat-square)](#)
+
+📌 *Know what each of the three does, why they're run as ONE programme, and recognise COBIT / NIST CSF / ISO / CIS and GRC tools.*
 
 </div>
 
 ---
 
-**GRC** stands for:
+## 🧸 The big idea
 
-- **G** = Governance
-- **R** = Risk
-- **C** = Compliance
+Think of a restaurant:
 
-The important exam idea is:
+- The **owner** decides what standard the restaurant must meet and who's responsible for it. That's
+  **governance** — setting direction and accountability.
+- The **manager** spots that undercooked chicken could make customers sick, and adds temperature
+  checks. That's **risk management** — finding what threatens the goals and treating it.
+- The **health inspector** checks the fridge temperatures are actually being logged. That's
+  **compliance** — proving, with evidence, the rules are really being followed.
 
-> **Governance, Risk, and Compliance are connected, so organizations manage them together as one
-> coordinated program.**
+<p align="center"><img src="diagrams/1.svg" alt="Governance sets direction, as the owner deciding the standards to meet; risk management treats threats to it, as the manager spotting a hygiene risk and adding checks; compliance proves it happens, as the inspector checking fridge temperatures; findings feed back into governance" width="760"></p>
 
-Think of Grog's tribe. 🪨
-
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
-
----
-
-## 🏛️ 1. Governance — "What are our rules?"
-
-Governance is about direction, leadership, policies, responsibilities, and decision-making.
-
-The tribe leader says:
-
-> 🗣️ "We must protect our food, people, and cave."
-
-The leader establishes:
-
-- Rules
-- Policies
-- Responsibilities
-- Security objectives
-- Decision-making authority
-
-### Simple definition
-
-> **Governance = How the organization is directed and controlled.**
+**GRC = Governance, Risk and Compliance** — three activities run together because each constantly
+feeds the others.
 
 ---
 
-## ⚠️ 2. Risk — "What could go wrong?"
+## 📖 Words you will keep seeing
 
-Once the tribe has its goals, it asks:
-
-> 🧐 "What could stop us from achieving them?"
-
-Grog discovers:
-
-- 🕳️ A hole in the cave
-- 🐻 A dangerous bear nearby
-- 🔥 Fire could destroy the food
-- 👹 Another tribe could attack
-
-Those are risks.
-
-The tribe then decides:
-
-> "Which risks matter most, and what should we do about them?"
-
-### Simple definition
-
-> **Risk = Identifying and managing things that could prevent the organization from achieving its
-> objectives.**
+| Word | What it means on this exam |
+|---|---|
+| **Governance** | The system of direction and accountability — who decides, who's answerable, how decisions get made. |
+| **Risk management** | The ongoing process of identifying, assessing and treating risk. |
+| **Compliance** | Demonstrating that the organisation meets its legal, regulatory, contractual and internal obligations. |
+| **GRC framework** | A published approach for running GRC — e.g. **COBIT** (IT governance), **NIST CSF** (cybersecurity risk). |
+| **GRC tool / platform** | Software that tracks controls, risks, policies and compliance evidence in one place. |
+| **Audit** | An **independent** check of whether obligations and controls are really being met. |
 
 ---
 
-## ⚖️ 3. Compliance — "Are we following the rules?"
+## 🔍 The explanation
 
-Now imagine the tribe has agreed to certain rules.
+### Why one programme, not three
 
-The chief says:
+Run separately, the three trip over each other — the same evidence is requested again and again,
+and controls appear that nobody in charge ever approved:
 
-> "Everyone must protect the food storage."
+<p align="center"><img src="diagrams/3.svg" alt="Run as three silos, the same evidence is requested four times and controls appear that nobody approved; run as one GRC programme, evidence is collected once and reused, and every control traces to a governance decision" width="620"></p>
 
-An outside tribal council also has a rule:
+Run together:
 
-> "Every tribe must maintain safe food storage."
+- **Governance** sets the policies and the risk appetite.
+- **Risk management** finds what threatens those objectives and decides how to treat it.
+- **Compliance** confirms, with evidence, that the agreed controls are actually operating.
 
-Grog needs to make sure the tribe follows those requirements.
+### Frameworks and tools
 
-That's compliance.
+You don't need to implement a GRC programme for CC — only to recognise the names:
 
-In an organization, compliance can involve:
+| Name | What it's for |
+|---|---|
+| **COBIT** | Governance and management of enterprise IT |
+| **NIST CSF** | Managing cybersecurity risk |
+| **ISO/IEC 27001** | Requirements for an information security management system |
+| **CIS Controls / Benchmarks** | Prioritised safeguards and platform hardening guides |
 
-- Laws
-- Regulations
-- Contracts
-- Industry requirements
-- Internal policies
-- Standards
+A **GRC tool** replaces scattered spreadsheets. Its big win: **one control can count as evidence for
+many frameworks at once**:
 
-### Simple definition
+<p align="center"><img src="diagrams/2.svg" alt="One control, MFA enforced on every admin account, satisfies requirements in SOC 2, ISO 27001, PCI DSS and NIST CSF at the same time" width="640"></p>
 
-> **Compliance = Meeting applicable requirements.**
-
----
-
-## 🔗 Why do they work together?
-
-This is the most important part.
-
-Imagine they operate separately.
-
-**Governance without Risk** — The chief creates rules: "Protect the cave!" But nobody asks: "What
-are the biggest dangers?" ❌ The organization might protect the wrong things.
-
-**Risk without Governance** — Grog identifies 100 risks. But nobody has authority to decide:
-"Which ones should we fix first?" ❌ There is no direction or accountability.
-
-**Compliance without Governance or Risk** — Grog follows hundreds of rules. But he doesn't
-consider which risks actually threaten the tribe. ❌ He may spend huge amounts of resources simply
-checking boxes.
-
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+Collect the evidence once, and it's reused for every audit that asks.
 
 ---
 
-## 🧩 Put them together
+## ⚖️ Told apart
 
-GRC creates a cycle:
-
-> 🏛️ Governance → sets direction
-> ↓
-> ⚠️ Risk → identifies and prioritizes threats
-> ↓
-> ⚖️ Compliance → ensures requirements are met
-> ↓
-> 📊 Results/reporting → inform management
-> ↓
-> 🏛️ Governance → adjusts direction
-
-And the cycle continues.
-
-## 🪨 Caveman Example
-
-Suppose the tribe stores 100 pieces of meat in its cave.
-
-**🏛️ Governance** — The chief says: "Protect our food supply." That's the organization's
-objective and direction.
-
-**⚠️ Risk** — Grog discovers: 🔥 Fire could destroy the food. He determines: "High likelihood +
-high impact = High risk."
-
-**🛡️ Treatment** — The tribe installs a safer fire area and separates the food from the fire.
-
-**⚖️ Compliance** — The tribe also has a rule requiring food to be stored safely. Grog checks:
-"Are we following the required food-storage rules?"
-
-**📊 Governance gets the results** — The chief receives a report: "Food-storage risk has been
-reduced and required rules are being followed." The chief can now make better decisions.
-
-That's GRC working as one program.
-
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+| | Means | Not to be confused with |
+|---|---|---|
+| **Governance** | **Decides** direction and accountability. | **Compliance** — **verifies** the direction is followed. |
+| **GRC programme** | The organisational programme, its frameworks and tools. | **Governance documents** — the policies, standards and procedures the programme produces. |
+| **Audit** | Is a specific obligation actually being met? | **Risk assessment** — what *could* go wrong? |
 
 ---
 
-## 🏢 Real-World Cybersecurity Example
+## ⚠️ Where your instinct is wrong
 
-Imagine a company stores customer information.
-
-**🏛️ Governance** — Management says: "Customer information must be protected." They establish:
-
-- Security policies
-- Responsibilities
-- Security objectives
-- Risk appetite
-
-**⚠️ Risk** — The security team identifies: "Customer data could be stolen through a vulnerable
-web application." They assess:
-
-- Likelihood
-- Impact
-- Existing controls
-
-They determine: 🔴 High risk. Management decides to prioritize fixing it.
-
-**⚖️ Compliance** — The company also has legal, regulatory, contractual, or internal requirements
-for protecting customer information. The organization checks: "Are we meeting the requirements
-that apply to us?"
-
-**🔄 Together** — Management can now see:
-
-- What are we trying to achieve? 🏛️ Governance
-- What could prevent us from achieving it? ⚠️ Risk
-- Are we meeting our obligations? ⚖️ Compliance
-
-This gives management a complete picture.
-
----
-
-## 🎯 Why run them as ONE programme?
-
-There are several important reasons.
-
-### 1 · 🔗 They use the same information
-
-A risk assessment can reveal that a particular legal requirement is difficult to meet.
-
-That information should go to governance.
-
-Governance can then decide what resources or changes are needed.
-
-### 2 · 💰 Avoid duplicated work
-
-Without coordination, different teams might separately:
-
-- Assess the same risk
-- Test the same control
-- Collect the same evidence
-- Produce separate reports
-
-GRC combines these activities where appropriate.
-
-### 3 · 🎯 Align security with business goals
-
-Security shouldn't exist just to create more security rules.
-
-GRC helps connect:
-
-> **Business objectives → Risks → Controls → Compliance**
-
-### 4 · 👑 Clear accountability
-
-GRC helps establish:
-
-> **Who is responsible for the decision?**
-
-For example:
-
-- Management → governance
-- Risk owner → risk decisions
-- Compliance team → compliance monitoring
-- Security team → security controls
-
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-### 5 · 📊 Better decision-making
-
-Management can see:
-
-> "Here are our objectives."
-> "Here are our biggest risks."
-> "Here are our compliance obligations."
-> "Here are our controls."
-
-Now management can make informed decisions about:
-
-- 💰 Budget
-- 🛡️ Security controls
-- ⚠️ Risk acceptance
-- 📋 Policies
-- 👥 Staffing
-- 🔧 Improvements
-
----
-
-## 🧠 The Ultimate GRC Memory Trick
-
-Imagine the tribe leader asking three questions:
-
-> [!NOTE]
-> **🏛️ GOVERNANCE** — "WHAT are we trying to achieve, and WHO makes the rules?"
+> [!WARNING]
+> **In the job:** governance, risk and compliance feel like three teams with three deadlines and
+> three sets of evidence requests.
 >
-> **⚠️ RISK** — "WHAT could go wrong?"
->
-> **⚖️ COMPLIANCE** — "ARE we following the rules and requirements?"
-
-Put them together:
-
-- 🏛️ **Governance** = Direction
-- ⚠️ **Risk** = Uncertainty/threats
-- ⚖️ **Compliance** = Requirements
+> **On the exam:** that fragmentation is the **problem**. If a question describes duplicated evidence
+> requests or misaligned priorities, the answer is usually "**integrate the GRC programme**" — not
+> "add staff to each silo".
 
 ---
 
-## 🎯 Exam-Ready Answer
+## 🧠 How to remember it
 
-If the exam asks:
+**"Set it, risk it, prove it."** Governance sets, risk management treats, compliance proves.
 
-> "Why do governance, risk, and compliance run as one program?"
+**Governance decides; compliance verifies.**
 
-A strong answer is:
+---
 
-> **GRC is managed as one coordinated program because governance establishes organizational
-> objectives and accountability, risk management identifies and prioritizes threats to those
-> objectives, and compliance ensures applicable laws, regulations, standards, contracts, and
-> internal requirements are met. Integrating them reduces duplicated effort, improves visibility
-> and accountability, aligns security activities with business objectives, and enables better
-> risk-based decision-making.**
+## ✅ Check you actually got it
 
-**Caveman version:**
+Answer all five before expanding anything.
 
-> 🪨 Governance says where the tribe is going.
-> Risk says what could hurt the tribe.
-> Compliance says whether the tribe is following the rules.
->
-> Together, they help the tribe make good decisions and stay protected.
+**Q1.** What is the PRIMARY purpose of running governance, risk and compliance as one integrated
+programme?
+
+- **A.** To reduce the total number of staff required
+- **B.** To ensure direction-setting, risk treatment and verification stay aligned rather than duplicating effort
+- **C.** To eliminate the need for external audits
+- **D.** To transfer accountability entirely to the compliance team
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.** Integration prevents duplicated evidence requests and misaligned priorities.
+
+- **A** may be a side effect, not the purpose.
+- **C** — audits still happen; GRC organises them.
+- **D** — accountability stays distributed.
+
+</details>
+
+**Q2.** Which best describes the relationship between governance and compliance?
+
+- **A.** They are the same activity under different names
+- **B.** Governance sets direction; compliance verifies that direction is being followed
+- **C.** Compliance sets direction; governance verifies it
+- **D.** They are unrelated activities that happen to share a department
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.**
+
+- **A** collapses the distinction.
+- **C** reverses it.
+- **D** ignores why GRC is integrated at all.
+
+</details>
+
+**Q3.** A GRC tool is best described as:
+
+- **A.** A firewall configuration management system
+- **B.** Software used to centrally track controls, risks, policies and compliance evidence
+- **C.** A single mandatory framework required by ISC2
+- **D.** An automated risk-treatment decision engine
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.**
+
+- **A** is a network security tool.
+- **C** — no single mandatory framework exists.
+- **D** — the tool tracks and reports; treatment decisions stay human.
+
+</details>
+
+**Q4.** Which is a governance/IT framework an organisation might adopt in its GRC programme?
+
+- **A.** COBIT
+- **B.** SAST
+- **C.** RAID
+- **D.** VLAN
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A — COBIT.**
+
+- **B** is application security testing.
+- **C** is storage redundancy.
+- **D** is network segmentation.
+
+</details>
+
+**Q5.** Audits keep finding that risk assessments introduce controls governance never formally
+approved. What does this MOST likely indicate?
+
+- **A.** The compliance function is unnecessary
+- **B.** Governance, risk and compliance are not adequately integrated
+- **C.** The risk assessments are invalid and should be discarded
+- **D.** The organisation should stop performing audits
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.** Exactly the failure GRC integration prevents.
+
+- **A** and **D** throw away the mechanism that found the problem.
+- **C** blames the diagnostic instead of the misalignment it revealed.
+
+</details>
+
+---
+
+## 🎓 The grown-up version
+
+<details>
+<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
+
+**Why GRC platforms exist.** As controls, policies, risks and evidence grow — and several
+regulations apply at once with overlapping requirements — spreadsheets break. Platforms
+(ServiceNow GRC, Archer, Vanta, Drata) cross-map each control to every framework it satisfies.
+
+**Three lines of defence.** Operational management owns risk day to day (first line); risk and
+compliance functions oversee and set policy (second line); internal audit gives independent
+assurance (third line). It explains why audit is kept organisationally separate from the teams it
+reviews.
+
+</details>
+
+---
+
+## 📝 Cram lines
+
+Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
+
+- **GRC = Governance, Risk, Compliance** — run as one programme, not three silos.
+- **Governance SETS direction. Risk TREATS threats to it. Compliance PROVES it's happening.**
+- **Frameworks:** COBIT (IT governance), NIST CSF (risk), ISO 27001, CIS.
+- **A GRC tool** centrally tracks controls, risks, policies and evidence — one control, many frameworks.
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← Back to 02 · Security Governance</a></sub>
+<sub><a href="../README.md">← back to 02 · Security Governance</a> &nbsp;·&nbsp; <a href="../business-impact-analysis/">next: Business impact analysis →</a></sub>
 </div>

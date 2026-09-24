@@ -1,0 +1,16 @@
+flowchart TD
+    subgraph SILO["RUN AS THREE SILOS"]
+        S1["Same evidence<br/>requested 4 times"]
+        S2["Controls nobody<br/>ever approved"]
+    end
+    subgraph INT["RUN AS ONE GRC PROGRAMME"]
+        I1["Evidence collected once,<br/>reused everywhere"]
+        I2["Every control traces<br/>to a governance decision"]
+    end
+
+    style SILO fill:#161b22,stroke:#E03131,color:#fff
+    style INT fill:#161b22,stroke:#2F9E44,color:#fff
+    style S1 fill:#3a1a20,stroke:#E03131,color:#fff
+    style S2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style I1 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style I2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
