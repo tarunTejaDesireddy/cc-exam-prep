@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph AT["QUANTUM COMPUTER BREAKS"]
+        direction LR
+        A1["Public-key (asymmetric):<br/>RSA, elliptic curve"] --> A2["BROKEN<br/>replace the algorithm"]
+    end
+    subgraph OK["QUANTUM COMPUTER BARELY DENTS"]
+        direction LR
+        B1["Symmetric: AES"] --> B2["Still fine<br/>just use a longer key"]
+    end
+    AT ~~~ OK
+
+    style A1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A2 fill:#3a1a20,stroke:#E03131,color:#fff
+    style B1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style B2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style AT fill:#161b22,stroke:#30363d,color:#e6edf3
+    style OK fill:#161b22,stroke:#30363d,color:#e6edf3
