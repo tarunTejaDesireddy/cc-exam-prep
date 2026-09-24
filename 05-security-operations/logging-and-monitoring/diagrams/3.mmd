@@ -1,0 +1,9 @@
+flowchart LR
+    I["The internet"] -->|"INGRESS<br/>attacks coming IN"| N["Your network"]
+    N -->|"EGRESS<br/>DATA GOING OUT<br/>theft, C2 callbacks"| O["The internet"]
+
+    style I fill:#26292e,stroke:#868E96,color:#fff
+    style N fill:#12243f,stroke:#5C7CFA,color:#fff
+    style O fill:#26292e,stroke:#868E96,color:#fff
+    linkStyle 0 stroke:#2F9E44
+    linkStyle 1 stroke:#E03131

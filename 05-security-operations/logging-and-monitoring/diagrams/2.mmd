@@ -1,0 +1,13 @@
+flowchart LR
+    S1["Servers"] --> C["CENTRAL LOG STORE<br/>an attacker on one box<br/>can't edit it here"]
+    S2["Network devices"] --> C
+    S3["Endpoints"] --> C
+    S4["Cloud services"] --> C
+    C --> SI["SIEM<br/>correlates across sources<br/>and ALERTS"]
+
+    style S1 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S3 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style S4 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C fill:#0f3038,stroke:#12B5A5,color:#fff
+    style SI fill:#3a2c12,stroke:#F08C00,color:#fff
