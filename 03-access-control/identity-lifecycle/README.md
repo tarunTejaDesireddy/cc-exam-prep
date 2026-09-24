@@ -1,591 +1,293 @@
 <div align="center">
 
-<img src="../assets/module-03-banner.svg" alt="03 · Access Control Concepts" width="100%">
+<img src="../assets/module-03-banner.svg" alt="03 · IAM Concepts" width="100%">
 
-# 👤 Identity Lifecycle — Joiner, Mover, Leaver
+# 🔄 Identity Lifecycle
 
-### *Joiner, mover, leaver — and the stage almost everybody gets wrong*
+### *Joiner, mover, leaver — and why the middle one is where it breaks*
 
-[![Module](https://img.shields.io/badge/Module-03_Access_Control-0d2b33?style=flat-square)](../README.md)
+[![Module](https://img.shields.io/badge/Module-03_IAM_Concepts-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-3%20·%2020%25-5C7CFA?style=flat-square)](../README.md)
-[![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
+[![Read](https://img.shields.io/badge/Read-~12%20min-57606A?style=flat-square)](#)
 
-📌 *Access has a beginning, a middle and an end. The middle is where privilege creep happens and the end is where orphaned accounts come from.*
+📌 *Know the three JML stages, why movers cause privilege creep, how leavers are handled, and who reviews access.*
 
 </div>
 
 ---
 
-Think of an employee's identity as going through a **life cycle**:
+## 🧸 The big idea
 
-> 🟢 **Joiner → 🔄 Mover → 🔴 Leaver**
+A student joins a school and gets a card that opens the library and the **Year 7 classroom**
+(**joiner**). A year later they move up — the card now opens **Year 8**, but nobody removes Year 7
+(**mover**). When they graduate, the card still opens the building unless someone cancels it
+(**leaver**).
 
-The security goal is:
+An identity has a life: it's **created**, it **changes**, and it must eventually be **removed**.
 
-> **Give the right access when needed, change it when the job changes, and remove it when the person leaves.**
+<p align="center"><img src="diagrams/1.svg" alt="Joiner creates the identity and grants role access, usually done well; mover grants new access and must revoke the old, usually done badly; leaver disables promptly everywhere and is dangerous if missed" width="780"></p>
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
-
----
-
-# 🟢 1. JOINER — "New person arrives"
-
-Grog joins the tribe. 🪨
-
-The organization needs to create his identity and give him the access required for his job.
-
-### Typical process
-
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
-
-### Example
-
-Sarah joins as an accountant.
-
-She may receive:
-
-- 👤 Corporate identity/account
-- 📧 Email
-- 💻 Laptop
-- 🔐 MFA
-- 💰 Finance application access
-- 📁 Appropriate file access
-
-But she shouldn't automatically receive:
-
-> ❌ Domain administrator<br>
-> ❌ HR administrator<br>
-> ❌ Database administrator
-
-That's **least privilege**.
+> 🎯 **The mover stage is where it breaks** — and it's the answer to "where does privilege creep
+> come from?" The failure isn't granting the new access; it's **not revoking the old**.
 
 ---
 
-# 🧰 Frameworks/tools involved in Joiner
+## 📖 Words you will keep seeing
 
-The exact tools vary by organization, but know these categories:
-
-### 👥 HR system
-
-The **HR system** is commonly the source of employee information.
-
-> "Sarah has joined the company."
-
-### 🔐 Identity and Access Management — IAM
-
-IAM manages identities and access.
-
-It can handle:
-
-- Account creation
-- Authentication
-- Authorization
-- Access assignment
-
-### 🔄 Identity Governance / IGA
-
-**IGA (Identity Governance and Administration)** helps govern:
-
-- Who has access
-- Why they have access
-- Access requests
-- Approvals
-- Reviews
-- Provisioning/deprovisioning
-
-### 🔗 Directory services
-
-Examples include:
-
-- **Microsoft Active Directory**
-- **Microsoft Entra ID**
-- LDAP-based directories
-
-These can store identities and support authentication/authorization.
-
-### ⚙️ Provisioning
-
-Automated provisioning can create accounts and assign access when the HR system says someone has joined.
-
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
+| Word | What it means on this exam |
+|---|---|
+| **Provisioning** | Creating an identity and granting its initial access. |
+| **Deprovisioning** | Removing access and disabling or deleting the identity. |
+| **Joiner / mover / leaver (JML)** | The three lifecycle stages. |
+| **Orphaned account** | Active account with **no valid owner** — a leaver never disabled. |
+| **Dormant account** | Account **with an owner**, unused for a long time. |
+| **Privilege creep** | Access piling up across role changes. |
+| **Access review / recertification** | Periodically confirming held access is still appropriate. |
+| **Authoritative source** | The system of record for who works here — usually **HR**. |
+| **IGA** | Identity Governance and Administration — platforms automating provisioning, reviews and deprovisioning. |
 
 ---
 
-# 💥 What goes wrong with Joiners?
+## 🔍 The explanation
 
-### ❌ Account never created
+### 🆕 Joiner — grant what the role needs
 
-Sarah can't work.
+| Do | Don't |
+|---|---|
+| Provision from the **role definition** | **Copy an existing user's access** |
+| Apply least privilege from day one | Grant broadly "so they can get started" |
+| Trigger from HR (the authoritative source) | Rely on a manager emailing IT |
+| Record who approved the access | Grant informally |
 
-### ❌ Wrong access
+> ⚠️ **Cloning a colleague's access spreads their privilege creep** — and it compounds with every
+> clone.
 
-Sarah gets access to systems she doesn't need.
+### 🔀 Mover — two actions, only one of them urgent
 
-> **Security problem: excessive privilege**
+<p align="center"><img src="diagrams/2.svg" alt="On a role change from finance to marketing, granting marketing access always happens because they need it to work, but revoking finance access is often forgotten because nothing breaks if it stays, and skipping it causes privilege creep" width="760"></p>
 
-### ❌ Missing access
+It's a **segregation of duties** problem too: someone who moves from *requesting* payments to
+*approving* them, and keeps both, can now complete a fraudulent payment alone.
 
-Sarah can't perform her actual job.
+### 🚪 Leaver — promptly, everywhere, disable first
 
-> **Business/availability problem**
+<p align="center"><img src="diagrams/3.svg" alt="For a leaver, first disable the account on the last day without deleting it, then cover every system including cloud apps and third parties, then recover badges, keys, devices and tokens, then transfer ownership of their data, and delete later once the audit trail is preserved" width="880"></p>
 
-### ❌ No MFA
+> [!IMPORTANT]
+> **Hostile or high-risk departure → remove access BEFORE or DURING notification**, not after. The
+> riskiest moment is the instant they learn of the decision.
 
-Her account may be easier to compromise.
+> ⚠️ **Disable first, delete later.** Deleting straight away can destroy the audit trail and orphan
+> the person's data.
 
-### ❌ Manual mistakes
+### Orphaned and dormant accounts
 
-Someone accidentally gives Sarah:
+<p align="center"><img src="diagrams/4.svg" alt="An orphaned account has no valid owner because a leaver was never disabled; a dormant account has an owner but is unused for months; both are unwatched so an attacker can use them unnoticed, and the access review finds both" width="720"></p>
 
-> 👑 Administrator access
+### Access reviews
 
-when she only needs:
+| | |
+|---|---|
+| **Who does it** | The **manager or data owner** — someone who knows what the person actually does |
+| **What it finds** | Privilege creep, orphaned and dormant accounts, bad grants |
+| **How often** | Periodically; **more often for privileged access** |
+| **Function** | **Detective** — it finds access that already exists |
 
-> 💰 Finance access.
+> ⚠️ **Not IT, not the user.** IT knows what access *exists*, not whether it's still *warranted* —
+> and would be judging its own grants. Users can't judge their own access objectively.
 
-### 🧠 Joiner problem
+### Automation: drive it from HR
 
-> **"New person gets NO access or TOO MUCH access."**
+Once there's real headcount, JML runs from the **HR system** through a **central directory** out to
+every application — so a leaver's last day starts deprovisioning automatically:
 
----
-
-# 🔄 2. MOVER — "Person changes job"
-
-Now Sarah changes from:
-
-> 💰 Accountant
-
-to:
-
-> 👩‍💼 HR manager
-
-This is a **mover**.
-
-The important thing is:
-
-> **Her old access must be changed to match her new job.**
-
----
-
-# 🪨 Mover Process
-
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
-For example:
-
-### Before
-
-Sarah has:
-
-> 💰 Finance application access
-
-### After
-
-She needs:
-
-> 👥 HR application access
-
-So:
-
-> ❌ Remove unnecessary Finance access
-
-> ✅ Add required HR access
+<p align="center"><img src="diagrams/5.svg" alt="The HR system, as the authoritative source, records that Sara left today; the central directory or identity provider pushes that change to email, chat, the CRM and code repositories" width="640"></p>
 
 ---
 
-# ⚠️ The Big Mover Problem
+## ⚖️ Told apart
 
-This is called **privilege accumulation** or **permission creep**.
-
-Sarah changes jobs several times:
-
-<p align="center"><img src="diagrams/5.svg" alt="diagram" width="500"></p>
-
-If nobody removes old permissions:
-
-> Finance access + HR access + Project access
-
-Eventually Sarah has far more access than she needs.
-
-😬
-
-That's dangerous.
+| | Means | Not to be confused with |
+|---|---|---|
+| **Provisioning** | Creating and granting. | **Deprovisioning** — removing at departure. |
+| **Mover** | Grant new **and revoke old**. | **Joiner** — only grants. |
+| **Privilege creep** | Rights piling up (admin failure). | **Privilege escalation** — an attack. |
+| **Orphaned** | **No** valid owner. | **Dormant** — has an owner, just unused. |
+| **Disable** | Access stops; history stays. | **Delete** — can destroy the audit trail. |
+| **Access review** | **Detective** — finds existing bad access. | **Provisioning approval** — preventive, at grant time. |
 
 ---
 
-# 🧠 Mover Exam Clue
+## ⚠️ Where your instinct is wrong
 
-If you see:
+> [!WARNING]
+> **In the job:** on a transfer you add the new access and leave the old — removing it might break a
+> handover.
+>
+> **On the exam:** **the mover stage must revoke the old access.** Keeping it is privilege creep.
 
-> "Employee changes department."
+> [!WARNING]
+> **In the job:** offboarding happens when HR's weekly report reaches IT.
+>
+> **On the exam:** remove access **promptly** — and for a hostile departure, **before or during**
+> notification.
 
-> "Employee changes role."
-
-> "Employee gets promoted."
-
-> "Employee transfers to another team."
-
-Think:
-
-> 🔄 **MOVER**
-
-Then ask:
-
-> **"Was the old access removed?"**
-
----
-
-# 🔴 3. LEAVER — "Person leaves"
-
-Now Sarah leaves the company.
-
-This is the most important security transition.
-
-The organization needs to:
-
-> **Disable/revoke her access promptly.**
+> [!WARNING]
+> **In the job:** deleting a leaver's account is tidy.
+>
+> **On the exam:** **disable first.**
 
 ---
 
-# 🪨 Leaver Process
+## 🧠 How to remember it
 
-<p align="center"><img src="diagrams/6.svg" alt="diagram" width="500"></p>
+**Joiner · Mover · Leaver — the middle one fails.**
 
-Depending on the organization, this can include:
+**A move is two actions: add AND remove.** Only one is ever urgent.
 
-- Disable account
-- Revoke sessions
-- Revoke tokens
-- Remove group memberships
-- Revoke application access
-- Recover laptop
-- Recover badges
-- Change shared/privileged credentials if necessary
-- Preserve required records
+**Orphaned has no owner. Dormant has an owner who isn't looking.**
+
+**Disable, then delete.**
 
 ---
 
-# 💥 What goes wrong with Leavers?
+## ✅ Check you actually got it
 
-This is called an **orphaned account** when an account remains active after the user should no longer have access.
+Answer all five before expanding anything.
 
-Imagine:
+**Q1.** An employee transfers from finance to marketing. Their finance access isn't removed. What
+is the PRIMARY risk?
 
-> Sarah leaves on Monday.
-
-But her account remains active until Friday.
-
-That's:
-
-> 🚨 **Unauthorized access opportunity**
-
-An attacker could potentially use the account if the credentials were compromised.
-
----
-
-# ⚠️ Other Leaver Problems
-
-### ❌ Account not disabled
-
-Former employee can potentially authenticate.
-
-### ❌ Sessions remain active
-
-The account may be disabled, but existing sessions/tokens might need separate revocation depending on the system.
-
-### ❌ VPN access remains
-
-Former employee still has remote access.
-
-### ❌ Cloud access remains
-
-Former employee still has access to cloud applications.
-
-### ❌ Physical badge remains active
-
-Former employee can still enter the building.
-
-### ❌ Privileged credentials aren't handled
-
-Former administrator may still know sensitive credentials.
-
----
-
-# 🔗 The Three Stages Together
-
-Think:
-
-```
-🟢 JOINER
-   ↓
-"Give the right access."
-   ↓
-🔄 MOVER
-   ↓
-"Change the access."
-   ↓
-🔴 LEAVER
-   ↓
-"Remove the access."
-```
-
-### 🧠 Perfect memory:
-
-> **Joiner = Provision**
-
-> **Mover = Modify**
-
-> **Leaver = Deprovision**
-
----
-
-# 🧰 Frameworks & Tools You Should Know
-
-The exact products aren't universal, but the exam may expect you to recognize the **technology categories** involved.
-
-| Tool/framework | Purpose |
-| --- | --- |
-| 👥 **HRIS/HR system** | Source of employment/status information |
-| 🔐 **IAM** | Manage identities and access |
-| 🛡️ **IGA** | Govern, review, request, approve and provision access |
-| 📁 **Directory service** | Stores/manages identities and groups |
-| ⚙️ **Provisioning** | Creates/changes/removes accounts |
-| 🔑 **SSO** | Centralized authentication to applications |
-| 🔐 **MFA** | Stronger authentication |
-| 👑 **PAM** | Controls privileged accounts/access |
-| 📋 **Access reviews** | Verify users still need their access |
-
----
-
-# 🌐 Protocols You May See
-
-If the question gets more technical, you may encounter:
-
-### **SCIM**
-
-**System for Cross-domain Identity Management**
-
-Used for automated identity provisioning/deprovisioning between systems.
-
-Think:
-
-> 🔄 **"Create/change/disable accounts automatically between identity systems and applications."**
-
----
-
-### **SAML**
-
-Often used for:
-
-> 🔐 **SSO/federated authentication**
-
-Think:
-
-> **"Let my company identity authenticate me to another application."**
-
----
-
-### **OAuth / OpenID Connect**
-
-Commonly involved in modern application authorization/authentication flows.
-
-For the lifecycle question, don't confuse these protocols with the **lifecycle process itself**.
-
-The lifecycle is:
-
-> **Join → Change → Leave**
-
-The protocols/tools help implement parts of it.
-
----
-
-# 🎯 Exam Scenarios
-
-### Scenario 1
-
-> HR adds a new employee, and an automated process creates their corporate account and assigns access based on their role.
-
-**Answer: Joiner / provisioning**
-
----
-
-### Scenario 2
-
-> An employee moves from Finance to HR but retains access to the Finance database.
-
-**Answer: Mover problem / privilege accumulation**
-
-The old access wasn't removed.
-
----
-
-### Scenario 3
-
-> A terminated employee's account remains active.
-
-**Answer: Leaver problem / orphaned account**
-
----
-
-### Scenario 4
-
-> A user changes departments and the system automatically removes old group memberships and adds new ones.
-
-**Answer: Mover / automated deprovisioning and provisioning**
-
----
-
-### Scenario 5
-
-> An application automatically disables an account when HR marks the employee as terminated.
-
-**Answer: Leaver / automated deprovisioning**
-
----
-
-# 🧠 Ultimate Caveman Cheat Sheet
-
-## 🟢 JOINER
-
-> **New person → CREATE access**
-
-Main danger:
-
-> ❌ Wrong or excessive access
-
----
-
-## 🔄 MOVER
-
-> **Job changes → CHANGE access**
-
-Main danger:
-
-> ❌ **Privilege/permission creep**
-
----
-
-## 🔴 LEAVER
-
-> **Person leaves → REMOVE access**
-
-Main danger:
-
-> ❌ **Orphaned active accounts**
-
----
-
-# 🪨 One Sentence to Memorize
-
-> **Joiners need the right access provisioned, movers need old access removed and new access added, and leavers need access promptly disabled/revoked. HR commonly provides the lifecycle trigger, while IAM/IGA, directories, provisioning tools, SSO/MFA, and PAM help enforce it.**
-
----
-
-# ✅ Check You Actually Got It
-
-Answer all seven before expanding anything.
-
-**Q1.** An employee has transferred through three departments over four years and still holds access from all of them. What is this called?
-
-- **A.** Orphaned account
-- **B.** Privilege accumulation (permission creep)
-- **C.** Segregation of duties
-- **D.** Account lockout
+- **A.** The employee will be unable to perform their new role
+- **B.** Privilege creep, and a possible segregation of duties conflict
+- **C.** The finance system will have insufficient licences
+- **D.** The employee's account will become dormant
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — privilege accumulation.** A mover problem: new access was added at each move, but old access was never removed.
+**B.** Two roles' access — possibly enough to finish a sensitive process alone.
 
-- **A** is the leaver problem — an account still active after the person has left.
+- **A** — too much access, not too little.
+- **C** is a licensing issue.
+- **D** — the account is active in the new role.
 
 </details>
 
-**Q2.** A contractor's engagement ended two months ago, but their account can still sign in to the VPN. What is the account, and which lifecycle stage failed?
+**Q2.** Which stage of the identity lifecycle is MOST commonly performed poorly?
 
-- **A.** Privileged account — joiner
-- **B.** Orphaned account — leaver
-- **C.** Shared account — mover
-- **D.** Service account — joiner
+- **A.** Joiner, because new starters are provisioned in a hurry
+- **B.** Mover, because old access is rarely revoked when roles change
+- **C.** Leaver, because departures are always documented by HR
+- **D.** All three are performed equally well in most organisations
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — orphaned account, leaver stage.** Access should have been disabled promptly when the engagement ended.
+**B.** Nothing forces the revoke to happen.
+
+- **A** — joiners complain on day one if access is missing, so it gets done.
+- **C** — HR documentation gives leavers a trigger.
+- **D** — contradicted by the whole pattern.
 
 </details>
 
-**Q3.** Which lifecycle stage carries the **highest** immediate security risk if it is done late or missed?
+**Q3.** An employee is being dismissed for misconduct. When should their access be removed?
 
-- **A.** Joiner
-- **B.** Mover
-- **C.** Leaver
-- **D.** They are all equal
+- **A.** At the end of the notice period, to allow handover
+- **B.** Within 30 days, in line with standard offboarding
+- **C.** Before or at the moment they are notified of the dismissal
+- **D.** After the exit interview has been completed
 
 <details>
 <summary><b>Answer</b></summary>
 
-**C — leaver.** A still-active account belonging to someone who no longer works there is a direct unauthorized-access opportunity — especially if they left on bad terms.
+**C.** Retaliation risk opens the instant they learn of it.
+
+- **A** leaves a potentially hostile person with weeks of access.
+- **B** is far too slow even for routine departures.
+- **D** comes after notification.
 
 </details>
 
-**Q4.** In most organizations, what is the best **trigger** (source of truth) for joiner, mover and leaver events?
+**Q4.** Who should perform a periodic review of user access rights?
 
-- **A.** The help desk ticketing system
-- **B.** The HR system
-- **C.** The firewall logs
-- **D.** The employee's manager sending an email
+- **A.** The IT department, since it manages the systems
+- **B.** The user themselves, since they know what they use
+- **C.** The manager or data owner, who knows what the role requires
+- **D.** The external auditor, for independence
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — the HR system.** HR knows when someone joins, changes role or leaves, so identity systems use it to drive provisioning and deprovisioning automatically.
+**C.**
 
-- **D** is manual and easy to forget — exactly how orphaned accounts happen.
+- **A** knows what exists, not what's warranted — and granted it.
+- **B** approves their own access.
+- **D** checks the review process; doing it would compromise independence.
 
 </details>
 
-**Q5.** Which protocol is designed for automated provisioning and deprovisioning of user accounts between an identity system and applications?
+**Q5.** What is the difference between an orphaned account and a dormant account?
 
-- **A.** SAML
-- **B.** SCIM
-- **C.** OAuth
-- **D.** LDAP
+- **A.** Orphaned accounts are disabled; dormant accounts are active
+- **B.** An orphaned account has no valid owner; a dormant account has an owner but is unused
+- **C.** Orphaned accounts are service accounts; dormant accounts belong to humans
+- **D.** They are the same thing described differently
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — SCIM.** It creates, updates and disables accounts across systems.
+**B.**
 
-- **A** (SAML) is for SSO/federated authentication — it logs you in, it doesn't create or remove your account.
-- **C** (OAuth) is for delegated authorization.
+- **A** — orphaned accounts are dangerous precisely because they're still **enabled**.
+- **C** invents a split.
+- **D** — the difference is what's tested.
 
 </details>
 
-**Q6.** An employee is terminated and their account is disabled, but they remain signed in to a cloud email app on their personal phone. What step was missed?
+---
 
-- **A.** MFA enrollment
-- **B.** Revoking active sessions and tokens
-- **C.** Access review
-- **D.** Role assignment
+## 🎓 The grown-up version
 
 <details>
-<summary><b>Answer</b></summary>
+<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**B — revoking sessions and tokens.** Disabling an account may not end sessions that are already established; those often need to be revoked separately.
+**SCIM is the plumbing.** When HR (e.g. Workday) marks someone terminated, the identity provider
+(Okta, Entra ID) sends a standard **SCIM** deactivate call to every connected SaaS app, which
+deprovisions within minutes. Apps without SCIM are exactly where offboarding silently fails — which
+is why "does this vendor support SCIM?" is now a procurement question.
+
+**Time-boxed retention for movers.** Real handovers need the old access for a while. The mature
+answer: keep it with a documented **expiry date and an owner**. A date and a name are the difference
+between a managed exception and privilege creep.
+
+**Review fatigue.** Four hundred cryptic entitlements get approved in one click — false assurance,
+which is worse than none. Good reviews show a handful of business-meaningful items, prioritised by
+risk.
+
+**Shadow IT defeats offboarding** — local app accounts and department-bought SaaS sit outside the
+directory. Most organisations honestly don't know everything a leaver could still reach.
+
+**Orphaned service accounts are the worst case** — no owner, often privileged, never-rotated
+credentials, nothing to notice misuse.
 
 </details>
 
-**Q7.** A new finance hire is accidentally given domain administrator rights on day one. Which stage failed, and which principle was violated?
+---
 
-- **A.** Leaver — need-to-know
-- **B.** Mover — segregation of duties
-- **C.** Joiner — least privilege
-- **D.** Joiner — mandatory access control
+## 📝 Cram lines
 
-<details>
-<summary><b>Answer</b></summary>
+Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
 
-**C — joiner, least privilege.** New people should receive only the access their role requires. Excessive access at provisioning is the classic joiner failure.
+- **Joiner · Mover · Leaver — the MOVER stage fails.** A move = grant new AND revoke old; skipping the revoke = **privilege creep** (and possible SoD conflict).
+- **Provision from the ROLE, never by cloning a user.**
+- **Leavers: promptly, every system, plus badges/keys/devices. Hostile → before or during notification. DISABLE first, delete later.**
+- **Orphaned = no owner. Dormant = owner, unused.**
+- **Access reviews are DETECTIVE, done by the manager or data owner** — not IT, not the user.
 
-</details>
+---
+
+<div align="center">
+<sub><a href="../README.md">← back to 03 · IAM Concepts</a></sub>
+</div>

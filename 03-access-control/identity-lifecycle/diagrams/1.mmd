@@ -1,0 +1,7 @@
+flowchart LR
+    J["JOINER<br/>create the identity,<br/>grant ROLE access<br/>usually done well"] --> M["MOVER<br/>grant new access AND<br/>REVOKE the old<br/>usually done BADLY"]
+    M --> L["LEAVER<br/>disable promptly,<br/>everywhere<br/>dangerous if missed"]
+
+    style J fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style M fill:#3a1a20,stroke:#E03131,color:#fff
+    style L fill:#3a2c12,stroke:#F08C00,color:#fff

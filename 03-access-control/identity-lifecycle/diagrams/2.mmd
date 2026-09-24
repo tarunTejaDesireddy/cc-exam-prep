@@ -1,0 +1,9 @@
+flowchart LR
+    R["Role change:<br/>finance to marketing"] --> A["GRANT marketing access<br/>always happens:<br/>they need it to work"]
+    R --> B["REVOKE finance access<br/>often forgotten:<br/>nothing breaks if it stays"]
+    B -.->|"if skipped"| C["PRIVILEGE CREEP<br/>the access of every<br/>role they ever held"]
+
+    style R fill:#26292e,stroke:#868E96,color:#fff
+    style A fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style B fill:#3a2c12,stroke:#F08C00,color:#fff
+    style C fill:#3a1a20,stroke:#E03131,color:#fff

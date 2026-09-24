@@ -1,0 +1,9 @@
+flowchart LR
+    O["ORPHANED<br/>NO valid owner:<br/>a leaver never disabled"] --> U["Nobody is watching:<br/>an attacker can use it<br/>unnoticed"]
+    D["DORMANT<br/>HAS an owner,<br/>unused for months"] --> U
+    U --> R["The ACCESS REVIEW<br/>finds both"]
+
+    style O fill:#3a1a20,stroke:#E03131,color:#fff
+    style D fill:#3a2c12,stroke:#F08C00,color:#fff
+    style U fill:#3a1a20,stroke:#E03131,color:#fff
+    style R fill:#1d3a2a,stroke:#2F9E44,color:#fff
