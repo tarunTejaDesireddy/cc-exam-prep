@@ -1,0 +1,15 @@
+flowchart TD
+    R["An assessed risk"] --> Q1(["Within tolerance?"])
+    Q1 -->|"yes"| AC["ACCEPT<br/>and document it"]
+    Q1 -->|"no"| Q2(["Is the activity<br/>worth keeping?"])
+    Q2 -->|"no"| AV["AVOID<br/>stop the activity:<br/>risk goes to zero"]
+    Q2 -->|"yes"| MI["MITIGATE and/or TRANSFER<br/>controls, insurance,<br/>contracts"]
+    MI --> RS["Residual risk left over:<br/>senior management<br/>accepts it"]
+
+    style R fill:#0f3038,stroke:#12B5A5,color:#fff
+    style Q1 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style Q2 fill:#3a2c12,stroke:#F08C00,color:#fff
+    style AC fill:#12243f,stroke:#5C7CFA,color:#fff
+    style AV fill:#3a1a20,stroke:#E03131,color:#fff
+    style MI fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style RS fill:#12243f,stroke:#5C7CFA,color:#fff

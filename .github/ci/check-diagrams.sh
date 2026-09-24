@@ -37,10 +37,10 @@ check() {
       split($0,c," "); split(c[2],ids,","); for (i in ids) styled[ids[i]]=1
     }
 
-    # Find node declarations:  ID["label"]  or  ID{"label"}
+    # Find node declarations:  ID["label"], ID{"label"}, ID("label"), ID(["label"])
     {
       line=$0
-      while (match(line, /[A-Za-z][A-Za-z0-9_]*[[{]"/)) {
+      while (match(line, /[A-Za-z][A-Za-z0-9_]*[[{(]+"/)) {
         pre=substr(line, 1, RSTART-1)
         rest=substr(line, RSTART)
         # node id is everything up to the bracket

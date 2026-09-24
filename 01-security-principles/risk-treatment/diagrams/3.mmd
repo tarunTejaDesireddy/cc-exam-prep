@@ -1,0 +1,11 @@
+flowchart LR
+    S["A legacy server<br/>that can't be patched"] --> M["Put it behind<br/>network segmentation:<br/>it KEEPS RUNNING"]
+    S --> A["Switch it off<br/>for good:<br/>the activity ENDS"]
+    M --> M2["MITIGATE"]
+    A --> A2["AVOID"]
+
+    style S fill:#26292e,stroke:#868E96,color:#fff
+    style M fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A fill:#12243f,stroke:#5C7CFA,color:#fff
+    style M2 fill:#1d3a2a,stroke:#2F9E44,color:#fff
+    style A2 fill:#3a1a20,stroke:#E03131,color:#fff

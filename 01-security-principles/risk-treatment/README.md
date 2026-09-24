@@ -1,311 +1,296 @@
 <div align="center">
 
-<img src="assets/risk-treatment-banner.svg" alt="Risk Treatment — Grog found a risk, now what should he do about it" width="100%">
+<img src="../assets/module-01-banner.svg" alt="01 · Security Principles" width="100%">
 
-# 🛡️ Risk Treatment — Caveman Style
+# 🎯 Risk Treatment
 
-[![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=for-the-badge&labelColor=07171c)](../README.md)
-[![Domain](https://img.shields.io/badge/Domain_1-24%25-12B5A5?style=for-the-badge&labelColor=0f3038)](../README.md)
+### *Four choices — accept, avoid, mitigate, transfer — and who gets to make them*
 
-[![Mitigate](https://img.shields.io/badge/1-Mitigation-5C7CFA?style=flat-square&labelColor=12243f)](#1-🔧-risk-mitigation)
-[![Avoid](https://img.shields.io/badge/2-Avoidance-F08C00?style=flat-square&labelColor=3a2c12)](#2-🚫-risk-avoidance)
-[![Transfer](https://img.shields.io/badge/3-Transfer-2F9E44?style=flat-square&labelColor=1d3a2a)](#3-🤝-risk-transfer)
-[![Accept](https://img.shields.io/badge/4-Acceptance-868E96?style=flat-square&labelColor=26292e)](#4-🤷-risk-acceptance)
-[![Who Decides](https://img.shields.io/badge/👑-Who_Decides-12B5A5?style=flat-square&labelColor=0f3038)](#-who-is-allowed-to-choose)
+[![Module](https://img.shields.io/badge/Module-01_Security_Principles-0d2b33?style=flat-square)](../README.md)
+[![Domain](https://img.shields.io/badge/Domain-1%20·%2024%25-5C7CFA?style=flat-square)](../README.md)
+[![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
+
+📌 *Match any business decision to one of the four treatments — especially avoid vs mitigate — and know management decides.*
 
 </div>
 
 ---
 
-Think of **risk treatment** as:
+## 🧸 The big idea
 
-> 🪨 **"Grog found a risk. Now what should Grog do about it?"**
+Your phone could get stolen. You only ever have **four** options:
 
-There are **4 main risk treatments** you should know:
+- **Accept** — it rarely happens; you just live with it.
+- **Avoid** — you stop carrying a phone at all. No phone, no theft.
+- **Mitigate** — passcode, tracking app, keep it zipped in a pocket. Still possible, but less
+  likely and less painful.
+- **Transfer** — you buy phone insurance. It can still be stolen, but someone else pays.
 
-1. 🔧 **Risk Mitigation**
-2. 🚫 **Risk Avoidance**
-3. 🤝 **Risk Transfer**
-4. 🤷 **Risk Acceptance**
+Every risk response in any organisation — however fancy it sounds — is one of those four.
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
-
----
-
-## 1 · 🔧 Risk Mitigation
-
-### Meaning
-
-> **Reduce the risk by putting controls in place.**
-
-Grog sees a big hole in his cave. 🕳️
-
-He doesn't abandon the cave.
-
-Instead, he puts rocks over the hole.
-
-🪨🪨🪨
-
-The risk is **reduced**.
-
-### Scenario
-
-A company discovers that employees use weak passwords.
-
-The company:
-
-- Requires strong passwords
-- Enables MFA
-- Locks accounts after repeated failed attempts
-
-➡️ **Risk Mitigation**
-
-> [!NOTE]
-> **Caveman memory:** "I have a problem → I'll make it smaller."
+<p align="center"><img src="diagrams/1.svg" alt="The risk of a stolen phone can be accepted by living with it, avoided by not carrying a phone, mitigated with a passcode and tracking app, or transferred by buying phone insurance" width="700"></p>
 
 ---
 
-## 2 · 🚫 Risk Avoidance
+## 📖 Words you will keep seeing
 
-### Meaning
-
-> **Eliminate the risk by stopping or avoiding the risky activity.**
-
-Grog discovers that a particular hunting area contains a dangerous bear. 🐻
-
-Instead of trying to fight the bear, he says:
-
-> "We don't hunt there anymore."
-
-The activity stops.
-
-➡️ **Risk Avoidance**
-
-### Cybersecurity scenario
-
-A company is considering storing highly sensitive data on a particular internet-facing system.
-
-After assessing the risks, management decides:
-
-> "We're not going to provide this service at all."
-
-The risky activity is eliminated.
-
-> [!NOTE]
-> **Caveman memory:** "Dangerous thing? DON'T DO IT."
+| Word | What it means on this exam |
+|---|---|
+| **Risk treatment** | Deciding what to do with an assessed risk. Also called **risk response**. |
+| **Accept** | Knowingly bearing the risk, with the decision **documented**. |
+| **Avoid** | Eliminating the risk by **stopping the activity** that creates it. |
+| **Mitigate** | Reducing likelihood or impact with controls. Also called **risk reduction**. |
+| **Transfer** | Shifting the **financial** consequence to a third party. Also called **risk sharing**. |
+| **Residual risk** | What's left after treatment. Never zero. |
+| **Risk owner** | The named person accountable for a risk. |
+| **Risk register** | The record of each risk, its assessment, owner and treatment. |
 
 ---
 
-## 3 · 🤝 Risk Transfer
+## 🔍 The explanation
 
-### Meaning
+### How the choice is made
 
-> **Shift some of the risk or its consequences to another party.**
+<p align="center"><img src="diagrams/2.svg" alt="If an assessed risk is within tolerance, accept and document it; if not, and the activity isn't worth keeping, avoid it by stopping the activity; if it is worth keeping, mitigate and/or transfer it, then senior management accepts the residual risk" width="540"></p>
 
-Grog doesn't want to carry all the risk of losing his food.
+### ✅ Accept
 
-He makes an agreement with another tribe:
+A **legitimate, deliberate** choice — not laziness. Right when treatment costs more than the risk,
+or the risk is already within tolerance.
 
-> "If our food storage is destroyed, you'll help us replace it."
+- It must be **informed and documented** — someone with authority signed off.
+- **Not knowing a risk exists is not acceptance.** It's ignorance.
 
-The risk hasn't magically disappeared.
+> 🎯 If a control costs more than the ALE, the expected answer is **accept**.
 
-Instead, **some consequences have been transferred**.
+### 🚫 Avoid
 
-### Cybersecurity scenario
+**Stop doing the thing.** Cancel the product, leave the market, switch off the service, don't
+collect that data.
 
-A company purchases **cybersecurity insurance**.
+- The **only** treatment that takes risk to **zero** — by giving up the benefit.
+- **The most misidentified treatment.** People read "avoid" as "prevent". It isn't:
 
-If certain covered losses occur, the insurer may provide financial compensation according to the
-policy.
+<p align="center"><img src="diagrams/3.svg" alt="For a legacy server that can't be patched, segmenting it while it keeps running is mitigation; switching it off for good so the activity ends is avoidance" width="640"></p>
 
-➡️ **Risk Transfer**
+### 🛡️ Mitigate
 
-Other examples can include certain contractual arrangements or outsourcing where responsibilities
-and risks are allocated between parties.
+Apply controls. The everyday work of security, and by far the most common treatment.
 
-> [!NOTE]
-> **Caveman memory:** "I don't want to carry all the risk → share/shift it to someone else."
-
----
-
-## 4 · 🤷 Risk Acceptance
-
-### Meaning
-
-> **Knowingly accept the risk without implementing additional treatment.**
-
-Grog notices a tiny crack in his cave. 🕳️
-
-He calculates that fixing it would cost 100 pieces of meat, while the chance of serious damage is
-extremely small.
-
-Grog says:
-
-> "It's not worth fixing. We'll accept it."
-
-➡️ **Risk Acceptance**
-
-### Cybersecurity scenario
-
-A company discovers a low-impact vulnerability in an old internal system.
-
-Fixing it would cost $50,000, while the expected risk is very low.
-
-Management decides:
-
-> "We'll accept the risk for now."
-
-> [!NOTE]
-> **Caveman memory:** "I know the risk exists → I'm willing to live with it."
-
----
-
-## 🎯 The Four Treatments Together
-
-| Treatment | What does it mean? | Caveman example |
-| --- | --- | --- |
-| 🔧 **Mitigation** | Reduce the risk | Block the cave hole |
-| 🚫 **Avoidance** | Stop the risky activity | Don't hunt near the bear |
-| 🤝 **Transfer** | Shift some risk/consequences to another party | Get another tribe/insurer to take some financial burden |
-| 🤷 **Acceptance** | Knowingly live with the risk | "The tiny crack isn't worth fixing" |
-
----
-
-## 👑 Who Is Allowed to Choose?
-
-This part is **very important for exams**.
-
-A normal employee **cannot simply decide to accept a major organizational risk**.
-
-Risk treatment decisions should be made by the person or group with the **appropriate authority
-and accountability**, usually **management/risk owners**, according to the organization's risk
-policies and risk appetite.
-
-### 🧑‍💼 Risk Owner
-
-The **risk owner** is the person responsible for managing a particular risk.
-
-They may:
-
-- Evaluate the risk
-- Recommend a treatment
-- Implement or oversee controls
-- Monitor the risk
-
-But their authority depends on the organization's policies.
-
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
-
----
-
-## 🚨 Important: Risk Acceptance
-
-Risk acceptance is particularly important.
-
-Imagine an employee says:
-
-> "I know our customer database has a serious vulnerability, but I'm accepting the risk."
-
-❌ They normally **cannot make that decision just because they discovered it**.
-
-Why?
-
-Because accepting a significant risk means the organization is consciously agreeing to live with
-potential consequences.
-
-The decision needs to come from someone with **appropriate authority**.
-
-For example:
-
-> 👨‍💼 Senior management / authorized risk owner → can approve acceptance within their authority.
-
----
-
-## 🧠 Scenario Matching
-
-Let's practice.
-
-### Scenario 1
-
-A company installs a firewall to reduce the likelihood of unauthorized network access.
-
-**Answer:** 🔧 **Mitigation**
-
-### Scenario 2
-
-A company stops offering a service because the associated risk is too high.
-
-**Answer:** 🚫 **Avoidance**
-
-### Scenario 3
-
-A company purchases cybersecurity insurance to help cover certain financial losses.
-
-**Answer:** 🤝 **Transfer**
-
-### Scenario 4
-
-A company identifies a very low-risk issue and decides not to spend money fixing it.
-
-**Answer:** 🤷 **Acceptance**
-
----
-
-## 🎯 Exam Trick
-
-When you see:
-
-**"Install a security control"** → 🔧 **Mitigation**
-
-**"Stop doing something"** → 🚫 **Avoidance**
-
-**"Insurance / contract / another party takes some consequences"** → 🤝 **Transfer**
-
-**"Know the risk but consciously do nothing more"** → 🤷 **Acceptance**
-
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
-
----
-
-## 🪨 Ultimate Caveman Memory
-
-Imagine Grog sees a dangerous bear. 🐻
-
-### 🔧 Mitigation
-
-> **"I'll build a stronger fence."**
-
-**Make risk smaller.**
-
-### 🚫 Avoidance
-
-> **"I won't go near the bear."**
-
-**Stop the risky activity.**
+- **Lower likelihood:** firewalls, patching, MFA, training, access control.
+- **Lower impact:** backups, redundancy, encryption, incident response plans.
+- Never reaches zero — the remainder is **residual risk**, which then has to be accepted.
 
 ### 🤝 Transfer
 
-> **"Another tribe will help handle the consequences."**
+Move the **financial** consequence to someone else — via **insurance** or **contracts**
+(outsourcing, liability clauses, SLA penalties).
 
-**Shift some risk.**
+<p align="center"><img src="diagrams/4.svg" alt="Buying cyber insurance moves the financial loss to the insurer, but accountability to customers and regulators stays with you, and the likelihood of a breach is unchanged" width="640"></p>
 
-### 🤷 Acceptance
+> [!IMPORTANT]
+> **Transfer moves money, never accountability** — and it doesn't make the event any less likely.
 
-> **"The bear is far away. I'm okay with the remaining risk."**
+### Who decides
 
-**Knowingly live with it.**
+<p align="center"><img src="diagrams/5.svg" alt="The security team assesses and recommends, senior management decides and owns the risk, the security team implements the chosen controls, and the decision is recorded in the risk register with a named owner" width="760"></p>
 
-And the key rule:
+**You recommend. Management decides and owns. You implement.** An option where an analyst
+chooses or accepts a treatment is a distractor.
 
-> 👑 **The person with appropriate authority — typically the risk owner/management under
-> organizational policy — makes or approves the risk-treatment decision.**
+---
 
-**Employee finds risk → reports/recommends.**
-**Authorized risk owner/management → decides within their authority.**
+## ⚖️ Told apart
+
+The scenario table — most questions on this topic are in here in some form.
+
+| Scenario | Treatment | Why |
+|---|---|---|
+| Buying cyber insurance | **Transfer** | Financial loss moves to the insurer. |
+| Installing a firewall | **Mitigate** | Lowers likelihood; activity continues. |
+| Cancelling a planned product because of its risk | **Avoid** | Activity ends; risk gone. |
+| A $500 risk isn't worth a $5,000 control | **Accept** | Informed decision to bear it. |
+| Outsourcing card payments to a PCI-compliant provider | **Transfer** | Liability shifts by contract. |
+| Implementing MFA | **Mitigate** | Lowers likelihood. |
+| Taking backups | **Mitigate** | Lowers impact. |
+| Not collecting customers' dates of birth at all | **Avoid** | Data never held. |
+| Decommissioning an unpatchable legacy service | **Avoid** | Activity ends. |
+| Signing an SLA that penalises a vendor for downtime | **Transfer** | Financial consequence shifts. |
+| Documenting a low risk and moving on | **Accept** | Deliberate, recorded. |
+
+| | Means | Not to be confused with |
+|---|---|---|
+| **Avoid** | Stop the activity. Risk → zero. | **Mitigate** — reduce risk while continuing. |
+| **Transfer** | Move the **financial** consequence. | **Avoid** — insurance doesn't stop the event. |
+| **Accept** | Informed, documented decision. | **Ignoring** a risk — not a treatment at all. |
+| **Mitigate** | Reduce likelihood or impact. | **Eliminate** — residual risk always remains. |
+
+---
+
+## ⚠️ Where your instinct is wrong
+
+> [!WARNING]
+> **In the job:** "avoiding" a risk sounds like hardening something.
+>
+> **On the exam:** avoidance means **ceasing the activity**. Carrying on with better controls is
+> **mitigation**.
+
+> [!WARNING]
+> **In the job:** you make accept-or-fix calls within your remit every day.
+>
+> **On the exam:** **you never accept risk.** Senior management does.
+
+> [!WARNING]
+> **In the job:** buying insurance can feel like giving up on security.
+>
+> **On the exam:** transfer is fully legitimate, equal to the other three.
+
+---
+
+## 🧠 How to remember it
+
+**"Take it, ditch it, shrink it, share it."** — Accept · Avoid · Mitigate · Transfer.
+
+**Avoid is the only one that reaches zero** — by giving up the activity.
+
+**Transfer moves money, never accountability.**
+
+---
+
+## ✅ Check you actually got it
+
+Answer all five before expanding anything.
+
+**Q1.** An organisation cancels a planned mobile app after assessing that the security risks
+outweigh the commercial benefit. Which treatment is this?
+
+- **A.** Risk mitigation
+- **B.** Risk avoidance
+- **C.** Risk transfer
+- **D.** Risk acceptance
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B — avoidance.** The activity is abandoned, so the risk stops existing.
+
+- **A** would mean building it with controls.
+- **C** would mean proceeding and insuring or contracting out the loss.
+- **D** would mean proceeding and bearing the risk.
+
+</details>
+
+**Q2.** A company buys a cyber insurance policy covering breach response costs. What has it done?
+
+- **A.** Eliminated the risk of a breach
+- **B.** Reduced the likelihood of a breach occurring
+- **C.** Transferred the financial impact while retaining accountability
+- **D.** Avoided the risk entirely
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C.** Insurance pays for consequences; accountability stays.
+
+- **A** — the breach is just as possible.
+- **B** — a policy changes nothing about probability. Only impact moves.
+- **D** — the company carries on operating.
+
+</details>
+
+**Q3.** A risk has an ALE of $2,000. The only control costs $15,000 per year. What is the MOST
+appropriate treatment?
+
+- **A.** Mitigate, because all identified risks should be controlled
+- **B.** Avoid, by ceasing the activity that creates the risk
+- **C.** Accept, documenting the decision and its rationale
+- **D.** Transfer, by purchasing insurance
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C — accept, documented.** The control costs over 7× the expected annual loss.
+
+- **A** — "every risk must be controlled regardless of cost" is exactly what quantitative
+  assessment disproves.
+- **B** — shutting an activity over a $2,000 risk gives up far more than it protects.
+- **D** — an insurer would charge at least $2,000 plus margin.
+
+</details>
+
+**Q4.** Which of the following is risk mitigation rather than risk avoidance?
+
+- **A.** Decommissioning a legacy server that can no longer be patched
+- **B.** Applying network segmentation around a legacy server that cannot be patched
+- **C.** Withdrawing from a market with unacceptable regulatory exposure
+- **D.** Deciding not to collect a category of personal data
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.** The server keeps running with a control around it.
+
+- **A** — same server, but switched off: avoidance. That contrast is the question.
+- **C** and **D** both stop an activity — avoidance.
+
+</details>
+
+**Q5.** After controls are implemented, some risk remains. What must happen to it?
+
+- **A.** Further controls must be applied until it reaches zero
+- **B.** It must be formally accepted by senior management, or treated another way
+- **C.** It is automatically transferred to the control vendor
+- **D.** It is removed from the risk register, as it has been mitigated
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B.** Residual risk is a decision point, and the decision belongs to the business.
+
+- **A** — zero is impossible.
+- **C** — buying a product transfers nothing.
+- **D** — a real-world failure: mitigated risks stay on the register with their residual level.
+
+</details>
+
+---
+
+## 🎓 The grown-up version
+
+<details>
+<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
+
+**Frameworks word it differently.** ISO 31000 talks about retaining, sharing and even *taking
+more* risk to pursue an opportunity. NIST uses accept/avoid/mitigate/transfer — what CC teaches.
+"Risk sharing" = transfer; "risk reduction" = mitigate.
+
+**Insurance transfers less than people think.** Policies have exclusions (acts of war,
+known-unpatched vulnerabilities, failing to keep stated controls), **retentions** (deductibles),
+**sub-limits** (ransomware often capped low) and **panel requirements** (you must use the
+insurer's IR firm). Insurers increasingly demand mitigation as a condition of cover.
+
+**Contractual transfer is only worth what the supplier can pay.** A liability cap set at a
+multiple of fees won't cover a $50M loss.
+
+**Mitigation controls come from catalogues** — NIST SP 800-53 (e.g. `AC-2` account management) or
+the CIS Controls — and the register cites the control ID so an auditor can verify it.
+
+</details>
+
+---
+
+## 📝 Cram lines
+
+Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
+
+- **Accept · Avoid · Mitigate · Transfer** — "take it, ditch it, shrink it, share it".
+- **Avoid = STOP the activity** (only route to zero). Hardening something = **mitigate**.
+- **Transfer moves money, not accountability**, and doesn't lower likelihood.
+- **Control cost > ALE → accept.** Acceptance must be informed and documented.
+- **Senior management decides and owns.** You recommend and implement.
 
 ---
 
 <div align="center">
-<sub><a href="../README.md">← Back to 01 · Security Principles</a></sub>
+<sub><a href="../README.md">← back to 01 · Security Principles</a> &nbsp;·&nbsp; <a href="../security-controls/">next: Security controls →</a></sub>
 </div>
