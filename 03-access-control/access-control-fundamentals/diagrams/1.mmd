@@ -1,0 +1,7 @@
+flowchart LR
+    S["SUBJECT<br/>ACTIVE: the one asking<br/>user, process, device"] -->|"requests access"| R["RULE<br/>permit or deny?"]
+    R -->|"if permitted"| O["OBJECT<br/>PASSIVE: the thing asked for<br/>file, database, room"]
+
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style R fill:#3a2c12,stroke:#F08C00,color:#fff
+    style O fill:#0f3038,stroke:#12B5A5,color:#fff

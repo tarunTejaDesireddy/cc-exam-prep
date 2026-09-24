@@ -1,0 +1,8 @@
+flowchart LR
+    O["An OBJECT<br/>payroll.xlsx"] --> ACL["ACL attached to it:<br/>'WHO may access ME?'<br/>Priya: read, write<br/>Backup: read"]
+    S["A SUBJECT<br/>Priya"] --> CAP["CAPABILITY LIST attached:<br/>'WHAT may I access?'<br/>payroll.xlsx: read, write<br/>notice.pdf: read"]
+
+    style O fill:#0f3038,stroke:#12B5A5,color:#fff
+    style ACL fill:#0f3038,stroke:#12B5A5,color:#fff
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style CAP fill:#12243f,stroke:#5C7CFA,color:#fff

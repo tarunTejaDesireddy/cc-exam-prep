@@ -1,0 +1,14 @@
+flowchart TD
+    subgraph R1["Request 1: Priya opens the app"]
+        P["Priya<br/>SUBJECT"] -->|"runs"| A1["Payroll app<br/>OBJECT"]
+    end
+    subgraph R2["Request 2: the app loads settings"]
+        A2["Payroll app<br/>SUBJECT"] -->|"reads"| C["Config file<br/>OBJECT"]
+    end
+
+    style R1 fill:#161b22,stroke:#868E96,color:#fff
+    style R2 fill:#161b22,stroke:#868E96,color:#fff
+    style P fill:#12243f,stroke:#5C7CFA,color:#fff
+    style A1 fill:#0f3038,stroke:#12B5A5,color:#fff
+    style A2 fill:#12243f,stroke:#5C7CFA,color:#fff
+    style C fill:#0f3038,stroke:#12B5A5,color:#fff

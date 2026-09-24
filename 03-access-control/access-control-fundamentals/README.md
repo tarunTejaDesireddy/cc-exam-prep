@@ -1,440 +1,281 @@
 <div align="center">
 
-<img src="../assets/module-03-banner.svg" alt="03 · Access Control Concepts" width="100%">
+<img src="../assets/module-03-banner.svg" alt="03 · IAM Concepts" width="100%">
 
-# 🎟️ Access Control Fundamentals — Caveman Style
+# 🚪 Access Control Fundamentals
 
-### *Subject, object, rule — the three words every access decision is described in*
+### *A subject asks, an object is asked for, a rule decides*
 
-[![Module](https://img.shields.io/badge/Module-03_Access_Control-0d2b33?style=flat-square)](../README.md)
+[![Module](https://img.shields.io/badge/Module-03_IAM_Concepts-0d2b33?style=flat-square)](../README.md)
 [![Domain](https://img.shields.io/badge/Domain-3%20·%2020%25-5C7CFA?style=flat-square)](../README.md)
 [![Read](https://img.shields.io/badge/Read-~11%20min-57606A?style=flat-square)](#)
 
-📌 *Short, and everything else in this domain is written in its vocabulary. Get subject and object the right way round and the rest follows.*
+📌 *Know subject (active) vs object (passive), ACL vs capability list, why default deny wins, and what a reference monitor must be.*
 
 </div>
 
 ---
 
-Access control is basically:
+## 🧸 The big idea
 
-> **"Who is allowed to do what to which thing?"**
+At a library, you ask to borrow a rare book. The librarian checks a rule — *"only members with
+special access may borrow rare books"* — and says yes or no.
 
-The exam wants you to correctly identify **three things**:
+- **You** — the one asking — are the **subject**. You're **active**.
+- **The book** — the thing asked for — is the **object**. It's **passive**.
+- **The library's rule** decides.
 
-1. 👤 **Subject**
-2. 📄 **Object**
-3. 📜 **Rule**
+> **A subject requests access to an object, and a rule decides.**
 
-<p align="center"><img src="diagrams/1.svg" alt="diagram" width="500"></p>
-
----
-
-# 👤 1. Subject — "WHO?"
-
-The **subject** is the person, process, or entity **requesting access**.
-
-Think:
-
-> 🪨 **Who wants to enter the cave?**
-
-Examples:
-
-- 👤 User
-- 👨‍💼 Employee
-- 🤖 Application/process
-- 🖥️ Computer account
-- 🔐 Service account
-
-### Example
-
-Alice wants to open a file.
-
-> **Alice = Subject**
+That's the grammar of every access decision. "Priya opens the payroll file" and "the backup service
+reads the database" have exactly the same shape — a process can be a subject just as easily as a
+person.
 
 ---
 
-# 📄 2. Object — "WHAT?"
+## 📖 Words you will keep seeing
 
-The **object** is the resource being accessed.
-
-Think:
-
-> 🪨 **What does Grog want to touch?**
-
-Examples:
-
-- 📄 File
-- 🗄️ Database
-- 📁 Folder
-- 💻 Computer
-- 🌐 Website
-- 🖨️ Printer
-- 🏦 Bank account
-
-### Example
-
-Alice wants to open:
-
-> `Payroll.xlsx`
-
-Then:
-
-> **Payroll.xlsx = Object**
+| Word | What it means on this exam |
+|---|---|
+| **Subject** | The **active** entity requesting access — user, process, device, program. |
+| **Object** | The **passive** entity being accessed — file, database, room, record. |
+| **Rule** | The logic deciding whether access is permitted. |
+| **Permission** | A right over a **specific object** — read, write, execute, delete. |
+| **Privilege** | A **system-level** right — install software, change configuration. |
+| **Entitlement** | The **total** set of access rights a subject holds. |
+| **ACL** | Access Control List — attached to the **object**: "who may access me?" |
+| **Capability list** | Attached to the **subject**: "what may I access?" |
+| **Access control matrix** | The whole grid of subjects × objects. |
+| **Reference monitor** | The concept of a component that checks **every** access request. |
+| **Default deny** | Deny anything not explicitly permitted. |
 
 ---
 
-# 📜 3. Rule — "WHAT IS ALLOWED?"
+## 🔍 The explanation
 
-The **rule** determines what the subject is allowed to do with the object.
+### The three parts
 
-Think:
+<p align="center"><img src="diagrams/1.svg" alt="A subject, the active one asking such as a user, process or device, requests access; a rule decides permit or deny; if permitted, it reaches the object, the passive thing asked for such as a file, database or room" width="760"></p>
 
-> 🪨 **"Is Grog allowed to touch the food?"**
+> 🎯 **Active vs passive decides it.** Whatever *initiates* the request is the subject.
 
-Possible permissions:
+### Roles, not fixed identities
 
-- 👀 Read
-- ✏️ Write
-- 🗑️ Delete
-- ▶️ Execute
-- 🔄 Modify
-- 🚫 No access
+The same thing can be a subject in one request and an object in another:
 
----
+<p align="center"><img src="diagrams/2.svg" alt="In request one, Priya is the subject and the payroll app is the object she runs; in request two, the payroll app is the subject and the config file it reads is the object" width="460"></p>
 
-# 🎯 Put the Three Together
+Decide by which end of **this** request it sits on.
 
-Suppose:
+### How the rules are stored: ACL vs capability list
 
-> Alice wants to read the company's payroll file.
+The same information, read from opposite ends:
 
-Break it down:
+<p align="center"><img src="diagrams/3.svg" alt="An ACL is attached to an object like payroll.xlsx and answers who may access me; a capability list is attached to a subject like Priya and answers what may I access" width="760"></p>
 
-### 👤 Subject
+Put every subject and object in one grid and you get the **access control matrix**:
 
-**Alice**
+| | `payroll.xlsx` | `notice.pdf` | Server room |
+|---|---|---|---|
+| **Priya (HR)** | Read, Write | Read | — |
+| **Sam (staff)** | — | Read | — |
+| **Backup service** | Read | Read | — |
+| **Facilities** | — | Read | Enter |
 
-> Who is requesting access?
+**Read a row → a capability list. Read a column → an ACL.**
 
-### 📄 Object
+### Default deny
 
-**Payroll file**
+<p align="center"><img src="diagrams/4.svg" alt="When something new and unknown tries to get in, default deny blocks it because it was never explicitly allowed, while default allow lets it through because it is not on the known-bad list yet" width="600"></p>
 
-> What is she trying to access?
+> 🎯 **Default deny is nearly always the correct answer.** If an option denies by default and
+> permits by exception, it's very likely right.
 
-### 📖 Rule
+### The reference monitor
 
-**Alice is allowed to read the payroll file.**
+A **concept**, not a product: the component that sits between every subject and every object and
+checks every single request.
 
-> What does the access-control policy allow?
+<p align="center"><img src="diagrams/5.svg" alt="Every request from every subject passes through the reference monitor, which must be always invoked, tamper-proof and small enough to verify, before reaching objects; any path around it breaks the control" width="700"></p>
 
-Therefore:
-
-> **Subject → Object → Allowed action**
-
-**Alice → Payroll.xlsx → Read = ALLOW ✅**
-
----
-
-# 🚫 Another Example
-
-Bob wants to delete the payroll file.
-
-The organization's rule says:
-
-> Bob can read payroll information but cannot delete it.
-
-So:
-
-👤 **Subject:** Bob
-
-📄 **Object:** Payroll file
-
-🗑️ **Requested action:** Delete
-
-📜 **Rule:** Bob cannot delete payroll files
-
-### Decision:
-
-> ❌ **DENY**
+| Property | Why |
+|---|---|
+| **Always invoked** | No request can bypass it. **The most important one** — a bypassable control isn't a control. |
+| **Tamper-proof** | What it controls can't modify it. |
+| **Small enough to verify** | Simple enough to be proven correct. |
 
 ---
 
-# 🧠 The Access Decision Formula
+## ⚖️ Told apart
 
-When you see an access-control scenario, ask:
-
-> **WHO → WANTS TO DO WHAT → TO WHICH RESOURCE → WHAT DOES THE RULE SAY?**
-
-More formally:
-
-> **Subject + Action + Object + Rule → Access Decision**
-
-For example:
-
-> **Alice + Read + Payroll.xlsx + Rule allows read → ALLOW ✅**
-
-or:
-
-> **Bob + Delete + Payroll.xlsx + Rule denies delete → DENY ❌**
-
-<p align="center"><img src="diagrams/2.svg" alt="diagram" width="500"></p>
+| | Means | Not to be confused with |
+|---|---|---|
+| **Subject** | The **active** requester. | **Object** — the passive thing requested. |
+| **ACL** | On the **object** — who may access this. | **Capability list** — on the **subject** — what may I access. |
+| **Permission** | Right over a specific object. | **Privilege** — system-level right. |
+| **Entitlement** | The **total** set of rights. | A single permission. |
+| **Default deny** | Permit only what's explicitly allowed. | **Default allow** — block only known-bad. |
+| **Access control** | Restricting who may reach what. | **Authentication** — establishing who someone is (comes first). |
 
 ---
 
-# 🪨 Caveman Example
+## ⚠️ Where your instinct is wrong
 
-Grog wants to take meat from the food cave.
+> [!WARNING]
+> **In the job:** "subject" and "object" are academic words nobody writes in a change ticket.
+>
+> **On the exam:** they're the exact vocabulary this domain is written in. Know which is active.
 
-### 👤 Subject
-
-> **Grog**
-
-Who wants access?
-
-### 📦 Object
-
-> **Food**
-
-What is he trying to access?
-
-### 🖐️ Action
-
-> **Take/read/use**
-
-What does he want to do?
-
-### 📜 Rule
-
-> **Only hunters may take food.**
-
-If Grog is a hunter:
-
-> ✅ **ALLOW**
-
-If Grog isn't a hunter:
-
-> ❌ **DENY**
+> [!WARNING]
+> **In the job:** a deny list is practical — block the known-bad and move on.
+>
+> **On the exam:** **default deny** is the expected posture. A deny list lets through everything
+> not yet identified as bad.
 
 ---
 
-# ⚠️ Don't Confuse Subject and Object
+## 🧠 How to remember it
 
-This is a common exam trap.
+**Subjects act. Objects are acted upon.**
 
-### ❌ Wrong
+**ACL on the Object. Capability on the Subject.** A row is a capability list; a column is an ACL.
 
-> "The file is the subject."
-
-No.
-
-The file is normally the **object**.
-
-### ✅ Correct
-
-> **User/process = Subject**
-
-> **Resource being accessed = Object**
-
-Think:
-
-> 👤 **Subject acts on Object**
+**If it wasn't allowed, it's denied.**
 
 ---
 
-# 🎯 More Examples
+## ✅ Check you actually got it
 
-| Scenario | Subject | Object | Action | Decision |
-| --- | --- | --- | --- | --- |
-| Alice reads HR file | Alice | HR file | Read | Allow |
-| Bob deletes database | Bob | Database | Delete | Deny |
-| Backup service writes backup | Backup service | Backup storage | Write | Allow |
-| Guest accesses admin panel | Guest | Admin panel | Access | Deny |
-| Web app reads customer DB | Web app | Customer database | Read | Allow |
+Answer all five before expanding anything.
 
----
-
-# 🔐 Authentication vs Authorization
-
-This connects directly to what you learned earlier.
-
-### 🔑 Authentication
-
-> **"WHO are you?"**
-
-Example:
-
-> "I am Alice."
-
-The system verifies Alice's identity.
-
-### 🎟️ Authorization
-
-> **"WHAT are you allowed to do?"**
-
-Example:
-
-> "Alice is allowed to read this file."
-
-So:
-
-> **Authentication identifies the subject.**
-
-> **Authorization applies rules to decide what that subject can do.**
-
-<p align="center"><img src="diagrams/3.svg" alt="diagram" width="500"></p>
-
----
-
-# 🧠 The Exam Trick
-
-If the question gives you a scenario, **don't start by looking for "allow" or "deny."**
-
-First identify:
-
-### 1️⃣ WHO?
-
-→ **Subject**
-
-### 2️⃣ WHAT RESOURCE?
-
-→ **Object**
-
-### 3️⃣ WHAT ACTION?
-
-→ Read / Write / Delete / Execute / etc.
-
-### 4️⃣ WHAT RULE?
-
-→ What permission does the policy give that subject?
-
-### 5️⃣ RESULT?
-
-→ **Allow or Deny**
-
----
-
-# 🪨 Ultimate Caveman Memory
-
-Imagine Grog standing at a cave door:
-
-> 👤 **GROG** → **SUBJECT**
-
-> 🥩 **FOOD** → **OBJECT**
-
-> ✋ **TAKE FOOD** → **ACTION**
-
-> 📜 **ONLY HUNTERS MAY TAKE FOOD** → **RULE**
-
-> ✅/❌ **ALLOW OR DENY** → **ACCESS DECISION**
-
-### One sentence to memorize:
-
-> **A subject requests an action on an object, and the applicable rule determines whether access is allowed or denied.**
-
-<p align="center"><img src="diagrams/4.svg" alt="diagram" width="500"></p>
-
----
-
-# ✅ Check You Actually Got It
-
-Answer all six before expanding anything.
-
-**Q1.** A backup service reads files from a database server. In this transaction, what is the backup service?
+**Q1.** A backup service reads files from a database server. In this transaction, what is the
+backup service?
 
 - **A.** The object, because it is a system component
-- **B.** The subject, because it is requesting access
-- **C.** The rule, because it decides what gets copied
-- **D.** Neither — only humans can be subjects
+- **B.** The subject, because it is actively requesting access
+- **C.** The reference monitor, because it mediates access to data
+- **D.** Neither — only human users can be subjects
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — the subject.** Whoever *requests* access is the subject, and that can be a process or service, not just a person.
+**B.** It initiated the request, so it's the subject.
 
-- **A** reverses it. Being a system component doesn't make it the object; the database server is the object.
-- **C** is wrong: the rule is the policy that says what is allowed, not a party to the request.
-- **D** is the trap. Applications, services and computer accounts are all subjects when they ask for access.
+- **A** — being a system component doesn't decide the role.
+- **C** — the reference monitor *decides*; it isn't a party to the request.
+- **D** — processes, services and devices are subjects when they request access.
 
 </details>
 
-**Q2.** Alice opens `Payroll.xlsx` to read it. What is `Payroll.xlsx`?
+**Q2.** A list attached to a file specifies which users may read and write it. What is this?
 
-- **A.** The subject
-- **B.** The object
-- **C.** The action
-- **D.** The rule
+- **A.** A capability list
+- **B.** An access control list
+- **C.** An access control matrix
+- **D.** An entitlement
 
 <details>
 <summary><b>Answer</b></summary>
 
-**B — the object.** It is the resource being accessed. Alice is the subject, reading is the action, and the policy is the rule.
+**B — an ACL.** Attached to the object.
+
+- **A** is attached to the subject.
+- **C** is the whole grid; one file's list is one column.
+- **D** is a subject's total set of rights.
 
 </details>
 
-**Q3.** A policy states: *"Contractors may read project documents but may not delete them."* In access-control terms, this statement is the:
+**Q3.** Which access control posture is MOST secure?
 
-- **A.** Subject
-- **B.** Object
-- **C.** Rule
-- **D.** Authentication
+- **A.** Default allow, blocking known malicious activity
+- **B.** Default deny, permitting only what is explicitly required
+- **C.** Permitting all internal traffic and denying external traffic
+- **D.** Permitting access based on the requester's seniority
 
 <details>
 <summary><b>Answer</b></summary>
 
-**C — the rule.** It defines what a subject (contractors) may do with an object (project documents).
+**B.** Anything unanticipated fails safe.
 
-- **A** and **B** are *named inside* the rule but are not the rule itself.
-- **D** is wrong: authentication proves who someone is; this statement decides what they may do — that's authorization.
+- **A** lets through anything novel.
+- **C** assumes "internal = trustworthy", which fails once an attacker is inside.
+- **D** grants by rank, not need.
 
 </details>
 
-**Q4.** Bob logs in successfully with his password and MFA, then tries to delete a database he only has read permission on. What happens?
+**Q4.** Which reference monitor property ensures no access request can bypass it?
 
-- **A.** Allowed, because Bob authenticated successfully
-- **B.** Denied, because authentication failed
-- **C.** Denied, because authorization does not permit delete
-- **D.** Allowed, because Bob already has read access
+- **A.** Tamper-proof
+- **B.** Small enough to be verified
+- **C.** Always invoked
+- **D.** Default deny
 
 <details>
 <summary><b>Answer</b></summary>
 
-**C — denied by authorization.** Authentication proved *who* Bob is. It says nothing about *what* he may do. The rule only grants read, so delete is denied.
+**C — always invoked.**
 
-- **A** is the classic trap: logging in is not permission.
-- **B** is wrong: authentication succeeded.
-- **D** is wrong: read permission does not include delete.
+- **A** stops it being modified — a different property.
+- **B** supports trusting it's correct.
+- **D** is a posture, not a reference-monitor property.
 
 </details>
 
-**Q5.** Which step answers the question *"WHAT are you allowed to do?"*
+**Q5.** Which pairing is correct?
 
-- **A.** Identification
-- **B.** Authentication
-- **C.** Authorization
-- **D.** Accounting
+- **A.** A permission is a system-level right; a privilege applies to a specific file
+- **B.** A subject is passive; an object is active
+- **C.** An entitlement is the total set of access rights a subject holds
+- **D.** An ACL is attached to the subject; a capability list is attached to the object
 
 <details>
 <summary><b>Answer</b></summary>
 
-**C — authorization.** Authentication asks "WHO are you?"; authorization applies the rules to decide what that subject can do.
+**C.**
+
+- **A**, **B** and **D** are each correct statements with the terms **swapped** — the standard
+  trap in this domain.
 
 </details>
 
-**Q6.** A web application queries the customer database to display order history. Which breakdown is correct?
+---
 
-- **A.** Subject: customer database · Object: web app · Action: read
-- **B.** Subject: web app · Object: customer database · Action: read
-- **C.** Subject: web app · Object: order history page · Action: write
-- **D.** Subject: customer · Object: web app · Action: execute
+## 🎓 The grown-up version
 
 <details>
-<summary><b>Answer</b></summary>
+<summary><b>Extra depth — open this on a second read, never needed for the pass</b></summary>
 
-**B.** The web app is the one requesting access (subject), the customer database is the resource (object), and querying data is a read.
+**The matrix is never stored whole** — 10,000 users × a million objects is ten billion mostly empty
+cells. ACLs and capability lists are the matrix compressed by column and by row.
 
-- **A** swaps subject and object — the most common exam trap.
-- **C** and **D** misidentify the resource and the action in *this* request.
+**You can see both in real systems.** `getfacl payroll.xlsx` on Linux prints the file's ACL;
+Windows uses a DACL of allow/deny entries. An **AWS IAM policy** is a capability list — JSON
+attached to a user or role naming what it may do — which is why "what can this role touch?" is
+easier to answer in the cloud than "who can touch this folder?" on a file server.
+
+**"Always invoked" fails constantly in web apps.** The UI hides a button from non-admins, but the
+API behind it never re-checks — call it directly and you're in (insecure direct object reference).
+The check belongs at the point of access, not presentation.
+
+**Default deny needs a fast exception process.** Without one, people add broad "allow all" rules in
+a hurry — worse than a well-kept deny list.
 
 </details>
+
+---
+
+## 📝 Cram lines
+
+Destined for [`EXAM-DAY.md`](../../EXAM-DAY.md):
+
+- **Subject (ACTIVE) requests; object (PASSIVE) is requested; rule decides.** Same thing can be either.
+- **ACL on the OBJECT; capability list on the SUBJECT.** Matrix row = capability; column = ACL.
+- **Permission** = specific object · **Privilege** = system-level · **Entitlement** = the total.
+- **Default deny** — nearly always right.
+- **Reference monitor: always invoked · tamper-proof · verifiable.**
+
+---
+
+<div align="center">
+<sub><a href="../README.md">← back to 03 · IAM Concepts</a> &nbsp;·&nbsp; <a href="../logical-access-controls/">next: Logical access controls →</a></sub>
+</div>

@@ -1,0 +1,8 @@
+flowchart LR
+    S["Every request<br/>from every subject"] --> RM["REFERENCE MONITOR<br/>always invoked,<br/>tamper-proof,<br/>small enough to verify"]
+    RM --> O["Objects"]
+    S -.->|"any path around it<br/>breaks the control"| O
+
+    style S fill:#12243f,stroke:#5C7CFA,color:#fff
+    style RM fill:#3a2c12,stroke:#F08C00,color:#fff
+    style O fill:#0f3038,stroke:#12B5A5,color:#fff
